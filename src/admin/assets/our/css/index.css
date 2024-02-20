@@ -1,0 +1,447 @@
+:root {
+    --latar: #0f0e17;
+    --teks: #fffffe;
+    --teksTautan: #ff8906;
+    --teksTautanHover: #a7a9be;
+    --kotakHover: black;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--kotakHover);
+}
+
+a {
+    color: var(--teksTautan);
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--teksTautanHover);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--latar);
+}
+
+.element-tanpa-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.element-tanpa-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* =============================NAVBAR START============================= */
+.viewAll:hover {
+    color: var(--teksTautanHover);
+}
+
+.ptsp {
+    padding-top: 15px;
+    padding-left: 6px;
+}
+
+.color {
+    background: var(--latar);
+    color: var(--teks);
+}
+
+.logo {
+    width: 100%;
+    height: 40px;
+}
+
+.image {
+    width: 100%;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.search {
+    width: 620px;
+    background: transparent;
+}
+
+.search::placeholder {
+    color: var(--teks);
+}
+
+.search:focus {
+    background: var(--latar);
+    outline: none;
+    color: var(--teks);
+    box-shadow: inset 0 0 0 1px var(--teks);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dropdown-menu {
+    width: 620px;
+    background: var(--latar);
+    color: var(--teks);
+    display: none;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.list {
+    padding: 1px 30px;
+}
+
+.imageProduct {
+    width: 20%;
+    height: 10%;
+    margin-right: 15px;
+}
+
+.boxParent {
+    position: relative;
+}
+
+.boxParent:hover {
+    background: var(--kotakHover);
+}
+
+.box {
+    width: 100%;
+    line-height: 5px;
+}
+
+.date {
+    width: 150px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.stok {
+    color: var(--teksTautanHover);
+}
+
+.descriptionProduct {
+    line-height: 20px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.boxParent:hover .edit-icon,
+.boxParent:hover .delete-icon {
+    opacity: 1;
+}
+
+.boxParent:hover .descriptionProduct {
+    opacity: 0;
+}
+
+.linkProduk {
+    color: var(--teks);
+}
+
+.linkProduk:hover {
+    color: var(--teksTautanHover);
+}
+
+.image {
+    cursor: pointer;
+}
+
+.image-option {
+    width: 50px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.info {
+    font-size: 18px;
+    margin-right: 35px;
+    line-height: 5px;
+    margin-top: 15px;
+}
+
+.role {
+    font-size: 15px;
+}
+
+.option {
+    width: 200px;
+    top: 70px;
+    right: 25px;
+}
+
+.optionUpload {
+    width: 200px;
+    top: 70px;
+    right: 83px;
+}
+
+.dropdown-item {
+    color: var(--teks);
+}
+
+.uploadParent {
+    width: -1000px;
+    margin-right: 20px;
+}
+
+.modal-content {
+    background: var(--latar);
+    color: var(--teks);
+}
+
+.modalClose:hover {
+    cursor: pointer;
+    color: var(--teksTautanHover);
+}
+
+.btnUpload {
+    color: var(--teks);
+}
+
+.btnUpload:hover {
+    color: var(--teksTautanHover);
+}
+
+.form-control {
+    background: var(--latar);
+    color: var(--teks);
+}
+
+.form-control::placeholder {
+    color: var(--teks);
+}
+
+.form-control:focus {
+    background: var(--latar);
+    outline: none;
+    color: var(--teks);
+    box-shadow: inset 0 0 0 1px var(--teks);
+}
+
+.addData:hover {
+    cursor: pointer;
+    color: var(--teksTautanHover);
+}
+
+/* =============================NAVBAR END============================= */
+
+/* =============================SIDEBAR START============================= */
+aside {
+    background: var(--latar);
+    width: 300px;
+    border-right: 1px solid var(--teksTautanHover);
+    z-index: 1;
+    height: 100vh;
+    margin-top: 75px;
+}
+
+.sidebar-heading {
+    padding: 30px 0;
+}
+
+.sidebarImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sidebarImage:hover {
+    opacity: 0.5;
+}
+
+.parentTextSidebar {
+    line-height: 5px;
+    color: var(--teks);
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.textAdmin {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    color: var(--teksTautanHover);
+}
+
+.listSidebar {
+    font-size: 16px;
+}
+
+.liSidebar {
+    padding: 10px 20px;
+}
+
+.liSidebar:hover {
+    background: var(--teks);
+    cursor: pointer;
+}
+
+.liSidebar:hover .textSidebar {
+    color: var(--latar);
+}
+
+.textSidebar {
+    color: var(--teks);
+    font-weight: 500;
+}
+
+.hrSidebar {
+    color: var(--teks);
+}
+
+.liSidebar.active {
+    background-color: var(--teksTautan);
+    color: var(--teks);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, border-radius 0.3s;
+}
+
+.liSidebar.active:hover .textSidebar {
+    color: var(--teks);
+}
+
+/* =============================SIDEBAR END============================= */
+
+/* =============================MAIN START============================= */
+.mainWebsite {
+    margin-top: 77px;
+}
+
+.breadcrumb {
+    color: var(--teks);
+    font-size: 25px;
+    padding: 40px 20px;
+}
+
+.iconBreadcrumb {
+    color: var(--teks);
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+
+.many {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.iconServer {
+    border-radius: 50px;
+    width: 45px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.iconServer:hover {
+    color: var(--teksTautanHover);
+}
+
+.card {
+    background: var(--latar);
+    color: var(--teks);
+}
+
+.imageCard {
+    width: 370px;
+    opacity: 0.3;
+}
+
+.titleProduct {
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    text-shadow: 3px 3px 3px black;
+}
+
+.card-link:hover {
+    color: var(--teksTautanHover);
+}
+
+.listPerfomance {
+    background: var(--latar);
+    color: var(--teks);
+}
+
+.textCardProduct {
+    color: var(--teksTautanHover);
+}
+
+.caret-icon {
+    cursor: pointer;
+}
+
+.hidden-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.1s ease-in-out;
+}
+
+.hidden-content.show {
+    max-height: 1000px;
+}
+
+/* =============================MAIN END============================= */
+
+/* =============================FOOTER START============================= */
+.textFooter {
+    color: var(--teks);
+}
+
+.iconFooter {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.iconFooter:hover {
+    color: var(--teksTautanHover);
+}
+
+/* =============================FOOTER END============================= */

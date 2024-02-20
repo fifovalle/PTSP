@@ -1,0 +1,196 @@
+:root {
+    --latar: #0f0e17;
+    --teks: #fffffe;
+    --teksTautan: #ff8906;
+    --teksTautanHover: #a7a9be;
+    --kotakHover: black;
+}
+
+/* =============================MAIN START============================= */
+#actions {
+    width: 200px;
+    margin: 10px 0px;
+}
+
+.btnAction {
+    color: var(--teks);
+    background: var(--teksTautan);
+    outline: none;
+}
+
+.menu {
+    color: var(--teks);
+    width: 100px;
+    margin-right: -10px;
+    cursor: pointer;
+    text-align: center;
+    height: 40px;
+    position: relative;
+}
+
+.menu:hover {
+    color: var(--teksTautanHover);
+}
+
+.dataAdmin.active {
+    color: var(--teksTautanHover);
+}
+
+.dataAdmin {
+    color: var(--teksTautanHover);
+    position: relative;
+}
+
+.dataAdmin::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--teksTautanHover);
+    transition: width 0.3s ease;
+}
+
+.dataAdmin.active::after {
+    width: 80px;
+}
+
+.iconFilter {
+    color: var(--teks);
+    font-size: 25px;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+
+.filterInput {
+    margin-left: -80px;
+    height: 35px;
+    width: 1300px;
+    background: var(--kotakHover);
+    outline: none;
+    border: none;
+}
+
+.filterInput::placeholder {
+    color: var(--teksTautanHover);
+}
+
+.hrData {
+    color: var(--teks);
+}
+
+.tableData {
+    background: var(--kotakHover);
+    color: var(--teks);
+    font-weight: 500;
+    line-height: 30px;
+    margin: auto;
+    width: 1300px;
+}
+
+.checkBoxData {
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-top: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 2px solid var(--teks);
+    background-color: var(--kotakHover);
+    cursor: pointer;
+    position: relative;
+}
+
+.checkBoxData:checked {
+    background-color: var(--warna-latar-terpilih);
+}
+
+.deskriptorContainer {
+    width: 200px;
+    font-size: 18px;
+    margin: 25px -85px;
+    line-height: 18px;
+    position: relative;
+}
+
+.deskriptorSmall {
+    position: relative;
+    transition: opacity 0.3s ease;
+    font-size: 15px;
+    font-weight: normal;
+    color: var(--teksTautanHover);
+}
+
+.imageData {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 20px 0;
+}
+
+.checkBoxData:checked::after {
+    content: "✓";
+    font-size: 16px;
+    color: var(--teks);
+    position: absolute;
+    left: 3px;
+    top: -5px;
+}
+
+.tbodyData {
+    cursor: pointer;
+}
+
+.tbodyData .deskriptorSmall,
+.tbodyData .linkData {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s, visibility 0.3s, height 0.3s, display 0.3s;
+}
+
+.tbodyData:hover .deskriptorSmall {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+}
+
+.tbodyData:hover .linkData {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+
+.linkData:hover {
+    color: var(--teksTautanHover);
+    opacity: 0.7;
+}
+
+.iconDataRight {
+    margin-right: 70px;
+}
+
+.linkData {
+    color: var(--teks);
+    font-size: 16px;
+    right: 100px;
+    height: 1px;
+    display: none;
+    transition: opacity 0.3s;
+}
+
+.iconContainerData {
+    position: absolute;
+    left: 20%;
+    margin-top: 8px;
+    width: 150px;
+    gap: 5px;
+}
+
+.theadData {
+    background: var(--teksTautan);
+}
+
+/* =============================MAIN END============================= */
