@@ -334,6 +334,10 @@ aside {
     font-weight: 500;
 }
 
+.btnAnalitic {
+    margin-bottom: 22px;
+}
+
 .hrSidebar {
     color: var(--teks);
 }
