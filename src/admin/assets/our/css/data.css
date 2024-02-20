@@ -193,4 +193,33 @@
     background: var(--teksTautan);
 }
 
+.dropdownContentFilter {
+    position: absolute;
+    left: 65px;
+    border-radius: 5px;
+    z-index: 10;
+    top: 80%;
+    background: var(--latar);
+    color: var(--teks);
+    font-weight: 500;
+    width: 13%;
+    line-height: 30px;
+    display: none;
+    transition: opacity 0.3s ease;
+}
+
+.listDropdownFilter {
+    height: 35px;
+    margin: auto;
+}
+
+.listDropdownFilter:hover {
+    border: 1px solid var(--teks);
+}
+
+.show {
+    display: block;
+    opacity: 1;
+}
+
 /* =============================MAIN END============================= */

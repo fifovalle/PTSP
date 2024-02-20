@@ -158,12 +158,26 @@
                         </div>
                     </div>
                     <hr class="hrData">
-                    <div class="row">
+                    <div class="row" style="position: relative;">
                         <div class="col-1">
                             <i class="bx bx-filter iconFilter"></i>
                         </div>
                         <div class="col-10 mb-3">
-                            <input class="filterInput" type="text" placeholder="Filter Data">
+                            <input id="filterInput" class="filterInput" type="text" placeholder="Filter Data">
+                        </div>
+                        <div id="dropdownFilter" class="dropdownContentFilter row">
+                            <div class="col listDropdownFilter">
+                                <span>Nama Pengguna</span>
+                            </div>
+                            <div class="col listDropdownFilter">
+                                <span>Nama Depan</span>
+                            </div>
+                            <div class="col listDropdownFilter">
+                                <span>Nama Belakang</span>
+                            </div>
+                            <div class="col listDropdownFilter">
+                                <span>Email</span>
+                            </div>
                         </div>
                     </div>
                     <hr class="hrData">
@@ -324,6 +338,16 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <!-- OUR JS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var input = document.getElementById('filterInput');
+            var dropdown = document.getElementById('dropdownFilter');
+
+            input.addEventListener('click', function () {
+                dropdown.classList.toggle('show');
+            });
+        });
+    </script>
     <script src="../assets/our/js/data.js"></script>
     <script src="../assets/our/js/index.js"></script>
     <!-- BOOTSTRAP JS -->
