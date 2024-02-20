@@ -15,21 +15,27 @@ $(document).ready(function () {
         ? "Email Admin"
         : menuText === "Pengguna"
         ? "Email Pengguna"
-        : "Harga"
+        : menuText === "Produk"
+        ? "Harga"
+        : "Pengguna"
     );
     $("th[data-field='data3']").text(
       menuText === "Admin"
         ? "Peran Admin"
         : menuText === "Pengguna"
         ? "Jenis Kelamin"
-        : "Jumlah Stok"
+        : menuText === "Produk"
+        ? "Jumlah Stok"
+        : "Jumlah Produk"
     );
     $("th[data-field='data4']").text(
       menuText === "Admin"
         ? "Status Verifikasi"
         : menuText === "Pengguna"
         ? "Status Verifikasi"
-        : "Status Produk"
+        : menuText === "Produk"
+        ? "Status Produk"
+        : "Status Transaksi"
     );
     $("th[data-field='data5']").text(
       menuText === "Admin"
@@ -50,7 +56,8 @@ $(document).ready(function () {
                 <p class="fw-semibold m-auto">zonaDeveloper</p>
                 <p class="fw-semibold deskriptorSmall m-auto">Naufal FIFA
                 <div class="iconContainerData">
-                    <a class="linkData" href="">
+                    <a class="linkData" data-bs-toggle="modal"
+                    data-bs-target="#editAdmin" href="">
                         <span class="">
                             <i class="fas fa-edit"></i>
                         </span>
@@ -72,7 +79,8 @@ $(document).ready(function () {
                 <p class="fw-semibold m-auto">zonaNyaman</p>
                 <p class="fw-semibold deskriptorSmall m-auto">Ahsan Ghifari
                 <div class="iconContainerData">
-                    <a class="linkData" href="">
+                    <a class="linkData" data-bs-toggle="modal"
+                    data-bs-target="#editAdmin" href="">
                         <span class="">
                             <i class="fas fa-edit"></i>
                         </span>
@@ -85,15 +93,39 @@ $(document).ready(function () {
                 </div>
                 </p>
             </div>`
+          : menuText === "Produk"
+          ? `<div>
+                  <img class="imageData" src="../assets/image/uploads/2.png"
+                      alt="Foto Admin">
+              </div>
+              <div class="deskriptorContainer">
+                  <p class="fw-semibold m-auto">Seismograf</p>
+                  <p class="fw-semibold deskriptorSmall m-auto">Lorem Ipsum
+                  <div class="iconContainerData">
+                      <a class="linkData" data-bs-toggle="modal"
+                      data-bs-target="#editAdmin" href="">
+                          <span class="">
+                              <i class="fas fa-edit"></i>
+                          </span>
+                      </a>
+                      <a class="linkData iconDataRight" href="">
+                          <span class="">
+                              <i class="fas fa-trash"></i>
+                          </span>
+                      </a>
+                  </div>
+                  </p>
+              </div>`
           : `<div>
-                <img class="imageData" src="../assets/image/uploads/2.png"
-                    alt="Foto Admin">
+          <img class="imageData" src="../assets/image/uploads/2.png"
+              alt="Foto Admin">
             </div>
             <div class="deskriptorContainer">
                 <p class="fw-semibold m-auto">Seismograf</p>
                 <p class="fw-semibold deskriptorSmall m-auto">Lorem Ipsum
                 <div class="iconContainerData">
-                    <a class="linkData" href="">
+                    <a class="linkData" data-bs-toggle="modal"
+                    data-bs-target="#editAdmin" href="">
                         <span class="">
                             <i class="fas fa-edit"></i>
                         </span>
@@ -115,7 +147,10 @@ $(document).ready(function () {
           ? `Naufal@gmail.com`
           : menuText === "Pengguna"
           ? `Ahsan@gmail.com`
-          : `Rp 2000.000`
+          : menuText === "Produk"
+          ? `Rp 2000.000`
+          : `<p class="fw-semibold m-auto">Ahsan</p>
+          </p>`
       );
     });
     $(".tbodyData tr").each(function () {
@@ -135,7 +170,9 @@ $(document).ready(function () {
           ? `<span class="badge text-bg-success">Terverifikasi</span>`
           : menuText === "Pengguna"
           ? `<span class="badge text-bg-success">Terverifikasi</span>`
-          : `<span class="badge text-bg-success">Terkirim</span>`
+          : menuText === "Produk"
+          ? `<span class="badge text-bg-success">Tersedia</span>`
+          : `<span class="badge text-bg-danger">Belum Di Setujui</span>`
       );
     });
     $(".tbodyData tr").each(function () {

@@ -410,8 +410,16 @@ aside {
     color: var(--teks);
 }
 
+
+.surveyImageCard {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
 .textCardProduct {
     color: var(--teksTautanHover);
+    font-size: 15px;
 }
 
 .caret-icon {

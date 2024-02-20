@@ -124,12 +124,6 @@
                             <span class="textSidebar"><i class="fas fa-chart-bar me-2 my-2"></i>Analitik</span>
                         </li>
                     </a>
-                    <a href="history.html">
-                        <li class="liSidebar">
-                            <span class="textSidebar"><i class="fas fa-clock me-2 my-2"></i>Data Riwayat
-                            </span>
-                        </li>
-                    </a>
                 </ul>
                 <hr class="hrSidebar">
                 <ul class="list-unstyled components listSidebar">
@@ -157,6 +151,9 @@
                             </div>
                             <div class="menu col-2">
                                 <p class="fw-semibold dataAdmin">Produk</p>
+                            </div>
+                            <div class="menu col-2">
+                                <p class="fw-semibold dataAdmin">Transaksi</p>
                             </div>
                         </div>
                     </div>
@@ -215,9 +212,10 @@
                                                 <p class="fw-semibold m-auto">zonaDeveloper</p>
                                                 <p class="fw-semibold deskriptorSmall m-auto">Naufal FIFA
                                                 <div class="iconContainerData">
-                                                    <a class="linkData" href="">
+                                                    <a class="linkData" data-bs-toggle="modal"
+                                                        data-bs-target="#editAdmin" href="">
                                                         <span class="">
-                                                            <i class="fas fa-edit"></i>
+                                                            <i class=" fas fa-edit"></i>
                                                         </span>
                                                     </a>
                                                     <a class="linkData iconDataRight" href="">
@@ -263,6 +261,35 @@
             <!-- MAIN END -->
         </section>
     </section>
+
+
+    <!-- MODAL UPLOAD PRODUCT START -->
+    <div class="modal fade" id="editAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sunting Admin</h1>
+                    <div class="modalClose" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="fotoAdd" class="form-label">Foto</label>
+                            <input type="file" class="form-control" id="fotoAdd">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailAdd" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="emailAdd">
+                        </div>
+                        <button type="submit" class="btn btnUpload">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL UPLOAD PRODUCT END -->
 
 
     <!-- MODAL UPLOAD PRODUCT START -->
