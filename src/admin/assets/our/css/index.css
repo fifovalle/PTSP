@@ -281,6 +281,7 @@ aside {
     z-index: 1;
     height: 100vh;
     margin-top: 75px;
+    position: fixed;
 }
 
 .sidebar-heading {
@@ -357,6 +358,10 @@ aside {
 /* =============================SIDEBAR END============================= */
 
 /* =============================MAIN START============================= */
+main {
+    margin-left: 273px;
+}
+
 .mainWebsite {
     margin-top: 77px;
 }

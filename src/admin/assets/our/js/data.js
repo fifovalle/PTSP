@@ -30,19 +30,19 @@ $(document).ready(function () {
     );
     $("th[data-field='data4']").text(
       menuText === "Admin"
-        ? "Status Verifikasi"
+        ? "No Telp"
         : menuText === "Pengguna"
-        ? "Status Verifikasi"
+        ? "No Telp"
         : menuText === "Produk"
-        ? "Status Produk"
-        : "Status Transaksi"
+        ? "Pemilik Produk"
+        : "Pemilik Produk"
     );
     $("th[data-field='data5']").text(
       menuText === "Admin"
-        ? ""
+        ? "Status Verifikasi"
         : menuText === "Pengguna"
-        ? ""
-        : "Pemilik Produk"
+        ? "Status Verifikasi"
+        : "Status Transaksi"
     );
     $(".tbodyData tr").each(function () {
       let rowData = $(this).find("td").eq(2);
@@ -100,7 +100,7 @@ $(document).ready(function () {
               </div>
               <div class="deskriptorContainer">
                   <p class="fw-semibold m-auto">Seismograf</p>
-                  <p class="fw-semibold deskriptorSmall m-auto">Lorem Ipsum
+                  <p class="fw-semibold deskriptorSmall m-auto">Lorem Ipsum...
                   <div class="iconContainerData">
                       <a class="linkData" data-bs-toggle="modal"
                       data-bs-target="#editAdmin" href="">
@@ -122,7 +122,7 @@ $(document).ready(function () {
             </div>
             <div class="deskriptorContainer">
                 <p class="fw-semibold m-auto">Seismograf</p>
-                <p class="fw-semibold deskriptorSmall m-auto">Lorem Ipsum
+                <p class="fw-semibold deskriptorSmall m-auto">Lorem Ipsum...
                 <div class="iconContainerData">
                     <a class="linkData" data-bs-toggle="modal"
                     data-bs-target="#editAdmin" href="">
@@ -167,18 +167,24 @@ $(document).ready(function () {
       let rowData = $(this).find("td").eq(5);
       rowData.html(
         menuText === "Admin"
+          ? `+62 812-3456-789`
+          : menuText === "Pengguna"
+          ? `+62 812-3456-789`
+          : menuText === "Produk"
+          ? `Instansi A`
+          : `Instansi A`
+      );
+    });
+    $(".tbodyData tr").each(function () {
+      let rowData = $(this).find("td").eq(6);
+      rowData.html(
+        menuText === "Admin"
           ? `<span class="badge text-bg-success">Terverifikasi</span>`
           : menuText === "Pengguna"
           ? `<span class="badge text-bg-success">Terverifikasi</span>`
           : menuText === "Produk"
           ? `<span class="badge text-bg-success">Tersedia</span>`
           : `<span class="badge text-bg-danger">Belum Di Setujui</span>`
-      );
-    });
-    $(".tbodyData tr").each(function () {
-      let rowData = $(this).find("td").eq(6);
-      rowData.html(
-        menuText === "Admin" ? `` : menuText === "Pengguna" ? `` : `Instansi A`
       );
     });
   });
