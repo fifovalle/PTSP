@@ -18,121 +18,17 @@
 
 <body>
     <!-- NAVBAR START-->
-    <nav class="navbar navbar-expand-lg color px-3 fixed-top">
-        <div class="overlay z-2"></div>
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
-                <div class="d-flex align-items-center">
-                    <img class="logo" src="../src/admin/assets/image/logo/1.png" alt="logo">
-                    <p class="fw-bolder fs-5 ms-1 ptsp">PTSP</p>
-                </div>
-                <form class="z-3">
-                    <div class="dropdown">
-                        <i class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
-                        <i class="fas fa-times position-absolute top-50 end-0 translate-middle-y me-3 close-icon"
-                            style="display: none;"></i>
-                        <input class="form-control ps-5 search" placeholder="Cari Produk Anda" aria-label="Search"
-                            id="searchInput" autocomplete="off">
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <hr>
-                            <p class="list">Produk terbaru anda <a class="text-decoration-none viewAll" href="#">Lihat
-                                    semua</a>
-                            </p>
-                            <hr>
-                            <div class="d-flex align-items-center justify-content-between list boxParent">
-                                <img class="imageProduct" src="../src/admin/assets/image/uploads/1.jpg"
-                                    alt="imageProduct">
-                                <div class="box">
-                                    <p>Nama Produk</p>
-                                    <p class="descriptionProduct">Lorem ipsum dolor sit amet consectetur adipisicing...
-                                    </p>
-                                </div>
-                                <div class="box date">
-                                    <p>Feb 16, 2024</p>
-                                    <p class="stok">1 Stok</p>
-                                </div>
-                                <a class="linkProduk" href=""><span class="edit-icon"><i class="fas fa-edit"></i>
-                                        Sunting</span></a>
-                                <a class="linkProduk" href=""><span class="delete-icon"><i class="fas fa-trash"></i>
-                                        Hapus</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div class="relative d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-center justify-content-between uploadParent">
-                        <div class="dropdown addData" id="dropdown" onclick="toggleDropdownUpload()">
-                            <i class="fas fa-upload"></i> Tambah Data
-                        </div>
-                        <div class="dropdown-menu optionUpload" aria-labelledby="dropdownMenuButton"
-                            id="dropdownMenuUpload">
-                            <div>
-                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#uploadProduct"
-                                    href="#"><i class="fas fa-user-secret me-2 my-2"></i>Tambah Admin</a>
-                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#uploadProduct"
-                                    href="#"><i class="fas fa-users me-2 my-2"></i>Tambah Pengguna</a>
-                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#uploadProduct"
-                                    href="#"><i class="fas fa-cart-plus me-2 my-2"></i>Tambah Produk</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dropdown" id="dropdown" onclick="toggleDropdown()">
-                        <img class="image" src="../src/admin/assets/image/uploads/1.jpg" alt="image">
-                    </div>
-                    <div class="dropdown-menu option" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <img class="image-option" src="../src/admin/assets/image/uploads/1.jpg" alt="image">
-                            <div>
-                                <p class="info fw-bolder">zonaDeveloper</p>
-                                <p class="info role fw-semibold">Super Admin</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <a class="dropdown-item" href="#"><i class="fas fa-user me-2 my-2"></i>Profil Saya</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2 my-2"></i>Keluar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php
+    include "../src/admin/partials/components/navbar.php";
+    ?>
     <!-- NAVBAR END-->
 
     <section class="container-fluid mainWebsite">
         <section class="row">
             <!-- SIDEBAR START -->
-            <aside class="col-md-2 d-none d-md-block" id="sidebar">
-                <div class="sidebar-sticky sidebar-heading d-flex flex-column align-content-center flex-wrap">
-                    <img class="sidebarImage" src="../src/admin/assets/image/uploads/1.jpg" alt="imageAdmin">
-                    <div class="parentTextSidebar fw-medium">
-                        <p>Super Admin</p>
-                        <p class="textAdmin">zonaDeveloper</p>
-                    </div>
-                </div>
-                <ul class="list-unstyled components listSidebar">
-                    <a href="../../../public/index.html">
-                        <li class="liSidebar active">
-                            <span class="textSidebar"><i class="fas fa-home me-2 my-2"></i>Beranda</span>
-                        </li>
-                    </a>
-                    <a href="../src/admin/pages/data.html">
-                        <li class="liSidebar">
-                            <span class="textSidebar"><i class="fas fa-database me-2 my-2"></i>Kumpulan Data</span>
-                        </li>
-                    </a>
-                    <a href="analitic.html">
-                        <li class="liSidebar">
-                            <span class="textSidebar"><i class="fas fa-chart-bar me-2 my-2"></i>Analitik</span>
-                        </li>
-                    </a>
-                </ul>
-                <hr class="hrSidebar">
-                <ul class="list-unstyled components listSidebar">
-                    <li class="liSidebar">
-                        <a class="textSidebar" href="#"><i class="fas fa-envelope-open-text me-2 my-2"></i>Kirim
-                            Masukan</a>
-                    </li>
-                </ul>
-            </aside>
+            <?php
+            include "../src/admin/partials/components/sidebar.php";
+            ?>
             <!-- SIDEBAR END -->
 
             <!-- MAIN START -->
@@ -156,8 +52,7 @@
                         <div class="card">
                             <h5 class="card-title py-4 mx-auto">Performa Produk Terbaru</h5>
                             <div class="position-relative mx-auto">
-                                <img src="../src/admin/assets/image/uploads/2.png" class="imageCard card-img-top"
-                                    alt="Performa Produk Terbaru">
+                                <img src="../src/admin/assets/image/uploads/2.png" class="imageCard card-img-top" alt="Performa Produk Terbaru">
                                 <h5 class="card-title titleProduct fw-bold">Nama Produk</h5>
                             </div>
                             <div class="d-flex justify-content-around align-items-center mt-4">
@@ -192,8 +87,7 @@
                             <hr>
                             <div class="row mx-2 my-3">
                                 <div class="col-3">
-                                    <img src="../src/admin/assets/image/uploads/1.jpg" alt="GambarPengunjung"
-                                        class="surveyImageCard">
+                                    <img src="../src/admin/assets/image/uploads/1.jpg" alt="GambarPengunjung" class="surveyImageCard">
                                 </div>
                                 <div class="col-9">
                                     <h5>Naufal FIFA</h5>
@@ -206,24 +100,11 @@
                         </div>
                     </div>
                 </div>
-                <footer class="d-flex flex-wrap justify-content-between align-items-center py-4 my-4 mt-5 border-top">
-                    <div class="col-4 d-flex align-items-center">
-                        <span class="mb-3 mb-md-0 textFooter">Dibuat Oleh Sangar ©
-                            <script>document.write(new Date().getFullYear())</script> PTSP, BMKG
-                        </span>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="textFooter iconFooter"><i class='bx bxl-instagram'></i></div>
-                        </div>
-                        <div class="col-4">
-                            <div class="textFooter iconFooter"><i class='bx bxl-instagram'></i></div>
-                        </div>
-                        <div class="col-4">
-                            <div class="textFooter iconFooter"><i class='bx bxl-instagram'></i></div>
-                        </div>
-                    </div>
-                </footer>
+                <!-- FOOTER START -->
+                <?php
+                include "../src/admin/partials/components/footer.php";
+                ?>
+                <!-- FOOTER END -->
             </main>
             <!-- MAIN END -->
         </section>
@@ -257,6 +138,12 @@
         </div>
     </div>
     <!-- MODAL UPLOAD PRODUCT END -->
+
+    <!-- MODAL ADD ADMIN START -->
+    <?php
+    include "../src/admin/partials/utils/modal-add-admin.php";
+    ?>
+    <!-- MODAL ADD ADMIN END -->
 
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

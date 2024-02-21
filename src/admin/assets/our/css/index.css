@@ -160,7 +160,7 @@ a {
 .edit-icon {
     position: absolute;
     top: 50%;
-    left: 30%;
+    left: 26.8%;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -168,7 +168,7 @@ a {
 .delete-icon {
     position: absolute;
     top: 50%;
-    left: 45%;
+    left: 40.9%;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -245,7 +245,6 @@ a {
     background-image: linear-gradient(to right, #28644b, #061700);
     color: var(--teks);
     font-weight: 500;
-
 }
 
 .modalClose:hover {
@@ -255,7 +254,7 @@ a {
 
 .btnUpload {
     display: block;
-    width: 80px;
+    width: 95px;
     height: 50px;
     border-radius: 10px;
     outline: none;
@@ -377,7 +376,8 @@ aside {
     color: var(--teks);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, border-radius 0.3s;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s,
+        border-radius 0.3s;
 }
 
 .liSidebar.active:hover .textSidebar {
@@ -447,7 +447,6 @@ main {
     background: var(--latar);
     color: var(--teks);
 }
-
 
 .surveyImageCard {
     border-radius: 50%;
