@@ -237,13 +237,35 @@ a {
     color: var(--teks);
 }
 
+.addressAddAdmin {
+    resize: none;
+}
+
 .modalClose:hover {
     cursor: pointer;
     color: var(--teksTautanHover);
 }
 
 .btnUpload {
-    color: var(--teks);
+    display: block;
+    width: 80px;
+    height: 50px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #28644b, #061700);
+    background-size: 200%;
+    font-size: 16px;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btnUpload:hover {
+    background-position: right;
 }
 
 .btnUpload:hover {

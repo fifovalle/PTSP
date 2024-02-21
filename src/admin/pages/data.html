@@ -183,7 +183,8 @@
                     <hr class="hrData">
                     <div class="row">
                         <div class="col">
-                            <table class="tableData">
+                            <!-- ADMIN TABLE START -->
+                            <table class="tableData adminTable">
                                 <div id="actions" style="display: none;">
                                     <button class="btn btnAction" onclick="hapus()"><i class="fas fa-trash "></i>
                                         Hapus</button>
@@ -252,6 +253,223 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <!-- ADMIN TABLE END -->
+
+                            <!-- USER TABLE START -->
+                            <table class="tableData userTable">
+                                <div id="actions" style="display: none;">
+                                    <button class="btn btnAction" onclick="hapus()"><i class="fas fa-trash "></i>
+                                        Hapus</button>
+                                    <button class="btn btnAction" onclick="edit()"> <i class="fas fa-edit"></i>
+                                        Sunting</button>
+                                </div>
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            <input class="checkBoxData" type="checkbox">
+                                        </th>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center" data-field="data">
+                                            Pengguna
+                                        </th>
+                                        <th class="text-center" data-field="data2">
+                                            Email Pengguna
+                                        </th>
+                                        <th class="text-center" data-field="data3">
+                                            Jenis Kelamin
+                                        </th>
+                                        <th class="text-center" data-field="data4">
+                                            No Telp
+                                        </th>
+                                        <th class="text-center" data-field="data5">
+                                            Status Verifikasi
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbodyData">
+                                    <tr>
+                                        <td class="text-center">
+                                            <input class="checkBoxData" type="checkbox">
+                                        </td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
+                                            <div>
+                                                <img class="imageData" src="../assets/image/uploads/2.jpg"
+                                                    alt="Foto Admin">
+                                            </div>
+                                            <div class="deskriptorContainer">
+                                                <p class="fw-semibold m-auto">zonaNyaman</p>
+                                                <p class="fw-semibold deskriptorSmall m-auto">Ahsan Ghifari
+                                                <div class="iconContainerData">
+                                                    <a class="linkData" data-bs-toggle="modal"
+                                                        data-bs-target="#editAdmin" href="">
+                                                        <span class="">
+                                                            <i class=" fas fa-edit"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="linkData iconDataRight" href="">
+                                                        <span class="">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">ahsan@gmail.com</td>
+                                        <td class="text-center">Pria</td>
+                                        <td class="text-center">+62 812-3456-789</td>
+                                        <td class="text-center">
+                                            <span class="badge text-bg-success">Terverifikasi</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- USER TABLE END -->
+
+                            <!-- PRODUCT TABLE START -->
+                            <table class="tableData productTabel">
+                                <div id="actions" style="display: none;">
+                                    <button class="btn btnAction" onclick="hapus()"><i class="fas fa-trash "></i>
+                                        Hapus</button>
+                                    <button class="btn btnAction" onclick="edit()"> <i class="fas fa-edit"></i>
+                                        Sunting</button>
+                                </div>
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            <input class="checkBoxData" type="checkbox">
+                                        </th>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center" data-field="data">
+                                            Produk
+                                        </th>
+                                        <th class="text-center" data-field="data2">
+                                            Harga Produk
+                                        </th>
+                                        <th class="text-center" data-field="data3">
+                                            Stok Produk
+                                        </th>
+                                        <th class="text-center" data-field="data4">
+                                            Pemilik Produk
+                                        </th>
+                                        <th class="text-center" data-field="data5">
+                                            Status Produk
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbodyData">
+                                    <tr>
+                                        <td class="text-center">
+                                            <input class="checkBoxData" type="checkbox">
+                                        </td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
+                                            <div>
+                                                <img class="imageData" src="../assets/image/uploads/2.png"
+                                                    alt="Foto Admin">
+                                            </div>
+                                            <div class="deskriptorContainer">
+                                                <p class="fw-semibold m-auto">Seismon</p>
+                                                <p class="fw-semibold deskriptorSmall m-auto">Lorem, ipsum...
+                                                <div class="iconContainerData">
+                                                    <a class="linkData" data-bs-toggle="modal"
+                                                        data-bs-target="#editAdmin" href="">
+                                                        <span class="">
+                                                            <i class=" fas fa-edit"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="linkData iconDataRight" href="">
+                                                        <span class="">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">Rp 10.000</td>
+                                        <td class="text-center">20</td>
+                                        <td class="text-center">Instansi A</td>
+                                        <td class="text-center">
+                                            <span class="badge text-bg-success">Tersedia</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- PRODUCT TABLE END -->
+
+                            <!-- TRANSACTION TABLE START -->
+                            <table class="tableData transactionTable">
+                                <div id="actions" style="display: none;">
+                                    <button class="btn btnAction" onclick="hapus()"><i class="fas fa-trash "></i>
+                                        Hapus</button>
+                                    <button class="btn btnAction" onclick="edit()"> <i class="fas fa-edit"></i>
+                                        Sunting</button>
+                                </div>
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            <input class="checkBoxData" type="checkbox">
+                                        </th>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center" data-field="data">
+                                            Produk
+                                        </th>
+                                        <th class="text-center" data-field="data2">
+                                            Pengguna
+                                        </th>
+                                        <th class="text-center" data-field="data3">
+                                            Jumlah Produk
+                                        </th>
+                                        <th class="text-center" data-field="data4">
+                                            Tanggal Pembelian
+                                        </th>
+                                        <th class="text-center" data-field="data5">
+                                            Status Transaksi
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbodyData">
+                                    <tr>
+                                        <td class="text-center">
+                                            <input class="checkBoxData" type="checkbox">
+                                        </td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
+                                            <div>
+                                                <img class="imageData" src="../assets/image/uploads/2.png"
+                                                    alt="Foto Admin">
+                                            </div>
+                                            <div class="deskriptorContainer">
+                                                <p class="fw-semibold m-auto">Seismon</p>
+                                                <p class="fw-semibold deskriptorSmall m-auto">Lorem, ipsum...
+                                                <div class="iconContainerData">
+                                                    <a class="linkData" data-bs-toggle="modal"
+                                                        data-bs-target="#editAdmin" href="">
+                                                        <span class="">
+                                                            <i class=" fas fa-edit"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="linkData iconDataRight" href="">
+                                                        <span class="">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">Ahsan Ghifari</td>
+                                        <td class="text-center">10</td>
+                                        <td class="text-center">10/09/2024</td>
+                                        <td class="text-center">
+                                            <span class="badge text-bg-danger">Belum Di Setujui</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- TRANSACTION TABLE END -->
                         </div>
                     </div>
                     <footer
@@ -292,14 +510,14 @@
                 <div class="modal-body">
                     <form>
                         <div class="mb-3">
-                            <label for="fotoAdd" class="form-label">Foto</label>
-                            <input type="file" class="form-control" id="fotoAdd">
+                            <label for="fotoAddAdmin" class="form-label">Foto</label>
+                            <input type="file" class="form-control" id="fotoAddAdmin">
                         </div>
                         <div class="mb-3">
-                            <label for="emailAdd" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="emailAdd">
+                            <label for="frontNameAddAdmin" class="form-label">Nama Depan</label>
+                            <input type="text" class="form-control" id="frontNameAddAdmin">
                         </div>
-                        <button type="submit" class="btn btnUpload">Submit</button>
+                        <button type="submit" class="btn btn-success btnUpload">Submit</button>
                     </form>
                 </div>
             </div>
@@ -313,7 +531,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Admin</h1>
                     <div class="modalClose" data-bs-dismiss="modal" aria-label="Close">
                         <i class="fas fa-times"></i>
                     </div>
@@ -325,10 +543,51 @@
                             <input type="file" class="form-control" id="fotoAdd">
                         </div>
                         <div class="mb-3">
-                            <label for="emailAdd" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="emailAdd">
+                            <label for="frontNameAddAdmin" class="form-label">Nama Depan</label>
+                            <input type="text" class="form-control" id="frontNameAddAdmin">
                         </div>
-                        <button type="submit" class="btn btnUpload">Submit</button>
+                        <div class="mb-3">
+                            <label for="backNameAddAdmin" class="form-label">Nama Belakang</label>
+                            <input type="text" class="form-control" id="backNameAddAdmin">
+                        </div>
+                        <div class="mb-3">
+                            <label for="userNameAddAdmin" class="form-label">Nama Pengguna</label>
+                            <input type="text" class="form-control" id="userNameAddAdmin">
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailAddAdmin" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailAddAdmin">
+                        </div>
+                        <div class="mb-3">
+                            <label for="numberAddAdmin" class="form-label">Nomor Telepon</label>
+                            <div class="input-group">
+                                <span class="input-group-text">+62</span>
+                                <input type="number" class="form-control" id="numberAddAdmin">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ganderAddAdmin" class="form-label">Jenis Kelamin</label>
+                            <select name="" id="ganderAddAdmin" class="form-control">
+                                <option value="" selected>Pilih Jenis Kelamin Anda</option>
+                                <option value="Pria">Pria</option>
+                                <option value="Wanita">Wanita</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="roleAddAdmin" class="form-label">Peran Admin</label>
+                            <select name="" id="roleAddAdmin" class="form-control">
+                                <option value="" selected>Pilih Peran Admin</option>
+                                <option value="Super Admin">Super Admin</option>
+                                <option value="Instansi A">Instansi A</option>
+                                <option value="Instansi B">Instansi B</option>
+                                <option value="Instansi C">Instansi C</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="addressAddAdmin" class="form-label">Alamat Admin</label>
+                            <textarea name="" class="form-control addressAddAdmin" id="addressAddAdmin"></textarea>
+                        </div>
+                        <button type="submit" class="btn btnUpload">Kirim</button>
                     </form>
                 </div>
             </div>

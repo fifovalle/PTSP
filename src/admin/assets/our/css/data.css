@@ -89,6 +89,12 @@
     width: 1300px;
 }
 
+.userTable,
+.productTabel,
+.transactionTable {
+    display: none;
+}
+
 .checkBoxData {
     outline: none;
     -webkit-appearance: none;
