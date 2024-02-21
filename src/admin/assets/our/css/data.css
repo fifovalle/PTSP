@@ -76,6 +76,22 @@
     color: var(--teksTautanHover);
 }
 
+.inputData::placeholder {
+    color: var(--teksTautanHover);
+}
+
+.inputData option:checked {
+    color: var(--teksTautanHover);
+}
+
+.inputDataSelect {
+    color: var(--teksTautanHover);
+}
+
+.inputData option[value=""][disabled] {
+    color: var(--teksTautanHover);
+}
+
 .hrData {
     color: var(--teks);
 }

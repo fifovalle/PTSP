@@ -241,6 +241,13 @@ a {
     resize: none;
 }
 
+.spanNumberData {
+    background-image: linear-gradient(to right, #28644b, #061700);
+    color: var(--teks);
+    font-weight: 500;
+
+}
+
 .modalClose:hover {
     cursor: pointer;
     color: var(--teksTautanHover);
@@ -366,7 +373,7 @@ aside {
 }
 
 .liSidebar.active {
-    background-color: var(--teksTautan);
+    background-image: linear-gradient(to right, #28644b, #061700);
     color: var(--teks);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
@@ -381,7 +388,7 @@ aside {
 
 /* =============================MAIN START============================= */
 main {
-    margin-left: 273px;
+    margin-left: 268px;
 }
 
 .mainWebsite {
