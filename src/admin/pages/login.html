@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html>
-
 <head>
-    <title>Animated Login Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Login admin</title>
+    <!-- OUR CSS -->
     <link rel="stylesheet" type="text/css" href="/src/admin/assets/our/css/login.css">
+    <!-- FONT -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- FAVICON -->
+    <link rel="icon" href="../assets/image/logo/1.png">
 </head>
 
 <body>
     <img class="wave" src="/src/admin/assets/image/pages/wave.png">
+    <!-- MAIN START -->
     <div class="container">
         <div class="img">
             <img src="/src/admin/assets/image/pages/loginbg.svg">
@@ -37,15 +39,20 @@
                     </div>
                     <div class="div">
                         <h5>Kata Sandi</h5>
-                        <input type="password" class="input">
+                        <input type="password" class="input" id="passwordInput">
+                        <i class="fas fa-eye iconInputContainer" id="togglePassword"></i>
                     </div>
                 </div>
-                <a href="#">Lupa kata sandi?</a>
+                <a href="forgotpass.html">Lupa kata sandi?</a>
                 <input type="submit" class="btn" value="Masuk">
             </form>
         </div>
     </div>
+    <!-- MAIN END -->
+    <!-- OUR JS -->
     <script type="text/javascript" src="/src/admin/assets/our/js/login.js"></script>
+    <!-- ICON -->
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </body>
 
 </html>

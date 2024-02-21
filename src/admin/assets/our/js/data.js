@@ -203,3 +203,12 @@ checkBoxHeader.addEventListener("click", function () {
     actionsDiv.style.display = "none";
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var input = document.getElementById("filterInput");
+  var dropdown = document.getElementById("dropdownFilter");
+
+  input.addEventListener("click", function () {
+    dropdown.classList.toggle("show");
+  });
+});

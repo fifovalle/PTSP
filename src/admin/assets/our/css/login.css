@@ -64,6 +64,13 @@ form {
     width: 360px;
 }
 
+.iconInputContainer {
+    position: absolute;
+    color: var(--teksTautanHover);
+    left: 92%;
+    top: 38%;
+}
+
 .imgForm {
     background: var(--teks);
     border-radius: 50%;
@@ -163,7 +170,7 @@ form {
     background: none;
     padding: 0.5rem 0.7rem;
     font-size: 1.2rem;
-    color: #555;
+    color: var(--teks);
     font-family: "poppins", sans-serif;
 }
 
@@ -191,7 +198,7 @@ a:hover {
     border-radius: 25px;
     outline: none;
     border: none;
-    background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+    background-image: linear-gradient(to right, #28644b, #061700);
     background-size: 200%;
     font-size: 1.2rem;
     color: #fff;
