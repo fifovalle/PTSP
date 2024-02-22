@@ -84,7 +84,7 @@
     include "../partials/utils/modal-add-admin.php";
     ?>
     <?php
-    include "../partials/utils/send-feedback.php";
+    include "../partials/utils/modal-send-feedback.php";
     ?>
     <!-- ALL MODAL END -->
 

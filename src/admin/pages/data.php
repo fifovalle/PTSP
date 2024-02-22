@@ -104,7 +104,7 @@
     include "../partials/utils/modal-edit-admin.php";
     ?>
     <?php
-    include "../partials/utils/send-feedback.php";
+    include "../partials/utils/modal-send-feedback.php";
     ?>
     <!-- ALL MODAL END -->
 

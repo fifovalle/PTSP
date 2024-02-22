@@ -115,7 +115,7 @@
     include "../src/admin/partials/utils/modal-add-admin.php";
     ?>
     <?php
-    include "../src/admin/partials/utils/send-feedback.php";
+    include "../src/admin/partials/utils/modal-send-feedback.php";
     ?>
     <!-- ALL MODAL END -->
 

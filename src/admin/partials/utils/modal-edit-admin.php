@@ -11,29 +11,29 @@
                 <form>
                     <div class="mb-3">
                         <label for="fotoAdd" class="form-label">Foto</label>
-                        <input type="file" class="form-control" id="fotoAdd">
+                        <input type="file" class="form-control" id="fotoAdd" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="frontNameAddAdmin" class="form-label">Nama Depan</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Depan Admin" id="frontNameAddAdmin">
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Depan Admin" id="frontNameAddAdmin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="backNameAddAdmin" class="form-label">Nama Belakang</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Belakang Admin" id="backNameAddAdmin">
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Belakang Admin" id="backNameAddAdmin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="userNameAddAdmin" class="form-label">Nama Pengguna</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Pengguna Admin" id="userNameAddAdmin">
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Pengguna Admin" id="userNameAddAdmin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="emailAddAdmin" class="form-label">Email</label>
-                        <input type="email" class="form-control inputData" placeholder="Masukan Email Admin" id="emailAddAdmin">
+                        <input type="email" class="form-control inputData" placeholder="Masukan Email Admin" id="emailAddAdmin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="numberAddAdmin" class="form-label">Nomor Telepon</label>
                         <div class="input-group">
                             <span class="input-group-text spanNumberData">+62</span>
-                            <input type="number" placeholder="Masukan Nomor Telepon Admin" class="form-control inputData" id="numberAddAdmin">
+                            <input type="number" placeholder="Masukan Nomor Telepon Admin" class="form-control inputData" id="numberAddAdmin" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -56,7 +56,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="addressAddAdmin" class="form-label">Alamat Admin</label>
-                        <textarea name="" placeholder="Masukan Alamat Admin" class="form-control inputData addressAddAdmin" id="addressAddAdmin"></textarea>
+                        <textarea name="" placeholder="Masukan Alamat Admin" class="form-control inputData addressAddAdmin" id="addressAddAdmin" autocomplete="off"></textarea>
                     </div>
                     <button type="submit" class="btn btnUpload">Simpan</button>
                 </form>
