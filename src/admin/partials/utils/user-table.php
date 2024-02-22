@@ -1,5 +1,5 @@
 <table class="tableData userTable">
-    <div id="actions" style="display: none;">
+    <div id="actionsUser" class="actions">
         <button class="btn btn-primary" onclick="hapus()"><i class="fas fa-edit "></i>
             Sunting</button>
         <button class="btn btn-danger" onclick="edit()"> <i class="fas fa-trash"></i>
@@ -8,7 +8,7 @@
     <thead>
         <tr>
             <th class="text-center">
-                <input class="checkBoxData" type="checkbox">
+                <input class="checkBoxData checkBoxDataUser" type="checkbox">
             </th>
             <th class="text-center">No</th>
             <th class="text-center" data-field="data">
@@ -31,7 +31,7 @@
     <tbody class="tbodyData">
         <tr class="trDataN">
             <td class="text-center">
-                <input class="checkBoxData" type="checkbox">
+                <input class="checkBoxData checkBoxDataUser" type="checkbox">
             </td>
             <td class="text-center">1</td>
             <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">

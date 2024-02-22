@@ -7,9 +7,9 @@
 }
 
 /* =============================MAIN START============================= */
-#actions {
-    width: 200px;
-    margin: 10px 0px;
+.actions {
+    display: none;
+    margin: 5px 0px 20px 0px;
 }
 
 .menu {

@@ -18,14 +18,58 @@ $(document).ready(function () {
   });
 });
 
-const checkBoxHeader = document.querySelector(".checkBoxData");
-checkBoxHeader.addEventListener("click", function () {
-  const checkBoxes = document.querySelectorAll(".checkBoxData");
+const checkBoxHeaderAdmin = document.querySelector(".checkBoxDataAdmin");
+checkBoxHeaderAdmin.addEventListener("click", function () {
+  const checkBoxes = document.querySelectorAll(".checkBoxDataAdmin");
   checkBoxes.forEach(function (checkbox) {
-    checkbox.checked = checkBoxHeader.checked;
+    checkbox.checked = checkBoxHeaderAdmin.checked;
   });
-  const actionsDiv = document.getElementById("actions");
-  if (checkBoxHeader.checked) {
+  const actionsDiv = document.getElementById("actionsAdmin");
+  if (checkBoxHeaderAdmin.checked) {
+    actionsDiv.style.display = "block";
+  } else {
+    actionsDiv.style.display = "none";
+  }
+});
+
+const checkBoxHeaderUser = document.querySelector(".checkBoxDataUser");
+checkBoxHeaderUser.addEventListener("click", function () {
+  const checkBoxes = document.querySelectorAll(".checkBoxDataUser");
+  checkBoxes.forEach(function (checkbox) {
+    checkbox.checked = checkBoxHeaderUser.checked;
+  });
+  const actionsDiv = document.getElementById("actionsUser");
+  if (checkBoxHeaderUser.checked) {
+    actionsDiv.style.display = "block";
+  } else {
+    actionsDiv.style.display = "none";
+  }
+});
+
+const checkBoxHeaderProduct = document.querySelector(".checkBoxDataProduct");
+checkBoxHeaderProduct.addEventListener("click", function () {
+  const checkBoxes = document.querySelectorAll(".checkBoxDataProduct");
+  checkBoxes.forEach(function (checkbox) {
+    checkbox.checked = checkBoxHeaderProduct.checked;
+  });
+  const actionsDiv = document.getElementById("actionsProduct");
+  if (checkBoxHeaderProduct.checked) {
+    actionsDiv.style.display = "block";
+  } else {
+    actionsDiv.style.display = "none";
+  }
+});
+
+const checkBoxHeaderTransaction = document.querySelector(
+  ".checkBoxDataTransaction"
+);
+checkBoxHeaderTransaction.addEventListener("click", function () {
+  const checkBoxes = document.querySelectorAll(".checkBoxDataTransaction");
+  checkBoxes.forEach(function (checkbox) {
+    checkbox.checked = checkBoxHeaderTransaction.checked;
+  });
+  const actionsDiv = document.getElementById("actionsTransaction");
+  if (checkBoxHeaderTransaction.checked) {
     actionsDiv.style.display = "block";
   } else {
     actionsDiv.style.display = "none";
