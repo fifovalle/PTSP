@@ -12,12 +12,6 @@
     margin: 10px 0px;
 }
 
-.btnAction {
-    color: var(--teks);
-    background: var(--teksTautan);
-    outline: none;
-}
-
 .menu {
     color: var(--teks);
     width: 100px;

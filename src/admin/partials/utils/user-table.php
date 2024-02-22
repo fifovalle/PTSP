@@ -1,9 +1,9 @@
 <table class="tableData userTable">
     <div id="actions" style="display: none;">
-        <button class="btn btnAction" onclick="hapus()"><i class="fas fa-trash "></i>
-            Hapus</button>
-        <button class="btn btnAction" onclick="edit()"> <i class="fas fa-edit"></i>
+        <button class="btn btn-primary" onclick="hapus()"><i class="fas fa-edit "></i>
             Sunting</button>
+        <button class="btn btn-danger" onclick="edit()"> <i class="fas fa-trash"></i>
+            Hapus</button>
     </div>
     <thead>
         <tr>
