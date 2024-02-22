@@ -4,11 +4,54 @@
     --teksTautan: #3bd39b;
     --teksTautanHover: #a7a9be;
     --kotakHover: black;
+    --warnaikon: #ff3232;
 }
 
 /* =============================MAIN START============================= */
 .menuAnalitic {
     width: 150px;
+}
+
+.boxData {
+    width: 200px;
+    text-align: center;
+    padding-top: 10px;
+    height: 100px;
+}
+
+.headerBoxData {
+    font-size: 15px;
+    color: var(--teksTautanHover);
+    margin-bottom: -45px;
+}
+
+.captionBoxData {
+    font-size: 25px;
+    margin-bottom: -25px;
+}
+
+.captionIcon {
+    color: var(--teksTautan);
+    font-size: 20px;
+    margin-left: 2px;
+}
+
+.captionIconError {
+    color: var(--warnaikon);
+    font-size: 20px;
+    margin-left: 2px;
+}
+
+.performanceBoxData {
+    color: var(--teksTautanHover);
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.allDataProduct,
+.allDataIKM,
+.allDataTransaction {
+    display: none;
 }
 
 /* =============================MAIN END============================= */

@@ -32,9 +32,11 @@ $halamanSaatIni = basename($_SERVER['PHP_SELF']);
     </ul>
     <hr class="hrSidebar">
     <ul class="list-unstyled components listSidebar">
-        <li class="liSidebar">
-            <a class="textSidebar" href="#"><i class="fas fa-envelope-open-text me-2 my-2"></i>Kirim
-                Masukan</a>
-        </li>
+        <a data-bs-toggle="modal" data-bs-target="#sendFeedbackModal">
+            <li class="liSidebar">
+                <span class="textSidebar"><i class="fas fa-envelope-open-text me-2 my-2"></i>Kirim
+                    Masukan</span>
+            </li>
+        </a>
     </ul>
 </aside>

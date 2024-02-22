@@ -42,12 +42,12 @@
                     <p class="fw-semibold m-auto">zonaDeveloper</p>
                     <p class="fw-semibold deskriptorSmall m-auto">Naufal FIFA
                     <div class="iconContainerData">
-                        <a class="linkData" data-bs-toggle="modal" data-bs-target="#editAdmin" href="">
+                        <a class="linkData" data-bs-toggle="modal" data-bs-target="#editAdmin">
                             <span class="">
                                 <i class=" fas fa-edit"></i>
                             </span>
                         </a>
-                        <a class="linkData iconDataRight" href="">
+                        <a class="linkData iconDataRight">
                             <span class="">
                                 <i class="fas fa-trash"></i>
                             </span>

@@ -46,7 +46,7 @@
                                     <p class="fw-semibold dataAll active">Semua</p>
                                 </div>
                                 <div class="menu col-2">
-                                    <p class="fw-semibold dataAll">Product</p>
+                                    <p class="fw-semibold dataAll">Produk</p>
                                 </div>
                                 <div class="menu col-2">
                                     <p class="fw-semibold dataAll">IKM</p>
@@ -57,11 +57,30 @@
                             </div>
                             <div class="row">
                                 <div class="menu text-center menuAnalitic">
-                                    <p class="fw-semibold">28 Hari Terakhir</p>
+                                    <p class="fw-semibold">7 Hari Terakhir</p>
                                 </div>
                             </div>
                         </div>
                         <hr class="hrData">
+                        <div class="row">
+                            <div class="col">
+                                <!-- ALL ANALITIC START -->
+                                <?php include "../partials/utils/all-analitic.php" ?>
+                                <!-- ALL ANALITIC END -->
+
+                                <!-- ALL ANALITIC PRODUCT START -->
+                                <?php include "../partials/utils/all-analitic-product.php" ?>
+                                <!-- ALL ANALITIC PRODUCT END -->
+
+                                <!-- ALL ANALITIC IKM START -->
+                                <?php include "../partials/utils/all-analitic-IKM.php" ?>
+                                <!-- ALL ANALITIC IKM END -->
+
+                                <!-- ALL ANALITIC TRANSACTION START -->
+                                <?php include "../partials/utils/all-analitic-transaction.php" ?>
+                                <!-- ALL ANALITIC TRANSACTION END -->
+                            </div>
+                        </div>
                         <!-- FOOTER START -->
                         <?php include "../partials/components/footer.php" ?>
                         <!-- FOOTER END -->
@@ -81,12 +100,20 @@
     ?>
     <!-- MODAL ADD ADMIN END -->
 
+    <!-- MODAL SEND FEEDBACK START -->
+    <?php
+    include "../partials/utils/send-feedback.php";
+    ?>
+    <!-- MODAL SEND FEEDBACK END -->
+
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <!-- OUR JS -->
-    <script src="../assets/our/js/data.js"></script>
+    <script src="../assets/our/js/analitic.js"></script>
     <script src="../assets/our/js/index.js"></script>
+    <script src="../assets/our/js/chart-analytics.js"></script>
+    <script src="../assets/our/js/apexcharts.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </body>

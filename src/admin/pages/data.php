@@ -123,6 +123,12 @@
     ?>
     <!-- MODAL EDIT ADMIN END -->
 
+    <!-- MODAL SEND FEEDBACK START -->
+    <?php
+    include "../partials/utils/send-feedback.php";
+    ?>
+    <!-- MODAL SEND FEEDBACK END -->
+
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
