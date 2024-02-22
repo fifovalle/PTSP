@@ -22,7 +22,7 @@ $akarUrl = "http://localhost/PTSP/";
                                 semua</a>
                         </p>
                         <hr>
-                        <div class="d-flex align-items-center justify-content-between list boxParent">
+                        <div class="d-flex align-items-center justify-content-between list boxParent mb-3">
                             <img class="imageProduct" src="<?php echo $akarUrl; ?>/src/admin/assets/image/uploads/1.jpg" alt="imageProduct">
                             <div class="box">
                                 <p>Nama Produk</p>
