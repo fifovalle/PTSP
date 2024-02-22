@@ -1,0 +1,14 @@
+:root {
+    --latar: #0f0e17;
+    --teks: #fffffe;
+    --teksTautan: #3bd39b;
+    --teksTautanHover: #a7a9be;
+    --kotakHover: black;
+}
+
+/* =============================MAIN START============================= */
+.menuAnalitic {
+    width: 150px;
+}
+
+/* =============================MAIN END============================= */

@@ -24,8 +24,8 @@ $halamanSaatIni = basename($_SERVER['PHP_SELF']);
                 <span class="textSidebar"><i class="fas fa-database me-2 my-2"></i>Kumpulan Data</span>
             </li>
         </a>
-        <a href="analitic.html">
-            <li class="liSidebar">
+        <a href="<?php echo $akarUrl; ?>src/admin/pages/analitic.php">
+            <li class="liSidebar <?php echo ($halamanSaatIni == 'analitic.php') ? 'active' : '' ?>">
                 <span class="textSidebar"><i class="fas fa-chart-bar me-2 my-2"></i>Analitik</span>
             </li>
         </a>

@@ -26,16 +26,16 @@
     color: var(--teksTautanHover);
 }
 
-.dataAdmin.active {
+.dataAll.active {
     color: var(--teksTautanHover);
 }
 
-.dataAdmin {
+.dataAll {
     color: var(--teksTautanHover);
     position: relative;
 }
 
-.dataAdmin::after {
+.dataAll::after {
     content: "";
     position: absolute;
     bottom: -3px;
@@ -46,7 +46,7 @@
     transition: width 0.3s ease;
 }
 
-.dataAdmin.active::after {
+.dataAll.active::after {
     width: 80px;
 }
 

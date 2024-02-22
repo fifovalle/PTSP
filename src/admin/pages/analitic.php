@@ -10,6 +10,7 @@
     <!-- OUR CSS -->
     <link rel="stylesheet" href="../assets/our/css/index.css">
     <link rel="stylesheet" href="../assets/our/css/data.css">
+    <link rel="stylesheet" href="../assets/our/css/analitic.css">
     <!-- ICON -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -36,68 +37,31 @@
                 <!-- MAIN START -->
                 <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
                     <div class="d-flex justify-content-between align-items-center text-center">
-                        <h1 class="breadcrumb">Kumpulan Data</h1>
+                        <h1 class="breadcrumb">Kumpulan Analitik</h1>
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 d-flex justify-content-between">
                             <div class="row">
                                 <div class="menu col-2">
-                                    <p class="fw-semibold dataAll active">Admin</p>
+                                    <p class="fw-semibold dataAll active">Semua</p>
                                 </div>
                                 <div class="menu col-2">
-                                    <p class="fw-semibold dataAll">Pengguna</p>
+                                    <p class="fw-semibold dataAll">Product</p>
                                 </div>
                                 <div class="menu col-2">
-                                    <p class="fw-semibold dataAll">Produk</p>
+                                    <p class="fw-semibold dataAll">IKM</p>
                                 </div>
                                 <div class="menu col-2">
                                     <p class="fw-semibold dataAll">Transaksi</p>
                                 </div>
                             </div>
-                        </div>
-                        <hr class="hrData">
-                        <div class="row" style="position: relative;">
-                            <div class="col-1">
-                                <i class="bx bx-filter iconFilter"></i>
-                            </div>
-                            <div class="col-10 mb-3">
-                                <input id="filterInput" class="filterInput" type="text" placeholder="Filter Data">
-                            </div>
-                            <div id="dropdownFilter" class="dropdownContentFilter row">
-                                <div class="col listDropdownFilter">
-                                    <span>Nama Pengguna</span>
-                                </div>
-                                <div class="col listDropdownFilter">
-                                    <span>Nama Depan</span>
-                                </div>
-                                <div class="col listDropdownFilter">
-                                    <span>Nama Belakang</span>
-                                </div>
-                                <div class="col listDropdownFilter">
-                                    <span>Email</span>
+                            <div class="row">
+                                <div class="menu text-center menuAnalitic">
+                                    <p class="fw-semibold">28 Hari Terakhir</p>
                                 </div>
                             </div>
                         </div>
                         <hr class="hrData">
-                        <div class="row">
-                            <div class="col">
-                                <!-- ADMIN TABLE START -->
-                                <?php include "../partials/utils/admin-table.php" ?>
-                                <!-- ADMIN TABLE END -->
-
-                                <!-- USER TABLE START -->
-                                <?php include "../partials/utils/user-table.php" ?>
-                                <!-- USER TABLE END -->
-
-                                <!-- PRODUCT TABLE START -->
-                                <?php include "../partials/utils/product-table.php" ?>
-                                <!-- PRODUCT TABLE END -->
-
-                                <!-- TRANSACTION TABLE START -->
-                                <?php include "../partials/utils/transaction-table.php" ?>
-                                <!-- TRANSACTION TABLE END -->
-                            </div>
-                        </div>
                         <!-- FOOTER START -->
                         <?php include "../partials/components/footer.php" ?>
                         <!-- FOOTER END -->
@@ -116,12 +80,6 @@
     include "../partials/utils/modal-add-admin.php";
     ?>
     <!-- MODAL ADD ADMIN END -->
-
-    <!-- MODAL EDIT ADMIN START -->
-    <?php
-    include "../partials/utils/modal-edit-admin.php";
-    ?>
-    <!-- MODAL EDIT ADMIN END -->
 
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
