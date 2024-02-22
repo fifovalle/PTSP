@@ -29,7 +29,7 @@
         </tr>
     </thead>
     <tbody class="tbodyData">
-        <tr>
+        <tr class="trDataN">
             <td class="text-center">
                 <input class="checkBoxData" type="checkbox">
             </td>

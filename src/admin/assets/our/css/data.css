@@ -173,13 +173,13 @@
     transition: opacity 0.3s, visibility 0.3s, height 0.3s, display 0.3s;
 }
 
-.tbodyData:hover .deskriptorSmall {
+.trDataN:hover .deskriptorSmall {
     opacity: 0;
     visibility: hidden;
     height: 0;
 }
 
-.tbodyData:hover .linkData {
+.trDataN:hover .linkData {
     opacity: 1;
     visibility: visible;
     display: block;
