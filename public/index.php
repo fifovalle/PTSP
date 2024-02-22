@@ -22,7 +22,6 @@
     include "../src/admin/partials/components/navbar.php";
     ?>
     <!-- NAVBAR END-->
-
     <section class="container-fluid mainWebsite">
         <section class="row">
             <!-- SIDEBAR START -->
@@ -30,126 +29,95 @@
             include "../src/admin/partials/components/sidebar.php";
             ?>
             <!-- SIDEBAR END -->
-
-            <!-- MAIN START -->
-            <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div class="d-flex justify-content-between align-items-center text-center">
-                    <h1 class="breadcrumb">Beranda</h1>
-                    <div class="iconBreadcrumb d-flex justify-content-between align-content-center gap-3">
-                        <div class="iconServer" data-toggle="tooltip" title="Instansi A">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <div class="iconServer" data-toggle="tooltip" title="Instansi B">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <div class="iconServer" data-toggle="tooltip" title="Instansi C">
-                            <i class="fas fa-server"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <div class="card">
-                            <h5 class="card-title py-4 mx-auto">Performa Produk Terbaru</h5>
-                            <div class="position-relative mx-auto">
-                                <img src="../src/admin/assets/image/uploads/2.png" class="imageCard card-img-top" alt="Performa Produk Terbaru">
-                                <h5 class="card-title titleProduct fw-bold">Nama Produk</h5>
+            <div class="container-fluid">
+                <!-- MAIN START -->
+                <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                    <div class="d-flex justify-content-between align-items-center text-center">
+                        <h1 class="breadcrumb">Beranda</h1>
+                        <div class="iconBreadcrumb d-flex justify-content-between align-content-center gap-3">
+                            <div class="iconServer" data-toggle="tooltip" title="Instansi A">
+                                <i class="fas fa-server"></i>
                             </div>
-                            <div class="d-flex justify-content-around align-items-center mt-4">
-                                <div class="d-flex justify-content-between gap-3">
-                                    <i class="fas fa-users"><span class="ms-2 many">10</span></i>
-                                    <i class="fas fa-money-bill"><span class="ms-2 many">Rp.1.000.000</span></i>
-                                </div>
-                                <div>
-                                    <i class="fas fa-caret-up caret-icon"></i>
-                                </div>
+                            <div class="iconServer" data-toggle="tooltip" title="Instansi B">
+                                <i class="fas fa-server"></i>
                             </div>
-                            <hr>
-                            <div class="card-body hidden-content">
-                                <p class="card-text textCardProduct my-3 mb-4">Performa Selama Ini</p>
-                                <div class="row ms-auto">
-                                    <div class="col-7 me-4">Pembeli</div>
-                                    <div class="col-2">10</div>
-                                </div>
-                                <div class="row ms-auto">
-                                    <div class="col-7 me-4">Penghasilan</div>
-                                    <div class="col-4">Rp.1.000.000</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <a href="#" class="card-link">Lihat Analitik</a>
+                            <div class="iconServer" data-toggle="tooltip" title="Instansi C">
+                                <i class="fas fa-server"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <h5 class="card-title pt-4 mx-auto">IKM Terbaru</h5>
-                            <hr>
-                            <div class="row mx-2 my-3">
-                                <div class="col-3">
-                                    <img src="../src/admin/assets/image/uploads/1.jpg" alt="GambarPengunjung" class="surveyImageCard">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="card">
+                                <h5 class="card-title py-4 mx-auto">Performa Produk Terbaru</h5>
+                                <div class="position-relative mx-auto">
+                                    <img src="../src/admin/assets/image/uploads/2.png" class="imageCard card-img-top" alt="Performa Produk Terbaru">
+                                    <h5 class="card-title titleProduct fw-bold">Nama Produk</h5>
                                 </div>
-                                <div class="col-9">
-                                    <h5>Naufal FIFA</h5>
-                                    <p class="card-text textCardProduct">Waduh Saya Puas Banget Sih Bang :)..</p>
+                                <div class="d-flex justify-content-around align-items-center mt-4">
+                                    <div class="d-flex justify-content-between gap-3">
+                                        <i class="fas fa-users"><span class="ms-2 many">10</span></i>
+                                        <i class="fas fa-money-bill"><span class="ms-2 many">Rp.1.000.000</span></i>
+                                    </div>
+                                    <div>
+                                        <i class="fas fa-caret-up caret-icon"></i>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="card-body hidden-content">
+                                    <p class="card-text textCardProduct my-3 mb-4">Performa Selama Ini</p>
+                                    <div class="row ms-auto">
+                                        <div class="col-7 me-4">Pembeli</div>
+                                        <div class="col-2">10</div>
+                                    </div>
+                                    <div class="row ms-auto">
+                                        <div class="col-7 me-4">Penghasilan</div>
+                                        <div class="col-4">Rp.1.000.000</div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Lihat Analitik</a>
                                 </div>
                             </div>
-                            <div class="card-body btnAnalitic">
-                                <a href="#" class="card-link">Lihat Analitik</a>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <h5 class="card-title pt-4 mx-auto">IKM Terbaru</h5>
+                                <hr>
+                                <div class="row mx-2 my-3">
+                                    <div class="col-3">
+                                        <img src="../src/admin/assets/image/uploads/1.jpg" alt="GambarPengunjung" class="surveyImageCard">
+                                    </div>
+                                    <div class="col-9">
+                                        <h5>Naufal FIFA</h5>
+                                        <p class="card-text textCardProduct">Waduh Saya Puas Banget Sih Bang :)..</p>
+                                    </div>
+                                </div>
+                                <div class="card-body btnAnalitic">
+                                    <a href="#" class="card-link">Lihat Analitik</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- FOOTER START -->
-                <?php
-                include "../src/admin/partials/components/footer.php";
-                ?>
-                <!-- FOOTER END -->
-            </main>
+                    <!-- FOOTER START -->
+                    <?php
+                    include "../src/admin/partials/components/footer.php";
+                    ?>
+                    <!-- FOOTER END -->
+                </main>
+            </div>
             <!-- MAIN END -->
         </section>
     </section>
 
-
-    <!-- MODAL UPLOAD PRODUCT START -->
-    <div class="modal fade" id="uploadProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <div class="modalClose" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="fas fa-times"></i>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="fotoAdd" class="form-label">Foto</label>
-                            <input type="file" class="form-control" id="fotoAdd">
-                        </div>
-                        <div class="mb-3">
-                            <label for="emailAdd" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="emailAdd">
-                        </div>
-                        <button type="submit" class="btn btnUpload">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- MODAL UPLOAD PRODUCT END -->
-
-    <!-- MODAL ADD ADMIN START -->
+    <!-- ALL MODAL START -->
     <?php
     include "../src/admin/partials/utils/modal-add-admin.php";
     ?>
-    <!-- MODAL ADD ADMIN END -->
-
-    <!-- MODAL SEND FEEDBACK START -->
     <?php
     include "../src/admin/partials/utils/send-feedback.php";
     ?>
-    <!-- MODAL SEND FEEDBACK END -->
+    <!-- ALL MODAL END -->
 
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

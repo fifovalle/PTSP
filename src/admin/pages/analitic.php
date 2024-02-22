@@ -24,7 +24,6 @@
     include "../partials/components/navbar.php";
     ?>
     <!-- NAVBAR END-->
-
     <section class="container-fluid mainWebsite">
         <section class="row">
             <!-- SIDEBAR START -->
@@ -32,7 +31,6 @@
             include "../partials/components/sidebar.php"
             ?>
             <!-- SIDEBAR END -->
-
             <div class="container-fluid">
                 <!-- MAIN START -->
                 <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
@@ -66,19 +64,10 @@
                             <div class="col">
                                 <!-- ALL ANALITIC START -->
                                 <?php include "../partials/utils/all-analitic.php" ?>
-                                <!-- ALL ANALITIC END -->
-
-                                <!-- ALL ANALITIC PRODUCT START -->
                                 <?php include "../partials/utils/all-analitic-product.php" ?>
-                                <!-- ALL ANALITIC PRODUCT END -->
-
-                                <!-- ALL ANALITIC IKM START -->
                                 <?php include "../partials/utils/all-analitic-IKM.php" ?>
-                                <!-- ALL ANALITIC IKM END -->
-
-                                <!-- ALL ANALITIC TRANSACTION START -->
                                 <?php include "../partials/utils/all-analitic-transaction.php" ?>
-                                <!-- ALL ANALITIC TRANSACTION END -->
+                                <!-- ALL ANALITIC END -->
                             </div>
                         </div>
                         <!-- FOOTER START -->
@@ -90,21 +79,14 @@
         </section>
     </section>
 
-    <!-- MODAL UPLOAD PRODUCT START -->
-
-    <!-- MODAL UPLOAD PRODUCT END -->
-
-    <!-- MODAL ADD ADMIN START -->
+    <!-- ALL MODAL START -->
     <?php
     include "../partials/utils/modal-add-admin.php";
     ?>
-    <!-- MODAL ADD ADMIN END -->
-
-    <!-- MODAL SEND FEEDBACK START -->
     <?php
     include "../partials/utils/send-feedback.php";
     ?>
-    <!-- MODAL SEND FEEDBACK END -->
+    <!-- ALL MODAL END -->
 
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

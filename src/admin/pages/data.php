@@ -23,7 +23,6 @@
     include "../partials/components/navbar.php";
     ?>
     <!-- NAVBAR END-->
-
     <section class="container-fluid mainWebsite">
         <section class="row">
             <!-- SIDEBAR START -->
@@ -31,7 +30,6 @@
             include "../partials/components/sidebar.php"
             ?>
             <!-- SIDEBAR END -->
-
             <div class="container-fluid">
                 <!-- MAIN START -->
                 <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
@@ -81,21 +79,12 @@
                         <hr class="hrData">
                         <div class="row">
                             <div class="col">
-                                <!-- ADMIN TABLE START -->
+                                <!-- ALL TABLE START -->
                                 <?php include "../partials/utils/admin-table.php" ?>
-                                <!-- ADMIN TABLE END -->
-
-                                <!-- USER TABLE START -->
                                 <?php include "../partials/utils/user-table.php" ?>
-                                <!-- USER TABLE END -->
-
-                                <!-- PRODUCT TABLE START -->
                                 <?php include "../partials/utils/product-table.php" ?>
-                                <!-- PRODUCT TABLE END -->
-
-                                <!-- TRANSACTION TABLE START -->
                                 <?php include "../partials/utils/transaction-table.php" ?>
-                                <!-- TRANSACTION TABLE END -->
+                                <!-- ALL TABLE END -->
                             </div>
                         </div>
                         <!-- FOOTER START -->
@@ -107,27 +96,17 @@
         </section>
     </section>
 
-    <!-- MODAL UPLOAD PRODUCT START -->
-
-    <!-- MODAL UPLOAD PRODUCT END -->
-
-    <!-- MODAL ADD ADMIN START -->
+    <!-- ALL MODAL START -->
     <?php
     include "../partials/utils/modal-add-admin.php";
     ?>
-    <!-- MODAL ADD ADMIN END -->
-
-    <!-- MODAL EDIT ADMIN START -->
     <?php
     include "../partials/utils/modal-edit-admin.php";
     ?>
-    <!-- MODAL EDIT ADMIN END -->
-
-    <!-- MODAL SEND FEEDBACK START -->
     <?php
     include "../partials/utils/send-feedback.php";
     ?>
-    <!-- MODAL SEND FEEDBACK END -->
+    <!-- ALL MODAL END -->
 
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
