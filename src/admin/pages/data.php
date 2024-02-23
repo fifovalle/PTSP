@@ -1,3 +1,7 @@
+<?php
+// DATABASES
+include '../config/databases.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -15,6 +19,9 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- FAVICON -->
     <link rel="icon" href="../assets/image/logo/1.png">
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -103,14 +110,18 @@
     <!-- ALL MODAL END -->
 
     <!-- CDN JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <!-- OUR JS -->
     <script src="../assets/our/js/data.js"></script>
     <script src="../assets/our/js/index.js"></script>
     <script src="../assets/our/js/filter-data.js"></script>
+    <script src="../assets/our/js/delete-admin.js"></script>
+    <script src="../assets/our/js/valueadmin.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- ALERT -->
+    <?php include '../partials/utils/alert.php' ?>
 </body>
 
 </html>

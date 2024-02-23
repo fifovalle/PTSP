@@ -138,10 +138,11 @@
     <!-- ALL MODAL END -->
 
     <!-- CDN JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <!-- OUR JS -->
     <script src="../src/admin/assets/our/js/index.js"></script>
+    <script src="../src/admin/assets/our/js/caret.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../src/admin/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </body>

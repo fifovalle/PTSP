@@ -58,21 +58,3 @@ $("body").on("click", function (event) {
     $searchInput.val("");
   }
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-  var caretIcon = document.querySelector(".caret-icon");
-
-  var hiddenContent = document.querySelector(".hidden-content");
-
-  caretIcon.addEventListener("click", function () {
-    if (caretIcon.classList.contains("fa-caret-up")) {
-      caretIcon.classList.remove("fa-caret-up");
-      caretIcon.classList.add("fa-caret-down");
-    } else {
-      caretIcon.classList.remove("fa-caret-down");
-      caretIcon.classList.add("fa-caret-up");
-    }
-
-    hiddenContent.classList.toggle("show");
-  });
-});

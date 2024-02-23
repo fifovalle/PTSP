@@ -8,57 +8,58 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="fotoAdd" class="form-label">Foto</label>
-                        <input type="file" class="form-control" id="fotoAdd" autocomplete="off">
+                        <label for="fotoEditAdmin" class="form-label">Foto</label>
+                        <input type="file" class="form-control" id="fotoEditAdmin" name="Foto_Admin">
                     </div>
                     <div class="mb-3">
-                        <label for="frontNameAddAdmin" class="form-label">Nama Depan</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Depan Admin" id="frontNameAddAdmin" autocomplete="off">
+                        <label for="frontNameEditAdmin" class="form-label">Nama Depan</label>
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Depan Admin" id="frontNameEditAdmin" name="Nama_Depan_Admin">
                     </div>
                     <div class="mb-3">
-                        <label for="backNameAddAdmin" class="form-label">Nama Belakang</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Belakang Admin" id="backNameAddAdmin" autocomplete="off">
+                        <label for="backNameEditAdmin" class="form-label">Nama Belakang</label>
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Belakang Admin" id="backNameEditAdmin" name="Nama_Belakang_Admin">
                     </div>
                     <div class="mb-3">
-                        <label for="userNameAddAdmin" class="form-label">Nama Pengguna</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Pengguna Admin" id="userNameAddAdmin" autocomplete="off">
+                        <label for="userNameEditAdmin" class="form-label">Nama Pengguna</label>
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Pengguna Admin" id="userNameEditAdmin" name="Nama_Pengguna_Admin">
                     </div>
                     <div class="mb-3">
-                        <label for="emailAddAdmin" class="form-label">Email</label>
-                        <input type="email" class="form-control inputData" placeholder="Masukan Email Admin" id="emailAddAdmin" autocomplete="off">
+                        <label for="emailEditAdmin" class="form-label">Email</label>
+                        <input type="email" class="form-control inputData" placeholder="Masukan Email Admin" id="emailEditAdmin" name="Email_Admin">
                     </div>
                     <div class="mb-3">
-                        <label for="numberAddAdmin" class="form-label">Nomor Telepon</label>
+                        <label for="numberEditAdmin" class="form-label">Nomor Telepon</label>
                         <div class="input-group">
                             <span class="input-group-text spanNumberData">+62</span>
-                            <input type="number" placeholder="Masukan Nomor Telepon Admin" class="form-control inputData" id="numberAddAdmin" autocomplete="off">
+                            <input type="text" placeholder="Masukan Nomor Telepon Admin" class="form-control inputData" id="numberEditAdmin" name="No_Telepon_Admin">
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="ganderAddAdmin" class="form-label">Jenis Kelamin</label>
-                        <select name="" id="ganderAddAdmin" class="form-control inputData">
+                        <label for="ganderEditAdmin" class="form-label">Jenis Kelamin</label>
+                        <select name="Jenis_Kelamin_Admin" id="ganderEditAdmin" class="form-control inputData">
                             <option value="" selected>Pilih Jenis Kelamin Anda</option>
                             <option value="Pria">Pria</option>
                             <option value="Wanita">Wanita</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="roleAddAdmin" class="form-label">Peran Admin</label>
-                        <select name="" id="roleAddAdmin" class="form-control inputData">
+                        <label for="roleEditAdmin" class="form-label">Peran Admin</label>
+                        <select name="Peran_Admin" id="roleEditAdmin" class="form-control inputData">
                             <option value="" selected>Pilih Peran Admin</option>
-                            <option value="Super Admin">Super Admin</option>
-                            <option value="Instansi A">Instansi A</option>
-                            <option value="Instansi B">Instansi B</option>
-                            <option value="Instansi C">Instansi C</option>
+                            <option value="1">Super Admin</option>
+                            <option value="2">Instansi A</option>
+                            <option value="3">Instansi B</option>
+                            <option value="4">Instansi C</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="addressAddAdmin" class="form-label">Alamat Admin</label>
-                        <textarea name="" placeholder="Masukan Alamat Admin" class="form-control inputData addressAddAdmin" id="addressAddAdmin" autocomplete="off"></textarea>
+                        <label for="addressEditAdmin" class="form-label">Alamat Admin</label>
+                        <textarea name="Alamat_Admin" placeholder="Masukan Alamat Admin" class="form-control inputData addressAddAdmin" id="addressEditAdmin"></textarea>
                     </div>
-                    <button type="submit" class="btn btnUpload">Simpan</button>
+                    <input type="hidden" id="editAdminID" name="editAdminID">
+                    <button type="submit" class="btn btnUpload" id="tombolSimpan" name="Simpan">Kirim</button>
                 </form>
             </div>
         </div>

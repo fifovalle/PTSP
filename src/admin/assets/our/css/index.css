@@ -43,6 +43,22 @@ a {
     display: none;
 }
 
+.alert-title {
+    color: var(--kotakHover);
+}
+
+.alert-content {
+    color: var(--kotakHover);
+}
+
+.custom-swal-title {
+    color: var(--kotakHover);
+}
+
+.custom-swal-content {
+    color: var(--kotakHover);
+}
+
 /* =============================NAVBAR START============================= */
 .viewAll:hover {
     color: var(--teksTautanHover);

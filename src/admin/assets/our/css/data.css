@@ -239,4 +239,21 @@
     opacity: 1;
 }
 
+.parentPassword,
+.parentConfirmPassword {
+    position: relative;
+}
+
+.iconInputContainer {
+    position: absolute;
+    top: 59%;
+    right: 20px;
+    color: var(--teksTautanHover);
+    cursor: pointer;
+}
+
+.iconInputContainer {
+    font-size: 1.2em;
+}
+
 /* =============================MAIN END============================= */
