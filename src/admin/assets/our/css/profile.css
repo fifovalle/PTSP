@@ -1,0 +1,45 @@
+.card {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    position: relative;
+}
+
+.avatarimage {
+    border-radius: 10px;
+    width: 170px;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    cursor: pointer;
+}
+
+.avatar:hover .avatarimage {
+    opacity: 0.3;
+}
+
+.avatar:hover .middle {
+    opacity: 1;
+}
+
+.bx-pencil {
+    font-size: 30px;
+}
+
+.text-small {
+    font-size: 14px;
+}
