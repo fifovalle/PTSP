@@ -66,12 +66,6 @@
                                     <span>Nama Pengguna</span>
                                 </div>
                                 <div class="col listDropdownFilter">
-                                    <span>Nama Depan</span>
-                                </div>
-                                <div class="col listDropdownFilter">
-                                    <span>Nama Belakang</span>
-                                </div>
-                                <div class="col listDropdownFilter">
                                     <span>Email</span>
                                 </div>
                             </div>
@@ -114,6 +108,7 @@
     <!-- OUR JS -->
     <script src="../assets/our/js/data.js"></script>
     <script src="../assets/our/js/index.js"></script>
+    <script src="../assets/our/js/filter-data.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </body>

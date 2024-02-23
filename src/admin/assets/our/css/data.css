@@ -225,7 +225,8 @@
 }
 
 .listDropdownFilter {
-    height: 35px;
+    padding-top: 3px;
+    height: 40px;
     margin: auto;
 }
 
