@@ -98,6 +98,24 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <h5 class="card-title pt-4 mx-auto">Transaksi Terbaru</h5>
+                                <hr>
+                                <div class="row mx-2 my-3">
+                                    <div class="col-3">
+                                        <img src="../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
+                                    </div>
+                                    <div class="col-9">
+                                        <h5>Seismon</h5>
+                                        <p class="card-text textCardProduct">Naufal FIFA</p>
+                                    </div>
+                                </div>
+                                <div class="card-body btnAnalitic">
+                                    <a href="#" class="card-link">Lihat Analitik</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- FOOTER START -->
                     <?php
