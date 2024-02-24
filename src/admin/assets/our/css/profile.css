@@ -1,3 +1,4 @@
+/* =============================MAIN END============================= */
 .card {
     display: inline-block;
     width: 100%;
@@ -16,7 +17,7 @@
     border-radius: 3px;
     width: 135px;
     height: 130px;
-    transition: .5s ease;
+    transition: 0.5s ease;
     backface-visibility: hidden;
 }
 
@@ -39,7 +40,7 @@
 }
 
 .middle {
-    transition: .5s ease;
+    transition: 0.5s ease;
     opacity: 0;
     position: absolute;
     top: 50%;
@@ -69,3 +70,9 @@
 .text-small {
     font-size: 14px;
 }
+
+.dataEditAccount {
+    display: none;
+}
+
+/* =============================MAIN END============================= */
