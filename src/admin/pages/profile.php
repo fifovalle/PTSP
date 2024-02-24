@@ -95,11 +95,24 @@
         </section>
     </section>
 
+    <!-- ALL MODAL START -->
+    <?php
+    include "../partials/utils/modal-add-admin.php";
+    ?>
+    <?php
+    include "../partials/utils/modal-add-user.php";
+    ?>
+    <?php
+    include "../partials/utils/modal-send-feedback.php";
+    ?>
+    <!-- ALL MODAL END -->
+
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <!-- OUR JS -->
     <script src="../assets/our/js/index.js"></script>
+    <script src="../assets/our/js/toggle-password.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
