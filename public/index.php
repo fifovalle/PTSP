@@ -145,7 +145,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <!-- OUR JS -->
     <script src="../src/admin/assets/our/js/index.js"></script>
-    <script src="../src/admin/assets/our/js/toogle-password.js"></script>
+    <script src="../src/admin/assets/our/js/toggle-password.js"></script>
     <script src="../src/admin/assets/our/js/caret.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../src/admin/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

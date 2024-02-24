@@ -96,7 +96,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <!-- OUR JS -->
     <script src="../assets/our/js/analitic.js"></script>
-    <script src="../assets/our/js/toogle-password.js"></script>
+    <script src="../assets/our/js/toggle-password.js"></script>
     <script src="../assets/our/js/index.js"></script>
     <script src="../assets/our/js/chart-analytics.js"></script>
     <script src="../assets/our/js/apexcharts.js"></script>
