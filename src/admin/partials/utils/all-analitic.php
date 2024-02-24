@@ -1,5 +1,5 @@
 <div class="allData">
-    <div class="card ">
+    <div class="card">
         <h5 class="card-title pt-4 mx-auto">Laporan Anda Selama 7 Hari Terakhir</h5>
         <hr>
         <div class="d-flex justify-content-around">
@@ -19,10 +19,8 @@
                 <span class="performanceBoxData">Lebih Buruk</span>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div id="chart"></div>
-            </div>
+        <div class="row mx-1">
+            <div id="chart"></div>
         </div>
     </div>
 </div>

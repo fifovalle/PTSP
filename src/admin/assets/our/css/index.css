@@ -408,6 +408,12 @@ main {
     margin-left: 268px;
 }
 
+@media screen and (width: 1536px) {
+    main {
+        margin-left: 250px;
+    }
+}
+
 .mainWebsite {
     margin-top: 77px;
 }

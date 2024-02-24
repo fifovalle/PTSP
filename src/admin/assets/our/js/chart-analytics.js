@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
     chart: {
       type: "bar",
       foreColor: "#fff",
-      height: "500",
-      width: "1260",
     },
     series: [
       {
