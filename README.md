@@ -21,7 +21,7 @@ Jelajahi karya terbaru dan keterampilan saya dalam dunia pengembangan perangkat 
 
 Berikut adalah beberapa tampilan halaman website :
 
-![Screenshot 2024-02-22 111421](https://github.com/fifovalle/DASHBOARD-ADMIN-VERSI-2.0/assets/90078068/a84aba4a-1c0f-45e4-ad5d-a03c7a3ce126)
+![Screenshot 2024-02-25 005738](https://github.com/fifovalle/DASHBOARD-ADMIN-VERSI-2.0/assets/90078068/0755b257-b3b6-46fa-9bec-e1519b45f282)
 ![Screenshot 2024-02-22 111445](https://github.com/fifovalle/DASHBOARD-ADMIN-VERSI-2.0/assets/90078068/0c71121a-9b19-4006-a957-02fabac5e8dd)
 ![Screenshot 2024-02-25 005537](https://github.com/fifovalle/DASHBOARD-ADMIN-VERSI-2.0/assets/90078068/fd6143a4-d63c-4a1b-80d1-f890f3dda3eb)
 
