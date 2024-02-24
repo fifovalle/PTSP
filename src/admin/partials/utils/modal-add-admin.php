@@ -49,7 +49,7 @@
                     <div class="mb-3">
                         <label for="genderAdmin" class="form-label">Jenis Kelamin</label>
                         <select name="Jenis_Kelamin_Admin" id="genderAdmin" class="form-control inputData">
-                            <option value="" selected>Pilih Jenis Kelamin Anda</option>
+                            <option value="" selected>Pilih Jenis Kelamin Admin</option>
                             <option value="Pria">Pria</option>
                             <option value="Wanita">Wanita</option>
                         </select>

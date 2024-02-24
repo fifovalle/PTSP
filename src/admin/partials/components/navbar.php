@@ -49,7 +49,7 @@ $akarUrl = "http://localhost/PTSP/";
                     <div class="dropdown-menu optionUpload" aria-labelledby="dropdownMenuButton" id="dropdownMenuUpload">
                         <div>
                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addAdmin" href="#"><i class="fas fa-user-secret me-2 my-2"></i>Tambah Admin</a>
-                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#uploadProduct" href="#"><i class="fas fa-users me-2 my-2"></i>Tambah Pengguna</a>
+                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addUser" href="#"><i class="fas fa-users me-2 my-2"></i>Tambah Pengguna</a>
                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#uploadProduct" href="#"><i class="fas fa-cart-plus me-2 my-2"></i>Tambah Produk</a>
                         </div>
                     </div>
