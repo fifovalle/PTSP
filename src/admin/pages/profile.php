@@ -37,20 +37,31 @@
                         <h1 class="breadcrumb">Profil Saya</h1>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 mb-3">
+                        <div class="col-lg-12 mb-2">
+                            <img src="../assets/image/pages/banner2.jpg" class="banner-image" alt="Banner Image">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 mb-2">
                             <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-center align-items-center flex-column">
-                                        <div class="avatar">
-                                            <img src="../assets/image/logo/avatar2.jpg" class="avatarimage" alt="Avatar">
-                                            <div class="middle" id="editAvatar"><i class='bx bx-pencil'></i></div>
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="row">
+                                        <div class="col-lg-12 mb-2">
+                                            <div class="avatar">
+                                                <img src="../assets/image/logo/avatar2.jpg" class="avatarimage" alt="Avatar">
+                                                <div class="middle" id="editAvatar"><i class='bx bx-pencil'></i></div>
+                                            </div>
                                         </div>
-                                        <h3 class="mt-3">John Doe</h3>
-                                        <p class="text-small">Junior Software Engineer</p>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h3 class="textProfile">Naufal</h3>
+                                        <p class="d-flex text textProfileDesc"><i class='bx bx-cog'></i>Super Admin</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-lg-8 mb-3">
                             <div class="card">
                                 <div class="card-body">
@@ -101,6 +112,9 @@
     ?>
     <?php
     include "../partials/utils/modal-add-user.php";
+    ?>
+    <?php
+    include "../partials/utils/modal-add-product.php";
     ?>
     <?php
     include "../partials/utils/modal-send-feedback.php";

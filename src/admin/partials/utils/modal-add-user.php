@@ -55,16 +55,6 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="roleUser" class="form-label">Peran Pengguna</label>
-                        <select name="Peran_Pengguna" id="roleUser" class="form-control inputData">
-                            <option value="" selected>Pilih Peran Pengguna</option>
-                            <option value="1">Super Pengguna</option>
-                            <option value="2">Instansi A</option>
-                            <option value="3">Instansi B</option>
-                            <option value="4">Instansi C</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
                         <label for="addressUser" class="form-label">Alamat Pengguna</label>
                         <textarea name="Alamat_Pengguna" placeholder="Masukan Alamat Pengguna" class="form-control inputData addressAddPengguna" id="addressUser" autocomplete="off"></textarea>
                     </div>

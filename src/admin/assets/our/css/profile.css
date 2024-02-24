@@ -6,14 +6,36 @@
 
 .avatar {
     position: relative;
+    margin-right: 10px;
+    margin-left: 20px;
+    margin-top: -90px;
 }
 
 .avatarimage {
-    border-radius: 10px;
-    width: 170px;
-    height: auto;
+    border: 4px solid #fff;
+    border-radius: 3px;
+    width: 135px;
+    height: 130px;
     transition: .5s ease;
     backface-visibility: hidden;
+}
+
+.banner-image {
+    border-radius: 5px;
+    margin-bottom: -20px;
+    width: 100%;
+    height: 200px;
+}
+
+.textProfile {
+    margin-top: -40px;
+}
+
+.textProfileDesc {
+    display: flex;
+    font-size: 14px;
+    margin-top: -5px;
+    margin-bottom: -100px;
 }
 
 .middle {
@@ -29,7 +51,7 @@
 }
 
 .avatar:hover .avatarimage {
-    opacity: 0.3;
+    opacity: 0.8;
 }
 
 .avatar:hover .middle {
@@ -37,7 +59,11 @@
 }
 
 .bx-pencil {
-    font-size: 30px;
+    font-size: 25px;
+}
+
+.bx-cog {
+    font-size: 23px;
 }
 
 .text-small {
