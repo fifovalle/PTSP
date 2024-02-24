@@ -130,7 +130,9 @@ include '../config/databases.php';
     <script src="../assets/our/js/toggle-password.js"></script>
     <script src="../assets/our/js/filter-data.js"></script>
     <script src="../assets/our/js/delete-admin.js"></script>
+    <script src="../assets/our/js/delete-product.js"></script>
     <script src="../assets/our/js/valueadmin.js"></script>
+    <script src="../assets/our/js/valueproduct.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- ALERT -->

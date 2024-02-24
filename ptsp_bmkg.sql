@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2024 at 07:58 AM
+-- Generation Time: Feb 24, 2024 at 07:13 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `ID_Admin` int(11) NOT NULL,
-  `Foto` varchar(100) NOT NULL,
+  `Foto` longblob NOT NULL,
   `Nama_Depan_Admin` varchar(30) NOT NULL,
   `Nama_Belakang_Admin` varchar(30) NOT NULL,
   `Nama_Pengguna_Admin` varchar(30) NOT NULL,
@@ -43,13 +43,6 @@ CREATE TABLE `admin` (
   `Status_Verifikasi_Admin` enum('Terverivikasi','Belum Terverifikasi') NOT NULL,
   `token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admin`, `Nama_Pengguna_Admin`, `Email_Admin`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Admin`, `Jenis_Kelamin_Admin`, `Peran_Admin`, `Alamat_Admin`, `Status_Verifikasi_Admin`, `token`) VALUES
-(51, '../assets/image/uploads/65d9915089514.jpg', 'a', 'a', 'a', 'ahsanghiff@gmail.com', '$2y$10$tuEpKQIwN7leL1.zHkh6Z./osapGELyoiQC4WtEFgIOwWh//gT21u', '$2y$10$tuEpKQIwN7leL1.zHkh6Z./osapGELyoiQC4WtEFgIOwWh//gT21u', '+62  812-4118-8340', 'Wanita', 1, 'a', 'Belum Terverifikasi', 65);
 
 -- --------------------------------------------------------
 
@@ -71,6 +64,24 @@ CREATE TABLE `pengguna` (
   `token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `produk`
+--
+
+CREATE TABLE `produk` (
+  `ID_Produk` int(11) NOT NULL,
+  `Foto_Produk` longblob NOT NULL,
+  `Nama_Produk` varchar(30) NOT NULL,
+  `Deskripsi_Produk` text NOT NULL,
+  `Harga_Produk` int(11) NOT NULL,
+  `Stok_Produk` int(11) NOT NULL,
+  `Pemilik_Produk` enum('Instansi A','Instansi B','Instansi C') NOT NULL,
+  `No_Rekening` int(15) NOT NULL,
+  `Status_Produk` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -88,6 +99,12 @@ ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`ID_Pengguna`);
 
 --
+-- Indexes for table `produk`
+--
+ALTER TABLE `produk`
+  ADD PRIMARY KEY (`ID_Produk`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -95,7 +112,13 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
+-- AUTO_INCREMENT for table `produk`
+--
+ALTER TABLE `produk`
+  MODIFY `ID_Produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -8,10 +8,11 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" action="../config" enctype="multipart/form-data">
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" id="editProdukID" name="ID_Produk" autocomplete="off">
                     <div class="mb-3">
                         <label for="productEditFoto" class="form-label">Foto</label>
-                        <input type="file" class="form-control" id="productEditFoto" name="Foto_Pengguna" autocomplete="off">
+                        <input type="file" class="form-control" id="productEditFoto" name="Foto_Produk" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="nameEditProduct" class="form-label">Nama Produk</label>

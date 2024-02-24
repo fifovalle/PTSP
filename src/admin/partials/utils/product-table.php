@@ -29,39 +29,53 @@
         </tr>
     </thead>
     <tbody class="tbodyData">
-        <tr class="trDataN">
-            <td class="text-center">
-                <input class="checkBoxData checkBoxDataProduct" type="checkbox">
-            </td>
-            <td class="text-center">1</td>
-            <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
-                <div>
-                    <img class="imageData" src="../assets/image/uploads/2.png" alt="Foto Admin">
-                </div>
-                <div class="deskriptorContainer">
-                    <p class="fw-semibold m-auto">Seismon</p>
-                    <p class="fw-semibold deskriptorSmall m-auto">Lorem, ipsum...
-                    <div class="iconContainerData">
-                        <a class="linkData" data-bs-toggle="modal" data-bs-target="#editProduct">
-                            <span>
-                                <i class=" fas fa-edit"></i>
-                            </span>
-                        </a>
-                        <a class="linkData iconDataRight">
-                            <span>
-                                <i class="fas fa-trash"></i>
-                            </span>
-                        </a>
-                    </div>
-                    </p>
-                </div>
-            </td>
-            <td class="text-center">Rp 10.000</td>
-            <td class="text-center">20</td>
-            <td class="text-center">Instansi A</td>
-            <td class="text-center">
-                <span class="badge text-bg-success">Tersedia</span>
-            </td>
-        </tr>
+        <?php
+        $produkModel = new Produk($koneksi);
+        $dataProduk = $produkModel->tampilkanDataProduk();
+
+        if (!empty($dataProduk)) {
+            $nomorUrut = 1;
+            foreach ($dataProduk as $produk) {
+        ?>
+                <tr class="trDataN">
+                    <td class="text-center">
+                        <input class="checkBoxData checkBoxDataProduct" type="checkbox">
+                    </td>
+                    <td class="text-center"><?php echo $nomorUrut++; ?></td>
+                    <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
+                        <div>
+                            <img class="imageData" src="<?php echo $produk['Foto_Produk']; ?>" alt="Foto Produk">
+                        </div>
+                        <div class="deskriptorContainer">
+                            <p class="fw-semibold m-auto"><?php echo $produk['Nama_Produk']; ?></p>
+                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $produk['Deskripsi_Produk']; ?></p>
+                            <div class="iconContainerData">
+                                <a class="linkData" data-id='<?php echo $produk['ID_Produk']; ?>'>
+                                    <span><i class="fas fa-edit"></i></span>
+                                </a>
+                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDelete(<?php echo $produk['ID_Produk']; ?>)">
+                                    <span>
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="text-center">Rp <?php echo number_format($produk['Harga_Produk'], 0, ',', '.'); ?></td>
+                    <td class="text-center"><?php echo $produk['Stok_Produk']; ?></td>
+                    <td class="text-center"><?php echo $produk['Pemilik_Produk']; ?></td>
+                    <td class="text-center">
+                        <?php
+                        echo ($produk['Status_Produk'] == 1) ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Tidak Tersedia</span>';
+                        ?>
+                    </td>
+                </tr>
+        <?php
+            }
+        } else {
+            echo "<tr><td colspan='7' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Produk!</td></tr>";
+        }
+        ?>
     </tbody>
+
 </table>

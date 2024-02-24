@@ -8,10 +8,10 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" action="../config" enctype="multipart/form-data">
+                <form method="POST" action="../config/add-product.php" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="productFoto" class="form-label">Foto</label>
-                        <input type="file" class="form-control" id="productFoto" name="Foto_Pengguna" autocomplete="off">
+                        <input type="file" class="form-control" id="productFoto" name="Foto_Produk" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="nameProduct" class="form-label">Nama Produk</label>

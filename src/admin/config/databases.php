@@ -126,6 +126,9 @@ class Admin
 }
 
 // ===================================ADMIN===================================
+
+
+// ===================================PENGGUNA===================================
 class Pengguna
 {
     private $koneksi;
@@ -233,3 +236,132 @@ class Pengguna
         }
     }
 }
+// ===================================PENGGUNA===================================
+
+
+// ===================================PRODUK===================================
+
+class Produk
+{
+    private $koneksi;
+
+    public function __construct($koneksi)
+    {
+        $this->koneksi = $koneksi;
+    }
+
+    public function tambahProduk($data)
+    {
+        $query = "INSERT INTO produk (Foto_Produk, Nama_Produk, Deskripsi_Produk, Harga_Produk, Stok_Produk, Pemilik_Produk,  Status_Produk) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("sssiisi", $data['Foto_Produk'], $data['Nama_Produk'], $data['Deskripsi_Produk'], $data['Harga_Produk'], $data['Stok_Produk'], $data['Pemilik_Produk'],  $data['Status_Produk']);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tampilkanDataProduk()
+    {
+        $query = "SELECT * FROM produk";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function perbaruiProduk($id, $data)
+    {
+        $query = "UPDATE produk SET Foto_Produk=?, Nama_Produk=?, Deskripsi_Produk=?, Harga_Produk=?, Stok_Produk=?, Pemilik_Produk=?, Status_Produk=? WHERE ID_Produk=?";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("sssiisii", $data['Foto_Produk'], $data['Nama_Produk'], $data['Deskripsi_Produk'], $data['Harga_Produk'], $data['Stok_Produk'], $data['Pemilik_Produk'], $data['Status_Produk'], $id);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function hapusProduk($id)
+    {
+        $query = "SELECT ID_Produk, Foto_Produk FROM produk WHERE ID_Produk=?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+        $idPemilikFoto = $row['ID_Produk'];
+        $namaFoto = $row['Foto_Produk'];
+
+        if ($idPemilikFoto != $id) {
+            return false;
+        }
+
+        $queryDelete = "DELETE FROM produk WHERE ID_Produk=?";
+        $statementDelete = $this->koneksi->prepare($queryDelete);
+        $statementDelete->bind_param("i", $id);
+        $isDeleted = $statementDelete->execute();
+
+        if ($isDeleted) {
+            $lokasiFoto =  $namaFoto;
+
+            if (file_exists($lokasiFoto)) {
+                if (unlink($lokasiFoto)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function getDataProdukById($id)
+    {
+        $query = "SELECT * FROM produk WHERE ID_Produk = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data;
+        } else {
+            return false;
+        }
+    }
+
+    public function getFotoProdukById($idProduk)
+    {
+        $query = "SELECT Foto_Produk FROM produk WHERE ID_Produk = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $idProduk);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['Foto_Produk'];
+        } else {
+            return null;
+        }
+    }
+}
+
+// ===================================PRODUK===================================
