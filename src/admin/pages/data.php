@@ -105,6 +105,9 @@ include '../config/databases.php';
     include "../partials/utils/modal-add-user.php";
     ?>
     <?php
+    include "../partials/utils/modal-add-product.php";
+    ?>
+    <?php
     include "../partials/utils/modal-edit-admin.php";
     ?>
     <?php

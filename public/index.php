@@ -136,6 +136,9 @@
     include "../src/admin/partials/utils/modal-add-user.php";
     ?>
     <?php
+    include "../src/admin/partials/utils/modal-add-product.php";
+    ?>
+    <?php
     include "../src/admin/partials/utils/modal-send-feedback.php";
     ?>
     <!-- ALL MODAL END -->

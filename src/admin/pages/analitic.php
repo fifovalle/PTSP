@@ -87,6 +87,9 @@
     include "../partials/utils/modal-add-user.php";
     ?>
     <?php
+    include "../partials/utils/modal-add-product.php";
+    ?>
+    <?php
     include "../partials/utils/modal-send-feedback.php";
     ?>
     <!-- ALL MODAL END -->
