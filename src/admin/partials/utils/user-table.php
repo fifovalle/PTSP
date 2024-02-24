@@ -42,13 +42,13 @@
                     <p class="fw-semibold m-auto">zonaNyaman</p>
                     <p class="fw-semibold deskriptorSmall m-auto">Ahsan Ghifari
                     <div class="iconContainerData">
-                        <a class="linkData" data-bs-toggle="modal" data-bs-target="#editAdmin" href="">
-                            <span class="">
+                        <a class="linkData" data-bs-toggle="modal" data-bs-target="#editUser">
+                            <span>
                                 <i class=" fas fa-edit"></i>
                             </span>
                         </a>
-                        <a class="linkData iconDataRight" href="">
-                            <span class="">
+                        <a class="linkData iconDataRight">
+                            <span>
                                 <i class="fas fa-trash"></i>
                             </span>
                         </a>

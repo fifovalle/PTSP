@@ -33,7 +33,7 @@ $(document).ready(function () {
   });
 
   $(document).ready(function () {
-    $("#tombolSimpan").click(function (e) {
+    $("#tombolSimpanAdmin").click(function (e) {
       e.preventDefault();
 
       let formData = new FormData($(this).closest("form")[0]);

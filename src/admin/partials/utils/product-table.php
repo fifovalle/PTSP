@@ -42,13 +42,13 @@
                     <p class="fw-semibold m-auto">Seismon</p>
                     <p class="fw-semibold deskriptorSmall m-auto">Lorem, ipsum...
                     <div class="iconContainerData">
-                        <a class="linkData" data-bs-toggle="modal" data-bs-target="#editAdmin">
-                            <span class="">
+                        <a class="linkData" data-bs-toggle="modal" data-bs-target="#editProduct">
+                            <span>
                                 <i class=" fas fa-edit"></i>
                             </span>
                         </a>
                         <a class="linkData iconDataRight">
-                            <span class="">
+                            <span>
                                 <i class="fas fa-trash"></i>
                             </span>
                         </a>

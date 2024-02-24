@@ -111,6 +111,12 @@ include '../config/databases.php';
     include "../partials/utils/modal-edit-admin.php";
     ?>
     <?php
+    include "../partials/utils/modal-edit-user.php";
+    ?>
+    <?php
+    include "../partials/utils/modal-edit-product.php";
+    ?>
+    <?php
     include "../partials/utils/modal-send-feedback.php";
     ?>
     <!-- ALL MODAL END -->

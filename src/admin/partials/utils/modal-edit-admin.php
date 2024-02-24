@@ -40,7 +40,7 @@
                     <div class="mb-3">
                         <label for="ganderEditAdmin" class="form-label">Jenis Kelamin</label>
                         <select name="Jenis_Kelamin_Admin" id="ganderEditAdmin" class="form-control inputData">
-                            <option value="" selected>Pilih Jenis Kelamin Anda</option>
+                            <option value="" selected>Pilih Jenis Kelamin Admin</option>
                             <option value="Pria">Pria</option>
                             <option value="Wanita">Wanita</option>
                         </select>
@@ -59,7 +59,7 @@
                         <label for="addressEditAdmin" class="form-label">Alamat Admin</label>
                         <textarea name="Alamat_Admin" placeholder="Masukan Alamat Admin" class="form-control inputData addressAddAdmin" id="addressEditAdmin" autocomplete="off"></textarea>
                     </div>
-                    <button type="submit" class="btn btnUpload" id="tombolSimpan" name="Simpan">Kirim</button>
+                    <button type="submit" class="btn btnUpload" id="tombolSimpanAdmin" name="Simpan">Kirim</button>
                 </form>
             </div>
         </div>
