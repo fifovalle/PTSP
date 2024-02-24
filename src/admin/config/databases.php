@@ -140,10 +140,9 @@ class Pengguna
 
     public function tambahPengguna($data)
     {
-        $query = "INSERT INTO pengguna (Foto, Nama_Depan_Pengguna, Nama_Belakang_Pengguna, Nama_Pengguna_Pengguna, Email_Pengguna, No_Telepon_Pengguna, Jenis_Kelamin_Pengguna, Alamat_Pengguna, Status_Verifikasi_Pengguna, token, Peran_Admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
-
+        $query = "INSERT INTO pengguna (Foto, Nama_Depan_Pengguna, Nama_Belakang_Pengguna, Nama_Pengguna, Email_Pengguna, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Pengguna, Jenis_Kelamin_Pengguna, Alamat_Pengguna, Status_Verifikasi_Pengguna, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssssisiss", $data['Foto'], $data['Nama_Depan_Pengguna'], $data['Nama_Belakang_Pengguna'], $data['Nama_Pengguna_Pengguna'], $data['Email_Pengguna'], $data['No_Telepon_Pengguna'], $data['Jenis_Kelamin_Pengguna'], $data['Alamat_Pengguna'], $data['Status_Verifikasi_Pengguna'], $data['token']);
+        $statement->bind_param("ssssssssssii", $data['Foto'], $data['Nama_Depan_Pengguna'], $data['Nama_Belakang_Pengguna'], $data['Nama_Pengguna'], $data['Email_Pengguna'], $data['Kata_Sandi'], $data['Konfirmasi_Kata_Sandi'], $data['No_Telepon_Pengguna'], $data['Jenis_Kelamin_Pengguna'], $data['Alamat_Pengguna'], $data['Status_Verifikasi_Pengguna'], $data['token']);
 
         if ($statement->execute()) {
             return true;
@@ -170,10 +169,10 @@ class Pengguna
 
     public function perbaruiPengguna($id, $data)
     {
-        $query = "UPDATE pengguna SET Foto=?, Nama_Depan_Pengguna=?, Nama_Belakang_Pengguna=?, Nama_Penggguna_Pengguna=?, Email_Pengguna=?, No_Telepon_Pengguna=?, Jenis_Kelamin_Pengguna=?, Alamat_Pengguna=?, Status_Verivikasi_Pengguna=?, token=? WHERE ID_Pengguna=?";
+        $query = "UPDATE pengguna SET Foto=?, Nama_Depan_Pengguna=?, Nama_Belakang_Pengguna=?, Nama_Penggguna_Pengguna=?, Email_Pengguna=?, No_Telepon_Pengguna=?, Jenis_Kelamin_Pengguna=?, Alamat_Pengguna=?WHERE ID_Pengguna=?";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssssisissi", $data['Foto'], $data['Nama_Depan_Pengguna'], $data['Nama_Belakang_Pengguna'], $data['Nama_Penggguna_Pengguna'], $data['Email_Pengguna'], $data['No_Telepon_Pengguna'], $data['Jenis_Kelamin_Pengguna'], $data['Alamat_Pengguna'], $data['Status_Verivikasi_Pengguna'], $data['token'], $id);
+        $statement->bind_param("ssssssss", $data['Foto'], $data['Nama_Depan_Pengguna'], $data['Nama_Belakang_Pengguna'], $data['Nama_Penggguna_Pengguna'], $data['Email_Pengguna'], $data['No_Telepon_Pengguna'], $data['Jenis_Kelamin_Pengguna'], $data['Alamat_Pengguna'], $id);
 
         if ($statement->execute()) {
             return true;
@@ -181,7 +180,6 @@ class Pengguna
             return false;
         }
     }
-
 
     public function hapusPengguna($id)
     {
@@ -252,10 +250,10 @@ class Produk
 
     public function tambahProduk($data)
     {
-        $query = "INSERT INTO produk (Foto_Produk, Nama_Produk, Deskripsi_Produk, Harga_Produk, Stok_Produk, Pemilik_Produk,  Status_Produk) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO produk (Foto_Produk, Nama_Produk, Deskripsi_Produk, Harga_Produk, Stok_Produk, Pemilik_Produk, No_Rekening, Status_Produk) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssiisi", $data['Foto_Produk'], $data['Nama_Produk'], $data['Deskripsi_Produk'], $data['Harga_Produk'], $data['Stok_Produk'], $data['Pemilik_Produk'],  $data['Status_Produk']);
+        $statement->bind_param("sssiisii", $data['Foto_Produk'], $data['Nama_Produk'], $data['Deskripsi_Produk'], $data['Harga_Produk'], $data['Stok_Produk'], $data['Pemilik_Produk'], $data['No_Rekening'], $data['Status_Produk']);
 
         if ($statement->execute()) {
             return true;
@@ -282,10 +280,10 @@ class Produk
 
     public function perbaruiProduk($id, $data)
     {
-        $query = "UPDATE produk SET Foto_Produk=?, Nama_Produk=?, Deskripsi_Produk=?, Harga_Produk=?, Stok_Produk=?, Pemilik_Produk=?, Status_Produk=? WHERE ID_Produk=?";
+        $query = "UPDATE produk SET Foto_Produk=?, Nama_Produk=?, Deskripsi_Produk=?, Harga_Produk=?, Stok_Produk=?, Pemilik_Produk=?, No_Rekening=?, Status_Produk=? WHERE ID_Produk=?";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssiisii", $data['Foto_Produk'], $data['Nama_Produk'], $data['Deskripsi_Produk'], $data['Harga_Produk'], $data['Stok_Produk'], $data['Pemilik_Produk'], $data['Status_Produk'], $id);
+        $statement->bind_param("sssiisiii", $data['Foto_Produk'], $data['Nama_Produk'], $data['Deskripsi_Produk'], $data['Harga_Produk'], $data['Stok_Produk'], $data['Pemilik_Produk'], $data['No_Rekening'], $data['Status_Produk'], $id);
 
         if ($statement->execute()) {
             return true;

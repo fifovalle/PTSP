@@ -1,3 +1,9 @@
+<?php
+// AKAR TAUTAN
+$akarUrl = "http://localhost/PTSP/";
+// HALAMAN SAAT DIBUKA
+$halamanSaatIni = basename($_SERVER['PHP_SELF']);
+?>
 <div class="modal fade" id="addAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -8,7 +14,7 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" action="../config/add-admin.php" enctype="multipart/form-data">
+                <form method="POST" action="<?php echo $akarUrl; ?>src/admin/config/add-admin.php" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="fotoAdmin" class="form-label">Foto</label>
                         <input type="file" class="form-control" id="fotoAdmin" name="Foto_Admin" autocomplete="off">

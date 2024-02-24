@@ -54,10 +54,10 @@
                             <p class="fw-semibold m-auto"><?php echo $admin['Nama_Pengguna_Admin']; ?></p>
                             <p class="fw-semibold deskriptorSmall m-auto"><?php echo $admin['Nama_Depan_Admin'] . ' ' . $admin['Nama_Belakang_Admin']; ?></p>
                             <div class="iconContainerData">
-                                <a class="linkData" data-id='<?php echo $admin['ID_Admin']; ?>'>
+                                <a class="linkData buttonAdmin" data-id='<?php echo $admin['ID_Admin']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>
                                 </a>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDelete(<?php echo $admin['ID_Admin']; ?>)">
+                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteAdmin(<?php echo $admin['ID_Admin']; ?>)">
                                     <span><i class="fas fa-trash"></i></span>
                                 </a>
                             </div>

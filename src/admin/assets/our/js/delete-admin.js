@@ -1,4 +1,4 @@
-function confirmDelete(id) {
+function confirmDeleteAdmin(id) {
   swal({
     title: "Yakin Menghapus Akun?",
     text: "Akun yang dihapus tidak dapat dipulihkan!",
@@ -18,10 +18,6 @@ function confirmDelete(id) {
         className: "",
         closeModal: true,
       },
-    },
-    customClass: {
-      title: "custom-swal-title",
-      content: "custom-swal-content",
     },
   }).then((confirm) => {
     if (confirm) {

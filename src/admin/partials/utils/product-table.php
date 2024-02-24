@@ -50,10 +50,10 @@
                             <p class="fw-semibold m-auto"><?php echo $produk['Nama_Produk']; ?></p>
                             <p class="fw-semibold deskriptorSmall m-auto"><?php echo $produk['Deskripsi_Produk']; ?></p>
                             <div class="iconContainerData">
-                                <a class="linkData" data-id='<?php echo $produk['ID_Produk']; ?>'>
+                                <a class="linkData buttonProduk" data-id='<?php echo $produk['ID_Produk']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>
                                 </a>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDelete(<?php echo $produk['ID_Produk']; ?>)">
+                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteProduct(<?php echo $produk['ID_Produk']; ?>)">
                                     <span>
                                         <i class="fas fa-trash"></i>
                                     </span>

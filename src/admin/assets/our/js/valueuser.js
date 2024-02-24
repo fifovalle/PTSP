@@ -1,30 +1,29 @@
 $(document).ready(function () {
-  $(".buttonAdmin").click(function (e) {
+  $(".buttonUser").click(function (e) {
     e.preventDefault();
-    let adminID = $(this).data("id");
-    console.log(adminID);
+    let penggunaID = $(this).data("id");
+    console.log(penggunaID);
     $.ajax({
-      url: "../config/get-admin-data.php",
+      url: "../config/get-user-data.php",
       method: "GET",
       data: {
-        admin_id: adminID,
+        pengguna_id: penggunaID,
       },
       success: function (data) {
         console.log(data);
-        let adminData = JSON.parse(data);
-        let noTelepon = adminData.No_Telepon_Admin;
+        let userData = JSON.parse(data);
+        let noTelepon = userData.No_Telepon_Pengguna;
         noTelepon = noTelepon.replace("+62", "");
-        console.log(adminData);
-        $("#editAdminID").val(adminData.ID_Admin);
-        $("#frontNameEditAdmin").val(adminData.Nama_Depan_Admin);
-        $("#backNameEditAdmin").val(adminData.Nama_Belakang_Admin);
-        $("#userNameEditAdmin").val(adminData.Nama_Pengguna_Admin);
-        $("#emailEditAdmin").val(adminData.Email_Admin);
-        $("#numberEditAdmin").val(noTelepon);
-        $("#ganderEditAdmin").val(adminData.Jenis_Kelamin_Admin);
-        $("#roleEditAdmin").val(adminData.Peran_Admin);
-        $("#addressEditAdmin").val(adminData.Alamat_Admin);
-        $("#editAdmin").modal("show");
+        console.log(userData);
+        $("#editUserID").val(userData.ID_Pengguna);
+        $("#frontNameEditUser").val(userData.Nama_Depan_Pengguna);
+        $("#backNameEditUser").val(userData.Nama_Belakang_Pengguna);
+        $("#userNameEditUser").val(userData.Nama_Pengguna);
+        $("#emailEditUser").val(userData.Email_Pengguna);
+        $("#numberEditUser").val(noTelepon);
+        $("#ganderEditUser").val(userData.Jenis_Kelamin_Pengguna);
+        $("#addressEditPengguna").val(userData.Alamat_Pengguna);
+        $("#editUser").modal("show");
       },
       error: function (xhr) {
         console.error(xhr.responseText);
@@ -33,13 +32,13 @@ $(document).ready(function () {
   });
 
   $(document).ready(function () {
-    $("#tombolSimpanAdmin").click(function (e) {
+    $("#tombolSimpanPengguna").click(function (e) {
       e.preventDefault();
 
       let formData = new FormData($(this).closest("form")[0]);
 
       $.ajax({
-        url: "../config/edit-admin.php",
+        url: "../config/edit-user.php",
         method: "POST",
         data: formData,
         processData: false,
@@ -92,7 +91,7 @@ $(document).ready(function () {
           });
         },
         complete: function () {
-          $("#editAdmin").modal("hide");
+          $("#editUser").modal("hide");
         },
       });
     });

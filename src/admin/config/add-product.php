@@ -21,6 +21,7 @@ if (isset($_POST['Simpan'])) {
     $hargaProduk = $_POST['Harga_Produk'];
     $stokProduk = $_POST['Stok_Produk'];
     $pemilikProduk = $_POST['Pemilik_Produk'];
+    $noRekening = $_POST['No_Rekening'];
     $statusProduk = $_POST['Status_Produk'];
 
     $produkModel = new Produk($koneksi);
@@ -81,6 +82,7 @@ if (isset($_POST['Simpan'])) {
         'Harga_Produk' => $hargaProduk,
         'Stok_Produk' => $stokProduk,
         'Pemilik_Produk' => $pemilikProduk,
+        'No_Rekening' => $nomorRekeningFormatted,
         'Status_Produk' => $statusProduk
     );
 

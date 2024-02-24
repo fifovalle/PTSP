@@ -1,538 +1,532 @@
 :root {
-    --latar: #0f0e17;
-    --teks: #fffffe;
-    --teksTautan: #3bd39b;
-    --teksTautanHover: #a7a9be;
-    --kotakHover: black;
+  --latar: #0f0e17;
+  --teks: #fffffe;
+  --teksTautan: #3bd39b;
+  --teksTautanHover: #a7a9be;
+  --kotakHover: black;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: var(--kotakHover);
-    overflow-x: hidden;
+  background: var(--kotakHover);
+  overflow-x: hidden;
 }
 
 a {
-    color: var(--teksTautan);
-    text-decoration: none;
+  color: var(--teksTautan);
+  text-decoration: none;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--teksTautanHover);
+  background: var(--teksTautanHover);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--latar);
+  background: var(--latar);
 }
 
 .element-tanpa-scrollbar {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .element-tanpa-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
-.alert-title {
-    color: var(--kotakHover);
-}
-
+.alert-title,
 .alert-content {
-    color: var(--kotakHover);
+  color: var(--kotakHover);
 }
 
-.custom-swal-title {
-    color: var(--kotakHover);
-}
-
-.custom-swal-content {
-    color: var(--kotakHover);
+.swal-text,
+.swal-title {
+  color: var(--kotakHover);
 }
 
 /* =============================NAVBAR START============================= */
 .viewAll:hover {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .ptsp {
-    padding-top: 15px;
-    padding-left: 6px;
+  padding-top: 15px;
+  padding-left: 6px;
 }
 
 .color {
-    background: var(--latar);
-    color: var(--teks);
+  background: var(--latar);
+  color: var(--teks);
 }
 
 .logo {
-    width: 100%;
-    height: 40px;
+  width: 100%;
+  height: 40px;
 }
 
 .image {
-    width: 100%;
-    height: 40px;
-    border-radius: 50%;
+  width: 100%;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .search {
-    width: 620px;
-    background: transparent;
+  width: 620px;
+  background: transparent;
 }
 
 .search::placeholder {
-    color: var(--teks);
+  color: var(--teks);
 }
 
 .search:focus {
-    background: var(--latar);
-    outline: none;
-    color: var(--teks);
-    box-shadow: inset 0 0 0 1px var(--teks);
+  background: var(--latar);
+  outline: none;
+  color: var(--teks);
+  box-shadow: inset 0 0 0 1px var(--teks);
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
 }
 
 .overlay.show {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .dropdown-menu {
-    width: 620px;
-    background: var(--latar);
-    color: var(--teks);
-    display: none;
-    z-index: 1000;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  width: 620px;
+  background: var(--latar);
+  color: var(--teks);
+  display: none;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .dropdown-menu.show {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .list {
-    padding: 1px 30px;
+  padding: 1px 30px;
 }
 
 .imageProduct {
-    width: 20%;
-    height: 10%;
-    margin-right: 15px;
+  width: 20%;
+  height: 10%;
+  margin-right: 15px;
 }
 
 .boxParent {
-    position: relative;
+  position: relative;
 }
 
 .boxParent:hover {
-    background: var(--kotakHover);
+  background: var(--kotakHover);
 }
 
 .box {
-    width: 100%;
-    line-height: 5px;
+  width: 100%;
+  line-height: 5px;
 }
 
 .date {
-    width: 150px;
-    margin-left: 10px;
-    font-size: 15px;
+  width: 150px;
+  margin-left: 10px;
+  font-size: 15px;
 }
 
 .stok {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .descriptionProduct {
-    line-height: 20px;
-    opacity: 1;
-    transition: opacity 0.3s ease;
+  line-height: 20px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .edit-icon {
-    position: absolute;
-    top: 50%;
-    left: 26.8%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: 26.8%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .delete-icon {
-    position: absolute;
-    top: 50%;
-    left: 40.9%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: 40.9%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .boxParent:hover .edit-icon,
 .boxParent:hover .delete-icon {
-    opacity: 1;
+  opacity: 1;
 }
 
 .boxParent:hover .descriptionProduct {
-    opacity: 0;
+  opacity: 0;
 }
 
 .linkProduk {
-    color: var(--teks);
+  color: var(--teks);
 }
 
 .linkProduk:hover {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .image {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .image-option {
-    width: 50px;
-    border-radius: 50%;
-    margin: 0 5px;
+  width: 50px;
+  border-radius: 50%;
+  margin: 0 5px;
 }
 
 .info {
-    font-size: 18px;
-    margin-right: 35px;
-    line-height: 5px;
-    margin-top: 15px;
+  font-size: 18px;
+  margin-right: 35px;
+  line-height: 5px;
+  margin-top: 15px;
 }
 
 .role {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .option {
-    width: 200px;
-    top: 70px;
-    right: 25px;
+  width: 200px;
+  top: 70px;
+  right: 25px;
 }
 
 .optionUpload {
-    width: 200px;
-    top: 70px;
-    right: 83px;
+  width: 200px;
+  top: 70px;
+  right: 83px;
 }
 
 .dropdown-item {
-    color: var(--teks);
+  color: var(--teks);
 }
 
 .uploadParent {
-    width: -1000px;
-    margin-right: 20px;
+  width: -1000px;
+  margin-right: 20px;
 }
 
 .modal-content {
-    background: var(--latar);
-    color: var(--teks);
+  background: var(--latar);
+  color: var(--teks);
 }
 
 .addressAddAdmin {
-    resize: none;
+  resize: none;
 }
 
 .spanNumberData {
-    background-image: linear-gradient(to right, #28644b, #061700);
-    color: var(--teks);
-    font-weight: 500;
+  background-image: linear-gradient(to right, #28644b, #061700);
+  color: var(--teks);
+  font-weight: 500;
 }
 
 .modalClose:hover {
-    cursor: pointer;
-    color: var(--teksTautanHover);
+  cursor: pointer;
+  color: var(--teksTautanHover);
 }
 
 .btnUpload {
-    display: block;
-    width: 95px;
-    height: 50px;
-    border-radius: 10px;
-    outline: none;
-    border: none;
-    background-image: linear-gradient(to right, #28644b, #061700);
-    background-size: 200%;
-    font-size: 16px;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
-    text-transform: uppercase;
-    margin: 1rem 0;
-    cursor: pointer;
-    transition: 0.5s;
+  display: block;
+  width: 95px;
+  height: 50px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #28644b, #061700);
+  background-size: 200%;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 .btnUpload:hover {
-    background-position: right;
+  background-position: right;
 }
 
 .btnUpload:hover {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .form-control {
-    background: var(--latar);
-    color: var(--teks);
+  background: var(--latar);
+  color: var(--teks);
 }
 
 .form-control::placeholder {
-    color: var(--teks);
+  color: var(--teks);
 }
 
 .form-control:focus {
-    background: var(--latar);
-    outline: none;
-    color: var(--teks);
-    box-shadow: inset 0 0 0 1px var(--teks);
+  background: var(--latar);
+  outline: none;
+  color: var(--teks);
+  box-shadow: inset 0 0 0 1px var(--teks);
 }
 
 .addData:hover {
-    cursor: pointer;
-    color: var(--teksTautanHover);
+  cursor: pointer;
+  color: var(--teksTautanHover);
 }
 
 /* =============================NAVBAR END============================= */
 
 /* =============================SIDEBAR START============================= */
 aside {
-    background: var(--latar);
-    width: 300px;
-    border-right: 1px solid var(--teksTautanHover);
-    z-index: 1;
-    height: 100vh;
-    margin-top: 75px;
-    position: fixed;
+  background: var(--latar);
+  width: 300px;
+  border-right: 1px solid var(--teksTautanHover);
+  z-index: 1;
+  height: 100vh;
+  margin-top: 75px;
+  position: fixed;
 }
 
 .sidebar-heading {
-    padding: 30px 0;
+  padding: 30px 0;
 }
 
 .sidebarImage {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    cursor: pointer;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .sidebarImage:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .parentTextSidebar {
-    line-height: 5px;
-    color: var(--teks);
-    margin-top: 20px;
-    font-size: 20px;
+  line-height: 5px;
+  color: var(--teks);
+  margin-top: 20px;
+  font-size: 20px;
 }
 
 .textAdmin {
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    color: var(--teksTautanHover);
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  color: var(--teksTautanHover);
 }
 
 .listSidebar {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .liSidebar {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
 .liSidebar:hover {
-    background: var(--teks);
-    cursor: pointer;
+  background: var(--teks);
+  cursor: pointer;
 }
 
 .liSidebar:hover .textSidebar {
-    color: var(--latar);
+  color: var(--latar);
 }
 
 .textSidebar {
-    color: var(--teks);
-    font-weight: 500;
+  color: var(--teks);
+  font-weight: 500;
 }
 
 .btnAnalitic {
-    margin-bottom: 22px;
+  margin-bottom: 22px;
 }
 
 .hrSidebar {
-    color: var(--teks);
+  color: var(--teks);
 }
 
 .liSidebar.active {
-    background-image: linear-gradient(to right, #28644b, #061700);
-    color: var(--teks);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s,
-        border-radius 0.3s;
+  background-image: linear-gradient(to right, #28644b, #061700);
+  color: var(--teks);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s,
+    border-radius 0.3s;
 }
 
 .liSidebar.active:hover .textSidebar {
-    color: var(--teks);
+  color: var(--teks);
 }
 
 /* =============================SIDEBAR END============================= */
 
 /* =============================MAIN START============================= */
 main {
-    margin-left: 268px;
+  margin-left: 268px;
 }
 
 @media screen and (width: 1536px) {
-    main {
-        margin-left: 250px;
-    }
+  main {
+    margin-left: 250px;
+  }
 }
 
 @media screen and (width: 1536px) {
-    main {
-        margin-left: 243px;
-    }
+  main {
+    margin-left: 243px;
+  }
 }
 
 .mainWebsite {
-    margin-top: 77px;
+  margin-top: 77px;
 }
 
 .breadcrumb {
-    color: var(--teks);
-    font-size: 25px;
-    padding: 40px 20px;
+  color: var(--teks);
+  font-size: 25px;
+  padding: 40px 20px;
 }
 
 .iconBreadcrumb {
-    color: var(--teks);
-    font-size: 25px;
-    padding-bottom: 20px;
+  color: var(--teks);
+  font-size: 25px;
+  padding-bottom: 20px;
 }
 
 .many {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .iconServer {
-    border-radius: 50px;
-    width: 45px;
-    height: 40px;
-    cursor: pointer;
+  border-radius: 50px;
+  width: 45px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .iconServer:hover {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .card {
-    background: var(--latar);
-    color: var(--teks);
+  background: var(--latar);
+  color: var(--teks);
 }
 
 .imageCard {
-    width: 370px;
-    opacity: 0.3;
+  width: 370px;
+  opacity: 0.3;
 }
 
 .titleProduct {
-    position: absolute;
-    top: 80%;
-    left: 5%;
-    text-shadow: 3px 3px 3px black;
+  position: absolute;
+  top: 80%;
+  left: 5%;
+  text-shadow: 3px 3px 3px black;
 }
 
 .card-link:hover {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .listPerfomance {
-    background: var(--latar);
-    color: var(--teks);
+  background: var(--latar);
+  color: var(--teks);
 }
 
 .surveyImageCard {
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
 }
 
 .textCardProduct {
-    color: var(--teksTautanHover);
-    font-size: 15px;
+  color: var(--teksTautanHover);
+  font-size: 15px;
 }
 
 .caret-icon {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .hidden-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.1s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.1s ease-in-out;
 }
 
 .hidden-content.show {
-    max-height: 1000px;
+  max-height: 1000px;
 }
 
 .parentPassword,
 .parentConfirmPassword {
-    position: relative;
+  position: relative;
 }
 
 .iconInputContainer {
-    position: absolute;
-    top: 59%;
-    right: 20px;
-    color: var(--teksTautanHover);
-    cursor: pointer;
+  position: absolute;
+  top: 59%;
+  right: 20px;
+  color: var(--teksTautanHover);
+  cursor: pointer;
 }
 
 .iconInputContainer {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 /* =============================MAIN END============================= */
 
 /* =============================FOOTER START============================= */
 .textFooter {
-    color: var(--teks);
+  color: var(--teks);
 }
 
 .iconFooter {
-    cursor: pointer;
-    font-size: 20px;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 .iconFooter:hover {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 /* =============================FOOTER END============================= */

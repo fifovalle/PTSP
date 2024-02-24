@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hargaProduk = $_POST['Harga_Produk'] ?? '';
     $stokProduk = $_POST['Stok_Produk'] ?? '';
     $pemilikProduk = $_POST['Pemilik_Produk'] ?? '';
+    $noRekening = $_POST['No_Rekening'] ?? '';
     $statusProduk = $_POST['Status_Produk'] ?? '';
 
     $requiredFields = ['ID_Produk', 'Nama_Produk', 'Deskripsi_Produk', 'Harga_Produk', 'Stok_Produk', 'Pemilik_Produk', 'Status_Produk'];
@@ -19,6 +20,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
     }
+
+    if ($pemilikProduk === 'Instansi A') {
+        $nomorRekening = '1111';
+    } elseif ($pemilikProduk === 'Instansi B') {
+        $nomorRekening = '2222';
+    } elseif ($pemilikProduk === 'Instansi C') {
+        $nomorRekening = '3333';
+    } else {
+        echo json_encode(array("success" => false, "message" => "Instansi tidak valid."));
+        exit;
+    }
+
+    $nomorRekeningFormatted = $nomorRekening;
 
     $obyekProduk = new Produk($koneksi);
 
@@ -56,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'Harga_Produk' => $hargaProduk,
         'Stok_Produk' => $stokProduk,
         'Pemilik_Produk' => $pemilikProduk,
+        'No_Rekening' => $nomorRekeningFormatted,
         'Status_Produk' => $statusProduk
     );
 

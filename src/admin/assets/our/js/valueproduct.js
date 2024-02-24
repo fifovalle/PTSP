@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".linkData").click(function (e) {
+  $(".buttonProduk").click(function (e) {
     e.preventDefault();
     let produkID = $(this).data("id");
     console.log(produkID);
