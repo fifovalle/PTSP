@@ -118,6 +118,7 @@ include '../config/databases.php';
     <!-- OUR JS -->
     <script src="../assets/our/js/data.js"></script>
     <script src="../assets/our/js/index.js"></script>
+    <script src="../assets/our/js/toogle-password.js"></script>
     <script src="../assets/our/js/filter-data.js"></script>
     <script src="../assets/our/js/delete-admin.js"></script>
     <script src="../assets/our/js/valueadmin.js"></script>

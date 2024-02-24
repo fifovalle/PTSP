@@ -1,20 +1,4 @@
 $(document).ready(function () {
-  $("#togglePassword, #toggleConfirmPassword").click(function () {
-    let targetId =
-      $(this).attr("id") === "togglePassword"
-        ? "#passwordAddAdmin"
-        : "#confirmPasswordAddAdmin";
-    let targetField = $(targetId);
-    let fieldType =
-      targetField.attr("type") === "password" ? "text" : "password";
-
-    targetField.attr("type", fieldType);
-
-    $(this).toggleClass("fa-eye fa-eye-slash");
-  });
-});
-
-$(document).ready(function () {
   $(".menu p").click(function () {
     $(".menu p").removeClass("active");
     $(this).addClass("active");

@@ -1,259 +1,242 @@
 :root {
-    --latar: #0f0e17;
-    --teks: #fffffe;
-    --teksTautan: #3bd39b;
-    --teksTautanHover: #a7a9be;
-    --kotakHover: black;
+  --latar: #0f0e17;
+  --teks: #fffffe;
+  --teksTautan: #3bd39b;
+  --teksTautanHover: #a7a9be;
+  --kotakHover: black;
 }
 
 /* =============================MAIN START============================= */
 .actions {
-    display: none;
-    margin: 5px 0px 20px 0px;
+  display: none;
+  margin: 5px 0px 20px 0px;
 }
 
 .menu {
-    color: var(--teks);
-    width: 100px;
-    margin-right: -10px;
-    cursor: pointer;
-    text-align: center;
-    height: 40px;
-    position: relative;
+  color: var(--teks);
+  width: 100px;
+  margin-right: -10px;
+  cursor: pointer;
+  text-align: center;
+  height: 40px;
+  position: relative;
 }
 
 .menu:hover {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .dataAll.active {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .dataAll {
-    color: var(--teksTautanHover);
-    position: relative;
+  color: var(--teksTautanHover);
+  position: relative;
 }
 
 .dataAll::after {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--teksTautanHover);
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--teksTautanHover);
+  transition: width 0.3s ease;
 }
 
 .dataAll.active::after {
-    width: 80px;
+  width: 80px;
 }
 
 .iconFilter {
-    color: var(--teks);
-    font-size: 25px;
-    margin-right: 10px;
-    margin-top: 6px;
+  color: var(--teks);
+  font-size: 25px;
+  margin-right: 10px;
+  margin-top: 6px;
 }
 
 .filterInput {
-    margin-left: -80px;
-    height: 35px;
-    width: 1300px;
-    background: var(--kotakHover);
-    outline: none;
-    border: none;
+  margin-left: -80px;
+  height: 35px;
+  width: 1300px;
+  background: var(--kotakHover);
+  outline: none;
+  border: none;
 }
 
 .filterInput::placeholder {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .inputData::placeholder {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .inputData option:checked {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .inputDataSelect {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .inputData option[value=""][disabled] {
-    color: var(--teksTautanHover);
+  color: var(--teksTautanHover);
 }
 
 .hrData {
-    color: var(--teks);
+  color: var(--teks);
 }
 
 .tableData {
-    background: var(--kotakHover);
-    color: var(--teks);
-    font-weight: 500;
-    line-height: 30px;
-    margin: auto;
-    width: 1300px;
+  background: var(--kotakHover);
+  color: var(--teks);
+  font-weight: 500;
+  line-height: 30px;
+  margin: auto;
+  width: 1300px;
 }
 
 .userTable,
 .productTabel,
 .transactionTable {
-    display: none;
+  display: none;
 }
 
 .checkBoxData {
-    outline: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin-top: 10px;
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    border: 2px solid var(--teks);
-    background-color: var(--kotakHover);
-    cursor: pointer;
-    position: relative;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid var(--teks);
+  background-color: var(--kotakHover);
+  cursor: pointer;
+  position: relative;
 }
 
 .checkBoxData:checked {
-    background-color: var(--warna-latar-terpilih);
+  background-color: var(--warna-latar-terpilih);
 }
 
 .deskriptorContainer {
-    width: 200px;
-    font-size: 18px;
-    margin: 25px -78px;
-    line-height: 18px;
-    position: relative;
+  width: 200px;
+  font-size: 18px;
+  margin: 25px -78px;
+  line-height: 18px;
+  position: relative;
 }
 
 .deskriptorSmall {
-    position: relative;
-    transition: opacity 0.3s ease;
-    font-size: 15px;
-    font-weight: normal;
-    color: var(--teksTautanHover);
+  position: relative;
+  transition: opacity 0.3s ease;
+  font-size: 15px;
+  font-weight: normal;
+  color: var(--teksTautanHover);
 }
 
 .imageData {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin: 20px 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 20px 0;
 }
 
 .checkBoxData:checked::after {
-    content: "✓";
-    font-size: 16px;
-    color: var(--teks);
-    position: absolute;
-    left: 3px;
-    top: -5px;
+  content: "✓";
+  font-size: 16px;
+  color: var(--teks);
+  position: absolute;
+  left: 3px;
+  top: -5px;
 }
 
 .tbodyData {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .tbodyData .deskriptorSmall,
 .tbodyData .linkData {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s, visibility 0.3s, height 0.3s, display 0.3s;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0.3s, height 0.3s, display 0.3s;
 }
 
 .trDataN:hover .deskriptorSmall {
-    opacity: 0;
-    visibility: hidden;
-    height: 0;
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
 }
 
 .trDataN:hover .linkData {
-    opacity: 1;
-    visibility: visible;
-    display: block;
+  opacity: 1;
+  visibility: visible;
+  display: block;
 }
 
 .linkData:hover {
-    color: var(--teksTautanHover);
-    opacity: 0.7;
+  color: var(--teksTautanHover);
+  opacity: 0.7;
 }
 
 .iconDataRight {
-    margin-right: 70px;
+  margin-right: 70px;
 }
 
 .linkData {
-    color: var(--teks);
-    font-size: 16px;
-    right: 100px;
-    height: 1px;
-    display: none;
-    transition: opacity 0.3s;
+  color: var(--teks);
+  font-size: 16px;
+  right: 100px;
+  height: 1px;
+  display: none;
+  transition: opacity 0.3s;
 }
 
 .iconContainerData {
-    position: absolute;
-    left: 20%;
-    margin-top: 8px;
-    width: 150px;
-    gap: 5px;
+  position: absolute;
+  left: 20%;
+  margin-top: 8px;
+  width: 150px;
+  gap: 5px;
 }
 
 .theadData {
-    background: var(--teksTautan);
+  background: var(--teksTautan);
 }
 
 .dropdownContentFilter {
-    position: absolute;
-    left: 65px;
-    border-radius: 5px;
-    z-index: 10;
-    top: 80%;
-    background: var(--latar);
-    color: var(--teks);
-    font-weight: 500;
-    width: 13%;
-    line-height: 30px;
-    display: none;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  left: 65px;
+  border-radius: 5px;
+  z-index: 10;
+  top: 80%;
+  background: var(--latar);
+  color: var(--teks);
+  font-weight: 500;
+  width: 13%;
+  line-height: 30px;
+  display: none;
+  transition: opacity 0.3s ease;
 }
 
 .listDropdownFilter {
-    padding-top: 3px;
-    height: 40px;
-    margin: auto;
+  padding-top: 3px;
+  height: 40px;
+  margin: auto;
 }
 
 .listDropdownFilter:hover {
-    border: 1px solid var(--teks);
+  border: 1px solid var(--teks);
 }
 
 .show {
-    display: block;
-    opacity: 1;
-}
-
-.parentPassword,
-.parentConfirmPassword {
-    position: relative;
-}
-
-.iconInputContainer {
-    position: absolute;
-    top: 59%;
-    right: 20px;
-    color: var(--teksTautanHover);
-    cursor: pointer;
-}
-
-.iconInputContainer {
-    font-size: 1.2em;
+  display: block;
+  opacity: 1;
 }
 
 /* =============================MAIN END============================= */

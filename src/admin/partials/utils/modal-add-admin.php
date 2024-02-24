@@ -11,39 +11,39 @@
                 <form method="POST" action="../config/add-admin.php" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="fotoAdmin" class="form-label">Foto</label>
-                        <input type="file" class="form-control" id="fotoAdmin" name="Foto_Admin">
+                        <input type="file" class="form-control" id="fotoAdmin" name="Foto_Admin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="frontNameAdmin" class="form-label">Nama Depan</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Depan Admin" id="frontNameAdmin" name="Nama_Depan_Admin">
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Depan Admin" id="frontNameAdmin" name="Nama_Depan_Admin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="lastNameAdmin" class="form-label">Nama Belakang</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Belakang Admin" id="lastNameAdmin" name="Nama_Belakang_Admin">
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Belakang Admin" id="lastNameAdmin" name="Nama_Belakang_Admin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="userNameAdmin" class="form-label">Nama Pengguna</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Pengguna Admin" id="userNameAdmin" name="Nama_Pengguna_Admin">
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Pengguna Admin" id="userNameAdmin" name="Nama_Pengguna_Admin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="emailAdmin" class="form-label">Email</label>
-                        <input type="email" class="form-control inputData" placeholder="Masukan Email Admin" id="emailAdmin" name="Email_Admin">
+                        <input type="email" class="form-control inputData" placeholder="Masukan Email Admin" id="emailAdmin" name="Email_Admin" autocomplete="off">
                     </div>
                     <div class="mb-3 parentPassword">
                         <label for="passwordAdmin" class="form-label">Kata Sandi</label>
                         <input type="password" class="form-control inputData" placeholder="&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;" id="passwordAdmin" name="Password_Admin">
-                        <i class="fas fa-eye iconInputContainer" id="togglePassword"></i>
+                        <i class="fas fa-eye iconInputContainer" id="togglePasswordAdmin"></i>
                     </div>
                     <div class="mb-3 parentConfirmPassword">
                         <label for="confirmPasswordAdmin" class="form-label">Konfirmasi Kata Sandi</label>
                         <input type="password" class="form-control inputData" placeholder="&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;" id="confirmPasswordAdmin" name="Confirm_Password_Admin">
-                        <i class="fas fa-eye iconInputContainer" id="toggleConfirmPassword"></i>
+                        <i class="fas fa-eye iconInputContainer" id="toggleConfirmPasswordAdmin"></i>
                     </div>
                     <div class="mb-3">
                         <label for="numberAdmin" class="form-label">Nomor Telepon</label>
                         <div class="input-group">
                             <span class="input-group-text spanNumberData">+62</span>
-                            <input type="number" placeholder="Masukan Nomor Telepon Admin" class="form-control inputData" id="numberAdmin" name="No_Telepon_Admin">
+                            <input type="number" placeholder="Masukan Nomor Telepon Admin" class="form-control inputData" id="numberAdmin" name="No_Telepon_Admin" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -66,7 +66,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="addressAdmin" class="form-label">Alamat Admin</label>
-                        <textarea name="Alamat_Admin" placeholder="Masukan Alamat Admin" class="form-control inputData addressAddAdmin" id="addressAdmin"></textarea>
+                        <textarea name="Alamat_Admin" placeholder="Masukan Alamat Admin" class="form-control inputData addressAddAdmin" id="addressAdmin" autocomplete="off"></textarea>
                     </div>
                     <button type="submit" class="btn btnUpload" name="Simpan">Kirim</button>
                 </form>
