@@ -31,12 +31,12 @@
                     </div>
                     <div class="mb-3 parentPassword">
                         <label for="passwordAdmin" class="form-label">Kata Sandi</label>
-                        <input type="password" class="form-control inputData" placeholder="&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;" id="passwordAdmin" name="Password_Admin">
+                        <input type="password" class="form-control inputData" placeholder="&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;" id="passwordAdmin" name="Kata_Sandi">
                         <i class="fas fa-eye iconInputContainer" id="togglePasswordAdmin"></i>
                     </div>
                     <div class="mb-3 parentConfirmPassword">
                         <label for="confirmPasswordAdmin" class="form-label">Konfirmasi Kata Sandi</label>
-                        <input type="password" class="form-control inputData" placeholder="&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;" id="confirmPasswordAdmin" name="Confirm_Password_Admin">
+                        <input type="password" class="form-control inputData" placeholder="&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;" id="confirmPasswordAdmin" name="Konfirmasi_Kata_Sandi">
                         <i class="fas fa-eye iconInputContainer" id="toggleConfirmPasswordAdmin"></i>
                     </div>
                     <div class="mb-3">

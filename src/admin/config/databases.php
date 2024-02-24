@@ -1,6 +1,7 @@
 <?php
 include 'connection.php';
 
+// ===================================ADMIN===================================
 class Admin
 {
     private $koneksi;
@@ -12,10 +13,10 @@ class Admin
 
     public function tambahAdmin($data)
     {
-        $query = "INSERT INTO admin (Foto, Nama_Depan_Admin, Nama_Belakang_Admin, Nama_Pengguna_Admin, Email_Admin, No_Telepon_Admin, Jenis_Kelamin_Admin, Peran_Admin, Alamat_Admin, Status_Verifikasi_Admin, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO admin (Foto, Nama_Depan_Admin, Nama_Belakang_Admin, Nama_Pengguna_Admin, Email_Admin, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Admin, Jenis_Kelamin_Admin, Peran_Admin, Alamat_Admin, Status_Verifikasi_Admin, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssssssissi", $data['Foto'], $data['Nama_Depan_Admin'], $data['Nama_Belakang_Admin'], $data['Nama_Pengguna_Admin'], $data['Email_Admin'], $data['No_Telepon_Admin'], $data['Jenis_Kelamin_Admin'], $data['Peran_Admin'], $data['Alamat_Admin'], $data['Status_Verifikasi_Admin'], $data['token']);
+        $statement->bind_param("sssssssssissi", $data['Foto'], $data['Nama_Depan_Admin'], $data['Nama_Belakang_Admin'], $data['Nama_Pengguna_Admin'], $data['Email_Admin'], $data['Kata_Sandi'], $data['Konfirmasi_Kata_Sandi'], $data['No_Telepon_Admin'], $data['Jenis_Kelamin_Admin'], $data['Peran_Admin'], $data['Alamat_Admin'], $data['Status_Verifikasi_Admin'], $data['token']);
 
         if ($statement->execute()) {
             return true;
@@ -23,6 +24,7 @@ class Admin
             return false;
         }
     }
+
 
     public function tampilkanDataAdmin()
     {
@@ -42,10 +44,10 @@ class Admin
 
     public function perbaruiAdmin($id, $data)
     {
-        $query = "UPDATE admin SET Foto=?, Nama_Depan_Admin=?, Nama_Belakang_Admin=?, Nama_Penggguna_Admin=?, Email_Admin=?, No_Telepon_Admin=?, Jenis_Kelamin_Admin=?, Peran_Admin=?, Alamat_Admin=?, Status_Verivikasi_Admin=?, token=? WHERE ID_Admin=?";
+        $query = "UPDATE admin SET Foto=?, Nama_Depan_Admin=?, Nama_Belakang_Admin=?, Nama_Pengguna_Admin=?, Email_Admin=?, No_Telepon_Admin=?, Jenis_Kelamin_Admin=?, Peran_Admin=?, Alamat_Admin=? WHERE ID_Admin=?";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssssisissii", $data['Foto'], $data['Nama_Depan_Admin'], $data['Nama_Belakang_Admin'], $data['Nama_Penggguna_Admin'], $data['Email_Admin'], $data['No_Telepon_Admin'], $data['Jenis_Kelamin_Admin'], $data['Peran_Admin'], $data['Alamat_Admin'], $data['Status_Verivikasi_Admin'], $data['token'], $id);
+        $statement->bind_param("sssssssisi", $data['Foto'], $data['Nama_Depan_Admin'], $data['Nama_Belakang_Admin'], $data['Nama_Pengguna_Admin'], $data['Email_Admin'], $data['No_Telepon_Admin'], $data['Jenis_Kelamin_Admin'], $data['Peran_Admin'], $data['Alamat_Admin'], $id);
 
         if ($statement->execute()) {
             return true;
@@ -106,8 +108,24 @@ class Admin
             return false;
         }
     }
+    public function getFotoAdminById($idAdmin)
+    {
+        $query = "SELECT Foto FROM admin WHERE ID_Admin = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $idAdmin);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['Foto'];
+        } else {
+            return null;
+        }
+    }
 }
 
+// ===================================ADMIN===================================
 class Pengguna
 {
     private $koneksi;

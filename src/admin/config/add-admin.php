@@ -20,6 +20,8 @@ if (isset($_POST['Simpan'])) {
     $namaBelakang = $_POST['Nama_Belakang_Admin'];
     $namaPengguna = $_POST['Nama_Pengguna_Admin'];
     $email = $_POST['Email_Admin'];
+    $kataSandi = $_POST['Kata_Sandi'];
+    $konfirmasiKataSandi = $_POST['Konfirmasi_Kata_Sandi'];
     $nomorTelepon = $_POST['No_Telepon_Admin'];
     $jenisKelamin = $_POST['Jenis_Kelamin_Admin'];
     $peranAdmin = $_POST['Peran_Admin'];
@@ -30,10 +32,19 @@ if (isset($_POST['Simpan'])) {
 
     $nomorTeleponFormatted = '+62 ' . substr($nomorTelepon, 0, 3) . '-' . substr($nomorTelepon, 4, 4) . '-' . substr($nomorTelepon, 7);
 
-
-    if (empty($namaDepan) || empty($namaBelakang) || empty($namaPengguna) || empty($email) || empty($nomorTelepon) || empty($jenisKelamin) || empty($peranAdmin) || empty($alamatAdmin)) {
+    if (empty($namaDepan) || empty($namaBelakang) || empty($namaPengguna) || empty($email) || empty($kataSandi) || empty($konfirmasiKataSandi) || empty($nomorTelepon) || empty($jenisKelamin) || empty($peranAdmin) || empty($alamatAdmin)) {
         $pesanKesalahan .= "Semua bidang harus diisi. ";
     }
+
+    $panjangKataSandi = strlen($kataSandi) >= 8;
+    $persyaratanKataSandi = preg_match('/[A-Z]/', $kataSandi) && preg_match('/[a-z]/', $kataSandi) && preg_match('/[0-9]/', $kataSandi) && preg_match('/[^A-Za-z0-9]/', $kataSandi);
+    $kataSandiYangValid = $panjangKataSandi && $persyaratanKataSandi;
+    $pesanKesalahan .= (!$kataSandiYangValid && empty($pesanKesalahan)) ? "Kata sandi harus memiliki setidaknya 8 karakter dan mengandung minimal satu huruf besar, satu huruf kecil, satu angka, dan satu simbol." : '';
+
+    $kecocokanKataSandi = $kataSandi === $konfirmasiKataSandi;
+    $pesanKesalahan .= (!$kecocokanKataSandi && empty($pesanKesalahan)) ? "Kata sandi dan konfirmasi kata sandi harus sama." : '';
+
+    $hashKataSandi = password_hash($kataSandi, PASSWORD_DEFAULT);
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $pesanKesalahan .= "Format email tidak valid. ";
@@ -80,6 +91,8 @@ if (isset($_POST['Simpan'])) {
         'Nama_Belakang_Admin' => $namaBelakang,
         'Nama_Pengguna_Admin' => $namaPengguna,
         'Email_Admin' => $email,
+        'Kata_Sandi' => $hashKataSandi,
+        'Konfirmasi_Kata_Sandi' => $hashKataSandi,
         'No_Telepon_Admin' => $nomorTeleponFormatted,
         'Jenis_Kelamin_Admin' => $jenisKelamin,
         'Peran_Admin' => $peranAdmin,

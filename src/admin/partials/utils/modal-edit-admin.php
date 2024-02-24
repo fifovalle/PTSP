@@ -9,31 +9,32 @@
             </div>
             <div class="modal-body">
                 <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" id="editAdminID" name="ID_Admin" autocomplete="off">
                     <div class="mb-3">
                         <label for="fotoEditAdmin" class="form-label">Foto</label>
-                        <input type="file" class="form-control" id="fotoEditAdmin" name="Foto_Admin">
+                        <input type="file" class="form-control" id="fotoEditAdmin" name="Foto_Admin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="frontNameEditAdmin" class="form-label">Nama Depan</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Depan Admin" id="frontNameEditAdmin" name="Nama_Depan_Admin">
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Depan Admin" id="frontNameEditAdmin" name="Nama_Depan_Admin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="backNameEditAdmin" class="form-label">Nama Belakang</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Belakang Admin" id="backNameEditAdmin" name="Nama_Belakang_Admin">
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Belakang Admin" id="backNameEditAdmin" name="Nama_Belakang_Admin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="userNameEditAdmin" class="form-label">Nama Pengguna</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Pengguna Admin" id="userNameEditAdmin" name="Nama_Pengguna_Admin">
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Pengguna Admin" id="userNameEditAdmin" name="Nama_Pengguna_Admin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="emailEditAdmin" class="form-label">Email</label>
-                        <input type="email" class="form-control inputData" placeholder="Masukan Email Admin" id="emailEditAdmin" name="Email_Admin">
+                        <input type="email" class="form-control inputData" placeholder="Masukan Email Admin" id="emailEditAdmin" name="Email_Admin" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="numberEditAdmin" class="form-label">Nomor Telepon</label>
                         <div class="input-group">
                             <span class="input-group-text spanNumberData">+62</span>
-                            <input type="text" placeholder="Masukan Nomor Telepon Admin" class="form-control inputData" id="numberEditAdmin" name="No_Telepon_Admin">
+                            <input type="text" placeholder="Masukan Nomor Telepon Admin" class="form-control inputData" id="numberEditAdmin" name="No_Telepon_Admin" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -56,9 +57,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="addressEditAdmin" class="form-label">Alamat Admin</label>
-                        <textarea name="Alamat_Admin" placeholder="Masukan Alamat Admin" class="form-control inputData addressAddAdmin" id="addressEditAdmin"></textarea>
+                        <textarea name="Alamat_Admin" placeholder="Masukan Alamat Admin" class="form-control inputData addressAddAdmin" id="addressEditAdmin" autocomplete="off"></textarea>
                     </div>
-                    <input type="hidden" id="editAdminID" name="editAdminID">
                     <button type="submit" class="btn btnUpload" id="tombolSimpan" name="Simpan">Kirim</button>
                 </form>
             </div>
