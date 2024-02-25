@@ -54,8 +54,16 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="menu text-center menuAnalitic">
-                                    <p class="fw-semibold">7 Hari Terakhir</p>
+                                <div class="menuDropdownAnalitic text-center">
+                                    <div class="dropdown">
+                                        <p class="dropdown-toggle-analitic" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                                            7 Hari Terakhir <span class="caret"></span>
+                                        </p>
+                                        <div class="dropdown-menu-analitic" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">28 Hari Terakhir</a>
+                                            <a class="dropdown-item" href="#">1 Tahun Terakhir</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +103,7 @@
     <!-- ALL MODAL END -->
 
     <!-- CDN JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <!-- OUR JS -->
     <script src="../assets/our/js/analitic.js"></script>

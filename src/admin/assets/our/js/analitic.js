@@ -17,3 +17,37 @@ $(document).ready(function () {
         $(".allData, .allDataProduct, .allDataIKM").hide());
   });
 });
+
+$(document).ready(function () {
+  $(".boxData").click(function () {
+    $(".boxData").removeClass("active");
+    $(this).addClass("active");
+    let menuText = $(this).text();
+
+    menuText === "Produk"
+      ? ($(".productChart").show(), $(".allDataProduct").hide())
+      : menuText === "IKM"
+      ? ($(".ikmChart").show(), $(".allDataIKM").hide())
+      : ($(".transactionChart").show(), $(".allDataTransaction").hide());
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var dropdownToggle = document.querySelector(".dropdown-toggle-analitic");
+  var dropdownMenu = document.querySelector(".dropdown-menu-analitic");
+
+  dropdownToggle.addEventListener("click", function () {
+    dropdownMenu.classList.toggle("show");
+    dropdownToggle.querySelector(".caret").classList.toggle("rotate-up");
+  });
+
+  document.addEventListener("click", function (e) {
+    if (
+      !dropdownMenu.contains(e.target) &&
+      !dropdownToggle.contains(e.target)
+    ) {
+      dropdownMenu.classList.remove("show");
+      dropdownToggle.querySelector(".caret").classList.remove("rotate-up");
+    }
+  });
+});
