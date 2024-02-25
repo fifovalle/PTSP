@@ -22,13 +22,13 @@ $(document).ready(function () {
   $(".boxData").click(function () {
     $(".boxData").removeClass("active");
     $(this).addClass("active");
-    let menuText = $(this).text();
+    let menuText = $(this).find(".headerBoxData").text();
 
     menuText === "Produk"
-      ? ($(".productChart").show(), $(".allDataProduct").hide())
+      ? ($(".productChart").show(), $(".ikmChart, .transactionChart").hide())
       : menuText === "IKM"
-      ? ($(".ikmChart").show(), $(".allDataIKM").hide())
-      : ($(".transactionChart").show(), $(".allDataTransaction").hide());
+      ? ($(".ikmChart").show(), $(".productChart, .transactionChart").hide())
+      : ($(".transactionChart").show(), $(".ikmChart, .productChart").hide());
   });
 });
 

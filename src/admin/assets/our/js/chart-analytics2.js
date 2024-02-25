@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     series: [
       {
-        name: "Produk",
-        data: [10, 20, 30, 40, 50, 60, 70],
+        name: "Surver Kepuasaan",
+        data: [20, 10, 10, 20, 10, 20, 30],
       },
     ],
     xaxis: {
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   };
 
-  let chart = new ApexCharts(document.querySelector("#productChart"), options);
+  let chart = new ApexCharts(document.querySelector("#ikmChart"), options);
 
   chart.render();
 });

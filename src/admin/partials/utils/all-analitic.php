@@ -20,7 +20,19 @@
             </div>
         </div>
         <div class="row mx-1">
-            <div class="productChart" id="chart"></div>
+            <div class="productChart">
+                <div id="productChart"></div>
+            </div>
+        </div>
+        <div class="row mx-1">
+            <div class="ikmChart">
+                <div id="ikmChart"></div>
+            </div>
+        </div>
+        <div class="row mx-1">
+            <div class="transactionChart">
+                <div id="transactionChart"></div>
+            </div>
         </div>
     </div>
 </div>
