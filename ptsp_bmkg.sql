@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2024 at 09:12 PM
+-- Generation Time: Feb 26, 2024 at 09:36 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -59,7 +59,7 @@ CREATE TABLE `pengguna` (
   `Email_Pengguna` varchar(50) NOT NULL,
   `Kata_Sandi` varchar(100) NOT NULL,
   `Konfirmasi_Kata_Sandi` varchar(100) NOT NULL,
-  `No_Telepon_Pengguna` int(15) NOT NULL,
+  `No_Telepon_Pengguna` varchar(50) NOT NULL,
   `Jenis_Kelamin_Pengguna` enum('Pria','Wanita') NOT NULL,
   `Alamat_Pengguna` text NOT NULL,
   `Status_Verifikasi_Pengguna` enum('Terverivikasi','Belum Terverifikasi') NOT NULL,
@@ -120,7 +120,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `produk`
