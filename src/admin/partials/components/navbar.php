@@ -18,7 +18,7 @@ $akarUrl = "http://localhost/PTSP/";
                     <input class="form-control ps-5 search" placeholder="Cari Produk Anda" aria-label="Search" id="searchInput" autocomplete="off">
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <hr>
-                        <p class="list">Produk terbaru anda <a class="text-decoration-none viewAll" href="#">Lihat
+                        <p class="list">Produk terbaru anda <a class="text-decoration-none viewAll" href="<?php echo $akarUrl; ?>src/admin/pages/data.php">Lihat
                                 semua</a>
                         </p>
                         <hr>
