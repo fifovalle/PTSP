@@ -84,7 +84,7 @@ if (isset($_POST['Simpan'])) {
         exit;
     }
     $dataPengguna = array(
-        'Foto' => $tujuanFotoPengguna,
+        'Foto' => $namaFotoPenggunaBaru,
         'Nama_Depan_Pengguna' => $namaDepan,
         'Nama_Belakang_Pengguna' => $namaBelakang,
         'Nama_Pengguna' => $namaPengguna,

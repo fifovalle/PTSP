@@ -48,7 +48,7 @@
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
                         <div>
-                            <img class="imageData" src="<?php echo $admin['Foto']; ?>" alt="Foto Admin">
+                            <img class="imageData" src="../assets/image/uploads/<?php echo $admin['Foto']; ?>" alt="Foto Admin">
                         </div>
                         <div class="deskriptorContainer">
                             <p class="fw-semibold m-auto"><?php echo $admin['Nama_Pengguna_Admin']; ?></p>

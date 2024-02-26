@@ -1,3 +1,7 @@
+<?php
+// DATABASES
+include '../src/admin/config/databases.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -14,6 +18,9 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- FAVICON -->
     <link rel="icon" href="../src/admin/assets/image/logo/1.png">
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -152,6 +159,8 @@
     <script src="../src/admin/assets/our/js/caret.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../src/admin/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- ALERT -->
+    <?php include '../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>

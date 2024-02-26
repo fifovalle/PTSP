@@ -165,6 +165,7 @@ a {
 .descriptionProduct {
   line-height: 20px;
   opacity: 1;
+  color: var(--teksTautanHover);
   transition: opacity 0.3s ease;
 }
 

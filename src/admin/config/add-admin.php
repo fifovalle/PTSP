@@ -81,12 +81,12 @@ if (isset($_POST['Simpan'])) {
 
     if (!empty($pesanKesalahan)) {
         setPesanKesalahan($pesanKesalahan);
-        header("Location: $akarUrl" . "src/admin/pages/data.php");
+        header("Location: $akarUrl/src/admin/pages/data.php");
         exit;
     }
 
     $dataAdmin = array(
-        'Foto' => $tujuanFotoAdmin,
+        'Foto' => $namaFotoAdminBaru,
         'Nama_Depan_Admin' => $namaDepan,
         'Nama_Belakang_Admin' => $namaBelakang,
         'Nama_Pengguna_Admin' => $namaPengguna,
@@ -110,9 +110,9 @@ if (isset($_POST['Simpan'])) {
         setPesanKesalahan("Gagal menyimpan data admin.");
     }
 
-    header("Location: $akarUrl" . "src/admin/pages/data.php");
+    header("Location: $akarUrl/src/admin/pages/data.php");
     exit;
 } else {
-    header("Location: $akarUrl" . "src/admin/pages/data.php");
+    header("Location: $akarUrl/src/admin/pages/data.php");
     exit;
 }

@@ -60,11 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
     } else {
-        $tujuanFoto = $produkModel->getFotoProdukById($idProduk);
+        $namaFotoBaru = $produkModel->getFotoProdukById($idProduk);
     }
 
     $dataProduk = array(
-        'Foto_Produk' => $tujuanFoto,
+        'Foto_Produk' => $namaFotoBaru,
         'Nama_Produk' => $namaProduk,
         'Deskripsi_Produk' => $deskripsiProduk,
         'Harga_Produk' => $hargaProduk,

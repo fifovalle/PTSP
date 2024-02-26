@@ -66,11 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
     } else {
-        $tujuanFoto = $obyekAdmin->getFotoAdminById($idAdmin);
+        $namaFotoBaru = $obyekAdmin->getFotoAdminById($idAdmin);
     }
 
     $dataAdmin = array(
-        'Foto' => $tujuanFoto,
+        'Foto' => $namaFotoBaru,
         'Nama_Depan_Admin' => $namaDepan,
         'Nama_Belakang_Admin' => $namaBelakang,
         'Nama_Pengguna_Admin' => $namaPengguna,

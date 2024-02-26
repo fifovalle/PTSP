@@ -123,6 +123,24 @@ class Admin
             return null;
         }
     }
+
+    public function autentikasiAdmin($email, $kataSandi)
+    {
+        $query = "SELECT * FROM admin WHERE Email_Admin = ? OR Nama_Pengguna_Admin = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("ss", $email, $email);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $hashedKataSandi = $row['Kata_Sandi'];
+            if (password_verify($kataSandi, $hashedKataSandi)) {
+                return $row;
+            }
+        }
+        return null;
+    }
 }
 
 // ===================================ADMIN===================================
@@ -283,6 +301,25 @@ class Produk
     {
         $query = "SELECT * FROM produk";
         $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanDataProdukTerbaru($limit = 3)
+    {
+        $query = "SELECT * FROM produk ORDER BY ID_Produk DESC LIMIT ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $limit);
+        $statement->execute();
+        $result = $statement->get_result();
 
         if ($result->num_rows > 0) {
             $data = [];

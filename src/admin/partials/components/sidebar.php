@@ -8,11 +8,18 @@ $halamanSaatIni = basename($_SERVER['PHP_SELF']);
 <aside class="col-md-2 d-none d-md-block" id="sidebar">
     <div class="sidebar-sticky sidebar-heading d-flex flex-column align-content-center flex-wrap">
         <a href="<?php echo $akarUrl; ?>src/admin/pages/profile.php">
-            <img class="sidebarImage" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/1.jpg" alt="imageAdmin">
+            <img class="sidebarImage" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto']; ?>" alt="imageAdmin">
         </a>
         <div class="parentTextSidebar fw-medium">
-            <p>Super Admin</p>
-            <p class="textAdmin">zonaDeveloper</p>
+            <?php
+            $teksPeranAdmin = "Peran Tidak Diketahui";
+            if (isset($_SESSION['Peran_Admin'])) {
+                $peranAdmin = $_SESSION['Peran_Admin'];
+                $teksPeranAdmin = ($peranAdmin == 1) ? "Super Admin" : ($peranAdmin == 2 ? "Instansi A" : ($peranAdmin == 3 ? "Instansi B" : ($peranAdmin == 4 ? "Instansi C" : "Tidak Di Ketahui")));
+            }
+            ?>
+            <p><?php echo $teksPeranAdmin; ?></p>
+            <p class="textAdmin"><?php echo $_SESSION['Nama_Pengguna']; ?></p>
         </div>
     </div>
     <ul class="list-unstyled components listSidebar">

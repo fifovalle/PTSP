@@ -1,6 +1,8 @@
 <?php
-// AKAR TAUTAN
+//AKAR TAUTAN
 $akarUrl = "http://localhost/PTSP/";
+// HALAMAN SAAT DIBUKA
+$halamanSaatIni = basename($_SERVER['PHP_SELF']);
 ?>
 
 <nav class="navbar navbar-expand-lg color px-3 fixed-top">
@@ -22,23 +24,35 @@ $akarUrl = "http://localhost/PTSP/";
                                 semua</a>
                         </p>
                         <hr>
-                        <div class="d-flex align-items-center justify-content-between list boxParent mb-3">
-                            <img class="imageProduct" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/1.jpg" alt="imageProduct">
-                            <div class="box">
-                                <p>Nama Produk</p>
-                                <p class="descriptionProduct">Lorem ipsum dolor sit amet consectetur adipisicing...
-                                </p>
-                            </div>
-                            <div class="box date">
-                                <p>Feb 16, 2024</p>
-                                <p class="stok">1 Stok</p>
-                            </div>
-                            <a class="linkProduk" href=""><span class="edit-icon"><i class="fas fa-edit"></i>
-                                    Sunting</span></a>
-                            <a class="linkProduk" href=""><span class="delete-icon"><i class="fas fa-trash"></i>
-                                    Hapus</span></a>
-                        </div>
+                        <?php
+                        $produkModel = new Produk($koneksi);
+                        $dataProdukTerbaru = $produkModel->tampilkanDataProdukTerbaru();
+                        if (!empty($dataProdukTerbaru)) {
+                            foreach ($dataProdukTerbaru as $produk) {
+                        ?>
+                                <div class="d-flex align-items-center justify-content-between list boxParent mb-3">
+                                    <img class="imageProduct" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/<?php echo $produk['Foto_Produk']; ?>" alt="imageProduct">
+                                    <div class="box">
+                                        <p><?php echo $produk['Nama_Produk']; ?></p>
+                                        <p class="descriptionProduct"><?php echo $produk['Deskripsi_Produk']; ?></p>
+                                    </div>
+                                    <div class="box date">
+                                        <p><?php echo $produk['Pemilik_Produk']; ?></p>
+                                        <p class="stok"><?php echo $produk['Stok_Produk']; ?> Stok</p>
+                                    </div>
+                                    <a class="linkProduk" href="#"><span class="edit-icon"><i class="fas fa-edit"></i>
+                                            Sunting</span></a>
+                                    <a class="linkProduk" href="#"><span class="delete-icon"><i class="fas fa-trash"></i>
+                                            Hapus</span></a>
+                                </div>
+                        <?php
+                            }
+                        } else {
+                            echo "<p class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Produk!</p>";
+                        }
+                        ?>
                     </div>
+
                 </div>
             </form>
             <div class="relative d-flex align-items-center justify-content-between">
@@ -55,14 +69,23 @@ $akarUrl = "http://localhost/PTSP/";
                     </div>
                 </div>
                 <div class="dropdown" id="dropdown" onclick="toggleDropdown()">
-                    <img class="image" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/1.jpg" alt="image">
+                    <img class="image" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto']; ?>" alt="imageAdmin">
                 </div>
                 <div class="dropdown-menu option" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
                     <div class="d-flex align-items-center justify-content-between">
-                        <img class="image-option" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/1.jpg" alt="image">
+                        <img class="image-option" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto']; ?>" alt="imageAdmin">
                         <div>
-                            <p class="info fw-bolder">zonaDeveloper</p>
-                            <p class="info role fw-semibold">Super Admin</p>
+                            <p class="info fw-bolder"><?php echo $_SESSION['Nama_Pengguna']; ?></p>
+                            <?php
+                            $teksPeranAdmin = "Peran Tidak Diketahui";
+                            if (isset($_SESSION['Peran_Admin'])) {
+                                $peranAdmin = $_SESSION['Peran_Admin'];
+                                $teksPeranAdmin = ($peranAdmin == 1) ? "Super Admin" : ($peranAdmin == 2 ? "Instansi A" : ($peranAdmin == 3 ? "Instansi B" : ($peranAdmin == 4 ? "Instansi C" : "Tidak Di Ketahui")));
+                            }
+                            ?>
+                            <p class="info role fw-semibold">
+                                <?php echo $teksPeranAdmin; ?>
+                            </p>
                         </div>
                     </div>
                     <hr>

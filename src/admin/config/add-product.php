@@ -76,7 +76,7 @@ if (isset($_POST['Simpan'])) {
     }
 
     $dataProduk = array(
-        'Foto_Produk' => $tujuanFotoProduk,
+        'Foto_Produk' => $namaFotoProdukBaru,
         'Nama_Produk' => $namaProduk,
         'Deskripsi_Produk' => $deskripsiProduk,
         'Harga_Produk' => $hargaProduk,

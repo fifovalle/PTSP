@@ -64,11 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
     } else {
-        $tujuanFoto = $obyekPengguna->getFotoPenggunaById($idPengguna);
+        $namaFotoBaru = $obyekPengguna->getFotoPenggunaById($idPengguna);
     }
 
     $dataPengguna = array(
-        'Foto' => $tujuanFoto,
+        'Foto' => $namaFotoBaru,
         'Nama_Depan_Pengguna' => $namaDepan,
         'Nama_Belakang_Pengguna' => $namaBelakang,
         'Nama_Pengguna' => $namaPengguna,
