@@ -3,10 +3,6 @@
         <div class="card-body">
             <form method="POST" action="<?php echo $akarUrl; ?>src/admin/config/add-admin.php" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label for="fotoAdmin" class="form-label">Foto</label>
-                    <input type="file" class="form-control" id="fotoAdmin" name="Foto_Admin" autocomplete="off">
-                </div>
-                <div class="mb-3">
                     <label for="frontNameAdmin" class="form-label">Nama Depan</label>
                     <input type="text" class="form-control inputData" placeholder="Masukan Nama Depan Admin" id="frontNameAdmin" name="Nama_Depan_Admin" autocomplete="off">
                 </div>

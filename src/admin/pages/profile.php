@@ -39,7 +39,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 mb-2">
-                            <img src="../assets/image/pages/banner2.jpg" class="banner-image" alt="Banner Image">
+                            <img src="../assets/image/pages/2.jpg" class="banner-image" alt="Banner Image">
                         </div>
                     </div>
                     <div class="row">
@@ -49,13 +49,13 @@
                                     <div class="row">
                                         <div class="col-lg-12 mb-2">
                                             <div class="avatar">
-                                                <img src="../assets/image/logo/avatar2.jpg" class="avatarimage" alt="Avatar">
+                                                <img src="../assets/image/uploads/1.jpg" class="avatarimage" alt="Avatar">
                                                 <div class="middle" id="editAvatar"><i class='bx bx-pencil'></i></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <h3 class="textProfile">Naufal</h3>
+                                        <h3 class="textProfile">Naufal FIFA</h3>
                                         <p class="d-flex text textProfileDesc"><i class='bx bx-cog'></i>Super Admin</p>
                                     </div>
                                 </div>
