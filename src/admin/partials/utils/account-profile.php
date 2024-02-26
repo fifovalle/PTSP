@@ -5,7 +5,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div>
-                            <h5 class="card-title fw-bold">Informasi Anda</h5>
+                            <h5 class="card-title fw-bold">Informasi Saya</h5>
                         </div>
                         <hr>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div>
-                            <h5 class="card-title fw-bold">Informasi Status</h5>
+                            <h5 class="card-title fw-bold">Informasi Status Saya</h5>
                         </div>
                         <hr>
                     </div>
