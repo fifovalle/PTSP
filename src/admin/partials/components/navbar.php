@@ -8,7 +8,7 @@ $akarUrl = "http://localhost/PTSP/";
     <div class="container-fluid">
         <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
             <div class="d-flex align-items-center">
-                <img class="logo" src="<?php echo $akarUrl; ?>/src/admin/assets/image/logo/1.png" alt="logo">
+                <img class="logo" src="<?php echo $akarUrl; ?>src/admin/assets/image/logo/1.png" alt="logo">
                 <p class="fw-bolder fs-5 ms-1 ptsp">PTSP</p>
             </div>
             <form class="z-3">
@@ -23,7 +23,7 @@ $akarUrl = "http://localhost/PTSP/";
                         </p>
                         <hr>
                         <div class="d-flex align-items-center justify-content-between list boxParent mb-3">
-                            <img class="imageProduct" src="<?php echo $akarUrl; ?>/src/admin/assets/image/uploads/1.jpg" alt="imageProduct">
+                            <img class="imageProduct" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/1.jpg" alt="imageProduct">
                             <div class="box">
                                 <p>Nama Produk</p>
                                 <p class="descriptionProduct">Lorem ipsum dolor sit amet consectetur adipisicing...
@@ -55,18 +55,18 @@ $akarUrl = "http://localhost/PTSP/";
                     </div>
                 </div>
                 <div class="dropdown" id="dropdown" onclick="toggleDropdown()">
-                    <img class="image" src="<?php echo $akarUrl; ?>/src/admin/assets/image/uploads/1.jpg" alt="image">
+                    <img class="image" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/1.jpg" alt="image">
                 </div>
                 <div class="dropdown-menu option" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
                     <div class="d-flex align-items-center justify-content-between">
-                        <img class="image-option" src="<?php echo $akarUrl; ?>/src/admin/assets/image/uploads/1.jpg" alt="image">
+                        <img class="image-option" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/1.jpg" alt="image">
                         <div>
                             <p class="info fw-bolder">zonaDeveloper</p>
                             <p class="info role fw-semibold">Super Admin</p>
                         </div>
                     </div>
                     <hr>
-                    <a class="dropdown-item" href="<?php echo $akarUrl; ?>/src/admin/pages/profile.php"><i class="fas fa-user me-2 my-2"></i>Profil Saya</a>
+                    <a class="dropdown-item" href="<?php echo $akarUrl; ?>src/admin/pages/profile.php"><i class="fas fa-user me-2 my-2"></i>Profil Saya</a>
                     <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2 my-2"></i>Keluar</a>
                 </div>
             </div>
