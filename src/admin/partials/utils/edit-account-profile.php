@@ -19,14 +19,14 @@
                     <input type="email" class="form-control inputData" placeholder="Masukan Email Admin" id="emailAdmin" name="Email_Admin" autocomplete="off">
                 </div>
                 <div class="mb-3 parentPassword">
-                    <label for="passwordAdmin" class="form-label">Kata Sandi</label>
-                    <input type="password" class="form-control inputData" placeholder="&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;" id="passwordAdmin" name="Kata_Sandi">
-                    <i class="fas fa-eye iconInputContainer" id="togglePasswordAdmin"></i>
+                    <label for="passwordProfil" class="form-label">Kata Sandi</label>
+                    <input type="password" class="form-control inputData" placeholder="&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;" id="passwordProfil" name="Kata_Sandi">
+                    <i class="fas fa-eye iconInputContainer" id="togglePasswordAdminEdit"></i>
                 </div>
                 <div class="mb-3 parentConfirmPassword">
-                    <label for="confirmPasswordAdmin" class="form-label">Konfirmasi Kata Sandi</label>
-                    <input type="password" class="form-control inputData" placeholder="&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;" id="confirmPasswordAdmin" name="Konfirmasi_Kata_Sandi">
-                    <i class="fas fa-eye iconInputContainer" id="toggleConfirmPasswordAdmin"></i>
+                    <label for="confirmPasswordProfil" class="form-label">Konfirmasi Kata Sandi</label>
+                    <input type="password" class="form-control inputData" placeholder="&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;&#x002A;" id="confirmPasswordProfil" name="Konfirmasi_Kata_Sandi">
+                    <i class="fas fa-eye iconInputContainer" id="toggleConfirmPasswordAdminEdit"></i>
                 </div>
                 <div class="mb-3">
                     <label for="numberAdmin" class="form-label">Nomor Telepon</label>

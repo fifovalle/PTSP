@@ -111,6 +111,7 @@
     <script src="../assets/our/js/index.js"></script>
     <script src="../assets/our/js/profile.js"></script>
     <script src="../assets/our/js/toggle-password.js"></script>
+    <script src="../assets/our/js/toggle-password-edit.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
