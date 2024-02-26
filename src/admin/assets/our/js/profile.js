@@ -17,7 +17,8 @@ document.getElementById("unggahFoto").addEventListener("change", function () {
   reader.onload = function (e) {
     let imageSrc = e.target.result;
     let label = document.querySelector(".upload-icon");
-    label.innerHTML = '<img src="' + imageSrc + '" alt="Uploaded Image">';
+    label.innerHTML =
+      '<img class="img-fluid" src="' + imageSrc + '" alt="Uploaded Image">';
   };
 
   reader.readAsDataURL(file);
