@@ -169,10 +169,11 @@ class Pengguna
 
     public function perbaruiPengguna($id, $data)
     {
-        $query = "UPDATE pengguna SET Foto=?, Nama_Depan_Pengguna=?, Nama_Belakang_Pengguna=?, Nama_Penggguna_Pengguna=?, Email_Pengguna=?, No_Telepon_Pengguna=?, Jenis_Kelamin_Pengguna=?, Alamat_Pengguna=?WHERE ID_Pengguna=?";
+        $query = "UPDATE pengguna SET Foto=?, Nama_Depan_Pengguna=?, Nama_Belakang_Pengguna=?, Nama_Pengguna=?, Email_Pengguna=?, No_Telepon_Pengguna=?, Jenis_Kelamin_Pengguna=?, Alamat_Pengguna=? WHERE ID_Pengguna=?";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("ssssssss", $data['Foto'], $data['Nama_Depan_Pengguna'], $data['Nama_Belakang_Pengguna'], $data['Nama_Penggguna_Pengguna'], $data['Email_Pengguna'], $data['No_Telepon_Pengguna'], $data['Jenis_Kelamin_Pengguna'], $data['Alamat_Pengguna'], $id);
+        $statement->bind_param("ssssssssi", $data['Foto'], $data['Nama_Depan_Pengguna'], $data['Nama_Belakang_Pengguna'], $data['Nama_Pengguna'], $data['Email_Pengguna'], $data['No_Telepon_Pengguna'], $data['Jenis_Kelamin_Pengguna'], $data['Alamat_Pengguna'], $id);
+
 
         if ($statement->execute()) {
             return true;
@@ -231,6 +232,22 @@ class Pengguna
             return $data;
         } else {
             return false;
+        }
+    }
+
+    public function getFotoPenggunaById($idPengguna)
+    {
+        $query = "SELECT Foto FROM pengguna WHERE ID_Pengguna = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $idPengguna);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['Foto'];
+        } else {
+            return null;
         }
     }
 }

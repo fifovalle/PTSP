@@ -81,7 +81,7 @@ if (isset($_POST['Simpan'])) {
 
     if (!empty($pesanKesalahan)) {
         setPesanKesalahan($pesanKesalahan);
-        header("Location: $akarUrl/src/admin/pages/data.php");
+        header("Location: $akarUrl" . "src/admin/pages/data.php");
         exit;
     }
 
@@ -110,9 +110,9 @@ if (isset($_POST['Simpan'])) {
         setPesanKesalahan("Gagal menyimpan data admin.");
     }
 
-    header("Location: $akarUrl/src/admin/pages/data.php");
+    header("Location: $akarUrl" . "src/admin/pages/data.php");
     exit;
 } else {
-    header("Location: $akarUrl/src/admin/pages/data.php");
+    header("Location: $akarUrl" . "src/admin/pages/data.php");
     exit;
 }

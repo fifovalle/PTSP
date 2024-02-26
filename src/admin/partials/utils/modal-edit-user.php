@@ -28,7 +28,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="emailEditUser" class="form-label">Email</label>
-                        <input type="email" class="form-control inputData" placeholder="Masukan Email Pengguna" id="emailEditUser" name="Email_Admin" autocomplete="off">
+                        <input type="email" class="form-control inputData" placeholder="Masukan Email Pengguna" id="emailEditUser" name="Email_Pengguna" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="numberEditUser" class="form-label">Nomor Telepon</label>
