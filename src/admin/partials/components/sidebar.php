@@ -7,7 +7,9 @@ $halamanSaatIni = basename($_SERVER['PHP_SELF']);
 
 <aside class="col-md-2 d-none d-md-block" id="sidebar">
     <div class="sidebar-sticky sidebar-heading d-flex flex-column align-content-center flex-wrap">
-        <img class="sidebarImage" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/1.jpg" alt="imageAdmin">
+        <a href="<?php echo $akarUrl; ?>src/admin/pages/profile.php">
+            <img class="sidebarImage" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/1.jpg" alt="imageAdmin">
+        </a>
         <div class="parentTextSidebar fw-medium">
             <p>Super Admin</p>
             <p class="textAdmin">zonaDeveloper</p>
