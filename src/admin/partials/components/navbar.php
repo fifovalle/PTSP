@@ -67,7 +67,7 @@ $akarUrl = "http://localhost/PTSP/";
                     </div>
                     <hr>
                     <a class="dropdown-item" href="<?php echo $akarUrl; ?>src/admin/pages/profile.php"><i class="fas fa-user me-2 my-2"></i>Profil Saya</a>
-                    <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2 my-2"></i>Keluar</a>
+                    <a class="dropdown-item" href="<?php echo $akarUrl; ?>src/admin/config/logout.php"><i class="fas fa-sign-out-alt me-2 my-2"></i>Keluar</a>
                 </div>
             </div>
         </div>

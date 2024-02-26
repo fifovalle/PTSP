@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Login admin</title>
     <!-- OUR CSS -->
-    <link rel="stylesheet" type="text/css" href="/src/admin/assets/our/css/login.css">
+    <link rel="stylesheet" type="text/css" href="../assets/our/css/login.css">
     <!-- FONT -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <!-- FAVICON -->
@@ -11,18 +11,18 @@
 </head>
 
 <body>
-    <img class="wave" src="/src/admin/assets/image/pages/wave.png">
+    <img class="wave" src="../assets/image/pages/wave.png">
     <!-- MAIN START -->
     <div class="container">
         <div class="img">
-            <img src="/src/admin/assets/image/pages/loginbg.svg">
+            <img src="../assets/image/pages/loginbg.svg">
             <div class="img2">
-                <img src="/src/admin/assets/image/pages/loginbg2.svg">
+                <img src="../assets/image/pages/loginbg2.svg">
             </div>
         </div>
         <div class="login-content">
             <form action="index.html">
-                <img class="imgForm" src="/src/admin/assets/image/logo/logo2.png">
+                <img class="imgForm" src="../assets/image/logo/logo2.png">
                 <h2 class="title">Selamat Datang</h2>
                 <div class="input-div one">
                     <div class="i">
@@ -51,7 +51,7 @@
     <!-- MAIN END -->
 
     <!-- OUR JS -->
-    <script type="text/javascript" src="/src/admin/assets/our/js/login.js"></script>
+    <script type="text/javascript" src="../assets/our/js/login.js"></script>
     <!-- ICON -->
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </body>
