@@ -1,3 +1,7 @@
+<?php
+// DATABASES
+include '../config/databases.php';
+?>
 <!doctype html>
 <html lang="en">
 
