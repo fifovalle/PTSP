@@ -18,11 +18,11 @@
     margin-right: 10px;
     margin-left: 20px;
     margin-top: -90px;
+    border: 4px solid var(--teks);
+    border-radius: 8px;
 }
 
 .avatarimage {
-    border: 4px solid #fff;
-    border-radius: 3px;
     width: 135px;
     height: 130px;
     transition: 0.5s ease;
@@ -60,7 +60,7 @@
 }
 
 .avatar:hover .avatarimage {
-    opacity: 0.8;
+    opacity: 0.4;
 }
 
 .avatar:hover .middle {
