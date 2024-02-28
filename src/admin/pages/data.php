@@ -58,6 +58,12 @@ include '../config/databases.php';
                                 <div class="menu col-2">
                                     <p class="fw-semibold dataAll">Transaksi</p>
                                 </div>
+                                <div class="menu col-2 historyMenuData">
+                                    <p class="fw-semibold dataAll">Riwayat Transaksi</p>
+                                </div>
+                                <div class="menu col-2 historyMenuDataIKM">
+                                    <p class="fw-semibold dataAll">Riwayat IKM</p>
+                                </div>
                             </div>
                         </div>
                         <hr class="hrData">

@@ -26,6 +26,14 @@
   color: var(--teksTautanHover);
 }
 
+.historyMenuData {
+  width: 155px;
+}
+
+.historyMenuDataIKM {
+  width: 115px;
+}
+
 .dataAll.active {
   color: var(--teksTautanHover);
 }
@@ -47,7 +55,7 @@
 }
 
 .dataAll.active::after {
-  width: 80px;
+  width: 100%;
 }
 
 .iconFilter {
