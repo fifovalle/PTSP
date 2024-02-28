@@ -6,14 +6,23 @@ $(document).ready(function () {
 
     menuText === "Admin"
       ? ($(".adminTable").show(),
-        $(".userTable, .productTabel, .transactionTable").hide())
+        $(
+          ".userTable, .informationTable, .transactionTable, .servicesTable"
+        ).hide())
       : menuText === "Pengguna"
-      ? ($(".adminTable, .productTabel, .transactionTable").hide(),
+      ? ($(
+          ".adminTable, .informationTable, .transactionTable, .servicesTable"
+        ).hide(),
         $(".userTable").show())
-      : menuText === "Produk"
-      ? ($(".adminTable, .userTable, .transactionTable").hide(),
-        $(".productTabel").show())
-      : ($(".adminTable, .userTable, .productTabel").hide(),
+      : menuText === "Informasi"
+      ? ($(".adminTable, .userTable, .transactionTable, .servicesTable").hide(),
+        $(".informationTable").show())
+      : menuText === "Jasa"
+      ? ($(
+          ".adminTable, .userTable, .informationTable, .transactionTable"
+        ).hide(),
+        $(".servicesTable").show())
+      : ($(".adminTable, .userTable, .informationTable, .servicesTable").hide(),
         $(".transactionTable").show());
   });
 });

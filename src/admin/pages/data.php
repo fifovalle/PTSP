@@ -53,7 +53,7 @@ include '../config/databases.php';
                                     <p class="fw-semibold dataAll">Pengguna</p>
                                 </div>
                                 <div class="menu col-2">
-                                    <p class="fw-semibold dataAll">Produk</p>
+                                    <p class="fw-semibold dataAll">Informasi</p>
                                 </div>
                                 <div class="menu col-2">
                                     <p class="fw-semibold dataAll">Jasa</p>
@@ -92,7 +92,8 @@ include '../config/databases.php';
                                 <!-- ALL TABLE START -->
                                 <?php include "../partials/utils/admin-table.php" ?>
                                 <?php include "../partials/utils/user-table.php" ?>
-                                <?php include "../partials/utils/product-table.php" ?>
+                                <?php include "../partials/utils/informations-table.php" ?>
+                                <?php include "../partials/utils/sevices-table.php" ?>
                                 <?php include "../partials/utils/transaction-table.php" ?>
                                 <!-- ALL TABLE END -->
                             </div>

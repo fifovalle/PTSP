@@ -108,8 +108,9 @@
 }
 
 .userTable,
-.productTabel,
-.transactionTable {
+.informationTable,
+.transactionTable,
+.servicesTable {
   display: none;
 }
 

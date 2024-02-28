@@ -1,7 +1,5 @@
-<table class="tableData productTabel">
+<table class="tableData informationTable">
     <div id="actionsProduct" class="actions">
-        <button class="btn btn-primary" onclick="hapus()"><i class="fas fa-edit "></i>
-            Sunting</button>
         <button class="btn btn-danger" onclick="edit()"> <i class="fas fa-trash"></i>
             Hapus</button>
     </div>
@@ -12,19 +10,19 @@
             </th>
             <th class="text-center">No</th>
             <th class="text-center" data-field="data">
-                Produk
+                Informasi
             </th>
             <th class="text-center" data-field="data2">
-                Harga Produk
+                Harga Informasi
             </th>
             <th class="text-center" data-field="data3">
-                Stok Produk
+                Jenis Informasi
             </th>
             <th class="text-center" data-field="data4">
-                Pemilik Produk
+                Pemilik Informasi
             </th>
             <th class="text-center" data-field="data5">
-                Status Produk
+                Status Informasi
             </th>
         </tr>
     </thead>

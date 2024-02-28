@@ -1,7 +1,5 @@
 <table class="tableData userTable">
     <div id="actionsUser" class="actions">
-        <button class="btn btn-primary" onclick="edit()"><i class="fas fa-edit "></i>
-            Sunting</button>
         <button class="btn btn-danger" onclick="hapus()"> <i class="fas fa-trash"></i>
             Hapus</button>
     </div>
