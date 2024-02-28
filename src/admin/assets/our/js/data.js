@@ -32,6 +32,36 @@ checkBoxHeaderAdmin.addEventListener("click", function () {
   }
 });
 
+const checkBoxesAdmin = document.querySelectorAll(".checkBoxDataAdminData");
+checkBoxesAdmin.forEach(function (checkbox) {
+  checkbox.addEventListener("click", function () {
+    const checkedCheckboxesAdmin = document.querySelectorAll(
+      ".checkBoxDataAdminData:checked"
+    );
+    const actionsDiv = document.getElementById("actionsAdmin");
+    if (checkedCheckboxesAdmin.length > 0) {
+      actionsDiv.style.display = "block";
+    } else {
+      actionsDiv.style.display = "none";
+    }
+  });
+});
+
+const checkBoxesUser = document.querySelectorAll(".checkBoxDataUserData");
+checkBoxesUser.forEach(function (checkbox) {
+  checkbox.addEventListener("click", function () {
+    const checkedCheckboxesUser = document.querySelectorAll(
+      ".checkBoxDataUserData:checked"
+    );
+    const actionsDiv = document.getElementById("actionsUser");
+    if (checkedCheckboxesUser.length > 0) {
+      actionsDiv.style.display = "block";
+    } else {
+      actionsDiv.style.display = "none";
+    }
+  });
+});
+
 const checkBoxHeaderUser = document.querySelector(".checkBoxDataUser");
 checkBoxHeaderUser.addEventListener("click", function () {
   const checkBoxes = document.querySelectorAll(".checkBoxDataUser");
@@ -46,6 +76,21 @@ checkBoxHeaderUser.addEventListener("click", function () {
   }
 });
 
+const checkBoxesProduct = document.querySelectorAll(".checkBoxDataProductData");
+checkBoxesProduct.forEach(function (checkbox) {
+  checkbox.addEventListener("click", function () {
+    const checkedCheckboxesProduct = document.querySelectorAll(
+      ".checkBoxDataProductData:checked"
+    );
+    const actionsDiv = document.getElementById("actionsProduct");
+    if (checkedCheckboxesProduct.length > 0) {
+      actionsDiv.style.display = "block";
+    } else {
+      actionsDiv.style.display = "none";
+    }
+  });
+});
+
 const checkBoxHeaderProduct = document.querySelector(".checkBoxDataProduct");
 checkBoxHeaderProduct.addEventListener("click", function () {
   const checkBoxes = document.querySelectorAll(".checkBoxDataProduct");
@@ -58,6 +103,23 @@ checkBoxHeaderProduct.addEventListener("click", function () {
   } else {
     actionsDiv.style.display = "none";
   }
+});
+
+const checkBoxesTransaction = document.querySelectorAll(
+  ".checkBoxDataTransactionData"
+);
+checkBoxesTransaction.forEach(function (checkbox) {
+  checkbox.addEventListener("click", function () {
+    const checkedCheckboxesTransaction = document.querySelectorAll(
+      ".checkBoxDataTransactionData:checked"
+    );
+    const actionsDiv = document.getElementById("actionsTransaction");
+    if (checkedCheckboxesTransaction.length > 0) {
+      actionsDiv.style.display = "block";
+    } else {
+      actionsDiv.style.display = "none";
+    }
+  });
 });
 
 const checkBoxHeaderTransaction = document.querySelector(

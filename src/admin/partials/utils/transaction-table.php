@@ -31,7 +31,7 @@
     <tbody class="tbodyData">
         <tr class="trDataN">
             <td class="text-center">
-                <input class="checkBoxData checkBoxDataTransaction" type="checkbox">
+                <input class="checkBoxData checkBoxDataTransaction checkBoxDataTransactionData" type="checkbox">
             </td>
             <td class="text-center">1</td>
             <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">

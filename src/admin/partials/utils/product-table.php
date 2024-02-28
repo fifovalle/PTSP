@@ -39,7 +39,7 @@
         ?>
                 <tr class="trDataN">
                     <td class="text-center">
-                        <input class="checkBoxData checkBoxDataProduct" type="checkbox">
+                        <input class="checkBoxData checkBoxDataProduct checkBoxDataProductData" type="checkbox">
                     </td>
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">

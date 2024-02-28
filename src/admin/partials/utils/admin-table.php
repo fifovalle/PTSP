@@ -1,7 +1,5 @@
 <table class="tableData adminTable">
     <div id="actionsAdmin" class="actions">
-        <button class="btn btn-primary" onclick="edit()"><i class="fas fa-edit "></i>
-            Sunting</button>
         <button class="btn btn-danger" onclick="hapus()"> <i class="fas fa-trash"></i>
             Hapus</button>
     </div>
@@ -43,7 +41,7 @@
         ?>
                 <tr class="trDataN">
                     <td class="text-center">
-                        <input class="checkBoxData checkBoxDataAdmin" type="checkbox">
+                        <input class="checkBoxData checkBoxDataAdmin checkBoxDataAdminData" type="checkbox">
                     </td>
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
