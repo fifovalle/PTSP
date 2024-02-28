@@ -18,8 +18,8 @@ function setPesanKeberhasilan($pesan_keberhasilan)
 }
 
 if (isset($_POST['Masuk'])) {
-    $emailNamaPengguna = $_POST['Email_Nama_Pengguna'];
-    $kataSandi = $_POST['Kata_Sandi'];
+    $emailNamaPengguna = htmlspecialchars($_POST['Email_Nama_Pengguna']);
+    $kataSandi = htmlspecialchars($_POST['Kata_Sandi']);
 
     if (empty($emailNamaPengguna) || empty($kataSandi)) {
         setPesanKesalahan("Semua field harus diisi.");
@@ -35,10 +35,10 @@ if (isset($_POST['Masuk'])) {
         exit();
     }
 
-    $_SESSION['ID'] = $admin['ID_Admin'];
-    $_SESSION['Foto'] = $admin['Foto'];
-    $_SESSION['Nama_Pengguna'] = $admin['Nama_Pengguna_Admin'];
-    $_SESSION['Peran_Admin'] = $admin['Peran_Admin'];
+    $_SESSION['ID'] = htmlspecialchars($admin['ID_Admin']);
+    $_SESSION['Foto'] = htmlspecialchars($admin['Foto']);
+    $_SESSION['Nama_Pengguna'] = htmlspecialchars($admin['Nama_Pengguna_Admin']);
+    $_SESSION['Peran_Admin'] = htmlspecialchars($admin['Peran_Admin']);
 
     setPesanKeberhasilan("Selamat datang, " . $_SESSION['Nama_Pengguna'] . "!");
     header("Location: $akarUrl" . "public/");

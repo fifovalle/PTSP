@@ -28,6 +28,8 @@ if (isset($_POST['Simpan'])) {
     $alamatAdmin = $_POST['Alamat_Admin'];
     $token = uniqid();
 
+    $obyekAdmin = new Admin($koneksi);
+
     $pesanKesalahan = '';
 
     $nomorTeleponFormatted = '+62 ' . substr($nomorTelepon, 0, 3) . '-' . substr($nomorTelepon, 4, 4) . '-' . substr($nomorTelepon, 7);
@@ -85,6 +87,12 @@ if (isset($_POST['Simpan'])) {
         exit;
     }
 
+    if ($obyekAdmin->cekEmailSudahAda($email)) {
+        setPesanKesalahan("Email yang dimasukkan sudah terdaftar.");
+        header("Location: $akarUrl/src/admin/pages/data.php");
+        exit;
+    }
+
     $dataAdmin = array(
         'Foto' => $namaFotoAdminBaru,
         'Nama_Depan_Admin' => $namaDepan,
@@ -101,7 +109,6 @@ if (isset($_POST['Simpan'])) {
         'token' => $token
     );
 
-    $obyekAdmin = new Admin($koneksi);
     $simpanDataAdmin = $obyekAdmin->tambahAdmin($dataAdmin);
 
     if ($simpanDataAdmin) {

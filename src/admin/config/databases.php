@@ -141,6 +141,24 @@ class Admin
         }
         return null;
     }
+
+    public function cekEmailSudahAda($email)
+    {
+        $query = "SELECT COUNT(*) as total FROM admin WHERE Email_Admin = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("s", $email);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+
+        $total = $row['total'];
+
+        if ($total > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 // ===================================ADMIN===================================
@@ -285,10 +303,10 @@ class Produk
 
     public function tambahProduk($data)
     {
-        $query = "INSERT INTO produk (Foto_Produk, Nama_Produk, Deskripsi_Produk, Harga_Produk, Stok_Produk, Pemilik_Produk, No_Rekening, Status_Produk) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO produk (Foto_Produk, Nama_Produk, Deskripsi_Produk, Harga_Produk, Pemilik_Produk, No_Rekening, Status_Produk) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssiisii", $data['Foto_Produk'], $data['Nama_Produk'], $data['Deskripsi_Produk'], $data['Harga_Produk'], $data['Stok_Produk'], $data['Pemilik_Produk'], $data['No_Rekening'], $data['Status_Produk']);
+        $statement->bind_param("sssisii", $data['Foto_Produk'], $data['Nama_Produk'], $data['Deskripsi_Produk'], $data['Harga_Produk'], $data['Pemilik_Produk'], $data['No_Rekening'], $data['Status_Produk']);
 
         if ($statement->execute()) {
             return true;
@@ -334,10 +352,10 @@ class Produk
 
     public function perbaruiProduk($id, $data)
     {
-        $query = "UPDATE produk SET Foto_Produk=?, Nama_Produk=?, Deskripsi_Produk=?, Harga_Produk=?, Stok_Produk=?, Pemilik_Produk=?, No_Rekening=?, Status_Produk=? WHERE ID_Produk=?";
+        $query = "UPDATE produk SET Foto_Produk=?, Nama_Produk=?, Deskripsi_Produk=?, Harga_Produk=?, Pemilik_Produk=?, No_Rekening=?, Status_Produk=? WHERE ID_Produk=?";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssiisiii", $data['Foto_Produk'], $data['Nama_Produk'], $data['Deskripsi_Produk'], $data['Harga_Produk'], $data['Stok_Produk'], $data['Pemilik_Produk'], $data['No_Rekening'], $data['Status_Produk'], $id);
+        $statement->bind_param("sssisiii", $data['Foto_Produk'], $data['Nama_Produk'], $data['Deskripsi_Produk'], $data['Harga_Produk'], $data['Pemilik_Produk'], $data['No_Rekening'], $data['Status_Produk'], $id);
 
         if ($statement->execute()) {
             return true;
