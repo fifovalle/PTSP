@@ -327,7 +327,6 @@ aside {
 .sidebar-heading {
   padding: 30px 0;
 }
-
 .parentImageSidebar {
   position: relative;
 }
@@ -338,6 +337,7 @@ aside {
   border-radius: 50%;
   cursor: pointer;
   overflow: hidden;
+  transition: opacity 0.3s ease;
 }
 
 .spanImageIcon {
@@ -347,6 +347,7 @@ aside {
   font-size: 40px;
   top: 35px;
   visibility: hidden;
+  transition: visibility 0.3s ease;
 }
 
 .parentImageSidebar:hover .sidebarImage {
