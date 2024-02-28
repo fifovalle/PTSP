@@ -7,9 +7,14 @@ $halamanSaatIni = basename($_SERVER['PHP_SELF']);
 
 <aside class="col-md-2 d-none d-md-block" id="sidebar">
     <div class="sidebar-sticky sidebar-heading d-flex flex-column align-content-center flex-wrap">
-        <a href="<?php echo $akarUrl; ?>src/admin/pages/profile.php">
+        <span class="parentImageSidebar">
             <img class="sidebarImage" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto']; ?>" alt="imageAdmin">
-        </a>
+            <a href="<?php echo $akarUrl; ?>src/admin/pages/profile.php">
+                <span class="spanImageIcon">
+                    <i class='bx bx-window-open'></i>
+                </span>
+            </a>
+        </span>
         <div class="parentTextSidebar fw-medium">
             <?php
             $teksPeranAdmin = "Peran Tidak Diketahui";

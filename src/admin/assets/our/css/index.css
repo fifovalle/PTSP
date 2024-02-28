@@ -328,15 +328,37 @@ aside {
   padding: 30px 0;
 }
 
+.parentImageSidebar {
+  position: relative;
+}
+
 .sidebarImage {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   cursor: pointer;
+  overflow: hidden;
 }
 
-.sidebarImage:hover {
+.spanImageIcon {
+  position: absolute;
+  right: 40px;
+  color: var(--teks);
+  font-size: 40px;
+  top: 35px;
+  visibility: hidden;
+}
+
+.parentImageSidebar:hover .sidebarImage {
   opacity: 0.5;
+}
+
+.parentImageSidebar:hover .spanImageIcon {
+  visibility: visible;
+}
+
+.spanImageIcon:hover {
+  color: var(--teksTautanHover);
 }
 
 .parentTextSidebar {
