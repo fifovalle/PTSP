@@ -56,6 +56,9 @@ include '../config/databases.php';
                                     <p class="fw-semibold dataAll">Produk</p>
                                 </div>
                                 <div class="menu col-2">
+                                    <p class="fw-semibold dataAll">Jasa</p>
+                                </div>
+                                <div class="menu col-2">
                                     <p class="fw-semibold dataAll">Transaksi</p>
                                 </div>
                                 <div class="menu col-2 historyMenuData">
