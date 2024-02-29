@@ -1,6 +1,12 @@
 <?php
 // DATABASES
 include '../config/databases.php';
+// MEMAKSA MASUK
+if (!isset($_SESSION['ID'])) {
+    setPesanKesalahan("Anda tidak bisa mengakses halaman ini. Silakan login terlebih dahulu.");
+    header("Location: $akarUrl" . "src/admin/pages/login.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>

@@ -1,8 +1,6 @@
 <?php
 include 'databases.php';
 
-$produkModel = new Produk($koneksi);
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idProduk = $_POST['ID_Produk'] ?? '';
     $namaProduk = $_POST['Nama_Produk'] ?? '';
@@ -34,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nomorRekeningFormatted = $nomorRekening;
 
-    $obyekProduk = new Produk($koneksi);
+    $produkModel = new Produk($koneksi);
 
     if (!empty($_FILES['Foto_Produk']['name'])) {
         $fotoProduk = $_FILES['Foto_Produk'];

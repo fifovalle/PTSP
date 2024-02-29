@@ -1,9 +1,6 @@
 <?php
 include 'databases.php';
 
-$akarUrl = "http://localhost/PTSP/";
-$halamanSaatIni = basename($_SERVER['PHP_SELF']);
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idPengguna = $_POST['ID_Pengguna'] ?? '';
     $namaDepan = $_POST['Nama_Depan_Pengguna'] ?? '';
