@@ -22,8 +22,9 @@ Jelajahi karya terbaru dan keterampilan saya dalam dunia pengembangan perangkat 
 Berikut adalah beberapa tampilan halaman website :
 
 ![Screenshot 2024-02-25 005738](https://github.com/fifovalle/DASHBOARD-ADMIN-VERSI-2.0/assets/90078068/0755b257-b3b6-46fa-9bec-e1519b45f282)
-![Screenshot 2024-02-22 111445](https://github.com/fifovalle/DASHBOARD-ADMIN-VERSI-2.0/assets/90078068/0c71121a-9b19-4006-a957-02fabac5e8dd)
+![Screenshot 2024-02-29 100924](https://github.com/fifovalle/PTSP/assets/90078068/72c8c153-9717-424a-aee3-1b09256c24cf)
 ![Screenshot 2024-02-25 005537](https://github.com/fifovalle/DASHBOARD-ADMIN-VERSI-2.0/assets/90078068/fd6143a4-d63c-4a1b-80d1-f890f3dda3eb)
+![Screenshot 2024-02-29 100931](https://github.com/fifovalle/PTSP/assets/90078068/5221b9db-27bd-4e55-b83c-a1498a53b56d)
 
 ## 📬 Kontak
 
@@ -38,14 +39,14 @@ Kontribusi dan umpan balik dari komunitas sangat dihargai. Jika Anda ingin berko
 1. Clone repositori ini ke direktori web server Anda.
 
    ```
-   git clone https://github.com/fifovalle/DASHBOARD-ADMIN-VERSI-2.0.git
+   git clone https://github.com/fifovalle/PTSP.git
 
    ```
 
 2. Impor skema basis data dari folder `database` ke MySQL.
 
    ```
-   mysql -u username -p nama_database < database/belum_ada.sql
+   mysql -u username -p nama_database < database/ptsp_bmkg.sql
    ```
 
 3. Konfigurasi koneksi basis data. Edit file `config.php` di dalam direktori `includes` sesuai pengaturan MySQL.
