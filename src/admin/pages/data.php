@@ -87,7 +87,7 @@ include '../config/databases.php';
                             </div>
                         </div>
                         <hr class="hrData">
-                        <div class="row">
+                        <div class="row mx-auto">
                             <div class="col">
                                 <!-- ALL TABLE START -->
                                 <?php include "../partials/utils/admin-table.php" ?>

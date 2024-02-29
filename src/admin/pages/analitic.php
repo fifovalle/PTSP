@@ -72,7 +72,7 @@ include '../config/databases.php';
                             </div>
                         </div>
                         <hr class="hrData">
-                        <div class="row">
+                        <div class="row mx-auto">
                             <div class="col">
                                 <!-- ALL ANALITIC START -->
                                 <?php include "../partials/utils/all-analitic.php" ?>
