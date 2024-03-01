@@ -22,18 +22,21 @@
                 Pemilik Jasa
             </th>
             <th class="text-center" data-field="data5">
+                Kategori Jasa
+            </th>
+            <th class="text-center" data-field="data5">
                 Status Jasa
             </th>
         </tr>
     </thead>
     <tbody class="tbodyData">
         <?php
-        $produkModel = new Produk($koneksi);
-        $dataProduk = $produkModel->tampilkanDataProduk();
+        $jasaModel = new jasa($koneksi);
+        $dataJasa = $jasaModel->tampilkanDataJasa();
 
-        if (!empty($dataProduk)) {
+        if (!empty($dataJasa)) {
             $nomorUrut = 1;
-            foreach ($dataProduk as $produk) {
+            foreach ($dataJasa as $jasa) {
         ?>
                 <tr class="trDataN">
                     <td class="text-center">
@@ -42,16 +45,16 @@
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
                         <div>
-                            <img class="imageData" src="../assets/image/uploads/<?php echo $produk['Foto_Produk']; ?>" alt="Foto Produk">
+                            <img class="imageData" src="../assets/image/uploads/<?php echo $jasa['Foto_Jasa']; ?>" alt="Foto Jasa">
                         </div>
                         <div class="deskriptorContainer">
-                            <p class="fw-semibold m-auto"><?php echo $produk['Nama_Produk']; ?></p>
-                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $produk['Deskripsi_Produk']; ?></p>
+                            <p class="fw-semibold m-auto"><?php echo $jasa['Nama_Jasa']; ?></p>
+                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $jasa['Deskripsi_Jasa']; ?></p>
                             <div class="iconContainerData">
-                                <a class="linkData buttonProduk" data-id='<?php echo $produk['ID_Produk']; ?>'>
+                                <a class="linkData buttonProduk" data-id='<?php echo $jasa['ID_Jasa']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>
                                 </a>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteProduct(<?php echo $produk['ID_Produk']; ?>)">
+                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteProduct(<?php echo $jasa['ID_Jasa']; ?>)">
                                     <span>
                                         <i class="fas fa-trash"></i>
                                     </span>
@@ -59,12 +62,13 @@
                             </div>
                         </div>
                     </td>
-                    <td class="text-center">Rp <?php echo number_format($produk['Harga_Produk'], 0, ',', '.'); ?></td>
-                    <td class="text-center"><?php echo $produk['Stok_Produk']; ?></td>
-                    <td class="text-center"><?php echo $produk['Pemilik_Produk']; ?></td>
+                    <td class="text-center">Rp <?php echo number_format($jasa['Harga_Jasa'], 0, ',', '.'); ?></td>
+                    <td class="text-center"><?php echo $jasa['Stok_Jasa']; ?></td>
+                    <td class="text-center"><?php echo $jasa['Pemilik_Jasa']; ?></td>
+                    <td class="text-center"><?php echo $informasi['Kategori_Jasa']; ?></td>
                     <td class="text-center">
                         <?php
-                        echo ($produk['Status_Produk'] == 1) ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Tidak Tersedia</span>';
+                        echo ($jasa['Status_Jasa'] == 1) ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Tidak Tersedia</span>';
                         ?>
                     </td>
                 </tr>

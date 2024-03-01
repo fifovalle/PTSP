@@ -290,9 +290,9 @@ class Pengguna
 // ===================================PENGGUNA===================================
 
 
-// ===================================PRODUK===================================
+// ===================================INFORMASI===================================
 
-class Produk
+class Informasi
 {
     private $koneksi;
 
@@ -301,12 +301,12 @@ class Produk
         $this->koneksi = $koneksi;
     }
 
-    public function tambahProduk($data)
+    public function tambahInformasi($data)
     {
-        $query = "INSERT INTO produk (Foto_Produk, Nama_Produk, Deskripsi_Produk, Harga_Produk, Pemilik_Produk, No_Rekening, Status_Produk) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO informasi (Foto_Informasi, Nama_Informasi, Deskripsi_Informasi, Harga_Informasi, Pemilik_Informasi, No_Rekening, Status_Informasi) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssisii", $data['Foto_Produk'], $data['Nama_Produk'], $data['Deskripsi_Produk'], $data['Harga_Produk'], $data['Pemilik_Produk'], $data['No_Rekening'], $data['Status_Produk']);
+        $statement->bind_param("sssisii", $data['Foto_Informasi'], $data['Nama_Informasi'], $data['Deskripsi_Informasi'], $data['Harga_Informasi'], $data['Pemilik_Informasi'], $data['No_Rekening'], $data['Status_Informasi']);
 
         if ($statement->execute()) {
             return true;
@@ -315,9 +315,9 @@ class Produk
         }
     }
 
-    public function tampilkanDataProduk()
+    public function tampilkanDataInformasi()
     {
-        $query = "SELECT * FROM produk";
+        $query = "SELECT * FROM informasi";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -331,9 +331,9 @@ class Produk
         }
     }
 
-    public function tampilkanDataProdukTerbaru($limit = 3)
+    public function tampilkanDataInformasiTerbaru($limit = 3)
     {
-        $query = "SELECT * FROM produk ORDER BY ID_Produk DESC LIMIT ?";
+        $query = "SELECT * FROM informasi ORDER BY ID_Informasi DESC LIMIT ?";
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("i", $limit);
         $statement->execute();
@@ -350,12 +350,12 @@ class Produk
         }
     }
 
-    public function perbaruiProduk($id, $data)
+    public function perbaruiInformasi($id, $data)
     {
-        $query = "UPDATE produk SET Foto_Produk=?, Nama_Produk=?, Deskripsi_Produk=?, Harga_Produk=?, Pemilik_Produk=?, No_Rekening=?, Status_Produk=? WHERE ID_Produk=?";
+        $query = "UPDATE informasi SET Foto_Informasi=?, Nama_Informasi=?, Deskripsi_Informasi=?, Harga_Informasi=?, Pemilik_Informasi=?, No_Rekening=?, Status_Informasi=? WHERE ID_Informasi=?";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssisiii", $data['Foto_Produk'], $data['Nama_Produk'], $data['Deskripsi_Produk'], $data['Harga_Produk'], $data['Pemilik_Produk'], $data['No_Rekening'], $data['Status_Produk'], $id);
+        $statement->bind_param("sssisiii", $data['Foto_Informasi'], $data['Nama_Informasi'], $data['Deskripsi_Informasi'], $data['Harga_Informasi'], $data['Pemilik_Informasi'], $data['No_Rekening'], $data['Status_Informasi'], $id);
 
         if ($statement->execute()) {
             return true;
@@ -364,22 +364,22 @@ class Produk
         }
     }
 
-    public function hapusProduk($id)
+    public function hapusInformasi($id)
     {
-        $query = "SELECT ID_Produk, Foto_Produk FROM produk WHERE ID_Produk=?";
+        $query = "SELECT ID_Informasi, Foto_Informasi FROM informasi WHERE ID_Informasi=?";
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("i", $id);
         $statement->execute();
         $result = $statement->get_result();
         $row = $result->fetch_assoc();
-        $idPemilikFoto = $row['ID_Produk'];
-        $namaFoto = $row['Foto_Produk'];
+        $idPemilikFoto = $row['ID_Informasi'];
+        $namaFoto = $row['Foto_Informasi'];
 
         if ($idPemilikFoto != $id) {
             return false;
         }
 
-        $queryDelete = "DELETE FROM produk WHERE ID_Produk=?";
+        $queryDelete = "DELETE FROM informasi WHERE ID_Informasi=?";
         $statementDelete = $this->koneksi->prepare($queryDelete);
         $statementDelete->bind_param("i", $id);
         $isDeleted = $statementDelete->execute();
@@ -401,9 +401,9 @@ class Produk
         }
     }
 
-    public function getDataProdukById($id)
+    public function getDataInformasiById($id)
     {
-        $query = "SELECT * FROM produk WHERE ID_Produk = ?";
+        $query = "SELECT * FROM informasi WHERE ID_Informasi = ?";
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("i", $id);
         $statement->execute();
@@ -417,21 +417,169 @@ class Produk
         }
     }
 
-    public function getFotoProdukById($idProduk)
+    public function getFotoInformasiById($idInformasi)
     {
-        $query = "SELECT Foto_Produk FROM produk WHERE ID_Produk = ?";
+        $query = "SELECT Foto_Informasi FROM informasi WHERE ID_Informasi = ?";
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("i", $idProduk);
+        $statement->bind_param("i", $idInformasi);
         $statement->execute();
         $result = $statement->get_result();
 
         if ($result->num_rows > 0) {
             $data = $result->fetch_assoc();
-            return $data['Foto_Produk'];
+            return $data['Foto_Informasi'];
         } else {
             return null;
         }
     }
 }
 
-// ===================================PRODUK===================================
+// ===================================INFORMASI===================================
+
+
+
+// ===================================JASA===================================
+
+class Jasa
+{
+    private $koneksi;
+
+    public function __construct($koneksi)
+    {
+        $this->koneksi = $koneksi;
+    }
+
+    public function tambahJasa($data)
+    {
+        $query = "INSERT INTO jasa (Foto_Jasa, Nama_Jasa, Deskripsi_Jasa, Harga_Jasa, Pemilik_Jasa, No_Rekening, Status_Jasa) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("sssisii", $data['Foto_Jasa'], $data['Nama_Jasa'], $data['Deskripsi_Jasa'], $data['Harga_Jasa'], $data['Pemilik_Jasa'], $data['No_Rekening'], $data['Status_Jasa']);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tampilkanDataJasa()
+    {
+        $query = "SELECT * FROM jasa";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanDataJasaTerbaru($limit = 3)
+    {
+        $query = "SELECT * FROM jasa ORDER BY ID_Jasa DESC LIMIT ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $limit);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function perbaruiJasa($id, $data)
+    {
+        $query = "UPDATE jasa SET Foto_Jasa=?, Nama_Jasa=?, Deskripsi_Jasa=?, Harga_Jasa=?, Pemilik_Jasa=?, No_Rekening=?, Status_Jasa=? WHERE ID_Jasa=?";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("sssisiii", $data['Foto_Jasa'], $data['Nama_Jasa'], $data['Deskripsi_Jasa'], $data['Harga_Jasa'], $data['Pemilik_Jasa'], $data['No_Rekening'], $data['Status_Jasa'], $id);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function hapusJasa($id)
+    {
+        $query = "SELECT ID_Jasa, Foto_Jasa FROM jasa WHERE ID_Jasa=?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+        $idPemilikFoto = $row['ID_Jasa'];
+        $namaFoto = $row['Foto_Jasa'];
+
+        if ($idPemilikFoto != $id) {
+            return false;
+        }
+
+        $queryDelete = "DELETE FROM jasa WHERE ID_Jasa=?";
+        $statementDelete = $this->koneksi->prepare($queryDelete);
+        $statementDelete->bind_param("i", $id);
+        $isDeleted = $statementDelete->execute();
+
+        if ($isDeleted) {
+            $lokasiFoto =  $namaFoto;
+
+            if (file_exists($lokasiFoto)) {
+                if (unlink($lokasiFoto)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function getDataJasaById($id)
+    {
+        $query = "SELECT * FROM jasa WHERE ID_Jasa = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data;
+        } else {
+            return false;
+        }
+    }
+
+    public function getFotoJasaById($idJasa)
+    {
+        $query = "SELECT Foto_Jasa FROM jasa WHERE ID_Jasa = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $idJasa);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['Foto_Jasa'];
+        } else {
+            return null;
+        }
+    }
+}
+
+// ===================================JASA===================================

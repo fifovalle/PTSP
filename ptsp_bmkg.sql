@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 29, 2024 at 04:02 AM
+-- Generation Time: Mar 01, 2024 at 03:12 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -54,6 +54,42 @@ INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admi
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `informasi`
+--
+
+CREATE TABLE `informasi` (
+  `ID_Informasi` int(11) NOT NULL,
+  `Foto_Informasi` longblob NOT NULL,
+  `Nama_Informasi` varchar(30) NOT NULL,
+  `Deskripsi_Informasi` text NOT NULL,
+  `Harga_Informasi` int(11) NOT NULL,
+  `Pemilik_Informasi` enum('Instansi A','Instansi B','Instansi C') NOT NULL,
+  `No_Rekening_Informasi` int(15) NOT NULL,
+  `Kategori_Informasi` enum('Meteorologi','Klimatologi','Geofisika') NOT NULL,
+  `Status_Informasi` enum('Tersedia','Tidak Tersedia') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jasa`
+--
+
+CREATE TABLE `jasa` (
+  `ID_Jasa` int(11) NOT NULL,
+  `Foto_Jasa` longblob NOT NULL,
+  `Nama_Jasa` varchar(30) NOT NULL,
+  `Deskripsi_Jasa` text NOT NULL,
+  `Harga_Jasa` int(11) NOT NULL,
+  `Pemilik_Jasa` enum('Instansi A','Instansi B','Instansi C') NOT NULL,
+  `No_Rekening_Jasa` int(15) NOT NULL,
+  `Kategori_Jasa` enum('Meteorologi','Klimatologi','Geofisika') NOT NULL,
+  `Status_Jasa` enum('Tersedia','Tidak Tersedia') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pengguna`
 --
 
@@ -73,24 +109,6 @@ CREATE TABLE `pengguna` (
   `token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `produk`
---
-
-CREATE TABLE `produk` (
-  `ID_Produk` int(11) NOT NULL,
-  `Foto_Produk` longblob NOT NULL,
-  `Nama_Produk` varchar(30) NOT NULL,
-  `Deskripsi_Produk` text NOT NULL,
-  `Harga_Produk` int(11) NOT NULL,
-  `Jenis_Produk` enum('Meteorologi','Klimatologi','Geofisika') NOT NULL,
-  `Pemilik_Produk` enum('Instansi A','Instansi B','Instansi C') NOT NULL,
-  `No_Rekening` int(15) NOT NULL,
-  `Status_Produk` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Indexes for dumped tables
 --
@@ -102,16 +120,22 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`ID_Admin`);
 
 --
+-- Indexes for table `informasi`
+--
+ALTER TABLE `informasi`
+  ADD PRIMARY KEY (`ID_Informasi`);
+
+--
+-- Indexes for table `jasa`
+--
+ALTER TABLE `jasa`
+  ADD PRIMARY KEY (`ID_Jasa`);
+
+--
 -- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`ID_Pengguna`);
-
---
--- Indexes for table `produk`
---
-ALTER TABLE `produk`
-  ADD PRIMARY KEY (`ID_Produk`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -121,19 +145,25 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+
+--
+-- AUTO_INCREMENT for table `informasi`
+--
+ALTER TABLE `informasi`
+  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `jasa`
+--
+ALTER TABLE `jasa`
+  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
   MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `produk`
---
-ALTER TABLE `produk`
-  MODIFY `ID_Produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -8,6 +8,7 @@ if (!isset($_SESSION['ID'])) {
     exit();
 }
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -54,7 +55,10 @@ if (!isset($_SESSION['ID'])) {
                                     <p class="fw-semibold dataAll active">Semua</p>
                                 </div>
                                 <div class="menu col-2">
-                                    <p class="fw-semibold dataAll">Produk</p>
+                                    <p class="fw-semibold dataAll">Informasi</p>
+                                </div>
+                                <div class="menu col-2">
+                                    <p class="fw-semibold dataAll">Jasa</p>
                                 </div>
                                 <div class="menu col-2">
                                     <p class="fw-semibold dataAll">IKM</p>
@@ -105,7 +109,10 @@ if (!isset($_SESSION['ID'])) {
     include "../partials/utils/modal-add-user.php";
     ?>
     <?php
-    include "../partials/utils/modal-add-product.php";
+    include "../partials/utils/modal-add-information.php";
+    ?>
+    <?php
+    include "../partials/utils/modal-add-services.php";
     ?>
     <?php
     include "../partials/utils/modal-send-feedback.php";

@@ -1,10 +1,3 @@
-<?php
-// AKAR TAUTAN
-$akarUrl = "http://localhost/PTSP/";
-// HALAMAN SAAT DIBUKA
-$halamanSaatIni = basename($_SERVER['PHP_SELF']);
-?>
-
 <aside class="col-md-2 d-none d-md-block" id="sidebar">
     <div class="sidebar-sticky sidebar-heading d-flex flex-column align-content-center flex-wrap">
         <span class="parentImageSidebar">

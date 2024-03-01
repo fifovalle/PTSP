@@ -24,35 +24,25 @@ include '../config/databases.php';
     <div class="container">
         <div class="img">
             <img src="../assets/image/pages/loginbg.svg">
-            <div class="img2">
-                <img src="../assets/image/pages/loginbg2.svg">
+            <div class="forgotBG">
+                <img src="../assets/image/pages/forgotbg.svg">
             </div>
         </div>
         <div class="login-content">
-            <form action="../config/login.php" method="post">
+            <form action="" method="post">
                 <img class="imgForm" src="../assets/image/logo/logo2.png">
-                <h2 class="title">Selamat Datang</h2>
+                <h2 class="title">Lupa Kata Sandi ?</h2>
                 <div class="input-div one">
                     <div class="i">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-envelope"></i>
                     </div>
                     <div class="div">
-                        <h5>Nama Pengguna</h5>
+                        <h5>Email</h5>
                         <input type="text" class="input" name="Email_Nama_Pengguna" autocomplete="off">
                     </div>
                 </div>
-                <div class="input-div pass">
-                    <div class="i">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <div class="div">
-                        <h5>Kata Sandi</h5>
-                        <input type="password" class="input" name="Kata_Sandi" id="passwordInput" autocomplete="off">
-                        <i class="fas fa-eye iconInputContainer" id="togglePassword"></i>
-                    </div>
-                </div>
-                <a href="forgot-pass.php">Lupa kata sandi?</a>
-                <button name="Masuk" type="submit" class="btn">Masuk</button>
+                <p>Masukan Email Anda !</p>
+                <button name="Masuk" type="submit" class="btn">Kirim</button>
             </form>
         </div>
     </div>

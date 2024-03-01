@@ -8,6 +8,7 @@ if (!isset($_SESSION['ID'])) {
     exit();
 }
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -121,7 +122,10 @@ if (!isset($_SESSION['ID'])) {
     include "../partials/utils/modal-add-user.php";
     ?>
     <?php
-    include "../partials/utils/modal-add-product.php";
+    include "../partials/utils/modal-add-information.php";
+    ?>
+    <?php
+    include "../partials/utils/modal-add-services.php";
     ?>
     <?php
     include "../partials/utils/modal-edit-admin.php";

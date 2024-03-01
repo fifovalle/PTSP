@@ -149,7 +149,10 @@ if (!isset($_SESSION['ID'])) {
     include "../src/admin/partials/utils/modal-add-user.php";
     ?>
     <?php
-    include "../src/admin/partials/utils/modal-add-product.php";
+    include "../src/admin/partials/utils/modal-add-information.php";
+    ?>
+    <?php
+    include "../src/admin/partials/utils/modal-add-services.php";
     ?>
     <?php
     include "../src/admin/partials/utils/modal-send-feedback.php";

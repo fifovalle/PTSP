@@ -1,9 +1,3 @@
-<?php
-// AKAR TAUTAN
-$akarUrl = "http://localhost/PTSP/";
-// HALAMAN SAAT DIBUKA
-$halamanSaatIni = basename($_SERVER['PHP_SELF']);
-?>
 <div class="modal fade" id="addAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

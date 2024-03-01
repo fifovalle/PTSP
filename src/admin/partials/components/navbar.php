@@ -1,10 +1,3 @@
-<?php
-//AKAR TAUTAN
-$akarUrl = "http://localhost/PTSP/";
-// HALAMAN SAAT DIBUKA
-$halamanSaatIni = basename($_SERVER['PHP_SELF']);
-?>
-
 <nav class="navbar navbar-expand-lg color px-3 fixed-top">
     <div class="overlay z-2"></div>
     <div class="container-fluid">
@@ -25,20 +18,20 @@ $halamanSaatIni = basename($_SERVER['PHP_SELF']);
                         </p>
                         <hr>
                         <?php
-                        $produkModel = new Produk($koneksi);
-                        $dataProdukTerbaru = $produkModel->tampilkanDataProdukTerbaru();
-                        if (!empty($dataProdukTerbaru)) {
-                            foreach ($dataProdukTerbaru as $produk) {
+                        $informasiModel = new Informasi($koneksi);
+                        $dataInformasiTerbaru = $informasiModel->tampilkanDataInformasi();
+                        if (!empty($dataInformasiTerbaru)) {
+                            foreach ($dataInformasiTerbaru as $informasi) {
                         ?>
                                 <div class="d-flex align-items-center justify-content-between list boxParent mb-3">
-                                    <img class="imageProduct" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/<?php echo $produk['Foto_Produk']; ?>" alt="imageProduct">
+                                    <img class="imageProduct" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/<?php echo $informasi['Foto_Informasi']; ?>" alt="imageProduct">
                                     <div class="box">
-                                        <p><?php echo $produk['Nama_Produk']; ?></p>
-                                        <p class="descriptionProduct"><?php echo $produk['Deskripsi_Produk']; ?></p>
+                                        <p><?php echo $informasi['Nama_Informasi']; ?></p>
+                                        <p class="descriptionProduct"><?php echo $informasi['Deskripsi_Informasi']; ?></p>
                                     </div>
                                     <div class="box date">
-                                        <p><?php echo $produk['Pemilik_Produk']; ?></p>
-                                        <p class="stok"><?php echo $produk['Stok_Produk']; ?> Stok</p>
+                                        <p><?php echo $informasi['Pemilik_Informasi']; ?></p>
+                                        <p class="stok"><?php echo $informasi['Stok_Informasi']; ?> Stok</p>
                                     </div>
                                     <a class="linkProduk" href="#"><span class="edit-icon"><i class="fas fa-edit"></i>
                                             Sunting</span></a>
@@ -48,11 +41,10 @@ $halamanSaatIni = basename($_SERVER['PHP_SELF']);
                         <?php
                             }
                         } else {
-                            echo "<p class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Produk!</p>";
+                            echo "<p class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Informasi Dan Jasa!</p>";
                         }
                         ?>
                     </div>
-
                 </div>
             </form>
             <div class="relative d-flex align-items-center justify-content-between">
@@ -64,7 +56,8 @@ $halamanSaatIni = basename($_SERVER['PHP_SELF']);
                         <div>
                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addAdmin" href="#"><i class="fas fa-user-secret me-2 my-2"></i>Tambah Admin</a>
                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addUser" href="#"><i class="fas fa-users me-2 my-2"></i>Tambah Pengguna</a>
-                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addProduct" href="#"><i class="fas fa-cart-plus me-2 my-2"></i>Tambah Produk</a>
+                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addInformation" href="#"><i class="bx bxs-info-circle me-2 my-2"></i>Tambah Informasi</a>
+                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addServices" href="#"><i class="bx bxs-file-plus me-2 my-2"></i>Tambah Jasa</a>
                         </div>
                     </div>
                 </div>
