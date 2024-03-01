@@ -291,7 +291,6 @@ class Pengguna
 
 
 // ===================================INFORMASI===================================
-
 class Informasi
 {
     private $koneksi;
@@ -303,10 +302,10 @@ class Informasi
 
     public function tambahInformasi($data)
     {
-        $query = "INSERT INTO informasi (Foto_Informasi, Nama_Informasi, Deskripsi_Informasi, Harga_Informasi, Pemilik_Informasi, No_Rekening, Status_Informasi) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO informasi (Foto_Informasi, Nama_Informasi, Deskripsi_Informasi, Harga_Informasi, Pemilik_Informasi, No_Rekening_Informasi, Status_Informasi) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssisii", $data['Foto_Informasi'], $data['Nama_Informasi'], $data['Deskripsi_Informasi'], $data['Harga_Informasi'], $data['Pemilik_Informasi'], $data['No_Rekening'], $data['Status_Informasi']);
+        $statement->bind_param("sssisii", $data['Foto_Informasi'], $data['Nama_Informasi'], $data['Deskripsi_Informasi'], $data['Harga_Informasi'], $data['Pemilik_Informasi'], $data['No_Rekening_Informasi'], $data['Status_Informasi']);
 
         if ($statement->execute()) {
             return true;
@@ -439,7 +438,6 @@ class Informasi
 
 
 // ===================================JASA===================================
-
 class Jasa
 {
     private $koneksi;
@@ -451,10 +449,10 @@ class Jasa
 
     public function tambahJasa($data)
     {
-        $query = "INSERT INTO jasa (Foto_Jasa, Nama_Jasa, Deskripsi_Jasa, Harga_Jasa, Pemilik_Jasa, No_Rekening, Status_Jasa) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO jasa (Foto_Jasa, Nama_Jasa, Deskripsi_Jasa, Harga_Jasa, Pemilik_Jasa, No_Rekening_Jasa, Status_Jasa) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssisii", $data['Foto_Jasa'], $data['Nama_Jasa'], $data['Deskripsi_Jasa'], $data['Harga_Jasa'], $data['Pemilik_Jasa'], $data['No_Rekening'], $data['Status_Jasa']);
+        $statement->bind_param("sssisii", $data['Foto_Jasa'], $data['Nama_Jasa'], $data['Deskripsi_Jasa'], $data['Harga_Jasa'], $data['Pemilik_Jasa'], $data['No_Rekening_Jasa'], $data['Status_Jasa']);
 
         if ($statement->execute()) {
             return true;

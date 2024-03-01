@@ -134,7 +134,7 @@ if (!isset($_SESSION['ID'])) {
     include "../partials/utils/modal-edit-user.php";
     ?>
     <?php
-    include "../partials/utils/modal-edit-product.php";
+    include "../partials/utils/modal-edit-information.php";
     ?>
     <?php
     include "../partials/utils/modal-send-feedback.php";
@@ -151,10 +151,10 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/filter-data.js"></script>
     <script src="../assets/our/js/delete-admin.js"></script>
     <script src="../assets/our/js/delete-user.js"></script>
-    <script src="../assets/our/js/delete-product.js"></script>
-    <script src="../assets/our/js/valueadmin.js"></script>
-    <script src="../assets/our/js/valueuser.js"></script>
-    <script src="../assets/our/js/valueproduct.js"></script>
+    <script src="../assets/our/js/delete-information.js"></script>
+    <script src="../assets/our/js/value-admin.js"></script>
+    <script src="../assets/our/js/value-user.js"></script>
+    <script src="../assets/our/js/value-information.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- ALERT -->

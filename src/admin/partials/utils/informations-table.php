@@ -15,9 +15,6 @@
             <th class="text-center" data-field="data2">
                 Harga Informasi
             </th>
-            <th class="text-center" data-field="data3">
-                Jenis Informasi
-            </th>
             <th class="text-center" data-field="data4">
                 Pemilik Informasi
             </th>
@@ -51,19 +48,16 @@
                             <p class="fw-semibold m-auto"><?php echo $informasi['Nama_Informasi']; ?></p>
                             <p class="fw-semibold deskriptorSmall m-auto"><?php echo $informasi['Deskripsi_Informasi']; ?></p>
                             <div class="iconContainerData">
-                                <a class="linkData buttonProduk" data-id='<?php echo $informasi['ID_Informasi']; ?>'>
+                                <a class="linkData buttonInformation" data-id='<?php echo $informasi['ID_Informasi']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>
                                 </a>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteProduct(<?php echo $informasi['ID_Informasi']; ?>)">
-                                    <span>
-                                        <i class="fas fa-trash"></i>
-                                    </span>
+                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteInformation(<?php echo $informasi['ID_Informasi']; ?>)">
+                                    <span><i class="fas fa-trash"></i></span>
                                 </a>
                             </div>
                         </div>
                     </td>
                     <td class="text-center">Rp <?php echo number_format($informasi['Harga_Informasi'], 0, ',', '.'); ?></td>
-                    <td class="text-center"><?php echo $informasi['Stok_Informasi']; ?></td>
                     <td class="text-center"><?php echo $informasi['Pemilik_Informasi']; ?></td>
                     <td class="text-center"><?php echo $informasi['Kategori_Informasi']; ?></td>
                     <td class="text-center">

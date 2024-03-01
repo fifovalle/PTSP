@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" action="<?php echo $akarUrl; ?>src/admin/config/add-information.php" enctype="multipart/form-data">
+                <form method="POST" action="<?php echo $akarUrl; ?>src/admin/config/add-services.php" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="servicesFoto" class="form-label">Foto</label>
                         <input type="file" class="form-control" id="servicesFoto" name="Foto_Jasa" autocomplete="off">

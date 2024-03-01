@@ -1,7 +1,7 @@
-function confirmDeleteProduct(id) {
+function confirmDeleteInformation(id) {
   swal({
-    title: "Yakin Menghapus Produk?",
-    text: "Produk yang dihapus tidak dapat dipulihkan!",
+    title: "Yakin Menghapus Informasi?",
+    text: "Informasi yang dihapus tidak dapat dipulihkan!",
     icon: "warning",
     buttons: {
       cancel: {
@@ -21,7 +21,7 @@ function confirmDeleteProduct(id) {
     },
   }).then((confirm) => {
     if (confirm) {
-      window.location.href = "../config/delete-product.php?id=" + id;
+      window.location.href = "../config/delete-information.php?id=" + id;
     }
   });
 }

@@ -1,26 +1,26 @@
 $(document).ready(function () {
-  $(".buttonProduk").click(function (e) {
+  $(".buttonInformation").click(function (e) {
     e.preventDefault();
-    let produkID = $(this).data("id");
-    console.log(produkID);
+    let informasiID = $(this).data("id");
+    console.log(informasiID);
     $.ajax({
-      url: "../config/get-product-data.php",
+      url: "../config/get-information-data.php",
       method: "GET",
       data: {
-        produk_id: produkID,
+        informasi_id: informasiID,
       },
       success: function (data) {
         console.log(data);
-        let produkData = JSON.parse(data);
-        console.log(produkData);
-        $("#editProdukID").val(produkData.ID_Produk);
-        $("#nameEditProduct").val(produkData.Nama_Produk);
-        $("#descriptionEditProduct").val(produkData.Deskripsi_Produk);
-        $("#productEditPrice").val(produkData.Harga_Produk);
-        $("#productEditStock").val(produkData.Stok_Produk);
-        $("#ownerEdit").val(produkData.Pemilik_Produk);
-        $("#productEditStatus").val(produkData.Status_Produk);
-        $("#editProduct").modal("show");
+        let dataInformasi = JSON.parse(data);
+        console.log(dataInformasi);
+        $("#InformationIDEdit").val(dataInformasi.ID_Informasi);
+        $("#informationNameEdit").val(dataInformasi.Nama_Informasi);
+        $("#informationDescriptionEdit").val(dataInformasi.Deskripsi_Informasi);
+        $("#informationPriceEdit").val(dataInformasi.Harga_Informasi);
+        $("#informationOwnerEdit").val(dataInformasi.Pemilik_Informasi);
+        $("#informationCategoryEdit").val(dataInformasi.Kategori_Informasi);
+        $("#informationStatusEdit").val(dataInformasi.Status_Informasi);
+        $("#editInformation").modal("show");
       },
       error: function (xhr) {
         console.error(xhr.responseText);
@@ -34,7 +34,7 @@ $(document).ready(function () {
     let formData = new FormData($(this).closest("form")[0]);
 
     $.ajax({
-      url: "../config/edit-product.php",
+      url: "../config/edit-information.php",
       method: "POST",
       data: formData,
       processData: false,
