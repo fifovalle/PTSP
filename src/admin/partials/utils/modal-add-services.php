@@ -10,27 +10,27 @@
             <div class="modal-body">
                 <form method="POST" action="<?php echo $akarUrl; ?>src/admin/config/add-information.php" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="productFoto" class="form-label">Foto</label>
-                        <input type="file" class="form-control" id="productFoto" name="Foto_Jasa" autocomplete="off">
+                        <label for="servicesFoto" class="form-label">Foto</label>
+                        <input type="file" class="form-control" id="servicesFoto" name="Foto_Jasa" autocomplete="off">
                     </div>
                     <div class="mb-3">
-                        <label for="nameProduct" class="form-label">Nama Jasa</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Jasa" id="nameProduct" name="Nama_Jasa" autocomplete="off">
+                        <label for="servicesName" class="form-label">Nama Jasa</label>
+                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Jasa" id="servicesName" name="Nama_Jasa" autocomplete="off">
                     </div>
                     <div class="mb-3">
-                        <label for="descriptionProduct" class="form-label">Deskripsi Jasa</label>
-                        <textarea name="Deskripsi_Jasa" placeholder="Masukan Deskripsi Jasa" class="form-control inputData addressAddPengguna" id="descriptionProduct" autocomplete="off"></textarea>
+                        <label for="servicesDescription" class="form-label">Deskripsi Jasa</label>
+                        <textarea name="Deskripsi_Jasa" placeholder="Masukan Deskripsi Jasa" class="form-control inputData addressAddPengguna" id="servicesDescription" autocomplete="off"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="productPrice" class="form-label">Harga Jasa</label>
+                        <label for="servicesPrice" class="form-label">Harga Jasa</label>
                         <div class="input-group">
                             <span class="input-group-text spanNumberData">Rp</span>
-                            <input type="number" placeholder="Masukan Harga Jasa" class="form-control inputData" id="productPrice" name="Harga_Jasa" autocomplete="off">
+                            <input type="number" placeholder="Masukan Harga Jasa" class="form-control inputData" id="servicesPrice" name="Harga_Jasa" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="owner" class="form-label">Pemilik Jasa</label>
-                        <select name="Pemilik_Jasa" id="owner" class="form-control inputData">
+                        <label for="servicesOwner" class="form-label">Pemilik Jasa</label>
+                        <select name="Pemilik_Jasa" id="servicesOwner" class="form-control inputData">
                             <option value="" selected>Pilih Pemilik Jasa</option>
                             <option value="Instansi A">Instansi A</option>
                             <option value="Instansi B">Instansi B</option>
@@ -47,8 +47,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="sevicesCategory" class="form-label">Status Jasa</label>
-                        <select name="Status_Jasa" id="sevicesCategory" class="form-control inputData">
+                        <label for="sevicesStatus" class="form-label">Status Jasa</label>
+                        <select name="Status_Jasa" id="sevicesStatus" class="form-control inputData">
                             <option value="" selected>Pilih Status Jasa</option>
                             <option value="Tersedia">Tersedia</option>
                             <option value="Tidak Tersedia">Tidak Tersedia</option>
