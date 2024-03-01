@@ -25,13 +25,13 @@ togglePassword.addEventListener("click", function () {
 });
 
 // DRIVE JS
-const driver = window.driver.js.driver;
+const pengemudi = window.driver.js.driver;
 
-let lastTourTime = localStorage.getItem("lastTourTime");
-const currentTime = new Date().getTime();
+let turTerakhir = localStorage.getItem("lastTourTime");
+const waktuSekarang = new Date().getTime();
 
-if (!lastTourTime || currentTime - lastTourTime > 60000) {
-  const driverObj = driver({
+if (!turTerakhir || waktuSekarang - turTerakhir > 60000) {
+  const objekPengemudi = pengemudi({
     showButtons: ["next", "previous", "close"],
     steps: [
       {
@@ -84,7 +84,7 @@ if (!lastTourTime || currentTime - lastTourTime > 60000) {
       reverseButtons: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        driverObj.drive();
+        objekPengemudi.drive();
         localStorage.setItem("lastTourTime", new Date().getTime());
       }
     });
