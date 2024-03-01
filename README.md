@@ -21,6 +21,7 @@ Jelajahi karya terbaru dan keterampilan saya dalam dunia pengembangan perangkat 
 
 Berikut adalah beberapa tampilan halaman website :
 
+![Screenshot 2024-03-01 192513](https://github.com/fifovalle/PTSP/assets/90078068/8e3e41a5-fe38-4d84-8662-8c1aa34675a6)
 ![Screenshot 2024-02-25 005738](https://github.com/fifovalle/DASHBOARD-ADMIN-VERSI-2.0/assets/90078068/0755b257-b3b6-46fa-9bec-e1519b45f282)
 ![Screenshot 2024-02-29 100924](https://github.com/fifovalle/PTSP/assets/90078068/72c8c153-9717-424a-aee3-1b09256c24cf)
 ![Screenshot 2024-02-25 005537](https://github.com/fifovalle/DASHBOARD-ADMIN-VERSI-2.0/assets/90078068/fd6143a4-d63c-4a1b-80d1-f890f3dda3eb)
