@@ -10,7 +10,7 @@
                 <div class="dropdown">
                     <i class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
                     <i class="fas fa-times position-absolute top-50 end-0 translate-middle-y me-3 close-icon" style="display: none;"></i>
-                    <input class="form-control ps-5 search" placeholder="Cari Produk Anda" aria-label="Search" id="searchInput" autocomplete="off">
+                    <input class="form-control ps-5 search" placeholder="Cari Informasi Dan Jasa Anda" aria-label="Search" id="searchInput" autocomplete="off">
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <hr>
                         <p class="list">Produk terbaru anda <a class="text-decoration-none viewAll" href="<?php echo $akarUrl; ?>src/admin/pages/data.php">Lihat
