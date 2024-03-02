@@ -15,7 +15,7 @@ if (!isset($_SESSION['ID'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin PTSP</title>
+    <title>Data PTSP</title>
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" type="text/css">
     <!-- OUR CSS -->
