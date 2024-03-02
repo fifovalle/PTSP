@@ -6,15 +6,28 @@ $(document).ready(function () {
 
     menuText === "Semua"
       ? ($(".allData").show(),
-        $(".allDataProduct, .allDataIKM, .allDataTransaction").hide())
-      : menuText === "Produk"
-      ? ($(".allDataProduct").show(),
-        $(".allData, .allDataIKM, .allDataTransaction").hide())
+        $(
+          ".allDataInformation, .allDataIKM, .allDataTransaction, .allDataServices"
+        ).hide())
+      : menuText === "Informasi"
+      ? ($(".allDataInformation").show(),
+        $(
+          ".allData, .allDataIKM, .allDataTransaction, .allDataServices"
+        ).hide())
       : menuText === "IKM"
       ? ($(".allDataIKM").show(),
-        $(".allData, .allDataProduct, .allDataTransaction").hide())
-      : ($(".allDataTransaction").show(),
-        $(".allData, .allDataProduct, .allDataIKM").hide());
+        $(
+          ".allData, .allDataInformation, .allDataTransaction, .allDataServices"
+        ).hide())
+      : menuText === "Transaksi"
+      ? ($(".allDataTransaction").show(),
+        $(
+          ".allData, .allDataInformation, .allDataIKM, .allDataServices"
+        ).hide())
+      : ($(".allDataServices").show(),
+        $(
+          ".allData, .allDataInformation, .allDataIKM, .allDataTransaction"
+        ).hide());
   });
 });
 
@@ -33,8 +46,8 @@ $(document).ready(function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  var dropdownToggle = document.querySelector(".dropdown-toggle-analitic");
-  var dropdownMenu = document.querySelector(".dropdown-menu-analitic");
+  let dropdownToggle = document.querySelector(".dropdown-toggle-analitic");
+  let dropdownMenu = document.querySelector(".dropdown-menu-analitic");
 
   dropdownToggle.addEventListener("click", function () {
     dropdownMenu.classList.toggle("show");

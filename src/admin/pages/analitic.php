@@ -86,7 +86,8 @@ if (!isset($_SESSION['ID'])) {
                             <div class="col">
                                 <!-- ALL ANALITIC START -->
                                 <?php include "../partials/utils/all-analitic.php" ?>
-                                <?php include "../partials/utils/all-analitic-product.php" ?>
+                                <?php include "../partials/utils/all-analitic-information.php" ?>
+                                <?php include "../partials/utils/all-analitic-sevices.php" ?>
                                 <?php include "../partials/utils/all-analitic-IKM.php" ?>
                                 <?php include "../partials/utils/all-analitic-transaction.php" ?>
                                 <!-- ALL ANALITIC END -->

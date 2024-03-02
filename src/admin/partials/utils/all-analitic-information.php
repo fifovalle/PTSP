@@ -1,4 +1,4 @@
-<div class="allDataProduct">
+<div class="allDataInformation">
     <div class="row">
         <div class="col-6">
             <div class="card">

@@ -1,10 +1,9 @@
-<div class="allDataIKM">
+<div class="allDataServices">
     <div class="row">
         <div class="col-6">
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
-                    </div>
+                    <div class="row"> </div>
                 </div>
             </div>
         </div>
