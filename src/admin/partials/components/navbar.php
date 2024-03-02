@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="box date">
                                         <p><?php echo $informasi['Pemilik_Informasi']; ?></p>
-                                        <p class="stok"><?php echo $informasi['Stok_Informasi']; ?> Stok</p>
+                                        <p class="stok"><?php echo $informasi['Kategori_Informasi']; ?></p>
                                     </div>
                                     <a class="linkProduk" href="#"><span class="edit-icon"><i class="fas fa-edit"></i>
                                             Sunting</span></a>
