@@ -82,7 +82,8 @@ if (!isset($_SESSION['ID'])) {
                                 <i class="bx bx-filter iconFilter"></i>
                             </div>
                             <div class="col-10 mb-3">
-                                <input id="filterInput" class="filterInput" type="text" placeholder="Filter Data">
+                                <input id="filterInput" class="filterInput" type="text" placeholder="Filter Data" onkeydown="handleInput(event)">
+                                <div id="valuesContainer"></div>
                             </div>
                             <div id="dropdownFilter" class="dropdownContentFilter row">
                                 <div class="col listDropdownFilter">
@@ -137,13 +138,36 @@ if (!isset($_SESSION['ID'])) {
     include "../partials/utils/modal-edit-information.php";
     ?>
     <?php
+    include "../partials/utils/modal-edit-services.php";
+    ?>
+    <?php
     include "../partials/utils/modal-send-feedback.php";
     ?>
+
+    <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filterModalLabel">Filter Data</h5>
+                    <div class="modalClose" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="userInput" class="form-control" placeholder="Cari Data">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btnUpload" name="Simpan" id="saveUserInput">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ALL MODAL END -->
 
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!-- OUR JS -->
     <script src="../assets/our/js/data.js"></script>
     <script src="../assets/our/js/index.js"></script>
@@ -152,13 +176,17 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/delete-admin.js"></script>
     <script src="../assets/our/js/delete-user.js"></script>
     <script src="../assets/our/js/delete-information.js"></script>
+    <script src="../assets/our/js/delete-services.js"></script>
     <script src="../assets/our/js/value-admin.js"></script>
     <script src="../assets/our/js/value-user.js"></script>
     <script src="../assets/our/js/value-information.js"></script>
+    <script src="../assets/our/js/"></script>
+    <script src="../assets/our/js/filter.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- ALERT -->
     <?php include '../partials/utils/alert.php' ?>
+
 </body>
 
 </html>

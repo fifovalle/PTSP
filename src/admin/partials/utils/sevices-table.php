@@ -15,9 +15,6 @@
             <th class="text-center" data-field="data2">
                 Harga Jasa
             </th>
-            <th class="text-center" data-field="data3">
-                Jenis Jasa
-            </th>
             <th class="text-center" data-field="data4">
                 Pemilik Jasa
             </th>
@@ -51,10 +48,10 @@
                             <p class="fw-semibold m-auto"><?php echo $jasa['Nama_Jasa']; ?></p>
                             <p class="fw-semibold deskriptorSmall m-auto"><?php echo $jasa['Deskripsi_Jasa']; ?></p>
                             <div class="iconContainerData">
-                                <a class="linkData buttonProduk" data-id='<?php echo $jasa['ID_Jasa']; ?>'>
+                                <a class="linkData buttonServices" data-id='<?php echo $jasa['ID_Jasa']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>
                                 </a>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteProduct(<?php echo $jasa['ID_Jasa']; ?>)">
+                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteServices(<?php echo $jasa['ID_Jasa']; ?>)">
                                     <span>
                                         <i class="fas fa-trash"></i>
                                     </span>
@@ -63,13 +60,10 @@
                         </div>
                     </td>
                     <td class="text-center">Rp <?php echo number_format($jasa['Harga_Jasa'], 0, ',', '.'); ?></td>
-                    <td class="text-center"><?php echo $jasa['Stok_Jasa']; ?></td>
                     <td class="text-center"><?php echo $jasa['Pemilik_Jasa']; ?></td>
-                    <td class="text-center"><?php echo $informasi['Kategori_Jasa']; ?></td>
+                    <td class="text-center"><?php echo $jasa['Kategori_Jasa']; ?></td>
                     <td class="text-center">
-                        <?php
-                        echo ($jasa['Status_Jasa'] == 1) ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Tidak Tersedia</span>';
-                        ?>
+                        <?php echo ($jasa['Status_Jasa'] == 'Tersedia') ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Belum Tersedia</span>'; ?>
                     </td>
                 </tr>
         <?php

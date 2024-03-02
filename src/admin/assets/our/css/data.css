@@ -72,9 +72,24 @@
   background: var(--kotakHover);
   outline: none;
   border: none;
+  color: var(--teks);
 }
 
-.filterInput::placeholder {
+#filterInput.badge-secondary {
+  background-color: #6c757d;
+}
+
+#filterInput.badge-secondary:hover {
+  background-color: #5a6268;
+}
+
+#filterInput .close {
+  font-size: 100%;
+  cursor: pointer;
+  color: #fff;
+}
+
+.filterInput .filterInput::placeholder {
   color: var(--teksTautanHover);
 }
 
@@ -135,7 +150,7 @@
 
 .deskriptorContainer {
   width: 200px;
-  font-size: 18px;
+  font-size: 16px;
   margin: 25px -78px;
   line-height: 18px;
   position: relative;
@@ -144,7 +159,7 @@
 .deskriptorSmall {
   position: relative;
   transition: opacity 0.3s ease;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: normal;
   color: var(--teksTautanHover);
 }
@@ -246,6 +261,24 @@
 .show {
   display: block;
   opacity: 1;
+}
+
+@media screen and (width: 1536px) {
+  .tableData {
+    width: 1220px;
+  }
+
+  .deskriptorContainer {
+    font-size: 15px;
+  }
+
+  .deskriptorSmall {
+    font-size: 12px;
+  }
+
+  .filterInput {
+    margin-left: -70px;
+  }
 }
 
 /* =============================MAIN END============================= */

@@ -1,26 +1,26 @@
 $(document).ready(function () {
-  $(".buttonInformation").click(function (e) {
+  $(".buttonServices").click(function (e) {
     e.preventDefault();
-    let informasiID = $(this).data("id");
-    console.log(informasiID);
+    let jasaID = $(this).data("id");
+    console.log(jasaID);
     $.ajax({
-      url: "../config/get-information-data.php",
+      url: "../config/get-services-data.php",
       method: "GET",
       data: {
-        informasi_id: informasiID,
+        jasa_id: jasaID,
       },
       success: function (data) {
         console.log(data);
-        let dataInformasi = JSON.parse(data);
-        console.log(dataInformasi);
-        $("#InformationIDEdit").val(dataInformasi.ID_Informasi);
-        $("#informationNameEdit").val(dataInformasi.Nama_Informasi);
-        $("#informationDescriptionEdit").val(dataInformasi.Deskripsi_Informasi);
-        $("#informationPriceEdit").val(dataInformasi.Harga_Informasi);
-        $("#informationOwnerEdit").val(dataInformasi.Pemilik_Informasi);
-        $("#informationCategoryEdit").val(dataInformasi.Kategori_Informasi);
-        $("#informationStatusEdit").val(dataInformasi.Status_Informasi);
-        $("#editInformation").modal("show");
+        let dataServices = JSON.parse(data);
+        console.log(dataServices);
+        $("#servicesIDEdit").val(dataServices.ID_Jasa);
+        $("#servicesNameEdit").val(dataServices.Nama_Jasa);
+        $("#servicesDescriptionEdit").val(dataServices.Deskripsi_Jasa);
+        $("#servicesPriceEdit").val(dataServices.Harga_Jasa);
+        $("#servicesOwnerEdit").val(dataServices.Pemilik_Jasa);
+        $("#servicesCategoryEdit").val(dataServices.Kategori_Jasa);
+        $("#servicesStatusEdit").val(dataServices.Status_Jasa);
+        $("#editServices").modal("show");
       },
       error: function (xhr) {
         console.error(xhr.responseText);
@@ -28,13 +28,13 @@ $(document).ready(function () {
     });
   });
 
-  $("#tombolSimpanInformation").click(function (e) {
+  $("#tombolSimpanServices").click(function (e) {
     e.preventDefault();
 
     let formData = new FormData($(this).closest("form")[0]);
 
     $.ajax({
-      url: "../config/edit-information.php",
+      url: "../config/edit-services.php",
       method: "POST",
       data: formData,
       processData: false,
@@ -87,7 +87,7 @@ $(document).ready(function () {
         });
       },
       complete: function () {
-        $("#editInformation").modal("hide");
+        $("#editServices").modal("hide");
       },
     });
   });

@@ -61,15 +61,13 @@
                     <td class="text-center"><?php echo $informasi['Pemilik_Informasi']; ?></td>
                     <td class="text-center"><?php echo $informasi['Kategori_Informasi']; ?></td>
                     <td class="text-center">
-                        <?php
-                        echo ($informasi['Status_Informasi'] == 1) ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Tidak Tersedia</span>';
-                        ?>
+                        <?php echo ($informasi['Status_Informasi'] == 'Tersedia') ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Belum Tersedia</span>'; ?>
                     </td>
                 </tr>
         <?php
             }
         } else {
-            echo "<tr><td colspan='7' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Produk!</td></tr>";
+            echo "<tr><td colspan='7' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Informasi!</td></tr>";
         }
         ?>
     </tbody>

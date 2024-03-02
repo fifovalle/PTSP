@@ -127,10 +127,13 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/analitic.js"></script>
     <script src="../assets/our/js/toggle-password.js"></script>
     <script src="../assets/our/js/index.js"></script>
-    <script src="../assets/our/js/chart-analytics.js"></script>
-    <script src="../assets/our/js/chart-analytics2.js"></script>
-    <script src="../assets/our/js/chart-analytics3.js"></script>
-    <script src="../assets/our/js/apexcharts.js"></script>
+    <script src="../assets/our/js/chart/chart-analytics.js"></script>
+    <script src="../assets/our/js/chart/chart-analytics2.js"></script>
+    <script src="../assets/our/js/chart/chart-analytics3.js"></script>
+    <script src="../assets/our/js/chart/chart-analytics4.js"></script>
+    <script src="../assets/our/js/chart/chart-information.js"></script>
+    <script src="../assets/our/js/chart/chart-services.js"></script>
+    <script src="../assets/our/js/chart/apexcharts.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </body>

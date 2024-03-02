@@ -77,10 +77,10 @@ class Admin
         $isDeleted = $statementDelete->execute();
 
         if ($isDeleted) {
-            $lokasiFoto =  $namaFoto;
+            $direktoriFoto = "../assets/image/uploads/";
 
-            if (file_exists($lokasiFoto)) {
-                if (unlink($lokasiFoto)) {
+            if (file_exists($direktoriFoto . $namaFoto)) {
+                if (unlink($direktoriFoto . $namaFoto)) {
                     return true;
                 } else {
                     return false;
@@ -239,10 +239,10 @@ class Pengguna
         $isDeleted = $statementDelete->execute();
 
         if ($isDeleted) {
-            $lokasiFoto = $namaFoto;
+            $direktoriFoto = "../assets/image/uploads/";
 
-            if (file_exists($lokasiFoto)) {
-                if (unlink($lokasiFoto)) {
+            if (file_exists($direktoriFoto . $namaFoto)) {
+                if (unlink($direktoriFoto . $namaFoto)) {
                     return true;
                 } else {
                     return false;
@@ -254,6 +254,7 @@ class Pengguna
             return false;
         }
     }
+
 
     public function getDataById($id)
     {
@@ -305,7 +306,7 @@ class Informasi
         $query = "INSERT INTO informasi (Foto_Informasi, Nama_Informasi, Deskripsi_Informasi, Harga_Informasi, Pemilik_Informasi, No_Rekening_Informasi, Status_Informasi) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssisii", $data['Foto_Informasi'], $data['Nama_Informasi'], $data['Deskripsi_Informasi'], $data['Harga_Informasi'], $data['Pemilik_Informasi'], $data['No_Rekening_Informasi'], $data['Status_Informasi']);
+        $statement->bind_param("sssisis", $data['Foto_Informasi'], $data['Nama_Informasi'], $data['Deskripsi_Informasi'], $data['Harga_Informasi'], $data['Pemilik_Informasi'], $data['No_Rekening_Informasi'], $data['Status_Informasi']);
 
         if ($statement->execute()) {
             return true;
@@ -351,10 +352,10 @@ class Informasi
 
     public function perbaruiInformasi($id, $data)
     {
-        $query = "UPDATE informasi SET Foto_Informasi=?, Nama_Informasi=?, Deskripsi_Informasi=?, Harga_Informasi=?, Pemilik_Informasi=?, No_Rekening=?, Status_Informasi=? WHERE ID_Informasi=?";
+        $query = "UPDATE informasi SET Foto_Informasi=?, Nama_Informasi=?, Deskripsi_Informasi=?, Harga_Informasi=?, Pemilik_Informasi=?, No_Rekening_Informasi=?, Status_Informasi=? WHERE ID_Informasi=?";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssisiii", $data['Foto_Informasi'], $data['Nama_Informasi'], $data['Deskripsi_Informasi'], $data['Harga_Informasi'], $data['Pemilik_Informasi'], $data['No_Rekening'], $data['Status_Informasi'], $id);
+        $statement->bind_param("sssisisi", $data['Foto_Informasi'], $data['Nama_Informasi'], $data['Deskripsi_Informasi'], $data['Harga_Informasi'], $data['Pemilik_Informasi'], $data['No_Rekening_Informasi'], $data['Status_Informasi'], $id);
 
         if ($statement->execute()) {
             return true;
@@ -384,10 +385,10 @@ class Informasi
         $isDeleted = $statementDelete->execute();
 
         if ($isDeleted) {
-            $lokasiFoto =  $namaFoto;
+            $direktoriFoto = "../assets/image/uploads/";
 
-            if (file_exists($lokasiFoto)) {
-                if (unlink($lokasiFoto)) {
+            if (file_exists($direktoriFoto . $namaFoto)) {
+                if (unlink($direktoriFoto . $namaFoto)) {
                     return true;
                 } else {
                     return false;
@@ -399,6 +400,7 @@ class Informasi
             return false;
         }
     }
+
 
     public function getDataInformasiById($id)
     {
@@ -431,6 +433,19 @@ class Informasi
             return null;
         }
     }
+
+    public function perbaruiNomorRekening($id, $nomorRekening)
+    {
+        $query = "UPDATE informasi SET No_Rekening_Informasi=? WHERE ID_Informasi=?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("si", $nomorRekening, $id);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 // ===================================INFORMASI===================================
@@ -452,7 +467,7 @@ class Jasa
         $query = "INSERT INTO jasa (Foto_Jasa, Nama_Jasa, Deskripsi_Jasa, Harga_Jasa, Pemilik_Jasa, No_Rekening_Jasa, Status_Jasa) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssisii", $data['Foto_Jasa'], $data['Nama_Jasa'], $data['Deskripsi_Jasa'], $data['Harga_Jasa'], $data['Pemilik_Jasa'], $data['No_Rekening_Jasa'], $data['Status_Jasa']);
+        $statement->bind_param("sssisis", $data['Foto_Jasa'], $data['Nama_Jasa'], $data['Deskripsi_Jasa'], $data['Harga_Jasa'], $data['Pemilik_Jasa'], $data['No_Rekening_Jasa'], $data['Status_Jasa']);
 
         if ($statement->execute()) {
             return true;
@@ -498,10 +513,10 @@ class Jasa
 
     public function perbaruiJasa($id, $data)
     {
-        $query = "UPDATE jasa SET Foto_Jasa=?, Nama_Jasa=?, Deskripsi_Jasa=?, Harga_Jasa=?, Pemilik_Jasa=?, No_Rekening=?, Status_Jasa=? WHERE ID_Jasa=?";
+        $query = "UPDATE jasa SET Foto_Jasa=?, Nama_Jasa=?, Deskripsi_Jasa=?, Harga_Jasa=?, Pemilik_Jasa=?, No_Rekening_Jasa=?, Status_Jasa=? WHERE ID_Jasa=?";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssisiii", $data['Foto_Jasa'], $data['Nama_Jasa'], $data['Deskripsi_Jasa'], $data['Harga_Jasa'], $data['Pemilik_Jasa'], $data['No_Rekening'], $data['Status_Jasa'], $id);
+        $statement->bind_param("sssisisi", $data['Foto_Jasa'], $data['Nama_Jasa'], $data['Deskripsi_Jasa'], $data['Harga_Jasa'], $data['Pemilik_Jasa'], $data['No_Rekening_Jasa'], $data['Status_Jasa'], $id);
 
         if ($statement->execute()) {
             return true;
@@ -531,10 +546,10 @@ class Jasa
         $isDeleted = $statementDelete->execute();
 
         if ($isDeleted) {
-            $lokasiFoto =  $namaFoto;
+            $direktoriFoto = "../assets/image/uploads/";
 
-            if (file_exists($lokasiFoto)) {
-                if (unlink($lokasiFoto)) {
+            if (file_exists($direktoriFoto . $namaFoto)) {
+                if (unlink($direktoriFoto . $namaFoto)) {
                     return true;
                 } else {
                     return false;
@@ -576,6 +591,18 @@ class Jasa
             return $data['Foto_Jasa'];
         } else {
             return null;
+        }
+    }
+    public function perbaruiNomorRekening($id, $nomorRekening)
+    {
+        $query = "UPDATE jasa SET No_Rekening_Jasa=? WHERE ID_Jasa=?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("si", $nomorRekening, $id);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

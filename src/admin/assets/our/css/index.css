@@ -432,12 +432,6 @@ main {
   }
 }
 
-@media screen and (width: 1536px) {
-  main {
-    margin-left: 243px;
-  }
-}
-
 .mainWebsite {
   margin-top: 77px;
 }

@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <form method="POST" enctype="multipart/form-data">
-                    <input type="hidden" id="InformationIDEdit" name="ID_Admin" autocomplete="off">
+                    <input type="hidden" id="InformationIDEdit" name="ID_Informasi" autocomplete="off">
                     <div class="mb-3">
                         <label for="informationFotoEdit" class="form-label">Foto</label>
                         <input type="file" class="form-control" id="informationFotoEdit" name="Foto_Informasi" autocomplete="off">
@@ -20,7 +20,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="informationDescriptionEdit" class="form-label">Deskripsi Informasi</label>
-                        <textarea name="Deskripsi_Informasi" placeholder="Masukan Deskripsi Informasi" class="form-control inputData addressAddPengguna" id="informationDescriptionEdit" autocomplete="off"></textarea>
+                        <textarea name="Deskripsi_Informasi" placeholder="Masukan Deskripsi Informasi" class="form-control inputData" id="informationDescriptionEdit" autocomplete="off"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="informationPriceEdit" class="form-label">Harga Informasi</label>
@@ -55,7 +55,7 @@
                             <option value="Tidak Tersedia">Tidak Tersedia</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btnUpload" name="Simpan">Kirim</button>
+                    <button type="submit" class="btn btnUpload" id="tombolSimpanInformation" name="Simpan">Kirim</button>
                 </form>
             </div>
         </div>

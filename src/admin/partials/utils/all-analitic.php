@@ -4,7 +4,12 @@
         <hr>
         <div class="d-flex justify-content-around">
             <div class="row boxData active fw-bold">
-                <span class="headerBoxData">Produk</span>
+                <span class="headerBoxData">Informasi</span>
+                <span class="captionBoxData">10<i class="bx bxs-up-arrow-circle captionIcon"></i></span>
+                <span class="performanceBoxData">Lebih Baik</span>
+            </div>
+            <div class="row boxData fw-bold">
+                <span class="headerBoxData">Jasa</span>
                 <span class="captionBoxData">10<i class="bx bxs-up-arrow-circle captionIcon"></i></span>
                 <span class="performanceBoxData">Lebih Baik</span>
             </div>
@@ -32,6 +37,11 @@
         <div class="row mx-1">
             <div class="transactionChart">
                 <div id="transactionChart"></div>
+            </div>
+        </div>
+        <div class="row mx-1">
+            <div class="servicesChart">
+                <div id="servicesChart"></div>
             </div>
         </div>
     </div>

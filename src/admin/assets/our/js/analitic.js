@@ -37,11 +37,17 @@ $(document).ready(function () {
     $(this).addClass("active");
     let menuText = $(this).find(".headerBoxData").text();
 
-    menuText === "Produk"
-      ? ($(".productChart").show(), $(".ikmChart, .transactionChart").hide())
+    menuText === "Informasi"
+      ? ($(".productChart").show(),
+        $(".ikmChart, .servicesChart, .transactionChart").hide())
+      : menuText === "Jasa"
+      ? ($(".servicesChart").show(),
+        $(".ikmChart, .transactionChart, .productChart").hide())
       : menuText === "IKM"
-      ? ($(".ikmChart").show(), $(".productChart, .transactionChart").hide())
-      : ($(".transactionChart").show(), $(".ikmChart, .productChart").hide());
+      ? ($(".ikmChart").show(),
+        $(".productChart, .servicesChart, .transactionChart").hide())
+      : ($(".transactionChart").show(),
+        $(".ikmChart, .servicesChart, .productChart").hide());
   });
 });
 
