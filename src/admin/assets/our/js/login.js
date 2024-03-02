@@ -86,6 +86,8 @@ if (!lastTourTime || currentTime - lastTourTime > 60000) {
       if (result.isConfirmed) {
         driverObj.drive();
         localStorage.setItem("lastTourTime", new Date().getTime());
+      } else {
+        localStorage.setItem("lastTourTime", new Date().getTime());
       }
     });
   }
