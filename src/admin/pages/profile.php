@@ -53,26 +53,44 @@ if (!isset($_SESSION['ID'])) {
                             <img src="../assets/image/pages/2.jpg" class="banner-image" alt="Banner Image">
                         </div>
                     </div>
-                    <div class="row mx-auto">
-                        <div class="col-lg-12 mb-2">
-                            <div class="card">
-                                <div class="card-body d-flex align-items-center">
-                                    <div class="row">
-                                        <div class="col-lg-12 mb-2">
-                                            <div class="avatar">
-                                                <img src="../assets/image/uploads/1.jpg" class="avatarimage" alt="Avatar">
-                                                <div class="middle" id="editAvatar" data-bs-toggle="modal" data-bs-target="#modalSuntingFoto"><i class='bx bx-pencil'></i></div>
+                    <?php
+                    $idSessionAdmin = $_SESSION['ID'];
+                    $adminModel = new Admin($koneksi);
+                    $dataAdmin = $adminModel->tampilkanAdminDenganSessionId($idSessionAdmin);
+                    if (!empty($dataAdmin)) {
+                        $admin = $dataAdmin[0];
+                    ?>
+                        <div class="row mx-auto">
+                            <div class="col-lg-12 mb-2">
+                                <div class="card">
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="row">
+                                            <div class="col-lg-12 mb-2">
+                                                <div class="avatar">
+                                                    <img src="../assets/image/uploads/<?php echo $admin['Foto']; ?>" class="avatarimage" alt="Avatar">
+                                                    <div class="middle" id="editAvatar" data-bs-toggle="modal" data-bs-target="#modalSuntingFoto"><i class='bx bx-pencil'></i></div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <h3 class="textProfile">Naufal FIFA</h3>
-                                        <p class="d-flex text textProfileDesc"><i class='bx bx-cog'></i>Super Admin</p>
+                                        <div class="flex-grow-1">
+                                            <h3 class="textProfile"><?php echo $admin['Nama_Depan_Admin'] . ' ' . $admin['Nama_Belakang_Admin']; ?>
+                                            </h3>
+                                            <p class="d-flex text textProfileDesc">
+                                                <i class='bx bx-cog'></i>
+                                                <?php
+                                                echo ($admin['Peran_Admin'] == '1') ? 'Super Admin' : (($admin['Peran_Admin'] == '2') ? 'Instansi A' : (($admin['Peran_Admin'] == '3') ? 'Instansi B' : (($admin['Peran_Admin'] == '4') ? 'Instansi C' : 'Tidak Diketahui')));
+                                                ?></h6>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php
+                    } else {
+                        echo "<p>Data admin tidak ditemukan.</p>";
+                    }
+                    ?>
                     <div class="col-12">
                         <div class="row">
                             <div class="menu col-2">
