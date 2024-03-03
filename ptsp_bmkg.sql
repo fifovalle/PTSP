@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2024 at 03:12 AM
+-- Generation Time: Mar 03, 2024 at 06:05 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `ID_Admin` int(11) NOT NULL,
-  `Foto` longblob NOT NULL,
+  `Foto` blob NOT NULL,
   `Nama_Depan_Admin` varchar(30) NOT NULL,
   `Nama_Belakang_Admin` varchar(30) NOT NULL,
   `Nama_Pengguna_Admin` varchar(30) NOT NULL,
@@ -49,7 +49,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admin`, `Nama_Pengguna_Admin`, `Email_Admin`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Admin`, `Jenis_Kelamin_Admin`, `Peran_Admin`, `Alamat_Admin`, `Status_Verifikasi_Admin`, `token`) VALUES
-(55, 0x363564633763386235303835662e6a7067, 'Naufal', 'FIFA', 'zonaDeveloper', 'Naufal@gmail.com', '$2y$10$q84vk0AmmniECaXZsZNQu.Kw6AILFmypXZ6YR0gWnpiHuwAtJZJI6', '$2y$10$q84vk0AmmniECaXZsZNQu.Kw6AILFmypXZ6YR0gWnpiHuwAtJZJI6', '+62  812-3652-2490', 'Pria', 1, 'Batujajar', 'Belum Terverifikasi', 65);
+(55, 0x363564633763386235303835662e6a7067, 'Naufal', 'FIFA', 'zonaDeveloper', 'Naufal@gmail.com', '$2y$10$q84vk0AmmniECaXZsZNQu.Kw6AILFmypXZ6YR0gWnpiHuwAtJZJI6', '$2y$10$q84vk0AmmniECaXZsZNQu.Kw6AILFmypXZ6YR0gWnpiHuwAtJZJI6', '+62    812-3652-2490', 'Pria', 1, 'Batujajar', 'Belum Terverifikasi', 65),
+(60, 0x363565333236613532383439322e6a7067, 'Ahsan', 'Ghifari', 'Ahsanghiff', 'ahsanghifari@gmail.com', '$2y$10$DyEOIQ5s89aG8uXsOp6Y6etQaEMaZcuHwzakQ4lGo7JzhWVYEnql2', '$2y$10$DyEOIQ5s89aG8uXsOp6Y6etQaEMaZcuHwzakQ4lGo7JzhWVYEnql2', '+62   812-4118-8340', 'Pria', 4, 'jhgfghjkl', 'Belum Terverifikasi', 2147483647),
+(62, 0x363565333338396436323964302e6a7067, 'Sandro', 'Anugrah', 'Sandro', 'sandro@gmail.com', '$2y$10$ejS85IlhB12Nro4cc9wmP.t9l0fLA90SWaDGVOX./XhWoG469SsTS', '$2y$10$ejS85IlhB12Nro4cc9wmP.t9l0fLA90SWaDGVOX./XhWoG469SsTS', '+62  221-3456-678', 'Pria', 3, 'Batujajar', 'Belum Terverifikasi', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -59,7 +61,7 @@ INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admi
 
 CREATE TABLE `informasi` (
   `ID_Informasi` int(11) NOT NULL,
-  `Foto_Informasi` longblob NOT NULL,
+  `Foto_Informasi` blob NOT NULL,
   `Nama_Informasi` varchar(30) NOT NULL,
   `Deskripsi_Informasi` text NOT NULL,
   `Harga_Informasi` int(11) NOT NULL,
@@ -69,6 +71,13 @@ CREATE TABLE `informasi` (
   `Status_Informasi` enum('Tersedia','Tidak Tersedia') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `informasi`
+--
+
+INSERT INTO `informasi` (`ID_Informasi`, `Foto_Informasi`, `Nama_Informasi`, `Deskripsi_Informasi`, `Harga_Informasi`, `Pemilik_Informasi`, `No_Rekening_Informasi`, `Kategori_Informasi`, `Status_Informasi`) VALUES
+(9, 0x363565333630303931333333362e6a7067, 'BHBEAHBFW', 'JDBIFBW', 20000, 'Instansi B', 0, 'Meteorologi', 'Tidak Tersedia');
+
 -- --------------------------------------------------------
 
 --
@@ -77,7 +86,7 @@ CREATE TABLE `informasi` (
 
 CREATE TABLE `jasa` (
   `ID_Jasa` int(11) NOT NULL,
-  `Foto_Jasa` longblob NOT NULL,
+  `Foto_Jasa` blob NOT NULL,
   `Nama_Jasa` varchar(30) NOT NULL,
   `Deskripsi_Jasa` text NOT NULL,
   `Harga_Jasa` int(11) NOT NULL,
@@ -87,6 +96,13 @@ CREATE TABLE `jasa` (
   `Status_Jasa` enum('Tersedia','Tidak Tersedia') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `jasa`
+--
+
+INSERT INTO `jasa` (`ID_Jasa`, `Foto_Jasa`, `Nama_Jasa`, `Deskripsi_Jasa`, `Harga_Jasa`, `Pemilik_Jasa`, `No_Rekening_Jasa`, `Kategori_Jasa`, `Status_Jasa`) VALUES
+(9, 0x363565333630353737646666642e706e67, 'ASDVFB', 'SSCDVC ', 2000, 'Instansi A', 0, 'Meteorologi', 'Tersedia');
+
 -- --------------------------------------------------------
 
 --
@@ -95,7 +111,7 @@ CREATE TABLE `jasa` (
 
 CREATE TABLE `pengguna` (
   `ID_Pengguna` int(11) NOT NULL,
-  `Foto` longblob NOT NULL,
+  `Foto` blob NOT NULL,
   `Nama_Depan_Pengguna` varchar(30) NOT NULL,
   `Nama_Belakang_Pengguna` varchar(30) NOT NULL,
   `Nama_Pengguna` varchar(30) NOT NULL,
@@ -145,25 +161,25 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `informasi`
 --
 ALTER TABLE `informasi`
-  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `jasa`
 --
 ALTER TABLE `jasa`
-  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
