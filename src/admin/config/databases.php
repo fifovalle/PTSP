@@ -25,7 +25,6 @@ class Admin
         }
     }
 
-
     public function tampilkanDataAdmin()
     {
         $query = "SELECT * FROM admin";
@@ -82,6 +81,20 @@ class Admin
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("sssssssisi", $data['Foto'], $data['Nama_Depan_Admin'], $data['Nama_Belakang_Admin'], $data['Nama_Pengguna_Admin'], $data['Email_Admin'], $data['No_Telepon_Admin'], $data['Jenis_Kelamin_Admin'], $data['Peran_Admin'], $data['Alamat_Admin'], $id);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function perbaruiProfile($id, $data)
+    {
+        $query = "UPDATE admin SET Nama_Depan_Admin=?, Nama_Belakang_Admin=?, Nama_Pengguna_Admin=?, Email_Admin=?, No_Telepon_Admin=?, Alamat_Admin=? WHERE ID_Admin=?";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("ssssssi", $data['Nama_Depan_Admin'], $data['Nama_Belakang_Admin'], $data['Nama_Pengguna_Admin'], $data['Email_Admin'], $data['No_Telepon_Admin'], $data['Alamat_Admin'], $id);
 
         if ($statement->execute()) {
             return true;

@@ -66,8 +66,6 @@
                                 ?>
                                 <?php echo $noTelepon; ?>
                             </div>
-
-
                         </div>
                         <hr>
                         <div class="row">

@@ -71,6 +71,10 @@
     font-size: 25px;
 }
 
+.bx-pencil:hover {
+    color: var(--teksTautanHover);
+}
+
 .bx-cog {
     font-size: 23px;
 }
