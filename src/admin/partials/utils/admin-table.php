@@ -28,8 +28,14 @@
     </thead>
     <tbody class="tbodyData">
         <?php
+        $peranAdmin = $_SESSION['Peran_Admin'];
         $adminModel = new Admin($koneksi);
-        $dataAdmin = $adminModel->tampilkanDataAdmin();
+        $dataAdmin = array();
+        if ($peranAdmin == '1') {
+            $dataAdmin = $adminModel->tampilkanDataAdmin();
+        } else {
+            $dataAdmin = $adminModel->tampilkanDataAdminOlehPeran($peranAdmin);
+        }
         if (!empty($dataAdmin)) {
             function compareAdminByName($a, $b)
             {

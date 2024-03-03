@@ -16,6 +16,8 @@ include '../config/databases.php';
     <!-- SWEETALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <!-- DRIVE JS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css" />
 </head>
 
 <body>
@@ -29,10 +31,10 @@ include '../config/databases.php';
             </div>
         </div>
         <div class="login-content">
-            <form action="" method="post">
+            <form id="formulirForgot" action="" method="post">
                 <img class="imgForm" src="../assets/image/logo/logo2.png">
                 <h2 class="title">Lupa Kata Sandi ?</h2>
-                <div class="input-div one">
+                <div id="emailForgot" class="input-div one">
                     <div class="i">
                         <i class="fas fa-envelope"></i>
                     </div>
@@ -42,7 +44,7 @@ include '../config/databases.php';
                     </div>
                 </div>
                 <p>Masukan Email Anda !</p>
-                <button name="Masuk" type="submit" class="btn">Kirim</button>
+                <button id="btnForgot" name="Masuk" type="submit" class="btn">Kirim</button>
             </form>
         </div>
     </div>
@@ -51,8 +53,11 @@ include '../config/databases.php';
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <!-- CDN DRIVE.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
     <!-- OUR JS -->
     <script type="text/javascript" src="../assets/our/js/login.js"></script>
+    <script type="text/javascript" src="../assets/our/js/drive-all.js"></script>
     <!-- ICON -->
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <!-- ALERT -->

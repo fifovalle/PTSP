@@ -59,6 +59,23 @@ class Admin
         }
     }
 
+    function tampilkanDataAdminOlehPeran($peranAdmin)
+    {
+        $peranAdmin = intval($peranAdmin);
+        $query = "SELECT * FROM admin WHERE Peran_Admin = $peranAdmin";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
     public function perbaruiAdmin($id, $data)
     {
         $query = "UPDATE admin SET Foto=?, Nama_Depan_Admin=?, Nama_Belakang_Admin=?, Nama_Pengguna_Admin=?, Email_Admin=?, No_Telepon_Admin=?, Jenis_Kelamin_Admin=?, Peran_Admin=?, Alamat_Admin=? WHERE ID_Admin=?";

@@ -39,7 +39,7 @@ include '../config/databases.php';
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="div">
-                        <h5>Nama Pengguna</h5>
+                        <h5>Nama Pengguna Atau Email</h5>
                         <input type="text" class="input" name="Email_Nama_Pengguna" autocomplete="off">
                     </div>
                 </div>
@@ -67,6 +67,7 @@ include '../config/databases.php';
     <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
     <!-- OUR JS -->
     <script type="text/javascript" src="../assets/our/js/login.js"></script>
+    <script type="text/javascript" src="../assets/our/js/drive-all.js"></script>
     <!-- ICON -->
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <!-- ALERT -->
