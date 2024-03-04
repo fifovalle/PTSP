@@ -31,10 +31,10 @@ include '../config/databases.php';
             </div>
         </div>
         <div class="login-content">
-            <form id="formulirLogin" action="../config/login.php" method="post">
+            <form id="formulirLoginForDrive" action="../config/login.php" method="post">
                 <img class="imgForm" src="../assets/image/logo/logo2.png">
                 <h2 class="title">Selamat Datang</h2>
-                <div id="inputNamaPengguna" class="input-div one">
+                <div id="inputNamaPenggunaForDrive" class="input-div one">
                     <div class="i">
                         <i class="fas fa-user"></i>
                     </div>
@@ -43,7 +43,7 @@ include '../config/databases.php';
                         <input type="text" class="input" name="Email_Nama_Pengguna" autocomplete="off">
                     </div>
                 </div>
-                <div id="inputKataSandi" class="input-div pass">
+                <div id="inputKataSandiForDrive" class="input-div pass">
                     <div class="i">
                         <i class="fas fa-lock"></i>
                     </div>
@@ -53,8 +53,8 @@ include '../config/databases.php';
                         <i class="fas fa-eye iconInputContainer" id="togglePassword"></i>
                     </div>
                 </div>
-                <a id="lupaKataSandi" href="forgot-pass.php">Lupa kata sandi?</a>
-                <button id="btnMasuk" name="Masuk" type="submit" class="btn">Masuk</button>
+                <a id="forgorPassForDrive" href="forgot-pass.php">Lupa kata sandi?</a>
+                <button id="btnLoginForDrive" name="Masuk" type="submit" class="btn">Masuk</button>
             </form>
         </div>
     </div>
@@ -66,8 +66,8 @@ include '../config/databases.php';
     <!-- CDN DRIVE.JS -->
     <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
     <!-- OUR JS -->
-    <script type="text/javascript" src="../assets/our/js/login.js"></script>
-    <script type="text/javascript" src="../assets/our/js/drive-all.js"></script>
+    <script src="../assets/our/js/login.js"></script>
+    <script src="../assets/our/js/drive-all.js"></script>
     <!-- ICON -->
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <!-- ALERT -->

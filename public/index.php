@@ -27,6 +27,8 @@ if (!isset($_SESSION['ID'])) {
     <!-- SWEETALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <!-- DRIVE JS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css" />
 </head>
 
 <body>
@@ -47,7 +49,7 @@ if (!isset($_SESSION['ID'])) {
                 <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
                     <div class="d-flex justify-content-between align-items-center text-center">
                         <h1 class="breadcrumb">Beranda</h1>
-                        <div class="iconBreadcrumb d-flex justify-content-between align-content-center gap-3">
+                        <div id="iconAllInstansiForDrive" class="iconBreadcrumb d-flex justify-content-between align-content-center gap-3">
                             <div class="iconServer" data-toggle="tooltip" title="Instansi A">
                                 <i class="fas fa-server"></i>
                             </div>
@@ -72,7 +74,7 @@ if (!isset($_SESSION['ID'])) {
                                         <i class="fas fa-users"><span class="ms-2 many">10</span></i>
                                         <i class="fas fa-money-bill"><span class="ms-2 many">Rp.1.000.000</span></i>
                                     </div>
-                                    <div>
+                                    <div id="caretIconForDrive">
                                         <i class="fas fa-caret-up caret-icon"></i>
                                     </div>
                                 </div>
@@ -89,7 +91,7 @@ if (!isset($_SESSION['ID'])) {
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <a href="#" class="card-link">Lihat Analitik</a>
+                                    <a id="seeAnaliticForDrive1" href="#" class="card-link">Lihat Analitik</a>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +101,7 @@ if (!isset($_SESSION['ID'])) {
                                 <hr>
                                 <div class="row mx-2 my-3">
                                     <div class="col-3">
-                                        <img src="../src/admin/assets/image/uploads/1.jpg" alt="GambarPengunjung" class="surveyImageCard">
+                                        <img src="../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
                                     </div>
                                     <div class="col-9">
                                         <h5>Naufal FIFA</h5>
@@ -107,7 +109,7 @@ if (!isset($_SESSION['ID'])) {
                                     </div>
                                 </div>
                                 <div class="card-body btnAnalitic">
-                                    <a href="#" class="card-link">Lihat Analitik</a>
+                                    <a id="seeAnaliticForDrive2" href="#" class="card-link">Lihat Analitik</a>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +127,7 @@ if (!isset($_SESSION['ID'])) {
                                     </div>
                                 </div>
                                 <div class="card-body btnAnalitic">
-                                    <a href="#" class="card-link">Lihat Analitik</a>
+                                    <a id="seeAnaliticForDrive3" href="#" class="card-link">Lihat Analitik</a>
                                 </div>
                             </div>
                         </div>
@@ -162,10 +164,13 @@ if (!isset($_SESSION['ID'])) {
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <!-- CDN DRIVE.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
     <!-- OUR JS -->
     <script src="../src/admin/assets/our/js/index.js"></script>
     <script src="../src/admin/assets/our/js/toggle-password.js"></script>
     <script src="../src/admin/assets/our/js/caret.js"></script>
+    <script src="../src/admin/assets/our/js/drive-all.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../src/admin/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- ALERT -->

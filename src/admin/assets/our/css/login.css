@@ -74,6 +74,7 @@ body {
     top: 43%;
     left: 27%;
   }
+
   .forgotBG img {
     width: 250px;
     position: absolute;
@@ -91,6 +92,11 @@ form {
   color: var(--teksTautanHover);
   left: 92%;
   top: 38%;
+}
+
+.iconInputContainer:hover {
+  color: var(--teks);
+  cursor: pointer;
 }
 
 .imgForm {
@@ -140,12 +146,12 @@ form {
   transition: 0.3s;
 }
 
-.input-div > div {
+.input-div>div {
   position: relative;
   height: 45px;
 }
 
-.input-div > div > h5 {
+.input-div>div>h5 {
   position: absolute;
   left: 10px;
   top: 50%;
@@ -179,16 +185,16 @@ form {
   width: 50%;
 }
 
-.input-div.focus > div > h5 {
+.input-div.focus>div>h5 {
   top: -5px;
   font-size: 15px;
 }
 
-.input-div.focus > .i > i {
+.input-div.focus>.i>i {
   color: #38d39f;
 }
 
-.input-div > div > input {
+.input-div>div>input {
   position: absolute;
   left: 0;
   top: 0;

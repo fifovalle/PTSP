@@ -1,7 +1,7 @@
 <aside class="col-md-2 d-none d-md-block" id="sidebar">
     <div class="sidebar-sticky sidebar-heading d-flex flex-column align-content-center flex-wrap">
         <span class="parentImageSidebar">
-            <img class="sidebarImage" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto']; ?>" alt="imageAdmin">
+            <img id="fotoSidebarAdminSessionForDrive" class="sidebarImage" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto']; ?>" alt="imageAdmin">
             <a href="<?php echo $akarUrl; ?>src/admin/pages/profile.php">
                 <span class="spanImageIcon">
                     <i class='bx bx-window-open'></i>
@@ -20,7 +20,7 @@
             <p class="textAdmin"><?php echo $_SESSION['Nama_Pengguna']; ?></p>
         </div>
     </div>
-    <ul class="list-unstyled components listSidebar">
+    <ul id="menuSidebarForDrive" class="list-unstyled components listSidebar">
         <a href="<?php echo $akarUrl; ?>public">
             <li class="liSidebar <?php echo ($halamanSaatIni == 'index.php') ? 'active' : '' ?>">
                 <span class="textSidebar"><i class="fas fa-home me-2 my-2"></i>Beranda</span>
@@ -38,7 +38,7 @@
         </a>
     </ul>
     <hr class="hrSidebar">
-    <ul class="list-unstyled components listSidebar">
+    <ul id="menuSidebarSendFeedbackForDrive" class="list-unstyled components listSidebar">
         <a data-bs-toggle="modal" data-bs-target="#sendFeedbackModal">
             <li class="liSidebar">
                 <span class="textSidebar"><i class="fas fa-envelope-open-text me-2 my-2"></i>Kirim

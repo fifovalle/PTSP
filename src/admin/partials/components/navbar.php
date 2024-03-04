@@ -6,7 +6,7 @@
                 <img class="logo" src="<?php echo $akarUrl; ?>src/admin/assets/image/logo/1.png" alt="logo">
                 <p class="fw-bolder fs-5 ms-1 ptsp">PTSP</p>
             </div>
-            <form class="z-3">
+            <form id="formSearchForDrive" class="z-3">
                 <div class="dropdown">
                     <i class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3"></i>
                     <i class="fas fa-times position-absolute top-50 end-0 translate-middle-y me-3 close-icon" style="display: none;"></i>
@@ -48,7 +48,7 @@
                 </div>
             </form>
             <div class="relative d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center justify-content-between uploadParent">
+                <div id="addDataAllFormForDrive" class="d-flex align-items-center justify-content-between uploadParent">
                     <div class="dropdown addData" id="dropdown" onclick="toggleDropdownUpload()">
                         <i class="fas fa-upload"></i> Tambah Data
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="dropdown" id="dropdown" onclick="toggleDropdown()">
-                    <img class="image" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto']; ?>" alt="imageAdmin">
+                    <img id="fotoNavbarAdminSessionForDrive" class="image" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto']; ?>" alt="imageAdmin">
                 </div>
                 <div class="dropdown-menu option" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
                     <div class="d-flex align-items-center justify-content-between">

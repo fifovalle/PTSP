@@ -31,10 +31,10 @@ include '../config/databases.php';
             </div>
         </div>
         <div class="login-content">
-            <form id="formulirForgot" action="" method="post">
+            <form id="formForgotForDrive" action="" method="post">
                 <img class="imgForm" src="../assets/image/logo/logo2.png">
                 <h2 class="title">Lupa Kata Sandi ?</h2>
-                <div id="emailForgot" class="input-div one">
+                <div id="emailForgotForDrive" class="input-div one">
                     <div class="i">
                         <i class="fas fa-envelope"></i>
                     </div>
@@ -44,7 +44,7 @@ include '../config/databases.php';
                     </div>
                 </div>
                 <p>Masukan Email Anda !</p>
-                <button id="btnForgot" name="Masuk" type="submit" class="btn">Kirim</button>
+                <button id="btnForgotForDrive" name="Masuk" type="submit" class="btn">Kirim</button>
             </form>
         </div>
     </div>
@@ -56,8 +56,8 @@ include '../config/databases.php';
     <!-- CDN DRIVE.JS -->
     <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
     <!-- OUR JS -->
-    <script type="text/javascript" src="../assets/our/js/login.js"></script>
-    <script type="text/javascript" src="../assets/our/js/drive-all.js"></script>
+    <script src="../assets/our/js/login.js"></script>
+    <script src="../assets/our/js/drive-all.js"></script>
     <!-- ICON -->
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <!-- ALERT -->

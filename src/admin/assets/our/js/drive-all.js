@@ -9,14 +9,14 @@ function tampilkanPanduan(halamanTautan) {
       halamanTautan === "http://localhost/PTSP/src/admin/pages/login.php"
         ? [
             {
-              element: "#formulirLogin",
+              element: "#formulirLoginForDrive",
               popover: {
                 title: "Formulir Masuk",
                 description: "Silahkan Masuk Dengan Mengisi Formulir Ini.",
               },
             },
             {
-              element: "#inputNamaPengguna",
+              element: "#inputNamaPenggunaForDrive",
               popover: {
                 title: "Nama Pengguna Atau Email",
                 description:
@@ -24,7 +24,7 @@ function tampilkanPanduan(halamanTautan) {
               },
             },
             {
-              element: "#inputKataSandi",
+              element: "#inputKataSandiForDrive",
               popover: {
                 title: "Kata Sandi",
                 description:
@@ -39,14 +39,14 @@ function tampilkanPanduan(halamanTautan) {
               },
             },
             {
-              element: "#lupaKataSandi",
+              element: "#forgorPassForDrive",
               popover: {
                 title: "Lupa Kata Sandi",
                 description: "Jika Anda Lupa Kata Sandi Silahkan Klik Disini.",
               },
             },
             {
-              element: "#btnMasuk",
+              element: "#btnLoginForDrive",
               popover: {
                 title: "Tombol Masuk",
                 description:
@@ -58,7 +58,7 @@ function tampilkanPanduan(halamanTautan) {
           "http://localhost/PTSP/src/admin/pages/forgot-pass.php"
         ? [
             {
-              element: "#formulirForgot",
+              element: "#formForgotForDrive",
               popover: {
                 title: "Formulir Lupa Kata Sandi",
                 description:
@@ -66,7 +66,7 @@ function tampilkanPanduan(halamanTautan) {
               },
             },
             {
-              element: "#emailForgot",
+              element: "#emailForgotForDrive",
               popover: {
                 title: "Email",
                 description:
@@ -74,11 +74,95 @@ function tampilkanPanduan(halamanTautan) {
               },
             },
             {
-              element: "#btnForgot",
+              element: "#btnForgotForDrive",
               popover: {
                 title: "Tombol Kirim",
                 description:
                   "Jika Sudah Mengisi Semunya Silahkan Klik Tombol Disini Dan Mohon Menunggu Prosesnya.",
+              },
+            },
+          ]
+        : halamanTautan === "http://localhost/PTSP/public/"
+        ? [
+            {
+              element: "#formSearchForDrive",
+              popover: {
+                title: "Formulir Pencarian",
+                description: "Silahkan Pencarian Disini.",
+              },
+            },
+            {
+              element: "#addDataAllFormForDrive",
+              popover: {
+                title: "Tambah Data",
+                description: "Klik Disini Untuk Menambahkan Data Baru.",
+              },
+            },
+            {
+              element: "#fotoNavbarAdminSessionForDrive",
+              popover: {
+                title: "Foto Anda",
+                description: "Klik Disini Untuk Melihat Profil Anda.",
+              },
+            },
+            {
+              element: "#fotoSidebarAdminSessionForDrive",
+              popover: {
+                title: "Foto Anda",
+                description: "Klik Disini Untuk Melihat Profil Anda.",
+              },
+            },
+            {
+              element: "#menuSidebarForDrive",
+              popover: {
+                title: "Menu",
+                description:
+                  "Klik Disini Untuk Melihat Halaman Yang Anda Inginkan.",
+              },
+            },
+            {
+              element: "#menuSidebarSendFeedbackForDrive",
+              popover: {
+                title: "Menu",
+                description:
+                  "Klik Disini Untuk Mengirimkan Masukan Kepada Developer Anda.",
+              },
+            },
+            {
+              element: "#iconAllInstansiForDrive",
+              popover: {
+                title: "Filter",
+                description:
+                  "Klik Disini Untuk Memfilter Sesuai Dengan Instansi Jika Anda Super Admin.",
+              },
+            },
+            {
+              element: "#caretIconForDrive",
+              popover: {
+                title: "Tombol Selengkapnya",
+                description:
+                  "Klik Disini Untuk Melihat Selengkapnya Data Dari Performa Profil.",
+              },
+            },
+            {
+              element: "#seeAnaliticForDrive1",
+              popover: {
+                title: "Tombol Lihat",
+                description: "Klik Disini Untuk Melihat Data Analitik.",
+              },
+            },
+            {
+              element: "#seeAnaliticForDrive2",
+              popover: {
+                title: "Tombol Lihat",
+                description: "Klik Disini Untuk Melihat Data Analitik.",
+              },
+            },
+            {
+              element: "#seeAnaliticForDrive3",
+              popover: {
+                title: "Tombol Lihat",
+                description: "Klik Disini Untuk Melihat Data Analitik.",
               },
             },
           ]
