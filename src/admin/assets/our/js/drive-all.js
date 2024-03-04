@@ -166,6 +166,83 @@ function tampilkanPanduan(halamanTautan) {
               },
             },
           ]
+        : halamanTautan === "http://localhost/PTSP/src/admin/pages/data.php"
+        ? [
+            {
+              element: "#formSearchForDrive",
+              popover: {
+                title: "Formulir Pencarian",
+                description: "Silahkan Pencarian Disini.",
+              },
+            },
+            {
+              element: "#addDataAllFormForDrive",
+              popover: {
+                title: "Tambah Data",
+                description: "Klik Disini Untuk Menambahkan Data Baru.",
+              },
+            },
+            {
+              element: "#fotoNavbarAdminSessionForDrive",
+              popover: {
+                title: "Foto Anda",
+                description: "Klik Disini Untuk Melihat Profil Anda.",
+              },
+            },
+            {
+              element: "#fotoSidebarAdminSessionForDrive",
+              popover: {
+                title: "Foto Anda",
+                description: "Klik Disini Untuk Melihat Profil Anda.",
+              },
+            },
+            {
+              element: "#menuSidebarForDrive",
+              popover: {
+                title: "Menu",
+                description:
+                  "Klik Disini Untuk Melihat Halaman Yang Anda Inginkan.",
+              },
+            },
+            {
+              element: "#menuSidebarSendFeedbackForDrive",
+              popover: {
+                title: "Menu",
+                description:
+                  "Klik Disini Untuk Mengirimkan Masukan Kepada Developer Anda.",
+              },
+            },
+            {
+              element: "#menuDataForDrive",
+              popover: {
+                title: "Menu",
+                description:
+                  "Klik Disini Untuk Melihat Halaman Yang Anda Inginkan.",
+              },
+            },
+            {
+              element: "#filterDataForDrive",
+              popover: {
+                title: "Filter",
+                description:
+                  "Klik Disini Untuk Memfilter Data Yang Anda Inginkan.",
+              },
+            },
+            {
+              element: "#checkBoxDataThForDrive",
+              popover: {
+                title: "Tombol",
+                description: "Klik Disini Untuk Menghapus Semua Data.",
+              },
+            },
+            {
+              element: "#checkBoxDataTdForDrive",
+              popover: {
+                title: "Tombol",
+                description: "Klik Disini Untuk Menghapus Data Terpilih.",
+              },
+            },
+          ]
         : [];
 
     const objekDrive = driver({

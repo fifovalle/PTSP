@@ -29,6 +29,8 @@ if (!isset($_SESSION['ID'])) {
     <!-- SWEETALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <!-- DRIVE JS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css" />
 </head>
 
 <body>
@@ -51,7 +53,7 @@ if (!isset($_SESSION['ID'])) {
                         <h1 class="breadcrumb">Kumpulan Data</h1>
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div id="menuDataForDrive" class="col-12">
                             <div class="row">
                                 <div class="menu col-2">
                                     <p class="fw-semibold dataAll active">Admin</p>
@@ -77,7 +79,7 @@ if (!isset($_SESSION['ID'])) {
                             </div>
                         </div>
                         <hr class="hrData">
-                        <div class="row" style="position: relative;">
+                        <div id="filterDataForDrive" class="row" style="position: relative;">
                             <div class="col-1">
                                 <i class="bx bx-filter iconFilter"></i>
                             </div>
@@ -168,6 +170,8 @@ if (!isset($_SESSION['ID'])) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- CDN DRIVE.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
     <!-- OUR JS -->
     <script src="../assets/our/js/data.js"></script>
     <script src="../assets/our/js/index.js"></script>
@@ -182,6 +186,7 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/value-information.js"></script>
     <script src="../assets/our/js/"></script>
     <script src="../assets/our/js/filter.js"></script>
+    <script src="../assets/our/js/drive-all.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- ALERT -->

@@ -5,7 +5,7 @@
     </div>
     <thead>
         <tr>
-            <th class="text-center">
+            <th id="checkBoxDataThForDrive" class="text-center">
                 <input class="checkBoxData checkBoxDataAdmin" type="checkbox">
             </th>
             <th class="text-center">No</th>
@@ -46,7 +46,7 @@
             foreach ($dataAdmin as $admin) {
         ?>
                 <tr class="trDataN">
-                    <td class="text-center">
+                    <td id="checkBoxDataTdForDrive" class="text-center">
                         <input class="checkBoxData checkBoxDataAdmin checkBoxDataAdminData" type="checkbox">
                     </td>
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
