@@ -2,7 +2,7 @@
     <div class="card">
         <h5 class="card-title pt-4 mx-auto">Laporan Anda Selama 7 Hari Terakhir</h5>
         <hr>
-        <div class="d-flex justify-content-around">
+        <div id="menuAnaliticAllForDrive" class="d-flex justify-content-around">
             <div class="row boxData active fw-bold">
                 <span class="headerBoxData">Informasi</span>
                 <span class="captionBoxData">10<i class="bx bxs-up-arrow-circle captionIcon"></i></span>

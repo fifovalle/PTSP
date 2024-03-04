@@ -61,7 +61,10 @@
                                 <a class="linkData buttonAdmin" data-id='<?php echo $admin['ID_Admin']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>
                                 </a>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteAdmin(<?php echo $admin['ID_Admin']; ?>)">
+                                <?php
+                                $deleteButtonScript = ($_SESSION['ID'] != $admin['ID_Admin'] && $_SESSION['ID'] != $admin['ID_Admin']) ? 'confirmDeleteAdmin(' . $admin['ID_Admin'] . ');' : '';
+                                ?>
+                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="<?php echo $deleteButtonScript; ?>" <?php echo ($_SESSION['ID'] == $admin['ID_Admin']) ? 'style="display: none;"' : ''; ?>>
                                     <span><i class="fas fa-trash"></i></span>
                                 </a>
                             </div>

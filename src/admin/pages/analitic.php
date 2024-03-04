@@ -27,6 +27,11 @@ if (!isset($_SESSION['ID'])) {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- FAVICON -->
     <link rel="icon" href="../assets/image/logo/1.png">
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <!-- DRIVE JS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css" />
 </head>
 
 <body>
@@ -50,7 +55,7 @@ if (!isset($_SESSION['ID'])) {
                     </div>
                     <div class="row">
                         <div class="col-12 d-flex justify-content-between">
-                            <div class="row">
+                            <div id="menuAnaliticForDrive" class="row">
                                 <div class="menu col-2">
                                     <p class="fw-semibold dataAll active">Semua</p>
                                 </div>
@@ -67,7 +72,7 @@ if (!isset($_SESSION['ID'])) {
                                     <p class="fw-semibold dataAll">Transaksi</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div id="menuDropdownAnaliticForDrive" class="row">
                                 <div class="menuDropdownAnalitic text-center">
                                     <div class="dropdown">
                                         <p class="dropdown-toggle-analitic" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
@@ -123,6 +128,8 @@ if (!isset($_SESSION['ID'])) {
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <!-- CDN DRIVE.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
     <!-- OUR JS -->
     <script src="../assets/our/js/analitic.js"></script>
     <script src="../assets/our/js/toggle-password.js"></script>
@@ -134,6 +141,7 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/chart/chart-information.js"></script>
     <script src="../assets/our/js/chart/chart-services.js"></script>
     <script src="../assets/our/js/chart/apexcharts.js"></script>
+    <script src="../assets/our/js/drive-all.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </body>

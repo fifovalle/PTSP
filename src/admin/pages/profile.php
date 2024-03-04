@@ -27,6 +27,11 @@ if (!isset($_SESSION['ID'])) {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- FAVICON -->
     <link rel="icon" href="../assets/image/logo/1.png">
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <!-- DRIVE JS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css" />
 </head>
 
 <body>
@@ -67,7 +72,7 @@ if (!isset($_SESSION['ID'])) {
                                         <div class="row">
                                             <div class="col-lg-12 mb-2">
                                                 <div class="avatar">
-                                                    <img src="../assets/image/uploads/<?php echo $admin['Foto']; ?>" class="avatarimage" alt="Avatar">
+                                                    <img id="avatarForDrive" src="../assets/image/uploads/<?php echo $admin['Foto']; ?>" class="avatarimage" alt="Avatar">
                                                     <div class="middle" id="editAvatar" data-bs-toggle="modal" data-bs-target="#modalSuntingFoto"><i class='bx bx-pencil'></i></div>
                                                 </div>
                                             </div>
@@ -91,13 +96,16 @@ if (!isset($_SESSION['ID'])) {
                         echo "<p>Data admin tidak ditemukan.</p>";
                     }
                     ?>
-                    <div class="col-12">
+                    <div id="menuProfilForDrive" class="col-12">
                         <div class="row">
                             <div class="menu col-2">
                                 <p class="fw-semibold dataAll active">Akun</p>
                             </div>
                             <div class="menu col-2">
                                 <p class="fw-semibold dataAll">Sunting</p>
+                            </div>
+                            <div class="menu col-2">
+                                <p class="fw-semibold dataAll">Hapus</p>
                             </div>
                         </div>
                     </div>
@@ -106,6 +114,7 @@ if (!isset($_SESSION['ID'])) {
                             <!-- ALL MENU ACCOUNT START -->
                             <?php include "../partials/utils/account-profile.php" ?>
                             <?php include "../partials/utils/edit-account-profile.php" ?>
+                            <?php include "../partials/utils/delete-account-profile.php" ?>
                             <!-- ALL MENU ACCOUNT END -->
                         </div>
                     </div>
@@ -142,11 +151,14 @@ if (!isset($_SESSION['ID'])) {
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <!-- CDN DRIVE.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
     <!-- OUR JS -->
     <script src="../assets/our/js/index.js"></script>
     <script src="../assets/our/js/profile.js"></script>
     <script src="../assets/our/js/toggle-password.js"></script>
     <script src="../assets/our/js/toggle-password-edit.js"></script>
+    <script src="../assets/our/js/drive-all.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 </body>

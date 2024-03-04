@@ -243,6 +243,139 @@ function tampilkanPanduan(halamanTautan) {
               },
             },
           ]
+        : halamanTautan === "http://localhost/PTSP/src/admin/pages/analitic.php"
+        ? [
+            {
+              element: "#formSearchForDrive",
+              popover: {
+                title: "Formulir Pencarian",
+                description: "Silahkan Pencarian Disini.",
+              },
+            },
+            {
+              element: "#addDataAllFormForDrive",
+              popover: {
+                title: "Tambah Data",
+                description: "Klik Disini Untuk Menambahkan Data Baru.",
+              },
+            },
+            {
+              element: "#fotoNavbarAdminSessionForDrive",
+              popover: {
+                title: "Foto Anda",
+                description: "Klik Disini Untuk Melihat Profil Anda.",
+              },
+            },
+            {
+              element: "#fotoSidebarAdminSessionForDrive",
+              popover: {
+                title: "Foto Anda",
+                description: "Klik Disini Untuk Melihat Profil Anda.",
+              },
+            },
+            {
+              element: "#menuSidebarForDrive",
+              popover: {
+                title: "Menu",
+                description:
+                  "Klik Disini Untuk Melihat Halaman Yang Anda Inginkan.",
+              },
+            },
+            {
+              element: "#menuSidebarSendFeedbackForDrive",
+              popover: {
+                title: "Menu",
+                description:
+                  "Klik Disini Untuk Mengirimkan Masukan Kepada Developer Anda.",
+              },
+            },
+            {
+              element: "#menuAnaliticForDrive",
+              popover: {
+                title: "Menu",
+                description:
+                  "Klik Disini Untuk Melihat Halaman Yang Anda Inginkan.",
+              },
+            },
+            {
+              element: "#menuDropdownAnaliticForDrive",
+              popover: {
+                title: "Menu",
+                description:
+                  "Klik Disini Untuk Memfilter Waktu Yang Anda Inginkan.",
+              },
+            },
+            {
+              element: "#menuAnaliticAllForDrive",
+              popover: {
+                title: "Tombol",
+                description:
+                  "Klik Disini Untuk Melihat Laporan Yang Anda Inginkan.",
+              },
+            },
+          ]
+        : halamanTautan === "http://localhost/PTSP/src/admin/pages/profile.php"
+        ? [
+            {
+              element: "#formSearchForDrive",
+              popover: {
+                title: "Formulir Pencarian",
+                description: "Silahkan Pencarian Disini.",
+              },
+            },
+            {
+              element: "#addDataAllFormForDrive",
+              popover: {
+                title: "Tambah Data",
+                description: "Klik Disini Untuk Menambahkan Data Baru.",
+              },
+            },
+            {
+              element: "#fotoNavbarAdminSessionForDrive",
+              popover: {
+                title: "Foto Anda",
+                description: "Klik Disini Untuk Melihat Profil Anda.",
+              },
+            },
+            {
+              element: "#fotoSidebarAdminSessionForDrive",
+              popover: {
+                title: "Foto Anda",
+                description: "Klik Disini Untuk Melihat Profil Anda.",
+              },
+            },
+            {
+              element: "#menuSidebarForDrive",
+              popover: {
+                title: "Menu",
+                description:
+                  "Klik Disini Untuk Melihat Halaman Yang Anda Inginkan.",
+              },
+            },
+            {
+              element: "#menuSidebarSendFeedbackForDrive",
+              popover: {
+                title: "Menu",
+                description:
+                  "Klik Disini Untuk Mengirimkan Masukan Kepada Developer Anda.",
+              },
+            },
+            {
+              element: "#avatarForDrive",
+              popover: {
+                title: "Foto Anda",
+                description: "Klik Disini Untuk Mengubah Foto Anda.",
+              },
+            },
+            {
+              element: "#menuProfilForDrive",
+              popover: {
+                title: "Menu",
+                description:
+                  "Klik Disini Untuk Melihat Halaman Yang Anda Inginkan.",
+              },
+            },
+          ]
         : [];
 
     const objekDrive = driver({
