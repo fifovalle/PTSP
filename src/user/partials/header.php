@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="../assets/css/navbar.css">
 <link rel="stylesheet" href="../assets/css/driver.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<link rel="icon" href="../../../src/admin/assets/image/logo/1.png">
 <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 <script src="../assets/js/javascript.js"></script>
