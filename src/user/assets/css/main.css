@@ -1,0 +1,186 @@
+:root {
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+/* Scrollbar Effect */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* End Scrollbar Effect */
+
+/*  Carousel Effect */
+#carouselCover.carousel {
+  max-width: 100% !important;
+  max-height: 1000px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+#carouselCover.carousel-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+/*  End Carousel Effect */
+
+#carouselProduct.carousel {
+  margin-top: 4rem;
+  max-height: 800px; /* Sesuaikan tinggi sesuai kebutuhan Anda */
+  overflow: hidden; /* Untuk memastikan gambar tidak melampaui tinggi carousel */
+}
+#carouselProduct.carousel-item img {
+  height: 100%; /* Gambar akan mengisi tinggi carousel */
+  width: auto; /* Lebar gambar akan disesuaikan secara otomatis */
+  object-fit: cover; /* Untuk menjaga aspek rasio gambar */
+}
+
+#button-content.container-fluid {
+  padding: 5rem 5rem 5rem 5rem;
+  background-color: #b6ccd7;
+}
+@media screen and (max-width: 768px) {
+  #button-content.container-fluid {
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: #b6ccd7;
+  }
+}
+
+#button-content.container-fluid button {
+  border: none;
+  position: relative;
+  padding: 1rem 3rem 1rem 3rem;
+  font-size: 18px;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  color: #178636;
+  z-index: 1;
+  font-family: inherit;
+  font-weight: 500;
+  display: inline-block;
+}
+
+button span {
+  position: absolute;
+  background: transparent;
+  z-index: -1;
+  border: 4px solid #178636;
+}
+
+button span::before {
+  content: "";
+  position: absolute;
+  width: 8%;
+  height: 500%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-60deg);
+  transition: all 0.3s;
+}
+
+button:hover span::before {
+  transform: translate(-50%, -50%) rotate(-90deg);
+  width: 100%;
+  background: #178636;
+}
+
+#button-content.container-fluid button:hover {
+  color: white;
+}
+
+#button-content.container-fluid button:active span::before {
+  background: #08318d;
+}
+
+.dot {
+  display: inline-flex; /* Use flexbox */
+  justify-content: center; /* Align content horizontally */
+  align-items: center; /* Align items vertically */
+  width: 75px; /* Adjust width as needed */
+  height: 75px; /* Adjust height as needed */
+  background-color: #08318d; /* Background color of the dot */
+  border-radius: 50%; /* Make it round */
+}
+
+/* Button Up */
+.btn-maintutorial {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px #08318d;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 100px;
+  transition-duration: 0.3s;
+}
+
+.btn-maintutorial:hover {
+  width: 140px;
+  border-radius: 100px;
+  transition-duration: 0.3s;
+  background-color: #08318d;
+  align-items: center;
+}
+
+.btn-maintutorial:hover .svgIcon {
+  /* width: 20px; */
+  transition-duration: 0.3s;
+  transform: translateY(-200%);
+}
+
+.btn-maintutorial::before {
+  position: absolute;
+  bottom: -20px;
+  content: "Need Tutorial";
+  color: white;
+  /* transition-duration: .3s; */
+  font-size: 0px;
+}
+
+.btn-maintutorial:hover::before {
+  font-size: 13px;
+  opacity: 0.9;
+  bottom: unset;
+  /* transform: translateY(-30px); */
+  transition-duration: 0.3s;
+}
+
+.button-container {
+  position: fixed;
+  bottom: 60px;
+  right: 5px;
+  z-index: 999;
+}
+.button button {
+  position: relative;
+  backdrop-filter: none;
+}
+/* End Button Up */

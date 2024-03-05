@@ -1,0 +1,580 @@
+:root {
+  --backgroundcolor-button-cover: #08318d;
+  --color-button-cover: #ffffff;
+  --backgroundcolor-buttonhover-cover: #f1edff;
+  --color-buttonhover-cover: #08318d;
+}
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+}
+
+/* Scrollbar Effect */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* End Scrollbar Effect */
+
+/* Button Up */
+.button-up {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px #08318d;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.button-up:hover {
+  width: 140px;
+  border-radius: 100px;
+  transition-duration: 0.3s;
+  background-color: #08318d;
+  align-items: center;
+}
+
+.button-up:hover .svgIcon {
+  /* width: 20px; */
+  transition-duration: 0.3s;
+  transform: translateY(-200%);
+}
+
+.button-up::before {
+  position: absolute;
+  bottom: -20px;
+  content: "Back to Top";
+  color: white;
+  /* transition-duration: .3s; */
+  font-size: 0px;
+}
+
+.button-up:hover::before {
+  font-size: 13px;
+  opacity: 0.9;
+  bottom: unset;
+  /* transform: translateY(-30px); */
+  transition-duration: 0.3s;
+}
+
+.button-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+.button button {
+  position: relative;
+  backdrop-filter: none;
+}
+/* End Button Up */
+
+/* Cover Effect */
+.cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 845px;
+  z-index: 1;
+}
+
+.cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+}
+
+.cover .content {
+  margin-top: 12rem !important;
+  backdrop-filter: none;
+}
+
+.content h1,
+.content h4 {
+  position: relative;
+  backdrop-filter: none;
+}
+
+.custom-shape-divider-bottom-1706187403 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  z-index: 0;
+}
+
+.custom-shape-divider-bottom-1706187403 svg {
+  width: calc(100% + 1.3px);
+  height: 148px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1706187403 .shape-fill {
+  fill: #ffffff;
+}
+
+.button1 a {
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 50px;
+  text-transform: uppercase;
+  letter-spacing: 5.4px;
+  color: var(--color-button-cover);
+  underline: none;
+  text-decoration: none;
+}
+
+.button1 button:hover {
+  color: var(--color-buttonhover-cover);
+  background-color: var(--backgroundcolor-buttonhover-cover);
+  box-shadow: -2px -1px 8px 0px #000000, 2px 1px 8px 0px rgba(0, 0, 0, 0.48);
+}
+
+.button1 button:active {
+  box-shadow: none;
+}
+
+.button1 button {
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  background-color: var(--backgroundcolor-button-cover);
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: #e8d5b5;
+  border-radius: 40px 40px 40px 40px;
+  padding: 16px 24px 16px 28px;
+  transform: translate(0px, 0px) rotate(0deg);
+  transition: 0.2s;
+  box-shadow: -4px -2px 16px 0px rgba(255, 255, 255, 0.4),
+    4px 2px 16px 0px rgba(95, 157, 231, 0.24);
+}
+/* End Cover Effect*/
+
+.carousel-item {
+  height: 845px;
+}
+.section1,
+.section2,
+.section3,
+.section4 {
+  background-image: linear-gradient(
+    to bottom,
+    #08318d,
+    #4e52a2,
+    #7a77b7,
+    #a29dcd,
+    #cac6e2,
+    #c8ceea,
+    #c7d5f0,
+    #c6ddf5,
+    #81cae3,
+    #25b7bd,
+    #00a181,
+    #178636
+  );
+  height: 100%;
+}
+.section1 .left-content {
+  padding: 10rem 5rem 10rem 5rem; /* Atas, kanan, bawah, kiri */
+}
+
+.section1 .right-content {
+  padding: 10rem 5rem 10rem 5rem; /* Atas, kanan, bawah, kiri */
+}
+
+.section2 .left-content {
+  padding: 10rem 5rem 10rem 5rem; /* Atas, kanan, bawah, kiri */
+}
+
+.section2 .right-content {
+  padding: 10rem 5rem 10rem 5rem; /* Atas, kanan, bawah, kiri */
+}
+
+.section3 .left-content {
+  padding: 10rem 5rem 10rem 5rem; /* Atas, kanan, bawah, kiri */
+}
+
+.section3 .right-content {
+  padding: 7rem 5rem 7rem 5rem; /* Atas, kanan, bawah, kiri */
+}
+.button-next {
+  margin-left: 13rem;
+  padding: 2rem 2rem 2rem 2rem;
+}
+
+.card-stasiun {
+  margin-top: -450px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 340px;
+  perspective: 1000px;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid coral;
+  border-radius: 1rem;
+}
+
+.flip-card-front {
+  background-image: linear-gradient(135deg, #00416a 10%, #e4e5e6 100%);
+  color: coral;
+}
+
+.flip-card-back {
+  background-image: linear-gradient(135deg, #dfe9f3 10%, #ffffff 100%);
+  color: white;
+  transform: rotateY(180deg);
+}
+/* End Section 4 Effect */
+
+/* Section 5 Effect */
+.button2 a {
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 50px;
+  text-transform: uppercase;
+  letter-spacing: 5.4px;
+  color: var(--color-button-cover);
+  underline: none;
+  text-decoration: none;
+}
+
+.button2 button:hover {
+  color: var(--color-buttonhover-cover);
+  background-color: var(--backgroundcolor-buttonhover-cover);
+  box-shadow: -2px -1px 8px 0px #000000, 2px 1px 8px 0px rgba(0, 0, 0, 0.48);
+}
+
+.button2 button:active {
+  box-shadow: none;
+}
+
+.button2 button {
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  background-color: var(--backgroundcolor-button-cover);
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: #e8d5b5;
+  border-radius: 40px 40px 40px 40px;
+  padding: 16px 24px 16px 28px;
+  transform: translate(0px, 0px) rotate(0deg);
+  transition: 0.2s;
+  box-shadow: -4px -2px 16px 0px rgba(255, 255, 255, 0.4),
+    4px 2px 16px 0px rgba(95, 157, 231, 0.24);
+}
+/* End Section 5 Effect */
+
+/* Button Carousel */
+.cssbuttons-io-button {
+  background: #a370f0;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+  cursor: pointer;
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #7b52b9;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+/* End Button Carousel */
+
+@media screen and (max-width: 850px) {
+  .cover {
+    height: 850px;
+    z-index: 1;
+  }
+
+  .content h1 {
+    font-size: 2.4rem;
+  }
+  .content h4 {
+    font-size: 1.2rem;
+  }
+  .custom-shape-divider-bottom-1706187403 {
+    height: 100px; /* Adjust the height as needed for tablets */
+  }
+
+  .custom-shape-divider-bottom-1706187403 svg {
+    height: 80px; /* Adjust the height to match the container */
+  }
+
+  .carousel-item {
+    width: 100%;
+    height: 875px;
+  }
+
+  .section1,
+  .section2,
+  .section3,
+  .section4 {
+    height: 100%;
+  }
+
+  .section1 .left-content {
+    padding: 20rem 3rem 20rem 3rem; /* Atas, kanan, bawah, kiri */
+  }
+  .section1 .right-content {
+    padding: 10rem 3rem 10rem 3rem; /* Atas, kanan, bawah, kiri */
+  }
+  .section1 .right-content h1 {
+    font-size: 2.5rem;
+  }
+  .section1 .right-content h4 {
+    font-size: 1.2rem;
+  }
+  .section2 .left-content {
+    padding: 6rem 3rem 6rem 3rem; /* Atas, kanan, bawah, kiri */
+  }
+  .section2 .right-content {
+    padding: 20rem 3rem 20rem 3rem; /* Atas, kanan, bawah, kiri */
+  }
+  .section2 .left-content h1 {
+    font-size: 2.5rem;
+  }
+  .section2 .left-content h4 {
+    font-size: 1.2rem;
+  }
+  .section3 .left-content {
+    padding: 20rem 3rem 20rem 3rem; /* Atas, kanan, bawah, kiri */
+  }
+  .section3 .right-content {
+    padding: 5rem 3rem 5rem 3rem; /* Atas, kanan, bawah, kiri */
+  }
+  .section3 .right-content h1 {
+    font-size: 2.3rem;
+  }
+  .section3 .right-content h4 {
+    font-size: 1.2rem;
+  }
+  .content4 .img-fluid {
+    width: 100%;
+  }
+  .button-next {
+    margin-left: 20px;
+    padding: 2rem 2rem 2rem 2rem;
+  }
+
+  .carousel-item .section4 {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+  }
+  .title-card {
+    font-size: 1.8rem;
+    color: white;
+  }
+  .card-stasiun {
+    margin-top: 0;
+    width: 100%;
+  }
+  .col-lg-4 {
+    display: inline-block;
+    width: 200px; /* Sesuaikan lebar sesuai kebutuhan Anda */
+  }
+  .footer {
+    font-size: 0.83rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cover {
+    height: 680px;
+    z-index: 1;
+  }
+  .content h1 {
+    font-size: 1.6rem;
+  }
+  .content h4 {
+    font-size: 1.1rem;
+  }
+  .custom-shape-divider-bottom-1706187403 {
+    height: 100px; /* Adjust the height as needed for tablets */
+  }
+
+  .custom-shape-divider-bottom-1706187403 svg {
+    height: 80px; /* Adjust the height to match the container */
+  }
+  .carousel-item {
+    height: 950px;
+  }
+
+  .section1,
+  .section2,
+  .section3 {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .section1 .left-content {
+    padding: 4rem 2rem 4rem 2rem; /* Atas, kanan, bawah, kiri */
+  }
+  .section1 .right-content {
+    padding: 1rem 2rem 1rem 2rem; /* Atas, kanan, bawah, kiri */
+  }
+  .section1 .right-content h1 {
+    font-size: 1.5rem;
+  }
+  .section1 .right-content h4 {
+    font-size: 1.2rem;
+  }
+  .section2 .left-content {
+    padding: 1.5rem 2rem 1.5rem 2rem; /* Atas, kanan, bawah, kiri */
+  }
+  .section2 .right-content {
+    padding: 0.2rem 2rem 0.2rem 2rem; /* Atas, kanan, bawah, kiri */
+  }
+  .section2 .left-content h1 {
+    font-size: 2rem;
+  }
+  .section2 .left-content h4 {
+    font-size: 1.2rem;
+  }
+  .section3 .left-content {
+    padding: 0.8rem 3rem 0.8rem 3rem; /* Atas, kanan, bawah, kiri */
+  }
+  .section3 .right-content {
+    padding: 1rem 3rem 1rem 3rem; /* Atas, kanan, bawah, kiri */
+  }
+  .section3 .right-content h1 {
+    font-size: 2rem;
+  }
+  .section3 .right-content h4 {
+    font-size: 1.2rem;
+  }
+  .button-next {
+    margin-left: 30px;
+    padding: 1rem 1rem 1rem 1rem;
+  }
+  .footer {
+    font-size: 0.83rem;
+  }
+}

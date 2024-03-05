@@ -1,0 +1,292 @@
+:root {
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+/************** Scrollbar Effect **************/
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/************** End Scrollbar Effect **************/
+/************** Button Opsi **************/
+#option.row {
+  background: rgba(8, 49, 141, 0.21);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.2px);
+  -webkit-backdrop-filter: blur(4.2px);
+  border: 1px solid rgba(8, 49, 141, 0.22);
+  padding: 50px 5rem 50px 5rem;
+  margin: 3rem 2.5rem 3rem 2.5rem;
+}
+
+#button-option.col {
+  display: flex;
+  align-items: center; /* Untuk membuat tombol-tombol berada di tengah vertikal */
+  justify-content: center;
+  margin: 20px 0 20px 0;
+}
+#button-option .btn {
+  margin-right: 10px; /* Atur jarak kanan antara tombol-tombol */
+  min-width: 3in;
+}
+.row.form {
+  padding: 4rem 5rem 4rem 4.5rem;
+}
+
+.box-option {
+  width: 300px;
+  height: auto;
+  float: left;
+  transition: 0.5s linear;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 5px;
+  text-align: center;
+  margin: 0 5px;
+  background: transparent;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.box-option:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
+  box-sizing: border-box;
+  transform: translateX(100%);
+}
+
+.box-option:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  transform: translateX(-100%);
+}
+
+.box-option:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.box-option:hover:before {
+  border-color: #08318d;
+  height: 100%;
+  transform: translateX(0);
+  transition: 0.3s transform linear, 0.3s height linear 0.3s;
+}
+
+.box-option:hover:after {
+  border-color: #178636;
+  height: 100%;
+  transform: translateX(0);
+  transition: 0.3s transform linear, 0.3s height linear 0.5s;
+}
+
+button {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+/************** End Button Opsi **************/
+
+.form-control {
+  border-radius: 300px;
+}
+#DataPribadi.container,
+#DataKeperluan.container,
+#TitleForm.container {
+  background-color: #e2e2e2;
+  padding: 30px;
+  border-radius: 30px;
+}
+
+.label-container {
+  display: flex;
+}
+
+.label-text {
+  margin-right: 5px;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+input[type="file"]::before {
+  content: "Upload File";
+  color: black;
+  padding: 10px;
+  border-right: 1px solid #000;
+  outline: none;
+  cursor: pointer;
+}
+
+#modalSuratPengantar,
+#modalSuratPernyataan {
+  max-width: 1200px; /* Atur lebar maksimum */
+  width: 50%; /* Atur lebar relatif */
+  backdrop-filter: blur(5px); /* Atur tingkat blur */
+}
+.apply {
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  padding-block: 0.5rem;
+  padding-inline: 1.25rem;
+  background-color: #08318d;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffff;
+  gap: 10px;
+  font-weight: bold;
+  border: 3px solid #178636;
+  outline: none;
+  overflow: hidden;
+  font-size: 15px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+.apply:hover {
+  transform: scale(1.05);
+  border-color: #08318d;
+  background-color: #178636;
+}
+
+.apply:hover .icon {
+  transform: translate(4px);
+}
+
+.apply:hover::before {
+  animation: shine 1.5s ease-out infinite;
+}
+
+.apply::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0) 70%
+  );
+  top: 0;
+  left: -100px;
+  opacity: 0.6;
+}
+
+@keyframes shine {
+  0% {
+    left: -100px;
+  }
+
+  60% {
+    left: 100%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+/* Button Up */
+.btn-ajukantutorial {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px #08318d;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 100px;
+  transition-duration: 0.3s;
+}
+
+.btn-ajukantutorial:hover {
+  width: 140px;
+  border-radius: 100px;
+  transition-duration: 0.3s;
+  background-color: #08318d;
+  align-items: center;
+}
+
+.btn-ajukantutorial:hover .svgIcon {
+  width: 20px;
+  transition-duration: 0.3s;
+  transform: translateY(-200%);
+}
+
+.btn-ajukantutorial::before {
+  position: absolute;
+  bottom: -20px;
+  content: "Need Tutorial";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 0px;
+}
+
+.btn-ajukantutorial:hover::before {
+  font-size: 13px;
+  opacity: 0.9;
+  bottom: unset;
+  transition-duration: 0.3s;
+}
+
+.button-container {
+  position: fixed;
+  bottom: 60px;
+  right: 5px;
+  z-index: 999;
+}
+.button button {
+  position: relative;
+  backdrop-filter: none;
+}
+/* End Button Up */

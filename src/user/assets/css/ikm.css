@@ -1,0 +1,70 @@
+:root {
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+/* Scrollbar Effect */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* End Scrollbar Effect */
+.dot {
+  display: inline-flex; /* Use flexbox */
+  justify-content: center; /* Align content horizontally */
+  align-items: center; /* Align items vertically */
+  width: 75px; /* Adjust width as needed */
+  height: 75px; /* Adjust height as needed */
+  background-color: #08318d; /* Background color of the dot */
+  border-radius: 50%; /* Make it round */
+}
+
+.row.category {
+  margin: 2rem 0 0 0;
+  padding: 2rem 22rem 2rem 22rem;
+  background-color: grey;
+}
+
+#icon {
+  width: 50%;
+  height: 50%;
+}
+
+.selected {
+  background-color: green; /* Change to whatever color you want */
+}
+
+.row.form {
+  margin: 3rem 2rem 3rem 2rem;
+}
+
+#floatingInput {
+  border: 1px solid black;
+}
+
+.dropdown-menu {
+  width: 100%;
+}
+
+.dropdown.questioner {
+  margin-bottom: 50px;
+}
+
+.btn.question {
+  height: 50px;
+  padding: 0.6rem 5rem 0.6rem 5rem;
+}

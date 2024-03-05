@@ -1,0 +1,47 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+/* Scrollbar Effect */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* End Scrollbar Effect */
+
+#opsi-profile {
+  margin: 12rem 0 12rem 0;
+}
+
+#status-pesanan {
+  background-color: #f2f2f2;
+  padding: 0 3rem 0 3rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 50px;
+  border: none;
+  width: 20rem;
+  padding: 1rem 0 1rem 0;
+  background-color: transparent;
+}

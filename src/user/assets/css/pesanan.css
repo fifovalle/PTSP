@@ -1,0 +1,106 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+/* Scrollbar Effect */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* End Scrollbar Effect */
+
+#opsi-pemesanan {
+  margin: 12rem 0 12rem 0;
+}
+
+.status {
+  position: cover;
+  background-color: #f2f2f2;
+  padding: 2rem 1rem 2rem 1rem;
+  margin-bottom: 5rem;
+}
+
+#status-pesanan {
+  background-color: #f2f2f2;
+  padding: 0 3rem 0 3rem;
+}
+
+.dot {
+  display: inline-flex; /* Use flexbox */
+  justify-content: center; /* Align content horizontally */
+  align-items: center; /* Align items vertically */
+  width: 75px; /* Adjust width as needed */
+  height: 75px; /* Adjust height as needed */
+  background-color: #08318d; /* Background color of the dot */
+  border-radius: 50%; /* Make it round */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 60px;
+  border: none;
+  width: 12rem;
+  padding: 1rem 0 1rem 0;
+  background-color: transparent;
+}
+.selected {
+  background-color: green; /* Change to whatever color you want */
+}
+
+#line-pesanan {
+  position: absolute;
+  top: 15.7rem;
+  left: 31rem;
+  width: 58%;
+  height: 3px; /* Adjust this value to change thickness */
+  background-color: black;
+  border: none;
+}
+#status-pesanan {
+  position: relative;
+}
+.opsi-statuspesanan {
+  width: 15rem;
+  border: none;
+}
+.opsi-statuspesanan:active {
+}
+#icon {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+#nama_barang {
+  font-size: 1.5rem;
+}
+#jmlh_barang {
+  font-size: 1rem;
+}
+#harga_barang {
+  font-size: 1rem;
+}
+#total_harga {
+  font-size: 1.5rem;
+}
+#total_harga p {
+  font-size: 1.3rem;
+}

@@ -1,6 +1,6 @@
 <?php
 // DATABASES
-include '../src/admin/config/databases.php';
+include '../../src/admin/config/databases.php';
 // MEMAKSA MASUK
 if (!isset($_SESSION['ID'])) {
     setPesanKesalahan("Anda tidak bisa mengakses halaman ini. Silakan login terlebih dahulu.");
@@ -16,14 +16,14 @@ if (!isset($_SESSION['ID'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Beranda PTSP</title>
     <!-- BOOTSTRAP CSS -->
-    <link rel="stylesheet" href="../src/admin/assets/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../../src/admin/assets/bootstrap/css/bootstrap.min.css" type="text/css">
     <!-- OUR CSS -->
-    <link rel="stylesheet" href="../src/admin/assets/our/css/index.css">
+    <link rel="stylesheet" href="../../src/admin/assets/our/css/index.css">
     <!-- ICON -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- FAVICON -->
-    <link rel="icon" href="../src/admin/assets/image/logo/1.png">
+    <link rel="icon" href="../../src/admin/assets/image/logo/1.png">
     <!-- SWEETALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
@@ -34,14 +34,14 @@ if (!isset($_SESSION['ID'])) {
 <body>
     <!-- NAVBAR START-->
     <?php
-    include "../src/admin/partials/components/navbar.php";
+    include "../../src/admin/partials/components/navbar.php";
     ?>
     <!-- NAVBAR END-->
     <section class="container-fluid mainWebsite">
         <section class="row">
             <!-- SIDEBAR START -->
             <?php
-            include "../src/admin/partials/components/sidebar.php";
+            include "../../src/admin/partials/components/sidebar.php";
             ?>
             <!-- SIDEBAR END -->
             <div class="container-fluid">
@@ -66,7 +66,7 @@ if (!isset($_SESSION['ID'])) {
                             <div class="card">
                                 <h5 class="card-title py-4 mx-auto">Performa Produk Terbaru</h5>
                                 <div class="position-relative mx-auto">
-                                    <img src="../src/admin/assets/image/uploads/2.png" class="imageCard card-img-top" alt="Performa Produk Terbaru">
+                                    <img src="../../src/admin/assets/image/uploads/2.png" class="imageCard card-img-top" alt="Performa Produk Terbaru">
                                     <h5 class="card-title titleProduct fw-bold">Nama Produk</h5>
                                 </div>
                                 <div class="d-flex justify-content-around align-items-center mt-4">
@@ -101,11 +101,11 @@ if (!isset($_SESSION['ID'])) {
                                 <hr>
                                 <div class="row mx-2 my-3">
                                     <div class="col-3">
-                                        <img src="../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
+                                        <img src="../../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
                                     </div>
                                     <div class="col-9">
                                         <h5>Naufal FIFA</h5>
-                                        <p class="card-text textCardProduct">Waduh Saya Puas Banget Sih Bang :)..</p>
+                                        <p class="card-text textCardProduct">Waduh Saya Puas Banget Sih Bang :)../..</p>
                                     </div>
                                 </div>
                                 <div class="card-body btnAnalitic">
@@ -119,7 +119,7 @@ if (!isset($_SESSION['ID'])) {
                                 <hr>
                                 <div class="row mx-2 my-3">
                                     <div class="col-3">
-                                        <img src="../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
+                                        <img src="../../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
                                     </div>
                                     <div class="col-9">
                                         <h5>Seismon</h5>
@@ -134,7 +134,7 @@ if (!isset($_SESSION['ID'])) {
                     </div>
                     <!-- FOOTER START -->
                     <?php
-                    include "../src/admin/partials/components/footer.php";
+                    include "../../src/admin/partials/components/footer.php";
                     ?>
                     <!-- FOOTER END -->
                 </main>
@@ -145,19 +145,19 @@ if (!isset($_SESSION['ID'])) {
 
     <!-- ALL MODAL START -->
     <?php
-    include "../src/admin/partials/utils/modal-add-admin.php";
+    include "../../src/admin/partials/utils/modal-add-admin.php";
     ?>
     <?php
-    include "../src/admin/partials/utils/modal-add-user.php";
+    include "../../src/admin/partials/utils/modal-add-user.php";
     ?>
     <?php
-    include "../src/admin/partials/utils/modal-add-information.php";
+    include "../../src/admin/partials/utils/modal-add-information.php";
     ?>
     <?php
-    include "../src/admin/partials/utils/modal-add-services.php";
+    include "../../src/admin/partials/utils/modal-add-services.php";
     ?>
     <?php
-    include "../src/admin/partials/utils/modal-send-feedback.php";
+    include "../../src/admin/partials/utils/modal-send-feedback.php";
     ?>
     <!-- ALL MODAL END -->
 
@@ -167,14 +167,14 @@ if (!isset($_SESSION['ID'])) {
     <!-- CDN DRIVE.JS -->
     <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
     <!-- OUR JS -->
-    <script src="../src/admin/assets/our/js/index.js"></script>
-    <script src="../src/admin/assets/our/js/toggle-password.js"></script>
-    <script src="../src/admin/assets/our/js/caret.js"></script>
-    <script src="../src/admin/assets/our/js/drive-all.js"></script>
+    <script src="../../src/admin/assets/our/js/index.js"></script>
+    <script src="../../src/admin/assets/our/js/toggle-password.js"></script>
+    <script src="../../src/admin/assets/our/js/caret.js"></script>
+    <script src="../../src/admin/assets/our/js/drive-all.js"></script>
     <!-- BOOTSTRAP JS -->
-    <script src="../src/admin/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../src/admin/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- ALERT -->
-    <?php include '../src/admin/partials/utils/alert.php' ?>
+    <?php include '../../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>
