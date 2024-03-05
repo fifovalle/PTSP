@@ -4,7 +4,7 @@ function tampilkanPanduan(halamanTautan) {
   let lastTourTime = localStorage.getItem(`${halamanTautan}_lastTourTime`);
   const currentTime = new Date().getTime();
 
-  if (!lastTourTime || currentTime - lastTourTime > 60000) {
+  if (!lastTourTime || currentTime - lastTourTime > 86400000) {
     const langkahLangkah =
       halamanTautan === "http://localhost/PTSP/src/admin/pages/login.php"
         ? [
