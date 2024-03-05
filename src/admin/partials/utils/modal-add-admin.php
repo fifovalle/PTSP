@@ -61,7 +61,7 @@
                             $peranAdmin = isset($_SESSION['Peran_Admin']) ? $_SESSION['Peran_Admin'] : '';
                             $apakahSuperAdmin = ($peranAdmin == 1);
                             echo ($apakahSuperAdmin) ? '<option value="" selected>Pilih Peran Admin</option>' : '';
-                            echo ($apakahSuperAdmin) ? '<option value="1" selected>Super Admin</option>' : '';
+                            echo ($apakahSuperAdmin) ? '<option value="1">Super Admin</option>' : '';
                             echo ($apakahSuperAdmin) ? '<option value="2">Instansi A</option>' : '';
                             echo ($apakahSuperAdmin) ? '<option value="3">Instansi B</option>' : '';
                             echo ($apakahSuperAdmin) ? '<option value="4">Instansi C</option>' : '';
