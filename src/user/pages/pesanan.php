@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-md-2 h-100" id="opsi-pemesanan">
                 <div class="row mx-5 my-3">
-                    <div class="btn btn-outline-success" id="history-order" onclick="showContentPemesanan('history-pesanan')">Riwayat Pesanan</div>
+                    <div class="btn btn-success" id="history-order" onclick="showContentPemesanan('history-pesanan')">Riwayat Pesanan</div>
                 </div>
                 <div class="row mx-5 my-3">
                     <div class="btn btn-outline-success" id="tracking-order" onclick="showContentPemesanan('detail-pesanan')">Tracking Pesanan</div>

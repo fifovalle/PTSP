@@ -42,11 +42,11 @@
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
                         <div>
-                            <img class="imageData" src="../assets/image/uploads/<?php echo $informasi['Foto_Informasi']; ?>" alt="Foto Jasa">
+                            <img class="imageData" src="../assets/image/uploads/<?php echo htmlspecialchars($informasi['Foto_Informasi']); ?>" alt="Foto Jasa">
                         </div>
                         <div class="deskriptorContainer">
-                            <p class="fw-semibold m-auto"><?php echo $informasi['Nama_Informasi']; ?></p>
-                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $informasi['Deskripsi_Informasi']; ?></p>
+                            <p class="fw-semibold m-auto"><?php echo htmlspecialchars($informasi['Nama_Informasi']); ?></p>
+                             <p class="fw-semibold deskriptorSmall m-auto"><?php echo htmlspecialchars($informasi['Deskripsi_Informasi']); ?></p>
                             <div class="iconContainerData">
                                 <a class="linkData buttonInformation" data-id='<?php echo $informasi['ID_Informasi']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>
@@ -58,10 +58,10 @@
                         </div>
                     </td>
                     <td class="text-center">Rp <?php echo number_format($informasi['Harga_Informasi'], 0, ',', '.'); ?></td>
-                    <td class="text-center"><?php echo $informasi['Pemilik_Informasi']; ?></td>
-                    <td class="text-center"><?php echo $informasi['Kategori_Informasi']; ?></td>
+                    <td class="text-center"><?php echo htmlspecialchars($informasi['Pemilik_Informasi']); ?></td>
+                    <td class="text-center"><?php echo htmlspecialchars($informasi['Kategori_Informasi']); ?></td>
                     <td class="text-center">
-                        <?php echo ($informasi['Status_Informasi'] == 'Tersedia') ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Belum Tersedia</span>'; ?>
+                         <?php echo ($informasi['Status_Informasi'] == 'Tersedia') ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Belum Tersedia</span>'; ?>
                     </td>
                 </tr>
         <?php

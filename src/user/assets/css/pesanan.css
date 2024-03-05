@@ -75,6 +75,12 @@ body {
   background-color: black;
   border: none;
 }
+
+#history-order:hover,
+#tracking-order:hover {
+  color: white !important;
+}
+
 #status-pesanan {
   position: relative;
 }

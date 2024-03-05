@@ -17,10 +17,10 @@
         <div class="row mb-5">
             <div class="col-md-2 h-100" id="opsi-profile">
                 <div class="row mx-5 my-3">
-                    <div class="btn btn-outline-success" id="profile-settting" onclick="showProfileSetting('opsi-profilesetting')">Profile Setting</div>
+                    <div class="btn btn-success" id="profile-setting" onclick="showProfileSetting('opsi-profilesetting')">Profile Setting</div>
                 </div>
                 <div class="row mx-5 my-3">
-                    <div class="btn btn-outline-success" id="tracking-order" onclick="showProfileSetting('opsi-alamatsetting')">Setting Tambahan</div>
+                    <div class="btn btn-outline-success" id="alamat-setting" onclick="showProfileSetting('opsi-alamatsetting')">Setting Tambahan</div>
                 </div>
             </div>
             <div class="col-md-10 p-0" id="opsi-profilesetting">

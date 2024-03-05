@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" action="<?php echo $akarUrl; ?>src/admin/config/add-information.php" enctype="multipart/form-data">
+                <form method="POST" action="<?php echo htmlspecialchars($akarUrl); ?>src/admin/config/add-information.php" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="informationFoto" class="form-label">Foto</label>
                         <input type="file" class="form-control" id="informationFoto" name="Foto_Informasi" autocomplete="off">
@@ -19,7 +19,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="informationDescription" class="form-label">Deskripsi Informasi</label>
-                        <textarea name="Deskripsi_Informasi" placeholder="Masukan Deskripsi Informasi" class="form-control inputData addressAddPengguna" id="informationDescription" autocomplete="off"></textarea>
+                        <textarea name="Deskripsi_Informasi" placeholder="Masukan Deskripsi Informasi" class="form-control inputData addressAddPengguna" id="informationDescription" autocomplete="off"><?php echo htmlspecialchars($_POST['Deskripsi_Informasi'] ?? ''); ?></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="informationPrice" class="form-label">Harga Informasi</label>
@@ -32,26 +32,26 @@
                         <label for="informationOwner" class="form-label">Pemilik Informasi</label>
                         <select name="Pemilik_Informasi" id="informationOwner" class="form-control inputData">
                             <option value="" selected>Pilih Pemilik Informasi</option>
-                            <option value="Instansi A">Instansi A</option>
-                            <option value="Instansi B">Instansi B</option>
-                            <option value="Instansi C">Instansi C</option>
+                            <option value="<?php echo htmlspecialchars("Instansi A"); ?>">Instansi A</option>
+                            <option value="<?php echo htmlspecialchars("Instansi B"); ?>">Instansi B</option>
+                            <option value="<?php echo htmlspecialchars("Instansi C"); ?>">Instansi C</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="informationCategory" class="form-label">Kategori Informasi</label>
                         <select name="Kategori_Informasi" id="informationCategory" class="form-control inputData">
                             <option value="" selected>Pilih Kategori Jasa</option>
-                            <option value="Meteorologi">Meteorologi</option>
-                            <option value="Klimatologi">Klimatologi</option>
-                            <option value="Geofisika">Geofisika</option>
+                            <option value="<?php echo htmlspecialchars("Meteorologi"); ?>">Meteorologi</option>
+                            <option value="<?php echo htmlspecialchars("Klimatologi"); ?>">Klimatologi</option>
+                            <option value="<?php echo htmlspecialchars("Geofisika"); ?>">Geofisika</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="informationStatus" class="form-label">Status Informasi</label>
                         <select name="Status_Informasi" id="informationStatus" class="form-control inputData">
                             <option value="" selected>Pilih Status Informasi</option>
-                            <option value="1">Tersedia</option>
-                            <option value="2">Tidak Tersedia</option>
+                            <option value="<?php echo htmlspecialchars("1"); ?>">Tersedia</option>
+                            <option value="<?php echo htmlspecialchars("2"); ?>">Tidak Tersedia</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btnUpload" name="Simpan">Kirim</button>

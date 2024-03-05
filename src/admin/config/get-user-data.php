@@ -15,5 +15,6 @@ foreach ($dataPengguna as $pengguna) {
     }
 }
 
+$penggunaDitemukan = array_map('htmlspecialchars', $penggunaDitemukan);
 echo json_encode($penggunaDitemukan);
 ?>

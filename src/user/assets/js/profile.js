@@ -11,13 +11,28 @@ dots.forEach(dot => {
         dot.classList.add('active');
     });
 });
+
 function showProfileSetting(id) {
-    // Hide all content sections
-    var contentSections = document.querySelectorAll('.col-md-10');
+    // Semua konten disembunyikan
+    let contentSections = document.querySelectorAll('.col-md-10');
     contentSections.forEach(function(section) {
         section.style.display = 'none';
     });
     
-    // Display the selected content section
+    // Tampilkan konten berdasarkan ID yang diberikan
     document.getElementById(id).style.display = 'block';
+
+    // Ubah gaya tombol sesuai dengan ID yang diberikan
+    let buttons = document.querySelectorAll('#opsi-profile .btn');
+    buttons.forEach(function(button) {
+        button.classList.remove('btn-success'); // Hapus kelas btn-success dari semua tombol
+        button.classList.add('btn-outline-success'); // Tambahkan kelas btn-outline-success ke semua tombol
+        button.style.color = 'green';
+    });
+
+    // Tentukan tombol yang diklik
+    let clickedButton = document.getElementById(id === 'opsi-profilesetting' ? 'profile-setting' : 'alamat-setting');
+    clickedButton.classList.add('btn-success');
+    clickedButton.classList.remove('btn-outline-success');
+    clickedButton.style.color = 'white';
 }

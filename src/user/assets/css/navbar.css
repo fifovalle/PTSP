@@ -253,3 +253,7 @@ hr.vertical {
   padding-left: 100px;
 }
 /* End Regulasi Effect */
+
+.selected {
+  background-color: green;
+}

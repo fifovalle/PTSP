@@ -103,6 +103,21 @@ class Admin
         }
     }
 
+    public function perbaruiPhotoProfile($id, $data)
+    {
+        $query = "UPDATE admin SET Foto=? WHERE ID_Admin=?";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("si", $data['Foto'], $id);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public function hapusAdmin($id)
     {
         $query = "SELECT ID_Admin, Foto FROM admin WHERE ID_Admin=?";
@@ -221,11 +236,30 @@ class Pengguna
         $this->koneksi = $koneksi;
     }
 
+    private function escapeString($string)
+    {
+        return htmlspecialchars(mysqli_real_escape_string($this->koneksi, $string));
+    }
+
     public function tambahPengguna($data)
     {
         $query = "INSERT INTO pengguna (Foto, Nama_Depan_Pengguna, Nama_Belakang_Pengguna, Nama_Pengguna, Email_Pengguna, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Pengguna, Jenis_Kelamin_Pengguna, Alamat_Pengguna, Status_Verifikasi_Pengguna, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("ssssssssssii", $data['Foto'], $data['Nama_Depan_Pengguna'], $data['Nama_Belakang_Pengguna'], $data['Nama_Pengguna'], $data['Email_Pengguna'], $data['Kata_Sandi'], $data['Konfirmasi_Kata_Sandi'], $data['No_Telepon_Pengguna'], $data['Jenis_Kelamin_Pengguna'], $data['Alamat_Pengguna'], $data['Status_Verifikasi_Pengguna'], $data['token']);
+        $statement->bind_param(
+            "ssssssssssii",
+            $this->escapeString($data['Foto']),
+            $this->escapeString($data['Nama_Depan_Pengguna']),
+            $this->escapeString($data['Nama_Belakang_Pengguna']),
+            $this->escapeString($data['Nama_Pengguna']),
+            $this->escapeString($data['Email_Pengguna']),
+            $this->escapeString($data['Kata_Sandi']),
+            $this->escapeString($data['Konfirmasi_Kata_Sandi']),
+            $this->escapeString($data['No_Telepon_Pengguna']),
+            $this->escapeString($data['Jenis_Kelamin_Pengguna']),
+            $this->escapeString($data['Alamat_Pengguna']),
+            $this->escapeString($data['Status_Verifikasi_Pengguna']),
+            $this->escapeString($data['token'])
+        );
 
         if ($statement->execute()) {
             return true;
@@ -255,8 +289,18 @@ class Pengguna
         $query = "UPDATE pengguna SET Foto=?, Nama_Depan_Pengguna=?, Nama_Belakang_Pengguna=?, Nama_Pengguna=?, Email_Pengguna=?, No_Telepon_Pengguna=?, Jenis_Kelamin_Pengguna=?, Alamat_Pengguna=? WHERE ID_Pengguna=?";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("ssssssssi", $data['Foto'], $data['Nama_Depan_Pengguna'], $data['Nama_Belakang_Pengguna'], $data['Nama_Pengguna'], $data['Email_Pengguna'], $data['No_Telepon_Pengguna'], $data['Jenis_Kelamin_Pengguna'], $data['Alamat_Pengguna'], $id);
-
+        $statement->bind_param(
+            "ssssssssi",
+            $this->escapeString($data['Foto']),
+            $this->escapeString($data['Nama_Depan_Pengguna']),
+            $this->escapeString($data['Nama_Belakang_Pengguna']),
+            $this->escapeString($data['Nama_Pengguna']),
+            $this->escapeString($data['Email_Pengguna']),
+            $this->escapeString($data['No_Telepon_Pengguna']),
+            $this->escapeString($data['Jenis_Kelamin_Pengguna']),
+            $this->escapeString($data['Alamat_Pengguna']),
+            $id
+        );
 
         if ($statement->execute()) {
             return true;
@@ -302,7 +346,6 @@ class Pengguna
         }
     }
 
-
     public function getDataById($id)
     {
         $query = "SELECT * FROM pengguna WHERE ID_Pengguna = ?";
@@ -336,6 +379,7 @@ class Pengguna
     }
 }
 // ===================================PENGGUNA===================================
+
 
 
 // ===================================INFORMASI===================================

@@ -2,15 +2,15 @@
 include 'databases.php';
 
 if (isset($_POST['Simpan'])) {
-    $namaDepan = $_POST['Nama_Depan_Pengguna'];
-    $namaBelakang = $_POST['Nama_Belakang_Pengguna'];
-    $namaPengguna = $_POST['Nama_Pengguna_Pengguna'];
-    $emailPengguna = $_POST['Email_Pengguna'];
-    $kataSandi = $_POST['Password_Pengguna'];
-    $konfirmasiKataSandi = $_POST['Confirm_Password_Pengguna'];
-    $nomorTelepon = $_POST['No_Telepon_Pengguna'];
-    $jenisKelamin = $_POST['Jenis_Kelamin_Pengguna'];
-    $alamatPengguna = $_POST['Alamat_Pengguna'];
+    $namaDepan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Depan_Pengguna']));
+    $namaBelakang = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Belakang_Pengguna']));
+    $namaPengguna = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Pengguna_Pengguna']));
+    $emailPengguna = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Email_Pengguna']));
+    $kataSandi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Password_Pengguna']));
+    $konfirmasiKataSandi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Confirm_Password_Pengguna']));
+    $nomorTelepon = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_Telepon_Pengguna']));
+    $jenisKelamin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Jenis_Kelamin_Pengguna']));
+    $alamatPengguna = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Alamat_Pengguna']));
     $token = uniqid();
 
     $pesanKesalahan = '';
@@ -41,7 +41,7 @@ if (isset($_POST['Simpan'])) {
 
     $fotoPengguna = $_FILES['Foto_Pengguna'];
 
-    $namaFotoPengguna = $fotoPengguna['name'];
+    $namaFotoPengguna = mysqli_real_escape_string($koneksi, htmlspecialchars($fotoPengguna['name']));
     $fotoPenggunaTemp = $fotoPengguna['tmp_name'];
     $ukuranFotoPengguna = $fotoPengguna['size'];
     $errorFotoPengguna = $fotoPengguna['error'];
@@ -99,3 +99,4 @@ if (isset($_POST['Simpan'])) {
     header("Location: $akarUrl" . "src/admin/pages/data.php");
     exit;
 }
+?>

@@ -136,12 +136,10 @@
                 <div class="container1">
                     <div class="box">
                         <div class="header">
-                            <button class="part_one" onclick="showContent1('content1')">INFORMASI UMUM
-                                METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</button>
-                            <button class="part_one" onclick="showContent1('content2')">INFORMASI KHUSUS
-                                METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA SESUAI PERMINTAAN</button>
+                            <button class="part_one row_one selected" onclick="showContent1('content1')">INFORMASI UMUM METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</button>
+                            <button class="part_one row_one" onclick="showContent1('content2')">INFORMASI KHUSUS METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA SESUAI PERMINTAAN</button>
                         </div>
-                        <div class="content_one" id="content1" style="display: block;">
+                        <div class="content_one " id="content1" style="display: block;">
                             <?php
                             include('../partials/table-tariflayanan1.php');
                             ?>
@@ -157,7 +155,7 @@
                 <div class="container2">
                     <div class="box">
                         <div class="header">
-                            <button class="part_one">JASA KONSULTASI METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</button>
+                            <button class="part_one selected">JASA KONSULTASI METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</button>
                         </div>
                         <div class="content_two" id="content3">
                             <?php
@@ -170,9 +168,9 @@
                 <div class="container3">
                     <div class="box">
                         <div class="header">
-                            <button class="part_one" onclick="showContent2('content4')">PERALATAN SEDERHANA MEKANIK (KONVENSIONAL)</button>
-                            <button class="part_one" onclick="showContent2('content5')">PERALATAN SEDERHANA ELEKTRONIK (OTOMATIS)</button>
-                            <button class="part_one" onclick="showContent2('content6')">PERALATAN TEKNOLOGI CANGGIH (MODERN)</button>
+                            <button class="part_one row_three selected" onclick="showContent2('content4')">PERALATAN SEDERHANA MEKANIK (KONVENSIONAL)</button>
+                            <button class="part_one row_three" onclick="showContent2('content5')">PERALATAN SEDERHANA ELEKTRONIK (OTOMATIS)</button>
+                            <button class="part_one row_three" onclick="showContent2('content6')">PERALATAN TEKNOLOGI CANGGIH (MODERN)</button>
                         </div>
                         <div class="content_three" id="content4" style="display: block;">
                             <?php

@@ -17,7 +17,7 @@
         <div class="row" id="option">
             <div class="col" id="button-option">
                 <button onclick="showContent('form1')">
-                    <span class="box-option">
+                    <span class="box-option selected">
                         Kegiatan Penanggulangan Bencana
                     </span>
                 </button>

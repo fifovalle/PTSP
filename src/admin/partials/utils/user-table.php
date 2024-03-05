@@ -61,9 +61,9 @@
                             </div>
                         </div>
                     </td>
-                    <td class="text-center"><?php echo $pengguna['Email_Pengguna']; ?></td>
-                    <td class="text-center"><?php echo $pengguna['Jenis_Kelamin_Pengguna']; ?></td>
-                    <td class="text-center"><?php echo $pengguna['No_Telepon_Pengguna']; ?></td>
+                   <td class="text-center"><?php echo htmlspecialchars($pengguna['Email_Pengguna']); ?></td>
+                    <td class="text-center"><?php echo htmlspecialchars($pengguna['Jenis_Kelamin_Pengguna']); ?></td>
+                    <td class="text-center"><?php echo htmlspecialchars($pengguna['No_Telepon_Pengguna']); ?></td>
                     <td class="text-center">
                         <?php echo ($pengguna['Status_Verifikasi_Pengguna'] == 1) ? '<span class="badge text-bg-success">Terverifikasi</span>' : '<span class="badge text-bg-danger">Belum Terverifikasi</span>'; ?>
                     </td>

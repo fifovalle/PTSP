@@ -12,24 +12,38 @@ dots.forEach(dot => {
     });
 });
 function showContentPemesanan(id) {
-    // Hide all content sections
-    var contentSections = document.querySelectorAll('.col-md-10');
+    // Semua konten disembunyikan
+    let contentSections = document.querySelectorAll('.col-md-10');
     contentSections.forEach(function(section) {
         section.style.display = 'none';
     });
     
-    // Display the selected content section
+    // Tampilkan konten berdasarkan ID yang diberikan
     document.getElementById(id).style.display = 'block';
+
+    // Ubah gaya tombol sesuai dengan ID yang diberikan
+    let buttons = document.querySelectorAll('#opsi-pemesanan .btn');
+    buttons.forEach(function(button) {
+        button.classList.remove('btn-success'); // Hapus kelas btn-success dari semua tombol
+        button.classList.add('btn-outline-success'); // Tambahkan kelas btn-outline-success ke semua tombol
+        button.style.color = 'green';
+    });
+
+    // Tentukan tombol yang diklik
+    let clickedButton = document.getElementById(id === 'history-pesanan' ? 'history-order' : 'tracking-order');
+    clickedButton.classList.add('btn-success');
+    clickedButton.classList.remove('btn-outline-success');
+    clickedButton.style.color = 'white';
 }
 
-var tombolStatusPengajuan = document.getElementById("btn-status-pengajuan");
-var tombolStatusPembayaran = document.getElementById("btn-status-pembayaran");
-var tombolStatusPembuatan = document.getElementById("btn-status-pembuatan");
-var tombolStatusSelesai = document.getElementById("btn-status-selesai");
-var elemenAjuan = document.getElementById("ajuan");
-var elemenPembayaran = document.getElementById("pembayaran");
-var elemenPembuatan = document.getElementById("pembuatan");
-var elemenSelesai = document.getElementById("selesai");
+let tombolStatusPengajuan = document.getElementById("btn-status-pengajuan");
+let tombolStatusPembayaran = document.getElementById("btn-status-pembayaran");
+let tombolStatusPembuatan = document.getElementById("btn-status-pembuatan");
+let tombolStatusSelesai = document.getElementById("btn-status-selesai");
+let elemenAjuan = document.getElementById("ajuan");
+let elemenPembayaran = document.getElementById("pembayaran");
+let elemenPembuatan = document.getElementById("pembuatan");
+let elemenSelesai = document.getElementById("selesai");
 
 elemenAjuan.classList.remove("d-none");
 elemenPembayaran.classList.add("d-none");
@@ -85,3 +99,4 @@ document.getElementById("btn-beli-lagi").addEventListener("click", function() {
 document.getElementById("btn-beli-lagi1").addEventListener("click", function() {
     window.location.href = "katalogproduk.php";
 });
+

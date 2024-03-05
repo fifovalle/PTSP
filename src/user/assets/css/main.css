@@ -159,7 +159,7 @@ button:hover span::before {
 .btn-maintutorial::before {
   position: absolute;
   bottom: -20px;
-  content: "Need Tutorial";
+  content: "Butuh Bantuan";
   color: white;
   /* transition-duration: .3s; */
   font-size: 0px;

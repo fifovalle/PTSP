@@ -14,13 +14,13 @@ $halamanSaatIni = basename($_SERVER['PHP_SELF']);
                 </div>
             </div>
             <div class="modal-body text-center">
-                <form>
+                <form method="POST" action="<?php echo $akarUrl; ?>src/admin/config/edit-photo-profile.php" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="fw-bold unggahFoto" for="unggahFoto">Unggah Foto</label>
                         <label for="unggahFoto" class="upload-icon">
                             <i class="bx bx-plus"></i>
                         </label>
-                        <input type="file" class="form-control-file visually-hidden" id="unggahFoto">
+                        <input type="file" name="Foto_Admin" class="form-control-file visually-hidden" id="unggahFoto">
                     </div>
                     <button type="submit" class="btn btnUpload" name="Simpan">Simpan</button>
                 </form>
