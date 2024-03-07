@@ -5,22 +5,8 @@ body {
 
 /* Section 1 Effect */
 .section1 {
-  background-image: linear-gradient(
-    to bottom,
-    #08318d,
-    #4e52a2,
-    #7a77b7,
-    #a29dcd,
-    #cac6e2,
-    #c8ceea,
-    #c7d5f0,
-    #c6ddf5,
-    #81cae3,
-    #25b7bd,
-    #00a181,
-    #178636
-  );
   height: 837px;
+  postion: relative;
 }
 .section1 .right-content {
   padding: 5rem 7rem 5rem 7rem; /* Atas, kanan, bawah, kiri */
@@ -34,13 +20,45 @@ body {
   -webkit-backdrop-filter: blur(5px);
 }
 
-.section1 .left-content {
-  background-size: cover;
-  background-position: center;
-  height: 837px;
-  width: 50%;
+.background {
+  position: relative;
 }
 
+.img-desktop {
+  width: 80%;
+  position: absolute;
+  top: 210px;
+  right: 70px;
+  z-index: 1;
+}
+.logo-mbkg {
+  width: 25%;
+  position: absolute;
+  top: 10px;
+  right: 450px;
+  z-index: 1;
+}
+
+.custom-shape-divider-bottom-1709729084 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1709729084 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 160px;
+}
+
+.custom-shape-divider-bottom-1709729084 .shape-fill {
+  fill: #d3d3d3;
+}
 /* End Section 1 Effect */
 
 .button {

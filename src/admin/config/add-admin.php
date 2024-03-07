@@ -2,16 +2,16 @@
 include 'databases.php';
 
 if (isset($_POST['Simpan'])) {
-    $namaDepan = $_POST['Nama_Depan_Admin'];
-    $namaBelakang = $_POST['Nama_Belakang_Admin'];
-    $namaPengguna = $_POST['Nama_Pengguna_Admin'];
-    $email = $_POST['Email_Admin'];
-    $kataSandi = $_POST['Kata_Sandi'];
-    $konfirmasiKataSandi = $_POST['Konfirmasi_Kata_Sandi'];
-    $nomorTelepon = $_POST['No_Telepon_Admin'];
-    $jenisKelamin = $_POST['Jenis_Kelamin_Admin'];
-    $peranAdmin = $_POST['Peran_Admin'];
-    $alamatAdmin = $_POST['Alamat_Admin'];
+    $namaDepan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Depan_Admin']));
+    $namaBelakang = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Belakang_Admin']));
+    $namaPengguna = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Pengguna_Admin']));
+    $email = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Email_Admin']));
+    $kataSandi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kata_Sandi']));
+    $konfirmasiKataSandi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Konfirmasi_Kata_Sandi']));
+    $nomorTelepon = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_Telepon_Admin']));
+    $jenisKelamin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Jenis_Kelamin_Admin']));
+    $peranAdmin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Peran_Admin']));
+    $alamatAdmin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Alamat_Admin']));
     $token = uniqid();
 
     $obyekAdmin = new Admin($koneksi);
@@ -44,7 +44,7 @@ if (isset($_POST['Simpan'])) {
 
     $fotoAdmin = $_FILES['Foto_Admin'];
 
-    $namaFotoAdmin = $fotoAdmin['name'];
+    $namaFotoAdmin = mysqli_real_escape_string($koneksi, htmlspecialchars($fotoAdmin['name']));
     $fotoAdminTemp = $fotoAdmin['tmp_name'];
     $ukuranFotoAdmin = $fotoAdmin['size'];
     $errorFotoAdmin = $fotoAdmin['error'];

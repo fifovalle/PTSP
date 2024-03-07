@@ -27,31 +27,60 @@ body {
 }
 /* End Scrollbar Effect */
 
-/* Section 1 Effect */
-.section1 {
-  background-image: linear-gradient(
-    to bottom,
-    #08318d,
-    #4e52a2,
-    #7a77b7,
-    #a29dcd,
-    #cac6e2,
-    #c8ceea,
-    #c7d5f0,
-    #c6ddf5,
-    #81cae3,
-    #25b7bd,
-    #00a181,
-    #178636
-  );
-  height: auto;
-}
-/* End Section 1 Effect */
-
 /* Section 1 Left Content */
 .section1 .left-content {
   padding: 3rem 3rem 3rem 3rem; /* Atas, kanan, bawah, kiri */
 }
+
+.background {
+  position: relative;
+}
+
+.img-desktop {
+  width: 80%;
+  position: absolute;
+  top: 230px;
+  left: 90px;
+  z-index: 1;
+  transform: scaleX(-1);
+}
+
+.custom-shape-divider-bottom-1709729084 {
+  position: absolute;
+  top: 130%;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  z-index: 1;
+}
+
+.custom-shape-divider-bottom-1709729084 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 130px;
+  z-index: 1;
+}
+
+.custom-shape-divider-bottom-1709729084 .shape-fill {
+  fill: #d3d3d3;
+}
+
+.logo-perorangan {
+  width: 20%;
+  position: absolute;
+  top: 540px;
+  left: 550px;
+  z-index: 1;
+}
+
+.margin-custom {
+  margin-top: -20px;
+  margin-bottom: 5px;
+}
+
 .main-form {
   padding: 3rem;
   background: rgba(255, 255, 255, 0.27);
@@ -90,7 +119,7 @@ label b {
   outline-offset: 4px;
   outline-color: deeppink;
   transition: filter 250ms;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(100, 100, 0, 0);
 }
 
 .shadow {
@@ -99,7 +128,7 @@ label b {
   left: 0;
   height: 100%;
   width: 100%;
-  background: hsl(226, 25%, 69%);
+  background: hsl(224.3, 67.9%, 69%);
   border-radius: 8px;
   filter: blur(2px);
   will-change: transform;
@@ -116,10 +145,10 @@ label b {
   border-radius: 8px;
   background: linear-gradient(
     to right,
-    hsl(248, 39%, 39%) 0%,
-    hsl(248, 39%, 49%) 8%,
-    hsl(248, 39%, 39%) 92%,
-    hsl(248, 39%, 29%) 100%
+    hsl(224.3, 67.9%, 39%) 0%,
+    hsl(224.3, 67.9%, 49%) 8%,
+    hsl(224.3, 67.9%, 39%) 92%,
+    hsl(224.3, 67.9%, 29%) 100%
   );
 }
 
@@ -127,9 +156,11 @@ label b {
   display: block;
   position: relative;
   border-radius: 8px;
-  background: hsl(248, 53%, 58%);
+  background: hsl(224.3, 67.9%, 58%);
   padding: 10px 8px;
   color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -181,21 +212,21 @@ label b {
 }
 
 .sparkle {
-  fill: #aaaaaa;
+  fill: black;
   transition: all 800ms ease;
 }
 
 .text {
   font-weight: 600;
-  color: #aaaaaa;
+  color: black;
   font-size: medium;
 }
 
 .btn:hover {
-  background: linear-gradient(0deg, #a47cf3, #683fea);
+  background: linear-gradient(0deg, #1d893b, #006f23);
   box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
     inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px #9917ff;
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 30px 0px #1d893b;
   transform: translateY(-2px);
 }
 

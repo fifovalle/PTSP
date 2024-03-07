@@ -17,8 +17,19 @@
     <div class="container-fluid w-100 section1">
         <div class="row text-center">
             <div class="col-lg-6 text-center justify-content-center left-content">
+                <div class="background">
+                    <img class="img-desktop" src="../assets/img/submission-view.svg" alt="">
+                    <img class="logo-perorangan" src="../assets/img/Logo-Perorangan.png" alt="">
+                </div>
+                <div class="custom-shape-divider-bottom-1709729084">
+                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+                    </svg>
+                </div>
                 <form class="main-form" id="multiStepForm" method="post" action="">
-                    <h3 class="form-header fw-normal py-3 text-white mt-1 mb-5"><b>DAFTAR PERORANGAN</b></h3>
+                    <h3 class="form-header fw-normal py-3 text-black margin-custom"><b>DAFTAR PERORANGAN</b></h3>
                     <!-- Form 1 -->
                     <div class="step" id="wizard-h-0" style="display: flex;">
                         <div class="row form">
@@ -68,7 +79,7 @@
                                 </div>
                             </div>
                             <div class="col-md-9"></div>
-                            <div class="col-md-3 pe-0">
+                            <div class="col-md-3 pe-0 mt-2">
                                 <button class="nextBtn pushable" type="button" onclick="nextStep(1)">
                                     <span class="shadow"></span>
                                     <span class="edge"></span>
@@ -195,7 +206,7 @@
 
                     <!-- Terms and Condition -->
                     <div class="row">
-                        <div class="alert alert-info mt-4 p-4">
+                        <div class="alert alert-info mt-3 p-4">
                             <p class="text-start">Ketentuan Pengguna Perseorangan :</p>
                             <ol class="list text-start">
                                 <li> Username akun Anda adalah NPWP perseorangan, maka pastikan bahwa NPWP anda sudah
@@ -209,7 +220,7 @@
                     </div>
                     <!-- End Terms and Condition -->
 
-                    <div class="form-check text-start my-4">
+                    <div class="form-check text-start my-4 mt-1">
                         <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             Dengan ini saya menyetujui semua syarat dan ketentuan sebagai pengguna Web PTSP BMKG
@@ -225,13 +236,13 @@
                         </button>
                     </div>
                 </form>
-                <div class="text-start text-dark my-5">
-                    <p>Sudah Mendaftar, <a href="../pages/login.php" class="text-primary" style="text-decoration: none;">Login
+                <div class="text-start text-dark mt-4">
+                    <p style="text-align: center;">Sudah Mendaftar, <a href="../pages/login.php" class="text-primary" style="text-decoration: none;">Login
                             Sekarang</a></p>
                 </div>
-                <p class="mt-5 mb-3 text-body-secondary">© PTSP BMKG Provinsi Bengkulu – 2024</p>
+                <p class="mt-4 mb-3 text-body-secondary">© PTSP BMKG Provinsi Bengkulu – 2024</p>
             </div>
-            <div class="col-md-6 p-0 right-content" style="background-image: url('../assets/img/landpage1.png');">
+            <div class="col-md-6 p-0 right-content">
             </div>
         </div>
     </div>
