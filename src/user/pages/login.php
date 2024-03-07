@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +14,9 @@
     <link rel="stylesheet" href="../assets/css/login.css">
     <script src="../assets/js/javascript.js"></script>
     <title>Login-PTSP BMKG Provinsi Bengkulu</title>
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -29,19 +35,19 @@
                 </div>
             </div>
             <div class="align-middle col-lg-6 text-center justify-content-center right-content">
-                <form class="form">
+                <form class="form" action="../../../src/admin/config/login-user.php" method="POST">
                     <img class="logo-mbkg" src="../assets/img/Logo PTSP1.png" alt="">
                     <h1 class="mb-3 fw-normal my-5 py-3"> <b>LOGIN</b></h1>
                     <div class="form-floating my-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Alamat Email</label>
+                        <input type="text" name="Nama_Pengguna_Email" class="form-control" id="floatingInput" placeholder="Masukan Nama Pengguna Atau Email">
+                        <label for="floatingInput">Nama Pengguna atau Email</label>
                     </div>
                     <div class="form-floating my-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="password" name="Kata_Sandi" class="form-control" id="floatingPassword" placeholder="Password">
                         <label for="floatingPassword">Kata Sandi</label>
                     </div>
                     <div class="form-check text-start my-3 ">
-                        <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+                        <input class="form-check-input" name="Ingat_Saya" type="checkbox" value="remember-me" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             Ingat saya
                         </label>
@@ -56,12 +62,14 @@
                                 Sekarang</a>
                         </label>
                     </div>
-                    <button class="button py-2 my-4" type="submit">Masuk</button>
+                    <button class="button py-2 my-4" name="Masuk" type="submit">Masuk</button>
                     <p class="mt-5 text-body-secondary">© PTSP BMKG Provinsi Bengkulu – 2024</p>
                 </form>
             </div>
         </div>
     </div>
+    <!-- ALERT -->
+    <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>

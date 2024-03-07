@@ -142,6 +142,7 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/chart/chart-services.js"></script>
     <script src="../assets/our/js/chart/apexcharts.js"></script>
     <script src="../assets/our/js/drive-all.js"></script>
+    <script src="../assets/our/js/search-alldata.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
