@@ -182,11 +182,12 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/delete-information.js"></script>
     <script src="../assets/our/js/delete-services.js"></script>
     <script src="../assets/our/js/value-admin.js"></script>
+    <script src="../assets/our/js/value-services.js"></script>
     <script src="../assets/our/js/value-user.js"></script>
     <script src="../assets/our/js/value-information.js"></script>
-    <script src="../assets/our/js/"></script>
     <script src="../assets/our/js/filter.js"></script>
     <script src="../assets/our/js/drive-all.js"></script>
+    <script src="../assets/our/js/search-alldata.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- ALERT -->
