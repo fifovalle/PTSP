@@ -17,33 +17,32 @@ class Admin
     }
 
     public function tambahAdmin($data)
-    {
-        $query = "INSERT INTO admin (Foto, Nama_Depan_Admin, Nama_Belakang_Admin, Nama_Pengguna_Admin, Email_Admin, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Admin, Jenis_Kelamin_Admin, Peran_Admin, Alamat_Admin, Status_Verifikasi_Admin, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+{
+    $query = "INSERT INTO admin (Foto, Nama_Depan_Admin, Nama_Belakang_Admin, Nama_Pengguna_Admin, Email_Admin, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Admin, Jenis_Kelamin_Admin, Peran_Admin, Alamat_Admin, Status_Verifikasi_Admin, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        $statement = $this->koneksi->prepare($query);
-        $statement->bind_param(
-            "sssssssssissi",
-            $this->escapeString($data['Foto']),
-            $this->escapeString($data['Nama_Depan_Admin']),
-            $this->escapeString($data['Nama_Belakang_Admin']),
-            $this->escapeString($data['Nama_Pengguna_Admin']),
-            $this->escapeString($data['Email_Admin']),
-            $this->escapeString($data['Kata_Sandi']),
-            $this->escapeString($data['Konfirmasi_Kata_Sandi']),
-            $this->escapeString($data['No_Telepon_Admin']),
-            $this->escapeString($data['Jenis_Kelamin_Admin']),
-            $this->escapeString($data['Peran_Admin']),
-            $this->escapeString($data['Alamat_Admin']),
-            $this->escapeString($data['Status_Verifikasi_Admin']),
-            $this->escapeString($data['token'])
-        );
+    $statement = $this->koneksi->prepare($query);
+    $statement->bind_param("sssssssssissi", 
+        $this->escapeString($data['Foto']),
+        $this->escapeString($data['Nama_Depan_Admin']),
+        $this->escapeString($data['Nama_Belakang_Admin']),
+        $this->escapeString($data['Nama_Pengguna_Admin']),
+        $this->escapeString($data['Email_Admin']),
+        $this->escapeString($data['Kata_Sandi']),
+        $this->escapeString($data['Konfirmasi_Kata_Sandi']),
+        $this->escapeString($data['No_Telepon_Admin']),
+        $this->escapeString($data['Jenis_Kelamin_Admin']),
+        $this->escapeString($data['Peran_Admin']),
+        $this->escapeString($data['Alamat_Admin']),
+        $this->escapeString($data['Status_Verifikasi_Admin']),
+        $this->escapeString($data['token'])
+    );
 
-        if ($statement->execute()) {
-            return true;
-        } else {
-            return false;
-        }
+    if ($statement->execute()) {
+        return true;
+    } else {
+        return false;
     }
+}
 
 
     public function tampilkanDataAdmin()
@@ -191,7 +190,6 @@ class Admin
             return false;
         }
     }
-
     public function getFotoAdminById($idAdmin)
     {
         $query = "SELECT Foto FROM admin WHERE ID_Admin = ?";
@@ -578,27 +576,101 @@ class Informasi
         }
     }
 
-    public function cariDataInformasi($kataKunci)
-    {
-        $query = "SELECT * FROM informasi WHERE Nama_Informasi LIKE ? OR Deskripsi_Informasi LIKE ?";
-        $kataKunci = "%$kataKunci%";
+    public function cariDataLiveInformasi($kataKunci)
+{
+    $query = "SELECT * FROM informasi WHERE Nama_Informasi LIKE '%$kataKunci%'";
 
-        $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("ss", $kataKunci, $kataKunci);
-        $statement->execute();
+    $hasil = $this->koneksi->query($query);
 
-        $result = $statement->get_result();
+    if ($hasil && $hasil->num_rows > 0) {
+        $output = "<div class='d-flex justify-content-between mx-5 mb-3'>
+            <!-- Tambahkan tombol atau elemen lainnya jika diperlukan -->
+            <div class='input-group w-auto' style='margin-top: 5px;'>
+                <input type='text' id='informationSearchInput' class='form-control border-0 shadow-none bg-body rounded-start' placeholder='Silahkan Cari...' aria-label='Silahkan Cari...' style='height: 30px;' oninput='cariDataLiveInformasi()'>
+            </div>
+        </div>
+        <table class='table table-hover'>
+            <thead>
+                <tr class='text-center'>
+                    <th>No</th>
+                    <th>Foto</th>
+                    <th>Nama Informasi</th>
+                    <th>Deskripsi</th>
+                    <th>Harga</th>
+                    <th>Pemilik</th>
+                    <th>Kategori</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody class='table-border-bottom-0 text-center'>";
 
-        if ($result->num_rows > 0) {
-            $data = [];
-            while ($baris = $result->fetch_assoc()) {
-                $data[] = $baris;
-            }
-            return $data;
-        } else {
-            return null;
+        $nomorUrut = 1;
+        while ($baris = $hasil->fetch_assoc()) {
+            // Sesuaikan kolom dengan data informasi yang ingin ditampilkan
+            $output .= "<tr>
+                <td>{$nomorUrut}</td>
+                <td class='d-flex justify-content-center align-items-center'>
+                    <ul class='list-unstyled users-list m-0 avatar-group'>
+                        <li data-bs-toggle='tooltip' data-popup='tooltip-custom' data-bs-placement='top' class='avatar avatar-md pull-up' title='{$baris['Nama_Informasi']}'>
+                            <img src='{$baris['Foto_Informasi']}' alt='Avatar' class='rounded-circle img-responsive' style='height: 50px; width: 50px; margin-left: -2px;' />
+                        </li>
+                    </ul>
+                </td>
+                <td>{$baris['Nama_Informasi']}</td>
+                <td>{$baris['Deskripsi_Informasi']}</td>
+                <td>Rp " . number_format($baris['Harga_Informasi'], 0, ',', '.') . "</td>
+                <td>{$baris['Pemilik_Informasi']}</td>
+                <td>{$baris['Kategori_Informasi']}</td>
+                <td>{$baris['Status_Informasi']}</td>
+                <td>
+                    <div class='dropdown'>
+                        <button type='button' class='btn p-0 dropdown-toggle hide-arrow' data-bs-toggle='dropdown'>
+                            <i class='mdi mdi-dots-vertical'></i>
+                        </button>
+                        <div class='dropdown-menu'>
+                            <a class='dropdown-item' href='javascript:void(0);' data-id='{$baris['ID_Informasi']}' data-bs-toggle='modal' data-bs-target='#modalSuntingInformasi'>
+                                <i class='mdi mdi-pencil-outline me-1'></i> Sunting
+                            </a>
+                            <a class='dropdown-item' href='javascript:void(0);' onclick='confirmDeleteInformasi({$baris['ID_Informasi']});'>
+                                <i class='mdi mdi-trash-can-outline me-1'></i> Hapus
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>";
+            $nomorUrut++;
         }
+        $output .= "</tbody></table>";
+    } else {
+        $output = "<div class='d-flex justify-content-between mx-5 mb-3'>
+            <!-- Tambahkan tombol atau elemen lainnya jika diperlukan -->
+            <div class='input-group w-auto' style='margin-top: 5px;'>
+                <input type='text' id='informationSearchInput' class='form-control border-0 shadow-none bg-body rounded-start' placeholder='Silahkan Cari...' aria-label='Silahkan Cari...' style='height: 30px;' oninput='cariDataLiveInformasi()'>
+            </div>
+        </div>
+        <table class='table table-hover'>
+            <thead>
+                <tr class='text-center'>
+                    <th>No</th>
+                    <th>Foto</th>
+                    <th>Nama Informasi</th>
+                    <th>Deskripsi</th>
+                    <th>Harga</th>
+                    <th>Pemilik</th>
+                    <th>Kategori</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody class='table-border-bottom-0 text-center'>";
+        $output .= "<tr>
+            <td colspan='9' class='text-center text-danger fw-bold'>Tidak ada hasil yang ditemukan</td>
+            </tr> ";
     }
+    echo $output;
+}
+
 }
 
 // ===================================INFORMASI===================================
@@ -756,28 +828,6 @@ class Jasa
             return true;
         } else {
             return false;
-        }
-    }
-
-    public function cariDataJasa($kataKunci)
-    {
-        $query = "SELECT * FROM jasa WHERE Nama_Jasa LIKE ? OR Deskripsi_Jasa LIKE ?";
-        $kataKunci = "%$kataKunci%";
-
-        $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("ss", $kataKunci, $kataKunci);
-        $statement->execute();
-
-        $result = $statement->get_result();
-
-        if ($result->num_rows > 0) {
-            $data = [];
-            while ($baris = $result->fetch_assoc()) {
-                $data[] = $baris;
-            }
-            return $data;
-        } else {
-            return null;
         }
     }
 }

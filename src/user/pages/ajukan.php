@@ -17,38 +17,59 @@
         <div class="row" id="option">
             <div class="col" id="button-option">
                 <button onclick="showContent('form1')">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success z-3">
+                        GRATIS
+                    </span>
                     <span class="box-option selected">
                         Kegiatan Penanggulangan Bencana
                     </span>
                 </button>
                 <button onclick="showContent('form2')">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success z-3">
+                        GRATIS
+                    </span>
                     <span class="box-option">
                         Kegiatan Sosial
                     </span>
                 </button>
                 <button onclick="showContent('form3')">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success z-3">
+                        GRATIS
+                    </span>
                     <span class="box-option">
                         Kegiatan Keagamaan
                     </span>
                 </button>
                 <button onclick="showContent('form4')">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success z-3">
+                        GRATIS
+                    </span>
                     <span class="box-option">
                         Kegiatan Pertahanan dan Keamanan
                     </span>
                 </button>
+            </div>
+            <div class="col" id="button-option">
                 <button onclick="showContent('form5')">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success z-3">
+                        GRATIS
+                    </span>
                     <span class="box-option">
                         Kegiatan Pendidikan dan Penilitian non Komersil
                     </span>
                 </button>
-            </div>
-            <div class="col" id="button-option">
                 <button onclick="showContent('form6')">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success z-3">
+                        GRATIS
+                    </span>
                     <span class="box-option">
                         Pemerintah Pusat atau Daerah
                     </span>
                 </button>
                 <button onclick="showContent('form7')">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger z-3">
+                        BERBAYAR
+                    </span>
                     <span class="box-option">
                         Pelayanan Informasi dengan Tarif PNBP
                     </span>

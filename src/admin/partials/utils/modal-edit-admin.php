@@ -46,8 +46,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="roleEditAdmin" class="form-label">Peran Admin</label>
-                        <select name="Peran_Admin" idEdit="roleAdmin" class="form-control inputData">
+                        <label for="roleAdmin" class="form-label">Peran Admin</label>
+                        <select name="Peran_Admin" id="roleAdmin" class="form-control inputData">
                             <?php
                             $peranAdmin = isset($_SESSION['Peran_Admin']) ? $_SESSION['Peran_Admin'] : '';
                             $apakahSuperAdmin = ($peranAdmin == 1);

@@ -10,15 +10,15 @@
                     <div class="bars" id="bar3"></div>
                 </label>
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link" id="Beranda" aria-current="page" href="../pages/main.php">Beranda</a>
+                        <a class="nav-link mx-2" id="Beranda" aria-current="page" href="../pages/main.php">Beranda</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link" id="Ajukan" href="../pages/ajukan.php">Ajukan</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item mx-2 dropdown">
                         <a class="nav-link dropdown-toggle" id="Regulasi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Regulasi
                         </a>
@@ -33,7 +33,7 @@
                                 Pelayanan</a>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link" id="Pesanan" href="../pages/pesanan.php">Pesanan</a>
                     </li>
                 </ul>
@@ -44,13 +44,13 @@
                     <button id="btnLogin" class="btn btn-outline-success" type="button" style="display: none;">Login</button>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" id="btnProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="display: absolute;">
-                            <box-icon name='user' id="icon-profile"></box-icon> Guest
+                            <box-icon name='user' id="icon-profile"></box-icon> Tamu
                         </button>
                         <ul class="dropdown-menu profile-menu">
                             <a class="ps-4 nav-link" href="../pages/profile.php">
-                                <box-icon type='solid' name='user-detail'></box-icon>Profile</a>
+                                <box-icon type='solid' name='user-detail'></box-icon>Profil Saya</a>
                             <a class="ps-4 nav-link" href="../pages/login.php">
-                                <box-icon name='power-off'></box-icon>Logout</a>
+                                <box-icon name='power-off'></box-icon>Keluar</a>
                         </ul>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
                 <div class="container1">
                     <div class="box">
                         <div class="header">
-                            <button class="part_one row_one selected" onclick="showContent1('content1')">INFORMASI UMUM METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</button>
+                            <button class="part_one row_one selected-navbar" onclick="showContent1('content1')">INFORMASI UMUM METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</button>
                             <button class="part_one row_one" onclick="showContent1('content2')">INFORMASI KHUSUS METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA SESUAI PERMINTAAN</button>
                         </div>
                         <div class="content_one " id="content1" style="display: block;">
@@ -155,7 +155,7 @@
                 <div class="container2">
                     <div class="box">
                         <div class="header">
-                            <button class="part_one selected">JASA KONSULTASI METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</button>
+                            <button class="part_one selected-navbar">JASA KONSULTASI METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</button>
                         </div>
                         <div class="content_two" id="content3">
                             <?php
@@ -168,7 +168,7 @@
                 <div class="container3">
                     <div class="box">
                         <div class="header">
-                            <button class="part_one row_three selected" onclick="showContent2('content4')">PERALATAN SEDERHANA MEKANIK (KONVENSIONAL)</button>
+                            <button class="part_one row_three selected-navbar" onclick="showContent2('content4')">PERALATAN SEDERHANA MEKANIK (KONVENSIONAL)</button>
                             <button class="part_one row_three" onclick="showContent2('content5')">PERALATAN SEDERHANA ELEKTRONIK (OTOMATIS)</button>
                             <button class="part_one row_three" onclick="showContent2('content6')">PERALATAN TEKNOLOGI CANGGIH (MODERN)</button>
                         </div>

@@ -6,7 +6,6 @@
     include('../partials/header.php');
     ?>
     <link rel="stylesheet" href="../assets/css/profile.css">
-    <title>Pesanan PTSP BMKG Provinsi Bengkulu</title>
 </head>
 
 <body>
@@ -17,26 +16,116 @@
         <div class="row mb-5">
             <div class="col-md-2 h-100" id="opsi-profile">
                 <div class="row mx-5 my-3">
-                    <div class="btn btn-success" id="profile-setting" onclick="showProfileSetting('opsi-profilesetting')">Profile Setting</div>
+                    <div class="btn btn-success" id="profile-info" onclick="showProfileSetting('opsi-profileinfo')">Profile Info</div>
                 </div>
                 <div class="row mx-5 my-3">
-                    <div class="btn btn-outline-success" id="alamat-setting" onclick="showProfileSetting('opsi-alamatsetting')">Setting Tambahan</div>
+                    <div class="btn btn-outline-success" id="profile-setting" onclick="showProfileSetting('opsi-profilesetting')">Profile Setting</div>
+                </div>
+                <div class="row mx-5 my-3">
+                    <div class="btn btn-outline-success" id="alamat-setting" onclick="showProfileSetting('opsi-alamatsetting')">Additional Settings</div>
                 </div>
             </div>
-            <div class="col-md-10 p-0" id="opsi-profilesetting">
+            <div class="col-md-10 p-0" id="opsi-profileinfo">
                 <div class="container-fluid w-100">
-                    <div class="d-flex row status" id="opsi-profilesetting">
+                    <div class="d-flex row status">
                         <div class="col-md-12">
-                            <form class="form-control profile-setting px-5 py-5" action="" method="POST" style="background-color: #f2f2f2;">
+                            <div class="row mx-5 p-5 profile-status">
+                                <div class="col-md-12 ">
+                                    <div class="row">
+                                        <h3 class="title-profile mb-5 mt-2">Informasi Pribadi</h3>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">Nama Lengkap</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">***</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">Pekerjaan</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">***</label>
+                                        </div>
+                                        <hr class="my-4">
+                                        <div class="col-md-3">
+                                            <label for="nameInput">No. Identitas</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">***</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">NPWP</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">***</label>
+                                        </div>
+                                        <hr class="my-4">
+                                        <div class="col-md-3">
+                                            <label for="nameInput">Pendidikan Terakhir</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">***</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">Jenis Kelamin</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">***</label>
+                                        </div>
+                                        <hr class="my-4">
+                                        <div class="col-md-3">
+                                            <label for="nameInput">Alamat</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">***</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">No. Handphone / Telepon</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">***</label>
+                                        </div>
+                                        <hr class="my-4">
+                                        <div class="col-md-3">
+                                            <label for="nameInput">Email</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">***</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">Username</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nameInput">***</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 p-0" id="opsi-profilesetting" style="display:none;">
+                <div class="container-fluid w-100">
+                    <div class="d-flex row status">
+                        <div class="col-md-12">
+                            <form class="form-control profile-setting px-5 py-5" action="" method="POST">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="col-md-12">
                                             <label for="nameInput">Username</label>
-                                            <input type="text" class="form-control my-3" id="username" name="username" placeholder="rezky.indri" style="height: 40px" disabled>
+                                            <input type="text" class="form-control my-3" id="username" name="username" placeholder="Masukkan Username" style="height: 40px">
                                         </div>
                                         <div class="col-md-12">
-                                            <label for="nameInput">Nama</label>
+                                            <label for="nameInput">Nama Lengkap</label>
                                             <input type="text" class="form-control my-3" id="Nama" name="Nama" placeholder="Masukkan Nama" style="height: 40px">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label for="nameInput">Pekerjaan</label>
+                                            <input type="text" class="form-control my-3" id="Pekerjaan" name="Pekerjaan" placeholder="Masukkan Pekerjaan" style="height: 40px">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label for="nameInput">Pendidikan Terakhir</label>
+                                            <input type="text" class="form-control my-3" id="PendidikanTerakhir" name="PendidikanTerakhir" placeholder="Masukkan Pendidikan Terakhir" style="height: 40px">
                                         </div>
                                         <div class="col-md-12">
                                             <label for="phonenumberInput">Email</label>
@@ -56,7 +145,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label for="suratpengantarInput">Ganti Foto Profile</label>
-                                            <input type="file" class="form-control my-3" id="Surat_Permintaan_Ditandatangani_Camat_atau_Pejabat_Setingkat" name="Surat_Pengantar_Permintaan_Data" style="height: 40px">
+                                            <input type="file" class="form-control my-3" id="Ganti_profil" name="Ganti_profil" style="height: 40px">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -82,7 +171,7 @@
                 <div class="container-fluid w-100">
                     <div class="d-flex row status">
                         <div class="col-md-12">
-                            <form class="form-control profile-setting px-5 py-5" action="" method="POST" style="background-color: #f2f2f2;">
+                            <form class="form-control profile-setting px-5 py-5" action="" method="POST">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="col-md-12">

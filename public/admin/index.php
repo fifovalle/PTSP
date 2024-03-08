@@ -62,102 +62,81 @@ if (!isset($_SESSION['ID'])) {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="row">
-                            <?php
-
-                            $jasaModel = new jasa($koneksi);
-                            $informasiModel = new Informasi($koneksi);
-                            $dataJasa = $jasaModel->tampilkanDataJasa();
-                            $dataInformasi = $informasiModel->tampilkanDataInformasi();
-
-                            if ($dataJasa && $dataInformasi) {
-                                foreach ($dataJasa as $jasa) {
-                                    foreach ($dataInformasi as $informasi) {
-                                        if ($jasa['ID_Jasa'] === $informasi['ID_Informasi']) {
-                            ?>
-                                            <div class="col-4">
-                                                <div class="card">
-                                                    <h5 class="card-title py-4 mx-auto">Performa Produk Terbaru</h5>
-                                                    <div class="position-relative mx-auto">
-                                                        <img src="../../src/admin/assets/image/uploads/<?php echo $jasa['Foto_Jasa']; ?>" class="imageCard card-img-top" alt="Performa Produk Terbaru">
-                                                        <h5 class="card-title titleProduct fw-bold"><?php echo $jasa['Nama_Jasa']; ?></h5>
-                                                    </div>
-                                                    <div class="d-flex justify-content-around align-items-center mt-4">
-                                                        <div class="d-flex justify-content-around align-items-center mt-4">
-                                                            <div class="d-flex justify-content-between gap-3">
-                                                                <i class="fas fa-users"><span class="ms-2 many">10</span></i>
-                                                                <i class="fas fa-money-bill"><span class="ms-2 many">Rp.1.000.000</span></i>
-                                                            </div>
-                                                            <div id="caretIconForDrive">
-                                                                <i class="fas fa-caret-up caret-icon"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="card-body hidden-content">
-                                                        <p class="card-text textCardProduct my-3 mb-4">Performa Selama Ini</p>
-                                                        <div class="row ms-auto">
-                                                            <div class="col-7 me-4">Pembeli</div>
-                                                            <div class="col-2">10</div>
-                                                        </div>
-                                                        <div class="row ms-auto">
-                                                            <div class="col-7 me-4">Penghasilan</div>
-                                                            <div class="col-4">Rp.1.000.000</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <a id="seeAnaliticForDrive1" href="#" class="card-link">Lihat Analitik</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                            <?php
-                                        }
-                                    }
-                                }
-                            }
-                            ?>
-                            <div class="col-4">
-                                <div class="card">
-                                    <h5 class="card-title pt-4 mx-auto">IKM Terbaru</h5>
-                                    <hr>
-                                    <div class="row mx-2 my-3">
-                                        <div class="col-3">
-                                            <img src="../../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
-                                        </div>
-                                        <div class="col-9">
-                                            <h5>Ahsan Ghifari</h5>
-                                            <p class="card-text textCardProduct">Saya Sangat Sangat PUASSS :)../..</p>
-                                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <h5 class="card-title py-4 mx-auto">Performa Produk Terbaru</h5>
+                                <div class="position-relative mx-auto">
+                                    <img src="../../src/admin/assets/image/uploads/2.png" class="imageCard card-img-top" alt="Performa Produk Terbaru">
+                                    <h5 class="card-title titleProduct fw-bold">Nama Produk</h5>
+                                </div>
+                                <div class="d-flex justify-content-around align-items-center mt-4">
+                                    <div class="d-flex justify-content-between gap-3">
+                                        <i class="fas fa-users"><span class="ms-2 many">10</span></i>
+                                        <i class="fas fa-money-bill"><span class="ms-2 many">Rp.1.000.000</span></i>
                                     </div>
-                                    <div class="card-body btnAnalitic">
-                                        <a id="seeAnaliticForDrive2" href="#" class="card-link">Lihat Analitik</a>
+                                    <div id="caretIconForDrive">
+                                        <i class="fas fa-caret-up caret-icon"></i>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="card">
-                                    <h5 class="card-title pt-4 mx-auto">Transaksi Terbaru</h5>
-                                    <hr>
-                                    <div class="row mx-2 my-3">
-                                        <div class="col-3">
-                                            <img src="../../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
-                                        </div>
-                                        <div class="col-9">
-                                            <h5>Seismon</h5>
-                                            <p class="card-text textCardProduct">Naufal FIFA</p>
-                                        </div>
+                                <hr>
+                                <div class="card-body hidden-content">
+                                    <p class="card-text textCardProduct my-3 mb-4">Performa Selama Ini</p>
+                                    <div class="row ms-auto">
+                                        <div class="col-7 me-4">Pembeli</div>
+                                        <div class="col-2">10</div>
                                     </div>
-                                    <div class="card-body btnAnalitic">
-                                        <a id="seeAnaliticForDrive3" href="#" class="card-link">Lihat Analitik</a>
+                                    <div class="row ms-auto">
+                                        <div class="col-7 me-4">Penghasilan</div>
+                                        <div class="col-4">Rp.1.000.000</div>
                                     </div>
+                                </div>
+                                <div class="card-body">
+                                    <a id="seeAnaliticForDrive1" href="#" class="card-link">Lihat Analitik</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- FOOTER START -->
-                        <?php
-                        include "../../src/admin/partials/components/footer.php";
-                        ?>
-                        <!-- FOOTER END -->
+                        <div class="col-4">
+                            <div class="card">
+                                <h5 class="card-title pt-4 mx-auto">IKM Terbaru</h5>
+                                <hr>
+                                <div class="row mx-2 my-3">
+                                    <div class="col-3">
+                                        <img src="../../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
+                                    </div>
+                                    <div class="col-9">
+                                        <h5>Naufal FIFA</h5>
+                                        <p class="card-text textCardProduct">Waduh Saya Puas Banget Sih Bang :)../..</p>
+                                    </div>
+                                </div>
+                                <div class="card-body btnAnalitic">
+                                    <a id="seeAnaliticForDrive2" href="#" class="card-link">Lihat Analitik</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <h5 class="card-title pt-4 mx-auto">Transaksi Terbaru</h5>
+                                <hr>
+                                <div class="row mx-2 my-3">
+                                    <div class="col-3">
+                                        <img src="../../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
+                                    </div>
+                                    <div class="col-9">
+                                        <h5>Seismon</h5>
+                                        <p class="card-text textCardProduct">Naufal FIFA</p>
+                                    </div>
+                                </div>
+                                <div class="card-body btnAnalitic">
+                                    <a id="seeAnaliticForDrive3" href="#" class="card-link">Lihat Analitik</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FOOTER START -->
+                    <?php
+                    include "../../src/admin/partials/components/footer.php";
+                    ?>
+                    <!-- FOOTER END -->
                 </main>
             </div>
             <!-- MAIN END -->
@@ -192,7 +171,6 @@ if (!isset($_SESSION['ID'])) {
     <script src="../../src/admin/assets/our/js/toggle-password.js"></script>
     <script src="../../src/admin/assets/our/js/caret.js"></script>
     <script src="../../src/admin/assets/our/js/drive-all.js"></script>
-    <script src="../../src/admin/assets/our/js/search-alldata.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../../src/admin/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- ALERT -->

@@ -83,7 +83,8 @@
     font-size: 14px;
 }
 
-.dataSecurityAccount {
+.dataEditAccount,
+.dataDeleteAccount {
     display: none;
 }
 

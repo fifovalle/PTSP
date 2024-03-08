@@ -10,3 +10,4 @@
 <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 <script src="../assets/js/javascript.js"></script>
+<title>PTSP BMKG Provinsi Bengkulu</title>

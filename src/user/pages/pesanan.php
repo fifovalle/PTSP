@@ -53,10 +53,10 @@
             <div class="col-md-10 px-5" id="detail-pesanan" style="display:none;">
                 <div class="container-fluid w-100">
                     <div class="d-flex row text-center mb-3" id="status-pesanan">
-                        <div class="col-md-3"><button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pengajuan">Status Pengajuan</button></div>
-                        <div class=" col-md-3"><button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pembayaran">Status Pembayaran</button></div>
-                        <div class="col-md-3"><button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pembuatan">Status Pembuatan</button></div>
-                        <div class=" col-md-3"><button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-selesai">Status Selesai</button></div>
+                        <div class="col-md-3"><button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pengajuan">Status Pengajuan <span class="badge text-bg-secondary">0</span></button></div>
+                        <div class=" col-md-3"><button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pembayaran">Status Pembayaran <span class="badge text-bg-secondary">0</span></button></div>
+                        <div class="col-md-3"><button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pembuatan">Status Pembuatan <span class="badge text-bg-secondary">0</span></button></div>
+                        <div class=" col-md-3"><button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-selesai">Status Selesai <span class="badge text-bg-secondary">0</span></button></div>
                     </div>
                     <div class=" d-none" id="ajuan">
                         <div class="d-flex row status">
@@ -407,7 +407,7 @@
                                 </div>
                                 <div class="col text-end">
                                     <button class="btn btn-outline-danger ms-3" type="button" id="btn-beli-lagi1" style="width:100px;">Beli Lagi</button>
-                                    <button class="btn btn-outline-success pe-2 mx-2" type="button" style="width:100px;">Nilai</button>
+                                    <button class="btn btn-outline-success pe-2 mx-2" type="button" id="nilai-ikm" style="width:100px;">Nilai</button>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +7,7 @@ session_start();
     ?>
     <link rel="stylesheet" href="../assets/css/main.css">
     <title>PTSP BMKG Provinsi Bengkulu</title>
-    <!-- SWEETALERT -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
 </head>
 
 <body>
@@ -64,8 +59,9 @@ session_start();
     ?>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/navbar.js"></script>
-    <!-- ALERT -->
-    <?php include '../../../src/admin/partials/utils/alert.php' ?>
+    <script>
+
+    </script>
 </body>
 
 </html>

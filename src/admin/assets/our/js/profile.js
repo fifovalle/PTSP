@@ -5,8 +5,13 @@ $(document).ready(function () {
     let menuText = $(this).text();
 
     menuText === "Akun"
-      ? ($(".dataAccount").show(), $(".dataSecurityAccount ").hide())
-      : ($(".dataSecurityAccount").show(), $(".dataAccount ").hide());
+      ? ($(".dataAccount").show(),
+        $(".dataEditAccount, .dataDeleteAccount").hide())
+      : menuText === "Sunting"
+      ? ($(".dataEditAccount").show(),
+        $(".dataAccount, .dataDeleteAccount").hide())
+      : ($(".dataDeleteAccount").show(),
+        $(".dataAccount, .dataEditAccount").hide());
   });
 });
 

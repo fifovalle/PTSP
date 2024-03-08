@@ -1,4 +1,7 @@
 :root {
+  --color-bmkg1: #08318d;
+  --color-bmkg2: #178636;
+  --color-default-abu: #d3d3d3;
 }
 
 body {
@@ -23,6 +26,7 @@ body {
   background: #555;
 }
 /************** End Scrollbar Effect **************/
+
 /************** Button Opsi **************/
 #option.row {
   background: rgba(8, 49, 141, 0.21);
@@ -41,10 +45,7 @@ body {
   justify-content: center;
   margin: 20px 0 20px 0;
 }
-#button-option .btn {
-  margin-right: 10px; /* Atur jarak kanan antara tombol-tombol */
-  min-width: 3in;
-}
+
 .row.form {
   padding: 4rem 5rem 4rem 4.5rem;
 }
@@ -110,22 +111,30 @@ body {
 }
 
 button {
+  position: relative;
   color: black;
   text-decoration: none;
   cursor: pointer;
   outline: none;
   border: none;
   background: transparent;
+  margin: 0 25px 0 25px;
 }
 /************** End Button Opsi **************/
 
 .form-control {
   border-radius: 300px;
 }
+
 #DataPribadi.container,
 #DataKeperluan.container,
 #TitleForm.container {
-  background-color: #e2e2e2;
+  background: rgba(211, 211, 211, 1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.7px);
+  -webkit-backdrop-filter: blur(4.7px);
+  border: 1px solid rgba(211, 211, 211, 0.19);
   padding: 30px;
   border-radius: 30px;
 }
@@ -167,10 +176,10 @@ input[type="file"]::before {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #ffff;
+  color: white;
   gap: 10px;
   font-weight: bold;
-  border: 3px solid #178636;
+  border: 3px solid var(--color-bmkg2);
   outline: none;
   overflow: hidden;
   font-size: 15px;
@@ -184,8 +193,8 @@ input[type="file"]::before {
 
 .apply:hover {
   transform: scale(1.05);
-  border-color: #08318d;
-  background-color: #178636;
+  border-color: var(--color-bmkg1);
+  background-color: var(--color-bmkg2);
 }
 
 .apply:hover .icon {
@@ -227,7 +236,7 @@ input[type="file"]::before {
 }
 
 .selected {
-  background-color: #fff;
-  box-shadow: 6px 10px 10px #526eaf;
+  background-color: white;
+  box-shadow: 6px 10px 10px var(--color-bmkg1);
   border-radius: 8px;
 }

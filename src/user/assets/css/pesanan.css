@@ -30,13 +30,23 @@ body {
 
 .status {
   position: cover;
-  background-color: #f2f2f2;
+  background: rgba(211, 211, 211, 1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.7px);
+  -webkit-backdrop-filter: blur(4.7px);
+  border: 1px solid rgba(211, 211, 211, 0.19);
   padding: 2rem 1rem 2rem 1rem;
   margin-bottom: 5rem;
 }
 
 #status-pesanan {
-  background-color: #f2f2f2;
+  background: rgba(211, 211, 211, 1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.7px);
+  -webkit-backdrop-filter: blur(4.7px);
+  border: 1px solid rgba(211, 211, 211, 0.19);
   padding: 0 3rem 0 3rem;
 }
 
@@ -68,10 +78,10 @@ body {
 
 #line-pesanan {
   position: absolute;
-  top: 15.7rem;
-  left: 31rem;
-  width: 58%;
-  height: 3px; /* Adjust this value to change thickness */
+  top: 5.6rem;
+  left: 12rem;
+  width: 75%;
+  height: 2px; /* Adjust this value to change thickness */
   background-color: black;
   border: none;
 }

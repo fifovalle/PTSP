@@ -29,7 +29,7 @@ function showContent1(contentId) {
 
     // Loop through buttons and remove 'selected' class from all
     buttons.forEach(function(button) {
-        button.classList.remove('selected');
+        button.classList.remove('selected-navbar');
     });
 
     // Loop through contents and hide all
@@ -39,7 +39,7 @@ function showContent1(contentId) {
 
     // Show selected content and mark the button as selected
     document.getElementById(contentId).style.display = 'block';
-    event.currentTarget.classList.add('selected');
+    event.currentTarget.classList.add('selected-navbar');
 }
 
 function showContent2(contentId) {
@@ -48,7 +48,7 @@ function showContent2(contentId) {
 
     // Loop through buttons and remove 'selected' class from all
     buttons.forEach(function(button) {
-        button.classList.remove('selected');
+        button.classList.remove('selected-navbar');
     });
 
     // Loop through contents and hide all
@@ -58,5 +58,5 @@ function showContent2(contentId) {
 
     // Show selected content and mark the button as selected
     document.getElementById(contentId).style.display = 'block';
-    event.currentTarget.classList.add('selected');
+    event.currentTarget.classList.add('selected-navbar');
 }

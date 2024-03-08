@@ -1,3 +1,8 @@
+:root {
+  --divider-color: #d3d3d3;
+  --color-default-white: #ffff;
+  --color-btn-masuk: #0077ff;
+}
 body {
   padding: 0;
   margin: 0;
@@ -57,7 +62,7 @@ body {
 }
 
 .custom-shape-divider-bottom-1709729084 .shape-fill {
-  fill: #d3d3d3;
+  fill: var(--divider-color);
 }
 /* End Section 1 Effect */
 
@@ -66,9 +71,9 @@ body {
   padding: 10px 22px;
   border-radius: 6px;
   border: none;
-  color: #fff;
+  color: var(--color-default-white);
   cursor: pointer;
-  background-color: #0077ff;
+  background-color: var(--color-btn-masuk);
   transition: all 0.2s ease;
 }
 
@@ -90,15 +95,29 @@ body {
 
 .button:hover:before {
   top: -70%;
-  background-image: radial-gradient(circle, #0077ff 20%, transparent 20%),
-    radial-gradient(circle, transparent 20%, #0077ff 20%, transparent 30%),
-    radial-gradient(circle, #0077ff 20%, transparent 20%),
-    radial-gradient(circle, #0077ff 20%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #0077ff 15%, transparent 20%),
-    radial-gradient(circle, #0077ff 20%, transparent 20%),
-    radial-gradient(circle, #0077ff 20%, transparent 20%),
-    radial-gradient(circle, #0077ff 20%, transparent 20%),
-    radial-gradient(circle, #0077ff 20%, transparent 20%);
+  background-image: radial-gradient(
+      circle,
+      var(--color-btn-masuk) 20%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle,
+      transparent 20%,
+      var(--color-btn-masuk) 20%,
+      transparent 30%
+    ),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(
+      circle,
+      transparent 10%,
+      var(--color-btn-masuk) 15%,
+      transparent 20%
+    ),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%);
   background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
     10% 10%, 18% 18%;
   background-position: 50% 120%;
@@ -125,13 +144,22 @@ body {
 
 .button:hover::after {
   bottom: -70%;
-  background-image: radial-gradient(circle, #0077ff 20%, transparent 20%),
-    radial-gradient(circle, #0077ff 20%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #0077ff 15%, transparent 20%),
-    radial-gradient(circle, #0077ff 20%, transparent 20%),
-    radial-gradient(circle, #0077ff 20%, transparent 20%),
-    radial-gradient(circle, #0077ff 20%, transparent 20%),
-    radial-gradient(circle, #0077ff 20%, transparent 20%);
+  background-image: radial-gradient(
+      circle,
+      var(--color-btn-masuk) 20%,
+      transparent 20%
+    ),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(
+      circle,
+      transparent 10%,
+      var(--color-btn-masuk) 15%,
+      transparent 20%
+    ),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%);
   background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
   background-position: 50% 0%;
   animation: greenbottomBubbles 0.6s ease;

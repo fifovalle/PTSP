@@ -47,28 +47,21 @@ body {
   width: 100px;
 }
 
-.title_informasi {
+.title_informasi,
+.title_jasa {
   padding: 20px;
   width: 500px;
 }
 
-.harga_informasi {
+.harga_informasi,
+.harga_jasa {
+  padding: 20px;
+  width: 500px;
 }
-.kuantitas_informasi {
-}
-.min,
-.plus {
-  background: rgba(0, 0, 0, 0.19);
-  border-radius: 4px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5.2px);
-  -webkit-backdrop-filter: blur(5.2px);
-  border: none; /* Menghilangkan border hanya pada tombol dengan kelas .min dan .plus */
-  cursor: pointer; /* Mengubah kursor menjadi pointer saat diarahkan ke tombol */
-}
-.berat_informasi {
-}
-.satuan_informasi {
+.kuantitas_informasi,
+.kuantitas_jasa {
+  padding: 20px;
+  width: 500px;
 }
 
 #modalCheckout {

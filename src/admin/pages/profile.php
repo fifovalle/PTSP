@@ -102,7 +102,10 @@ if (!isset($_SESSION['ID'])) {
                                 <p class="fw-semibold dataAll active">Akun</p>
                             </div>
                             <div class="menu col-2">
-                                <p class="fw-semibold dataAll">Keamanan</p>
+                                <p class="fw-semibold dataAll">Sunting</p>
+                            </div>
+                            <div class="menu col-2">
+                                <p class="fw-semibold dataAll">Hapus</p>
                             </div>
                         </div>
                     </div>
@@ -110,7 +113,8 @@ if (!isset($_SESSION['ID'])) {
                         <div class="col-lg-12 mb-3">
                             <!-- ALL MENU ACCOUNT START -->
                             <?php include "../partials/utils/account-profile.php" ?>
-                            <?php include "../partials/utils/security-account-profile.php" ?>
+                            <?php include "../partials/utils/edit-account-profile.php" ?>
+                            <?php include "../partials/utils/delete-account-profile.php" ?>
                             <!-- ALL MENU ACCOUNT END -->
                         </div>
                     </div>
@@ -155,12 +159,8 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/toggle-password.js"></script>
     <script src="../assets/our/js/toggle-password-edit.js"></script>
     <script src="../assets/our/js/drive-all.js"></script>
-    <script src="../assets/our/js/search-alldata.js"></script>
-    <script src="../assets/our/js/delete-profile.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- ALERT -->
-    <?php include '../partials/utils/alert.php' ?>
 </body>
 
 </html>

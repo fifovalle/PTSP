@@ -47,6 +47,17 @@ body {
 }
 
 #profile-setting:hover,
-#alamat-setting:hover {
+#alamat-setting:hover,
+#profile-info:hover {
   color: white !important;
+}
+
+.form-control.profile-setting,
+.profile-status {
+  background: rgba(211, 211, 211, 1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.7px);
+  -webkit-backdrop-filter: blur(4.7px);
+  border: 1px solid rgba(211, 211, 211, 0.19);
 }

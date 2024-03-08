@@ -39,9 +39,9 @@
                                 <td class="content_number_informasi py-5 text-center">1</td>
                                 <td class="content_title_informasi py-5 text-center">INFORMASI IKLIM</td>
                                 <td class="content_harga_informasi py-5 text-center">Rp250.000,00</td>
-                                <td class="content_kuantitas_informasi py-5 text-center"><button class="min" onclick="kurangiNilai()"><i class="bi bi-dash"></i></button>
+                                <td class="content_kuantitas_informasi py-5 text-center"><button type="button" class="btn btn-danger" onclick="kurangiNilai()"><i class="bi bi-dash"></i></button>
                                     <span id="nilai_informasi">1</span>
-                                    <button class="plus" onclick="tambahNilai()"><i class="bi bi-plus"></i></button>
+                                    <button type="button" class="btn btn-primary" class="plus" onclick="tambahNilai()"><i class="bi bi-plus"></i></button>
                                 </td>
                             </tr>
                         </table>
@@ -66,9 +66,9 @@
                                     <td class="content_number_jasa py-5 text-center">1</td>
                                     <td class="content_title_jasa py-5 text-center">JASA KALIBRASI ALAT</td>
                                     <td class="content_harga_jasa py-5 text-center">Rp250.000,00</td>
-                                    <td class="content_kuantitas_jasa py-5 text-center"><button class="min" onclick="kurangiNilai1()"><i class="bi bi-dash"></i></button>
+                                    <td class="content_kuantitas_jasa py-5 text-center"><button type="button" class="btn btn-danger" onclick="kurangiNilai1()"><i class="bi bi-dash"></i></button>
                                         <span id="nilai_jasa">1</span>
-                                        <button class="plus" onclick="tambahNilai1()"><i class="bi bi-plus"></i></button>
+                                        <button type="button" class="btn btn-primary" onclick="tambahNilai1()"><i class="bi bi-plus"></i></button>
                                     </td>
                                 </tr>
                             </table>

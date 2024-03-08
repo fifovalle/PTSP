@@ -99,4 +99,7 @@ document.getElementById("btn-beli-lagi").addEventListener("click", function() {
 document.getElementById("btn-beli-lagi1").addEventListener("click", function() {
     window.location.href = "katalogproduk.php";
 });
+document.getElementById("nilai-ikm").addEventListener("click", function() {
+    window.location.href = "ikm.php";
+});
 
