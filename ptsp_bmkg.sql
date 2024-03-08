@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2024 at 02:32 AM
+-- Generation Time: Mar 09, 2024 at 12:26 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -50,7 +50,8 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admin`, `Nama_Pengguna_Admin`, `Email_Admin`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Admin`, `Jenis_Kelamin_Admin`, `Peran_Admin`, `Alamat_Admin`, `Status_Verifikasi_Admin`, `token`) VALUES
 (55, 0x363564633763386235303835662e6a7067, 'Naufal', 'FIFA', 'zonaDeveloper', 'Naufal@gmail.com', '$2y$10$q84vk0AmmniECaXZsZNQu.Kw6AILFmypXZ6YR0gWnpiHuwAtJZJI6', '$2y$10$q84vk0AmmniECaXZsZNQu.Kw6AILFmypXZ6YR0gWnpiHuwAtJZJI6', '+62 812-3652-2490', 'Pria', 1, 'Batujajar', 'Belum Terverifikasi', 65),
-(68, 0x363565353938306262663736392e6a7067, 'Sandro', 'Anugrah', 'Sandro', 'sandro@gmail.com', '$2y$10$9EsGBDrTJk5o0OZ8wEjtpOOebV8Q4SDn9/izeZ854dm7dFK53/cJm', '$2y$10$9EsGBDrTJk5o0OZ8wEjtpOOebV8Q4SDn9/izeZ854dm7dFK53/cJm', '+62 227-8696-666', 'Pria', 1, 'Batujajar\r\n\r\n', 'Belum Terverifikasi', 2147483647);
+(68, 0x363565353938306262663736392e6a7067, 'Sandro', 'Anugrah', 'Sandro', 'sandro@gmail.com', '$2y$10$9EsGBDrTJk5o0OZ8wEjtpOOebV8Q4SDn9/izeZ854dm7dFK53/cJm', '$2y$10$9EsGBDrTJk5o0OZ8wEjtpOOebV8Q4SDn9/izeZ854dm7dFK53/cJm', '+62 227-8696-666', 'Pria', 1, 'Batujajar\r\n\r\n', 'Belum Terverifikasi', 2147483647),
+(71, 0x363565396562356161643363392e6a7067, 'Ahsan', 'Ghifari', 'AhsanGhiff', 'ahsan@gmail.com', '$2y$10$dXEYnN7x56HHNq5IzgfEt.q1VPgi2hjzuscOHRU.WqTLVCVWRt7gu', '$2y$10$dXEYnN7x56HHNq5IzgfEt.q1VPgi2hjzuscOHRU.WqTLVCVWRt7gu', '+62 812-4118-8340', 'Pria', 1, 'sdfg', 'Belum Terverifikasi', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,7 @@ CREATE TABLE `informasi` (
 --
 
 INSERT INTO `informasi` (`ID_Informasi`, `Foto_Informasi`, `Nama_Informasi`, `Deskripsi_Informasi`, `Harga_Informasi`, `Pemilik_Informasi`, `No_Rekening_Informasi`, `Kategori_Informasi`, `Status_Informasi`) VALUES
-(9, 0x363565333630303931333333362e6a7067, 'BHBEAHBFW', 'JDBIFBW', 20000, 'Instansi B', 0, 'Meteorologi', 'Tidak Tersedia');
+(10, 0x363565396338343362633536372e6a7067, 'HVEU', 'HBQWF', 15000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -100,7 +101,9 @@ CREATE TABLE `jasa` (
 --
 
 INSERT INTO `jasa` (`ID_Jasa`, `Foto_Jasa`, `Nama_Jasa`, `Deskripsi_Jasa`, `Harga_Jasa`, `Pemilik_Jasa`, `No_Rekening_Jasa`, `Kategori_Jasa`, `Status_Jasa`) VALUES
-(9, 0x363565333630353737646666642e706e67, 'ASDVFB', 'SSCDVC ', 2000, 'Instansi A', 0, 'Meteorologi', 'Tersedia');
+(9, 0x363565333630353737646666642e706e67, 'ASDVFB', 'SSCDVC ', 2000, 'Instansi A', 0, 'Meteorologi', 'Tersedia'),
+(10, 0x363565396665333432313163392e6a706567, 'Nasi Padang', 'Enak Bjirr', 25000, 'Instansi A', 0, 'Meteorologi', 'Tersedia'),
+(11, 0x363565396362323036663666392e6a7067, 'JFNGURE', 'JSDB', 9000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -123,6 +126,13 @@ CREATE TABLE `pengguna` (
   `Status_Verifikasi_Pengguna` enum('Terverivikasi','Belum Terverifikasi') NOT NULL,
   `token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pengguna`
+--
+
+INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Status_Verifikasi_Pengguna`, `token`) VALUES
+(8, 0x363565396339633765656333342e6a7067, 'Naufal', 'NA', 'fifa', 'fifanaufal10@gmail.com', '$2y$10$PgRwdEvu.dclCDEvh4KTGu77QubSaAagkYnKD.kQxgJTPUsZzJ7BS', '$2y$10$PgRwdEvu.dclCDEvh4KTGu77QubSaAagkYnKD.kQxgJTPUsZzJ7BS', '+62 812-3652-2490', 'Wanita', 'a', '', 2147483647);
 
 --
 -- Indexes for dumped tables
@@ -160,25 +170,25 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `informasi`
 --
 ALTER TABLE `informasi`
-  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `jasa`
 --
 ALTER TABLE `jasa`
-  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
