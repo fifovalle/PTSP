@@ -31,8 +31,8 @@
                                         <box-icon name='cloud-lightning' id="icon" color='rgba(255,255,255,0.9)' class="product"></box-icon>
                                     </span>
                                 </div>
-                                <div class="card-title">Product title</div>
-                                <div class="card-subtitle">Product description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                                <div class="card-title">Nama Produk</div>
+                                <div class="card-subtitle">Deskripsi Produk</div>
                                 <hr class="card-divider">
                                 <div class="d-flex card-footer justify-content-between my-4 mx-3">
                                     <div class="card-price text-start"><span>Rp</span>30.000</div>
@@ -54,8 +54,8 @@
                                         <box-icon name='cloud-lightning' id="icon" color='rgba(255,255,255,0.9)' class="product"></box-icon>
                                     </span>
                                 </div>
-                                <div class="card-title">Product title</div>
-                                <div class="card-subtitle">Product description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                                <div class="card-title">Nama Produk</div>
+                                <div class="card-subtitle">Deskripsi Produk</div>
                                 <hr class="card-divider">
                                 <div class="d-flex card-footer justify-content-between my-4 mx-3">
                                     <div class="card-price text-start"><span>Rp</span>30.000</div>
@@ -77,8 +77,8 @@
                                         <box-icon name='cloud-lightning' id="icon" color='rgba(255,255,255,0.9)' class="product"></box-icon>
                                     </span>
                                 </div>
-                                <div class="card-title">Product title</div>
-                                <div class="card-subtitle">Product description. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                                <div class="card-title">Nama Produk</div>
+                                <div class="card-subtitle">Deskripsi Produk</div>
                                 <hr class="card-divider">
                                 <div class="d-flex card-footer justify-content-between my-4 mx-3">
                                     <div class="card-price text-start"><span>Rp</span>30.000</div>
@@ -96,9 +96,13 @@
         </div>
     </div>
     <?php
+    include('modal-produk-jasa.php');
+    ?>
+    <?php
     include('../partials/footer.php');
     ?>
     <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/modal-produk-jasa.js"></script>
 </body>
 
 </html>

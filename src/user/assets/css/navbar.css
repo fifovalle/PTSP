@@ -125,6 +125,14 @@
   ) !important; /* Mengubah warna teks menjadi biru saat dihover */
 }
 
+.nav-item.active .nav-link::before {
+  transform: scaleX(1) !important;
+}
+
+.nav-item.active .nav-link {
+  color: var(--color-bmkg2) !important;
+}
+
 hr.vertical {
   width: 50px;
   transform: rotate(90deg);
