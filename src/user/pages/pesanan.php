@@ -20,7 +20,7 @@
                     <div class="btn btn-success" id="history-order" onclick="showContentPemesanan('history-pesanan')">Riwayat Pesanan</div>
                 </div>
                 <div class="row mx-5 my-3">
-                    <div class="btn btn-outline-success" id="tracking-order" onclick="showContentPemesanan('detail-pesanan')">Tracking Pesanan</div>
+                    <div class="btn btn-outline-success" id="tracking-order" onclick="showContentPemesanan('detail-pesanan')">Pelacakan Pesanan</div>
                 </div>
             </div>
             <div class="col-md-10 px-5" id="history-pesanan">

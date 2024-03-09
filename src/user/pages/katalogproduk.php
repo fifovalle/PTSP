@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="content-box">
                                     <h4>INFORMASI METEOROLOGI</h4>
-                                    <a href="../partials/produk-informasi-meteorolgi.php" class="buy">Check This</a>
+                                    <a href="../partials/produk-informasi-meteorolgi.php" class="buy">Lihat Ini</a>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="content-box">
                                     <h4>INFORMASI KLIMATOLOGI</h4>
-                                    <a href="../partials/produk-informasi-klimatologi.php" class="buy">Check This</a>
+                                    <a href="../partials/produk-informasi-klimatologi.php" class="buy">Lihat Ini</a>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="content-box">
                                     <h4>INFORMASI GEOFISIKA</h4>
-                                    <a href="../partials/produk-informasi-geofisika.php" class="buy">Check This</a>
+                                    <a href="../partials/produk-informasi-geofisika.php" class="buy">Lihat Ini</a>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="content-box">
                                     <h4>JASA METEOROLOGI</h4>
-                                    <a href="../partials/produk-jasa-meteorologi.php" class="buy">Check This</a>
+                                    <a href="../partials/produk-jasa-meteorologi.php" class="buy">Lihat Ini</a>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="content-box">
                                     <h4>JASA KLIMATOLOGI</h4>
-                                    <a href="../partials/produk-jasa-klimatologi.php" class="buy">Check This</a>
+                                    <a href="../partials/produk-jasa-klimatologi.php" class="buy">Lihat Ini</a>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="content-box">
                                     <h4>JASA GEOFISIKA</h4>
-                                    <a href="../partials/produk-jasa-geofisika.php" class="buy">Check This</a>
+                                    <a href="../partials/produk-jasa-geofisika.php" class="buy">Lihat Ini</a>
                                 </div>
                             </div>
                         </div>

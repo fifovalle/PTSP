@@ -16,13 +16,13 @@
         <div class="row mb-5">
             <div class="col-md-2 h-100" id="opsi-profile">
                 <div class="row mx-5 my-3">
-                    <div class="btn btn-success" id="profile-info" onclick="showProfileSetting('opsi-profileinfo')">Profile Info</div>
+                    <div class="btn btn-success" id="profile-info" onclick="showProfileSetting('opsi-profileinfo')">Informasi Profil</div>
                 </div>
                 <div class="row mx-5 my-3">
-                    <div class="btn btn-outline-success" id="profile-setting" onclick="showProfileSetting('opsi-profilesetting')">Profile Setting</div>
+                    <div class="btn btn-outline-success" id="profile-setting" onclick="showProfileSetting('opsi-profilesetting')">Pengaturan Profil</div>
                 </div>
                 <div class="row mx-5 my-3">
-                    <div class="btn btn-outline-success" id="alamat-setting" onclick="showProfileSetting('opsi-alamatsetting')">Additional Settings</div>
+                    <div class="btn btn-outline-success" id="alamat-setting" onclick="showProfileSetting('opsi-alamatsetting')">Pengaturan Tambahan</div>
                 </div>
             </div>
             <div class="col-md-10 p-0" id="opsi-profileinfo">

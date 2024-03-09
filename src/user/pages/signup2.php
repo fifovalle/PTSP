@@ -235,19 +235,19 @@
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
                                     <input type="text" class="form-control" id="Username" name="Username" placeholder="***sd**">
-                                    <label for="floatingInput">Username <b>*</b> </label>
+                                    <label for="floatingInput">Nama Pengguna <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
                                     <input type="password" class="form-control" id="Password" name="Password" placeholder="*****">
-                                    <label for="floatingInput">Provinsi <b>*</b> </label>
+                                    <label for="floatingInput">Password <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
                                     <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" placeholder="*****">
-                                    <label for="floatingInput">Confirm Password <b>*</b> </label>
+                                    <label for="floatingInput">Konfirmasi Password <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -255,7 +255,7 @@
                             <div class="col-md-6 ps-0 pe-0">
                                 <div class="form-floating my-3">
                                     <input type="text" class="form-control" id="CaptchaCode" name="CaptchaCode" placeholder="*****">
-                                    <label for="floatingInput" class="d-flex align-items-center">Code Captcha <b>*</b>
+                                    <label for="floatingInput" class="d-flex align-items-center">Kode Captcha <b>*</b>
                                     </label>
                                 </div>
                             </div>
