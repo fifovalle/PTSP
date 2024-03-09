@@ -11,7 +11,7 @@ require('../../src/user/partials/head-cover.php');
     <div class="header" id="main">
         <div class="cover position-relative overflow-hidden text-center bg-body-tertiary" style="background-image: url('../../src/user/assets/img/landpage1.png');">
             <div class="content col-md-6 p-lg-5 mx-auto my-5">
-                <h1 class="z-3 display-3 fw-bold text-white mb-3">Welcome To PTSP BMKG Provinsi Bengkulu</h1>
+                <h1 class="z-3 display-3 fw-bold text-white mb-3">Selamat Datang di PTSP BMKG Provinsi Bengkulu</h1>
                 <h4 class="z-3 fw-normal text-white mb-3">Disini kalian akan diperkenalkan tentang seputar layanan yang
                     dimiliki
                     BMKG
@@ -23,7 +23,7 @@ require('../../src/user/partials/head-cover.php');
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right-circle me-2" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
                         </svg>
-                        Explore me
+                        Jelajahi saya
                     </button>
                 </div>
                 <div class="custom-shape-divider-bottom-1706187403">
@@ -123,8 +123,8 @@ require('../../src/user/partials/head-cover.php');
                                     klimatologi, kualitas udara, dan geofisika guna mendukung visi dan misinya.</p>
                             </h4>
                             <div class="button-next ps-5">
-                                <button class="z-3 cssbuttons-io-button" class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                                    Stasiun Penyedia
+                                <button class="z-3 cssbuttons-io-button moveStarted" type="button">
+                                    Lihat Selengkapnya
                                     <div class="icon">
                                         <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M0 0h24v24H0z" fill="none"></path>
@@ -136,64 +136,11 @@ require('../../src/user/partials/head-cover.php');
                         </div>
                     </div>
                 </div>
-                <div class=" carousel-item" id="cover">
-                    <div class="row section4">
-                        <div class="col-md-12 text-center">
-                            <h1 class="display-3 fw-bold text-black m-0 py-5 px-5 title-card">Stasiun PTSP BMKG
-                                Provinsi
-                                Bengkulu</h1>
-                        </div>
-                        <div class="row card-stasiun">
-                            <div class="col-lg-4 col-sm-3 text-center d-flex justify-content-center align-items-center">
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <p class="title">Stasiun Klimatologi</p>
-                                            <p>Check Me</p>
-                                        </div>
-                                        <div class="flip-card-back">
-                                            <p class="title">BACK</p>
-                                            <p>Leave Me</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-3 text-center d-flex justify-content-center align-items-center">
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <p class="title">Stasiun Geofisika</p>
-                                            <p>Check Me</p>
-                                        </div>
-                                        <div class="flip-card-back">
-                                            <p class="title">BACK</p>
-                                            <p>Leave Me</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-sm-3 text-center d-flex justify-content-center align-items-center">
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <p class="title">Stasiun Meteorologi</p>
-                                            <p>Check Me</p>
-                                        </div>
-                                        <div class="flip-card-back">
-                                            <p class="title">BACK</p>
-                                            <p>Leave Me</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
     </div>
-    <div class="cover position-relative overflow-hidden text-center bg-body-tertiary" style="background-image: url('../../src/user/assets/img/landpage2.jpg');">
+    <div class="cover position-relative overflow-hidden text-center bg-body-tertiary" style="background-image: url('../../src/user/assets/img/landpage2.jpg');" id="Started">
         <div class="content col-md-6 p-lg-5 mx-auto my-5">
             <h1 class="z-3 display-3 fw-bold text-white mb-3">PTSP BMKG Provinsi Bengkulu</h1>
             <div class="z-3 d-flex gap-3 justify-content-center lead mt-5 button2">
@@ -201,7 +148,7 @@ require('../../src/user/partials/head-cover.php');
                     <svg xmlns=" http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right-circle me-2" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
                     </svg>
-                    Get Started Now
+                    Mulai Sekarang
                 </button>
             </div>
             <div class="custom-shape-divider-bottom-1706187403">

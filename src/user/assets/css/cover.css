@@ -89,8 +89,8 @@ body {
 
 .button-container {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 70px;
+  right: 5px;
   z-index: 999;
 }
 .button button {

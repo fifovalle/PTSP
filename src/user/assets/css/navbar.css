@@ -105,6 +105,17 @@
   transition: transform 0.4s ease-in-out;
 }
 
+#Ajukan.nav-active::before,
+#Beranda.nav-active::before,
+#Regulasi.nav-active::before,
+#Pesanan.nav-active::before,
+#Ajukan.nav-link:hover::before,
+#Beranda.nav-link:hover::before,
+#Regulasi.nav-link:hover::before,
+#Pesanan.nav-link:hover::before {
+  transform: scaleX(1);
+}
+
 #Ajukan.nav-link:hover,
 #Beranda.nav-link:hover,
 #Regulasi.nav-link:hover,
@@ -112,13 +123,6 @@
   color: var(
     --color-bmkg2
   ) !important; /* Mengubah warna teks menjadi biru saat dihover */
-}
-
-#Ajukan.nav-link:hover::before,
-#Beranda.nav-link:hover::before,
-#Regulasi.nav-link:hover::before,
-#Pesanan.nav-link:hover::before {
-  transform: scaleX(1);
 }
 
 hr.vertical {

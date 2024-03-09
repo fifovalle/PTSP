@@ -15,7 +15,7 @@
                     <li class="nav-item">
                         <a class="nav-link mx-2" id="Beranda" aria-current="page" href="../pages/main.php">Beranda</a>
                     </li>
-                    <li class="nav-item mx-2">
+                    <li class="nav-item mx-2 ">
                         <a class="nav-link" id="Ajukan" href="../pages/ajukan.php">Ajukan</a>
                     </li>
                     <li class="nav-item mx-2 dropdown">
