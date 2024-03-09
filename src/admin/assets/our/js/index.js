@@ -58,3 +58,17 @@ $("body").on("click", function (event) {
     $searchInput.val("");
   }
 });
+
+document.getElementById("btnKirim").addEventListener("click", function () {
+  document.getElementById("btnKirim").style.display = "none";
+  document.querySelector(".pemuat").style.display = "block";
+});
+
+function sendAdminData() {
+  setTimeout(function () {
+    let btnKirim = document.getElementById("btnKirim");
+    btnKirim.addEventListener("click", function () {
+      sendAdminData();
+    });
+  }, 5000);
+}

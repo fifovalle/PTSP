@@ -42,3 +42,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+### Composer ###
+composer.phar

@@ -6,6 +6,30 @@
   --kotakHover: black;
 }
 
+/* =============================PEMUAT START============================= */
+.pemuat {
+  width: 120px;
+  height: 15px;
+  border-radius: 20px;
+  background:
+    repeating-linear-gradient(135deg, #f03355 0 10px, #ffa516 0 20px) 0/0% no-repeat,
+    repeating-linear-gradient(135deg, #ddd 0 10px, #eee 0 20px) 0/100%;
+  animation: l3 5s infinite;
+}
+
+@keyframes l3 {
+  100% {
+    background-size: 100%
+  }
+}
+
+.pemuatMengirim {
+  font-size: 12px;
+  margin-bottom: -10px;
+}
+
+/* =============================PEMUAT END============================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -328,6 +352,7 @@ aside {
 .sidebar-heading {
   padding: 30px 0;
 }
+
 .parentImageSidebar {
   position: relative;
 }
