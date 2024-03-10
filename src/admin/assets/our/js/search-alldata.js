@@ -1,16 +1,15 @@
 function cariDataLangsung() {
-  let input = document.getElementById("searchInput").value;
-
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost/PTSP/src/admin/pages/data.php", true);
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      let response = xhr.responseText;
-      document.getElementById("searchResult").innerHTML = response;
-    }
-  };
-
-  xhr.send("keyword=" + input);
+  let keyword = document.getElementById('searchInput').value.trim();
+  if (keyword !== '') {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log("Respons dari server diterima:", this.responseText);
+        document.getElementsByClassName('boxParent')[0].innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("POST", "http://localhost/PTSP/src/admin/config/search.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("keyword=" + keyword);
+  }
 }

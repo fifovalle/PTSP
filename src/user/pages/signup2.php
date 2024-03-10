@@ -48,24 +48,29 @@
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="NamaLengkap" name="NamaLengkap" placeholder="Ridwan***">
-                                    <label for="floatingInput">Nama Lengkap <b>*</b> </label>
+                                    <input type="text" class="form-control" id="NamaDepan" name="NamaLengkap" placeholder="Ridwan***">
+                                    <label for="floatingInput">Nama Depan <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
+                                <div class="form-floating my-3">
+                                    <input type="text" class="form-control" id="NamaBelakang" name="NamaLengkap" placeholder="Ridwan***">
+                                    <label for="floatingInput">Nama Belakang <b>*</b> </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
                                     <input type="text" class="form-control" id="Pekerjaan" name="Pekerjaan" placeholder="Mengaja***">
                                     <label for="floatingInput">Pekerjaan <b>*</b> </label>
                                 </div>
                             </div>
-                            <div class="col-md-6 pe-0">
+                            <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
                                     <input type="text" class="form-control" id="Pendidikan" name="Pendidikan" placeholder="Ridwan***">
                                     <label for="floatingInput">Pendidikan Terakhir <b>*</b> </label>
                                 </div>
                             </div>
-                            <div class="col-md-3"></div>
-                            <div class="col-md-6 pe-0 ps-0">
+                            <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
                                     <select class="form-select" aria-label="Default select example" id="Jenis_Kelamin" name="Jenis_Kelamin">
                                         <option selected>Pilih Jenis Kelamin</option>
@@ -75,7 +80,6 @@
                                     <label for="floatingInput">Jenis Kelamin <b>*</b> </label>
                                 </div>
                             </div>
-                            <div class="col-md-3"></div>
                             <div class="col-md-9"></div>
                             <div class="col-md-3 pe-0">
                                 <button class="nextBtn pushable mt-2" type="button" onclick="nextStep(1)">
@@ -239,15 +243,17 @@
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
-                                <div class="form-floating my-3">
-                                    <input type="password" class="form-control" id="Password" name="Password" placeholder="*****">
-                                    <label for="floatingInput">Password <b>*</b> </label>
+                                <div class="form-floating my-3 position-relative">
+                                    <input type="password" class="form-control" id="Kata_Sandi" name="Kata_Sandi" placeholder="*****">
+                                    <label for="floatingInput">Kata Sandi <b>*</b> </label>
+                                    <i class="bi bi-eye-slash eye-icon top-50 translate-middle-y" id="togglePassword1"></i>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
-                                <div class="form-floating my-3">
-                                    <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" placeholder="*****">
-                                    <label for="floatingInput">Konfirmasi Password <b>*</b> </label>
+                                <div class="form-floating my-3 position-relative">
+                                    <input type="password" class="form-control" id="Konfirmasi_Kata_Sandi" name="Konfirmasi_Kata_Sandi" placeholder="*****">
+                                    <label for="floatingInput">Konfirmasi Kata Sandi <b>*</b> </label>
+                                    <i class="bi bi-eye-slash eye-icon top-50 translate-middle-y" id="togglePassword2"></i>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -316,6 +322,7 @@
         </div>
     </div>
     <script src="../assets/js/sign-up.js"></script>
+    <script src="../assets/js/toggle-signup.js"></script>
 </body>
 
 </html>

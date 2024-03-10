@@ -30,58 +30,28 @@
                             return $waktuB - $waktuA;
                         });
                         $dataTerbaru = array_slice($dataTerbaru, 0, 3);
-                        $searchResult = '';
-                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                            if (isset($_POST["keyword"])) {
-                                $keyword = htmlspecialchars($_POST["keyword"]);
-                                $hasilInformasi = $informasiModel->cariDataInformasi($keyword);
-                                $hasilJasa = $jasaModel->cariDataJasa($keyword);
-                                $hasilPencarian = array_merge($hasilInformasi, $hasilJasa);
-                                if (!empty($hasilPencarian)) {
-                                    foreach ($hasilPencarian as $item) {
-                                        $searchResult .= '<div class="d-flex align-items-center justify-content-between list boxParent mb-3">';
-                                        $searchResult .= '<img class="imageProduct" src="' . $akarUrl . 'src/admin/assets/image/uploads/' . (isset($item['Foto_Informasi']) ? $item['Foto_Informasi'] : $item['Foto_Jasa']) . '" alt="imageProduct">';
-                                        $searchResult .= '<div class="box">';
-                                        $searchResult .= '<p>' . (isset($item['Nama_Informasi']) ? $item['Nama_Informasi'] : $item['Nama_Jasa']) . '</p>';
-                                        $searchResult .= '<p class="descriptionProduct">' . (isset($item['Deskripsi_Informasi']) ? $item['Deskripsi_Informasi'] : $item['Deskripsi_Jasa']) . '</p>';
-                                        $searchResult .= '</div>';
-                                        $searchResult .= '<div class="box date">';
-                                        $searchResult .= '<p>' . (isset($item['Pemilik_Informasi']) ? $item['Pemilik_Informasi'] : $item['Pemilik_Jasa']) . '</p>';
-                                        $searchResult .= '<p class="stok">' . (isset($item['Kategori_Informasi']) ? $item['Kategori_Informasi'] : $item['Kategori_Jasa']) . '</p>';
-                                        $searchResult .= '<p class="fs-6 fw-bolder">' . (isset($item['Foto_Informasi']) ? 'Informasi' : 'Jasa') . '</p>';
-                                        $searchResult .= '</div>';
-                                        $searchResult .= '<a class="linkProduk" href="#"><span class="edit-icon"><i class="fas fa-edit"></i> Sunting</span></a>';
-                                        $searchResult .= '<a class="linkProduk" href="#"><span class="delete-icon"><i class="fas fa-trash"></i> Hapus</span></a>';
-                                        $searchResult .= '</div>';
-                                    }
-                                } else {
-                                    $searchResult = "<p class='text-center text-danger fw-bold pt-4 pb-2'>Tidak ada hasil yang ditemukan untuk pencarian ini.</p>";
-                                }
-                                echo $searchResult;
+                        $keluaran = '';
+                        if (!empty($dataTerbaru)) {
+                            foreach ($dataTerbaru as $item) {
+                                $keluaran .= '<div class="d-flex align-items-center justify-content-between list boxParent mb-3">';
+                                $keluaran .= '<img class="imageProduct" src="' . $akarUrl . 'src/admin/assets/image/uploads/' . (isset($item['Foto_Informasi']) ? $item['Foto_Informasi'] : $item['Foto_Jasa']) . '" alt="imageProduct">';
+                                $keluaran .= '<div class="box">';
+                                $keluaran .= '<p>' . (isset($item['Nama_Informasi']) ? $item['Nama_Informasi'] : $item['Nama_Jasa']) . '</p>';
+                                $keluaran .= '<p class="descriptionProduct">' . (isset($item['Deskripsi_Informasi']) ? $item['Deskripsi_Informasi'] : $item['Deskripsi_Jasa']) . '</p>';
+                                $keluaran .= '</div>';
+                                $keluaran .= '<div class="box date">';
+                                $keluaran .= '<p>' . (isset($item['Pemilik_Informasi']) ? $item['Pemilik_Informasi'] : $item['Pemilik_Jasa']) . '</p>';
+                                $keluaran .= '<p class="stok">' . (isset($item['Kategori_Informasi']) ? $item['Kategori_Informasi'] : $item['Kategori_Jasa']) . '</p>';
+                                $keluaran .= '<p class="fs-6 fw-bolder">' . (isset($item['Foto_Informasi']) ? 'Informasi' : 'Jasa') . '</p>';
+                                $keluaran .= '</div>';
+                                $keluaran .= '<a class="linkProduk" href="#"><span class="edit-icon"><i class="fas fa-edit"></i> Sunting</span></a>';
+                                $keluaran .= '<a class="linkProduk" href="#"><span class="delete-icon"><i class="fas fa-trash"></i> Hapus</span></a>';
+                                $keluaran .= '</div>';
                             }
                         } else {
-                            if (!empty($dataTerbaru)) {
-                                foreach ($dataTerbaru as $item) {
-                                    $searchResult .= '<div class="d-flex align-items-center justify-content-between list boxParent mb-3">';
-                                    $searchResult .= '<img class="imageProduct" src="' . $akarUrl . 'src/admin/assets/image/uploads/' . (isset($item['Foto_Informasi']) ? $item['Foto_Informasi'] : $item['Foto_Jasa']) . '" alt="imageProduct">';
-                                    $searchResult .= '<div class="box">';
-                                    $searchResult .= '<p>' . (isset($item['Nama_Informasi']) ? $item['Nama_Informasi'] : $item['Nama_Jasa']) . '</p>';
-                                    $searchResult .= '<p class="descriptionProduct">' . (isset($item['Deskripsi_Informasi']) ? $item['Deskripsi_Informasi'] : $item['Deskripsi_Jasa']) . '</p>';
-                                    $searchResult .= '</div>';
-                                    $searchResult .= '<div class="box date">';
-                                    $searchResult .= '<p>' . (isset($item['Pemilik_Informasi']) ? $item['Pemilik_Informasi'] : $item['Pemilik_Jasa']) . '</p>';
-                                    $searchResult .= '<p class="stok">' . (isset($item['Kategori_Informasi']) ? $item['Kategori_Informasi'] : $item['Kategori_Jasa']) . '</p>';
-                                    $searchResult .= '<p class="fs-6 fw-bolder">' . (isset($item['Foto_Informasi']) ? 'Informasi' : 'Jasa') . '</p>';
-                                    $searchResult .= '</div>';
-                                    $searchResult .= '<a class="linkProduk" href="#"><span class="edit-icon"><i class="fas fa-edit"></i> Sunting</span></a>';
-                                    $searchResult .= '<a class="linkProduk" href="#"><span class="delete-icon"><i class="fas fa-trash"></i> Hapus</span></a>';
-                                    $searchResult .= '</div>';
-                                }
-                            } else {
-                                $searchResult = "<p class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Informasi Dan Jasa!</p>";
-                            }
-                            echo $searchResult;
+                            $keluaran = "<p class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Informasi Dan Jasa!</p>";
                         }
+                        echo $keluaran;
                         ?>
                     </div>
                 </div>

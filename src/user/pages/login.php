@@ -45,6 +45,7 @@ session_start();
                     <div class="form-floating my-3">
                         <input type="password" name="Kata_Sandi" class="form-control" id="floatingPassword" placeholder="Password" autocomplete="off">
                         <label for="floatingPassword">Kata Sandi</label>
+                        <span data-toggle="password" class="eye-toggle"><i class="bi bi-eye-slash"></i></span>
                     </div>
                     <div class="form-check text-start my-3 ">
                         <input class="form-check-input" name="Ingat_Saya" type="checkbox" value="remember-me" id="flexCheckDefault">
@@ -70,6 +71,8 @@ session_start();
     </div>
     <!-- ALERT -->
     <?php include '../../../src/admin/partials/utils/alert.php' ?>
+    <script src="../assets/js/toggle-login.js"></script>
 </body>
+
 
 </html>

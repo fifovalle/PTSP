@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +13,9 @@
     <link rel="icon" href="../../../src/admin/assets/image/logo/1.png">
     <link rel="stylesheet" href="../assets/css/signup1.css">
     <script src="../assets/js/javascript.js"></script>
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <title>SignUp-PTSP BMKG Provinsi Bengkulu</title>
 </head>
 
@@ -28,7 +34,7 @@
                         <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
                     </svg>
                 </div>
-                <form class="main-form" id="multiStepForm" method="post" action="">
+                <form class="main-form" id="multiStepForm" method="post" action="../../../src/admin/config/sign-up1.php">
                     <h3 class="form-header fw-normal py-3 text-black margin-custom"><b>DAFTAR PERORANGAN</b></h3>
                     <!-- Form 1 -->
                     <div class="step" id="wizard-h-0" style="display: flex;">
@@ -40,37 +46,43 @@
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NPWP" name="NPWP" placeholder="123*****">
+                                    <input type="number" class="form-control" id="NPWP" name="NPWP_Pengguna" placeholder="123*****">
                                     <label for="floatingInput">NPWP</label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NoIdentitas" name="NoIdentitas" placeholder="123*****">
+                                    <input type="number" class="form-control" id="NoIdentitas" name="No_Identitas_Pengguna" placeholder="123*****">
                                     <label for="floatingInput">No Identitas (KTP/SIM/KITAS/PASSPORT) <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Pekerjaan" name="Pekerjaan" placeholder="Mengaja***">
+                                    <input type="text" class="form-control" id="Pekerjaan" name="Pekerjaan_Pengguna" placeholder="Mengaja***">
                                     <label for="floatingInput">Pekerjaan <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="NamaLengkap" name="NamaLengkap" placeholder="Ridwan***">
-                                    <label for="floatingInput">Nama Lengkap <b>*</b> </label>
+                                    <input type="text" class="form-control" id="NamaDepan" name="Nama_Depan_Pengguna" placeholder="Ridwan***">
+                                    <label for="floatingInput">Nama Depan <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Pendidikan" name="Pendidikan" placeholder="Ridwan***">
-                                    <label for="floatingInput">Pendidikan Terakhir <b>*</b> </label>
+                                    <input type="text" class="form-control" id="NamaBelakang" name="Nama_Belakang_Pengguna" placeholder="Ridwan***">
+                                    <label for="floatingInput">Nama Belakang <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <select class="form-select" aria-label="Default select example" id="Jenis_Kelamin" name="Jenis_Kelamin">
+                                    <input type="text" class="form-control" id="Pendidikan" name="Pendidikan_Terakhir_Pengguna" placeholder="Ridwan***">
+                                    <label for="floatingInput">Pendidikan Terakhir <b>*</b> </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ps-0">
+                                <div class="form-floating my-3">
+                                    <select class="form-select" aria-label="Default select example" id="Jenis_Kelamin_Pengguna" name="Jenis_Kelamin">
                                         <option selected>Pilih Jenis Kelamin</option>
                                         <option value="1">Laki-laki</option>
                                         <option value="2">Perempuan</option>
@@ -78,8 +90,7 @@
                                     <label for="floatingInput">Jenis Kelamin <b>*</b> </label>
                                 </div>
                             </div>
-                            <div class="col-md-9"></div>
-                            <div class="col-md-3 pe-0 mt-2">
+                            <div class="col-md-6 pe-0 mt-4">
                                 <button class="nextBtn pushable" type="button" onclick="nextStep(1)">
                                     <span class="shadow"></span>
                                     <span class="edge"></span>
@@ -102,13 +113,13 @@
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Alamat" name="Alamat" placeholder="Jl.****">
+                                    <input type="text" class="form-control" id="Alamat" name="Alamat_Pengguna" placeholder="Jl.****">
                                     <label for="floatingInput">Alamat <b>*</b></label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NoTelepon" name="NoTelepon" placeholder="123*****">
+                                    <input type="number" class="form-control" id="NoTelepon" name="No_Telepon_Pengguna" placeholder="123*****">
                                     <label for="floatingInput">No Hp / No Telepon <b>*</b> </label>
                                 </div>
                             </div>
@@ -120,7 +131,7 @@
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="KotaKab" name="KotaKab" placeholder="Kab. ***">
+                                    <input type="text" class="form-control" id="KotaKab" name="Kota_Kab" placeholder="Kab. ***">
                                     <label for="floatingInput">Kabupaten/Kota <b>*</b> </label>
                                 </div>
                             </div>
@@ -157,33 +168,35 @@
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="email" class="form-control" id="Email" name="Email" placeholder="***@example.com">
+                                    <input type="email" class="form-control" id="Email" name="Email_Pengguna" placeholder="***@example.com">
                                     <label for="floatingInput">Email <b>*</b></label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Username" name="Username" placeholder="***sd**">
+                                    <input type="text" class="form-control" id="Nama_Pengguna" name="Nama_Pengguna" placeholder="***sd**">
                                     <label for="floatingInput">Nama Pengguna <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
-                                <div class="form-floating my-3">
-                                    <input type="password" class="form-control" id="Password" name="Password" placeholder="*****">
-                                    <label for="floatingInput">Password <b>*</b> </label>
+                                <div class="form-floating my-3 position-relative">
+                                    <input type="password" class="form-control" id="Kata_Sandi" name="Kata_Sandi" placeholder="*****">
+                                    <label for="floatingInput">Kata Sandi <b>*</b> </label>
+                                    <i class="bi bi-eye-slash eye-icon top-50 translate-middle-y" id="togglePassword1"></i>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
-                                <div class="form-floating my-3">
-                                    <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" placeholder="*****">
-                                    <label for="floatingInput">Konfirmasi Password <b>*</b> </label>
+                                <div class="form-floating my-3 position-relative">
+                                    <input type="password" class="form-control" id="Konfirmasi_Kata_Sandi" name="Konfirmasi_Kata_Sandi" placeholder="*****">
+                                    <label for="floatingInput">Konfirmasi Kata Sandi <b>*</b> </label>
+                                    <i class="bi bi-eye-slash eye-icon top-50 translate-middle-y" id="togglePassword2"></i>
                                 </div>
                             </div>
                             <div class="col-md-3">
                             </div>
                             <div class="col-md-6 ps-0 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="CaptchaCode" name="CaptchaCode" placeholder="*****">
+                                    <input type="text" class="form-control" id="Kode_Captcha" name="Kode_Captcha" placeholder="*****">
                                     <label for="floatingInput" class="d-flex align-items-center">Kode Captcha <b>*</b>
                                     </label>
                                 </div>
@@ -247,6 +260,9 @@
         </div>
     </div>
     <script src="../assets/js/sign-up.js"></script>
+    <script src="../assets/js/toggle-signup.js"></script>
+    <!-- ALERT -->
+    <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>

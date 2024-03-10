@@ -2,6 +2,7 @@
   --font-standart: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
 body {
   padding: 0;
   margin: 0;
@@ -9,6 +10,7 @@ body {
   transition: opacity 0.3s ease-in-out;
   font-family: var(--font-standart);
 }
+
 /* Scrollbar Effect */
 ::-webkit-scrollbar {
   width: 5px;
@@ -25,11 +27,13 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
 /* End Scrollbar Effect */
 
 /* Section 1 Left Content */
 .section1 .left-content {
-  padding: 3rem 3rem 3rem 3rem; /* Atas, kanan, bawah, kiri */
+  padding: 3rem 3rem 3rem 3rem;
+  /* Atas, kanan, bawah, kiri */
 }
 
 .background {
@@ -47,7 +51,7 @@ body {
 
 .custom-shape-divider-bottom-1709729084 {
   position: absolute;
-  top: 130%;
+  top: 145%;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -66,6 +70,12 @@ body {
 
 .custom-shape-divider-bottom-1709729084 .shape-fill {
   fill: #d3d3d3;
+}
+
+@media only screen and (min-width: 1536px) {
+  .custom-shape-divider-bottom-1709729084 {
+    top: 150%;
+  }
 }
 
 .logo-perorangan {
@@ -97,6 +107,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .row.form1 {
   margin-left: 0;
   margin-right: 0;
@@ -143,13 +154,11 @@ label b {
   height: 100%;
   width: 100%;
   border-radius: 8px;
-  background: linear-gradient(
-    to right,
-    hsl(224.3, 67.9%, 39%) 0%,
-    hsl(224.3, 67.9%, 49%) 8%,
-    hsl(224.3, 67.9%, 39%) 92%,
-    hsl(224.3, 67.9%, 29%) 100%
-  );
+  background: linear-gradient(to right,
+      hsl(224.3, 67.9%, 39%) 0%,
+      hsl(224.3, 67.9%, 49%) 8%,
+      hsl(224.3, 67.9%, 39%) 92%,
+      hsl(224.3, 67.9%, 29%) 100%);
 }
 
 .front {
@@ -238,6 +247,7 @@ label b {
   fill: white;
   transform: scale(1.2);
 }
+
 /* End Section 1 Left Content */
 
 /* Section 1 Right Content */
@@ -247,6 +257,7 @@ label b {
   height: auto;
   width: 50%;
 }
+
 /* End Section 1 Right Content */
 .switch {
   font-size: 17px;
@@ -288,11 +299,17 @@ label b {
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.switch input:checked + .slider {
+.switch input:checked+.slider {
   box-shadow: 0 0 20px rgba(255, 255, 255, 1);
   border: 2px solid rgba(255, 255, 255, 0);
 }
 
-.switch input:checked + .slider:before {
+.switch input:checked+.slider:before {
   transform: translateX(1.5em);
+}
+
+.eye-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
 }

@@ -3,6 +3,7 @@
   --color-default-white: #ffff;
   --color-btn-masuk: #0077ff;
 }
+
 body {
   padding: 0;
   margin: 0;
@@ -12,9 +13,12 @@ body {
 .section1 {
   height: 837px;
 }
+
 .section1 .right-content {
-  padding: 5rem 7rem 5rem 7rem; /* Atas, kanan, bawah, kiri */
+  padding: 5rem 7rem 5rem 7rem;
+  /* Atas, kanan, bawah, kiri */
 }
+
 .form {
   padding: 3rem;
   background: rgba(255, 255, 255, 0.27);
@@ -35,6 +39,7 @@ body {
   right: 70px;
   z-index: 1;
 }
+
 .logo-mbkg {
   width: 25%;
   position: absolute;
@@ -45,7 +50,7 @@ body {
 
 .custom-shape-divider-bottom-1709729084 {
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -63,6 +68,9 @@ body {
 .custom-shape-divider-bottom-1709729084 .shape-fill {
   fill: var(--divider-color);
 }
+
+
+
 /* End Section 1 Effect */
 
 .button {
@@ -94,25 +102,19 @@ body {
 
 .button:hover:before {
   top: -70%;
-  background-image: radial-gradient(
-      circle,
+  background-image: radial-gradient(circle,
       var(--color-btn-masuk) 20%,
-      transparent 20%
-    ),
-    radial-gradient(
-      circle,
+      transparent 20%),
+    radial-gradient(circle,
       transparent 20%,
       var(--color-btn-masuk) 20%,
-      transparent 30%
-    ),
+      transparent 30%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
-    radial-gradient(
-      circle,
+    radial-gradient(circle,
       transparent 10%,
       var(--color-btn-masuk) 15%,
-      transparent 20%
-    ),
+      transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
@@ -143,18 +145,14 @@ body {
 
 .button:hover::after {
   bottom: -70%;
-  background-image: radial-gradient(
-      circle,
+  background-image: radial-gradient(circle,
       var(--color-btn-masuk) 20%,
-      transparent 20%
-    ),
+      transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
-    radial-gradient(
-      circle,
+    radial-gradient(circle,
       transparent 10%,
       var(--color-btn-masuk) 15%,
-      transparent 20%
-    ),
+      transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
@@ -190,6 +188,7 @@ body {
     right: 70px;
     z-index: 1;
   }
+
   .logo-mbkg {
     width: 25%;
     position: absolute;
@@ -197,4 +196,17 @@ body {
     right: 370px;
     z-index: 1;
   }
+}
+
+.eye-toggle {
+  position: absolute;
+  top: 53%;
+  right: 17px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 100;
+}
+
+.bi-eye {
+  font-size: 17px;
 }

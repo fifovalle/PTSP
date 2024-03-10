@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2024 at 12:26 AM
+-- Generation Time: Mar 09, 2024 at 09:01 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -102,7 +102,7 @@ CREATE TABLE `jasa` (
 
 INSERT INTO `jasa` (`ID_Jasa`, `Foto_Jasa`, `Nama_Jasa`, `Deskripsi_Jasa`, `Harga_Jasa`, `Pemilik_Jasa`, `No_Rekening_Jasa`, `Kategori_Jasa`, `Status_Jasa`) VALUES
 (9, 0x363565333630353737646666642e706e67, 'ASDVFB', 'SSCDVC ', 2000, 'Instansi A', 0, 'Meteorologi', 'Tersedia'),
-(10, 0x363565396665333432313163392e6a706567, 'Nasi Padang', 'Enak Bjirr', 25000, 'Instansi A', 0, 'Meteorologi', 'Tersedia'),
+(10, 0x363565633633623263396665372e6a7067, 'Data Tsunami', 'Detektor Tsunami', 25000, 'Instansi A', 0, 'Meteorologi', 'Tersedia'),
 (11, 0x363565396362323036663666392e6a7067, 'JFNGURE', 'JSDB', 9000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia');
 
 -- --------------------------------------------------------
@@ -114,8 +114,12 @@ INSERT INTO `jasa` (`ID_Jasa`, `Foto_Jasa`, `Nama_Jasa`, `Deskripsi_Jasa`, `Harg
 CREATE TABLE `pengguna` (
   `ID_Pengguna` int(11) NOT NULL,
   `Foto` blob NOT NULL,
+  `NPWP_Pengguna` varchar(25) NOT NULL,
+  `No_Identitas_Pengguna` int(16) NOT NULL,
+  `Pekerjaan_Pengguna` varchar(50) NOT NULL,
   `Nama_Depan_Pengguna` varchar(30) NOT NULL,
   `Nama_Belakang_Pengguna` varchar(30) NOT NULL,
+  `Pendidikan_Terakhir_Pengguna` varchar(30) NOT NULL,
   `Nama_Pengguna` varchar(30) NOT NULL,
   `Email_Pengguna` varchar(50) NOT NULL,
   `Kata_Sandi` varchar(100) NOT NULL,
@@ -123,16 +127,13 @@ CREATE TABLE `pengguna` (
   `No_Telepon_Pengguna` varchar(50) NOT NULL,
   `Jenis_Kelamin_Pengguna` enum('Pria','Wanita') NOT NULL,
   `Alamat_Pengguna` text NOT NULL,
+  `Provinsi` varchar(30) NOT NULL,
+  `Kabupaten_Kota` varchar(30) NOT NULL,
+  `Jenis_Pengguna` enum('Perorangan','Perusahaan') NOT NULL,
+  `Kode_Captcha` varchar(10) NOT NULL,
   `Status_Verifikasi_Pengguna` enum('Terverivikasi','Belum Terverifikasi') NOT NULL,
   `token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `pengguna`
---
-
-INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Status_Verifikasi_Pengguna`, `token`) VALUES
-(8, 0x363565396339633765656333342e6a7067, 'Naufal', 'NA', 'fifa', 'fifanaufal10@gmail.com', '$2y$10$PgRwdEvu.dclCDEvh4KTGu77QubSaAagkYnKD.kQxgJTPUsZzJ7BS', '$2y$10$PgRwdEvu.dclCDEvh4KTGu77QubSaAagkYnKD.kQxgJTPUsZzJ7BS', '+62 812-3652-2490', 'Wanita', 'a', '', 2147483647);
 
 --
 -- Indexes for dumped tables
