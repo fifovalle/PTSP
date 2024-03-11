@@ -84,17 +84,18 @@ if (!isset($_SESSION['ID'])) {
                                 <i class="bx bx-filter iconFilter"></i>
                             </div>
                             <div class="col-10 mb-3">
-                                <input id="filterInput" class="filterInput" type="text" placeholder="Filter Data" onkeydown="handleInput(event)">
+                                <input id="filterInput" class="filterInput" type="text" placeholder="Filter Nama Pengguna" onkeydown="handleInput(event)">
                                 <div id="valuesContainer"></div>
                             </div>
-                            <div id="dropdownFilter" class="dropdownContentFilter row">
+                            <!-- UNTUK MAINTENANCE -->
+                            <!-- <div id="dropdownFilter" class="dropdownContentFilter row">
                                 <div class="col listDropdownFilter">
                                     <span>Nama Pengguna</span>
                                 </div>
                                 <div class="col listDropdownFilter">
                                     <span>Email</span>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <hr class="hrData">
                         <div class="row mx-auto">

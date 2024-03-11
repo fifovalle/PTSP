@@ -148,8 +148,8 @@ checkBoxHeaderTransaction.addEventListener("click", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  var input = document.getElementById("filterInput");
-  var dropdown = document.getElementById("dropdownFilter");
+  let input = document.getElementById("filterInput");
+  let dropdown = document.getElementById("dropdownFilter");
 
   input.addEventListener("click", function () {
     dropdown.classList.toggle("show");
