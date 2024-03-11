@@ -61,12 +61,26 @@ $("body").on("click", function (event) {
 
 document.getElementById("btnKirim").addEventListener("click", function () {
   document.getElementById("btnKirim").style.display = "none";
-  document.querySelector(".pemuat").style.display = "block";
+  document.getElementById("pemuat1").style.display = "block";
 });
 
 function sendAdminData() {
   setTimeout(function () {
     let btnKirim = document.getElementById("btnKirim");
+    btnKirim.addEventListener("click", function () {
+      sendAdminData();
+    });
+  }, 5000);
+}
+
+document.getElementById("btnSimpan").addEventListener("click", function () {
+  document.getElementById("btnSimpan").style.display = "none";
+  document.getElementById("pemuat2").style.display = "block";
+});
+
+function sendAdminData() {
+  setTimeout(function () {
+    let btnSimpan = document.getElementById("btnSimpan");
     btnKirim.addEventListener("click", function () {
       sendAdminData();
     });

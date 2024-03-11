@@ -32,7 +32,7 @@
                         <label for="addressAddAdmin" class="form-label">Pesan Anda</label>
                         <textarea name="Pesan_Pengirim" placeholder="Masukan Pesan Anda" class="form-control inputData addressAddAdmin" id="addressAddAdmin" autocomplete="off"></textarea>
                     </div>
-                    <div class="pemuat" style="display: none;"></div>
+                    <div class="pemuat" id="pemuat1"></div>
                     <button type="submit" class="btn btnUpload" name="Kirim" id="btnKirim">
                         Kirim
                     </button>

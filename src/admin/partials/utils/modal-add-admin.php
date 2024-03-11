@@ -75,7 +75,8 @@
                         <label for="addressAdmin" class="form-label">Alamat Admin</label>
                         <textarea name="Alamat_Admin" placeholder="<?php echo htmlspecialchars('Masukkan Alamat Admin'); ?>" class="form-control inputData addressAddAdmin" id="addressAdmin" autocomplete="off"></textarea>
                     </div>
-                    <button type="submit" class="btn btnUpload" name="Simpan"><?php echo htmlspecialchars('Kirim'); ?></button>
+                    <div class="pemuat" id="pemuat2"></div>
+                    <button type="submit" class="btn btnUpload" name="Simpan" id="btnSimpan""><?php echo htmlspecialchars('Kirim'); ?></button>
                 </form>
             </div>
         </div>

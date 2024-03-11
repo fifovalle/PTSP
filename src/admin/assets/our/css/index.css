@@ -15,6 +15,7 @@
     repeating-linear-gradient(135deg, #f03355 0 10px, #ffa516 0 20px) 0/0% no-repeat,
     repeating-linear-gradient(135deg, #ddd 0 10px, #eee 0 20px) 0/100%;
   animation: l3 5s infinite;
+  display: none;
 }
 
 @keyframes l3 {
