@@ -1,5 +1,12 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 include 'databases.php';
+require '../../../vendor/phpmailer/src/Exception.php';
+require '../../../vendor/phpmailer/src/PHPMailer.php';
+require '../../../vendor/phpmailer/src/SMTP.php';
 
 if (isset($_POST['Simpan'])) {
     $namaDepan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Depan_Admin']));
@@ -12,9 +19,11 @@ if (isset($_POST['Simpan'])) {
     $jenisKelamin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Jenis_Kelamin_Admin']));
     $peranAdmin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Peran_Admin']));
     $alamatAdmin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Alamat_Admin']));
-    $token = uniqid();
-
     $obyekAdmin = new Admin($koneksi);
+    do {
+        $token = random_int(10000000, 99999999);
+        $tokenSudahAda = $obyekAdmin->getAdminByToken($token);
+    } while ($tokenSudahAda);
 
     $pesanKesalahan = '';
 
@@ -69,13 +78,13 @@ if (isset($_POST['Simpan'])) {
 
     if (!empty($pesanKesalahan)) {
         setPesanKesalahan($pesanKesalahan);
-        header("Location: $akarUrl/src/admin/pages/data.php");
+        header("Location: $akarUrl" . "src/admin/pages/data.php");
         exit;
     }
 
     if ($obyekAdmin->cekEmailSudahAda($email)) {
         setPesanKesalahan("Email yang dimasukkan sudah terdaftar.");
-        header("Location: $akarUrl/src/admin/pages/data.php");
+        header("Location: $akarUrl" . "src/admin/pages/data.php");
         exit;
     }
 
@@ -92,20 +101,41 @@ if (isset($_POST['Simpan'])) {
         'Peran_Admin' => $peranAdmin,
         'Alamat_Admin' => $alamatAdmin,
         'Status_Verifikasi_Admin' => "Belum Terverifikasi",
-        'token' => $token
+        'Token' => $token
     );
 
     $simpanDataAdmin = $obyekAdmin->tambahAdmin($dataAdmin);
 
     if ($simpanDataAdmin) {
-        setPesanKeberhasilan("Data admin berhasil disimpan.");
+        require '../../../vendor/autoload.php';
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'fifanaufal10@gmail.com';
+        $mail->Password = 'vqio euwq gppe ppww';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+        $mail->setFrom('syntaxsquad24@gmail.com', 'Nama Pengirim');
+        $mail->addAddress($email, $namaDepan . ' ' . $namaBelakang);
+        $mail->Subject = 'Verifikasi Akun Admin';
+        $mail->Body = "Halo,\n\nSilakan klik tautan berikut untuk verifikasi akun admin Anda:\n\n";
+        $mail->Body .= "$akarUrl" . "src/admin/config/verification-email.php?Token=$token";
+        $mail->Body .= "\n\nTerima kasih.";
+        try {
+            $mail->send();
+            setPesanKeberhasilan("Data admin berhasil disimpan. Email verifikasi telah dikirim.");
+            header("Location: $akarUrl" . "src/admin/pages/data.php");
+        } catch (Exception $e) {
+            setPesanKesalahan("Gagal mengirim email verifikasi: {$mail->ErrorInfo}");
+            header("Location: $akarUrl" . "src/admin/pages/data.php");
+        }
     } else {
         setPesanKesalahan("Gagal menyimpan data admin.");
     }
-
-    header("Location: $akarUrl/src/admin/pages/data.php");
+    header("Location: $akarUrl" . "src/admin/pages/data.php");
     exit;
 } else {
-    header("Location: $akarUrl/src/admin/pages/data.php");
+    header("Location: $akarUrl" . "src/admin/pages/data.php");
     exit;
 }

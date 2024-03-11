@@ -18,7 +18,7 @@ class Admin
 
     public function tambahAdmin($data)
     {
-        $query = "INSERT INTO admin (Foto, Nama_Depan_Admin, Nama_Belakang_Admin, Nama_Pengguna_Admin, Email_Admin, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Admin, Jenis_Kelamin_Admin, Peran_Admin, Alamat_Admin, Status_Verifikasi_Admin, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO admin (Foto, Nama_Depan_Admin, Nama_Belakang_Admin, Nama_Pengguna_Admin, Email_Admin, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Admin, Jenis_Kelamin_Admin, Peran_Admin, Alamat_Admin, Status_Verifikasi_Admin, Token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
@@ -35,7 +35,7 @@ class Admin
             $this->escapeString($data['Peran_Admin']),
             $this->escapeString($data['Alamat_Admin']),
             $this->escapeString($data['Status_Verifikasi_Admin']),
-            $this->escapeString($data['token'])
+            $this->escapeString($data['Token'])
         );
 
         if ($statement->execute()) {
@@ -243,8 +243,33 @@ class Admin
             return false;
         }
     }
-}
 
+    public function getAdminByToken($token)
+    {
+        $query = "SELECT * FROM admin WHERE Token = ?";
+        $stmt = mysqli_prepare($this->koneksi, $query);
+        mysqli_stmt_bind_param($stmt, "i", $token);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        return mysqli_fetch_assoc($result);
+    }
+
+    public function updateStatusVerifikasi($adminId, $status)
+    {
+        $query = "UPDATE admin SET Status_Verifikasi_Admin = ? WHERE ID_Admin = ?";
+        $stmt = mysqli_prepare($this->koneksi, $query);
+        mysqli_stmt_bind_param($stmt, "si", $status, $adminId);
+        return mysqli_stmt_execute($stmt);
+    }
+
+    public function updateToken($adminId, $token)
+    {
+        $query = "UPDATE admin SET token = ? WHERE ID_Admin = ?";
+        $stmt = mysqli_prepare($this->koneksi, $query);
+        mysqli_stmt_bind_param($stmt, "si", $token, $adminId);
+        return mysqli_stmt_execute($stmt);
+    }
+}
 // ===================================ADMIN===================================
 
 
