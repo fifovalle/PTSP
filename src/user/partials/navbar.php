@@ -12,14 +12,14 @@
             </button>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item active">
+                    <button class="nav-item mx-2" id="btnBeranda">
                         <a class="nav-link mx-2" id="Beranda" aria-current="page" href="../pages/main.php">Beranda</a>
-                    </li>
-                    <li class="nav-item mx-2 ">
+                    </button>
+                    <button class="nav-item mx-2" id="btnAjukan">
                         <a class="nav-link" id="Ajukan" href="../pages/ajukan.php">Ajukan</a>
-                    </li>
-                    <li class="nav-item mx-2 dropdown">
-                        <a class="nav-link dropdown-toggle" id="Regulasi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    </button>
+                    <button class="nav-item mx-2 dropdown" id="btnRegulasi">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="Regulasi">
                             Regulasi
                         </a>
                         <ul class="dropdown-menu regulasi-menu" aria-labelledby="Regulasi">
@@ -32,10 +32,10 @@
                             <a class="ps-4 nav-link" data-bs-toggle="modal" data-bs-target="#TarifLayanan"><box-icon name='wallet'></box-icon>Tarif
                                 Pelayanan</a>
                         </ul>
-                    </li>
-                    <li class="nav-item mx-2">
+                    </button>
+                    <button class="nav-item mx-2" id="btnPesanan" active>
                         <a class="nav-link" id="Pesanan" href="../pages/pesanan.php">Pesanan</a>
-                    </li>
+                    </button>
                 </ul>
                 <hr>
                 <div class="checker" role="search">

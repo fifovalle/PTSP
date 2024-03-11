@@ -154,11 +154,13 @@ label b {
   height: 100%;
   width: 100%;
   border-radius: 8px;
-  background: linear-gradient(to right,
-      hsl(224.3, 67.9%, 39%) 0%,
-      hsl(224.3, 67.9%, 49%) 8%,
-      hsl(224.3, 67.9%, 39%) 92%,
-      hsl(224.3, 67.9%, 29%) 100%);
+  background: linear-gradient(
+    to right,
+    hsl(224.3, 67.9%, 39%) 0%,
+    hsl(224.3, 67.9%, 49%) 8%,
+    hsl(224.3, 67.9%, 39%) 92%,
+    hsl(224.3, 67.9%, 29%) 100%
+  );
 }
 
 .front {
@@ -299,12 +301,12 @@ label b {
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.switch input:checked+.slider {
+.switch input:checked + .slider {
   box-shadow: 0 0 20px rgba(255, 255, 255, 1);
   border: 2px solid rgba(255, 255, 255, 0);
 }
 
-.switch input:checked+.slider:before {
+.switch input:checked + .slider:before {
   transform: translateX(1.5em);
 }
 

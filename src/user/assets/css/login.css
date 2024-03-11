@@ -3,7 +3,23 @@
   --color-default-white: #ffff;
   --color-btn-masuk: #0077ff;
 }
+/************** Scrollbar Effect **************/
+::-webkit-scrollbar {
+  width: 5px;
+}
 
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/************** End Scrollbar Effect **************/
 body {
   padding: 0;
   margin: 0;
@@ -48,9 +64,30 @@ body {
   z-index: 1;
 }
 
+.captcha-code {
+  font-size: 2.5rem !important;
+  font-weight: bold !important;
+  letter-spacing: 20px;
+  top: 51%;
+  right: 190px;
+}
+
+.eye-toggle {
+  position: absolute;
+  top: 53%;
+  right: 17px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 100;
+}
+
+.bi-eye {
+  font-size: 17px;
+}
+
 .custom-shape-divider-bottom-1709729084 {
   position: absolute;
-  bottom: 0px;
+  bottom: -185px;
   left: 0;
   width: 100%;
   overflow: hidden;
@@ -62,14 +99,12 @@ body {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
-  height: 160px;
+  height: 180px;
 }
 
 .custom-shape-divider-bottom-1709729084 .shape-fill {
   fill: var(--divider-color);
 }
-
-
 
 /* End Section 1 Effect */
 
@@ -102,19 +137,25 @@ body {
 
 .button:hover:before {
   top: -70%;
-  background-image: radial-gradient(circle,
+  background-image: radial-gradient(
+      circle,
       var(--color-btn-masuk) 20%,
-      transparent 20%),
-    radial-gradient(circle,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle,
       transparent 20%,
       var(--color-btn-masuk) 20%,
-      transparent 30%),
+      transparent 30%
+    ),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
-    radial-gradient(circle,
+    radial-gradient(
+      circle,
       transparent 10%,
       var(--color-btn-masuk) 15%,
-      transparent 20%),
+      transparent 20%
+    ),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
@@ -145,14 +186,18 @@ body {
 
 .button:hover::after {
   bottom: -70%;
-  background-image: radial-gradient(circle,
+  background-image: radial-gradient(
+      circle,
       var(--color-btn-masuk) 20%,
-      transparent 20%),
+      transparent 20%
+    ),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
-    radial-gradient(circle,
+    radial-gradient(
+      circle,
       transparent 10%,
       var(--color-btn-masuk) 15%,
-      transparent 20%),
+      transparent 20%
+    ),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
@@ -196,17 +241,8 @@ body {
     right: 370px;
     z-index: 1;
   }
-}
-
-.eye-toggle {
-  position: absolute;
-  top: 53%;
-  right: 17px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  z-index: 100;
-}
-
-.bi-eye {
-  font-size: 17px;
+  .captcha-code {
+    top: 51%;
+    right: 145px;
+  }
 }

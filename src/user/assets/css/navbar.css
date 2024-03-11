@@ -311,3 +311,11 @@ hr.vertical {
 .selected-navbar {
   background-color: green;
 }
+
+#btnBeranda,
+#btnAjukan,
+#btnRegulasi,
+#btnPesanan {
+  border: none;
+  background-color: transparent;
+}

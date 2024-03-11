@@ -47,6 +47,15 @@ session_start();
                         <label for="floatingPassword">Kata Sandi</label>
                         <span data-toggle="password" class="eye-toggle"><i class="bi bi-eye-slash"></i></span>
                     </div>
+                    <div class="form-floating my-3 text-center">
+                        <input type="text" class="form-control" id="Kode_Captcha" name="Kode_Captcha" placeholder="*****">
+                        <label for="floatingInput" class="d-flex align-items-center">Kode Captcha <b>*</b>
+                        </label>
+                    </div>
+                    <svg width="300" height="130" xmlns="http://www.w3.org/2000/svg" class="position-relative captcha">
+                        <rect width="300" height="100" x="10" y="10" style="fill:#d3d3d3;" />
+                        <span class="position-absolute captcha-code">154AB</span>
+                    </svg>
                     <div class="form-check text-start my-3 ">
                         <input class="form-check-input" name="Ingat_Saya" type="checkbox" value="remember-me" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">

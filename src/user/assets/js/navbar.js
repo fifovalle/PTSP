@@ -60,3 +60,17 @@ function showContent2(contentId) {
     document.getElementById(contentId).style.display = 'block';
     event.currentTarget.classList.add('selected-navbar');
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    var urlHalaman = window.location.href;
+    if (urlHalaman.includes("main.php")) {
+        document.getElementById("btnBeranda").classList.add("active");
+    } else if (urlHalaman.includes("ajukan.php")) {
+        document.getElementById("btnAjukan").classList.add("active");
+    } else if (urlHalaman.includes("pesanan.php")) {
+        document.getElementById("btnPesanan").classList.add("active");
+    } 
+});
+
+
+

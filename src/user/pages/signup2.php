@@ -256,17 +256,6 @@
                                     <i class="bi bi-eye-slash eye-icon top-50 translate-middle-y" id="togglePassword2"></i>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                            </div>
-                            <div class="col-md-6 ps-0 pe-0">
-                                <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="CaptchaCode" name="CaptchaCode" placeholder="*****">
-                                    <label for="floatingInput" class="d-flex align-items-center">Kode Captcha <b>*</b>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                            </div>
                             <div class="col-md-9"></div>
                             <div class="col-md-3 pe-0">
                                 <button class="prevBtn pushable" type="button" onclick="prevStep(1)">
