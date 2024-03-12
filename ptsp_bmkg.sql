@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2024 at 08:22 AM
+-- Generation Time: Mar 12, 2024 at 08:10 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -49,9 +49,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admin`, `Nama_Pengguna_Admin`, `Email_Admin`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Admin`, `Jenis_Kelamin_Admin`, `Peran_Admin`, `Alamat_Admin`, `Status_Verifikasi_Admin`, `Token`) VALUES
-(55, 0x363564633763386235303835662e6a7067, 'Naufal', 'FIFA', 'zonaDeveloper', 'Naufal@gmail.com', '$2y$10$q84vk0AmmniECaXZsZNQu.Kw6AILFmypXZ6YR0gWnpiHuwAtJZJI6', '$2y$10$q84vk0AmmniECaXZsZNQu.Kw6AILFmypXZ6YR0gWnpiHuwAtJZJI6', '+62 812-3652-2490', 'Pria', 1, 'Batujajar', 'Belum Terverifikasi', 65),
 (68, 0x363565353938306262663736392e6a7067, 'Sandro', 'Anugrah', 'Sandro', 'sandro@gmail.com', '$2y$10$9EsGBDrTJk5o0OZ8wEjtpOOebV8Q4SDn9/izeZ854dm7dFK53/cJm', '$2y$10$9EsGBDrTJk5o0OZ8wEjtpOOebV8Q4SDn9/izeZ854dm7dFK53/cJm', '+62 227-8696-666', 'Pria', 1, 'Batujajar\r\n\r\n', 'Belum Terverifikasi', 2147483647),
-(71, 0x363565396562356161643363392e6a7067, 'Ahsan', 'Ghifari', 'AhsanGhiff', 'ahsan@gmail.com', '$2y$10$dXEYnN7x56HHNq5IzgfEt.q1VPgi2hjzuscOHRU.WqTLVCVWRt7gu', '$2y$10$dXEYnN7x56HHNq5IzgfEt.q1VPgi2hjzuscOHRU.WqTLVCVWRt7gu', '+62 812-4118-8340', 'Pria', 1, 'sdfg', 'Belum Terverifikasi', 2147483647);
+(71, 0x363565396562356161643363392e6a7067, 'Ahsan', 'Ghifari', 'AhsanGhiff', 'ahsan@gmail.com', '$2y$10$dXEYnN7x56HHNq5IzgfEt.q1VPgi2hjzuscOHRU.WqTLVCVWRt7gu', '$2y$10$dXEYnN7x56HHNq5IzgfEt.q1VPgi2hjzuscOHRU.WqTLVCVWRt7gu', '+62 812-4118-8340', 'Pria', 1, 'sdfg', 'Belum Terverifikasi', 2147483647),
+(81, 0x363565666666313836636437342e6a7067, 'Naufal', 'FIFA', 'zonaDeveloper', 'fifanaufal10@gmail.com', '$2y$10$xROadgNIVxwG7aaqNK77uebaRYGY4FxdqCbphnfCBoy3yeAReRLTO', '$2y$10$xROadgNIVxwG7aaqNK77uebaRYGY4FxdqCbphnfCBoy3yeAReRLTO', '+62   812-3652-2490', 'Pria', 1, 'Batujajar', 'Terverifikasi', 0);
 
 -- --------------------------------------------------------
 
@@ -171,7 +171,7 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `informasi`
