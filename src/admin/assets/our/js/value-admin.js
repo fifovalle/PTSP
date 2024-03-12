@@ -24,6 +24,14 @@ $(document).ready(function () {
         $("#ganderEditAdmin").val(adminData.Jenis_Kelamin_Admin);
         $("#roleEditAdmin").val(adminData.Peran_Admin);
         $("#addressEditAdmin").val(adminData.Alamat_Admin);
+        if (adminID == sessionID) {
+          console.log("true");
+          $(".isAdminActive").addClass("d-none");
+        } else {
+          $(".isAdminActive").removeClass("d-none");
+        }
+        console.log("Nilai #editAdminID: ", $("#editAdminID").val());
+        console.log("Nilai adminID: ", adminID);
         $("#editAdmin").modal("show");
       },
       error: function (xhr) {

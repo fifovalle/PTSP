@@ -146,25 +146,9 @@ if (!isset($_SESSION['ID'])) {
     <?php
     include "../partials/utils/modal-send-feedback.php";
     ?>
-
-    <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="filterModalLabel">Filter Data</h5>
-                    <div class="modalClose" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="fas fa-times"></i>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <input type="text" id="userInput" class="form-control" placeholder="Cari Data">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btnUpload" name="Simpan" id="saveUserInput">Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+    include "../partials/utils/isAdmin.php";
+    ?>
     <!-- ALL MODAL END -->
 
     <!-- CDN JQUERY -->

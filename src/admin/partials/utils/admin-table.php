@@ -62,9 +62,9 @@
                                     <span><i class="fas fa-edit"></i></span>
                                 </a>
                                 <?php
-                                $deleteButtonScript = ($_SESSION['ID'] != $admin['ID_Admin'] && $_SESSION['ID'] != $admin['ID_Admin']) ? 'confirmDeleteAdmin(' . $admin['ID_Admin'] . ');' : '';
+                                $tombolHapus = ($_SESSION['ID'] != $admin['ID_Admin'] && $_SESSION['ID'] != $admin['ID_Admin']) ? 'confirmDeleteAdmin(' . $admin['ID_Admin'] . ');' : '';
                                 ?>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="<?php echo $deleteButtonScript; ?>" <?php echo ($_SESSION['ID'] == $admin['ID_Admin']) ? 'style="display: none;"' : ''; ?>>
+                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="<?php echo $tombolHapus; ?>" <?php echo ($_SESSION['ID'] == $admin['ID_Admin']) ? 'style="display: none;"' : ''; ?>>
                                     <span><i class="fas fa-trash"></i></span>
                                 </a>
                             </div>
