@@ -47,19 +47,11 @@
                     </div>
                     <div class="mb-3 isAdminActive">
                         <label for="roleEditAdmin" class="form-label">Peran Admin</label>
-                        <select name="Peran_Admin" idEdit="roleAdmin" class="form-control inputData">
-                            <?php
-                            $peranAdmin = isset($_SESSION['Peran_Admin']) ? $_SESSION['Peran_Admin'] : '';
-                            $apakahSuperAdmin = ($peranAdmin == 1);
-                            echo ($apakahSuperAdmin) ? '<option value="" selected>Pilih Peran Admin</option>' : '';
-                            echo ($apakahSuperAdmin) ? '<option value="1">Super Admin</option>' : '';
-                            echo ($apakahSuperAdmin) ? '<option value="2">Instansi A</option>' : '';
-                            echo ($apakahSuperAdmin) ? '<option value="3">Instansi B</option>' : '';
-                            echo ($apakahSuperAdmin) ? '<option value="4">Instansi C</option>' : '';
-                            echo (!$apakahSuperAdmin && $peranAdmin == 2) ? '<option value="2" selected>Instansi A</option>' : '';
-                            echo (!$apakahSuperAdmin && $peranAdmin == 3) ? '<option value="3" selected>Instansi B</option>' : '';
-                            echo (!$apakahSuperAdmin && $peranAdmin == 4) ? '<option value="4" selected>Instansi C</option>' : '';
-                            ?>
+                        <select name="Peran_Admin" id="roleEditAdmin" class="form-control inputData">
+                            <option value="1">Super Admin</option>
+                            <option value="2">Instansi A</option>
+                            <option value="3">Instansi B</option>
+                            <option value="4">Instansi C</option>
                         </select>
                     </div>
                     <div class="mb-3">
