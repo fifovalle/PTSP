@@ -31,7 +31,7 @@ include '../config/databases.php';
             </div>
         </div>
         <div class="login-content">
-            <form id="formForgotForDrive" action="" method="post">
+            <form id="formForgotForDrive" action="../config/forgot-password.php" method="post">
                 <img class="imgForm" src="../assets/image/logo/logo2.png">
                 <h2 class="title">Lupa Kata Sandi ?</h2>
                 <div id="emailForgotForDrive" class="input-div one">
@@ -40,11 +40,11 @@ include '../config/databases.php';
                     </div>
                     <div class="div">
                         <h5>Email</h5>
-                        <input type="text" class="input" name="Email_Nama_Pengguna" autocomplete="off">
+                        <input type="text" class="input" name="Email_Forgot" autocomplete="off">
                     </div>
                 </div>
                 <p>Masukan Email Anda !</p>
-                <button id="btnForgotForDrive" name="Masuk" type="submit" class="btn">Kirim</button>
+                <button id="btnForgotForDrive" name="Kirim" type="submit" class="btn">Kirim</button>
             </form>
         </div>
     </div>

@@ -269,6 +269,30 @@ class Admin
         mysqli_stmt_bind_param($stmt, "si", $token, $adminId);
         return mysqli_stmt_execute($stmt);
     }
+
+    public function getAdminByEmail($email)
+    {
+        $query = "SELECT * FROM admin WHERE Email_Admin = '$email'";
+        $result = mysqli_query($this->koneksi, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $adminData = mysqli_fetch_assoc($result);
+            return $adminData;
+        } else {
+            return null;
+        }
+    }
+
+    public function updateTokenByEmail($email, $newToken)
+    {
+        $query = "UPDATE admin SET Token = '$newToken' WHERE Email_Admin = '$email'";
+        $result = mysqli_query($this->koneksi, $query);
+
+        if ($result) {
+            return true;
+            return false;
+        }
+    }
 }
 // ===================================ADMIN===================================
 
