@@ -33,7 +33,8 @@
                         $keluaran = '';
                         if (!empty($dataTerbaru)) {
                             foreach ($dataTerbaru as $item) {
-                                $keluaran .= '<div class="d-flex align-items-center justify-content-between list boxParent mb-3">';
+                                $keluaran .= '<div id="boxParent">';
+                                $keluaran .= '<div id="boxParent2" class="boxParent d-flex align-items-center justify-content-between list mb-3">';
                                 $keluaran .= '<img class="imageProduct" src="' . $akarUrl . 'src/admin/assets/image/uploads/' . (isset($item['Foto_Informasi']) ? $item['Foto_Informasi'] : $item['Foto_Jasa']) . '" alt="imageProduct">';
                                 $keluaran .= '<div class="box">';
                                 $keluaran .= '<p>' . (isset($item['Nama_Informasi']) ? $item['Nama_Informasi'] : $item['Nama_Jasa']) . '</p>';
@@ -46,6 +47,7 @@
                                 $keluaran .= '</div>';
                                 $keluaran .= '<a class="linkProduk" href="#"><span class="edit-icon"><i class="fas fa-edit"></i> Sunting</span></a>';
                                 $keluaran .= '<a class="linkProduk" href="#"><span class="delete-icon"><i class="fas fa-trash"></i> Hapus</span></a>';
+                                $keluaran .= '</div>';
                                 $keluaran .= '</div>';
                             }
                         } else {

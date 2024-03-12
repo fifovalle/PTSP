@@ -20,7 +20,7 @@ if (isset($_POST["keyword"])) {
     $hasilPencarian = array_merge($hasilInformasi, $hasilJasa);
     if (!empty($hasilPencarian)) {
         foreach ($hasilPencarian as $item) {
-            $hasilPencaharian .= '<div class="d-flex align-items-center justify-content-between list boxParent mb-3">';
+            $hasilPencaharian .= '<div class="boxParent d-flex align-items-center justify-content-between list mb-3">';
             $hasilPencaharian .= '<img class="imageProduct" src="' . $akarUrl . 'src/admin/assets/image/uploads/' . (isset($item['Foto_Informasi']) ? $item['Foto_Informasi'] : $item['Foto_Jasa']) . '" alt="imageProduct">';
             $hasilPencaharian .= '<div class="box">';
             $hasilPencaharian .= '<p>' . (isset($item['Nama_Informasi']) ? $item['Nama_Informasi'] : $item['Nama_Jasa']) . '</p>';
