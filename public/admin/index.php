@@ -74,7 +74,7 @@ if (!isset($_SESSION['ID'])) {
                         ?>
                                         <div class="col-4">
                                             <div class="card">
-                                                <h5 class="card-title py-4 mx-auto">Performa Produk Terbaru</h5>
+                                                <h5 class="card-title py-4 mx-auto">Penjualan Terbaik</h5>
                                                 <div class="position-relative mx-auto">
                                                     <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $jasa['Foto_Jasa']; ?>" class="imageCard card-img-top" alt="Performa Produk Terbaru">
                                                     <h5 class="card-title titleProduct fw-bold"><?php echo $jasa['Nama_Jasa']; ?></h5>

@@ -8,7 +8,7 @@
                 </span>
             </a>
         </span>
-        <div class="parentTextSidebar fw-medium">
+        <div class="parentTextSidebar text-center fw-medium">
             <?php
             $teksPeranAdmin = "Peran Tidak Diketahui";
             if (isset($_SESSION['Peran_Admin'])) {
