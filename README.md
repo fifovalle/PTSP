@@ -21,11 +21,22 @@ Jelajahi karya terbaru dan keterampilan saya dalam dunia pengembangan perangkat 
 
 Berikut adalah beberapa tampilan halaman website :
 
-![Screenshot 2024-03-01 192513](https://github.com/fifovalle/PTSP/assets/90078068/8e3e41a5-fe38-4d84-8662-8c1aa34675a6)
-![Screenshot 2024-02-25 005738](https://github.com/fifovalle/DASHBOARD-ADMIN-VERSI-2.0/assets/90078068/0755b257-b3b6-46fa-9bec-e1519b45f282)
-![Screenshot 2024-02-29 100924](https://github.com/fifovalle/PTSP/assets/90078068/72c8c153-9717-424a-aee3-1b09256c24cf)
-![Screenshot 2024-02-25 005537](https://github.com/fifovalle/DASHBOARD-ADMIN-VERSI-2.0/assets/90078068/fd6143a4-d63c-4a1b-80d1-f890f3dda3eb)
-![Screenshot 2024-02-29 100931](https://github.com/fifovalle/PTSP/assets/90078068/5221b9db-27bd-4e55-b83c-a1498a53b56d)
+![1](https://github.com/fifovalle/PTSP/assets/90078068/aad09e9d-8172-4b5e-a59f-a61150104df5)
+![2](https://github.com/fifovalle/PTSP/assets/90078068/9110ccbd-4ef1-40b5-b3c7-d69a78be1255)
+![3](https://github.com/fifovalle/PTSP/assets/90078068/9fb78791-ea84-446b-a5ef-f0244c47733b)
+![4](https://github.com/fifovalle/PTSP/assets/90078068/3f15540b-47f8-4afc-b0d4-bcb2f04ed7dc)
+![5](https://github.com/fifovalle/PTSP/assets/90078068/c2006afc-a86e-44e6-8f66-244db1ff5a43)
+![6](https://github.com/fifovalle/PTSP/assets/90078068/3120aa25-2292-409d-bbd2-f09cfca27cb3)
+![7](https://github.com/fifovalle/PTSP/assets/90078068/1ea30443-31a3-4a8c-8d9f-a909b7657004)
+![8](https://github.com/fifovalle/PTSP/assets/90078068/10b1d570-1a30-4c6d-a69c-7c0e1c694c03)
+![9](https://github.com/fifovalle/PTSP/assets/90078068/df3553ef-b4be-45a3-9a1d-44546470668f)
+![10](https://github.com/fifovalle/PTSP/assets/90078068/d636d979-bac8-4080-a901-792f8f296872)
+![11](https://github.com/fifovalle/PTSP/assets/90078068/779874a1-8d03-44af-b58f-30ff571df791)
+![12](https://github.com/fifovalle/PTSP/assets/90078068/595eac1e-4d96-49e3-9857-267ff19ebe21)
+![13](https://github.com/fifovalle/PTSP/assets/90078068/631230c0-7d97-4f43-8fdb-1daefd28b6f2)
+![14](https://github.com/fifovalle/PTSP/assets/90078068/9d439cb9-3a8d-4326-b006-09aad146fee7)
+![15](https://github.com/fifovalle/PTSP/assets/90078068/23edf75e-920c-4978-8de1-f2ae9ae750ff)
+![16](https://github.com/fifovalle/PTSP/assets/90078068/cf3c1489-a8b8-461d-8bb1-683cd6c443bd)
 
 ## 📬 Kontak
 
