@@ -21,6 +21,12 @@ if (isset($_POST['Masuk'])) {
         exit();
     }
 
+    if ($admin['Status_Verifikasi_Admin'] !== 'Terverifikasi') {
+        setPesanKesalahan("Maaf, akun Anda belum terverifikasi.");
+        header("Location: $akarUrl" . "src/admin/pages/login.php");
+        exit();
+    }
+
     $_SESSION['ID'] = htmlspecialchars($admin['ID_Admin']);
     $_SESSION['Foto'] = htmlspecialchars($admin['Foto']);
     $_SESSION['Nama_Pengguna'] = htmlspecialchars($admin['Nama_Pengguna_Admin']);

@@ -32,30 +32,40 @@
                     <span class="dot step-one selected">
                         <box-icon name='user' id="icon" color='rgba(255,255,255,0.9)'></box-icon>
                     </span>
-                    <h3 class="text-white">Data Diri</h3>
+                    <h3 class="text-black">Data Diri</h3>
                 </div>
                 <div class="col-md-4 p-0 text-center">
                     <span class="dot step-two">
                         <box-icon name='user-plus' id="icon" color='rgba(255,255,255,0.9)'></box-icon>
                     </span>
-                    <h3 class="text-white">Layanan Informasi</h3>
+                    <h3 class="text-black">Jenis Layanan Yang Dipilih</h3>
                 </div>
                 <div class="col-md-4 p-0 text-center">
                     <span class="dot step-three">
                         <box-icon name='user-plus' id="icon" color='rgba(255,255,255,0.9)'></box-icon>
                     </span>
-                    <h3 class="text-white">Layanan Gempa Bumi</h3>
+                    <h3 class="text-black">Layanan Gempa Bumi</h3>
                 </div>
             </div>
             <form action="" method="POST">
-                <div class="row form" id="DataDiri">
-                    <div class="col-md-6 mb-4">
+                <div class="row form justify-content-between mx-5" id="DataDiri">
+                    <div class="col-md-4 mb-4">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="floatingInput" name="Nama" placeholder="Adr***">
                             <label for="floatingInput">Nama</label>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-3 mb-4">
+                        <div class="form-floating">
+                            <select class="form-control" id="floatingInput" name="JenisKelamin">
+                                <option selected>Pilih Jenis Kelamin</option>
+                                <option value="L">Laki-Laki</option>
+                                <option value="P">Perempuan</option>
+                            </select>
+                            <label for="floatingInput">Jenis Kelamin</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
                         <div class="form-floating">
                             <select class="form-control" id="floatingInput" name="PendidikanTerakhir">
                                 <option selected>Pilih Pendidikan Terakhir</option>
@@ -67,41 +77,35 @@
                             <label for="floatingInput">Pendidikan Terakhir</label>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-4 mb-4">
                         <div class="form-floating">
-                            <input type="date" class="form-control" id="floatingInput" name="Date" placeholder="">
-                            <label for="floatingInput">Tanggal</label>
+                            <input type="number" class="form-control" id="floatingInput" name="NIK" placeholder="">
+                            <label for="floatingInput">NIK</label>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" name="Pekerjaan" placeholder="">
-                            <label for="floatingInput">Pekerjaan Utama</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-3 mb-4">
                         <div class="form-floating">
                             <input type="number" class="form-control" id="floatingInput" name="Umur" placeholder="">
                             <label for="floatingInput">Umur</label>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-4 mb-4">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" name="NamaInstansi" placeholder="">
-                            <label for="floatingInput">Nama Instansi</label>
+                            <input type="text" class="form-control" id="floatingInput" name="Pekerjaan" placeholder="">
+                            <label for="floatingInput">Pekerjaan</label>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-4 mb-4">
                         <div class="form-floating">
-                            <select class="form-control" id="floatingInput" name="JenisKelamin">
-                                <option selected>Pilih Jenis Kelamin</option>
-                                <option value="L">Laki-Laki</option>
-                                <option value="P">Perempuan</option>
+                            <select class="form-control" id="floatingInput" name="Koresponden">
+                                <option selected>Pilih Koresponden</option>
+                                <option value="Masyarakat_Umum">Masyarakat Umum</option>
+                                <option value="Instansi">Instansi</option>
                             </select>
-                            <label for="floatingInput">Jenis Kelamin</label>
+                            <label for="floatingInput">Koresponden</label>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-3 mb-4">
                         <div class="form-floating">
                             <select class="form-control" id="floatingInput" name="JenisLayanan">
                                 <option selected>Pilih Jenis Layanan</option>
@@ -111,459 +115,256 @@
                             <label for="floatingInput">Jenis Layanan</label>
                         </div>
                     </div>
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6 mb-4 text-center">
+                    <div class="col-md-4 mb-4 text-center">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="floatingInput" name="AsalDaerah" placeholder="">
                             <label for="floatingInput">Asal Daerah</label>
                         </div>
                     </div>
-                    <div class="col-md-3"></div>
                     <div class="row justify-content-center">
-                        <div class="col-md-6 text-center mt-3">
+                        <div class="col-md-6 text-center mt-5">
                             <button type="button" class="btn btn-primary w-50" id="selanjutnya">Selanjutnya</button>
                         </div>
                     </div>
                 </div>
-                <div class="row form" id="LayananInformasi" style="display: none;">
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                1. Persyaratan pelayanan terbuka, jelas, dan mudah dipenuhi
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                2. Informasi yang diperoleh dibutuhkan dalam kehidupan sehari-hari
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                3. Informasi yang diperoleh mudah diakses, dipahami, dan akurat
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                4. Ketersediaan jenis data dan informasi yang diperoleh beragam
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                5. Alur pelayanan serta system prosedur jelas, sederhana dan bebas KKN
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                6. Penyelesaian pelayanan serta biaya pelayanan sesuai dengan target waktu, jelas dan terbuka
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                7. Informasi daftar produk/jasa layanan public tersedia
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                8. Sarana pengaduan/keluhan pelayanan public tersedia
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                9. Prosedur dan tindak lanjut penanganan pengaduan jelas
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                10. Keberadaan petugas pelayanan serta informasi target waktu penyelesaian jelas
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                11. Petugas sigap, ahli dan cekatan serta sikap dan perilaku petugas pelayana baik dan bertanggung jawab
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                12. Sarana dan prasarana pelayanan aman, nyaman dan mudah dijangkau
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                13. Pelayanan public pada instansi ini sudah berjalan dengan baik
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Setuju">
-                                        <label class="form-check-label" for="inlineRadio1">Setuju</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TidakSetuju">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="row form justify-content-center" id="JenisLayanan" style="display: none;">
+                    <table class="table table-striped text-start w-50 mx-auto">
+                        <tbody class="align-middle">
+                            <tr>
+                                <th colspan="2">
+                                    <h6>METEOROLOGI</h6>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="1">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_1" name="c_1">
+                                </td>
+                                <td>Informasi cuaca publik (rutin, peringatan, dini cuaca, pasang surut air laut)</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="2">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_2" name="c_2">
+                                </td>
+                                <td>Informasi cuaca khusus (maritim, penerbangan, klaim asuransi)</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="3">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_3" name="c_3">
+                                </td>
+                                <td>Analisis cuaca (kecelakaan pesawat, kecelakaan kapal laut)</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="4">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_4" name="c_4">
+                                </td>
+                                <td>Informasi titik panas(hotspot)</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="5">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_5" name="c_5">
+                                </td>
+                                <td>lnformasi tentang tingkat kemudahan terjadinya kebakaran hutan dan lahan</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">
+                                    <h6>KLIMATOLOGI</h6>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="6">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_6" name="c_6">
+                                </td>
+                                <td>Prakiraan musim</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="7">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_7" name="c_7">
+                                </td>
+                                <td>lnformasi iklim khusus</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="8">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_8" name="c_8">
+                                </td>
+                                <td>Analisis dan prakiraan curah hujan bulanan/dasarian</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="9">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_9" name="c_9">
+                                </td>
+                                <td>Tren curah hujan</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="10">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_10" name="c_10">
+                                </td>
+                                <td>lnformasi kualitas udara</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="11">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_11" name="c_11">
+                                </td>
+                                <td>Analisis iklim ekstrim</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="12">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_12" name="c_12">
+                                </td>
+                                <td>Informasi iklim terapan (peta potensi energi baru terbarukan, informasi potensi DBD, dst)</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="13">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_13" name="c_13">
+                                </td>
+                                <td>Informasi perubahan iklim (keterpaparan dan/atau proveksi)</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="14">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_14" name="c_14">
+                                </td>
+                                <td>Pengambilan dan pengujian sampel parameter iklim dan kualitas udara(laboratorium)</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">
+                                    <h6>GEOFISIKA</h6>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="15">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_15" name="c_15">
+                                </td>
+                                <td>Informasi gempabumi dan peringatan dini tsunami</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="16">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_16" name="c_16">
+                                </td>
+                                <td>Peta seismisitas</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="17">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_17" name="c_17">
+                                </td>
+                                <td>lnformasi tanda waktu(hilal dan gerhana)</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="18">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_18" name="c_18">
+                                </td>
+                                <td>lnformasi geofisika potensial(gravitasi, magnet bumi, dan hari guruh/petir)</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="19">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_19" name="c_19">
+                                </td>
+                                <td>Peta rendaman tsunami</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="20">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_20" name="c_20">
+                                </td>
+                                <td>Informasi seismologi teknik(shake map)(peta mikrozonasi dan percepatan tanah)</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">
+                                    <h6>INSTRUMENTASI</h6>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="21">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_21" name="c_21">
+                                </td>
+                                <td>Data meteorologi, klimatologi, dan geofisika(suhu, curah hujan, angin, dan grid)</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="22">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_22" name="c_22">
+                                </td>
+                                <td>Kalibrasi (peralatan MKG)</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="23">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_23" name="c_23">
+                                </td>
+                                <td>Konsultasi(untuk penerapan informasi khusus MKG)</td>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="24">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_24" name="c_24">
+                                </td>
+                                <td>Sewa peralatan MKG</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">
+                                    <h6>HUMAS</h6>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="c-frame text-center" scope="25">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="" id="c_25" name="c_25">
+                                </td>
+                                <td>Kunjungan</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <div class="row justify-content-center">
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6 text-center mt-5">
                             <button type="button" class="btn btn-primary w-50" id="selanjutnya1">Selanjutnya</button>
                         </div>
                     </div>
                 </div>
-                <div class="row form" id="LayananGempaBumi" style="display: none;">
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                1. Apakah anda pernah merasakan guncangan gempabumi di wilayah sekitar anda?
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
-                                        <label class="form-check-label" for="inlineRadio1">Tidak Pernah</label>
+                <div class="row form" id="UnsurPelayanan" style="display: none;">
+                    <div class="container-fluid w-100 unsur-pelayanan">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="title text-center mb-5">Unsur Pelayanan</h2>
+                                <h5 class="kuisioner">Persyaratan pelayanan jelas dan terbuka</h5>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <span class="kategori1">Kualitas Pelayanan</span>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
-                                        <label class="form-check-label" for="inlineRadio2">Jarang</label>
+                                    <div class="col-md-9">
+                                        <div class="form-check form-check-inline ms-5">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">Sangat Setuju</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">Setuju</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">Kurang Setuju</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
+                                        </div>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
-                                        <label class="form-check-label" for="inlineRadio2">Kadang-kadang</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
-                                        <label class="form-check-label" for="inlineRadio2">Sering</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
-                                        <label class="form-check-label" for="inlineRadio2">Sangat Sering</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                2. Informasi yang diperoleh dibutuhkan dalam kehidupan sehari-hari
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
-                                    <label class="form-check-label" for="inlineRadio1">Tidak Penting</label>
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
-                                    <label class="form-check-label" for="inlineRadio2">Tidak Terlalu Penting</label>
+                                <div class="row">
+                                    <span class="kategori2">Harapan Konsumen
+                                        <div class="col">
+                                            <div class="form-check form-check-inline ms-5">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">Sangat Penting</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">Penting</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">Kurang Penting</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">Tidak Penting</label>
+                                            </div>
+                                        </div>
+                                    </span>
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
-                                    <label class="form-check-label" for="inlineRadio2">Netral</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
-                                    <label class="form-check-label" for="inlineRadio2">Penting</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
-                                    <label class="form-check-label" for="inlineRadio2">Sangat Penting</label>
-                                </div>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                3. Melalui moda/sarana apa anda menerima informasi gempabumi atau peringatan dini tsunami?
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
-                                        <label class="form-check-label" for="inlineRadio1">Televisi</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
-                                        <label class="form-check-label" for="inlineRadio2">Aplikasi ponsel atau situs web</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
-                                        <label class="form-check-label" for="inlineRadio2">Sistem peringatan otomatis</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
-                                        <label class="form-check-label" for="inlineRadio2">Langsung dari pihak berwenang setempat</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
-                                        <label class="form-check-label" for="inlineRadio2">Lainnya</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                4. Seberapa cepat anda menerima informasi gempabumi atau peringatan dini tsunami setelah gempa?
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
-                                        <label class="form-check-label" for="inlineRadio1">Sangat Lambat</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
-                                        <label class="form-check-label" for="inlineRadio2">Lambat</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
-                                        <label class="form-check-label" for="inlineRadio2">Sedang</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
-                                        <label class="form-check-label" for="inlineRadio2">Cepat</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
-                                        <label class="form-check-label" for="inlineRadio2">Segera</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                5. Apakah informasi gempabumi atau peringatan dini tsunami tersebut dapat dipahami?
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
-                                        <label class="form-check-label" for="inlineRadio1">Sangat Sulit Dipahami</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
-                                        <label class="form-check-label" for="inlineRadio2">Sulit Dipahami</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
-                                        <label class="form-check-label" for="inlineRadio2">Netral</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
-                                        <label class="form-check-label" for="inlineRadio2">Mudah Dipahami</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
-                                        <label class="form-check-label" for="inlineRadio2">Sangat Mudah Dipahami</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="dropdown questioner">
-                            <a class="btn question btn-secondary dropdown-toggle w-100 text-start" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                6. Bagaimana anda merespon informasi gempabumi atau peringatan dini tsunami?
-                            </a>
-                            <ul class="dropdown-menu px-5">
-                                <li>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input mb-3" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
-                                        <label class="form-check-label" for="inlineRadio1">Tidak melakukan tindakan apa pun, mengabaikan informasi</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input mb-3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
-                                        <label class="form-check-label" for="inlineRadio2">Menanyakan bantuan dari pihak berwenang atau ahli</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input mb-3" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
-                                        <label class="form-check-label" for="inlineRadio2">Tetap tenang dan siap menghadapi situasi
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
-                                        <label class="form-check-label" for="inlineRadio2">Memeriksa informasi lebih lanjut sebelum mengambil tindakan</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
-                                        <label class="form-check-label" for="inlineRadio2">Evakuasi segera ke tempat yang aman
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="row justify-content-center">

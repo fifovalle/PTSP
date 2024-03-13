@@ -15,9 +15,9 @@
     ?>
     <div class="container-fluid w-100 mt-5">
         <div class="row">
-            <div class="col-md-2 h-100" id="opsi-pemesanan">
+            <div class="col-md-2 p-0 h-100" id="opsi-pemesanan">
                 <div class="row mx-5 my-3">
-                    <div class="btn btn-success" id="history-order" onclick="showContentPemesanan('history-pesanan')">Riwayat Pesanan</div>
+                    <div class="btn btn-success" id="history-order" onclick="showContentPemesanan('history-pesanan')"> Riwayat Pesanan <span class="badge text-bg-secondary ms-2">0</span></div>
                 </div>
                 <div class="row mx-5 my-3">
                     <div class="btn btn-outline-success" id="tracking-order" onclick="showContentPemesanan('detail-pesanan')">Pelacakan Pesanan</div>
@@ -120,7 +120,7 @@
                                     <p>Total Pesanan :</p> Rp30.000
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="d-flex row mt-4">
                                 <div class="col" id="pagenation">
                                     <nav aria-label="Page navigation example">
                                         <ul class="pagination">
@@ -139,6 +139,9 @@
                                             </li>
                                         </ul>
                                     </nav>
+                                </div>
+                                <div class="col text-end">
+                                    <button class="btn btn-outline-primary ms-3" type="button" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>
                                 </div>
                             </div>
                         </div>
@@ -192,7 +195,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-8">
-                                    <div class="col" id="nama_barang">Tester2</div>
+                                    <div class="col" id="nama_barang">Informasi Klimatologi - Data Iklim 1 Bulan</div>
                                     <div class="col" id="jmlh_barang">x2</div>
                                 </div>
                                 <div class="col-md-4">
@@ -277,7 +280,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-8">
-                                    <div class="col" id="nama_barang">Tester3</div>
+                                    <div class="col" id="nama_barang">Informasi Klimatologi - Data Iklim 1 Bulan</div>
                                     <div class="col" id="jmlh_barang">x2</div>
                                 </div>
                                 <div class="col-md-4">
@@ -362,7 +365,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-8">
-                                    <div class="col" id="nama_barang">Tester4</div>
+                                    <div class="col" id="nama_barang">Informasi Klimatologi - Data Iklim 1 Bulan</div>
                                     <div class="col" id="jmlh_barang">x2</div>
                                 </div>
                                 <div class="col-md-4">
@@ -372,7 +375,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-8">
-                                    <div class="col" id="nama_barang">Tester4</div>
+                                    <div class="col" id="nama_barang">Informasi Meteorologi - Data Statistik Petir 1 Bulan</div>
                                     <div class="col" id="jmlh_barang">x2</div>
                                 </div>
                                 <div class="col-md-4">
@@ -407,7 +410,7 @@
                                 </div>
                                 <div class="col text-end">
                                     <button class="btn btn-outline-danger ms-3" type="button" id="btn-beli-lagi1" style="width:100px;">Beli Lagi</button>
-                                    <button class="btn btn-outline-success pe-2 mx-2" type="button" id="nilai-ikm" style="width:100px;">Nilai</button>
+                                    <button class="btn btn-outline-success pe-2 ms-2" type="button" id="nilai-ikm" style="width:100px;">Isi Survey</button>
                                 </div>
                             </div>
                         </div>

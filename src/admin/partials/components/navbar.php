@@ -22,11 +22,12 @@
                         $informasiModel = new Informasi($koneksi);
                         $dataJasaTerbaru = $jasaModel->tampilkanDataJasaTerbaru();
                         $dataInformasiTerbaru = $informasiModel->tampilkanDataInformasiTerbaru();
+
                         $dataTerbaru = array_merge($dataInformasiTerbaru, $dataJasaTerbaru);
+
                         usort($dataTerbaru, function ($a, $b) {
                             $waktuA = isset($a['Waktu_Terakhir_Modifikasi']) ? strtotime($a['Waktu_Terakhir_Modifikasi']) : 0;
                             $waktuB = isset($b['Waktu_Terakhir_Modifikasi']) ? strtotime($b['Waktu_Terakhir_Modifikasi']) : 0;
-
                             return $waktuB - $waktuA;
                         });
                         $dataTerbaru = array_slice($dataTerbaru, 0, 3);
@@ -51,7 +52,7 @@
                                 $keluaran .= '</div>';
                             }
                         } else {
-                            $keluaran = "<p class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Informasi Dan Jasa!</p>";
+                            $keluaran .= '<p class="text-center text-danger fw-bold pt-4 pb-2">Tidak Ada Data Informasi Dan Jasa!</p>';
                         }
                         echo $keluaran;
                         ?>

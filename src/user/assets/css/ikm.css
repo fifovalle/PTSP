@@ -1,11 +1,11 @@
-:root {
-}
+:root {}
 
 body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
 }
+
 /* Scrollbar Effect */
 ::-webkit-scrollbar {
   width: 5px;
@@ -22,21 +22,28 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
 /* End Scrollbar Effect */
 .dot {
-  display: inline-flex; /* Use flexbox */
-  justify-content: center; /* Align content horizontally */
-  align-items: center; /* Align items vertically */
-  width: 75px; /* Adjust width as needed */
-  height: 75px; /* Adjust height as needed */
-  background-color: #08318d; /* Background color of the dot */
-  border-radius: 50%; /* Make it round */
+  display: inline-flex;
+  /* Use flexbox */
+  justify-content: center;
+  /* Align content horizontally */
+  align-items: center;
+  /* Align items vertically */
+  width: 75px;
+  /* Adjust width as needed */
+  height: 75px;
+  /* Adjust height as needed */
+  background-color: #08318d;
+  /* Background color of the dot */
+  border-radius: 50%;
+  /* Make it round */
 }
 
 .row.category {
   margin: 2rem 0 0 0;
   padding: 2rem 22rem 2rem 22rem;
-  background-color: grey;
 }
 
 #icon {
@@ -45,7 +52,7 @@ body {
 }
 
 .selected {
-  background-color: green; /* Change to whatever color you want */
+  background-color: green;
 }
 
 .row.form {
@@ -56,15 +63,38 @@ body {
   border: 1px solid black;
 }
 
-.dropdown-menu {
-  width: 100%;
+#DataDiri {
+  padding: 75px 50px 75px 50px;
+  background: rgba(211, 211, 211, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(211, 211, 211, 0.3);
 }
 
-.dropdown.questioner {
-  margin-bottom: 50px;
+.c-frame {
+  width: 50px;
 }
 
-.btn.question {
-  height: 50px;
-  padding: 0.6rem 5rem 0.6rem 5rem;
+tr {
+  height: 3.5rem;
+}
+
+.unsur-pelayanan {
+  padding: 25px 50px 25px 50px;
+  background: rgba(211, 211, 211, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(211, 211, 211, 0.3);
+}
+
+.kuisioner {}
+
+.kategori1,
+.kategori2 {
+  margin-left: 25px;
+  font-size: 16px;
 }

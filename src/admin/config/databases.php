@@ -314,18 +314,13 @@ class Pengguna
 
     public function tambahPengguna($data)
     {
-        $query = "INSERT INTO pengguna (Foto, NPWP_Pengguna, No_Identitas_Pengguna, Pekerjaan_Pengguna, Nama_Depan_Pengguna, Nama_Belakang_Pengguna, Pendidikan_Terakhir_Pengguna, Nama_Pengguna, Email_Pengguna, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Pengguna, Jenis_Kelamin_Pengguna, Alamat_Pengguna, Provinsi, Kabupaten_Kota, Jenis_Pengguna, Kode_Captcha, Status_Verifikasi_Pengguna, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
+        $query = "INSERT INTO pengguna (Foto, Nama_Depan_Pengguna, Nama_Belakang_Pengguna, Nama_Pengguna, Email_Pengguna, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Pengguna, Jenis_Kelamin_Pengguna, Alamat_Pengguna, Status_Verifikasi_Pengguna, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "ssisssssssssssssssi",
+            "ssssssssssii",
             $this->escapeString($data['Foto']),
-            $this->escapeString($data['NPWP_Pengguna']),
-            intval($data['No_Identitas_Pengguna']),
-            $this->escapeString($data['Pekerjaan_Pengguna']),
             $this->escapeString($data['Nama_Depan_Pengguna']),
             $this->escapeString($data['Nama_Belakang_Pengguna']),
-            $this->escapeString($data['Pendidikan_Terakhir_Pengguna']),
             $this->escapeString($data['Nama_Pengguna']),
             $this->escapeString($data['Email_Pengguna']),
             $this->escapeString($data['Kata_Sandi']),
@@ -333,12 +328,8 @@ class Pengguna
             $this->escapeString($data['No_Telepon_Pengguna']),
             $this->escapeString($data['Jenis_Kelamin_Pengguna']),
             $this->escapeString($data['Alamat_Pengguna']),
-            $this->escapeString($data['Provinsi']),
-            $this->escapeString($data['Kabupaten_Kota']),
-            $this->escapeString($data['Jenis_Pengguna']),
-            $this->escapeString($data['Kode_Captcha']),
             $this->escapeString($data['Status_Verifikasi_Pengguna']),
-            intval($data['token'])
+            $this->escapeString($data['token'])
         );
 
         if ($statement->execute()) {
@@ -475,6 +466,19 @@ class Pengguna
             return null;
         }
     }
+
+    public function generateRandomCaptcha($length = 5)
+    {
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $captcha = '';
+        $max = strlen($characters) - 1;
+
+        for ($i = 0; $i < $length; $i++) {
+            $captcha .= $characters[mt_rand(0, $max)];
+        }
+
+        return $captcha;
+    }
 }
 // ===================================PENGGUNA===================================
 
@@ -535,7 +539,7 @@ class Informasi
             }
             return $data;
         } else {
-            return null;
+            return [];
         }
     }
 
@@ -718,7 +722,7 @@ class Jasa
             }
             return $data;
         } else {
-            return null;
+            return [];
         }
     }
 

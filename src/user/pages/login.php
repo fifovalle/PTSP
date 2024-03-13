@@ -1,5 +1,10 @@
 <?php
-session_start();
+include '../../admin/config/databases.php';
+
+$penggunaDatabase = new Pengguna($koneksi);
+$captcha = $penggunaDatabase->generateRandomCaptcha();
+
+$_SESSION['captcha'] = $captcha;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +59,7 @@ session_start();
                     </div>
                     <svg width="300" height="130" xmlns="http://www.w3.org/2000/svg" class="position-relative captcha">
                         <rect width="300" height="100" x="10" y="10" style="fill:#d3d3d3;" />
-                        <span class="position-absolute captcha-code">154AB</span>
+                        <span class="position-absolute captcha-code"><?php echo $_SESSION['captcha']; ?></span>
                     </svg>
                     <div class="form-check text-start my-3 ">
                         <input class="form-check-input" name="Ingat_Saya" type="checkbox" value="remember-me" id="flexCheckDefault">

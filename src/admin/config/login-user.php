@@ -6,9 +6,16 @@ $penggunaDatabase = new Pengguna($koneksi);
 if (isset($_POST['Masuk'])) {
     $emailNamaPengguna = htmlspecialchars($_POST['Nama_Pengguna_Email']);
     $kataSandi = htmlspecialchars($_POST['Kata_Sandi']);
+    $kodeCaptcha = htmlspecialchars($_POST['Kode_Captcha']);
 
-    if (empty($emailNamaPengguna) || empty($kataSandi)) {
+    if (empty($emailNamaPengguna) || empty($kataSandi) || empty($kodeCaptcha)) {
         setPesanKesalahan("Semua field harus diisi.");
+        header("Location: $akarUrl" . "src/user/pages/login.php");
+        exit();
+    }
+
+    if ($kodeCaptcha !== $_SESSION['captcha']) {
+        setPesanKesalahan("Kode Captcha yang Anda masukkan salah.");
         header("Location: $akarUrl" . "src/user/pages/login.php");
         exit();
     }
@@ -33,3 +40,6 @@ if (isset($_POST['Masuk'])) {
     header("Location: $akarUrl" . "src/user/pages/main.php");
     exit();
 }
+
+$captcha = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 5);
+$_SESSION['captcha'] = $captcha;

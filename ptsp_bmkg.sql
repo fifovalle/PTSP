@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2024 at 08:10 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Mar 13, 2024 at 07:53 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,9 +49,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admin`, `Nama_Pengguna_Admin`, `Email_Admin`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Admin`, `Jenis_Kelamin_Admin`, `Peran_Admin`, `Alamat_Admin`, `Status_Verifikasi_Admin`, `Token`) VALUES
-(68, 0x363565353938306262663736392e6a7067, 'Sandro', 'Anugrah', 'Sandro', 'sandro@gmail.com', '$2y$10$9EsGBDrTJk5o0OZ8wEjtpOOebV8Q4SDn9/izeZ854dm7dFK53/cJm', '$2y$10$9EsGBDrTJk5o0OZ8wEjtpOOebV8Q4SDn9/izeZ854dm7dFK53/cJm', '+62 227-8696-666', 'Pria', 1, 'Batujajar\r\n\r\n', 'Belum Terverifikasi', 2147483647),
-(71, 0x363565396562356161643363392e6a7067, 'Ahsan', 'Ghifari', 'AhsanGhiff', 'ahsan@gmail.com', '$2y$10$dXEYnN7x56HHNq5IzgfEt.q1VPgi2hjzuscOHRU.WqTLVCVWRt7gu', '$2y$10$dXEYnN7x56HHNq5IzgfEt.q1VPgi2hjzuscOHRU.WqTLVCVWRt7gu', '+62 812-4118-8340', 'Pria', 1, 'sdfg', 'Belum Terverifikasi', 2147483647),
-(81, 0x363565666666313836636437342e6a7067, 'Naufal', 'FIFA', 'zonaDeveloper', 'fifanaufal10@gmail.com', '$2y$10$xROadgNIVxwG7aaqNK77uebaRYGY4FxdqCbphnfCBoy3yeAReRLTO', '$2y$10$xROadgNIVxwG7aaqNK77uebaRYGY4FxdqCbphnfCBoy3yeAReRLTO', '+62   812-3652-2490', 'Pria', 1, 'Batujajar', 'Terverifikasi', 0);
+(68, 0x363565353938306262663736392e6a7067, 'Sandro', 'Anugrah', 'Sandro', 'sandro@gmail.com', '$2y$10$9EsGBDrTJk5o0OZ8wEjtpOOebV8Q4SDn9/izeZ854dm7dFK53/cJm', '$2y$10$9EsGBDrTJk5o0OZ8wEjtpOOebV8Q4SDn9/izeZ854dm7dFK53/cJm', '+62 227-8696-666', 'Pria', 1, 'Batujajar\r\n\r\n', 'Terverifikasi', 2147483647),
+(81, 0x363565666666313836636437342e6a7067, 'Naufal', 'FIFA', 'zonaDeveloper', 'fifanaufal10@gmail.com', '$2y$10$xROadgNIVxwG7aaqNK77uebaRYGY4FxdqCbphnfCBoy3yeAReRLTO', '$2y$10$xROadgNIVxwG7aaqNK77uebaRYGY4FxdqCbphnfCBoy3yeAReRLTO', '+62   812-3652-2490', 'Pria', 1, 'Batujajar', 'Terverifikasi', 0),
+(88, 0x363566316437336638383439622e6a7067, 'Ahsan', 'Ghifari', 'AhsanGhifari', 'ahsanghifari04@gmail.com', '$2y$10$XTxDq6shdY607EJ18psFo.8efqx5n7yH9Y7XrbjlFVIMX75fUHDu.', '$2y$10$XTxDq6shdY607EJ18psFo.8efqx5n7yH9Y7XrbjlFVIMX75fUHDu.', '+62 812-4118-8340', 'Pria', 1, 'asdfgh', 'Terverifikasi', 0);
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,7 @@ CREATE TABLE `informasi` (
 --
 
 INSERT INTO `informasi` (`ID_Informasi`, `Foto_Informasi`, `Nama_Informasi`, `Deskripsi_Informasi`, `Harga_Informasi`, `Pemilik_Informasi`, `No_Rekening_Informasi`, `Kategori_Informasi`, `Status_Informasi`) VALUES
-(10, 0x363565396338343362633536372e6a7067, 'HVEU', 'HBQWF', 15000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia');
+(14, 0x363566316635366161356665362e706e67, 'a', 's', 10, 'Instansi A', 1111, 'Meteorologi', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -95,15 +95,6 @@ CREATE TABLE `jasa` (
   `Kategori_Jasa` enum('Meteorologi','Klimatologi','Geofisika') NOT NULL,
   `Status_Jasa` enum('Tersedia','Tidak Tersedia') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `jasa`
---
-
-INSERT INTO `jasa` (`ID_Jasa`, `Foto_Jasa`, `Nama_Jasa`, `Deskripsi_Jasa`, `Harga_Jasa`, `Pemilik_Jasa`, `No_Rekening_Jasa`, `Kategori_Jasa`, `Status_Jasa`) VALUES
-(9, 0x363565333630353737646666642e706e67, 'ASDVFB', 'SSCDVC ', 2000, 'Instansi A', 0, 'Meteorologi', 'Tersedia'),
-(10, 0x363565633633623263396665372e6a7067, 'Data Tsunami', 'Detektor Tsunami', 25000, 'Instansi A', 0, 'Meteorologi', 'Tersedia'),
-(11, 0x363565396362323036663666392e6a7067, 'JFNGURE', 'JSDB', 9000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -136,6 +127,45 @@ CREATE TABLE `pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `pengguna`
+--
+
+INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Jenis_Pengguna`, `Kode_Captcha`, `Status_Verifikasi_Pengguna`, `token`) VALUES
+(9, 0x363566316465373539393839342e6a7067, '', 0, '', 'Ahsan', 'Ghifari', '', 'AhsanGhiff', 'ahsanghifari04@gmail.com', '$2y$10$ONrHBEh.RxRAjRsy5qQw3.a2yG6meTQoTyQLUJyCWuxO4n6SLgmXu', '$2y$10$ONrHBEh.RxRAjRsy5qQw3.a2yG6meTQoTyQLUJyCWuxO4n6SLgmXu', '+62 812-4118-8340', 'Pria', 'asdfggn', '', '', 'Perorangan', '', '', 65);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `perusahaan`
+--
+
+CREATE TABLE `perusahaan` (
+  `ID_Perusahaan` int(11) NOT NULL,
+  `No_Identitas` int(16) NOT NULL,
+  `Nama_Depan` varchar(30) NOT NULL,
+  `Nama_Belakang` varchar(30) NOT NULL,
+  `Pekerjaan` varchar(50) NOT NULL,
+  `Pendidikan_Terakhir` varchar(30) NOT NULL,
+  `Jenis_Kelamin` enum('Pria','Wanita') NOT NULL,
+  `Alamat` text NOT NULL,
+  `No_Telepon` varchar(50) NOT NULL,
+  `Provinsi` varchar(30) NOT NULL,
+  `Kabupaten_Kota` varchar(30) NOT NULL,
+  `No_NPWP` varchar(25) NOT NULL,
+  `Nama_Perusahaan` varchar(30) NOT NULL,
+  `Alamata_Perusahaan` text NOT NULL,
+  `Provinsi_Perusahaan` varchar(30) NOT NULL,
+  `Kabupaten_Kota_Perusahaan` varchar(30) NOT NULL,
+  `Email_Perusahaan` varchar(50) NOT NULL,
+  `No_Telepon_Perusahaan` varchar(50) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Nama_Pengguan` varchar(30) NOT NULL,
+  `Kata_Sandi` varchar(100) NOT NULL,
+  `Konfirmasi_Kata_Sandi` varchar(100) NOT NULL,
+  `token` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
 -- Indexes for dumped tables
 --
 
@@ -164,6 +194,12 @@ ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`ID_Pengguna`);
 
 --
+-- Indexes for table `perusahaan`
+--
+ALTER TABLE `perusahaan`
+  ADD PRIMARY KEY (`ID_Perusahaan`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -171,25 +207,31 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `informasi`
 --
 ALTER TABLE `informasi`
-  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `jasa`
 --
 ALTER TABLE `jasa`
-  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `perusahaan`
+--
+ALTER TABLE `perusahaan`
+  MODIFY `ID_Perusahaan` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
