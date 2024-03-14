@@ -263,7 +263,7 @@
   opacity: 1;
 }
 
-@media screen and (width: 1536px) {
+@media (min-width: 1920px) and (min-height: 1080px) {
   .tableData {
     width: 1220px;
   }
