@@ -1,4 +1,4 @@
-<footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center my-4">
+<footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center my-4 position-relative">
     <p class="footer col-md-4 mb-0 ps-5 ps-md-0 text-center text-md-start text-body-secondary">©
         <script>
             document.write(new Date().getFullYear())

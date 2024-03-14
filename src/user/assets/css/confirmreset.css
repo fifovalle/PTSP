@@ -41,6 +41,12 @@ body {
   border-radius: 13px;
 }
 
+.font-custom {
+  font-family: "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  color: black;
+}
+
 .form-control {
   display: flex;
   flex-direction: column;
@@ -79,7 +85,7 @@ body {
 .subtitle {
   font-style: normal;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 18px;
   color: #5f5d6b;
 }
@@ -150,4 +156,24 @@ body {
 
 .custom-shape-divider-bottom-1709729084 .shape-fill {
   fill: #d3d3d3;
+}
+
+.eye-toggle1 {
+  position: absolute;
+  top: 55%;
+  right: 35px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 100;
+  font-size: 17px;
+}
+
+.eye-toggle2 {
+  position: absolute;
+  top: 71.5%;
+  right: 35px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 100;
+  font-size: 17px;
 }

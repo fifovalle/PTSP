@@ -8,15 +8,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" href="../../../src/admin/assets/image/logo/1.png">
-    <link rel="stylesheet" href="../assets/css/resetpassword.css">
+    <link rel="stylesheet" href="../assets/css/confirmreset.css">
     <script src="../assets/js/javascript.js"></script>
+    <script src="../assets/js/toggle-reset.js"></script>
     <title>Reset Password PTSP BMKG Provinsi Bengkulu</title>
 </head>
 
 <body>
     <div class="container-fluid w-100 section1">
         <div class="row text-center">
-            <h2 class="text-center my-5">RESET PASSWORD</h2>
+            <h2 class="text-center my-5 font-custom">Reset Kata Sandi</h2>
             <div class="align-middle col-lg align-items-center justify-content-center content">
                 <div class="custom-shape-divider-bottom-1709729084">
                     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -36,10 +37,13 @@
                             </svg>
                         </div>
                         <div class="note">
-                            <label class="title">Reset Password</label>
-                            <span class="subtitle">Insert your email right here to reset your password</span>
+                            <label class="title">Atur Ulang Kata Sandi</label>
+                            <span class="subtitle">Masukan kata sandi untuk mengatur ulang kata sandi Anda!</span>
                         </div>
-                        <input placeholder="Enter your e-mail" title="Enter your e-mail" name="email" type="email" class="input_field">
+                        <input placeholder="Masukan Kata Sandi Baru" name="password" type="password" class="input_field">
+                        <span data-toggle="password" class="eye-toggle1" id="toggle"><i class="bi bi-eye-slash"></i></span>
+                        <input placeholder="Konfirmasi Kata Sandi Baru" name="password" type="password" class="input_field">
+                        <span data-toggle="password" class="eye-toggle2" id="toggle"><i class="bi bi-eye-slash"></i></span>
                         <button class="submit" type="submit" id="reset">RESET</button>
                     </form>
                 </div>
