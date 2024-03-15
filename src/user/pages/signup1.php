@@ -82,7 +82,7 @@ session_start();
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <select class="form-select" aria-label="Default select example" id="Jenis_Kelamin_Pengguna" name="Jenis_Kelamin">
+                                    <select class="form-select" aria-label="Default select example" id="Jenis_Kelamin_Pengguna" name="Jenis_Kelamin_Pengguna">
                                         <option selected>Pilih Jenis Kelamin</option>
                                         <option value="1">Laki-laki</option>
                                         <option value="2">Perempuan</option>
@@ -131,7 +131,7 @@ session_start();
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="KotaKab" name="Kota_Kab" placeholder="Kab. ***">
+                                    <input type="text" class="form-control" id="KotaKab" name="Kota_Kabupaten" placeholder="Kab. ***">
                                     <label for="floatingInput">Kabupaten/Kota <b>*</b> </label>
                                 </div>
                             </div>

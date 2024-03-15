@@ -314,23 +314,41 @@ class Pengguna
 
     public function tambahPengguna($data)
     {
-        $query = "INSERT INTO pengguna (Foto, Nama_Depan_Pengguna, Nama_Belakang_Pengguna, Nama_Pengguna, Email_Pengguna, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Pengguna, Jenis_Kelamin_Pengguna, Alamat_Pengguna, Status_Verifikasi_Pengguna, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO pengguna (NPWP_Pengguna, No_Identitas_Pengguna, Pekerjaan_Pengguna, Nama_Depan_Pengguna, Nama_Belakang_Pengguna, Pendidikan_Terakhir_Pengguna, Nama_Pengguna, Email_Pengguna, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Pengguna, Jenis_Kelamin_Pengguna, Alamat_Pengguna, Provinsi, Kabupaten_Kota, Status_Verifikasi_Pengguna, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param(
-            "ssssssssssii",
-            $this->escapeString($data['Foto']),
-            $this->escapeString($data['Nama_Depan_Pengguna']),
-            $this->escapeString($data['Nama_Belakang_Pengguna']),
-            $this->escapeString($data['Nama_Pengguna']),
-            $this->escapeString($data['Email_Pengguna']),
-            $this->escapeString($data['Kata_Sandi']),
-            $this->escapeString($data['Konfirmasi_Kata_Sandi']),
-            $this->escapeString($data['No_Telepon_Pengguna']),
-            $this->escapeString($data['Jenis_Kelamin_Pengguna']),
-            $this->escapeString($data['Alamat_Pengguna']),
-            $this->escapeString($data['Status_Verifikasi_Pengguna']),
-            $this->escapeString($data['token'])
-        );
+
+        if (!$statement) {
+            die('Query error: ' . $this->koneksi->error);
+        }
+
+        $kabupatenKota = isset($data['Kabupaten_Kota']) ? $data['Kabupaten_Kota'] : null;
+
+        $bindParams = [
+            'ssssssssssssssssi',
+            &$data['NPWP_Pengguna'],
+            &$data['No_Identitas_Pengguna'],
+            &$data['Pekerjaan_Pengguna'],
+            &$data['Nama_Depan_Pengguna'],
+            &$data['Nama_Belakang_Pengguna'],
+            &$data['Pendidikan_Terakhir_Pengguna'],
+            &$data['Nama_Pengguna'],
+            &$data['Email_Pengguna'],
+            &$data['Kata_Sandi'],
+            &$data['Konfirmasi_Kata_Sandi'],
+            &$data['No_Telepon_Pengguna'],
+            &$data['Jenis_Kelamin_Pengguna'],
+            &$data['Alamat_Pengguna'],
+            &$data['Provinsi'],
+            &$kabupatenKota,
+            &$data['Status_Verifikasi_Pengguna'],
+            &$data['token']
+        ];
+
+        if (count($bindParams) - 1 !== substr_count($query, '?')) {
+            die('Mismatch in number of bind parameters and placeholders in query');
+        }
+
+        call_user_func_array([$statement, 'bind_param'], $bindParams);
 
         if ($statement->execute()) {
             return true;
@@ -338,6 +356,10 @@ class Pengguna
             return false;
         }
     }
+
+
+
+
 
     public function tampilkanDataPengguna()
     {

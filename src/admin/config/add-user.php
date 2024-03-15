@@ -99,4 +99,3 @@ if (isset($_POST['Simpan'])) {
     header("Location: $akarUrl" . "src/admin/pages/data.php");
     exit;
 }
-?>

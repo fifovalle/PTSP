@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2024 at 07:53 PM
+-- Generation Time: Mar 15, 2024 at 09:26 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -120,8 +120,6 @@ CREATE TABLE `pengguna` (
   `Alamat_Pengguna` text NOT NULL,
   `Provinsi` varchar(30) NOT NULL,
   `Kabupaten_Kota` varchar(30) NOT NULL,
-  `Jenis_Pengguna` enum('Perorangan','Perusahaan') NOT NULL,
-  `Kode_Captcha` varchar(10) NOT NULL,
   `Status_Verifikasi_Pengguna` enum('Terverivikasi','Belum Terverifikasi') NOT NULL,
   `token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -130,8 +128,9 @@ CREATE TABLE `pengguna` (
 -- Dumping data for table `pengguna`
 --
 
-INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Jenis_Pengguna`, `Kode_Captcha`, `Status_Verifikasi_Pengguna`, `token`) VALUES
-(9, 0x363566316465373539393839342e6a7067, '', 0, '', 'Ahsan', 'Ghifari', '', 'AhsanGhiff', 'ahsanghifari04@gmail.com', '$2y$10$ONrHBEh.RxRAjRsy5qQw3.a2yG6meTQoTyQLUJyCWuxO4n6SLgmXu', '$2y$10$ONrHBEh.RxRAjRsy5qQw3.a2yG6meTQoTyQLUJyCWuxO4n6SLgmXu', '+62 812-4118-8340', 'Pria', 'asdfggn', '', '', 'Perorangan', '', '', 65);
+INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `token`) VALUES
+(10, '', '845646', 8454, 'cgvhj', 'xc ', 'Ghifari', 'asdf', 'aadscv', 'a@gmail.com', '$2y$10$Ov8K.PPC7RRvIGHHnyTYj.fC3FpcOA5pPnD3T21SSD6OJac.d/Fy6', '$2y$10$Ov8K.PPC7RRvIGHHnyTYj.fC3FpcOA5pPnD3T21SSD6OJac.d/Fy6', '+62 845-1565-', 'Pria', 'xscdv', 'cgvhbjnkm', 'Bekasi', 'Belum Terverifikasi', 65),
+(11, '', '71206554', 5595, '5412145', 'Ahsan', 'xscdv', 'scdv', 'AhsanGhifari', 'ahsanghifari04@gmail.com', '$2y$10$rUzQ1q/pYdw68UC1E13DSuCKeRKRhX4T5QPZGHpcosSuToSLkuUey', '$2y$10$rUzQ1q/pYdw68UC1E13DSuCKeRKRhX4T5QPZGHpcosSuToSLkuUey', '+62 812-8411-8340', 'Pria', 'fgvhjk', 'cgvhbjnkm', 'Bekasi', 'Belum Terverifikasi', 65);
 
 -- --------------------------------------------------------
 
@@ -225,7 +224,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `perusahaan`
