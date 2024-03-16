@@ -3,6 +3,7 @@
   --color-default-white: #ffff;
   --color-btn-masuk: #0077ff;
 }
+
 /************** Scrollbar Effect **************/
 ::-webkit-scrollbar {
   width: 5px;
@@ -19,6 +20,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
 /************** End Scrollbar Effect **************/
 body {
   padding: 0;
@@ -137,25 +139,19 @@ body {
 
 .button:hover:before {
   top: -70%;
-  background-image: radial-gradient(
-      circle,
+  background-image: radial-gradient(circle,
       var(--color-btn-masuk) 20%,
-      transparent 20%
-    ),
-    radial-gradient(
-      circle,
+      transparent 20%),
+    radial-gradient(circle,
       transparent 20%,
       var(--color-btn-masuk) 20%,
-      transparent 30%
-    ),
+      transparent 30%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
-    radial-gradient(
-      circle,
+    radial-gradient(circle,
       transparent 10%,
       var(--color-btn-masuk) 15%,
-      transparent 20%
-    ),
+      transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
@@ -186,18 +182,14 @@ body {
 
 .button:hover::after {
   bottom: -70%;
-  background-image: radial-gradient(
-      circle,
+  background-image: radial-gradient(circle,
       var(--color-btn-masuk) 20%,
-      transparent 20%
-    ),
+      transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
-    radial-gradient(
-      circle,
+    radial-gradient(circle,
       transparent 10%,
       var(--color-btn-masuk) 15%,
-      transparent 20%
-    ),
+      transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
     radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
@@ -225,7 +217,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 1520px) {
+@media (max-width: 2560px) and (max-height: 1440px) {
   .img-desktop {
     width: 80%;
     position: absolute;
@@ -241,8 +233,10 @@ body {
     right: 370px;
     z-index: 1;
   }
+
   .captcha-code {
-    top: 51%;
-    right: 145px;
+    top: 49%;
+    right: 137px;
+    padding: 20px 35px 20px 35px;
   }
 }
