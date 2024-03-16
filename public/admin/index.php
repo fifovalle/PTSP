@@ -67,10 +67,12 @@ if (!isset($_SESSION['ID'])) {
                         $informasiModel = new Informasi($koneksi);
                         $dataJasa = $jasaModel->tampilkanDataJasa();
                         $dataInformasi = $informasiModel->tampilkanDataInformasi();
+                        $adaData = false;
                         if ($dataJasa && $dataInformasi) {
                             foreach ($dataJasa as $jasa) {
                                 foreach ($dataInformasi as $informasi) {
                                     if ($jasa['ID_Jasa'] === $informasi['ID_Informasi']) {
+                                        $adaData = true;
                         ?>
                                         <div class="col-4">
                                             <div class="card">
@@ -105,10 +107,21 @@ if (!isset($_SESSION['ID'])) {
                                                 </div>
                                             </div>
                                         </div>
-                        <?php
+                            <?php
                                     }
                                 }
                             }
+                        }
+                        if (!$adaData) {
+                            ?>
+                            <div class="col-4">
+                                <div class="card">
+                                    <h5 class="card-title py-4 mx-auto text-danger">Tidak Ada Data!</h5>
+                                    <div class="position-relative mx-auto">
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
                         }
                         ?>
                         <div class="col-4">
