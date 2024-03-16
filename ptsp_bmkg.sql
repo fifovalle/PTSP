@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2024 at 09:26 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Mar 16, 2024 at 08:39 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,9 +49,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admin`, `Nama_Pengguna_Admin`, `Email_Admin`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Admin`, `Jenis_Kelamin_Admin`, `Peran_Admin`, `Alamat_Admin`, `Status_Verifikasi_Admin`, `Token`) VALUES
-(68, 0x363565353938306262663736392e6a7067, 'Sandro', 'Anugrah', 'Sandro', 'sandro@gmail.com', '$2y$10$9EsGBDrTJk5o0OZ8wEjtpOOebV8Q4SDn9/izeZ854dm7dFK53/cJm', '$2y$10$9EsGBDrTJk5o0OZ8wEjtpOOebV8Q4SDn9/izeZ854dm7dFK53/cJm', '+62 227-8696-666', 'Pria', 1, 'Batujajar\r\n\r\n', 'Terverifikasi', 2147483647),
-(81, 0x363565666666313836636437342e6a7067, 'Naufal', 'FIFA', 'zonaDeveloper', 'fifanaufal10@gmail.com', '$2y$10$xROadgNIVxwG7aaqNK77uebaRYGY4FxdqCbphnfCBoy3yeAReRLTO', '$2y$10$xROadgNIVxwG7aaqNK77uebaRYGY4FxdqCbphnfCBoy3yeAReRLTO', '+62   812-3652-2490', 'Pria', 1, 'Batujajar', 'Terverifikasi', 0),
-(88, 0x363566316437336638383439622e6a7067, 'Ahsan', 'Ghifari', 'AhsanGhifari', 'ahsanghifari04@gmail.com', '$2y$10$XTxDq6shdY607EJ18psFo.8efqx5n7yH9Y7XrbjlFVIMX75fUHDu.', '$2y$10$XTxDq6shdY607EJ18psFo.8efqx5n7yH9Y7XrbjlFVIMX75fUHDu.', '+62 812-4118-8340', 'Pria', 1, 'asdfgh', 'Terverifikasi', 0);
+(81, 0x363565666666313836636437342e6a7067, 'Naufal', 'FIFA', 'zonaDeveloper', 'fifanaufal10@gmail.com', '$2y$10$xROadgNIVxwG7aaqNK77uebaRYGY4FxdqCbphnfCBoy3yeAReRLTO', '$2y$10$xROadgNIVxwG7aaqNK77uebaRYGY4FxdqCbphnfCBoy3yeAReRLTO', '+62   812-3652-2490', 'Pria', 1, 'Batujajar', 'Terverifikasi', 0);
 
 -- --------------------------------------------------------
 
@@ -70,13 +68,6 @@ CREATE TABLE `informasi` (
   `Kategori_Informasi` enum('Meteorologi','Klimatologi','Geofisika') NOT NULL,
   `Status_Informasi` enum('Tersedia','Tidak Tersedia') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `informasi`
---
-
-INSERT INTO `informasi` (`ID_Informasi`, `Foto_Informasi`, `Nama_Informasi`, `Deskripsi_Informasi`, `Harga_Informasi`, `Pemilik_Informasi`, `No_Rekening_Informasi`, `Kategori_Informasi`, `Status_Informasi`) VALUES
-(14, 0x363566316635366161356665362e706e67, 'a', 's', 10, 'Instansi A', 1111, 'Meteorologi', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -123,14 +114,6 @@ CREATE TABLE `pengguna` (
   `Status_Verifikasi_Pengguna` enum('Terverivikasi','Belum Terverifikasi') NOT NULL,
   `token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `pengguna`
---
-
-INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `token`) VALUES
-(10, '', '845646', 8454, 'cgvhj', 'xc ', 'Ghifari', 'asdf', 'aadscv', 'a@gmail.com', '$2y$10$Ov8K.PPC7RRvIGHHnyTYj.fC3FpcOA5pPnD3T21SSD6OJac.d/Fy6', '$2y$10$Ov8K.PPC7RRvIGHHnyTYj.fC3FpcOA5pPnD3T21SSD6OJac.d/Fy6', '+62 845-1565-', 'Pria', 'xscdv', 'cgvhbjnkm', 'Bekasi', 'Belum Terverifikasi', 65),
-(11, '', '71206554', 5595, '5412145', 'Ahsan', 'xscdv', 'scdv', 'AhsanGhifari', 'ahsanghifari04@gmail.com', '$2y$10$rUzQ1q/pYdw68UC1E13DSuCKeRKRhX4T5QPZGHpcosSuToSLkuUey', '$2y$10$rUzQ1q/pYdw68UC1E13DSuCKeRKRhX4T5QPZGHpcosSuToSLkuUey', '+62 812-8411-8340', 'Pria', 'fgvhjk', 'cgvhbjnkm', 'Bekasi', 'Belum Terverifikasi', 65);
 
 -- --------------------------------------------------------
 
