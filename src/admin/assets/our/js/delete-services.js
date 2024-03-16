@@ -1,7 +1,7 @@
 function confirmDeleteServices(id) {
   swal({
-    title: "Yakin Menghapus Informasi?",
-    text: "Informasi yang dihapus tidak dapat dipulihkan!",
+    title: "Yakin Menghapus Jasa?",
+    text: "Jasa yang dihapus tidak dapat dipulihkan!",
     icon: "warning",
     buttons: {
       cancel: {
@@ -21,7 +21,8 @@ function confirmDeleteServices(id) {
     },
   }).then((confirm) => {
     if (confirm) {
-      window.location.href = "../config/delete-services.php?id=" + id;
+      window.location.href =
+        "http://localhost/PTSP/src/admin/config/delete-services.php?id=" + id;
     }
   });
 }

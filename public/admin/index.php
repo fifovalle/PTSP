@@ -207,6 +207,8 @@ if (!isset($_SESSION['ID'])) {
     <script src="../../src/admin/assets/our/js/caret.js"></script>
     <script src="../../src/admin/assets/our/js/drive-all.js"></script>
     <script src="../../src/admin/assets/our/js/value-information.js"></script>
+    <script src="../../src/admin/assets/our/js/delete-information.js"></script>
+    <script src="../../src/admin/assets/our/js/delete-services.js"></script>
     <script src="../../src/admin/assets/our/js/value-services.js"></script>
     <script src="../../src/admin/assets/our/js/search-alldata.js"></script>
     <!-- BOOTSTRAP JS -->

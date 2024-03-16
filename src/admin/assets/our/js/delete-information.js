@@ -21,7 +21,9 @@ function confirmDeleteInformation(id) {
     },
   }).then((confirm) => {
     if (confirm) {
-      window.location.href = "../config/delete-information.php?id=" + id;
+      window.location.href =
+        "http://localhost/PTSP/src/admin/config/delete-information.php?id=" +
+        id;
     }
   });
 }

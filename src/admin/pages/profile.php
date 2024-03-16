@@ -160,6 +160,8 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/profile.js"></script>
     <script src="../assets/our/js/value-information.js"></script>
     <script src="../assets/our/js/search-alldata.js"></script>
+    <script src="../assets/our/js/delete-information.js"></script>
+    <script src="../assets/our/js/delete-services.js"></script>
     <script src="../assets/our/js/delete-profile.js"></script>
     <script src="../assets/our/js/value-information.js"></script>
     <script src="../assets/our/js/value-services.js"></script>
