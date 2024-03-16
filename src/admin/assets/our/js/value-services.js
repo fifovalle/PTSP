@@ -4,7 +4,7 @@ $(document).ready(function () {
     let jasaID = $(this).data("id");
     console.log(jasaID);
     $.ajax({
-      url: "../config/get-services-data.php",
+      url: "http://localhost/PTSP/src/admin/config/get-services-data.php",
       method: "GET",
       data: {
         jasa_id: jasaID,
@@ -34,7 +34,7 @@ $(document).ready(function () {
     let formData = new FormData($(this).closest("form")[0]);
 
     $.ajax({
-      url: "../config/edit-services.php",
+      url: "http://localhost/PTSP/src/admin/config/edit-services.php",
       method: "POST",
       data: formData,
       processData: false,

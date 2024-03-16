@@ -46,7 +46,7 @@
                                 $keluaran .= '<p class="stok">' . (isset($item['Kategori_Informasi']) ? $item['Kategori_Informasi'] : $item['Kategori_Jasa']) . '</p>';
                                 $keluaran .= '<p class="fs-6 fw-bolder">' . (isset($item['Foto_Informasi']) ? 'Informasi' : 'Jasa') . '</p>';
                                 $keluaran .= '</div>';
-                                $keluaran .= '<a class="linkProduk" href="#"><span class="edit-icon"><i class="fas fa-edit"></i> Sunting</span></a>';
+                                $keluaran .= '<a class="linkProduk ' . (isset($item['ID_Informasi']) ? 'buttonInformation' : 'buttonServices') . '" data-id="' . (isset($item['ID_Informasi']) ? $item['ID_Informasi'] : $item['ID_Jasa']) . '"><span class="edit-icon"><i class="fas fa-edit"></i> Sunting</span></a>';
                                 $keluaran .= '<a class="linkProduk" href="#"><span class="delete-icon"><i class="fas fa-trash"></i> Hapus</span></a>';
                                 $keluaran .= '</div>';
                                 $keluaran .= '</div>';

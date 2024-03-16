@@ -121,6 +121,12 @@ if (!isset($_SESSION['ID'])) {
     include "../partials/utils/modal-add-services.php";
     ?>
     <?php
+    include "../partials/utils/modal-edit-information.php";
+    ?>
+    <?php
+    include "../partials/utils/modal-edit-services.php";
+    ?>
+    <?php
     include "../partials/utils/modal-send-feedback.php";
     ?>
     <!-- ALL MODAL END -->
@@ -141,6 +147,8 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/chart/chart-information.js"></script>
     <script src="../assets/our/js/chart/chart-services.js"></script>
     <script src="../assets/our/js/chart/apexcharts.js"></script>
+    <script src="../assets/our/js/value-information.js"></script>
+    <script src="../assets/our/js/value-services.js"></script>
     <script src="../assets/our/js/drive-all.js"></script>
     <script src="../assets/our/js/search-alldata.js"></script>
     <!-- BOOTSTRAP JS -->

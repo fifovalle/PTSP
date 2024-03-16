@@ -220,6 +220,7 @@ a {
 
 .linkProduk {
   color: var(--teks);
+  cursor: pointer;
 }
 
 .linkProduk:hover {

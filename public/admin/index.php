@@ -186,6 +186,12 @@ if (!isset($_SESSION['ID'])) {
     include "../../src/admin/partials/utils/modal-add-services.php";
     ?>
     <?php
+    include "../../src/admin/partials/utils/modal-edit-information.php";
+    ?>
+    <?php
+    include "../../src/admin/partials/utils/modal-edit-services.php";
+    ?>
+    <?php
     include "../../src/admin/partials/utils/modal-send-feedback.php";
     ?>
     <!-- ALL MODAL END -->
@@ -200,6 +206,8 @@ if (!isset($_SESSION['ID'])) {
     <script src="../../src/admin/assets/our/js/toggle-password.js"></script>
     <script src="../../src/admin/assets/our/js/caret.js"></script>
     <script src="../../src/admin/assets/our/js/drive-all.js"></script>
+    <script src="../../src/admin/assets/our/js/value-information.js"></script>
+    <script src="../../src/admin/assets/our/js/value-services.js"></script>
     <script src="../../src/admin/assets/our/js/search-alldata.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../../src/admin/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

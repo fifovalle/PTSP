@@ -137,26 +137,32 @@ if (!isset($_SESSION['ID'])) {
     include "../partials/utils/modal-add-services.php";
     ?>
     <?php
-    include "../partials/utils/modal-send-feedback.php";
+    include "../partials/utils/modal-edit-foto-profile.php";
     ?>
     <?php
-    include "../partials/utils/modal-edit-foto-profile.php";
+    include "../partials/utils/modal-edit-information.php";
+    ?>
+    <?php
+    include "../partials/utils/modal-edit-services.php";
+    ?>
+    <?php
+    include "../partials/utils/modal-send-feedback.php";
     ?>
     <!-- ALL MODAL END -->
 
     <!-- CDN JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <!-- CDN DRIVE.JS -->
     <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
     <!-- OUR JS -->
     <script src="../assets/our/js/index.js"></script>
     <script src="../assets/our/js/profile.js"></script>
-    <script src="../assets/our/js/toggle-password.js"></script>
-    <script src="../assets/our/js/toggle-password-edit.js"></script>
-    <script src="../assets/our/js/drive-all.js"></script>
+    <script src="../assets/our/js/value-information.js"></script>
     <script src="../assets/our/js/search-alldata.js"></script>
     <script src="../assets/our/js/delete-profile.js"></script>
+    <script src="../assets/our/js/value-information.js"></script>
+    <script src="../assets/our/js/value-services.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <!-- ALERT -->

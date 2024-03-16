@@ -31,7 +31,7 @@ if (isset($_POST["keyword"])) {
             $hasilPencaharian .= '<p class="stok">' . (isset($item['Kategori_Informasi']) ? $item['Kategori_Informasi'] : $item['Kategori_Jasa']) . '</p>';
             $hasilPencaharian .= '<p class="fs-6 fw-bolder">' . (isset($item['Foto_Informasi']) ? 'Informasi' : 'Jasa') . '</p>';
             $hasilPencaharian .= '</div>';
-            $hasilPencaharian .= '<a class="linkProduk" href="#"><span class="edit-icon"><i class="fas fa-edit"></i> Sunting</span></a>';
+            $hasilPencaharian .= '<a class="linkProduk ' . (isset($item['ID_Informasi']) ? 'buttonInformation' : 'buttonServices') . '" data-id="' . (isset($item['ID_Informasi']) ? $item['ID_Informasi'] : $item['ID_Jasa']) . '"><span class="edit-icon"><i class="fas fa-edit"></i> Sunting</span></a>';
             $hasilPencaharian .= '<a class="linkProduk" href="#"><span class="delete-icon"><i class="fas fa-trash"></i> Hapus</span></a>';
             $hasilPencaharian .= '</div>';
         }

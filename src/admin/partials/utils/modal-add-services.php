@@ -31,10 +31,17 @@
                     <div class="mb-3">
                         <label for="servicesOwner" class="form-label">Pemilik Jasa</label>
                         <select name="Pemilik_Jasa" id="servicesOwner" class="form-control inputData">
-                            <option value="" selected>Pilih Pemilik Jasa</option>
-                            <option value="Instansi A">Instansi A</option>
-                            <option value="Instansi B">Instansi B</option>
-                            <option value="Instansi C">Instansi C</option>
+                            <?php
+                            $peranAdmin = isset($_SESSION['Peran_Admin']) ? $_SESSION['Peran_Admin'] : '';
+                            $apakahSuperAdmin = ($peranAdmin == 1);
+                            echo ($apakahSuperAdmin) ? '<option value="" selected>' . htmlspecialchars('Pilih Pemilik Jasa') . '</option>' : '';
+                            echo ($apakahSuperAdmin) ? '<option value="Instansi A">' . htmlspecialchars('Instansi A') . '</option>' : '';
+                            echo ($apakahSuperAdmin) ? '<option value="Instansi B">' . htmlspecialchars('Instansi B') . '</option>' : '';
+                            echo ($apakahSuperAdmin) ? '<option value="Instansi C">' . htmlspecialchars('Instansi C') . '</option>' : '';
+                            echo (!$apakahSuperAdmin && $peranAdmin == 2) ? '<option value="Instansi A" selected>' . htmlspecialchars('Instansi A') . '</option>' : '';
+                            echo (!$apakahSuperAdmin && $peranAdmin == 3) ? '<option value="Instansi B" selected>' . htmlspecialchars('Instansi B') . '</option>' : '';
+                            echo (!$apakahSuperAdmin && $peranAdmin == 4) ? '<option value="Instansi C" selected>' . htmlspecialchars('Instansi C') . '</option>' : '';
+                            ?>
                         </select>
                     </div>
                     <div class="mb-3">

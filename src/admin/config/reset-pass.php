@@ -37,7 +37,7 @@ if (isset($_GET['token'])) {
                     </div>
                 </div>
                 <div class="login-content">
-                    <form id="formulirLoginForDrive" action="../config/login.php" method="post">
+                    <form id="formulirLoginForDrive" action="reset-pass-to-database.php" method="post">
                         <img class="imgForm" src="../assets/image/logo/logo2.png">
                         <h2 class="title">Atur Ulang Kata Sandi</h2>
                         <div id="resetKataSandi" class="input-div pass">
@@ -60,7 +60,7 @@ if (isset($_GET['token'])) {
                                 <i class="fas fa-eye iconInputContainer" id="togglePassword"></i>
                             </div>
                         </div>
-                        <button id="btnLoginForDrive" name="Masuk" type="submit" class="btn">Ubah Kata Sandi</button>
+                        <button id="btnLoginForDrive" name="Ubah_Kata_Sandi" type="submit" class="btn">Ubah Kata Sandi</button>
                     </form>
                 </div>
             </div>
