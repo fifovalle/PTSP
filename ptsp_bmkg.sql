@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2024 at 08:39 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Waktu pembuatan: 17 Mar 2024 pada 11.31
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -45,7 +45,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admin`, `Nama_Pengguna_Admin`, `Email_Admin`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Admin`, `Jenis_Kelamin_Admin`, `Peran_Admin`, `Alamat_Admin`, `Status_Verifikasi_Admin`, `Token`) VALUES
@@ -54,7 +54,7 @@ INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `informasi`
+-- Struktur dari tabel `informasi`
 --
 
 CREATE TABLE `informasi` (
@@ -72,7 +72,7 @@ CREATE TABLE `informasi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jasa`
+-- Struktur dari tabel `jasa`
 --
 
 CREATE TABLE `jasa` (
@@ -90,7 +90,7 @@ CREATE TABLE `jasa` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengguna`
+-- Struktur dari tabel `pengguna`
 --
 
 CREATE TABLE `pengguna` (
@@ -118,7 +118,7 @@ CREATE TABLE `pengguna` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perusahaan`
+-- Struktur dari tabel `perusahaan`
 --
 
 CREATE TABLE `perusahaan` (
@@ -135,15 +135,16 @@ CREATE TABLE `perusahaan` (
   `Kabupaten_Kota` varchar(30) NOT NULL,
   `No_NPWP` varchar(25) NOT NULL,
   `Nama_Perusahaan` varchar(30) NOT NULL,
-  `Alamata_Perusahaan` text NOT NULL,
+  `Alamat_Perusahaan` text NOT NULL,
   `Provinsi_Perusahaan` varchar(30) NOT NULL,
   `Kabupaten_Kota_Perusahaan` varchar(30) NOT NULL,
   `Email_Perusahaan` varchar(50) NOT NULL,
   `No_Telepon_Perusahaan` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `Nama_Pengguan` varchar(30) NOT NULL,
+  `Nama_Pengguna` varchar(30) NOT NULL,
   `Kata_Sandi` varchar(100) NOT NULL,
   `Konfirmasi_Kata_Sandi` varchar(100) NOT NULL,
+  `Status_Verifikasi_Perusahaan` enum('Terverivikasi','Belum Terverifikasi') NOT NULL,
   `token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -152,68 +153,68 @@ CREATE TABLE `perusahaan` (
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`ID_Admin`);
 
 --
--- Indexes for table `informasi`
+-- Indeks untuk tabel `informasi`
 --
 ALTER TABLE `informasi`
   ADD PRIMARY KEY (`ID_Informasi`);
 
 --
--- Indexes for table `jasa`
+-- Indeks untuk tabel `jasa`
 --
 ALTER TABLE `jasa`
   ADD PRIMARY KEY (`ID_Jasa`);
 
 --
--- Indexes for table `pengguna`
+-- Indeks untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`ID_Pengguna`);
 
 --
--- Indexes for table `perusahaan`
+-- Indeks untuk tabel `perusahaan`
 --
 ALTER TABLE `perusahaan`
   ADD PRIMARY KEY (`ID_Perusahaan`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
   MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
--- AUTO_INCREMENT for table `informasi`
+-- AUTO_INCREMENT untuk tabel `informasi`
 --
 ALTER TABLE `informasi`
   MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `jasa`
+-- AUTO_INCREMENT untuk tabel `jasa`
 --
 ALTER TABLE `jasa`
   MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `pengguna`
+-- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `perusahaan`
+-- AUTO_INCREMENT untuk tabel `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  MODIFY `ID_Perusahaan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

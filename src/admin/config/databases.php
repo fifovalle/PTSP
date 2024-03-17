@@ -501,6 +501,55 @@ class Pengguna
 
         return $captcha;
     }
+    public function tambahPerusahaan($data)
+    {
+        $query = "INSERT INTO perusahaan (No_Identitas, Nama_Depan, Nama_Belakang, Pekerjaan, Pendidikan_Terakhir, Jenis_Kelamin, Alamat, No_Telepon, Provinsi, Kabupaten_Kota, No_NPWP, Nama_Perusahaan, Alamat_Perusahaan, Provinsi_Perusahaan, Kabupaten_Kota_Perusahaan, Email_Perusahaan, No_Telepon_Perusahaan, Email, Nama_Pengguna, Kata_Sandi, Konfirmasi_Kata_Sandi, Status_Verifikasi_Perusahaan, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $statement = $this->koneksi->prepare($query);
+
+        if (!$statement) {
+            die('Query error: ' . $this->koneksi->error);
+        }
+
+        $bindParams = [
+            'ssssssssssssssssssssssi',
+            &$data['No_Identitas'],
+            &$data['Nama_Depan'],
+            &$data['Nama_Belakang'],
+            &$data['Pekerjaan'],
+            &$data['Pendidikan_Terakhir'],
+            &$data['Jenis_Kelamin'],
+            &$data['Alamat'],
+            &$data['No_Telepon'],
+            &$data['Provinsi'],
+            &$data['Kabupaten_Kota'],
+            &$data['No_NPWP'],
+            &$data['Nama_Perusahaan'],
+            &$data['Alamat_Perusahaan'],
+            &$data['Provinsi_Perusahaan'],
+            &$data['Kabupaten_Kota_Perusahaan'],
+            &$data['Email_Perusahaan'],
+            &$data['No_Telepon_Perusahaan'],
+            &$data['Email'],
+            &$data['Nama_Pengguna'],
+            &$data['Kata_Sandi'],
+            &$data['Konfirmasi_Kata_Sandi'],
+            &$data['Status_Verifikasi_Perusahaan'],
+            &$data['token']
+        ];
+
+        if (count($bindParams) - 1 !== substr_count($query, '?')) {
+            die('Mismatch in number of bind parameters and placeholders in query');
+        }
+
+        call_user_func_array([$statement, 'bind_param'], $bindParams);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 // ===================================PENGGUNA===================================
 

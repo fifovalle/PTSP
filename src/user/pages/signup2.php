@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +13,9 @@
     <link rel="icon" href="../../../src/admin/assets/image/logo/1.png">
     <link rel="stylesheet" href="../assets/css/signup2.css">
     <script src="../assets/js/javascript.js"></script>
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <title>SignUp-PTSP BMKG Provinsi Bengkulu</title>
 </head>
 
@@ -30,7 +36,7 @@
                 </svg>
             </div>
             <div class="col-lg-6 text-center justify-content-center left-content">
-                <form class="main-form" id="multiStepForm" method="post">
+                <form class="main-form" id="multiStepForm" method="post" action="../../../src/admin/config/sign-up2.php">
                     <h3 class="form-header fw-normal py-3 text-black margin-custom"><b>DAFTAR PERUSAHAAN</b></h3>
                     <!-- Form 1 -->
                     <div class="step" id="wizard-h-0" style="display: flex;">
@@ -42,19 +48,19 @@
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NoIdentitas" name="NoIdentitas" placeholder="123*****">
+                                    <input type="number" class="form-control" id="No_Identitas" name="No_Identitas" placeholder="123*****">
                                     <label for="floatingInput">No Identitas (KTP/SIM/KITAS/PASSPORT) <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="NamaDepan" name="NamaLengkap" placeholder="Ridwan***">
+                                    <input type="text" class="form-control" id="NamaDepan" name="Nama_Depan" placeholder="Ridwan***">
                                     <label for="floatingInput">Nama Depan <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="NamaBelakang" name="NamaLengkap" placeholder="Ridwan***">
+                                    <input type="text" class="form-control" id="NamaBelakang" name="Nama_Belakang" placeholder="Ridwan***">
                                     <label for="floatingInput">Nama Belakang <b>*</b> </label>
                                 </div>
                             </div>
@@ -66,7 +72,7 @@
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Pendidikan" name="Pendidikan" placeholder="Ridwan***">
+                                    <input type="text" class="form-control" id="Pendidikan" name="Pendidikan_Terakhir" placeholder="Ridwan***">
                                     <label for="floatingInput">Pendidikan Terakhir <b>*</b> </label>
                                 </div>
                             </div>
@@ -110,7 +116,7 @@
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NoTelepon" name="NoTelepon" placeholder="123*****">
+                                    <input type="number" class="form-control" id="NoTelepon" name="No_Telepon" placeholder="123*****">
                                     <label for="floatingInput">No Hp / No Telepon <b>*</b> </label>
                                 </div>
                             </div>
@@ -122,7 +128,7 @@
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Kab/Kota" name="Kab/Kota" placeholder="Kab. ***">
+                                    <input type="text" class="form-control" id="Kab/Kota" name="Kabupaten_Kota" placeholder="Kab. ***">
                                     <label for="floatingInput">Kabupaten/Kota <b>*</b> </label>
                                 </div>
                             </div>
@@ -159,43 +165,43 @@
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NPWP" name="NPWP" placeholder="123*****">
+                                    <input type="number" class="form-control" id="NPWP" name="No_NPWP" placeholder="123*****">
                                     <label for="floatingInput">NPWP</label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="NamaPerusahaan" name="AlamatPerusahaan" placeholder="Jl.****">
+                                    <input type="text" class="form-control" id="NamaPerusahaan" name="Nama_Perusahaan" placeholder="Jl.****">
                                     <label for="floatingInput">Nama Perusahaan <b>*</b></label>
                                 </div>
                             </div>
                             <div class="col-md-12 ps-0 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="AlamatPerusahaan" name="AlamatPerusahaan" placeholder="Jl.****">
+                                    <input type="text" class="form-control" id="AlamatPerusahaan" name="Alamat_Perusahaan" placeholder="Jl.****">
                                     <label for="floatingInput">Alamat Perusahaan <b>*</b></label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="ProvinsiPerusahaan" name="ProvinsiPerusahaan" placeholder="Jawa ***">
+                                    <input type="text" class="form-control" id="ProvinsiPerusahaan" name="Provinsi_Perusahaan" placeholder="Jawa ***">
                                     <label for="floatingInput">Provinsi <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Kab/KotaPerusahaan" name="Kab/KotaPerusahaan" placeholder="Kab. ***">
+                                    <input type="text" class="form-control" id="Kab/KotaPerusahaan" name="Kabupaten_Kota_Perusahaan" placeholder="Kab. ***">
                                     <label for="floatingInput">Kabupaten/Kota <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="email" class="form-control" id="EmailPerusahaan" name="EmailPerusahaan" placeholder="***@example.com">
+                                    <input type="email" class="form-control" id="EmailPerusahaan" name="Email_Perusahaan" placeholder="***@example.com">
                                     <label for="floatingInput">Email Perusahaan <b>*</b></label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NoTeleponPerusahaan" name="NoTeleponPerusahaan" placeholder="123*****">
+                                    <input type="number" class="form-control" id="NoTeleponPerusahaan" name="No_Telepon_Perusahaan" placeholder="123*****">
                                     <label for="floatingInput">No Telepon Perusahaan <b>*</b> </label>
                                 </div>
                             </div>
@@ -238,7 +244,7 @@
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Username" name="Username" placeholder="***sd**">
+                                    <input type="text" class="form-control" id="Username" name="Nama_Pengguna" placeholder="***sd**">
                                     <label for="floatingInput">Nama Pengguna <b>*</b> </label>
                                 </div>
                             </div>
@@ -293,7 +299,7 @@
                         </label>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button class="btn mt-3" type="submit">
+                        <button class="btn mt-3" name="Daftar" type="submit">
                             <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
                                 <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z">
                                 </path>
@@ -312,6 +318,8 @@
     </div>
     <script src="../assets/js/sign-up.js"></script>
     <script src="../assets/js/toggle-signup.js"></script>
+    <!-- ALERT -->
+    <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>
