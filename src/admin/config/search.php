@@ -2,22 +2,12 @@
 include 'databases.php';
 $jasaModel = new Jasa($koneksi);
 $informasiModel = new Informasi($koneksi);
-$dataJasaTerbaru = $jasaModel->tampilkanDataJasaTerbaru();
-$dataInformasiTerbaru = $informasiModel->tampilkanDataInformasiTerbaru();
-$dataTerbaru = array_merge($dataInformasiTerbaru, $dataJasaTerbaru);
-usort($dataTerbaru, function ($a, $b) {
-    $waktuA = isset($a['Waktu_Terakhir_Modifikasi']) ? strtotime($a['Waktu_Terakhir_Modifikasi']) : 0;
-    $waktuB = isset($b['Waktu_Terakhir_Modifikasi']) ? strtotime($b['Waktu_Terakhir_Modifikasi']) : 0;
-
-    return $waktuB - $waktuA;
-});
-$dataTerbaru = array_slice($dataTerbaru, 0, 3);
-$hasilPencaharian = '';
 if (isset($_POST["keyword"])) {
     $keyword = htmlspecialchars($_POST["keyword"]);
     $hasilInformasi = $informasiModel->cariDataInformasi($keyword);
     $hasilJasa = $jasaModel->cariDataJasa($keyword);
     $hasilPencarian = array_merge($hasilInformasi, $hasilJasa);
+    $hasilPencaharian = '';
     if (!empty($hasilPencarian)) {
         foreach ($hasilPencarian as $item) {
             $hasilPencaharian .= '<div class="boxParent d-flex align-items-center justify-content-between list mb-3">';
@@ -32,7 +22,7 @@ if (isset($_POST["keyword"])) {
             $hasilPencaharian .= '<p class="fs-6 fw-bolder">' . (isset($item['Foto_Informasi']) ? 'Informasi' : 'Jasa') . '</p>';
             $hasilPencaharian .= '</div>';
             $hasilPencaharian .= '<a class="linkProduk ' . (isset($item['ID_Informasi']) ? 'buttonInformation' : 'buttonServices') . '" data-id="' . (isset($item['ID_Informasi']) ? $item['ID_Informasi'] : $item['ID_Jasa']) . '"><span class="edit-icon"><i class="fas fa-edit"></i> Sunting</span></a>';
-            $hasilPencaharian .= '<a class="linkProduk" href="#"><span class="delete-icon"><i class="fas fa-trash"></i> Hapus</span></a>';
+            $hasilPencaharian .= '<a class="linkProduk" href="javascript:void(0);" onclick="' . (isset($item['ID_Informasi']) ? 'confirmDeleteInformation(' . $item['ID_Informasi'] . ')' : 'confirmDeleteServices(' . $item['ID_Jasa'] . ')') . '"><span class="delete-icon"><i class="fas fa-trash"></i> Hapus</span></a>';
             $hasilPencaharian .= '</div>';
         }
     } else {
