@@ -138,7 +138,6 @@ class Admin
         }
     }
 
-
     public function hapusAdmin($id)
     {
         $query = "SELECT ID_Admin, Foto FROM admin WHERE ID_Admin=?";
@@ -357,13 +356,25 @@ class Pengguna
         }
     }
 
-
-
-
-
     public function tampilkanDataPengguna()
     {
         $query = "SELECT * FROM pengguna";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanDataPerusahaan()
+    {
+        $query = "SELECT * FROM perusahaan";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -501,6 +512,7 @@ class Pengguna
 
         return $captcha;
     }
+
     public function tambahPerusahaan($data)
     {
         $query = "INSERT INTO perusahaan (No_Identitas, Nama_Depan, Nama_Belakang, Pekerjaan, Pendidikan_Terakhir, Jenis_Kelamin, Alamat, No_Telepon, Provinsi, Kabupaten_Kota, No_NPWP, Nama_Perusahaan, Alamat_Perusahaan, Provinsi_Perusahaan, Kabupaten_Kota_Perusahaan, Email_Perusahaan, No_Telepon_Perusahaan, Email, Nama_Pengguna, Kata_Sandi, Konfirmasi_Kata_Sandi, Status_Verifikasi_Perusahaan, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -549,7 +561,6 @@ class Pengguna
             return false;
         }
     }
-
 }
 // ===================================PENGGUNA===================================
 
