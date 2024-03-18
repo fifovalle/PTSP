@@ -48,40 +48,40 @@ session_start();
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="No_Identitas" name="No_Identitas" placeholder="123*****">
+                                    <input type="number" class="form-control" id="No_Identitas" name="No_Identitas_Anggota_Perusahaan" placeholder="123*****" value="<?= $_SESSION['No_Identitas'] ?? ''; ?>">
                                     <label for="floatingInput">No Identitas (KTP/SIM/KITAS/PASSPORT) <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="NamaDepan" name="Nama_Depan" placeholder="Ridwan***">
+                                    <input type="text" class="form-control" id="NamaDepan" name="Nama_Depan_Anggota_Perusahaan" placeholder="Ridwan***" value="<?= $_SESSION['Nama_Depan'] ?? ''; ?>">
                                     <label for="floatingInput">Nama Depan <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="NamaBelakang" name="Nama_Belakang" placeholder="Ridwan***">
+                                    <input type="text" class="form-control" id="NamaBelakang" name="Nama_Belakang_Anggota_Perusahaan" placeholder="Ridwan***" value="<?= $_SESSION['Nama_Belakang'] ?? ''; ?>">
                                     <label for="floatingInput">Nama Belakang <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Pekerjaan" name="Pekerjaan" placeholder="Mengaja***">
+                                    <input type="text" class="form-control" id="Pekerjaan" name="Pekerjaan_Anggota_Perusahaan" placeholder="Mengaja***" value="<?= $_SESSION['Pekerjaan'] ?? ''; ?>">
                                     <label for="floatingInput">Pekerjaan <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Pendidikan" name="Pendidikan_Terakhir" placeholder="Ridwan***">
+                                    <input type="text" class="form-control" id="Pendidikan" name="Pendidikan_Terakhir_Anggota_Perusahaan" placeholder="Ridwan***" value="<?= $_SESSION['Pendidikan'] ?? ''; ?>">
                                     <label for="floatingInput">Pendidikan Terakhir <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <select class="form-select" aria-label="Default select example" id="Jenis_Kelamin" name="Jenis_Kelamin">
-                                        <option selected>Pilih Jenis Kelamin</option>
-                                        <option value="1">Laki-laki</option>
-                                        <option value="2">Perempuan</option>
+                                    <select class="form-select" aria-label="Default select example" id="Jenis_Kelamin" name="Jenis_Kelamin_Anggota_Perusahaan">
+                                        <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                                        <option value="1" <?= ($_SESSION['Jenis_Kelamin'] ?? '') == '1' ? 'selected' : ''; ?>>Pria</option>
+                                        <option value="2" <?= ($_SESSION['Jenis_Kelamin'] ?? '') == '2' ? 'selected' : ''; ?>>Wanita</option>
                                     </select>
                                     <label for="floatingInput">Jenis Kelamin <b>*</b> </label>
                                 </div>
@@ -110,25 +110,25 @@ session_start();
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Alamat" name="Alamat" placeholder="Jl.****">
+                                    <input type="text" class="form-control" id="Alamat" name="Alamat_Anggota_Perusahaan" placeholder="Jl.****" value="<?= $_SESSION['Alamat'] ?? ''; ?>">
                                     <label for="floatingInput">Alamat <b>*</b></label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NoTelepon" name="No_Telepon" placeholder="123*****">
+                                    <input type="number" class="form-control" id="NoTelepon" name="No_Telepon_Anggota_Perusahaan" placeholder="123*****" value="<?= $_SESSION['No_Telepon'] ?? ''; ?>">
                                     <label for="floatingInput">No Hp / No Telepon <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Provinsi" name="Provinsi" placeholder="Jawa ***">
+                                    <input type="text" class="form-control" id="Provinsi" name="Provinsi_Anggota_Perusahaan" placeholder="Jawa ***" value="<?= $_SESSION['Provinsi'] ?? ''; ?>">
                                     <label for="floatingInput">Provinsi <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Kab/Kota" name="Kabupaten_Kota" placeholder="Kab. ***">
+                                    <input type="text" class="form-control" id="Kab/Kota" name="Kabupaten_Kota_Anggota_Perusahaan" placeholder="Kab. ***" value="<?= $_SESSION['Kab/Kota'] ?? ''; ?>">
                                     <label for="floatingInput">Kabupaten/Kota <b>*</b> </label>
                                 </div>
                             </div>
@@ -165,43 +165,43 @@ session_start();
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NPWP" name="No_NPWP" placeholder="123*****">
+                                    <input type="number" class="form-control" id="NPWP" name="No_NPWP" placeholder="123*****" value="<?= $_SESSION['NPWP'] ?? ''; ?>">
                                     <label for="floatingInput">NPWP</label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="NamaPerusahaan" name="Nama_Perusahaan" placeholder="Jl.****">
+                                    <input type="text" class="form-control" id="NamaPerusahaan" name="Nama_Perusahaan" placeholder="Jl.****" value="<?= $_SESSION['Nama_Perusahaan'] ?? ''; ?>">
                                     <label for="floatingInput">Nama Perusahaan <b>*</b></label>
                                 </div>
                             </div>
                             <div class="col-md-12 ps-0 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="AlamatPerusahaan" name="Alamat_Perusahaan" placeholder="Jl.****">
+                                    <input type="text" class="form-control" id="AlamatPerusahaan" name="Alamat_Perusahaan" placeholder="Jl.****" value="<?= $_SESSION['Alamat_Perusahaan'] ?? ''; ?>">
                                     <label for="floatingInput">Alamat Perusahaan <b>*</b></label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="ProvinsiPerusahaan" name="Provinsi_Perusahaan" placeholder="Jawa ***">
+                                    <input type="text" class="form-control" id="ProvinsiPerusahaan" name="Provinsi_Perusahaan" placeholder="Jawa ***" value="<?= $_SESSION['Provinsi_Perusahaan'] ?? ''; ?>">
                                     <label for="floatingInput">Provinsi <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Kab/KotaPerusahaan" name="Kabupaten_Kota_Perusahaan" placeholder="Kab. ***">
+                                    <input type="text" class="form-control" id="Kab/KotaPerusahaan" name="Kabupaten_Kota_Perusahaan" placeholder="Kab. ***" value="<?= $_SESSION['Kab/KotaPerusahaan'] ?? ''; ?>">
                                     <label for="floatingInput">Kabupaten/Kota <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="email" class="form-control" id="EmailPerusahaan" name="Email_Perusahaan" placeholder="***@example.com">
+                                    <input type="email" class="form-control" id="EmailPerusahaan" name="Email_Perusahaan" placeholder="***@example.com" value="<?= $_SESSION['Email_Perusahaan'] ?? ''; ?>">
                                     <label for="floatingInput">Email Perusahaan <b>*</b></label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NoTeleponPerusahaan" name="No_Telepon_Perusahaan" placeholder="123*****">
+                                    <input type="number" class="form-control" id="NoTeleponPerusahaan" name="No_Telepon_Perusahaan" placeholder="123*****" value="<?= $_SESSION['No_Telepon_Perusahaan'] ?? ''; ?>">
                                     <label for="floatingInput">No Telepon Perusahaan <b>*</b> </label>
                                 </div>
                             </div>
@@ -238,33 +238,33 @@ session_start();
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="email" class="form-control" id="Email" name="Email" placeholder="***@example.com">
+                                    <input type="email" class="form-control" id="Email" name="Email_Anggota_Perusahaan" placeholder="***@example.com" value="<?= $_SESSION['Email_Anggota'] ?? ''; ?>">
                                     <label for="floatingInput">Email <b>*</b></label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Username" name="Nama_Pengguna" placeholder="***sd**">
+                                    <input type="text" class="form-control" id="Username" name="Nama_Pengguna_Anggota_Perusahaan" placeholder="***sd**" value="<?= $_SESSION['Nama_Pengguna'] ?? ''; ?>">
                                     <label for="floatingInput">Nama Pengguna <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3 position-relative">
-                                    <input type="password" class="form-control" id="Kata_Sandi" name="Kata_Sandi" placeholder="*****">
+                                    <input type="password" class="form-control" id="Kata_Sandi" name="Kata_Sandi_Anggota_Perusahaan" placeholder="*****" value="<?= $_SESSION['Kata_Sandi'] ?? ''; ?>">
                                     <label for="floatingInput">Kata Sandi <b>*</b> </label>
                                     <i class="bi bi-eye-slash eye-icon top-50 translate-middle-y" id="togglePassword1"></i>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3 position-relative">
-                                    <input type="password" class="form-control" id="Konfirmasi_Kata_Sandi" name="Konfirmasi_Kata_Sandi" placeholder="*****">
+                                    <input type="password" class="form-control" id="Konfirmasi_Kata_Sandi" name="Konfirmasi_Kata_Sandi_Anggota_Perusahaan" placeholder="*****" value="<?= $_SESSION['Konfirmasi_Kata_Sandi'] ?? ''; ?>">
                                     <label for="floatingInput">Konfirmasi Kata Sandi <b>*</b> </label>
                                     <i class="bi bi-eye-slash eye-icon top-50 translate-middle-y" id="togglePassword2"></i>
                                 </div>
                             </div>
                             <div class="col-md-9"></div>
                             <div class="col-md-3 pe-0">
-                                <button class="prevBtn pushable" type="button" onclick="prevStep(1)">
+                                <button class="prevBtn pushable" type="button" onclick="prevStep(2)">
                                     <span class="shadow"></span>
                                     <span class="edge"></span>
                                     <span class="front">

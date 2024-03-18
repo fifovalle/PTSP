@@ -4,6 +4,7 @@ include 'databases.php';
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
     $obyekAdmin = new Admin($koneksi);
+    $tampilkanSemua = $obyekAdmin->tampilkanDataAdmin($token);
     $hasil = $obyekAdmin->getAdminByToken($token);
     if ($hasil) {
         $kosongkanToken = $obyekAdmin->updateToken($hasil['ID_Admin'], '');
@@ -40,6 +41,7 @@ if (isset($_GET['token'])) {
                     <form id="formulirLoginForDrive" action="reset-pass-to-database.php" method="post">
                         <img class="imgForm" src="../assets/image/logo/logo2.png">
                         <h2 class="title">Atur Ulang Kata Sandi</h2>
+                        <input type="hidden" name="ID_Admin" value="<?= $hasil['ID_Admin'] ?>">
                         <div id="resetKataSandi" class="input-div pass">
                             <div class="i">
                                 <i class="fas fa-lock"></i>

@@ -35,7 +35,7 @@
             $dataGabungan = array_merge($dataPengguna, $dataPerusahaan);
             function compareByName($a, $b)
             {
-                return strcmp($a['Nama_Pengguna'] ?? $a['Nama_Perusahaan'], $b['Nama_Pengguna'] ?? $b['Nama_Perusahaan']);
+                return strcmp($a['Nama_Pengguna'] ?? $a['Nama_Pengguna_Anggota_Perusahaan'], $b['Nama_Pengguna'] ?? $b['Nama_Pengguna_Anggota_Perusahaan']);
             }
             usort($dataGabungan, 'compareByName');
             $nomorUrut = 1;
@@ -52,11 +52,11 @@
                                 <img class="imageData" src="../assets/image/uploads/<?php echo $data['Foto']; ?>" alt="Foto Pengguna">
                             </div>
                             <div class="deskriptorContainer">
-                                <p class="fw-semibold m-auto"><?php echo $data['Nama_Pengguna'] ?? $data['Nama_Perusahaan']; ?></p>
+                                <p class="fw-semibold m-auto"><?php echo $data['Nama_Pengguna'] ?? $data['Nama_Pengguna_Anggota_Perusahaan']; ?></p>
                                 <?php if (isset($data['Nama_Depan_Pengguna'])) : ?>
                                     <p class="fw-semibold deskriptorSmall m-auto"><?php echo $data['Nama_Depan_Pengguna'] . ' ' . $data['Nama_Belakang_Pengguna']; ?></p>
                                 <?php else : ?>
-                                    <p class="fw-semibold deskriptorSmall m-auto"><?php echo $data['Nama_Perusahaan']; ?></p>
+                                    <p class="fw-semibold deskriptorSmall m-auto"><?php echo $data['Nama_Depan_Anggota_Perusahaan'] . ' ' . $data['Nama_Belakang_Anggota_Perusahaan']; ?></p>
                                 <?php endif; ?>
                                 <div class="iconContainerData">
                                     <a class="linkData buttonUser" data-id='<?php echo $data['ID_Pengguna'] ?? $data['ID_Perusahaan']; ?>'>
@@ -69,8 +69,8 @@
                             </div>
                         </td>
                         <td class="text-center"><?php echo htmlspecialchars($data['Email_Pengguna'] ?? $data['Email_Perusahaan']); ?></td>
-                        <td class="text-center"><?php echo htmlspecialchars($data['Jenis_Kelamin_Pengguna'] ?? ''); ?></td>
-                        <td class="text-center"><?php echo htmlspecialchars($data['No_Telepon_Pengguna'] ?? ''); ?></td>
+                        <td class="text-center"><?php echo htmlspecialchars($data['Jenis_Kelamin_Pengguna'] ?? $data['Jenis_Kelamin_Anggota_Perusahaan']); ?></td>
+                        <td class="text-center"><?php echo htmlspecialchars($data['No_Telepon_Pengguna'] ?? $data['No_Telepon_Anggota_Perusahaan']); ?></td>
                         <td class="text-center">
                             <?php
                             if (isset($data['Status_Verifikasi_Pengguna'])) {

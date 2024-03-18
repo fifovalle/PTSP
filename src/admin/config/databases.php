@@ -124,6 +124,22 @@ class Admin
         }
     }
 
+    public function perbaruiKataSandi($id, $data)
+    {
+        $query = "UPDATE admin SET Kata_Sandi=?, Konfirmasi_Kata_Sandi=? WHERE ID_Admin=?";
+
+        $statement = $this->koneksi->prepare($query);
+
+        $statement->bind_param("ssi", $data['Kata_Sandi'], $data['Konfirmasi_Kata_Sandi'], $id);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public function perbaruiPhotoProfile($id, $data)
     {
         $query = "UPDATE admin SET Foto=? WHERE ID_Admin=?";
@@ -356,6 +372,55 @@ class Pengguna
         }
     }
 
+    public function tambahPerusahaan($data)
+    {
+        $query = "INSERT INTO perusahaan (No_Identitas_Anggota_Perusahaan, Nama_Depan_Anggota_Perusahaan, Nama_Belakang_Anggota_Perusahaan, Pekerjaan_Anggota_Perusahaan, Pendidikan_Terakhir_Anggota_Perusahaan, Jenis_Kelamin_Anggota_Perusahaan, Alamat_Anggota_Perusahaan, No_Telepon_Anggota_Perusahaan, Provinsi_Anggota_Perusahaan, Kabupaten_Kota_Anggota_Perusahaan, No_NPWP, Nama_Perusahaan, Alamat_Perusahaan, Provinsi_Perusahaan, Kabupaten_Kota_Perusahaan, Email_Perusahaan, No_Telepon_Perusahaan, Email_Anggota_Perusahaan, Nama_Pengguna_Anggota_Perusahaan, Kata_Sandi_Anggota_Perusahaan, Konfirmasi_Kata_Sandi_Anggota_Perusahaan, Status_Verifikasi_Perusahaan, Token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $statement = $this->koneksi->prepare($query);
+
+        if (!$statement) {
+            die('Query error: ' . $this->koneksi->error);
+        }
+
+        $bindParams = [
+            'ssssssssssssssssssssssi',
+            &$data['No_Identitas_Anggota_Perusahaan'],
+            &$data['Nama_Depan_Anggota_Perusahaan'],
+            &$data['Nama_Belakang_Anggota_Perusahaan'],
+            &$data['Pekerjaan_Anggota_Perusahaan'],
+            &$data['Pendidikan_Terakhir_Anggota_Perusahaan'],
+            &$data['Jenis_Kelamin_Anggota_Perusahaan'],
+            &$data['Alamat_Anggota_Perusahaan'],
+            &$data['No_Telepon_Anggota_Perusahaan'],
+            &$data['Provinsi_Anggota_Perusahaan'],
+            &$data['Kabupaten_Kota_Anggota_Perusahaan'],
+            &$data['No_NPWP'],
+            &$data['Nama_Perusahaan'],
+            &$data['Alamat_Perusahaan'],
+            &$data['Provinsi_Perusahaan'],
+            &$data['Kabupaten_Kota_Perusahaan'],
+            &$data['Email_Perusahaan'],
+            &$data['No_Telepon_Perusahaan'],
+            &$data['Email_Anggota_Perusahaan'],
+            &$data['Nama_Pengguna_Anggota_Perusahaan'],
+            &$data['Kata_Sandi_Anggota_Perusahaan'],
+            &$data['Konfirmasi_Kata_Sandi_Anggota_Perusahaan'],
+            &$data['Status_Verifikasi_Perusahaan'],
+            &$data['Token']
+        ];
+
+        if (count($bindParams) - 1 !== substr_count($query, '?')) {
+            die('Mismatch in number of bind parameters and placeholders in query');
+        }
+
+        call_user_func_array([$statement, 'bind_param'], $bindParams);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function tampilkanDataPengguna()
     {
         $query = "SELECT * FROM pengguna";
@@ -484,6 +549,16 @@ class Pengguna
         }
     }
 
+    public function getPerusahaanByToken($token)
+    {
+        $query = "SELECT * FROM perusahaan WHERE Token = ?";
+        $stmt = mysqli_prepare($this->koneksi, $query);
+        mysqli_stmt_bind_param($stmt, "i", $token);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        return mysqli_fetch_assoc($result);
+    }
+
     public function getFotoPenggunaById($idPengguna)
     {
         $query = "SELECT Foto FROM pengguna WHERE ID_Pengguna = ?";
@@ -511,55 +586,6 @@ class Pengguna
         }
 
         return $captcha;
-    }
-
-    public function tambahPerusahaan($data)
-    {
-        $query = "INSERT INTO perusahaan (No_Identitas, Nama_Depan, Nama_Belakang, Pekerjaan, Pendidikan_Terakhir, Jenis_Kelamin, Alamat, No_Telepon, Provinsi, Kabupaten_Kota, No_NPWP, Nama_Perusahaan, Alamat_Perusahaan, Provinsi_Perusahaan, Kabupaten_Kota_Perusahaan, Email_Perusahaan, No_Telepon_Perusahaan, Email, Nama_Pengguna, Kata_Sandi, Konfirmasi_Kata_Sandi, Status_Verifikasi_Perusahaan, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $statement = $this->koneksi->prepare($query);
-
-        if (!$statement) {
-            die('Query error: ' . $this->koneksi->error);
-        }
-
-        $bindParams = [
-            'ssssssssssssssssssssssi',
-            &$data['No_Identitas'],
-            &$data['Nama_Depan'],
-            &$data['Nama_Belakang'],
-            &$data['Pekerjaan'],
-            &$data['Pendidikan_Terakhir'],
-            &$data['Jenis_Kelamin'],
-            &$data['Alamat'],
-            &$data['No_Telepon'],
-            &$data['Provinsi'],
-            &$data['Kabupaten_Kota'],
-            &$data['No_NPWP'],
-            &$data['Nama_Perusahaan'],
-            &$data['Alamat_Perusahaan'],
-            &$data['Provinsi_Perusahaan'],
-            &$data['Kabupaten_Kota_Perusahaan'],
-            &$data['Email_Perusahaan'],
-            &$data['No_Telepon_Perusahaan'],
-            &$data['Email'],
-            &$data['Nama_Pengguna'],
-            &$data['Kata_Sandi'],
-            &$data['Konfirmasi_Kata_Sandi'],
-            &$data['Status_Verifikasi_Perusahaan'],
-            &$data['token']
-        ];
-
-        if (count($bindParams) - 1 !== substr_count($query, '?')) {
-            die('Mismatch in number of bind parameters and placeholders in query');
-        }
-
-        call_user_func_array([$statement, 'bind_param'], $bindParams);
-
-        if ($statement->execute()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }
 // ===================================PENGGUNA===================================

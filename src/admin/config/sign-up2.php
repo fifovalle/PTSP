@@ -2,16 +2,37 @@
 include 'databases.php';
 
 if (isset($_POST['Daftar'])) {
-    $noIdentitas = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_Identitas']));
-    $namaDepan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Depan']));
-    $namaBelakang = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Belakang']));
-    $pekerjaan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Pekerjaan']));
-    $pendidikanTerakhir = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Pendidikan_Terakhir']));
-    $jenisKelamin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Jenis_Kelamin']));
-    $alamat = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Alamat']));
-    $noTelepon = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_Telepon']));
-    $provinsi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Provinsi']));
-    $kabupatenKota = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kabupaten_Kota']));
+    $_SESSION['No_Identitas'] = $_POST['No_Identitas_Anggota_Perusahaan'];
+    $_SESSION['Nama_Depan'] = $_POST['Nama_Depan_Anggota_Perusahaan'];
+    $_SESSION['Nama_Belakang'] = $_POST['Nama_Belakang_Anggota_Perusahaan'];
+    $_SESSION['Pekerjaan'] = $_POST['Pekerjaan_Anggota_Perusahaan'];
+    $_SESSION['Pendidikan'] = $_POST['Pendidikan_Terakhir_Anggota_Perusahaan'];
+    $_SESSION['Jenis_Kelamin'] = $_POST['Jenis_Kelamin_Anggota_Perusahaan'];
+    $_SESSION['Alamat'] = $_POST['Alamat_Anggota_Perusahaan'];
+    $_SESSION['No_Telepon'] = $_POST['No_Telepon_Anggota_Perusahaan'];
+    $_SESSION['Provinsi'] = $_POST['Provinsi_Anggota_Perusahaan'];
+    $_SESSION['Kab/Kota'] = $_POST['Kabupaten_Kota_Anggota_Perusahaan'];
+    $_SESSION['NPWP'] = $_POST['No_NPWP'];
+    $_SESSION['Nama_Perusahaan'] = $_POST['Nama_Perusahaan'];
+    $_SESSION['Alamat_Perusahaan'] = $_POST['Alamat_Perusahaan'];
+    $_SESSION['Provinsi_Perusahaan'] = $_POST['Provinsi_Perusahaan'];
+    $_SESSION['Kab/KotaPerusahaan'] = $_POST['Kabupaten_Kota_Perusahaan'];
+    $_SESSION['Email_Perusahaan'] = $_POST['Email_Perusahaan'];
+    $_SESSION['No_Telepon_Perusahaan'] = $_POST['No_Telepon_Perusahaan'];
+    $_SESSION['Email_Anggota'] = $_POST['Email_Anggota_Perusahaan'];
+    $_SESSION['Nama_Pengguna'] = $_POST['Nama_Pengguna_Anggota_Perusahaan'];
+    $_SESSION['Kata_Sandi'] = $_POST['Kata_Sandi_Anggota_Perusahaan'];
+    $_SESSION['Konfirmasi_Kata_Sandi'] = $_POST['Konfirmasi_Kata_Sandi_Anggota_Perusahaan'];
+    $noIdentitas = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_Identitas_Anggota_Perusahaan']));
+    $namaDepan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Depan_Anggota_Perusahaan']));
+    $namaBelakang = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Belakang_Anggota_Perusahaan']));
+    $pekerjaan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Pekerjaan_Anggota_Perusahaan']));
+    $pendidikanTerakhir = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Pendidikan_Terakhir_Anggota_Perusahaan']));
+    $jenisKelamin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Jenis_Kelamin_Anggota_Perusahaan']));
+    $alamat = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Alamat_Anggota_Perusahaan']));
+    $noTelepon = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_Telepon_Anggota_Perusahaan']));
+    $provinsi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Provinsi_Anggota_Perusahaan']));
+    $kabupatenKota = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kabupaten_Kota_Anggota_Perusahaan']));
     $noNPWP = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_NPWP']));
     $namaPerusahaan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Perusahaan']));
     $alamatPerusahaan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Alamat_Perusahaan']));
@@ -19,22 +40,21 @@ if (isset($_POST['Daftar'])) {
     $kabupatenKotaPerusahaan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kabupaten_Kota_Perusahaan']));
     $emailPerusahaan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Email_Perusahaan']));
     $noTeleponPerusahaan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_Telepon_Perusahaan']));
-    $email = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Email']));
-    $namaPengguna = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Pengguna']));
-    $kataSandi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kata_Sandi']));
-    $konfirmasiKataSandi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Konfirmasi_Kata_Sandi']));
-    $token = uniqid();
-
-    // Membuat objek perusahaan
+    $email = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Email_Anggota_Perusahaan']));
+    $namaPengguna = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Pengguna_Anggota_Perusahaan']));
+    $kataSandi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kata_Sandi_Anggota_Perusahaan']));
+    $konfirmasiKataSandi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Konfirmasi_Kata_Sandi_Anggota_Perusahaan']));
     $obyekPerusahaan = new Pengguna($koneksi);
+    do {
+        $token = random_int(10000000, 99999999);
+        $tokenSudahAda = $obyekPerusahaan->getPerusahaanByToken($token);
+    } while ($tokenSudahAda);
 
     $pesanKesalahan = '';
 
-    // Format nomor telepon
     $nomorTeleponFormatted = '+62 ' . substr($noTelepon, 0, 3) . '-' . substr($noTelepon, 3, 4) . '-' . substr($noTelepon, 7);
     $nomorTeleponPerusahaanFormatted = '+62 ' . substr($noTeleponPerusahaan, 0, 3) . '-' . substr($noTeleponPerusahaan, 3, 4) . '-' . substr($noTeleponPerusahaan, 7);
 
-    // Validasi kata sandi
     $panjangKataSandi = strlen($kataSandi) >= 8;
     $persyaratanKataSandi = preg_match('/[A-Z]/', $kataSandi) && preg_match('/[a-z]/', $kataSandi) && preg_match('/[0-9]/', $kataSandi) && preg_match('/[^A-Za-z0-9]/', $kataSandi);
     $kataSandiYangValid = $panjangKataSandi && $persyaratanKataSandi;
@@ -45,7 +65,6 @@ if (isset($_POST['Daftar'])) {
 
     $hashKataSandi = password_hash($kataSandi, PASSWORD_DEFAULT);
 
-    // Validasi email dan nomor telepon
     if (!filter_var($emailPerusahaan, FILTER_VALIDATE_EMAIL)) {
         $pesanKesalahan .= "Format email tidak valid. ";
     }
@@ -64,18 +83,17 @@ if (isset($_POST['Daftar'])) {
         exit;
     }
 
-    // Data perusahaan
     $dataPerusahaan = array(
-        'No_Identitas' => $noIdentitas,
-        'Nama_Depan' => $namaDepan,
-        'Nama_Belakang' => $namaBelakang,
-        'Pekerjaan' => $pekerjaan,
-        'Pendidikan_Terakhir' => $pendidikanTerakhir,
-        'Jenis_Kelamin' => $jenisKelamin,
-        'Alamat' => $alamat,
-        'No_Telepon' => $nomorTeleponFormatted,
-        'Provinsi' => $provinsi,
-        'Kabupaten_Kota' => $kabupatenKota,
+        'No_Identitas_Anggota_Perusahaan' => $noIdentitas,
+        'Nama_Depan_Anggota_Perusahaan' => $namaDepan,
+        'Nama_Belakang_Anggota_Perusahaan' => $namaBelakang,
+        'Pekerjaan_Anggota_Perusahaan' => $pekerjaan,
+        'Pendidikan_Terakhir_Anggota_Perusahaan' => $pendidikanTerakhir,
+        'Jenis_Kelamin_Anggota_Perusahaan' => $jenisKelamin,
+        'Alamat_Anggota_Perusahaan' => $alamat,
+        'No_Telepon_Anggota_Perusahaan' => $nomorTeleponFormatted,
+        'Provinsi_Anggota_Perusahaan' => $provinsi,
+        'Kabupaten_Kota_Anggota_Perusahaan' => $kabupatenKota,
         'No_NPWP' => $noNPWP,
         'Nama_Perusahaan' => $namaPerusahaan,
         'Alamat_Perusahaan' => $alamatPerusahaan,
@@ -83,18 +101,18 @@ if (isset($_POST['Daftar'])) {
         'Kabupaten_Kota_Perusahaan' => $kabupatenKotaPerusahaan,
         'Email_Perusahaan' => $emailPerusahaan,
         'No_Telepon_Perusahaan' => $nomorTeleponPerusahaanFormatted,
-        'Email' => $email,
-        'Nama_Pengguna' => $namaPengguna,
-        'Kata_Sandi' => $hashKataSandi,
-        'Konfirmasi_Kata_Sandi' => $hashKataSandi,
+        'Email_Anggota_Perusahaan' => $email,
+        'Nama_Pengguna_Anggota_Perusahaan' => $namaPengguna,
+        'Kata_Sandi_Anggota_Perusahaan' => $hashKataSandi,
+        'Konfirmasi_Kata_Sandi_Anggota_Perusahaan' => $hashKataSandi,
         'Status_Verifikasi_Perusahaan' => "Belum Terverifikasi",
-        'token' => $token
+        'Token' => $token
     );
 
-    // Menambahkan perusahaan
     $simpanDataPerusahaan = $obyekPerusahaan->tambahPerusahaan($dataPerusahaan);
 
     if ($simpanDataPerusahaan) {
+        session_unset();
         setPesanKeberhasilan("Pendaftaran berhasil, Silahkan ke halaman login.");
     } else {
         setPesanKesalahan("Gagal mendaftar silahkan untuk mencoba lagi.");
@@ -106,4 +124,3 @@ if (isset($_POST['Daftar'])) {
     header("Location: $akarUrl" . "src/user/pages/signup2.php");
     exit;
 }
-?>
