@@ -49,7 +49,7 @@
                         <ul class="dropdown-menu profile-menu">
                             <a class="ps-4 nav-link" href="../pages/profile.php">
                                 <box-icon type='solid' name='user-detail'></box-icon>Profil Saya</a>
-                            <a class="ps-4 nav-link" href="../pages/login.php">
+                            <a class="ps-4 nav-link" href="http://localhost/PTSP/src/admin/config/logout-user.php">
                                 <box-icon name='power-off'></box-icon>Keluar</a>
                         </ul>
                     </div>

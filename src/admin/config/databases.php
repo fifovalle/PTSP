@@ -329,7 +329,7 @@ class Pengguna
 
     public function tambahPengguna($data)
     {
-        $query = "INSERT INTO pengguna (NPWP_Pengguna, No_Identitas_Pengguna, Pekerjaan_Pengguna, Nama_Depan_Pengguna, Nama_Belakang_Pengguna, Pendidikan_Terakhir_Pengguna, Nama_Pengguna, Email_Pengguna, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Pengguna, Jenis_Kelamin_Pengguna, Alamat_Pengguna, Provinsi, Kabupaten_Kota, Status_Verifikasi_Pengguna, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO pengguna (NPWP_Pengguna, No_Identitas_Pengguna, Pekerjaan_Pengguna, Nama_Depan_Pengguna, Nama_Belakang_Pengguna, Pendidikan_Terakhir_Pengguna, Nama_Pengguna, Email_Pengguna, Kata_Sandi, Konfirmasi_Kata_Sandi, No_Telepon_Pengguna, Jenis_Kelamin_Pengguna, Alamat_Pengguna, Provinsi, Kabupaten_Kota, Status_Verifikasi_Pengguna, Token) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $statement = $this->koneksi->prepare($query);
 
         if (!$statement) {
@@ -356,7 +356,7 @@ class Pengguna
             &$data['Provinsi'],
             &$kabupatenKota,
             &$data['Status_Verifikasi_Pengguna'],
-            &$data['token']
+            &$data['Token']
         ];
 
         if (count($bindParams) - 1 !== substr_count($query, '?')) {
@@ -496,6 +496,24 @@ class Pengguna
         return null;
     }
 
+    public function autentikasiPerusahaan($email, $kataSandi)
+    {
+        $query = "SELECT * FROM perusahaan WHERE Email_Perusahaan = ? OR Nama_Perusahaan = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("ss", $email, $email);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $hashedKataSandi = $row['Kata_Sandi_Anggota_Perusahaan'];
+            if (password_verify($kataSandi, $hashedKataSandi)) {
+                return $row;
+            }
+        }
+        return null;
+    }
+
     public function hapusPengguna($id)
     {
         $query = "SELECT ID_Pengguna, Foto FROM pengguna WHERE ID_Pengguna=?";
@@ -549,6 +567,16 @@ class Pengguna
         }
     }
 
+    public function getPenggunaByToken($token)
+    {
+        $query = "SELECT * FROM pengguna WHERE Token = ?";
+        $stmt = mysqli_prepare($this->koneksi, $query);
+        mysqli_stmt_bind_param($stmt, "i", $token);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        return mysqli_fetch_assoc($result);
+    }
+
     public function getPerusahaanByToken($token)
     {
         $query = "SELECT * FROM perusahaan WHERE Token = ?";
@@ -558,6 +586,7 @@ class Pengguna
         $result = mysqli_stmt_get_result($stmt);
         return mysqli_fetch_assoc($result);
     }
+
 
     public function getFotoPenggunaById($idPengguna)
     {
@@ -575,7 +604,20 @@ class Pengguna
         }
     }
 
-    public function generateRandomCaptcha($length = 5)
+    public function generateRandomCaptchaPengguna($length = 5)
+    {
+        $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $captcha = '';
+        $max = strlen($characters) - 1;
+
+        for ($i = 0; $i < $length; $i++) {
+            $captcha .= $characters[mt_rand(0, $max)];
+        }
+
+        return $captcha;
+    }
+
+    public function generateRandomCaptchaPerusahaan($length = 5)
     {
         $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $captcha = '';

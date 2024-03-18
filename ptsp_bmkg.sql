@@ -112,7 +112,7 @@ CREATE TABLE `pengguna` (
   `Provinsi` varchar(30) NOT NULL,
   `Kabupaten_Kota` varchar(30) NOT NULL,
   `Status_Verifikasi_Pengguna` enum('Terverivikasi','Belum Terverifikasi') NOT NULL,
-  `token` int(50) NOT NULL
+  `Token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -123,16 +123,16 @@ CREATE TABLE `pengguna` (
 
 CREATE TABLE `perusahaan` (
   `ID_Perusahaan` int(11) NOT NULL,
-  `No_Identitas` int(16) NOT NULL,
-  `Nama_Depan` varchar(30) NOT NULL,
-  `Nama_Belakang` varchar(30) NOT NULL,
-  `Pekerjaan` varchar(50) NOT NULL,
-  `Pendidikan_Terakhir` varchar(30) NOT NULL,
-  `Jenis_Kelamin` enum('Pria','Wanita') NOT NULL,
-  `Alamat` text NOT NULL,
-  `No_Telepon` varchar(50) NOT NULL,
-  `Provinsi` varchar(30) NOT NULL,
-  `Kabupaten_Kota` varchar(30) NOT NULL,
+  `No_Identitas_Anggota_Perusahaan` int(16) NOT NULL,
+  `Nama_Depan_Anggota_Perusahaan` varchar(30) NOT NULL,
+  `Nama_Belakang_Anggota_Perusahaan` varchar(30) NOT NULL,
+  `Pekerjaan_Anggota_Perusahaan` varchar(50) NOT NULL,
+  `Pendidikan_Terakhir_Anggota_Perusahaan` varchar(30) NOT NULL,
+  `Jenis_Kelamin_Anggota_Perusahaan` enum('Pria','Wanita') NOT NULL,
+  `Alamat_Anggota_Perusahaan` text NOT NULL,
+  `No_Telepon_Anggota_Perusahaan` varchar(50) NOT NULL,
+  `Provinsi_Anggota_Perusahaan` varchar(30) NOT NULL,
+  `Kabupaten_Kota_Anggota_Perusahaan` varchar(30) NOT NULL,
   `No_NPWP` varchar(25) NOT NULL,
   `Nama_Perusahaan` varchar(30) NOT NULL,
   `Alamat_Perusahaan` text NOT NULL,
@@ -140,12 +140,12 @@ CREATE TABLE `perusahaan` (
   `Kabupaten_Kota_Perusahaan` varchar(30) NOT NULL,
   `Email_Perusahaan` varchar(50) NOT NULL,
   `No_Telepon_Perusahaan` varchar(50) NOT NULL,
-  `Email` varchar(50) NOT NULL,
-  `Nama_Pengguna` varchar(30) NOT NULL,
-  `Kata_Sandi` varchar(100) NOT NULL,
-  `Konfirmasi_Kata_Sandi` varchar(100) NOT NULL,
+  `Email_Anggota_Perusahaan` varchar(50) NOT NULL,
+  `Nama_Pengguna_Anggota_Perusahaan` varchar(30) NOT NULL,
+  `Kata_Sandi_Anggota_Perusahaan` varchar(100) NOT NULL,
+  `Konfirmasi_Kata_Sandi_Anggota_Perusahaan` varchar(100) NOT NULL,
   `Status_Verifikasi_Perusahaan` enum('Terverivikasi','Belum Terverifikasi') NOT NULL,
-  `token` int(50) NOT NULL
+  `Token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

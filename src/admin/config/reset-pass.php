@@ -58,8 +58,8 @@ if (isset($_GET['token'])) {
                             </div>
                             <div class="div">
                                 <h5>Konfirmasi Kata Sandi</h5>
-                                <input type="password" class="input" name="Konfirmasi_Reset" id="resetPassword" autocomplete="off">
-                                <i class="fas fa-eye iconInputContainer" id="togglePassword"></i>
+                                <input type="password" class="input" name="Konfirmasi_Reset" id="resetConfirmPassword" autocomplete="off">
+                                <i class="fas fa-eye iconInputContainer" id="toggleConfirmPassword"></i>
                             </div>
                         </div>
                         <button id="btnLoginForDrive" name="Ubah_Kata_Sandi" type="submit" class="btn">Ubah Kata Sandi</button>

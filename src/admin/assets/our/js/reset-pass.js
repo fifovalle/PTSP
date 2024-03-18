@@ -23,3 +23,13 @@ togglePassword.addEventListener("click", function () {
   passwordInput.setAttribute("type", type);
   this.classList.toggle("fa-eye-slash");
 });
+
+const passwordConfirmInput = document.getElementById("resetConfirmPassword");
+const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+
+toggleConfirmPassword.addEventListener("click", function () {
+  const type =
+    passwordConfirmInput.getAttribute("type") === "password" ? "text" : "password";
+  passwordConfirmInput.setAttribute("type", type);
+  this.classList.toggle("fa-eye-slash");
+});

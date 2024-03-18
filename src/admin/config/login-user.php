@@ -21,22 +21,39 @@ if (isset($_POST['Masuk'])) {
     }
 
     $pengguna = $penggunaDatabase->autentikasiPengguna($emailNamaPengguna, $kataSandi);
+    $perusahaan = $penggunaDatabase->autentikasiPerusahaan($emailNamaPengguna, $kataSandi);
 
-    if ($pengguna === null) {
+    if ($pengguna === null && $perusahaan === null) {
         setPesanKesalahan("Maaf, email atau kata sandi yang Anda masukkan tidak ditemukan.");
         header("Location: $akarUrl" . "src/user/pages/login.php");
         exit();
     }
 
-    $_SESSION['ID'] = htmlspecialchars($pengguna['ID_pengguna']);
-    $_SESSION['Nama_Pengguna'] = htmlspecialchars($pengguna['Nama_Pengguna_Email']);
+    if ($pengguna !== null) {
+        $_SESSION['ID'] = htmlspecialchars($pengguna['ID_pengguna']);
+        $_SESSION['Nama_Pengguna'] = htmlspecialchars($pengguna['Nama_Pengguna_Email']);
 
-    if ($ingatSaya) {
-        $_SESSION['Ingat_Saya_ID'] = $pengguna['ID_pengguna'];
-        $_SESSION['Ingat_Saya_Nama_Pengguna'] = $pengguna['Nama_Pengguna_Email'];
+        if ($ingatSaya) {
+            $_SESSION['Ingat_Saya_ID'] = $pengguna['ID_pengguna'];
+            $_SESSION['Ingat_Saya_Nama_Pengguna'] = $pengguna['Nama_Pengguna_Email'];
+        }
     }
 
-    setPesanKeberhasilan("Selamat datang, " . $_SESSION['Nama_Pengguna'] . "!");
+    if ($perusahaan !== null) {
+        $_SESSION['ID_Perusahaan'] = htmlspecialchars($perusahaan['ID_perusahaan']);
+        $_SESSION['Nama_Perusahaan'] = htmlspecialchars($perusahaan['Nama_Pengguna_Email']);
+
+        if ($ingatSaya) {
+            $_SESSION['Ingat_Saya_ID_Perusahaan'] = $perusahaan['ID_perusahaan'];
+            $_SESSION['Ingat_Saya_Nama_Perusahaan'] = $perusahaan['Nama_Pengguna_Email'];
+        }
+    }
+
+    setPesanKeberhasilan("Selamat datang, " . $_SESSION['Nama_Pengguna']);
+    if (isset($_SESSION['Nama_Perusahaan'])) {
+        setPesanKeberhasilan("Selamat datang " . $_SESSION['Nama_Perusahaan'] . "!");
+    }
+
     header("Location: $akarUrl" . "src/user/pages/main.php");
     exit();
 }

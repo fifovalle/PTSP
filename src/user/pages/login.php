@@ -2,7 +2,8 @@
 include '../../admin/config/databases.php';
 
 $penggunaDatabase = new Pengguna($koneksi);
-$captcha = $penggunaDatabase->generateRandomCaptcha();
+$captcha = $penggunaDatabase->generateRandomCaptchaPengguna();
+$captcha = $penggunaDatabase->generateRandomCaptchaPerusahaan();
 
 $_SESSION['captcha'] = $captcha;
 ?>
