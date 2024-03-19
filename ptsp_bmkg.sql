@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Mar 2024 pada 11.31
+-- Waktu pembuatan: 19 Mar 2024 pada 14.30
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -72,6 +72,22 @@ CREATE TABLE `informasi` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `informasi_tarif_pnbp`
+--
+
+CREATE TABLE `informasi_tarif_pnbp` (
+  `ID_PNBP` int(16) NOT NULL,
+  `Nama_PNBP` varchar(30) NOT NULL,
+  `No_Telepon_PNBP` varchar(20) NOT NULL,
+  `Email_PNBP` varchar(30) NOT NULL,
+  `Informasi_PNBP_Yang_Dibutuhkan` varchar(100) NOT NULL,
+  `Identitas_KTP_PNBP` longblob NOT NULL,
+  `Surat_Pengantar_PNBP` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `jasa`
 --
 
@@ -85,6 +101,103 @@ CREATE TABLE `jasa` (
   `No_Rekening_Jasa` int(15) NOT NULL,
   `Kategori_Jasa` enum('Meteorologi','Klimatologi','Geofisika') NOT NULL,
   `Status_Jasa` enum('Tersedia','Tidak Tersedia') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kegiatan_bencana`
+--
+
+CREATE TABLE `kegiatan_bencana` (
+  `ID_Bencana` int(16) NOT NULL,
+  `Nama` varchar(30) NOT NULL,
+  `No_Telepon` varchar(20) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Informasi_Bencana_Yang_Dibutuhkan` varchar(100) NOT NULL,
+  `Surat_Pengantar_Permintaan_Data` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kegiatan_keagamaan`
+--
+
+CREATE TABLE `kegiatan_keagamaan` (
+  `ID_Keagamaan` int(16) NOT NULL,
+  `Nama` varchar(30) NOT NULL,
+  `No_Telepon` varchar(20) NOT NULL,
+  `Email` varchar(30) NOT NULL,
+  `Informasi_Keagamaan_Yang_Dibutuhkan` varchar(100) NOT NULL,
+  `Surat_Yang_Ditandatangani_Keagamaan` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kegiatan_pertahanan_keamanan`
+--
+
+CREATE TABLE `kegiatan_pertahanan_keamanan` (
+  `ID_Pertahanan` int(16) NOT NULL,
+  `Nama_Pertahanan` varchar(30) NOT NULL,
+  `No_Telepon_Pertahanan` varchar(20) NOT NULL,
+  `Email_Pertahanan` varchar(30) NOT NULL,
+  `Informasi_Pertahanan_Yang_Dibutuhkan` varchar(100) NOT NULL,
+  `Surat_Yang_Ditandatangani_Pertahanan` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kegiatan_sosial`
+--
+
+CREATE TABLE `kegiatan_sosial` (
+  `ID_Sosial` int(16) NOT NULL,
+  `Nama` varchar(30) NOT NULL,
+  `No_Telepon` varchar(20) NOT NULL,
+  `Email` varchar(30) NOT NULL,
+  `Informasi_Sosial_Yang_Dibutuhkan` varchar(100) NOT NULL,
+  `Surat_Yang_Ditandatangani_Sosial` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pemerintah_pusat_daerah`
+--
+
+CREATE TABLE `pemerintah_pusat_daerah` (
+  `ID_Pusat` int(16) NOT NULL,
+  `Nama_Pusat_Daerah` varchar(30) NOT NULL,
+  `No_Telepon_Pusat_Daerah` varchar(20) NOT NULL,
+  `Email_Pusat_Daerah` varchar(30) NOT NULL,
+  `Informasi_Pusat_Daerah_Yang_Dibutuhkan` varchar(100) NOT NULL,
+  `Memiliki_Kerja_Sama_Dengan_BMKG` longblob NOT NULL,
+  `Surat_Pengantar_Pusat_Daerah` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pendidikan_dan_penelitian`
+--
+
+CREATE TABLE `pendidikan_dan_penelitian` (
+  `ID_Pendidikan_Penelitian` int(16) NOT NULL,
+  `Nama_Pendidikan_Dan_Penelitian` varchar(30) NOT NULL,
+  `NIM_KTP` int(20) NOT NULL,
+  `Program_Studi_Fakultas` varchar(30) NOT NULL,
+  `Universitas_Instansi` varchar(30) NOT NULL,
+  `No_Telepon_Pendidikan_Penelitian` varchar(20) NOT NULL,
+  `Email_Pendidikan_Penelitian` varchar(30) NOT NULL,
+  `Informasi_Pendidikan_Penelitian_Yang_Dibutuhkan` varchar(100) NOT NULL,
+  `Identitas_Diri` longblob NOT NULL,
+  `Surat_Pengantar_Kepsek_Rektor_Dekan` longblob NOT NULL,
+  `Pernyataan_Tidak_Digunakan_Kepentingan_Lain` longblob NOT NULL,
+  `Proposal_Penelitian_Telah_Disetujui` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -165,10 +278,52 @@ ALTER TABLE `informasi`
   ADD PRIMARY KEY (`ID_Informasi`);
 
 --
+-- Indeks untuk tabel `informasi_tarif_pnbp`
+--
+ALTER TABLE `informasi_tarif_pnbp`
+  ADD PRIMARY KEY (`ID_PNBP`);
+
+--
 -- Indeks untuk tabel `jasa`
 --
 ALTER TABLE `jasa`
   ADD PRIMARY KEY (`ID_Jasa`);
+
+--
+-- Indeks untuk tabel `kegiatan_bencana`
+--
+ALTER TABLE `kegiatan_bencana`
+  ADD PRIMARY KEY (`ID_Bencana`);
+
+--
+-- Indeks untuk tabel `kegiatan_keagamaan`
+--
+ALTER TABLE `kegiatan_keagamaan`
+  ADD PRIMARY KEY (`ID_Keagamaan`);
+
+--
+-- Indeks untuk tabel `kegiatan_pertahanan_keamanan`
+--
+ALTER TABLE `kegiatan_pertahanan_keamanan`
+  ADD PRIMARY KEY (`ID_Pertahanan`);
+
+--
+-- Indeks untuk tabel `kegiatan_sosial`
+--
+ALTER TABLE `kegiatan_sosial`
+  ADD PRIMARY KEY (`ID_Sosial`);
+
+--
+-- Indeks untuk tabel `pemerintah_pusat_daerah`
+--
+ALTER TABLE `pemerintah_pusat_daerah`
+  ADD PRIMARY KEY (`ID_Pusat`);
+
+--
+-- Indeks untuk tabel `pendidikan_dan_penelitian`
+--
+ALTER TABLE `pendidikan_dan_penelitian`
+  ADD PRIMARY KEY (`ID_Pendidikan_Penelitian`);
 
 --
 -- Indeks untuk tabel `pengguna`
@@ -199,10 +354,52 @@ ALTER TABLE `informasi`
   MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT untuk tabel `informasi_tarif_pnbp`
+--
+ALTER TABLE `informasi_tarif_pnbp`
+  MODIFY `ID_PNBP` int(16) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `jasa`
 --
 ALTER TABLE `jasa`
   MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT untuk tabel `kegiatan_bencana`
+--
+ALTER TABLE `kegiatan_bencana`
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `kegiatan_keagamaan`
+--
+ALTER TABLE `kegiatan_keagamaan`
+  MODIFY `ID_Keagamaan` int(16) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `kegiatan_pertahanan_keamanan`
+--
+ALTER TABLE `kegiatan_pertahanan_keamanan`
+  MODIFY `ID_Pertahanan` int(16) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `kegiatan_sosial`
+--
+ALTER TABLE `kegiatan_sosial`
+  MODIFY `ID_Sosial` int(16) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `pemerintah_pusat_daerah`
+--
+ALTER TABLE `pemerintah_pusat_daerah`
+  MODIFY `ID_Pusat` int(16) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `pendidikan_dan_penelitian`
+--
+ALTER TABLE `pendidikan_dan_penelitian`
+  MODIFY `ID_Pendidikan_Penelitian` int(16) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengguna`
