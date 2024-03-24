@@ -91,12 +91,12 @@ if (isset($_POST['Daftar'])) {
 
     if ($simpanDataPengguna) {
         session_unset();
-        setPesanKeberhasilan("Pendaftaran berhasil, Silahkan ke halaman login.");
+        setPesanKeberhasilan("Pendaftaran berhasil, Silahkan login.");
     } else {
         setPesanKesalahan("Gagal mendaftar silahkan untuk mencoba lagi.");
     }
 
-    header("Location: $akarUrl" . "src/user/pages/signup1.php");
+    header("Location: $akarUrl" . "src/user/pages/login.php");
     exit;
 } else {
     header("Location: $akarUrl" . "src/user/pages/signup1.php");

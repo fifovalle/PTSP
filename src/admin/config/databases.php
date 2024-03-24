@@ -382,7 +382,6 @@ class Pengguna
         }
 
         $bindParams = [
-            'ssssssssssssssssssssssi',
             &$data['No_Identitas_Anggota_Perusahaan'],
             &$data['Nama_Depan_Anggota_Perusahaan'],
             &$data['Nama_Belakang_Anggota_Perusahaan'],
@@ -408,10 +407,12 @@ class Pengguna
             &$data['Token']
         ];
 
-        if (count($bindParams) - 1 !== substr_count($query, '?')) {
+        $types = "ssssssssssssssssssssssi";
+        if (strlen($types) !== substr_count($query, '?')) {
             die('Mismatch in number of bind parameters and placeholders in query');
         }
 
+        array_unshift($bindParams, $types);
         call_user_func_array([$statement, 'bind_param'], $bindParams);
 
         if ($statement->execute()) {
@@ -420,6 +421,8 @@ class Pengguna
             return false;
         }
     }
+
+
 
     public function tampilkanDataPengguna()
     {
@@ -455,12 +458,11 @@ class Pengguna
 
     public function perbaruiPengguna($id, $data)
     {
-        $query = "UPDATE pengguna SET Foto=?, Nama_Depan_Pengguna=?, Nama_Belakang_Pengguna=?, Nama_Pengguna=?, Email_Pengguna=?, No_Telepon_Pengguna=?, Jenis_Kelamin_Pengguna=?, Alamat_Pengguna=? WHERE ID_Pengguna=?";
+        $query = "UPDATE pengguna SET Nama_Depan_Pengguna=?, Nama_Belakang_Pengguna=?, Nama_Pengguna=?, Email_Pengguna=?, No_Telepon_Pengguna=?, Jenis_Kelamin_Pengguna=?, Alamat_Pengguna=?, Pekerjaan_Pengguna=?, Pendidikan_Terakhir_Pengguna=? WHERE ID_Pengguna=?";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
             "ssssssssi",
-            $this->escapeString($data['Foto']),
             $this->escapeString($data['Nama_Depan_Pengguna']),
             $this->escapeString($data['Nama_Belakang_Pengguna']),
             $this->escapeString($data['Nama_Pengguna']),
@@ -468,6 +470,8 @@ class Pengguna
             $this->escapeString($data['No_Telepon_Pengguna']),
             $this->escapeString($data['Jenis_Kelamin_Pengguna']),
             $this->escapeString($data['Alamat_Pengguna']),
+            $this->escapeString($data['Pekerjaan_Pengguna']),
+            $this->escapeString($data['Pendidikan_Terakhir_Pengguna']),
             $id
         );
 
@@ -477,6 +481,34 @@ class Pengguna
             return false;
         }
     }
+
+    public function perbaruiPerusahaan($id, $data)
+    {
+        $query = "UPDATE perusahaan SET Nama_Depan_Anggota_Perusahaan=?, Nama_Belakang_Anggota_Perusahaan=?, Nama_Pengguna_Anggota_Perusahaan=?, Email_Anggota_Perusahaan=?, No_Telepon_Anggota_Perusahaan=?, Jenis_Kelamin_Anggota_Perusahaan=?, Alamat_Anggota_Perusahaan=?, Pekerjaan_Anggota_Perusahaan=?, Pendidikan_Terakhir_Anggota_Perusahaan=? WHERE ID_Perusahaan=?";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "ssssssssi",
+            $this->escapeString($data['Nama_Depan_Anggota_Perusahaan']),
+            $this->escapeString($data['Nama_Belakang_Anggota_Perusahaan']),
+            $this->escapeString($data['Nama_Pengguna_Anggota_Perusahaan']),
+            $this->escapeString($data['Email_Anggota_Perusahaan']),
+            $this->escapeString($data['No_Telepon_Anggota_Perusahaan']),
+            $this->escapeString($data['Jenis_Kelamin_Anggota_Perusahaan']),
+            $this->escapeString($data['Alamat_Anggota_Perusahaan']),
+            $this->escapeString($data['Pekerjaan_Anggota_Perusahaan']),
+            $this->escapeString($data['Pendidikan_Terakhir_Anggota_Perusahaan']),
+            $id
+        );
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 
     public function autentikasiPengguna($email, $kataSandi)
     {
@@ -1295,9 +1327,9 @@ class Transaksi
 
     public function masukKeranjangTransaksiPengguna($data)
     {
-        $query = "INSERT INTO transaksi (ID_Informasi, ID_Pengguna, Status_Keranjang) VALUES (?, ?, ?)";
+        $query = "INSERT INTO transaksi (ID_Informasi, ID_Pengguna, Status_Keranjang, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, ?, NOW(), ?)";
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("iii", $data['ID_Informasi'], $data['ID_Pengguna'], $data['Status_Keranjang']);
+        $statement->bind_param("iiss", $data['ID_Informasi'], $data['ID_Pengguna'], $data['Status_Keranjang'], $data['Status_Transaksi']);
 
         if ($statement->execute()) {
             return true;
@@ -1308,9 +1340,35 @@ class Transaksi
 
     public function masukKeranjangTransaksiPerusahaan($data)
     {
-        $query = "INSERT INTO transaksi (ID_Informasi, ID_Perusahaan, Status_Keranjang) VALUES (?, ?, ?)";
+        $query = "INSERT INTO transaksi (ID_Informasi, ID_Perusahaan, Status_Keranjang, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, ?, NOW(), ?)";
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("iii", $data['ID_Informasi'], $data['ID_Perusahaan'], $data['Status_Keranjang']);
+        $statement->bind_param("iiss", $data['ID_Informasi'], $data['ID_Perusahaan'], $data['Status_Keranjang'], $data['Status_Transaksi']);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function masukKeranjangTransaksiPenggunaJasa($data)
+    {
+        $query = "INSERT INTO transaksi (ID_Jasa, ID_Pengguna, Status_Keranjang, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, ?, NOW(), ?)";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("iiss", $data['ID_Jasa'], $data['ID_Pengguna'], $data['Status_Keranjang'], $data['Status_Transaksi']);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function masukKeranjangTransaksiPerusahaanJasa($data)
+    {
+        $query = "INSERT INTO transaksi (ID_Jasa, ID_Perusahaan, Status_Keranjang, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, ?, NOW(), ?)";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("iiss", $data['ID_Jasa'], $data['ID_Perusahaan'], $data['Status_Keranjang'], $data['Status_Transaksi']);
 
         if ($statement->execute()) {
             return true;
@@ -1346,6 +1404,63 @@ class Transaksi
             return true;
         } else {
             return false;
+        }
+    }
+
+    public function tampilkanTransaksi()
+    {
+        $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanTransaksiInformasi($id)
+    {
+        $query = "SELECT transaksi.*, informasi.* FROM transaksi 
+                  INNER JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  WHERE transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id";
+
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanTransaksiJasa($id)
+    {
+        $query = "SELECT transaksi.*, jasa.* FROM transaksi 
+                  INNER JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id";
+
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
         }
     }
 }

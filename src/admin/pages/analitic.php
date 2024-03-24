@@ -112,9 +112,6 @@ if (!isset($_SESSION['ID'])) {
     include "../partials/utils/modal-add-admin.php";
     ?>
     <?php
-    include "../partials/utils/modal-add-user.php";
-    ?>
-    <?php
     include "../partials/utils/modal-add-information.php";
     ?>
     <?php

@@ -67,7 +67,6 @@
                     <div class="dropdown-menu optionUpload" aria-labelledby="dropdownMenuButton" id="dropdownMenuUpload">
                         <div>
                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addAdmin" href="#"><i class="fas fa-user-secret me-2 my-2"></i>Tambah Admin</a>
-                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addUser" href="#"><i class="fas fa-users me-2 my-2"></i>Tambah Pengguna</a>
                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addInformation" href="#"><i class="bx bxs-info-circle me-2 my-2"></i>Tambah Informasi</a>
                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addServices" href="#"><i class="bx bxs-file-plus me-2 my-2"></i>Tambah Jasa</a>
                         </div>
@@ -80,7 +79,7 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <img class="image-option" src="<?php echo $akarUrl; ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto']; ?>" alt="imageAdmin">
                         <div>
-                            <p class="info fw-bolder"><?php echo $_SESSION['Nama_Pengguna']; ?></p>
+                            <p class="info fw-bolder"><?php echo $_SESSION['Nama_Admin']; ?></p>
                             <?php
                             $teksPeranAdmin = "Peran Tidak Diketahui";
                             if (isset($_SESSION['Peran_Admin'])) {

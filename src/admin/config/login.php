@@ -29,10 +29,10 @@ if (isset($_POST['Masuk'])) {
 
     $_SESSION['ID'] = htmlspecialchars($admin['ID_Admin']);
     $_SESSION['Foto'] = htmlspecialchars($admin['Foto']);
-    $_SESSION['Nama_Pengguna'] = htmlspecialchars($admin['Nama_Pengguna_Admin']);
+    $_SESSION['Nama_Admin'] = htmlspecialchars($admin['Nama_Pengguna_Admin']);
     $_SESSION['Peran_Admin'] = htmlspecialchars($admin['Peran_Admin']);
 
-    setPesanKeberhasilan("Selamat datang, " . $_SESSION['Nama_Pengguna'] . "!");
+    setPesanKeberhasilan("Selamat datang, " . $_SESSION['Nama_Admin'] . "!");
     header("Location: $akarUrl" . "public/admin/");
     exit();
 }

@@ -17,7 +17,7 @@
             }
             ?>
             <p><?php echo $teksPeranAdmin; ?></p>
-            <p class="textAdmin"><?php echo $_SESSION['Nama_Pengguna']; ?></p>
+            <p class="textAdmin"><?php echo $_SESSION['Nama_Admin']; ?></p>
         </div>
     </div>
     <ul id="menuSidebarForDrive" class="list-unstyled components listSidebar">

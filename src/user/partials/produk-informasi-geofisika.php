@@ -53,7 +53,7 @@ include '../../admin/config/databases.php';
                                                 <?php echo number_format($informasiGeofisika['Harga_Informasi'], 0, ',', '.'); ?>
                                             </div>
                                             <div class="card-button">
-                                                <form action="../../admin/config/addToCart.php" method="POST">
+                                                <form action="../../admin/config/add-cart-information-geofisika.php" method="POST">
                                                     <input type="hidden" name="Informasi" value="<?php echo $informasiGeofisika['ID_Informasi']; ?>">
                                                     <?php if (isset($_SESSION['ID_Pengguna'])) : ?>
                                                         <input type="hidden" name="Pengguna" value="<?php echo $_SESSION['ID_Pengguna']; ?>">
@@ -73,7 +73,7 @@ include '../../admin/config/databases.php';
                                 $nomorUrut++;
                             }
                         } else {
-                            echo "<div class='text-danger fw-bold'>Data Tidak Ditemukan!</div>";
+                            echo "<div class='fw-bold' style='margin-top: -30px; border: 2px solid purple; width: 20%; margin-left: 50%; transform: translateX(-50%); border-radius: 15px; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4); color: purple;'>Data Tidak Ditemukan!</div>";
                         }
                         ?>
                     </div>

@@ -49,7 +49,7 @@
                         <td class="text-center"><?php echo $nomorUrut++; ?></td>
                         <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
                             <div>
-                                <img class="imageData" src="../assets/image/uploads/<?php echo $data['Foto']; ?>" alt="Foto Pengguna">
+                                <img class="imageData" src="../assets/image/uploads/<?php echo $data['Foto'] ?? $data['Foto_Perusahaan']; ?>" alt="Foto">
                             </div>
                             <div class="deskriptorContainer">
                                 <p class="fw-semibold m-auto"><?php echo $data['Nama_Pengguna'] ?? $data['Nama_Pengguna_Anggota_Perusahaan']; ?></p>
@@ -73,8 +73,12 @@
                         <td class="text-center"><?php echo htmlspecialchars($data['No_Telepon_Pengguna'] ?? $data['No_Telepon_Anggota_Perusahaan']); ?></td>
                         <td class="text-center">
                             <?php
-                            if (isset($data['Status_Verifikasi_Pengguna'])) {
-                                echo ($data['Status_Verifikasi_Pengguna'] == 'Terverifikasi') ? '<span class="badge text-bg-success">Terverifikasi</span>' : '<span class="badge text-bg-danger">Belum Terverifikasi</span>';
+                            $status_pengguna = $data['Status_Verifikasi_Pengguna'] ?? null;
+                            $status_perusahaan = $data['Status_Verifikasi_Perusahaan'] ?? null;
+                            if ($status_pengguna === 'Terverifikasi') {
+                                echo '<span class="badge text-bg-success">Terverifikasi</span>';
+                            } elseif ($status_pengguna !== null || $status_perusahaan !== null) {
+                                echo '<span class="badge text-bg-danger">Belum Terverifikasi</span>';
                             } else {
                                 echo '<span class="badge text-bg-secondary">Status Tidak Tersedia</span>';
                             }

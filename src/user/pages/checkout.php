@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../../admin/config/databases.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,9 +21,9 @@ session_start();
     ?>
     <div class="container-fluid">
         <div class="row">
-            <h1 class="header mb-5 ps-5">Checkout</h1>
+            <h1 class="header mb-5 ps-5">Pesan</h1>
             <div class="d-flex col-md-12 justify-content-end text-right">
-                <button type="button" class="btn btn-outline-warning me-4 mb-4" data-bs-toggle="modal" data-bs-target="#Checkout">Checkout</button>
+                <button type="button" class="btn btn-outline-warning me-4 mb-4" data-bs-toggle="modal" data-bs-target="#Checkout">Pesan</button>
             </div>
 
             <div class="col-md-12  justify-content-center">
@@ -41,15 +41,41 @@ session_start();
                                 <th class="harga_informasi text-center">HARGA</th>
                                 <th class="kuantitas_informasi text-center">KUANTITAS</th>
                             </tr>
-                            <tr class="content_informasi">
-                                <td class="content_number_informasi py-5 text-center">1</td>
-                                <td class="content_title_informasi py-5 text-center">INFORMASI IKLIM</td>
-                                <td class="content_harga_informasi py-5 text-center">Rp250.000,00</td>
-                                <td class="content_kuantitas_informasi py-5 text-center"><button type="button" class="btn btn-danger" onclick="kurangiNilai()"><i class="bi bi-dash"></i></button>
-                                    <span id="nilai_informasi">1</span>
-                                    <button type="button" class="btn btn-primary" class="plus" onclick="tambahNilai()"><i class="bi bi-plus"></i></button>
-                                </td>
-                            </tr>
+                            <?php
+                            $idInformasi = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                            $transaksiInformasiModel = new Transaksi($koneksi);
+                            $dataTransaksiInformasi = $transaksiInformasiModel->tampilkanTransaksiInformasi($idInformasi);
+                            if (!empty($dataTransaksiInformasi)) {
+                                $nomorUrut = 1;
+                                foreach ($dataTransaksiInformasi as $transaksiInformasi) {
+                            ?>
+                                    <tr class="content_informasi">
+                                        <td class="content_number_informasi py-5 text-center">
+                                            <?php echo $nomorUrut++; ?>
+                                        </td>
+                                        <td class="content_title_informasi py-5 text-center">
+                                            <?php
+                                            echo $transaksiInformasi['Nama_Informasi'];
+                                            ?>
+                                        </td>
+                                        <td class="content_harga_informasi py-5 text-center">
+                                            <?php
+                                            $harga = $transaksiInformasi['Harga_Informasi'];
+                                            $harga_rupiah = number_format($harga, 0, ',', '.');
+                                            echo "Rp " . $harga_rupiah;
+                                            ?>
+                                        </td>
+                                        <td class="content_kuantitas_informasi py-5 text-center"><button type="button" class="btn btn-danger" onclick="kurangiNilai()"><i class="bi bi-dash"></i></button>
+                                            <span id="nilai_informasi">1</span>
+                                            <button type="button" class="btn btn-primary" class="plus" onclick="tambahNilai()"><i class="bi bi-plus"></i></button>
+                                        </td>
+                                    </tr>
+                            <?php
+                                }
+                            } else {
+                                echo "<tr><td colspan='7' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Informasi!</td></tr>";
+                            }
+                            ?>
                         </table>
                     </div>
                 </div>
@@ -68,15 +94,41 @@ session_start();
                                     <th class="harga_jasa text-center">HARGA</th>
                                     <th class="kuantitas_jasa text-center">KUANTITAS</th>
                                 </tr>
-                                <tr class="content_jasa">
-                                    <td class="content_number_jasa py-5 text-center">1</td>
-                                    <td class="content_title_jasa py-5 text-center">JASA KALIBRASI ALAT</td>
-                                    <td class="content_harga_jasa py-5 text-center">Rp250.000,00</td>
-                                    <td class="content_kuantitas_jasa py-5 text-center"><button type="button" class="btn btn-danger" onclick="kurangiNilai1()"><i class="bi bi-dash"></i></button>
-                                        <span id="nilai_jasa">1</span>
-                                        <button type="button" class="btn btn-primary" onclick="tambahNilai1()"><i class="bi bi-plus"></i></button>
-                                    </td>
-                                </tr>
+                                <?php
+                                $idJasa = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                                $transaksiJasaModel = new Transaksi($koneksi);
+                                $dataTransaksiJasa = $transaksiJasaModel->tampilkanTransaksiJasa($idJasa);
+                                if (!empty($dataTransaksiJasa)) {
+                                    $nomorUrut = 1;
+                                    foreach ($dataTransaksiJasa as $transaksiJasa) {
+                                ?>
+                                        <tr class="content_jasa">
+                                            <td class="content_number_informasi py-5 text-center">
+                                                <?php echo $nomorUrut++; ?>
+                                            </td>
+                                            <td class="content_title_informasi py-5 text-center">
+                                                <?php
+                                                echo $transaksiJasa['Nama_Jasa'];
+                                                ?>
+                                            </td>
+                                            <td class="content_harga_informasi py-5 text-center">
+                                                <?php
+                                                $harga = $transaksiJasa['Harga_Jasa'];
+                                                $harga_rupiah = number_format($harga, 0, ',', '.');
+                                                echo "Rp " . $harga_rupiah;
+                                                ?>
+                                            </td>
+                                            <td class="content_kuantitas_jasa py-5 text-center"><button type="button" class="btn btn-danger" onclick="kurangiNilai1()"><i class="bi bi-dash"></i></button>
+                                                <span id="nilai_jasa">1</span>
+                                                <button type="button" class="btn btn-primary" onclick="tambahNilai1()"><i class="bi bi-plus"></i></button>
+                                            </td>
+                                        </tr>
+                                <?php
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='7' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Jasa!</td></tr>";
+                                }
+                                ?>
                             </table>
                         </div>
                     </div>

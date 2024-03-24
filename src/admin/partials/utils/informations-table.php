@@ -41,7 +41,7 @@
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
                         <div>
-                            <img class="imageData" src="../assets/image/uploads/<?php echo htmlspecialchars($informasi['Foto_Informasi']); ?>" alt="Foto Jasa">
+                            <img class="imageData" src="../assets/image/uploads/<?php echo htmlspecialchars($informasi['Foto_Informasi']); ?>" alt="Foto Informasi">
                         </div>
                         <div class="deskriptorContainer">
                             <p class="fw-semibold m-auto"><?php echo htmlspecialchars($informasi['Nama_Informasi']); ?></p>

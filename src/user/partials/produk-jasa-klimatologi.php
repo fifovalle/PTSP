@@ -47,9 +47,18 @@ include '../../admin/config/databases.php';
                                         <div class="d-flex card-footer justify-content-between my-4 mx-3">
                                             <div class="card-price text-start"><span>Rp</span><?php echo number_format($jasaKlimatologi['Harga_Jasa'], 0, ',', '.'); ?></div>
                                             <div class="card-button">
-                                                <button class="card-btn">
-                                                    <span><box-icon name='cart-alt'></box-icon></span>
-                                                </button>
+                                                <form action="../../admin/config/add-cart-services-klimatologi.php" method="POST">
+                                                    <input type="hidden" name="Jasa" value="<?php echo $jasaKlimatologi['ID_Jasa']; ?>">
+                                                    <?php if (isset($_SESSION['ID_Pengguna'])) : ?>
+                                                        <input type="hidden" name="Pengguna" value="<?php echo $_SESSION['ID_Pengguna']; ?>">
+                                                    <?php endif; ?>
+                                                    <?php if (isset($_SESSION['ID_Perusahaan'])) : ?>
+                                                        <input type="hidden" name="Perusahaan" value="<?php echo $_SESSION['ID_Perusahaan']; ?>">
+                                                    <?php endif; ?>
+                                                    <button class="card-btn" type="submit" name="tambah_keranjang">
+                                                        <span><box-icon name='cart-alt'></box-icon></span>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -58,7 +67,7 @@ include '../../admin/config/databases.php';
                                 $nomorUrut++;
                             }
                         } else {
-                            echo "<div class='text-danger fw-bold'>Data Tidak Ditemukan!</div>";
+                            echo "<div class='fw-bold' style='margin-top: -30px; border: 2px solid purple; width: 20%; margin-left: 50%; transform: translateX(-50%); border-radius: 15px; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4); color: purple;'>Data Tidak Ditemukan!</div>";
                         }
                         ?>
                     </div>
