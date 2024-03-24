@@ -118,9 +118,12 @@ session_start();
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
-                                <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NoTelepon" name="No_Telepon_Pengguna" placeholder="123*****" value="<?= $_SESSION['No_Telepon'] ?? ''; ?>">
-                                    <label for="floatingInput">No Hp / No Telepon <b>*</b> </label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text my-3">+62</span>
+                                    <div class="form-floating my-3">
+                                        <input type="number" class="form-control" id="NoTelepon" name="No_Telepon_Pengguna" placeholder="123*****" value="<?= $_SESSION['No_Telepon'] ?? ''; ?>">
+                                        <label for="floatingInput">No Hp / No Telepon <b>*</b> </label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
