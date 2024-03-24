@@ -44,7 +44,15 @@
                     <button id="btnLogin" class="btn btn-outline-success" type="button" style="display: none;">Login</button>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" id="btnProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="display: absolute;">
-                            <box-icon name='user' id="icon-profile"></box-icon> Tamu
+                            <?php
+                            if (isset($_SESSION['ID_Pengguna'])) {
+                                echo "<box-icon name='user' id='icon-profile'></box-icon>" . $_SESSION['Nama_Pengguna'];
+                            } elseif (isset($_SESSION['ID_Perusahaan'])) {
+                                echo "<box-icon name='user' id='icon-profile'></box-icon>" . $_SESSION['Nama_Perusahaan'];
+                            } else {
+                                echo "<box-icon name='user' id='icon-profile'></box-icon> Tamu";
+                            }
+                            ?>
                         </button>
                         <ul class="dropdown-menu profile-menu">
                             <a class="ps-4 nav-link" href="../pages/profile.php">

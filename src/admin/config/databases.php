@@ -567,6 +567,23 @@ class Pengguna
         }
     }
 
+    public function getDataPerusahaanById($id)
+    {
+        $query = "SELECT * FROM perusahaan WHERE ID_Perusahaan = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data;
+        } else {
+            return false;
+        }
+    }
+
+
     public function getPenggunaByToken($token)
     {
         $query = "SELECT * FROM pengguna WHERE Token = ?";
@@ -646,10 +663,10 @@ class Informasi
 
     public function tambahInformasi($data)
     {
-        $query = "INSERT INTO informasi (Foto_Informasi, Nama_Informasi, Deskripsi_Informasi, Harga_Informasi, Pemilik_Informasi, No_Rekening_Informasi, Status_Informasi) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO informasi (Foto_Informasi, Nama_Informasi, Deskripsi_Informasi, Harga_Informasi, Pemilik_Informasi, No_Rekening_Informasi, Kategori_Informasi, Status_Informasi) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssisis", $data['Foto_Informasi'], $data['Nama_Informasi'], $data['Deskripsi_Informasi'], $data['Harga_Informasi'], $data['Pemilik_Informasi'], $data['No_Rekening_Informasi'], $data['Status_Informasi']);
+        $statement->bind_param("sssisiss", $data['Foto_Informasi'], $data['Nama_Informasi'], $data['Deskripsi_Informasi'], $data['Harga_Informasi'], $data['Pemilik_Informasi'], $data['No_Rekening_Informasi'], $data['Kategori_Informasi'], $data['Status_Informasi']);
 
         if ($statement->execute()) {
             return true;
@@ -661,6 +678,54 @@ class Informasi
     public function tampilkanDataInformasi()
     {
         $query = "SELECT * FROM informasi";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanDataInformasiMeteorologi()
+    {
+        $query = "SELECT * FROM informasi WHERE Kategori_Informasi = 'Meteorologi'";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanDataInformasiKlimatologi()
+    {
+        $query = "SELECT * FROM informasi WHERE Kategori_Informasi = 'Klimatologi'";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanDataInformasiGeofisika()
+    {
+        $query = "SELECT * FROM informasi WHERE Kategori_Informasi = 'Geofisika'";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -695,10 +760,10 @@ class Informasi
 
     public function perbaruiInformasi($id, $data)
     {
-        $query = "UPDATE informasi SET Foto_Informasi=?, Nama_Informasi=?, Deskripsi_Informasi=?, Harga_Informasi=?, Pemilik_Informasi=?, No_Rekening_Informasi=?, Status_Informasi=? WHERE ID_Informasi=?";
+        $query = "UPDATE informasi SET Foto_Informasi=?, Nama_Informasi=?, Deskripsi_Informasi=?, Harga_Informasi=?, Pemilik_Informasi=?, No_Rekening_Informasi=?, Kategori_Informasi=?, Status_Informasi=? WHERE ID_Informasi=?";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssisisi", $data['Foto_Informasi'], $data['Nama_Informasi'], $data['Deskripsi_Informasi'], $data['Harga_Informasi'], $data['Pemilik_Informasi'], $data['No_Rekening_Informasi'], $data['Status_Informasi'], $id);
+        $statement->bind_param("sssisissi", $data['Foto_Informasi'], $data['Nama_Informasi'], $data['Deskripsi_Informasi'], $data['Harga_Informasi'], $data['Pemilik_Informasi'], $data['No_Rekening_Informasi'], $data['Kategori_Informasi'], $data['Status_Informasi'], $id);
 
         if ($statement->execute()) {
             return true;
@@ -829,10 +894,10 @@ class Jasa
 
     public function tambahJasa($data)
     {
-        $query = "INSERT INTO jasa (Foto_Jasa, Nama_Jasa, Deskripsi_Jasa, Harga_Jasa, Pemilik_Jasa, No_Rekening_Jasa, Status_Jasa) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO jasa (Foto_Jasa, Nama_Jasa, Deskripsi_Jasa, Harga_Jasa, Pemilik_Jasa, No_Rekening_Jasa, Kategori_Jasa, Status_Jasa) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssisis", $data['Foto_Jasa'], $data['Nama_Jasa'], $data['Deskripsi_Jasa'], $data['Harga_Jasa'], $data['Pemilik_Jasa'], $data['No_Rekening_Jasa'], $data['Status_Jasa']);
+        $statement->bind_param("sssisiss", $data['Foto_Jasa'], $data['Nama_Jasa'], $data['Deskripsi_Jasa'], $data['Harga_Jasa'], $data['Pemilik_Jasa'], $data['No_Rekening_Jasa'], $data['Kategori_Jasa'], $data['Status_Jasa']);
 
         if ($statement->execute()) {
             return true;
@@ -876,12 +941,60 @@ class Jasa
         }
     }
 
+    public function tampilkanDataJasaMeteorologi()
+    {
+        $query = "SELECT * FROM jasa WHERE Kategori_Jasa = 'Meteorologi'";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanDataJasaKlimatologi()
+    {
+        $query = "SELECT * FROM jasa WHERE Kategori_Jasa = 'Klimatologi'";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanDataJasaGeofisika()
+    {
+        $query = "SELECT * FROM jasa WHERE Kategori_Jasa = 'Geofisika'";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
     public function perbaruiJasa($id, $data)
     {
-        $query = "UPDATE jasa SET Foto_Jasa=?, Nama_Jasa=?, Deskripsi_Jasa=?, Harga_Jasa=?, Pemilik_Jasa=?, No_Rekening_Jasa=?, Status_Jasa=? WHERE ID_Jasa=?";
+        $query = "UPDATE jasa SET Foto_Jasa=?, Nama_Jasa=?, Deskripsi_Jasa=?, Harga_Jasa=?, Pemilik_Jasa=?, No_Rekening_Jasa=?, Kategori_Jasa=?, Status_Jasa=? WHERE ID_Jasa=?";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("sssisisi", $data['Foto_Jasa'], $data['Nama_Jasa'], $data['Deskripsi_Jasa'], $data['Harga_Jasa'], $data['Pemilik_Jasa'], $data['No_Rekening_Jasa'], $data['Status_Jasa'], $id);
+        $statement->bind_param("sssisissi", $data['Foto_Jasa'], $data['Nama_Jasa'], $data['Deskripsi_Jasa'], $data['Harga_Jasa'], $data['Pemilik_Jasa'], $data['No_Rekening_Jasa'], $data['Kategori_Jasa'], $data['Status_Jasa'], $id);
 
         if ($statement->execute()) {
             return true;
@@ -995,3 +1108,244 @@ class Jasa
 }
 
 // ===================================JASA===================================
+
+// ===================================PENGAJUAN===================================
+class Pengajuan
+{
+    private $koneksi;
+
+    public function __construct($koneksi)
+    {
+        $this->koneksi = $koneksi;
+    }
+
+    public function tambahInformasiPNBP($data)
+    {
+        $query = "INSERT INTO informasi_tarif_pnbp (ID_PNBP, Nama_PNBP, No_Telepon_PNBP, Email_PNBP, Informasi_PNBP_Yang_Dibutuhkan, Identitas_KTP_PNBP, Surat_Pengantar_PNBP) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "issssss",
+            $data['ID_PNBP'],
+            $data['Nama_PNBP'],
+            $data['No_Telepon_PNBP'],
+            $data['Email_PNBP'],
+            $data['Informasi_PNBP_Yang_Dibutuhkan'],
+            $data['Identitas_KTP_PNBP'],
+            $data['Surat_Pengantar_PNBP']
+        );
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tambahDataBencana($data)
+    {
+        $query = "INSERT INTO kegiatan_bencana (ID_Bencana, Nama, No_Telepon, Email, Informasi_Bencana_Yang_Dibutuhkan, Surat_Pengantar_Permintaan_Data) VALUES (?, ?, ?, ?, ?, ?)";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "isssss",
+            $data['ID_Bencana'],
+            $data['Nama'],
+            $data['No_Telepon'],
+            $data['Email'],
+            $data['Informasi_Bencana_Yang_Dibutuhkan'],
+            $data['Surat_Pengantar_Permintaan_Data']
+        );
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tambahDataKeagamaan($data)
+    {
+        $query = "INSERT INTO kegiatan_keagamaan (ID_Keagamaan, Nama, No_Telepon, Email, Informasi_Keagamaan_Yang_Dibutuhkan, Surat_Yang_Ditandatangani_Keagamaan) VALUES (?, ?, ?, ?, ?, ?)";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "isssss",
+            $data['ID_Keagamaan'],
+            $data['Nama'],
+            $data['No_Telepon'],
+            $data['Email'],
+            $data['Informasi_Keagamaan_Yang_Dibutuhkan'],
+            $data['Surat_Yang_Ditandatangani_Keagamaan']
+        );
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tambahDataPertahanan($data)
+    {
+        $query = "INSERT INTO kegiatan_pertahanan_keamanan (ID_Pertahanan, Nama_Pertahanan, No_Telepon_Pertahanan, Email_Pertahanan, Informasi_Pertahanan_Yang_Dibutuhkan, Surat_Yang_Ditandatangani_Pertahanan) VALUES (?, ?, ?, ?, ?, ?)";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "isssss",
+            $data['ID_Pertahanan'],
+            $data['Nama_Pertahanan'],
+            $data['No_Telepon_Pertahanan'],
+            $data['Email_Pertahanan'],
+            $data['Informasi_Pertahanan_Yang_Dibutuhkan'],
+            $data['Surat_Yang_Ditandatangani_Pertahanan']
+        );
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tambahDataSosial($data)
+    {
+        $query = "INSERT INTO kegiatan_sosial (ID_Sosial, Nama, No_Telepon, Email, Informasi_Sosial_Yang_Dibutuhkan, Surat_Yang_Ditandatangani_Sosial) VALUES (?, ?, ?, ?, ?, ?)";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "isssss",
+            $data['ID_Sosial'],
+            $data['Nama'],
+            $data['No_Telepon'],
+            $data['Email'],
+            $data['Informasi_Sosial_Yang_Dibutuhkan'],
+            $data['Surat_Yang_Ditandatangani_Sosial']
+        );
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tambahDataPusatDaerah($data)
+    {
+        $query = "INSERT INTO pemerintah_pusat_daerah (ID_Pusat, Nama_Pusat_Daerah, No_Telepon_Pusat_Daerah, Email_Pusat_Daerah, Informasi_Pusat_Daerah_Yang_Dibutuhkan, Memiliki_Kerja_Sama_Dengan_BMKG, Surat_Pengantar_Pusat_Daerah) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "issssss",
+            $data['ID_Pusat'],
+            $data['Nama_Pusat_Daerah'],
+            $data['No_Telepon_Pusat_Daerah'],
+            $data['Email_Pusat_Daerah'],
+            $data['Informasi_Pusat_Daerah_Yang_Dibutuhkan'],
+            $data['Memiliki_Kerja_Sama_Dengan_BMKG'],
+            $data['Surat_Pengantar_Pusat_Daerah']
+        );
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tambahDataPendidikanPenelitian($data)
+    {
+        $query = "INSERT INTO pendidikan_dan_penelitian (ID_Pendidikan_Penelitian, Nama_Pendidikan_Dan_Penelitian, NIM_KTP, Program_Studi_Fakultas, Universitas_Instansi, No_Telepon_Pendidikan_Penelitian, Email_Pendidikan_Penelitian, Informasi_Pendidikan_Penelitian_Yang_Dibutuhkan, Identitas_Diri, Surat_Pengantar_Kepsek_Rektor_Dekan, Pernyataan_Tidak_Digunakan_Kepentingan_Lain, Proposal_Penelitian_Telah_Disetujui) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "isssssssssss",
+            $data['ID_Pendidikan_Penelitian'],
+            $data['Nama_Pendidikan_Dan_Penelitian'],
+            $data['NIM_KTP'],
+            $data['Program_Studi_Fakultas'],
+            $data['Universitas_Instansi'],
+            $data['No_Telepon_Pendidikan_Penelitian'],
+            $data['Email_Pendidikan_Penelitian'],
+            $data['Informasi_Pendidikan_Penelitian_Yang_Dibutuhkan'],
+            $data['Identitas_Diri'],
+            $data['Surat_Pengantar_Kepsek_Rektor_Dekan'],
+            $data['Pernyataan_Tidak_Digunakan_Kepentingan_Lain'],
+            $data['Proposal_Penelitian_Telah_Disetujui']
+        );
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+// ===================================PENGAJUAN===================================
+
+
+class Transaksi
+{
+    private $koneksi;
+
+    public function __construct($koneksi)
+    {
+        $this->koneksi = $koneksi;
+    }
+
+    public function masukKeranjangTransaksiPengguna($data)
+    {
+        $query = "INSERT INTO transaksi (ID_Informasi, ID_Pengguna, Status_Keranjang) VALUES (?, ?, ?)";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("iii", $data['ID_Informasi'], $data['ID_Pengguna'], $data['Status_Keranjang']);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function masukKeranjangTransaksiPerusahaan($data)
+    {
+        $query = "INSERT INTO transaksi (ID_Informasi, ID_Perusahaan, Status_Keranjang) VALUES (?, ?, ?)";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("iii", $data['ID_Informasi'], $data['ID_Perusahaan'], $data['Status_Keranjang']);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function cekPenggunaTerdaftar($pengguna_id)
+    {
+        $query = "SELECT * FROM pengguna WHERE ID_Pengguna = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $pengguna_id);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function cekPerusahaanTerdaftar($perusahaan_id)
+    {
+        $query = "SELECT * FROM perusahaan WHERE ID_Perusahaan = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $perusahaan_id);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}

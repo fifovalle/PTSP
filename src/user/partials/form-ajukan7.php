@@ -1,4 +1,4 @@
-<form class="row form g-3" action="" method="POST">
+<form class="row form g-3" action="../../../src/admin/config/add-submission7.php" method="POST" enctype="multipart/form-data">
     <div class="col-md-12">
         <div class="container my-4" id="TitleForm">
             <h4><b>Form Pelayanban Informasi dengan Tarif PNBP</b></h4>
@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-6">
                 <label for="suratpengantarInput">Identitas (KTP)</label>
-                <input type="file" class="form-control my-3" id="Identitas_(KTP)" name="Identitas_(KTP)" style="height: 40px">
+                <input type="file" class="form-control my-3" id="Identitas_(KTP)" name="Identitas_KTP" style="height: 40px">
             </div>
             <div class="col-md-6">
                 <label for="suratpengantarInput">Surat Pengantar</label>
@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="col-md-12 text-center">
-        <button class="apply" type="submit">
+        <button class="apply" type="submit" name="Apply">
             Apply Now
             <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
                 <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>

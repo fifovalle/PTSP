@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,72 +35,152 @@
                     <div class="d-flex row status">
                         <div class="col-md-12">
                             <div class="row mx-5 p-5 profile-status">
-                                <div class="col-md-12 ">
+                                <div class="col-md-12">
                                     <div class="row">
                                         <h3 class="title-profile mb-5 mt-2">Informasi Pribadi</h3>
                                         <div class="col-md-3">
                                             <label for="nameInput">Nama Lengkap</label>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="nameInput">***</label>
+                                            <label for="nameInput">
+                                                <?php
+                                                if (isset($_SESSION['Nama_Depan_Pengguna']) && isset($_SESSION['Nama_Belakang_Pengguna'])) {
+                                                    echo $_SESSION['Nama_Depan_Pengguna'] . ' ' . $_SESSION['Nama_Belakang_Pengguna'];
+                                                } elseif (isset($_SESSION['Nama_Depan_Anggota_Perusahaan'])) {
+                                                    echo $_SESSION['Nama_Belakang_Anggota_Perusahaan'];
+                                                }
+                                                ?>
+                                            </label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="nameInput">Pekerjaan</label>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="nameInput">***</label>
+                                            <label for="nameInput">
+                                                <?php
+                                                if (isset($_SESSION['Pekerjaan_Pengguna'])) {
+                                                    echo $_SESSION['Pekerjaan_Pengguna'];
+                                                } else {
+                                                    echo isset($_SESSION['Pekerjaan_Anggota_Perusahaan']) ? $_SESSION['Pekerjaan_Anggota_Perusahaan'] : '';
+                                                }
+                                                ?>
+                                            </label>
                                         </div>
                                         <hr class="my-4">
                                         <div class="col-md-3">
                                             <label for="nameInput">No. Identitas</label>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="nameInput">***</label>
+                                            <label for="nameInput">
+                                                <?php
+                                                if (isset($_SESSION['No_Identitas_Pengguna'])) {
+                                                    echo $_SESSION['No_Identitas_Pengguna'];
+                                                } else {
+                                                    echo isset($_SESSION['No_Identitas_Anggota_Perusahaan']) ? $_SESSION['No_Identitas_Anggota_Perusahaan'] : '';
+                                                }
+                                                ?>
+                                            </label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="nameInput">NPWP</label>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="nameInput">***</label>
+                                            <label for="nameInput">
+                                                <?php
+                                                if (isset($_SESSION['NPWP_Pengguna'])) {
+                                                    echo $_SESSION['NPWP_Pengguna'];
+                                                } else {
+                                                    echo isset($_SESSION['No_NPWP']) ? $_SESSION['No_NPWP'] : '';
+                                                }
+                                                ?>
+                                            </label>
                                         </div>
                                         <hr class="my-4">
                                         <div class="col-md-3">
                                             <label for="nameInput">Pendidikan Terakhir</label>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="nameInput">***</label>
+                                            <label for="nameInput">
+                                                <?php
+                                                if (isset($_SESSION['Pendidikan_Terakhir_Pengguna'])) {
+                                                    echo $_SESSION['Pendidikan_Terakhir_Pengguna'];
+                                                } else {
+                                                    echo isset($_SESSION['Pendidikan_Terakhir_Anggota_Perusahaan']) ? $_SESSION['Pendidikan_Terakhir_Anggota_Perusahaan'] : '';
+                                                }
+                                                ?>
+                                            </label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="nameInput">Jenis Kelamin</label>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="nameInput">***</label>
+                                            <label for="nameInput">
+                                                <?php
+                                                if (isset($_SESSION['Jenis_Kelamin_Pengguna'])) {
+                                                    echo ($_SESSION['Jenis_Kelamin_Pengguna'] == '1') ? 'Laki-laki' : 'Perempuan';
+                                                } else {
+                                                    echo isset($_SESSION['Jenis_Kelamin_Anggota_Perusahaan']) ? ($_SESSION['Jenis_Kelamin_Anggota_Perusahaan'] == '1' ? 'Laki-laki' : 'Perempuan') : '';
+                                                }
+                                                ?>
+                                            </label>
                                         </div>
                                         <hr class="my-4">
                                         <div class="col-md-3">
                                             <label for="nameInput">Alamat</label>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="nameInput">***</label>
+                                            <label for="nameInput">
+                                                <?php
+                                                if (isset($_SESSION['Alamat_Pengguna'])) {
+                                                    echo $_SESSION['Alamat_Pengguna'];
+                                                } else {
+                                                    echo isset($_SESSION['Alamat_Anggota_Perusahaan']) ? $_SESSION['Alamat_Anggota_Perusahaan'] : '';
+                                                }
+                                                ?>
+                                            </label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="nameInput">No. Handphone / Telepon</label>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="nameInput">***</label>
+                                            <label for="nameInput">
+                                                <?php
+                                                if (isset($_SESSION['No_Telepon_Pengguna'])) {
+                                                    echo $_SESSION['No_Telepon_Pengguna'];
+                                                } else {
+                                                    echo isset($_SESSION['No_Telepon_Anggota_Perusahaan']) ? $_SESSION['No_Telepon_Anggota_Perusahaan'] : '';
+                                                }
+                                                ?>
+                                            </label>
                                         </div>
                                         <hr class="my-4">
                                         <div class="col-md-3">
                                             <label for="nameInput">Email</label>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="nameInput">***</label>
+                                            <label for="nameInput">
+                                                <?php
+                                                if (isset($_SESSION['Email_Pengguna'])) {
+                                                    echo $_SESSION['Email_Pengguna'];
+                                                } else {
+                                                    echo isset($_SESSION['Email_Anggota_Perusahaan']) ? $_SESSION['Email_Anggota_Perusahaan'] : '';
+                                                }
+                                                ?>
+                                            </label>
                                         </div>
                                         <div class="col-md-3">
                                             <label for="nameInput">Username</label>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="nameInput">***</label>
+                                            <label for="nameInput">
+                                                <?php
+                                                if (isset($_SESSION['Nama_Pengguna'])) {
+                                                    echo $_SESSION['Nama_Pengguna'];
+                                                } else {
+                                                    echo isset($_SESSION['Nama_Pengguna_Anggota_Perusahaan']) ? $_SESSION['Nama_Pengguna_Anggota_Perusahaan'] : '';
+                                                }
+                                                ?>
+                                            </label>
                                         </div>
                                     </div>
                                 </div>

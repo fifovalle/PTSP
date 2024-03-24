@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +9,9 @@
     include('../partials/header.php');
     ?>
     <link rel="stylesheet" href="../assets/css/ajukan.css">
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <title>Ajukan PTSP BMKG Provinsi Bengkulu</title>
 </head>
 
@@ -116,6 +122,8 @@
     </div>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/ajukan.js"></script>
+    <!-- ALERT -->
+    <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>

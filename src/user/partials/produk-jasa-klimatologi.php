@@ -1,3 +1,6 @@
+<?php
+include '../../admin/config/databases.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,75 +24,43 @@
                         <hr>
                     </h4>
                     <div class="row pt-5 px-3">
-                        <div class="col-md-4 mb-4 p-1" id="produk">
-                            <div class="card-product">
-                                <div class="card-info text-start ps-3 py-2">
-                                    <button type="button" class="info p-0 border-0 bg-transparent"><box-icon name='info-circle'></box-icon></button>
-                                </div>
-                                <div class="card-img my-3">
-                                    <span class="dot">
-                                        <box-icon name='cloud-lightning' id="icon" color='rgba(255,255,255,0.9)' class="product"></box-icon>
-                                    </span>
-                                </div>
-                                <div class="card-title">Nama Produk</div>
-                                <div class="card-subtitle">Deskripsi Produk</div>
-                                <hr class="card-divider">
-                                <div class="d-flex card-footer justify-content-between my-4 mx-3">
-                                    <div class="card-price text-start"><span>Rp</span>30.000</div>
-                                    <div class="card-button">
-                                        <button class="card-btn">
-                                            <span><box-icon name='cart-alt'></box-icon></span>
-                                        </button>
+                        <?php
+                        $jasaModel = new Jasa($koneksi);
+                        $dataJasaKlimatologi = $jasaModel->tampilkanDataJasaKlimatologi();
+                        if (!empty($dataJasaKlimatologi)) {
+                            $nomorUrut = 1;
+                            foreach ($dataJasaKlimatologi as $jasaKlimatologi) {
+                        ?>
+                                <div class="col-md-4 mb-4 p-1" id="produk">
+                                    <div class="card-product">
+                                        <div class="card-info text-start ps-3 py-2">
+                                            <button type="button" class="info p-0 border-0 bg-transparent"><box-icon name='info-circle'></box-icon></button>
+                                        </div>
+                                        <div class="card-img my-3">
+                                            <span class="dot">
+                                                <box-icon name='cloud-lightning' id="icon" color='rgba(255,255,255,0.9)' class="product"></box-icon>
+                                            </span>
+                                        </div>
+                                        <div class="card-title"><?php echo $jasaKlimatologi['Nama_Jasa']; ?></div>
+                                        <div class="card-subtitle"><?php echo $jasaKlimatologi['Deskripsi_Jasa']; ?></div>
+                                        <hr class="card-divider">
+                                        <div class="d-flex card-footer justify-content-between my-4 mx-3">
+                                            <div class="card-price text-start"><span>Rp</span><?php echo number_format($jasaKlimatologi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                            <div class="card-button">
+                                                <button class="card-btn">
+                                                    <span><box-icon name='cart-alt'></box-icon></span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4 p-1" id="produk">
-                            <div class="card-product">
-                                <div class="card-info text-start ps-3 py-2">
-                                    <button type="button" class="info p-0 border-0 bg-transparent"><box-icon name='info-circle'></box-icon></button>
-                                </div>
-                                <div class="card-img my-3">
-                                    <span class="dot">
-                                        <box-icon name='cloud-lightning' id="icon" color='rgba(255,255,255,0.9)' class="product"></box-icon>
-                                    </span>
-                                </div>
-                                <div class="card-title">Nama Produk</div>
-                                <div class="card-subtitle">Deskripsi Produk</div>
-                                <hr class="card-divider">
-                                <div class="d-flex card-footer justify-content-between my-4 mx-3">
-                                    <div class="card-price text-start"><span>Rp</span>30.000</div>
-                                    <div class="card-button">
-                                        <button class="card-btn">
-                                            <span><box-icon name='cart-alt'></box-icon></span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4 p-1" id="produk">
-                            <div class="card-product">
-                                <div class="card-info text-start ps-3 py-2">
-                                    <button type="button" class="info p-0 border-0 bg-transparent"><box-icon name='info-circle'></box-icon></button>
-                                </div>
-                                <div class="card-img my-3">
-                                    <span class="dot">
-                                        <box-icon name='cloud-lightning' id="icon" color='rgba(255,255,255,0.9)' class="product"></box-icon>
-                                    </span>
-                                </div>
-                                <div class="card-title">Nama Produk</div>
-                                <div class="card-subtitle">Deskripsi Produk</div>
-                                <hr class="card-divider">
-                                <div class="d-flex card-footer justify-content-between my-4 mx-3">
-                                    <div class="card-price text-start"><span>Rp</span>30.000</div>
-                                    <div class="card-button">
-                                        <button class="card-btn">
-                                            <span><box-icon name='cart-alt'></box-icon></span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                                $nomorUrut++;
+                            }
+                        } else {
+                            echo "<div class='text-danger fw-bold'>Data Tidak Ditemukan!</div>";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

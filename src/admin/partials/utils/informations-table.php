@@ -30,7 +30,6 @@
         <?php
         $informasiModel = new Informasi($koneksi);
         $dataInformasi = $informasiModel->tampilkanDataInformasi();
-
         if (!empty($dataInformasi)) {
             $nomorUrut = 1;
             foreach ($dataInformasi as $informasi) {
@@ -46,7 +45,7 @@
                         </div>
                         <div class="deskriptorContainer">
                             <p class="fw-semibold m-auto"><?php echo htmlspecialchars($informasi['Nama_Informasi']); ?></p>
-                             <p class="fw-semibold deskriptorSmall m-auto"><?php echo htmlspecialchars($informasi['Deskripsi_Informasi']); ?></p>
+                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo htmlspecialchars($informasi['Deskripsi_Informasi']); ?></p>
                             <div class="iconContainerData">
                                 <a class="linkData buttonInformation" data-id='<?php echo $informasi['ID_Informasi']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>
@@ -61,7 +60,7 @@
                     <td class="text-center"><?php echo htmlspecialchars($informasi['Pemilik_Informasi']); ?></td>
                     <td class="text-center"><?php echo htmlspecialchars($informasi['Kategori_Informasi']); ?></td>
                     <td class="text-center">
-                         <?php echo ($informasi['Status_Informasi'] == 'Tersedia') ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Belum Tersedia</span>'; ?>
+                        <?php echo ($informasi['Status_Informasi'] == 'Tersedia') ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Belum Tersedia</span>'; ?>
                     </td>
                 </tr>
         <?php
