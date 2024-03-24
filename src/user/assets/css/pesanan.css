@@ -2,10 +2,6 @@ body {
   padding: 0;
   margin: 0;
 }
-body {
-  padding: 0;
-  margin: 0;
-}
 /* Scrollbar Effect */
 ::-webkit-scrollbar {
   width: 5px;
