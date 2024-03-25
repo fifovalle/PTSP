@@ -1,116 +1,77 @@
 <?php
 include 'databases.php';
 
-$pesanKesalahan = '';
-
 if (isset($_POST['Simpan'])) {
-    $jenisPengguna = $_POST['jenisPengguna'];
-    if ($jenisPengguna === 'pengguna') {
-        $idPengguna = $_POST['ID_Pengguna'];
-        $namaDepan = $_POST['Nama_Depan_Pengguna'];
-        $namaBelakang = $_POST['Nama_Belakang_Pengguna'];
-        $namaPengguna = $_POST['Nama_Pengguna'];
-        $pekerjaanPengguna = $_POST['Pekerjaan_Pengguna'];
-        $pendidikanTerakhirPengguna = $_POST['Pendidikan_Terakhir_Pengguna'];
-        $email = $_POST['Email_Pengguna'];
-        $nomorTelepon = $_POST['No_Telepon_Pengguna'];
-        $alamatPengguna = $_POST['Alamat_Pengguna'];
+    $username = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['username']));
+    $namaDepan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama']));
+    $namaBelakang = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama']));
+    $pekerjaan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Pekerjaan']));
+    $pendidikanTerakhir = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['PendidikanTerakhir']));
+    $email = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Email']));
+    $noHP = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_HP']));
+    $jenisKelamin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Jenis_Kelamin']));
+    $alamat = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['alamat']));
 
-        $nomorTeleponFormatted = $nomorTelepon;
-        if (strpos($nomorTeleponFormatted, '-') === false) {
-            $nomorTeleponFormatted = substr($nomorTeleponFormatted, 0, 3) . '-' . substr($nomorTeleponFormatted, 3, 4) . '-' . substr($nomorTeleponFormatted, 7);
-        }
-        if (strpos($nomorTeleponFormatted, '+62') === false) {
-            $nomorTeleponFormatted = '+62 ' . $nomorTeleponFormatted;
-        }
+    $obyekPengguna = new Pengguna($koneksi);
 
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $pesanKesalahan .= "Format email tidak valid. ";
-        }
-
-        if (empty($namaDepan) || empty($namaBelakang) || empty($namaPengguna) || empty($email) || empty($nomorTelepon) || empty($alamatPengguna)) {
-            $pesanKesalahan .= "Semua bidang harus diisi. ";
+    if (isset($_SESSION['ID_Pengguna']) || isset($_SESSION['ID_Perusahaan'])) {
+        if ($username == $_SESSION['Nama_Pengguna'] || $username == $_SESSION['Nama_Pengguna_Anggota_Perusahaan']) {
+            $username = isset($_SESSION['Nama_Pengguna']) ? $_SESSION['Nama_Pengguna'] : $_SESSION['Nama_Pengguna_Anggota_Perusahaan'];
+            $namaDepan = isset($_SESSION['Nama_Depan_Pengguna']) ? $_SESSION['Nama_Depan_Pengguna'] : $_SESSION['Nama_Depan_Anggota_Perusahaan'];
+            $namaBelakang = isset($_SESSION['Nama_Belakang_Pengguna']) ? $_SESSION['Nama_Belakang_Pengguna'] : $_SESSION['Nama_Belakang_Anggota_Perusahaan'];
+            $pekerjaan = isset($_SESSION['Pekerjaan_Pengguna']) ? $_SESSION['Pekerjaan_Pengguna'] : $_SESSION['Pekerjaan_Anggota_Perusahaan'];
+            $pendidikanTerakhir = isset($_SESSION['Pendidikan_Terakhir_Pengguna']) ? $_SESSION['Pendidikan_Terakhir_Pengguna'] : $_SESSION['Pendidikan_Terakhir_Anggota_Perusahaan'];
+            $email = isset($_SESSION['Email_Pengguna']) ? $_SESSION['Email_Pengguna'] : $_SESSION['Email_Anggota_Perusahaan'];
+            $noHP = isset($_SESSION['No_Telepon_Pengguna']) ? $_SESSION['No_Telepon_Pengguna'] : $_SESSION['No_Telepon_Anggota_Perusahaan'];
+            $jenisKelamin = isset($_SESSION['Jenis_Kelamin_Pengguna']) ? $_SESSION['Jenis_Kelamin_Pengguna'] : $_SESSION['Jenis_Kelamin_Anggota_Perusahaan'];
+            $alamat = isset($_SESSION['Alamat_Pengguna']) ? $_SESSION['Alamat_Pengguna'] : $_SESSION['Alamat_Anggota_Perusahaan'];
         }
 
-        if (!empty($pesanKesalahan)) {
-            setPesanKesalahan($pesanKesalahan);
-            header("Location: $akarUrl/src/user/pages/profile.php");
-            exit;
+        if (isset($_SESSION['ID_Pengguna'])) {
+            $dataPengguna = array(
+                'Nama_Pengguna' => $username,
+                'Nama_Depan_Pengguna' => $namaDepan,
+                'Nama_Belakang_Pengguna' => $namaBelakang,
+                'Pekerjaan_Pengguna' => $pekerjaan,
+                'Pendidikan_Terakhir_Pengguna' => $pendidikanTerakhir,
+                'Email_Pengguna' => $email,
+                'No_Telepon_Pengguna' => $noHP,
+                'Jenis_Kelamin_Pengguna' => $jenisKelamin,
+                'Alamat_Pengguna' => $alamat
+            );
+            $editPengguna = $obyekPengguna->perbaruiPengguna($_SESSION['ID_Pengguna'], $dataPengguna);
+
+            if ($editPengguna) {
+                setPesanKeberhasilan("Data pengguna berhasil diperbarui.");
+            } else {
+                setPesanKesalahan("Gagal memperbarui data pengguna. Silakan coba lagi.");
+            }
+        } elseif (isset($_SESSION['ID_Perusahaan'])) {
+            $dataPerusahaan = array(
+                'Nama_Pengguna_Anggota_Perusahaan' => $username,
+                'Nama_Depan_Anggota_Perusahaan' => $namaDepan,
+                'Nama_Belakang_Anggota_Perusahaan' => $namaBelakang,
+                'Pekerjaan_Anggota_Perusahaan' => $pekerjaan,
+                'Pendidikan_Terakhir_Anggota_Perusahaan' => $pendidikanTerakhir,
+                'Email_Anggota_Perusahaan' => $email,
+                'No_Telepon_Anggota_Perusahaan' => $noHP,
+                'Jenis_Kelamin_Anggota_Perusahaan' => $jenisKelamin,
+                'Alamat_Anggota_Perusahaan' => $alamat
+            );
+            $editPerusahaan = $obyekPengguna->perbaruiPerusahaan($_SESSION['ID_Perusahaan'], $dataPerusahaan);
+
+            if ($editPerusahaan) {
+                setPesanKeberhasilan("Data perusahaan berhasil diperbarui.");
+            } else {
+                setPesanKesalahan("Gagal memperbarui data perusahaan. Silakan coba lagi.");
+            }
         }
-
-        $dataPengguna = array(
-            'Nama_Depan_Pengguna' => $namaDepan,
-            'Nama_Belakang_Pengguna' => $namaBelakang,
-            'Nama_Pengguna' => $namaPengguna,
-            'Email_Pengguna' => $email,
-            'No_Telepon_Pengguna' =>  $nomorTeleponFormatted,
-            'Alamat_Pengguna' => $alamatPengguna,
-            'Pekerjaan_Pengguna' => $pekerjaanPengguna,
-            'Pendidikan_Terakhir_Pengguna' => $pendidikanTerakhirPengguna
-        );
-
-        $statusPerbarui = $obyekPengguna->perbaruiPengguna($idPengguna, $dataPengguna);
-
-        if ($statusPerbarui) {
-            setPesanKeberhasilan("Data pengguna berhasil diperbarui.");
-        } else {
-            setPesanKesalahan("Gagal memperbarui data pengguna.");
-        }
-        header("Location: $akarUrl/src/user/pages/profile.php");
-        exit;
-    } elseif ($jenisPengguna === 'perusahaan') {
-        $idPerusahaan = $_POST['ID_Perusahaan'];
-        $namaDepan = $_POST['Nama_Depan_Anggota_Perusahaan'];
-        $namaBelakang = $_POST['Nama_Belakang_Anggota_Perusahaan'];
-        $pekerjaanPerusahaan = $_POST['Pekerjaan_Anggota_Perusahaan'];
-        $pendidikanTerakhirPerusahaan = $_POST['Pendidikan_Terakhir_Perusahaan'];
-        $emailPerusahaan = $_POST['Email_Perusahaan'];
-        $nomorTeleponPerusahaan = $_POST['No_Telepon_Anggota_Perusahaan'];
-        $alamatPerusahaan = $_POST['Alamat_Anggota_Perusahaan'];
-
-        $nomorTeleponFormatted = $nomorTeleponPerusahaan;
-        if (strpos($nomorTeleponFormatted, '-') === false) {
-            $nomorTeleponFormatted = substr($nomorTeleponFormatted, 0, 3) . '-' . substr($nomorTeleponFormatted, 3, 4) . '-' . substr($nomorTeleponFormatted, 7);
-        }
-        if (strpos($nomorTeleponFormatted, '+62') === false) {
-            $nomorTeleponFormatted = '+62 ' . $nomorTeleponFormatted;
-        }
-
-        if (!filter_var($emailPerusahaan, FILTER_VALIDATE_EMAIL)) {
-            $pesanKesalahan .= "Format email perusahaan tidak valid. ";
-        }
-
-        if (empty($namaDepan) || empty($namaBelakang) || empty($emailPerusahaan) || empty($nomorTeleponPerusahaan) || empty($alamatPerusahaan)) {
-            $pesanKesalahan .= "Semua bidang perusahaan harus diisi. ";
-        }
-
-        if (!empty($pesanKesalahan)) {
-            setPesanKesalahan($pesanKesalahan);
-            header("Location: $akarUrl/src/user/pages/profile.php");
-            exit;
-        }
-
-        $dataPerusahaan = array(
-            'Nama_Depan_Anggota_Perusahaan' => $namaDepan,
-            'Nama_Belakang_Anggota_Perusahaan' => $namaBelakang,
-            'Email_Perusahaan' => $emailPerusahaan,
-            'No_Telepon_Anggota_Perusahaan' =>  $nomorTeleponFormatted,
-            'Alamat_Anggota_Perusahaan' => $alamatPerusahaan,
-            'Pekerjaan_Anggota_Perusahaan' => $pekerjaanPerusahaan,
-            'Pendidikan_Terakhir_Perusahaan' => $pendidikanTerakhirPerusahaan
-        );
-
-        $statusPerbarui = $objekPerusahaan->perbaruiPerusahaan($idPerusahaan, $dataPerusahaan);
-
-        if ($statusPerbarui) {
-            setPesanKeberhasilan("Data perusahaan berhasil diperbarui.");
-        } else {
-            setPesanKesalahan("Gagal memperbarui data perusahaan.");
-        }
-        header("Location: $akarUrl/src/user/pages/profile.php");
-        exit;
-    } else {
-        header("Location: $akarUrl/src/user/pages/profile.php");
-        exit;
     }
+
+    header("Location: $akarUrl" . "src/user/pages/profile.php");
+    exit;
+} else {
+    header("Location: $akarUrl" . "src/user/pages/profile.php");
+    exit;
 }
+?>

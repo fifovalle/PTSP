@@ -73,6 +73,8 @@ body {
 }
 
 #ganti_profil {
+  position: absolute;
+  top: 12rem;
   width: 100%;
 }
 

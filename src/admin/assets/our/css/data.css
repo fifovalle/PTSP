@@ -125,7 +125,8 @@
 .userTable,
 .informationTable,
 .transactionTable,
-.servicesTable {
+.servicesTable,
+.applymentTable {
   display: none;
 }
 

@@ -7,22 +7,31 @@ $(document).ready(function () {
     menuText === "Admin"
       ? ($(".adminTable").show(),
         $(
-          ".userTable, .informationTable, .transactionTable, .servicesTable"
+          ".userTable, .informationTable, .transactionTable, .servicesTable, .applymentTable"
         ).hide())
       : menuText === "Pengguna"
       ? ($(
-          ".adminTable, .informationTable, .transactionTable, .servicesTable"
+          ".adminTable, .informationTable, .transactionTable, .servicesTable, .applymentTable"
         ).hide(),
         $(".userTable").show())
       : menuText === "Informasi"
-      ? ($(".adminTable, .userTable, .transactionTable, .servicesTable").hide(),
+      ? ($(
+          ".adminTable, .userTable, .transactionTable, .servicesTable, .applymentTable"
+        ).hide(),
         $(".informationTable").show())
       : menuText === "Jasa"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .transactionTable"
+          ".adminTable, .userTable, .informationTable, .transactionTable, .applymentTable"
         ).hide(),
         $(".servicesTable").show())
-      : ($(".adminTable, .userTable, .informationTable, .servicesTable").hide(),
+      : menuText === "Pengajuan"
+      ? ($(
+          ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable"
+        ).hide(),
+        $(".applymentTable").show())
+      : ($(
+          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable"
+        ).hide(),
         $(".transactionTable").show());
   });
 });

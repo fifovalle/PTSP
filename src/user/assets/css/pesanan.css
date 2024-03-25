@@ -94,8 +94,7 @@ body {
   width: 15rem;
   border: none;
 }
-.opsi-statuspesanan:active {
-}
+
 #icon {
   width: 2.8rem;
   height: 2.8rem;
@@ -115,4 +114,11 @@ body {
 }
 #total_harga p {
   font-size: 1.3rem;
+}
+
+#box-perbaikan {
+  width: 50rem;
+  position: absolute;
+  top: 90px;
+  left: -100px;
 }

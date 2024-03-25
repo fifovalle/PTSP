@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2024 at 08:11 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Mar 25, 2024 at 03:38 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -221,6 +221,28 @@ CREATE TABLE `pendidikan_dan_penelitian` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pengajuan`
+--
+
+CREATE TABLE `pengajuan` (
+  `ID_Pengajuan` int(11) NOT NULL,
+  `ID_Pengguna` int(11) DEFAULT NULL,
+  `ID_Perusahaan` int(11) DEFAULT NULL,
+  `ID_Admin` int(11) DEFAULT NULL,
+  `ID_Bencana` int(11) DEFAULT NULL,
+  `ID_Keagamaan` int(11) DEFAULT NULL,
+  `ID_Pertahanan` int(11) DEFAULT NULL,
+  `ID_Sosial` int(11) DEFAULT NULL,
+  `ID_Pusat_Daerah` int(11) DEFAULT NULL,
+  `ID_Penelitian` int(11) DEFAULT NULL,
+  `Status_Pengajuan` enum('Sedang Ditinjau','Ditolak','DIterima') NOT NULL,
+  `Keterangan_Surat_Ditolak` varchar(100) DEFAULT NULL,
+  `Tanggal_Pengajuan` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pengguna`
 --
 
@@ -252,7 +274,7 @@ CREATE TABLE `pengguna` (
 
 INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `Token`) VALUES
 (13, '', '888888', 2147483647, 'sdcdvf', 'scdv', 'asdcv', 'cgvbhjnk', 'AhsanGhifari', 'ahsanghifari04@gmail.com', '$2y$10$t/xJLBQrYYGChFUMEfXhXO7Hvok9H3APbxGqVn8vIeVYEzD7q/yie', '$2y$10$t/xJLBQrYYGChFUMEfXhXO7Hvok9H3APbxGqVn8vIeVYEzD7q/yie', '+62 812-8411-8340', 'Pria', 'fgvhjk', 'cgvhbjnkm', 'Bekasi', 'Belum Terverifikasi', 36744280),
-(14, '', '11', 21, 'Pelajar', 'Sandro', 'Anugrah', 'SMA', 'Sandro', 'sandro@gmail.com', '$2y$10$pjM8BuJDV8cZKIRCIcIA9O6pZZ/N/NnJ1b4vTj1U.DXSv8NRR0Sd6', '$2y$10$pjM8BuJDV8cZKIRCIcIA9O6pZZ/N/NnJ1b4vTj1U.DXSv8NRR0Sd6', '+62 822-7452-4523', 'Pria', 'Batujajar', 'Jawa Barat', 'Bandung', 'Belum Terverifikasi', 48577847);
+(14, '', '11', 21, '', '', '', '', 'sandroanugrah', '', '$2y$10$pjM8BuJDV8cZKIRCIcIA9O6pZZ/N/NnJ1b4vTj1U.DXSv8NRR0Sd6', '$2y$10$pjM8BuJDV8cZKIRCIcIA9O6pZZ/N/NnJ1b4vTj1U.DXSv8NRR0Sd6', '', 'Pria', '', 'Jawa Barat', 'Bandung', 'Belum Terverifikasi', 48577847);
 
 -- --------------------------------------------------------
 
@@ -293,7 +315,7 @@ CREATE TABLE `perusahaan` (
 --
 
 INSERT INTO `perusahaan` (`ID_Perusahaan`, `Foto_Perusahaan`, `No_Identitas_Anggota_Perusahaan`, `Nama_Depan_Anggota_Perusahaan`, `Nama_Belakang_Anggota_Perusahaan`, `Pekerjaan_Anggota_Perusahaan`, `Pendidikan_Terakhir_Anggota_Perusahaan`, `Jenis_Kelamin_Anggota_Perusahaan`, `Alamat_Anggota_Perusahaan`, `No_Telepon_Anggota_Perusahaan`, `Provinsi_Anggota_Perusahaan`, `Kabupaten_Kota_Anggota_Perusahaan`, `No_NPWP`, `Nama_Perusahaan`, `Alamat_Perusahaan`, `Provinsi_Perusahaan`, `Kabupaten_Kota_Perusahaan`, `Email_Perusahaan`, `No_Telepon_Perusahaan`, `Email_Anggota_Perusahaan`, `Nama_Pengguna_Anggota_Perusahaan`, `Kata_Sandi_Anggota_Perusahaan`, `Konfirmasi_Kata_Sandi_Anggota_Perusahaan`, `Status_Verifikasi_Perusahaan`, `Token`) VALUES
-(3, '', 15, 'Sandro Wow', 'Anugrah', 'Pelajar', 'SMA', 'Pria', 'Batujajar', '+62 821-3456-7890', 'Jawa Barat', 'Bandung Barat', '21', 'Sampah Ku', 'Jln.Sampah Ku Guys', 'Jawa Barat', 'Bandung Kota', 'sampahku@gmail.com', '+62 821-3456-7890', 'sandrot@gmail.com', 'Sandro Wow', '$2y$10$DfrorxsY0p0A2uCafGO5V..Pehqh4dgZBl/6KfeUyNngDZQMqVHoK', '$2y$10$DfrorxsY0p0A2uCafGO5V..Pehqh4dgZBl/6KfeUyNngDZQMqVHoK', 'Belum Terverifikasi', 59881612),
+(3, '', 15, '', '', '', '', 'Pria', '', '', 'Jawa Barat', 'Bandung Barat', '21', 'Sampah Ku', 'Jln.Sampah Ku Guys', 'Jawa Barat', 'Bandung Kota', 'sampahku@gmail.com', '+62 821-3456-7890', '', 'Alex', '$2y$10$DfrorxsY0p0A2uCafGO5V..Pehqh4dgZBl/6KfeUyNngDZQMqVHoK', '$2y$10$DfrorxsY0p0A2uCafGO5V..Pehqh4dgZBl/6KfeUyNngDZQMqVHoK', 'Belum Terverifikasi', 59881612),
 (4, '', 2147483647, 'Sampah', 'Ku', 'CEO', 'S5tank', 'Pria', 'disini', '+62 812-8466-8901', 'Jawa Selatan', 'Niagara', '89659856', 'SampahCorp', 'cfgvhbjkl', 'asdfdv', 'asdf', 'Sampah@gmail.com', '+62 812-8466-8901', 'sampss@gmail.com', 'SampahCorp2', '$2y$10$Cv0l2rurO1somN7yAPM1dOOZgezI/KHJ9iOFrcgR7XWpYfbvo6YZy', '$2y$10$Cv0l2rurO1somN7yAPM1dOOZgezI/KHJ9iOFrcgR7XWpYfbvo6YZy', 'Belum Terverifikasi', 95559911);
 
 -- --------------------------------------------------------
@@ -389,6 +411,21 @@ ALTER TABLE `pendidikan_dan_penelitian`
   ADD PRIMARY KEY (`ID_Pendidikan_Penelitian`);
 
 --
+-- Indexes for table `pengajuan`
+--
+ALTER TABLE `pengajuan`
+  ADD PRIMARY KEY (`ID_Pengajuan`),
+  ADD KEY `ID_Pengguna` (`ID_Pengguna`),
+  ADD KEY `ID_Perusahaan` (`ID_Perusahaan`),
+  ADD KEY `ID_Bencana` (`ID_Bencana`),
+  ADD KEY `ID_Keagamaan` (`ID_Keagamaan`),
+  ADD KEY `ID_Pertahanan` (`ID_Pertahanan`),
+  ADD KEY `ID_Sosial` (`ID_Sosial`),
+  ADD KEY `ID_Pusat_Daerah` (`ID_Pusat_Daerah`),
+  ADD KEY `ID_Penelitian` (`ID_Penelitian`),
+  ADD KEY `ID_Admin` (`ID_Admin`);
+
+--
 -- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
@@ -476,6 +513,12 @@ ALTER TABLE `pendidikan_dan_penelitian`
   MODIFY `ID_Pendidikan_Penelitian` int(16) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `pengajuan`
+--
+ALTER TABLE `pengajuan`
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
@@ -496,6 +539,20 @@ ALTER TABLE `transaksi`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `pengajuan`
+--
+ALTER TABLE `pengajuan`
+  ADD CONSTRAINT `pengajuan_ibfk_1` FOREIGN KEY (`ID_Bencana`) REFERENCES `kegiatan_bencana` (`ID_Bencana`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pengajuan_ibfk_2` FOREIGN KEY (`ID_Pusat_Daerah`) REFERENCES `pemerintah_pusat_daerah` (`ID_Pusat`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pengajuan_ibfk_3` FOREIGN KEY (`ID_Penelitian`) REFERENCES `pendidikan_dan_penelitian` (`ID_Pendidikan_Penelitian`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pengajuan_ibfk_4` FOREIGN KEY (`ID_Perusahaan`) REFERENCES `perusahaan` (`ID_Perusahaan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pengajuan_ibfk_5` FOREIGN KEY (`ID_Pengguna`) REFERENCES `pengguna` (`ID_Pengguna`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pengajuan_ibfk_6` FOREIGN KEY (`ID_Sosial`) REFERENCES `kegiatan_sosial` (`ID_Sosial`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pengajuan_ibfk_7` FOREIGN KEY (`ID_Pertahanan`) REFERENCES `kegiatan_pertahanan_keamanan` (`ID_Pertahanan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pengajuan_ibfk_8` FOREIGN KEY (`ID_Keagamaan`) REFERENCES `kegiatan_keagamaan` (`ID_Keagamaan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pengajuan_ibfk_9` FOREIGN KEY (`ID_Admin`) REFERENCES `admin` (`ID_Admin`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `transaksi`

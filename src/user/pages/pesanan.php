@@ -144,7 +144,7 @@ session_start();
                                     </nav>
                                 </div>
                                 <div class="col text-end">
-                                    <button class="btn btn-outline-primary ms-3" type="button" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>
+                                    <button class="btn btn-outline-primary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>
                                 </div>
                             </div>
                         </div>
@@ -422,6 +422,9 @@ session_start();
             </div>
         </div>
     </div>
+    <?php
+    include('../partials/modal-perbaikan-pesanan.php');
+    ?>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/pesanan.js"></script>
 </body>
