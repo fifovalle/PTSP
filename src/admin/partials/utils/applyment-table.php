@@ -42,8 +42,8 @@
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
                         <div class="deskriptorContainer">
-                            <p class="fw-semibold m-auto"><?php echo $pengajuan['Nama_Jasa']; ?></p>
-                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $pengajuan['Deskripsi_Jasa']; ?></p>
+                            <p class="fw-semibold m-auto"><?php echo $pengajuan['Nama']; ?></p>
+                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $pengajuan['Informasi_Bencana_Yang_Dibutuhkan']; ?></p>
                             <div class="iconContainerData">
                                 <a class="linkData buttonServices" data-id='<?php echo $pengajuan['ID_Jasa']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>

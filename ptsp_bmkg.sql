@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2024 at 10:25 AM
+-- Generation Time: Mar 26, 2024 at 11:17 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -129,12 +129,22 @@ INSERT INTO `jasa` (`ID_Jasa`, `Foto_Jasa`, `Nama_Jasa`, `Deskripsi_Jasa`, `Harg
 
 CREATE TABLE `kegiatan_bencana` (
   `ID_Bencana` int(16) NOT NULL,
-  `Nama` varchar(30) NOT NULL,
-  `No_Telepon` varchar(20) NOT NULL,
-  `Email` varchar(50) NOT NULL,
+  `Nama_Bencana` varchar(30) NOT NULL,
+  `No_Telepon_Bencana` varchar(20) NOT NULL,
+  `Email_Bencana` varchar(50) NOT NULL,
   `Informasi_Bencana_Yang_Dibutuhkan` varchar(100) NOT NULL,
-  `Surat_Pengantar_Permintaan_Data` longblob NOT NULL
+  `Surat_Pengantar_Permintaan_Data_Bencana` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kegiatan_bencana`
+--
+
+INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencana`, `Email_Bencana`, `Informasi_Bencana_Yang_Dibutuhkan`, `Surat_Pengantar_Permintaan_Data_Bencana`) VALUES
+(3, 'Naufal', '81223652490', 'fifanaufal10@gmail.com', 'Butuh', 0x363630323965396535633939365f6c6f6769632e706e67),
+(4, 'Naufal', '81223652490', 'fifanaufal10@gmail.com', 'Butuh', 0x363630323966323464653531345f6c6f6769632e706e67),
+(5, 'Naufal', '81223652490', 'asep@gmail.com', 'Butuh', 0x363630323966633637396436375f6c6f6769632e706e67),
+(6, 'Ahsan', '1', 'asep@gmail.com', 'Butuh', 0x363630326130383433323730625f6c6f6769632e706e67);
 
 -- --------------------------------------------------------
 
@@ -478,7 +488,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
@@ -514,7 +524,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pengguna`

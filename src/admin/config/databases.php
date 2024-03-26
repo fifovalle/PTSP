@@ -1176,17 +1176,17 @@ class Pengajuan
 
     public function tambahDataBencana($data)
     {
-        $query = "INSERT INTO kegiatan_bencana (ID_Bencana, Nama, No_Telepon, Email, Informasi_Bencana_Yang_Dibutuhkan, Surat_Pengantar_Permintaan_Data) VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO kegiatan_bencana (ID_Bencana, Nama_Bencana, No_Telepon_Bencana, Email_Bencana, Informasi_Bencana_Yang_Dibutuhkan, Surat_Pengantar_Permintaan_Data_Bencana) VALUES (?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
             "isssss",
             $data['ID_Bencana'],
-            $data['Nama'],
-            $data['No_Telepon'],
-            $data['Email'],
+            $data['Nama_Bencana'],
+            $data['No_Telepon_Bencana'],
+            $data['Email_Bencana'],
             $data['Informasi_Bencana_Yang_Dibutuhkan'],
-            $data['Surat_Pengantar_Permintaan_Data']
+            $data['Surat_Pengantar_Permintaan_Data_Bencana']
         );
 
         if ($statement->execute()) {
@@ -1306,6 +1306,40 @@ class Pengajuan
             $data['Proposal_Penelitian_Telah_Disetujui']
         );
 
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function ambilIDBencanaTerakhir()
+    {
+        $query = "SELECT ID_Bencana FROM kegiatan_bencana ORDER BY ID_Bencana DESC LIMIT 1";
+
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['ID_Bencana'];
+        } else {
+            return null;
+        }
+    }
+
+    public function tambahDataPengajuanBencana($dataPengajuanBencana)
+    {
+        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Bencana, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, ?, NOW())";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iiis",
+            $dataPengajuanBencana['ID_Pengguna'],
+            $dataPengajuanBencana['ID_Perusahaan'],
+            $dataPengajuanBencana['ID_Bencana'],
+            $dataPengajuanBencana['Status_Pengajuan'],
+        );
         if ($statement->execute()) {
             return true;
         } else {
