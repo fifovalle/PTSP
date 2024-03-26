@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2024 at 11:17 AM
+-- Generation Time: Mar 26, 2024 at 11:25 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -144,7 +144,8 @@ INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencan
 (3, 'Naufal', '81223652490', 'fifanaufal10@gmail.com', 'Butuh', 0x363630323965396535633939365f6c6f6769632e706e67),
 (4, 'Naufal', '81223652490', 'fifanaufal10@gmail.com', 'Butuh', 0x363630323966323464653531345f6c6f6769632e706e67),
 (5, 'Naufal', '81223652490', 'asep@gmail.com', 'Butuh', 0x363630323966633637396436375f6c6f6769632e706e67),
-(6, 'Ahsan', '1', 'asep@gmail.com', 'Butuh', 0x363630326130383433323730625f6c6f6769632e706e67);
+(6, 'Ahsan', '1', 'asep@gmail.com', 'Butuh', 0x363630326130383433323730625f6c6f6769632e706e67),
+(7, 'Naufal', '81223652490', 'asep@gmail.com', 'Butuh', 0x363630326131366136613264395f6c6f6769632e706e67);
 
 -- --------------------------------------------------------
 
@@ -249,6 +250,13 @@ CREATE TABLE `pengajuan` (
   `Keterangan_Surat_Ditolak` varchar(100) DEFAULT NULL,
   `Tanggal_Pengajuan` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pengajuan`
+--
+
+INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Admin`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Tanggal_Pengajuan`) VALUES
+(5, NULL, 5, NULL, 7, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, '2024-03-26 17:20:26');
 
 -- --------------------------------------------------------
 
@@ -488,7 +496,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
@@ -524,7 +532,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
