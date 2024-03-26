@@ -86,7 +86,10 @@ if (isset($_POST['Apply'])) {
     $simpanDataPendidikan = $objekDataPendidikan->tambahDataPendidikanPenelitian($dataPendidikan);
 
     if ($simpanDataPendidikan) {
-        setPesanKeberhasilan("Data kegiatan pendidikan dan penelitian berhasil ditambahkan.");
+        $_SESSION['Ajuan'] = true;
+        setPesanKeberhasilan("Data kegiatan penanggulangan bencana berhasil dikirim harap menunggu konfirmasi oleh admin.");
+        header("Location: $akarUrl" . "src/user/pages/checkout.php");
+        exit();
     } else {
         setPesanKesalahan("Gagal menambahkan data kegiatan pendidikan dan penelitian.");
     }

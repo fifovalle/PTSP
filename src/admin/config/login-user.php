@@ -23,9 +23,6 @@ if (isset($_POST['Masuk'])) {
     $pengguna = $penggunaDatabase->autentikasiPengguna($emailNamaPengguna, $kataSandi);
     $perusahaan = $penggunaDatabase->autentikasiPerusahaan($emailNamaPengguna, $kataSandi);
 
-
-
-
     if ($pengguna === null && $perusahaan === null) {
         setPesanKesalahan("Maaf, email atau kata sandi yang Anda masukkan tidak ditemukan.");
         header("Location: $akarUrl" . "src/user/pages/login.php");

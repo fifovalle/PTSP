@@ -27,10 +27,15 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     <div class="container-fluid">
         <div class="row">
             <h1 class="header mb-5 ps-5">Pesan</h1>
-            <div class="d-flex col-md-12 justify-content-end text-right">
-                <button type="button" class="btn btn-outline-warning me-4 mb-4" data-bs-toggle="modal" data-bs-target="#Checkout">Pesan</button>
-            </div>
-
+            <?php
+            echo isset($_SESSION['Ajuan']) ?
+                '<div class="d-flex col-md-12 justify-content-end text-right">
+                    <button type="button" class="btn btn-outline-warning me-4 mb-4" data-bs-toggle="modal" data-bs-target="#Checkout">Pesan</button>
+                </div>' :
+                '<div class="d-flex col-md-12 justify-content-end text-right">
+                    <p class="text-danger me-4 mb-4 fw-bold">Silakan untuk mengisi formulir pengajuan terlebih dahulu!</p>
+                </div>';
+            ?>
             <div class="col-md-12  justify-content-center">
                 <div class="row" id="dropdown-informasi">
                     <div class="col-md-12">
