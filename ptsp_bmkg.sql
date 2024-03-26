@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2024 at 04:05 AM
+-- Generation Time: Mar 26, 2024 at 04:41 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -336,10 +336,18 @@ CREATE TABLE `transaksi` (
   `ID_Perusahaan` int(11) DEFAULT NULL,
   `ID_Informasi` int(11) DEFAULT NULL,
   `ID_Jasa` int(11) DEFAULT NULL,
+  `Rekening_Pengguna` int(20) DEFAULT NULL,
   `Jumlah_Barang` int(11) NOT NULL,
   `Tanggal_Pembelian` datetime NOT NULL,
   `Status_Transaksi` enum('Disetujui','Belum Disetujui') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Rekening_Pengguna`, `Jumlah_Barang`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
+(32, NULL, NULL, 5, 17, NULL, NULL, 0, '2024-03-26 10:34:44', 'Belum Disetujui');
 
 --
 -- Indexes for dumped tables
@@ -529,7 +537,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables

@@ -7,32 +7,37 @@ $(document).ready(function () {
     menuText === "Admin"
       ? ($(".adminTable").show(),
         $(
-          ".userTable, .informationTable, .transactionTable, .servicesTable, .applymentTable"
+          ".userTable, .informationTable, .transactionTable, .servicesTable, .applymentTabl, .transactionTableHistory"
         ).hide())
       : menuText === "Pengguna"
       ? ($(
-          ".adminTable, .informationTable, .transactionTable, .servicesTable, .applymentTable"
+          ".adminTable, .informationTable, .transactionTable, .servicesTable, .applymentTable, .transactionTableHistory"
         ).hide(),
         $(".userTable").show())
       : menuText === "Informasi"
       ? ($(
-          ".adminTable, .userTable, .transactionTable, .servicesTable, .applymentTable"
+          ".adminTable, .userTable, .transactionTable, .servicesTable, .applymentTable, .transactionTableHistory"
         ).hide(),
         $(".informationTable").show())
       : menuText === "Jasa"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .transactionTable, .applymentTable"
+          ".adminTable, .userTable, .informationTable, .transactionTable, .applymentTable, transactionTableHistory"
         ).hide(),
         $(".servicesTable").show())
       : menuText === "Pengajuan"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable"
+          ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable, .transactionTableHistory"
         ).hide(),
         $(".applymentTable").show())
-      : ($(
-          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable"
+      : menuText === "Transaksi"
+      ? ($(
+          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTableHistory"
         ).hide(),
-        $(".transactionTable").show());
+        $(".transactionTable").show())
+      : ($(
+          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTable"
+        ).hide(),
+        $(".transactionTableHistory").show());
   });
 });
 

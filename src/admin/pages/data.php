@@ -110,6 +110,7 @@ if (!isset($_SESSION['ID'])) {
                                 <?php include "../partials/utils/sevices-table.php" ?>
                                 <?php include "../partials/utils/applyment-table.php" ?>
                                 <?php include "../partials/utils/transaction-table.php" ?>
+                                <?php include "../partials/utils/transaction-table-history.php" ?>
                                 <!-- ALL TABLE END -->
                             </div>
                         </div>

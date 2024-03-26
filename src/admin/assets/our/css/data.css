@@ -126,7 +126,8 @@
 .informationTable,
 .transactionTable,
 .servicesTable,
-.applymentTable {
+.applymentTable,
+.transactionTableHistory {
   display: none;
 }
 
