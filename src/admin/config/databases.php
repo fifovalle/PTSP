@@ -1324,7 +1324,7 @@ class Pengajuan
                   LEFT JOIN kegiatan_pertahanan_keamanan ON pengajuan.ID_Pertahanan = kegiatan_pertahanan_keamanan.ID_Pertahanan
                   LEFT JOIN kegiatan_sosial ON pengajuan.ID_Sosial = kegiatan_sosial.ID_Sosial
                   LEFT JOIN pemerintah_pusat_daerah ON pengajuan.ID_Pusat_Daerah = pemerintah_pusat_daerah.ID_Pusat
-                  LEFT JOIN pendidikan_dan_penelitian ON pengajuan.ID_Penelitian = pendidikan_dan_penelitian.ID_Pendidikan_Penelitian";
+                  LEFT JOIN pendidikan_dan_penelitian ON pengajuan.ID_Penelitian = pendidikan_dan_penelitian.ID_Pendidikan_Penelitian WHERE pengajuan.Status_Pengajuan = 'Sedang Ditinjau";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {

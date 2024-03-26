@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2024 at 03:38 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Mar 26, 2024 at 03:39 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -135,6 +135,13 @@ CREATE TABLE `kegiatan_bencana` (
   `Informasi_Bencana_Yang_Dibutuhkan` varchar(100) NOT NULL,
   `Surat_Pengantar_Permintaan_Data` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kegiatan_bencana`
+--
+
+INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama`, `No_Telepon`, `Email`, `Informasi_Bencana_Yang_Dibutuhkan`, `Surat_Pengantar_Permintaan_Data`) VALUES
+(1, 'Naufal', '+62 812-2365-2490', 'naufal@gmai.com', 'Butuh', 0x363630323334373333343833332e706e67);
 
 -- --------------------------------------------------------
 
@@ -273,8 +280,7 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `Token`) VALUES
-(13, '', '888888', 2147483647, 'sdcdvf', 'scdv', 'asdcv', 'cgvbhjnk', 'AhsanGhifari', 'ahsanghifari04@gmail.com', '$2y$10$t/xJLBQrYYGChFUMEfXhXO7Hvok9H3APbxGqVn8vIeVYEzD7q/yie', '$2y$10$t/xJLBQrYYGChFUMEfXhXO7Hvok9H3APbxGqVn8vIeVYEzD7q/yie', '+62 812-8411-8340', 'Pria', 'fgvhjk', 'cgvhbjnkm', 'Bekasi', 'Belum Terverifikasi', 36744280),
-(14, '', '11', 21, '', '', '', '', 'sandroanugrah', '', '$2y$10$pjM8BuJDV8cZKIRCIcIA9O6pZZ/N/NnJ1b4vTj1U.DXSv8NRR0Sd6', '$2y$10$pjM8BuJDV8cZKIRCIcIA9O6pZZ/N/NnJ1b4vTj1U.DXSv8NRR0Sd6', '', 'Pria', '', 'Jawa Barat', 'Bandung', 'Belum Terverifikasi', 48577847);
+(15, '', '1', 1, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifovalle', 'fifanaufal10@gmail.com', '$2y$10$Haapi/M4AqENZK.4NFIiF./AgmgF1r8AJ6/FrsOiP9HmbROS6Ai2G', '$2y$10$Haapi/M4AqENZK.4NFIiF./AgmgF1r8AJ6/FrsOiP9HmbROS6Ai2G', '+62 823-1833-4287', 'Pria', 'Batujajar', 'Jawa Barat', 'Bandung', 'Belum Terverifikasi', 38930197);
 
 -- --------------------------------------------------------
 
@@ -310,14 +316,6 @@ CREATE TABLE `perusahaan` (
   `Token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `perusahaan`
---
-
-INSERT INTO `perusahaan` (`ID_Perusahaan`, `Foto_Perusahaan`, `No_Identitas_Anggota_Perusahaan`, `Nama_Depan_Anggota_Perusahaan`, `Nama_Belakang_Anggota_Perusahaan`, `Pekerjaan_Anggota_Perusahaan`, `Pendidikan_Terakhir_Anggota_Perusahaan`, `Jenis_Kelamin_Anggota_Perusahaan`, `Alamat_Anggota_Perusahaan`, `No_Telepon_Anggota_Perusahaan`, `Provinsi_Anggota_Perusahaan`, `Kabupaten_Kota_Anggota_Perusahaan`, `No_NPWP`, `Nama_Perusahaan`, `Alamat_Perusahaan`, `Provinsi_Perusahaan`, `Kabupaten_Kota_Perusahaan`, `Email_Perusahaan`, `No_Telepon_Perusahaan`, `Email_Anggota_Perusahaan`, `Nama_Pengguna_Anggota_Perusahaan`, `Kata_Sandi_Anggota_Perusahaan`, `Konfirmasi_Kata_Sandi_Anggota_Perusahaan`, `Status_Verifikasi_Perusahaan`, `Token`) VALUES
-(3, '', 15, '', '', '', '', 'Pria', '', '', 'Jawa Barat', 'Bandung Barat', '21', 'Sampah Ku', 'Jln.Sampah Ku Guys', 'Jawa Barat', 'Bandung Kota', 'sampahku@gmail.com', '+62 821-3456-7890', '', 'Alex', '$2y$10$DfrorxsY0p0A2uCafGO5V..Pehqh4dgZBl/6KfeUyNngDZQMqVHoK', '$2y$10$DfrorxsY0p0A2uCafGO5V..Pehqh4dgZBl/6KfeUyNngDZQMqVHoK', 'Belum Terverifikasi', 59881612),
-(4, '', 2147483647, 'Sampah', 'Ku', 'CEO', 'S5tank', 'Pria', 'disini', '+62 812-8466-8901', 'Jawa Selatan', 'Niagara', '89659856', 'SampahCorp', 'cfgvhbjkl', 'asdfdv', 'asdf', 'Sampah@gmail.com', '+62 812-8466-8901', 'sampss@gmail.com', 'SampahCorp2', '$2y$10$Cv0l2rurO1somN7yAPM1dOOZgezI/KHJ9iOFrcgR7XWpYfbvo6YZy', '$2y$10$Cv0l2rurO1somN7yAPM1dOOZgezI/KHJ9iOFrcgR7XWpYfbvo6YZy', 'Belum Terverifikasi', 95559911);
-
 -- --------------------------------------------------------
 
 --
@@ -336,15 +334,6 @@ CREATE TABLE `transaksi` (
   `Tanggal_Pembelian` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
   `Status_Transaksi` enum('Disetujui','Belum Disetujui') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Status_Keranjang`, `Jumlah_Barang`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(21, NULL, 13, NULL, 16, NULL, 1, 0, '2024-03-25 01:41:20', 'Belum Disetujui'),
-(22, NULL, 13, NULL, NULL, 15, 1, 0, '2024-03-25 01:44:46', 'Belum Disetujui'),
-(23, NULL, NULL, 4, 17, NULL, 1, 0, '2024-03-25 02:01:44', 'Belum Disetujui');
 
 --
 -- Indexes for dumped tables
@@ -480,7 +469,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
@@ -522,7 +511,7 @@ ALTER TABLE `pengajuan`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `perusahaan`
