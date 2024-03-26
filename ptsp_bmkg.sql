@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2024 at 04:41 AM
+-- Generation Time: Mar 26, 2024 at 10:25 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -135,13 +135,6 @@ CREATE TABLE `kegiatan_bencana` (
   `Informasi_Bencana_Yang_Dibutuhkan` varchar(100) NOT NULL,
   `Surat_Pengantar_Permintaan_Data` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kegiatan_bencana`
---
-
-INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama`, `No_Telepon`, `Email`, `Informasi_Bencana_Yang_Dibutuhkan`, `Surat_Pengantar_Permintaan_Data`) VALUES
-(1, 'Naufal', '+62 812-2365-2490', 'naufal@gmai.com', 'Butuh', 0x363630323334373333343833332e706e67);
 
 -- --------------------------------------------------------
 
@@ -347,7 +340,9 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Rekening_Pengguna`, `Jumlah_Barang`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(32, NULL, NULL, 5, 17, NULL, NULL, 0, '2024-03-26 10:34:44', 'Belum Disetujui');
+(32, NULL, NULL, 5, 17, NULL, NULL, 0, '2024-03-26 10:34:44', 'Belum Disetujui'),
+(33, NULL, NULL, 5, NULL, 14, NULL, 0, '2024-03-26 16:08:18', 'Belum Disetujui'),
+(34, NULL, 15, NULL, 17, NULL, NULL, 0, '2024-03-26 16:09:14', 'Belum Disetujui');
 
 --
 -- Indexes for dumped tables
@@ -483,7 +478,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
@@ -537,7 +532,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables
