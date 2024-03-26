@@ -142,37 +142,33 @@ include '../../admin/config/databases.php';
             <div class="modal-content">
                 <div class="container p-0">
                     <div class="card cart">
-                        <label class="title"><button type="button" class="btn-close me-2" data-bs-dismiss="modal" aria-label="Close"></button>CHECKOUT</label>
+                        <label class="title"><button type="button" class="btn-close me-2" data-bs-dismiss="modal" aria-label="Close"></button>PESAN</label>
                         <div class="steps">
                             <div class="step">
                                 <div>
-                                    <span>SHIPPING</span>
-                                    <p>Alamat</p>
-                                    <p>Email</p>
+                                    <span>PENERIMA</span>
+                                    <p>Nama Penerima</p>
+                                    <p>Email Penerima</p>
+                                    <p>No Telepon Penerima</p>
                                 </div>
                                 <hr>
                                 <div>
-                                    <span>PRODUCTS</span>
-                                    <p>Informasi Barang
-                                    </p>
+                                    <span>PRODUK</span>
+                                    <p>Informasi Barang</p>
                                     <p>Jumlah</p>
                                 </div>
                                 <hr>
                                 <div>
-                                    <span>PAYMENT METHOD</span>
+                                    <span>METODE PEMBAYARAN</span>
                                     <p>No. Rekening BCA</p>
                                     <p>**** **** **** 4243</p>
                                 </div>
                                 <hr>
                                 <div class="payments">
-                                    <span>PAYMENT</span>
+                                    <span>TOTAL PEMBAYARAN</span>
                                     <div class="details">
-                                        <span>Subtotal:</span>
-                                        <span>$240.00</span>
-                                        <span>Shipping:</span>
-                                        <span>$10.00</span>
-                                        <span>Tax:</span>
-                                        <span>$30.40</span>
+                                        <span>TOTAL:</span>
+                                        <span>Rp</span>
                                     </div>
                                 </div>
                             </div>
@@ -180,8 +176,8 @@ include '../../admin/config/databases.php';
                     </div>
                     <div class="card checkout">
                         <div class="footer">
-                            <label class="price">$280.40</label>
-                            <button class="checkout-btn" type="button">Checkout</button>
+                            <label class="price">Rp</label>
+                            <button class="checkout-btn" type="button">Pesan</button>
                         </div>
                     </div>
                 </div>
