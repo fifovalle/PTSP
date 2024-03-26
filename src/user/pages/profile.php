@@ -198,30 +198,28 @@ include '../../admin/config/databases.php';
                                         <input type="hidden" class="form-control my-3" id="username" name="username" placeholder="<?php echo isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : 'Masukkan Username'); ?>" style="height: 40px">
                                     </div>
                                     <div class="col-md-8">
-                                        <div class="col-md-12">
-                                            <label for="nameInput">Username</label>
-                                            <input type="text" class="form-control my-3" id="username" name="username" placeholder="<?php echo isset($_SESSION['Nama_Pengguna']) ? $_SESSION['Nama_Pengguna'] : (isset($_SESSION['Nama_Pengguna_Anggota_Perusahaan']) ? $_SESSION['Nama_Pengguna_Anggota_Perusahaan'] : 'Masukkan Username'); ?>" style="height: 40px">
-                                        </div>
+                                    <div class="col-md-12">
+                                        <input type="hidden" class="form-control my-3" id="username" name="username" value="<?php echo isset($_SESSION['Nama_Pengguna']) ? $_SESSION['Nama_Pengguna'] : (isset($_SESSION['Nama_Pengguna_Anggota_Perusahaan']) ? $_SESSION['Nama_Pengguna_Anggota_Perusahaan'] : ''); ?>" placeholder="Harap Masukkan Nama Pengguna Anda" style="height: 40px">
+                                    </div>
                                         <div class="col-md-12">
                                             <label for="nameInput">Nama Lengkap</label>
-                                            <input type="text" class="form-control my-3" id="Nama" name="Nama" placeholder="<?php echo isset($_SESSION['Nama_Depan_Pengguna']) && isset($_SESSION['Nama_Belakang_Pengguna']) ? $_SESSION['Nama_Depan_Pengguna'] . ' ' . $_SESSION['Nama_Belakang_Pengguna'] : (isset($_SESSION['Nama_Depan_Anggota_Perusahaan']) && isset($_SESSION['Nama_Belakang_Anggota_Perusahaan']) ? $_SESSION['Nama_Depan_Anggota_Perusahaan'] . ' ' . $_SESSION['Nama_Belakang_Anggota_Perusahaan'] : 'Masukkan Nama'); ?>" style="height: 40px">
+                                            <input type="text" class="form-control my-3" id="Nama" name="Nama" value = "<?php echo isset($_SESSION['Nama_Depan_Pengguna']) && isset($_SESSION['Nama_Belakang_Pengguna']) ? $_SESSION['Nama_Depan_Pengguna'] . ' ' . $_SESSION['Nama_Belakang_Pengguna'] : (isset($_SESSION['Nama_Depan_Anggota_Perusahaan']) && isset($_SESSION['Nama_Belakang_Anggota_Perusahaan']) ? $_SESSION['Nama_Depan_Anggota_Perusahaan'] . ' ' . $_SESSION['Nama_Belakang_Anggota_Perusahaan'] : ''); ?>" placeholder="Harap Di Isikan Nama Lengkap Anda" style="height: 40px">
                                         </div>
-
                                         <div class="col-md-12">
                                             <label for="nameInput">Pekerjaan</label>
-                                            <input type="text" class="form-control my-3" id="Pekerjaan" name="Pekerjaan" placeholder="<?php echo isset($_SESSION['Pekerjaan_Pengguna']) ? $_SESSION['Pekerjaan_Pengguna'] : (isset($_SESSION['Pekerjaan_Anggota_Perusahaan']) ? $_SESSION['Pekerjaan_Anggota_Perusahaan'] : 'Masukkan Pekerjaan'); ?>" style="height: 40px">
+                                            <input type="text" class="form-control my-3" id="Pekerjaan" name="Pekerjaan" value = "<?php echo isset($_SESSION['Pekerjaan_Pengguna']) ? $_SESSION['Pekerjaan_Pengguna'] : (isset($_SESSION['Pekerjaan_Anggota_Perusahaan']) ? $_SESSION['Pekerjaan_Anggota_Perusahaan'] : ''); ?>" placeholder=" Harap Masukkan Pekerjaan Anda" style="height: 40px">
                                         </div>
                                         <div class="col-md-12">
                                             <label for="nameInput">Pendidikan Terakhir</label>
-                                            <input type="text" class="form-control my-3" id="PendidikanTerakhir" name="PendidikanTerakhir" placeholder="<?php echo isset($_SESSION['Pendidikan_Terakhir_Pengguna']) ? $_SESSION['Pendidikan_Terakhir_Pengguna'] : (isset($_SESSION['Pendidikan_Terakhir_Anggota_Perusahaan']) ? $_SESSION['Pendidikan_Terakhir_Anggota_Perusahaan'] : 'Masukkan Pendidikan Terakhir'); ?>" style="height: 40px">
+                                            <input type="text" class="form-control my-3" id="PendidikanTerakhir" name="PendidikanTerakhir" value = "<?php echo isset($_SESSION['Pendidikan_Terakhir_Pengguna']) ? $_SESSION['Pendidikan_Terakhir_Pengguna'] : (isset($_SESSION['Pendidikan_Terakhir_Anggota_Perusahaan']) ? $_SESSION['Pendidikan_Terakhir_Anggota_Perusahaan'] : ''); ?>" placeholder="Harap Masukkan Pendidikan Terakhir Anda" style="height: 40px">
                                         </div>
                                         <div class="col-md-12">
                                             <label for="phonenumberInput">Email</label>
-                                            <input type="email" class="form-control my-3" id="Email" name="Email" placeholder="<?php echo isset($_SESSION['Email_Pengguna']) ? $_SESSION['Email_Pengguna'] : (isset($_SESSION['Email_Anggota_Perusahaan']) ? $_SESSION['Email_Anggota_Perusahaan'] : 'Masukkan Alamat Email'); ?>" style="height: 40px">
+                                            <input type="email" class="form-control my-3" id="Email" name="Email" value = "<?php echo isset($_SESSION['Email_Pengguna']) ? $_SESSION['Email_Pengguna'] : (isset($_SESSION['Email_Anggota_Perusahaan']) ? $_SESSION['Email_Anggota_Perusahaan'] : ''); ?>" placeholder="Harap Masukkan Alamat Email Anda" style="height: 40px">
                                         </div>
                                         <div class="col-md-12">
                                             <label for="phonenumberInput">No. Handphone</label>
-                                            <input type="tel" class="form-control my-3" id="No.HP" name="No_HP" value="<?php echo isset($_SESSION['No_Telepon_Pengguna']) ? $_SESSION['No_Telepon_Pengguna'] : (isset($_SESSION['No_Telepon_Anggota_Perusahaan']) ? $_SESSION['No_Telepon_Anggota_Perusahaan'] : 'Masukkan Nomor Handphone'); ?>" placeholder="" style="height: 40px">
+                                            <input type="tel" class="form-control my-3" id="No.HP" name="No_HP" value="<?php echo isset($_SESSION['No_Telepon_Pengguna']) ? $_SESSION['No_Telepon_Pengguna'] : (isset($_SESSION['No_Telepon_Anggota_Perusahaan']) ? $_SESSION['No_Telepon_Anggota_Perusahaan'] : ''); ?>" placeholder="Harap Masukkan No Handphone Anda" style="height: 40px">
                                         </div>
                                         <div class="col-md-12">
                                             <label for="phonenumberInput">Jenis Kelamin</label>
@@ -237,7 +235,7 @@ include '../../admin/config/databases.php';
                                         </div>
                                         <div class="col-md-12">
                                             <label for="nameInput">Alamat</label>
-                                            <input type="text" class="form-control my-3" id="alamat" name="alamat" placeholder="<?php echo isset($_SESSION['Alamat_Pengguna']) ? $_SESSION['Alamat_Pengguna'] : (isset($_SESSION['Alamat_Anggota_Perusahaan']) ? $_SESSION['Alamat_Anggota_Perusahaan'] : 'Masukkan Alamat Anda'); ?>" style="height: 40px">
+                                            <input type="text" class="form-control my-3" id="alamat" name="alamat" value = "<?php echo isset($_SESSION['Alamat_Pengguna']) ? $_SESSION['Alamat_Pengguna'] : (isset($_SESSION['Alamat_Anggota_Perusahaan']) ? $_SESSION['Alamat_Anggota_Perusahaan'] : 'Masukkan Alamat Anda'); ?>" placeholder="Harap Masukkan Alamat Anda" style="height: 40px">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -258,6 +256,7 @@ include '../../admin/config/databases.php';
                                     <div class="d-flex col p-0">
                                         <button class="btn btn-outline-danger px-2 mx-3" type="submit" name="Simpan" style="width:100px;">Simpan</button>
                                     </div>
+                                </div>
                                 </div>
                             </form>
                         </div>
