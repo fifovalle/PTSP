@@ -1353,9 +1353,9 @@ class Transaksi
 
     public function masukKeranjangTransaksiPengguna($data)
     {
-        $query = "INSERT INTO transaksi (ID_Informasi, ID_Pengguna, Status_Keranjang, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, ?, NOW(), ?)";
+        $query = "INSERT INTO transaksi (ID_Informasi, ID_Pengguna, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, NOW(), ?)";
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("iiss", $data['ID_Informasi'], $data['ID_Pengguna'], $data['Status_Keranjang'], $data['Status_Transaksi']);
+        $statement->bind_param("iss", $data['ID_Informasi'], $data['ID_Pengguna'], $data['Status_Transaksi']);
 
         if ($statement->execute()) {
             return true;
@@ -1366,9 +1366,9 @@ class Transaksi
 
     public function masukKeranjangTransaksiPerusahaan($data)
     {
-        $query = "INSERT INTO transaksi (ID_Informasi, ID_Perusahaan, Status_Keranjang, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, ?, NOW(), ?)";
+        $query = "INSERT INTO transaksi (ID_Informasi, ID_Perusahaan, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, NOW(), ?)";
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("iiss", $data['ID_Informasi'], $data['ID_Perusahaan'], $data['Status_Keranjang'], $data['Status_Transaksi']);
+        $statement->bind_param("iss", $data['ID_Informasi'], $data['ID_Perusahaan'], $data['Status_Transaksi']);
 
         if ($statement->execute()) {
             return true;
@@ -1379,9 +1379,9 @@ class Transaksi
 
     public function masukKeranjangTransaksiPenggunaJasa($data)
     {
-        $query = "INSERT INTO transaksi (ID_Jasa, ID_Pengguna, Status_Keranjang, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, ?, NOW(), ?)";
+        $query = "INSERT INTO transaksi (ID_Jasa, ID_Pengguna, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, NOW(), ?)";
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("iiss", $data['ID_Jasa'], $data['ID_Pengguna'], $data['Status_Keranjang'], $data['Status_Transaksi']);
+        $statement->bind_param("iss", $data['ID_Jasa'], $data['ID_Pengguna'], $data['Status_Transaksi']);
 
         if ($statement->execute()) {
             return true;
@@ -1392,9 +1392,9 @@ class Transaksi
 
     public function masukKeranjangTransaksiPerusahaanJasa($data)
     {
-        $query = "INSERT INTO transaksi (ID_Jasa, ID_Perusahaan, Status_Keranjang, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, ?, NOW(), ?)";
+        $query = "INSERT INTO transaksi (ID_Jasa, ID_Perusahaan, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, NOW(), ?)";
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("iiss", $data['ID_Jasa'], $data['ID_Perusahaan'], $data['Status_Keranjang'], $data['Status_Transaksi']);
+        $statement->bind_param("iss", $data['ID_Jasa'], $data['ID_Perusahaan'], $data['Status_Transaksi']);
 
         if ($statement->execute()) {
             return true;
@@ -1439,7 +1439,7 @@ class Transaksi
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Belum Disetujui'";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {

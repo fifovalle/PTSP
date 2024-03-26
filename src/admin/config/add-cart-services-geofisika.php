@@ -15,13 +15,12 @@ if (isset($_POST['tambah_keranjang'])) {
                 'ID_Pengguna' => $pengguna,
                 'Tanggal_Pembelian' => $tanggal_pembelian,
                 'Status_Transaksi' => "Belum Disetujui",
-                'Status_Keranjang' => 1
             );
 
             $simpanDataKeranjang = $transaksiModel->masukKeranjangTransaksiPenggunaJasa($dataKeranjang);
 
             if ($simpanDataKeranjang) {
-                setPesanKeberhasilan("berhasil");
+                setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang");
             } else {
                 setPesanKesalahan("Gagal");
             }
@@ -35,13 +34,12 @@ if (isset($_POST['tambah_keranjang'])) {
                 'ID_Perusahaan' => $perusahaan,
                 'Tanggal_Pembelian' => $tanggal_pembelian,
                 'Status_Transaksi' => "Belum Disetujui",
-                'Status_Keranjang' => 1
             );
 
             $simpanDataKeranjang = $transaksiModel->masukKeranjangTransaksiPerusahaanJasa($dataKeranjang);
 
             if ($simpanDataKeranjang) {
-                setPesanKeberhasilan("berhasil");
+                setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang");
             } else {
                 setPesanKesalahan("Gagal");
             }

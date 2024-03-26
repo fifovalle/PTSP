@@ -15,13 +15,12 @@ if (isset($_POST['tambah_keranjang'])) {
                 'ID_Pengguna' => $pengguna,
                 'Tanggal_Pembelian' => $tanggal_pembelian,
                 'Status_Transaksi' => "Belum Disetujui",
-                'Status_Keranjang' => 1
             );
 
             $simpanDataKeranjang = $transaksiModel->masukKeranjangTransaksiPengguna($dataKeranjang);
 
             if ($simpanDataKeranjang) {
-                setPesanKeberhasilan("Terkirim! Barang sudah masuk ke keranjang belanja Anda.");
+                setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang");
             } else {
                 setPesanKesalahan("Maaf, terjadi kesalahan saat mencoba menambahkan barang ke keranjang belanja. Mohon coba lagi nanti.");
             }
@@ -35,13 +34,12 @@ if (isset($_POST['tambah_keranjang'])) {
                 'ID_Perusahaan' => $perusahaan,
                 'Tanggal_Pembelian' => $tanggal_pembelian,
                 'Status_Transaksi' => "Belum Disetujui",
-                'Status_Keranjang' => 1
             );
 
             $simpanDataKeranjang = $transaksiModel->masukKeranjangTransaksiPerusahaan($dataKeranjang);
 
             if ($simpanDataKeranjang) {
-                setPesanKeberhasilan("berhasil");
+                setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang");
             } else {
                 setPesanKesalahan("Gagal");
             }

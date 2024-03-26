@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2024 at 03:39 AM
+-- Generation Time: Mar 26, 2024 at 04:05 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -316,6 +316,13 @@ CREATE TABLE `perusahaan` (
   `Token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `perusahaan`
+--
+
+INSERT INTO `perusahaan` (`ID_Perusahaan`, `Foto_Perusahaan`, `No_Identitas_Anggota_Perusahaan`, `Nama_Depan_Anggota_Perusahaan`, `Nama_Belakang_Anggota_Perusahaan`, `Pekerjaan_Anggota_Perusahaan`, `Pendidikan_Terakhir_Anggota_Perusahaan`, `Jenis_Kelamin_Anggota_Perusahaan`, `Alamat_Anggota_Perusahaan`, `No_Telepon_Anggota_Perusahaan`, `Provinsi_Anggota_Perusahaan`, `Kabupaten_Kota_Anggota_Perusahaan`, `No_NPWP`, `Nama_Perusahaan`, `Alamat_Perusahaan`, `Provinsi_Perusahaan`, `Kabupaten_Kota_Perusahaan`, `Email_Perusahaan`, `No_Telepon_Perusahaan`, `Email_Anggota_Perusahaan`, `Nama_Pengguna_Anggota_Perusahaan`, `Kata_Sandi_Anggota_Perusahaan`, `Konfirmasi_Kata_Sandi_Anggota_Perusahaan`, `Status_Verifikasi_Perusahaan`, `Token`) VALUES
+(5, '', 2, 'zonaNyaman', 'zona', 'Nganggur', 'SMP', 'Pria', 'Batujajar', '+62 812-2365-2490', 'Jawa Barat', 'Bandung Barat', '1', 'Iku', 'Bandung', 'Jawa Barat', 'Bandung', 'iku@gmail.com', '+62 812-2365-2490', 'iku@gmail.com', 'iku', '$2y$10$NEdvO4G1xq9mR7L6HC4HduaiDQA0UjZ.DYurM6C.E8Ya0yx3fsdOK', '$2y$10$NEdvO4G1xq9mR7L6HC4HduaiDQA0UjZ.DYurM6C.E8Ya0yx3fsdOK', 'Belum Terverifikasi', 72540572);
+
 -- --------------------------------------------------------
 
 --
@@ -329,9 +336,8 @@ CREATE TABLE `transaksi` (
   `ID_Perusahaan` int(11) DEFAULT NULL,
   `ID_Informasi` int(11) DEFAULT NULL,
   `ID_Jasa` int(11) DEFAULT NULL,
-  `Status_Keranjang` tinyint(4) NOT NULL,
   `Jumlah_Barang` int(11) NOT NULL,
-  `Tanggal_Pembelian` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
+  `Tanggal_Pembelian` datetime NOT NULL,
   `Status_Transaksi` enum('Disetujui','Belum Disetujui') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -517,13 +523,13 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  MODIFY `ID_Perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_Perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables
