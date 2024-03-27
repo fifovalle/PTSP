@@ -1198,13 +1198,13 @@ class Pengajuan
 
     public function tambahDataKeagamaan($data)
     {
-        $query = "INSERT INTO kegiatan_keagamaan (ID_Keagamaan, Nama, No_Telepon, Email, Informasi_Keagamaan_Yang_Dibutuhkan, Surat_Yang_Ditandatangani_Keagamaan) VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO kegiatan_keagamaan (ID_Keagamaan, Nama_Keagamaan, No_Telepon, Email, Informasi_Keagamaan_Yang_Dibutuhkan, Surat_Yang_Ditandatangani_Keagamaan) VALUES (?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
             "isssss",
             $data['ID_Keagamaan'],
-            $data['Nama'],
+            $data['Nama_Keagamaan'],
             $data['No_Telepon'],
             $data['Email'],
             $data['Informasi_Keagamaan_Yang_Dibutuhkan'],
@@ -1242,13 +1242,13 @@ class Pengajuan
 
     public function tambahDataSosial($data)
     {
-        $query = "INSERT INTO kegiatan_sosial (ID_Sosial, Nama, No_Telepon, Email, Informasi_Sosial_Yang_Dibutuhkan, Surat_Yang_Ditandatangani_Sosial) VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO kegiatan_sosial (ID_Sosial, Nama_Sosial, No_Telepon, Email, Informasi_Sosial_Yang_Dibutuhkan, Surat_Yang_Ditandatangani_Sosial) VALUES (?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
             "isssss",
             $data['ID_Sosial'],
-            $data['Nama'],
+            $data['Nama_Sosial'],
             $data['No_Telepon'],
             $data['Email'],
             $data['Informasi_Sosial_Yang_Dibutuhkan'],
@@ -1359,6 +1359,31 @@ class Pengajuan
                   LEFT JOIN kegiatan_sosial ON pengajuan.ID_Sosial = kegiatan_sosial.ID_Sosial
                   LEFT JOIN pemerintah_pusat_daerah ON pengajuan.ID_Pusat_Daerah = pemerintah_pusat_daerah.ID_Pusat
                   LEFT JOIN pendidikan_dan_penelitian ON pengajuan.ID_Penelitian = pendidikan_dan_penelitian.ID_Pendidikan_Penelitian WHERE Status_Pengajuan = 'Sedang Ditinjau'";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanSemuaDataPengajuan()
+    {
+        $query = "SELECT pengajuan.*, pengguna.*, perusahaan.*, admin.*, kegiatan_bencana.*, kegiatan_keagamaan.*, kegiatan_pertahanan_keamanan.*, kegiatan_sosial.*, pemerintah_pusat_daerah.*, pendidikan_dan_penelitian.* FROM pengajuan 
+                  LEFT JOIN pengguna ON pengajuan.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN perusahaan ON pengajuan.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN admin ON pengajuan.ID_Admin = admin.ID_Admin
+                  LEFT JOIN kegiatan_bencana ON pengajuan.ID_Bencana = kegiatan_bencana.ID_Bencana
+                  LEFT JOIN kegiatan_keagamaan ON pengajuan.ID_Keagamaan = kegiatan_keagamaan.ID_Keagamaan
+                  LEFT JOIN kegiatan_pertahanan_keamanan ON pengajuan.ID_Pertahanan = kegiatan_pertahanan_keamanan.ID_Pertahanan
+                  LEFT JOIN kegiatan_sosial ON pengajuan.ID_Sosial = kegiatan_sosial.ID_Sosial
+                  LEFT JOIN pemerintah_pusat_daerah ON pengajuan.ID_Pusat_Daerah = pemerintah_pusat_daerah.ID_Pusat
+                  LEFT JOIN pendidikan_dan_penelitian ON pengajuan.ID_Penelitian = pendidikan_dan_penelitian.ID_Pendidikan_Penelitian";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {

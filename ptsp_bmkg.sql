@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2024 at 11:25 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Waktu pembuatan: 26 Mar 2024 pada 14.11
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -45,7 +45,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admin`, `Nama_Pengguna_Admin`, `Email_Admin`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Admin`, `Jenis_Kelamin_Admin`, `Peran_Admin`, `Alamat_Admin`, `Status_Verifikasi_Admin`, `Token`) VALUES
@@ -54,7 +54,7 @@ INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `informasi`
+-- Struktur dari tabel `informasi`
 --
 
 CREATE TABLE `informasi` (
@@ -70,7 +70,7 @@ CREATE TABLE `informasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `informasi`
+-- Dumping data untuk tabel `informasi`
 --
 
 INSERT INTO `informasi` (`ID_Informasi`, `Foto_Informasi`, `Nama_Informasi`, `Deskripsi_Informasi`, `Harga_Informasi`, `Pemilik_Informasi`, `No_Rekening_Informasi`, `Kategori_Informasi`, `Status_Informasi`) VALUES
@@ -81,7 +81,7 @@ INSERT INTO `informasi` (`ID_Informasi`, `Foto_Informasi`, `Nama_Informasi`, `De
 -- --------------------------------------------------------
 
 --
--- Table structure for table `informasi_tarif_pnbp`
+-- Struktur dari tabel `informasi_tarif_pnbp`
 --
 
 CREATE TABLE `informasi_tarif_pnbp` (
@@ -97,7 +97,7 @@ CREATE TABLE `informasi_tarif_pnbp` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jasa`
+-- Struktur dari tabel `jasa`
 --
 
 CREATE TABLE `jasa` (
@@ -113,7 +113,7 @@ CREATE TABLE `jasa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `jasa`
+-- Dumping data untuk tabel `jasa`
 --
 
 INSERT INTO `jasa` (`ID_Jasa`, `Foto_Jasa`, `Nama_Jasa`, `Deskripsi_Jasa`, `Harga_Jasa`, `Pemilik_Jasa`, `No_Rekening_Jasa`, `Kategori_Jasa`, `Status_Jasa`) VALUES
@@ -124,7 +124,7 @@ INSERT INTO `jasa` (`ID_Jasa`, `Foto_Jasa`, `Nama_Jasa`, `Deskripsi_Jasa`, `Harg
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kegiatan_bencana`
+-- Struktur dari tabel `kegiatan_bencana`
 --
 
 CREATE TABLE `kegiatan_bencana` (
@@ -137,7 +137,7 @@ CREATE TABLE `kegiatan_bencana` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `kegiatan_bencana`
+-- Dumping data untuk tabel `kegiatan_bencana`
 --
 
 INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencana`, `Email_Bencana`, `Informasi_Bencana_Yang_Dibutuhkan`, `Surat_Pengantar_Permintaan_Data_Bencana`) VALUES
@@ -145,19 +145,21 @@ INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencan
 (4, 'Naufal', '81223652490', 'fifanaufal10@gmail.com', 'Butuh', 0x363630323966323464653531345f6c6f6769632e706e67),
 (5, 'Naufal', '81223652490', 'asep@gmail.com', 'Butuh', 0x363630323966633637396436375f6c6f6769632e706e67),
 (6, 'Ahsan', '1', 'asep@gmail.com', 'Butuh', 0x363630326130383433323730625f6c6f6769632e706e67),
-(7, 'Naufal', '81223652490', 'asep@gmail.com', 'Butuh', 0x363630326131366136613264395f6c6f6769632e706e67);
+(7, 'Naufal', '81223652490', 'asep@gmail.com', 'Butuh', 0x363630326131366136613264395f6c6f6769632e706e67),
+(8, 'a', '81223652490', 'a@gmail.com', 'a', 0x363630326265643433313762375f57494e5f32303232303831315f31315f33315f31375f50726f2e6a7067),
+(9, 'a', '81223652490', 'a@gmail.com', 'a', 0x363630326334393236663331345f57494e5f32303232313031325f32305f35345f33325f50726f2e6a7067);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kegiatan_keagamaan`
+-- Struktur dari tabel `kegiatan_keagamaan`
 --
 
 CREATE TABLE `kegiatan_keagamaan` (
   `ID_Keagamaan` int(16) NOT NULL,
-  `Nama` varchar(30) NOT NULL,
-  `No_Telepon` varchar(20) NOT NULL,
-  `Email` varchar(30) NOT NULL,
+  `Nama_Keagamaan` varchar(30) NOT NULL,
+  `No_Telepon_Keagamaan` varchar(20) NOT NULL,
+  `Email_Keagamaan` varchar(30) NOT NULL,
   `Informasi_Keagamaan_Yang_Dibutuhkan` varchar(100) NOT NULL,
   `Surat_Yang_Ditandatangani_Keagamaan` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -165,7 +167,7 @@ CREATE TABLE `kegiatan_keagamaan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kegiatan_pertahanan_keamanan`
+-- Struktur dari tabel `kegiatan_pertahanan_keamanan`
 --
 
 CREATE TABLE `kegiatan_pertahanan_keamanan` (
@@ -180,14 +182,14 @@ CREATE TABLE `kegiatan_pertahanan_keamanan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kegiatan_sosial`
+-- Struktur dari tabel `kegiatan_sosial`
 --
 
 CREATE TABLE `kegiatan_sosial` (
   `ID_Sosial` int(16) NOT NULL,
-  `Nama` varchar(30) NOT NULL,
-  `No_Telepon` varchar(20) NOT NULL,
-  `Email` varchar(30) NOT NULL,
+  `Nama_Sosial` varchar(30) NOT NULL,
+  `No_Telepon_Sosial` varchar(20) NOT NULL,
+  `Email_Sosial` varchar(30) NOT NULL,
   `Informasi_Sosial_Yang_Dibutuhkan` varchar(100) NOT NULL,
   `Surat_Yang_Ditandatangani_Sosial` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -195,7 +197,7 @@ CREATE TABLE `kegiatan_sosial` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemerintah_pusat_daerah`
+-- Struktur dari tabel `pemerintah_pusat_daerah`
 --
 
 CREATE TABLE `pemerintah_pusat_daerah` (
@@ -211,7 +213,7 @@ CREATE TABLE `pemerintah_pusat_daerah` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pendidikan_dan_penelitian`
+-- Struktur dari tabel `pendidikan_dan_penelitian`
 --
 
 CREATE TABLE `pendidikan_dan_penelitian` (
@@ -232,7 +234,7 @@ CREATE TABLE `pendidikan_dan_penelitian` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengajuan`
+-- Struktur dari tabel `pengajuan`
 --
 
 CREATE TABLE `pengajuan` (
@@ -246,22 +248,22 @@ CREATE TABLE `pengajuan` (
   `ID_Sosial` int(11) DEFAULT NULL,
   `ID_Pusat_Daerah` int(11) DEFAULT NULL,
   `ID_Penelitian` int(11) DEFAULT NULL,
-  `Status_Pengajuan` enum('Sedang Ditinjau','Ditolak','DIterima') NOT NULL,
+  `Status_Pengajuan` enum('Sedang Ditinjau','Ditolak','Diterima') NOT NULL,
   `Keterangan_Surat_Ditolak` varchar(100) DEFAULT NULL,
   `Tanggal_Pengajuan` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pengajuan`
+-- Dumping data untuk tabel `pengajuan`
 --
 
 INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Admin`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Tanggal_Pengajuan`) VALUES
-(5, NULL, 5, NULL, 7, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, '2024-03-26 17:20:26');
+(7, 15, NULL, NULL, 9, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, '2024-03-26 19:50:26');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengguna`
+-- Struktur dari tabel `pengguna`
 --
 
 CREATE TABLE `pengguna` (
@@ -287,7 +289,7 @@ CREATE TABLE `pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pengguna`
+-- Dumping data untuk tabel `pengguna`
 --
 
 INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `Token`) VALUES
@@ -296,7 +298,7 @@ INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pe
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perusahaan`
+-- Struktur dari tabel `perusahaan`
 --
 
 CREATE TABLE `perusahaan` (
@@ -328,7 +330,7 @@ CREATE TABLE `perusahaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `perusahaan`
+-- Dumping data untuk tabel `perusahaan`
 --
 
 INSERT INTO `perusahaan` (`ID_Perusahaan`, `Foto_Perusahaan`, `No_Identitas_Anggota_Perusahaan`, `Nama_Depan_Anggota_Perusahaan`, `Nama_Belakang_Anggota_Perusahaan`, `Pekerjaan_Anggota_Perusahaan`, `Pendidikan_Terakhir_Anggota_Perusahaan`, `Jenis_Kelamin_Anggota_Perusahaan`, `Alamat_Anggota_Perusahaan`, `No_Telepon_Anggota_Perusahaan`, `Provinsi_Anggota_Perusahaan`, `Kabupaten_Kota_Anggota_Perusahaan`, `No_NPWP`, `Nama_Perusahaan`, `Alamat_Perusahaan`, `Provinsi_Perusahaan`, `Kabupaten_Kota_Perusahaan`, `Email_Perusahaan`, `No_Telepon_Perusahaan`, `Email_Anggota_Perusahaan`, `Nama_Pengguna_Anggota_Perusahaan`, `Kata_Sandi_Anggota_Perusahaan`, `Konfirmasi_Kata_Sandi_Anggota_Perusahaan`, `Status_Verifikasi_Perusahaan`, `Token`) VALUES
@@ -337,7 +339,7 @@ INSERT INTO `perusahaan` (`ID_Perusahaan`, `Foto_Perusahaan`, `No_Identitas_Angg
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -354,7 +356,7 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `transaksi`
+-- Dumping data untuk tabel `transaksi`
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Rekening_Pengguna`, `Jumlah_Barang`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
@@ -367,67 +369,67 @@ INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusah
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`ID_Admin`);
 
 --
--- Indexes for table `informasi`
+-- Indeks untuk tabel `informasi`
 --
 ALTER TABLE `informasi`
   ADD PRIMARY KEY (`ID_Informasi`);
 
 --
--- Indexes for table `informasi_tarif_pnbp`
+-- Indeks untuk tabel `informasi_tarif_pnbp`
 --
 ALTER TABLE `informasi_tarif_pnbp`
   ADD PRIMARY KEY (`ID_PNBP`);
 
 --
--- Indexes for table `jasa`
+-- Indeks untuk tabel `jasa`
 --
 ALTER TABLE `jasa`
   ADD PRIMARY KEY (`ID_Jasa`);
 
 --
--- Indexes for table `kegiatan_bencana`
+-- Indeks untuk tabel `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
   ADD PRIMARY KEY (`ID_Bencana`);
 
 --
--- Indexes for table `kegiatan_keagamaan`
+-- Indeks untuk tabel `kegiatan_keagamaan`
 --
 ALTER TABLE `kegiatan_keagamaan`
   ADD PRIMARY KEY (`ID_Keagamaan`);
 
 --
--- Indexes for table `kegiatan_pertahanan_keamanan`
+-- Indeks untuk tabel `kegiatan_pertahanan_keamanan`
 --
 ALTER TABLE `kegiatan_pertahanan_keamanan`
   ADD PRIMARY KEY (`ID_Pertahanan`);
 
 --
--- Indexes for table `kegiatan_sosial`
+-- Indeks untuk tabel `kegiatan_sosial`
 --
 ALTER TABLE `kegiatan_sosial`
   ADD PRIMARY KEY (`ID_Sosial`);
 
 --
--- Indexes for table `pemerintah_pusat_daerah`
+-- Indeks untuk tabel `pemerintah_pusat_daerah`
 --
 ALTER TABLE `pemerintah_pusat_daerah`
   ADD PRIMARY KEY (`ID_Pusat`);
 
 --
--- Indexes for table `pendidikan_dan_penelitian`
+-- Indeks untuk tabel `pendidikan_dan_penelitian`
 --
 ALTER TABLE `pendidikan_dan_penelitian`
   ADD PRIMARY KEY (`ID_Pendidikan_Penelitian`);
 
 --
--- Indexes for table `pengajuan`
+-- Indeks untuk tabel `pengajuan`
 --
 ALTER TABLE `pengajuan`
   ADD PRIMARY KEY (`ID_Pengajuan`),
@@ -442,19 +444,19 @@ ALTER TABLE `pengajuan`
   ADD KEY `ID_Admin` (`ID_Admin`);
 
 --
--- Indexes for table `pengguna`
+-- Indeks untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`ID_Pengguna`);
 
 --
--- Indexes for table `perusahaan`
+-- Indeks untuk tabel `perusahaan`
 --
 ALTER TABLE `perusahaan`
   ADD PRIMARY KEY (`ID_Perusahaan`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`ID_Tranksaksi`),
@@ -465,99 +467,99 @@ ALTER TABLE `transaksi`
   ADD KEY `ID_Jasa` (`ID_Jasa`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
   MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
--- AUTO_INCREMENT for table `informasi`
+-- AUTO_INCREMENT untuk tabel `informasi`
 --
 ALTER TABLE `informasi`
   MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `informasi_tarif_pnbp`
+-- AUTO_INCREMENT untuk tabel `informasi_tarif_pnbp`
 --
 ALTER TABLE `informasi_tarif_pnbp`
   MODIFY `ID_PNBP` int(16) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `jasa`
+-- AUTO_INCREMENT untuk tabel `jasa`
 --
 ALTER TABLE `jasa`
   MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `kegiatan_bencana`
+-- AUTO_INCREMENT untuk tabel `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `kegiatan_keagamaan`
+-- AUTO_INCREMENT untuk tabel `kegiatan_keagamaan`
 --
 ALTER TABLE `kegiatan_keagamaan`
   MODIFY `ID_Keagamaan` int(16) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `kegiatan_pertahanan_keamanan`
+-- AUTO_INCREMENT untuk tabel `kegiatan_pertahanan_keamanan`
 --
 ALTER TABLE `kegiatan_pertahanan_keamanan`
   MODIFY `ID_Pertahanan` int(16) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `kegiatan_sosial`
+-- AUTO_INCREMENT untuk tabel `kegiatan_sosial`
 --
 ALTER TABLE `kegiatan_sosial`
   MODIFY `ID_Sosial` int(16) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pemerintah_pusat_daerah`
+-- AUTO_INCREMENT untuk tabel `pemerintah_pusat_daerah`
 --
 ALTER TABLE `pemerintah_pusat_daerah`
   MODIFY `ID_Pusat` int(16) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pendidikan_dan_penelitian`
+-- AUTO_INCREMENT untuk tabel `pendidikan_dan_penelitian`
 --
 ALTER TABLE `pendidikan_dan_penelitian`
   MODIFY `ID_Pendidikan_Penelitian` int(16) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pengajuan`
+-- AUTO_INCREMENT untuk tabel `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `pengguna`
+-- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
   MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `perusahaan`
+-- AUTO_INCREMENT untuk tabel `perusahaan`
 --
 ALTER TABLE `perusahaan`
   MODIFY `ID_Perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `pengajuan`
+-- Ketidakleluasaan untuk tabel `pengajuan`
 --
 ALTER TABLE `pengajuan`
   ADD CONSTRAINT `pengajuan_ibfk_1` FOREIGN KEY (`ID_Bencana`) REFERENCES `kegiatan_bencana` (`ID_Bencana`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -571,7 +573,7 @@ ALTER TABLE `pengajuan`
   ADD CONSTRAINT `pengajuan_ibfk_9` FOREIGN KEY (`ID_Admin`) REFERENCES `admin` (`ID_Admin`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `transaksi`
+-- Ketidakleluasaan untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`ID_Pengguna`) REFERENCES `pengguna` (`ID_Pengguna`) ON DELETE CASCADE ON UPDATE CASCADE,

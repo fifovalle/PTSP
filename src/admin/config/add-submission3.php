@@ -31,7 +31,7 @@ if (isset($_POST['Apply'])) {
     }
 
     $dataKeagamaan = array(
-        'Nama' => $nama,
+        'Nama_Keagamaan' => $nama,
         'No_Telepon' => $nomorHPFormatted,
         'Email' => $email,
         'Informasi_Keagamaan_Yang_Dibutuhkan' => $informasiDibutuhkan,

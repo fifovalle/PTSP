@@ -47,7 +47,6 @@ if (isset($_POST['Apply'])) {
     $simpanDataPengajuanBencana = $obyekDataBencana->tambahDataPengajuanBencana($dataPengajuanBencana);
 
     if ($simpanDataBencana && $simpanDataPengajuanBencana) {
-        $_SESSION['Ajuan'] = true;
         setPesanKeberhasilan("Data kegiatan penanggulangan bencana berhasil dikirim harap menunggu konfirmasi oleh admin.");
         header("Location: $akarUrl" . "src/user/pages/checkout.php");
         exit();
