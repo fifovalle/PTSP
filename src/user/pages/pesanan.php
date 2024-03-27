@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../../admin/config/databases.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,13 +66,88 @@ session_start();
                             <hr id="line-pesanan">
                             <div class="col-md-3">
                                 <div class="card">
-                                    <span class="dot selected">
-                                        <box-icon name='check-shield' id="icon" color='rgba(255,255,255,0.9)'></box-icon>
-                                    </span>
-                                    <div class="card-body text-center">
-                                        <div class="card-title">Ajuan Diterima</div>
-                                        <p class="card-text">Update Tanggal</p>
-                                    </div>
+
+
+                                    <?php
+                                    $pengajuanModel = new Pengajuan($koneksi);
+                                    $dataPengajuan = $pengajuanModel->tampilkanSemuaDataPengajuan();
+                                    $statusDiterimaPerusahaan = false;
+                                    $statusDiterimaPengguna = false;
+                                    $statusSedangDitinjau = false;
+                                    $statusDitolak = false;
+                                    if (!empty($_SESSION['ID_Perusahaan'])) {
+                                        foreach ($dataPengajuan as $pengajuan) {
+                                            if ($pengajuan['ID_Perusahaan'] == $_SESSION['ID_Perusahaan']) {
+                                                if ($pengajuan['Status_Pengajuan'] == 'Diterima') {
+                                                    $statusDiterimaPerusahaan = true;
+                                                } elseif ($pengajuan['Status_Pengajuan'] == 'Sedang Ditinjau') {
+                                                    $statusSedangDitinjau = true;
+                                                } elseif ($pengajuan['Status_Pengajuan'] == 'Ditolak') {
+                                                    $statusDitolak = true;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (!empty($_SESSION['ID_Pengguna'])) {
+                                        foreach ($dataPengajuan as $pengajuan) {
+                                            if ($pengajuan['ID_Pengguna'] == $_SESSION['ID_Pengguna']) {
+                                                if ($pengajuan['Status_Pengajuan'] == 'Diterima') {
+                                                    $statusDiterimaPengguna = true;
+                                                } elseif ($pengajuan['Status_Pengajuan'] == 'Sedang Ditinjau') {
+                                                    $statusSedangDitinjau = true;
+                                                } elseif ($pengajuan['Status_Pengajuan'] == 'Ditolak') {
+                                                    $statusDitolak = true;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (!$statusDiterimaPerusahaan && !$statusDiterimaPengguna && !$statusSedangDitinjau && !$statusDitolak) {
+                                        echo '<span class="dot selected">
+                                                    <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                </span>
+                                                <div class="card-body text-center">
+                                                    <div class="card-title">Belum Ada Ajuan</div>
+                                                    <p class="card-text">
+                                                    <a class="text-decoration-none fw-bold" href="ajukan.php">Klik disini</a> untuk mengajukan pesanan
+                                                    </p>
+                                                </div>';
+                                    } elseif ($statusDiterimaPerusahaan || $statusDiterimaPengguna) {
+                                        echo '<span class="dot selected">
+                                                    <box-icon name="check-shield" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                </span>
+                                                <div class="card-body text-center">
+                                                    <div class="card-title">Ajuan Diterima</div>
+                                                    <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                                </div>';
+                                    } elseif ($statusSedangDitinjau) {
+                                        echo '<span class="dot selected">
+                                                    <box-icon name="time" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                </span>
+                                                <div class="card-body text-center">
+                                                    <div class="card-title">Ajuan Sedang Ditinjau</div>
+                                                    <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                                </div>';
+                                    } elseif ($statusDitolak) {
+                                        echo '<span class="dot selected">
+                                                    <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                </span>
+                                                <div class="card-body text-center">
+                                                    <div class="card-title">Ajuan Ditolak</div>
+                                                    <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                                </div>';
+                                    }
+                                    if (empty($dataPengajuan)) {
+                                        echo '<span class="dot selected">
+                                                    <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                </span>
+                                                <div class="card-body text-center">
+                                                    <div class="card-title">Belum Ada Ajuan</div>
+                                                    <p class="card-text">
+                                                    <a class="text-decoration-none fw-bold" href="ajukan.php">Klik disini</a> untuk mengajukan pesanan
+                                                    </p>
+                                                </div>';
+                                    }
+                                    ?>
                                 </div>
                             </div>
                             <div class="col-md-3">
