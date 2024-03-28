@@ -20,3 +20,18 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.dot.step-three').classList.add('selected');
     });
 });
+
+document.getElementById("btn_next1").addEventListener("click", function(event) {
+    event.preventDefault(); 
+    document.getElementById("kuisioner_pt1").style.display = "none";
+    document.getElementById("kuisioner_pt2").style.display = "block";
+    document.getElementById("kuisioner_pt3").style.display = "none";
+});
+
+document.getElementById("btn_next2").addEventListener("click", function(event) {
+    event.preventDefault(); 
+    document.getElementById("kuisioner_pt1").style.display = "none";
+    document.getElementById("kuisioner_pt2").style.display = "none";
+    document.getElementById("kuisioner_pt3").style.display = "block";
+});
+

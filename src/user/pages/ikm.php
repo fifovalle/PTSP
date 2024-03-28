@@ -314,62 +314,952 @@
                     </div>
                 </div>
                 <div class="row form" id="UnsurPelayanan" style="display: none;">
-                    <div class="container-fluid w-100 unsur-pelayanan">
-                        <div class="row">
+                    <div class="container-fluid w-100 unsur-pelayanan headkuis">
+                        <div class="row justify-content-around" id="kuisioner_pt1">
                             <div class="col-md-12">
-                                <h2 class="title text-center mb-5">Unsur Pelayanan</h2>
-                                <h5 class="kuisioner">Persyaratan pelayanan jelas dan terbuka</h5>
+                                <h2 class="title text-center my-5">Unsur Pelayanan</h2>
                                 <div class="row">
-                                    <div class="col-md-3">
-                                        <span class="kategori1">Kualitas Pelayanan</span>
+                                    <div class="col-md-6 px-2 py-2 bodykuis1">
+                                        <h5 class="kuisioner">Persyaratan pelayanan jelas dan terbuka</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis1_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis1_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis1_pt1" id="inlineRadio3_1" value="option3">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis1_pt1" id="inlineRadio4_1" value="option4">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis1_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis1_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis1_pt2" id="inlineRadio3_2" value="option3">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis1_pt2" id="inlineRadio4_2" value="option4">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-9">
-                                        <div class="form-check form-check-inline ms-5">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                            <label class="form-check-label" for="inlineRadio1">Sangat Setuju</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">Setuju</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">Kurang Setuju</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">Tidak Setuju</label>
+                                    <div class="col-md-6 px-2 py-2 bodykuis2">
+                                        <h5 class="kuisioner">Persyaratan pelayanan mudah dan dipenuhi</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis2_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis2_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis2_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis2_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis2_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis2_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis2_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis2_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <span class="kategori2">Harapan Konsumen
-                                        <div class="col">
-                                            <div class="form-check form-check-inline ms-5">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                                <label class="form-check-label" for="inlineRadio1">Sangat Penting</label>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 px-2 py-2 bodykuis1">
+                                        <h5 class="kuisioner">Dibutuhkan dalam kehidupan sehari-hari</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                <label class="form-check-label" for="inlineRadio2">Penting</label>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis3_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis3_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis3_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis3_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                <label class="form-check-label" for="inlineRadio2">Kurang Penting</label>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                                <label class="form-check-label" for="inlineRadio2">Tidak Penting</label>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis3_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis3_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis3_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis3_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
                                             </div>
                                         </div>
-                                    </span>
+                                    </div>
+                                    <div class="col-md-6 px-2 py-2 bodykuis2">
+                                        <h5 class="kuisioner">Mudah diakses</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis4_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis4_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis4_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis4_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis4_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis4_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis4_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis4_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 px-2 py-2 bodykuis1">
+                                        <h5 class="kuisioner">Mudah dipahami</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis5_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis5_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis5_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis5_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis5_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis5_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis5_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis5_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 px-2 py-2 bodykuis2">
+                                        <h5 class="kuisioner">Akurat</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis6_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis6_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis6_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis6_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis6_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis6_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis6_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis6_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2 justify-content-center">
+                                    <div class="col-md-6 px-2 py-2 bodykuis1">
+                                        <h5 class="kuisioner">Ketersediaan jenis data dan informasi</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis7_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis7_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis7_pt1" id="inlineRadio3_1" value="option3">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis7_pt1" id="inlineRadio4_1" value="option4">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis7_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis7_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis7_pt2" id="inlineRadio3_2" value="option3">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis7_pt2" id="inlineRadio3_2" value="option4">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col-md-12 mt-5 text-center">
+                                <button class="btn btn-primary py-2 px-2" id="btn_next1"><box-icon name='right-arrow' color='rgba(255,255,255,0.9)'></box-icon></button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 text-center">
-                            <button type="submit" class="btn btn-primary w-50" id="submit-ikm">Submit Now</button>
+                        <div class="row justify-content-around" id="kuisioner_pt2" style="display: none;">
+                            <div class="col-md-12">
+                                <h2 class="title text-center my-5">Unsur Pelayanan</h2>
+                                <div class="row">
+                                    <div class="col-md-6 px-2 py-2 bodykuis1">
+                                        <h5 class="kuisioner">Alur pelayanan jelas dan sederhana</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis8_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis8_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis8_pt1" id="inlineRadio3_1" value="option3">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis8_pt1" id="inlineRadio4_1" value="option4">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 px-2 py-2 bodykuis2">
+                                        <h5 class="kuisioner">Sistem dan prosedur pelayanan masih berpeluang menimbulkan KKN</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis9_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis9_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis9_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis9_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 px-2 py-2 bodykuis1">
+                                        <h5 class="kuisioner">Informasi target waktu penyelesaian pelayanan jelas</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis10_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis10_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis10_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis10_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis10_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis10_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis10_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis10_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 px-2 py-2 bodykuis2">
+                                        <h5 class="kuisioner">Penyelesaian pelayanan sesuai dengan target waktu</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis11_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis11_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis11_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis11_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis11_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis11_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis11_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis11_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 px-2 py-2 bodykuis1">
+                                        <h5 class="kuisioner">Biaya pelayanan jelas dan terbuka</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis12_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis12_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis12_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis12_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis12_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis12_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis12_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis12_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 px-2 py-2 bodykuis2">
+                                        <h5 class="kuisioner">Informasi daftar produk atau jasa layanan terbuka dan jelas</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis13_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis13_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis13_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis13_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis13_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis13_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis13_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis13_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2 justify-content-center">
+                                    <div class="col-md-6 px-2 py-2 bodykuis1">
+                                        <h5 class="kuisioner">Sarana pengaduan atau keluhan pelayanan publik tersedia</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis14_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis14_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis14_pt1" id="inlineRadio3_1" value="option3">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis14_pt1" id="inlineRadio4_1" value="option4">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis14_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis14_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis14_pt2" id="inlineRadio3_2" value="option3">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis14_pt2" id="inlineRadio3_2" value="option4">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-5 text-center">
+                                <button class="btn btn-primary py-2 px-2" type="button" id="btn_next2"><box-icon name='right-arrow' color='rgba(255,255,255,0.9)'></box-icon></button>
+                            </div>
+                        </div>
+                        <div class="row justify-content-around" id="kuisioner_pt3" style="display: none;">
+                            <div class="col-md-12">
+                                <h2 class="title text-center my-5">Unsur Pelayanan</h2>
+                                <div class="row">
+                                    <div class="col-md-6 px-2 py-2 bodykuis1">
+                                        <h5 class="kuisioner">Prosedur dan tindak lanjut penanganan pengaduan jelas</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis15_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis15_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis15_pt1" id="inlineRadio3_1" value="option3">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis15_pt1" id="inlineRadio4_1" value="option4">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis15_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis15_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis15_pt2" id="inlineRadio3_2" value="option3">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis15_pt2" id="inlineRadio3_2" value="option4">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 px-2 py-2 bodykuis2">
+                                        <h5 class="kuisioner">Keberadaan petugas layanan jelas</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis16_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis16_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis16_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis16_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis16_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis16_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis16_pt2" id="inlineRadio3_2" value="option3">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis16_pt2" id="inlineRadio3_2" value="option4">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 px-2 py-2 bodykuis1">
+                                        <h5 class="kuisioner">Petugas sigap, ahli, dan cekatan</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis17_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis17_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis17_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis17_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis17_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis17_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis17_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis17_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 px-2 py-2 bodykuis2">
+                                        <h5 class="kuisioner">Sikap dan perilaku petugas pelayanan baik dan bertanggungjawab</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis18_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis18_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis18_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis18_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis18_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis18_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis18_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis18_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6 px-2 py-2 bodykuis1">
+                                        <h5 class="kuisioner">Sarana dan prasarana pelayanan aman, nyaman, dan mudah dijangkau</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis19_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis19_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis19_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis19_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis19_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis19_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis19_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis19_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 px-2 py-2 bodykuis2">
+                                        <h5 class="kuisioner">Pelayanan publik pada instansi ini sudah berjalan dengan baik</h5>
+                                        <div class="row mt-2 py-2">
+                                            <div class="col-md-3 mb-2">
+                                                <span class="kategori1">Kualitas Pelayanan</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis20_pt1" id="inlineRadio1_1" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis20_pt1" id="inlineRadio2_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis20_pt1" id="inlineRadio3_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis20_pt1" id="inlineRadio4_1" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <span class="kategori1">Harapan Konsumen</span>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="Kuis20_pt2" id="inlineRadio1_2" value="option1">
+                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis20_pt2" id="inlineRadio2_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-0">
+                                                    <input class="form-check-input" type="radio" name="Kuis20_pt2" id="inlineRadio3_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                </div>
+                                                <div class="form-check form-check-inline px-3">
+                                                    <input class="form-check-input" type="radio" name="Kuis20_pt2" id="inlineRadio4_2" value="option2">
+                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-5">
+                                <div class="col-md-6 text-center">
+                                    <button type="submit" class="btn btn-primary w-50" id="submit-ikm">Submit Now</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,11 @@
-:root {}
+:root {
+}
 
 body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
+  font-family: "Trebuchet MS", sans-serif;
 }
 
 /* Scrollbar Effect */
@@ -91,10 +93,33 @@ tr {
   border: 1px solid rgba(211, 211, 211, 0.3);
 }
 
-.kuisioner {}
+.kuisioner {
+  padding: 15px 10px 1px;
+}
 
 .kategori1,
 .kategori2 {
   margin-left: 25px;
   font-size: 16px;
+}
+
+#kuisioner_pt1 {
+  background: rgba(211, 211, 211, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(211, 211, 211, 0.3);
+}
+
+.bodykuis1 {
+  border-radius: 15px;
+  background-color: #ffedcb;
+  border-right: 10px solid rgba(211, 211, 211, 0.7);
+}
+
+.bodykuis2 {
+  border-radius: 15px;
+  background-color: #ffedcb;
+  border-left: 10px solid rgba(211, 211, 211, 0.7);
 }
