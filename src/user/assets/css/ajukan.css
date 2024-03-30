@@ -35,14 +35,12 @@ body {
   backdrop-filter: blur(4.2px);
   -webkit-backdrop-filter: blur(4.2px);
   border: 1px solid rgba(8, 49, 141, 0.22);
-  padding: 50px 5rem 50px 5rem;
+  padding: 50px 4rem 50px 4rem;
   margin: 3rem 2.5rem 3rem 2.5rem;
 }
 
-#button-option.col {
-  display: flex;
-  align-items: center; /* Untuk membuat tombol-tombol berada di tengah vertikal */
-  justify-content: center;
+#button-option {
+  position: relative;
   margin: 20px 0 20px 0;
 }
 
@@ -119,6 +117,13 @@ button {
   border: none;
   background: transparent;
   margin: 0 25px 0 25px;
+}
+
+.badge {
+  z-index: 1;
+  position: absolute;
+  top: 5px;
+  left: 1px;
 }
 /************** End Button Opsi **************/
 
@@ -240,3 +245,69 @@ input[type="file"]::before {
   box-shadow: 6px 10px 10px var(--color-bmkg1);
   border-radius: 8px;
 }
+
+/* Button Up */
+.btn-ajukantutorial {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px #08318d;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 100px;
+  transition-duration: 0.3s;
+}
+
+.btn-ajukantutorial:hover {
+  width: 140px;
+  border-radius: 100px;
+  transition-duration: 0.3s;
+  background-color: #08318d;
+  align-items: center;
+}
+
+.btn-ajukantutorial:hover .svgIcon {
+  /* width: 20px; */
+  transition-duration: 0.3s;
+  transform: translateY(-200%);
+}
+
+.btn-ajukantutorial::before {
+  position: absolute;
+  bottom: -20px;
+  content: "Butuh Bantuan";
+  color: white;
+  /* transition-duration: .3s; */
+  font-size: 0px;
+}
+
+.btn-ajukantutorial:hover::before {
+  font-size: 13px;
+  opacity: 0.9;
+  bottom: unset;
+  /* transform: translateY(-30px); */
+  transition-duration: 0.3s;
+}
+
+.button-container {
+  position: fixed;
+  bottom: 60px;
+  right: 5px;
+  z-index: 999;
+}
+.button button {
+  position: relative;
+  backdrop-filter: none;
+}
+/* End Button Up */
