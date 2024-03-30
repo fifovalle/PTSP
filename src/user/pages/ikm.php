@@ -44,7 +44,7 @@
                     <span class="dot step-three">
                         <box-icon name='user-plus' id="icon" color='rgba(255,255,255,0.9)'></box-icon>
                     </span>
-                    <h3 class="text-black">Layanan Gempa Bumi</h3>
+                    <h3 class="text-black">Penilaian Layanan</h3>
                 </div>
             </div>
             <form action="" method="POST">
