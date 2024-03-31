@@ -1241,16 +1241,15 @@ class Pengajuan
 
     public function tambahDataSosial($data)
     {
-        $query = "INSERT INTO kegiatan_sosial (ID_Sosial, Nama_Sosial, No_Telepon, Email, Informasi_Sosial_Yang_Dibutuhkan, Surat_Yang_Ditandatangani_Sosial) VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO kegiatan_sosial (ID_Sosial, Nama_Sosial, No_Telepon_Sosial, Email_Sosial, Surat_Yang_Ditandatangani_Sosial) VALUES (?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "isssss",
+            "issss",
             $data['ID_Sosial'],
             $data['Nama_Sosial'],
-            $data['No_Telepon'],
-            $data['Email'],
-            $data['Informasi_Sosial_Yang_Dibutuhkan'],
+            $data['No_Telepon_Sosial'],
+            $data['Email_Sosial'],
             $data['Surat_Yang_Ditandatangani_Sosial']
         );
 
@@ -1326,6 +1325,20 @@ class Pengajuan
         }
     }
 
+    public function ambilIDSosialTerakhir()
+    {
+        $query = "SELECT ID_Sosial FROM kegiatan_sosial ORDER BY ID_Sosial DESC LIMIT 1";
+
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['ID_Sosial'];
+        } else {
+            return null;
+        }
+    }
+
     public function tambahDataPengajuanBencana($dataPengajuanBencana)
     {
         $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Bencana, Status_Pengajuan, Tanggal_Pengajuan) 
@@ -1338,6 +1351,26 @@ class Pengajuan
             $dataPengajuanBencana['ID_Perusahaan'],
             $dataPengajuanBencana['ID_Bencana'],
             $dataPengajuanBencana['Status_Pengajuan'],
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tambahDataPengajuanSosial($dataPengajuanSosial)
+    {
+        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Sosial, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, ?, NOW())";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iiis",
+            $dataPengajuanSosial['ID_Pengguna'],
+            $dataPengajuanSosial['ID_Perusahaan'],
+            $dataPengajuanSosial['ID_Sosial'],
+            $dataPengajuanSosial['Status_Pengajuan'],
         );
         if ($statement->execute()) {
             return true;

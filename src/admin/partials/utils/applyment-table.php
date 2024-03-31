@@ -43,10 +43,10 @@
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
                         <div class="deskriptorContainer">
                             <div>
-                                <img class="imageData" src="../assets/image/uploads/<?php echo $pengajuan['Surat_Pengantar_Permintaan_Data_Bencana'] ?? $pengajuan['Foto_Perusahaan']; ?>" alt="Foto">
+                                <img class="imageData" src="../assets/image/uploads/<?php echo $pengajuan['Surat_Pengantar_Permintaan_Data_Bencana'] ?? $pengajuan['Surat_Yang_Ditandatangani_Sosial']; ?>" alt="Foto">
                             </div>
-                            <p class="fw-semibold m-auto"><?php echo $pengajuan['Nama_Bencana']; ?></p>
-                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $pengajuan['No_Telepon_Bencana']; ?></p>
+                            <p class="fw-semibold m-auto"><?php echo $pengajuan['Nama_Bencana'] ?? $pengajuan['Nama_Sosial']; ?></p>
+                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $pengajuan['No_Telepon_Bencana'] ?? $pengajuan['No_Telepon_Sosial']; ?></p>
                             <div class="iconContainerData">
                                 <a class="linkData buttonServices" data-id='<?php echo $pengajuan['ID_Pengajuan']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>

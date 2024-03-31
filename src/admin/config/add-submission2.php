@@ -5,52 +5,55 @@ if (isset($_POST['Apply'])) {
     $nama = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama']));
     $nomorHP = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_HP']));
     $email = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Email']));
-    $informasiDibutuhkan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Informasi_Sosial_Yang_Dibutuhkan']));
+
+    $nomorTeleponFormatted = '+62 ' . substr($nomorHP, 0, 3) . '-' . substr($nomorHP, 4, 4) . '-' . substr($nomorHP, 7);
 
     $objekDataSosial = new Pengajuan($koneksi);
-    $pesanKesalahan = '';
 
-    $nomorHPFormatted = preg_replace('/^(\d{3})(\d{4})(\d{4})$/', '+62 $1-$2-$3', $nomorHP);
+    if ($_FILES['Surat_Pengantar_Permintaan_Data']['error'] !== UPLOAD_ERR_OK) {
+        setPesanKesalahan("Gagal mengupload surat pengantar.");
+        header("Location: $akarUrl" . "src/user/pages/ajukan.php");
+        exit;
+    }
 
-    $suratPermintaanFile = $_FILES['Surat_Yang_Ditandatangani_Sosial'];
-    $namaSuratPermintaan = mysqli_real_escape_string($koneksi, htmlspecialchars($suratPermintaanFile['name']));
-    $suratPermintaanTemp = $suratPermintaanFile['tmp_name'];
-    $ukuranSuratPermintaan = $suratPermintaanFile['size'];
-    $errorSuratPermintaan = $suratPermintaanFile['error'];
+    $tujuanSuratPengantar = '../assets/image/uploads/';
+    $namaSuratPengantarBaru = uniqid() . '_' . basename($_FILES['Surat_Pengantar_Permintaan_Data']['name']);
+    $tujuanFileSuratPengantar = $tujuanSuratPengantar . $namaSuratPengantarBaru;
 
-    $ukuranMaksimal = 2 * 1024 * 1024;
-    $formatDisetujui = ['jpg', 'jpeg', 'png'];
-    $formatSuratPermintaan = strtolower(pathinfo($namaSuratPermintaan, PATHINFO_EXTENSION));
-    $suratPermintaanBaru = uniqid() . '.' . $formatSuratPermintaan;
-    $lokasiPenyimpananSurat = '../assets/image/uploads/' . $suratPermintaanBaru;
-
-    if (!empty($pesanKesalahan)) {
-        setPesanKesalahan($pesanKesalahan);
+    if (!move_uploaded_file($_FILES['Surat_Pengantar_Permintaan_Data']['tmp_name'], $tujuanFileSuratPengantar)) {
+        setPesanKesalahan("Gagal menyimpan surat pengantar.");
         header("Location: $akarUrl" . "src/user/pages/ajukan.php");
         exit;
     }
 
     $dataSosial = array(
         'Nama_Sosial' => $nama,
-        'No_Telepon' => $nomorHPFormatted,
-        'Email' => $email,
-        'Informasi_Sosial_Yang_Dibutuhkan' => $informasiDibutuhkan,
-        'Surat_Yang_Ditandatangani_Sosial' => $suratPermintaanBaru
+        'No_Telepon_Sosial' => $nomorTeleponFormatted,
+        'Email_Sosial' => $email,
+        'Surat_Yang_Ditandatangani_Sosial' => $namaSuratPengantarBaru
     );
 
     $simpanDataSosial = $objekDataSosial->tambahDataSosial($dataSosial);
 
-    if ($simpanDataSosial) {
-        $_SESSION['Ajuan'] = true;
-        setPesanKeberhasilan("Data kegiatan penanggulangan bencana berhasil dikirim harap menunggu konfirmasi oleh admin.");
+    $dataPengajuanSosial = array(
+        'ID_Pengguna' => $_SESSION['ID_Pengguna'],
+        'ID_Perusahaan' => $_SESSION['ID_Perusahaan'],
+        'ID_Sosial' => $objekDataSosial->ambilIDSosialTerakhir(),
+        'Status_Pengajuan' => 'Sedang Ditinjau',
+        'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
+    );
+
+    $simpanDataPengajuanSosial = $objekDataSosial->tambahDataPengajuanSosial($dataPengajuanSosial);
+
+    if ($simpanDataSosial && $simpanDataPengajuanSosial) {
+        setPesanKeberhasilan("Data kegiatan penanggulangan sosial berhasil dikirim harap menunggu konfirmasi oleh admin.");
         header("Location: $akarUrl" . "src/user/pages/checkout.php");
         exit();
     } else {
-        setPesanKesalahan("Gagal menambahkan data kegiatan sosial.");
+        setPesanKesalahan("Gagal menambahkan data kegiatan penanggulangan bencana.");
+        header("Location: $akarUrl" . "src/user/pages/ajukan.php");
+        exit;
     }
-
-    header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-    exit;
 } else {
     header("Location: $akarUrl" . "src/user/pages/ajukan.php");
     exit;

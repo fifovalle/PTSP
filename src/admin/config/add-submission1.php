@@ -26,7 +26,6 @@ if (isset($_POST['Apply'])) {
         exit;
     }
 
-
     $dataBencana = array(
         'Nama_Bencana' => $nama,
         'No_Telepon_Bencana' => $nomorTeleponFormatted,

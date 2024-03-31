@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2024 at 03:26 AM
+-- Generation Time: Mar 31, 2024 at 04:21 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -74,7 +74,9 @@ CREATE TABLE `informasi` (
 --
 
 INSERT INTO `informasi` (`ID_Informasi`, `Foto_Informasi`, `Nama_Informasi`, `Deskripsi_Informasi`, `Harga_Informasi`, `Pemilik_Informasi`, `No_Rekening_Informasi`, `Kategori_Informasi`, `Status_Informasi`) VALUES
-(18, 0x363630386262336338623337612e706e67, 'Data 1', 'Beli Data ini', 100000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia');
+(18, 0x363630386262336338623337612e706e67, 'Data 1', 'Beli Data ini', 100000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
+(19, 0x363630386264373565636237662e706e67, 'Data 2', 'Beli Data ini', 200000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(20, 0x363630386264386363643934612e706e67, 'Data 3', 'Beli Data ini', 300000, 'Instansi C', 3333, 'Geofisika', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -115,7 +117,9 @@ CREATE TABLE `jasa` (
 --
 
 INSERT INTO `jasa` (`ID_Jasa`, `Foto_Jasa`, `Nama_Jasa`, `Deskripsi_Jasa`, `Harga_Jasa`, `Pemilik_Jasa`, `No_Rekening_Jasa`, `Kategori_Jasa`, `Status_Jasa`) VALUES
-(17, 0x363630386262616639396365362e6a7067, 'Jasa1', 'Beli Jasa ini', 200000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia');
+(17, 0x363630386262616639396365362e6a7067, 'Jasa1', 'Beli Jasa ini', 200000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
+(18, 0x363630386264636661306632372e6a7067, 'Jasa 2', 'Beli Jasa Ini', 300000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(19, 0x363630386264653431313764382e6a7067, 'Jasa 3', 'Beli Jasa ini', 400000, 'Instansi C', 3333, 'Geofisika', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -128,7 +132,6 @@ CREATE TABLE `kegiatan_bencana` (
   `Nama_Bencana` varchar(30) NOT NULL,
   `No_Telepon_Bencana` varchar(20) NOT NULL,
   `Email_Bencana` varchar(50) NOT NULL,
-  `Informasi_Bencana_Yang_Dibutuhkan` varchar(100) NOT NULL,
   `Surat_Pengantar_Permintaan_Data_Bencana` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -173,7 +176,6 @@ CREATE TABLE `kegiatan_sosial` (
   `Nama_Sosial` varchar(30) NOT NULL,
   `No_Telepon_Sosial` varchar(20) NOT NULL,
   `Email_Sosial` varchar(30) NOT NULL,
-  `Informasi_Sosial_Yang_Dibutuhkan` varchar(100) NOT NULL,
   `Surat_Yang_Ditandatangani_Sosial` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -447,7 +449,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `informasi`
 --
 ALTER TABLE `informasi`
-  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `informasi_tarif_pnbp`
@@ -459,13 +461,13 @@ ALTER TABLE `informasi_tarif_pnbp`
 -- AUTO_INCREMENT for table `jasa`
 --
 ALTER TABLE `jasa`
-  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
@@ -483,7 +485,7 @@ ALTER TABLE `kegiatan_pertahanan_keamanan`
 -- AUTO_INCREMENT for table `kegiatan_sosial`
 --
 ALTER TABLE `kegiatan_sosial`
-  MODIFY `ID_Sosial` int(16) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Sosial` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pemerintah_pusat_daerah`
@@ -501,7 +503,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -519,7 +521,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- Constraints for dumped tables
