@@ -1218,16 +1218,15 @@ class Pengajuan
 
     public function tambahDataPertahanan($data)
     {
-        $query = "INSERT INTO kegiatan_pertahanan_keamanan (ID_Pertahanan, Nama_Pertahanan, No_Telepon_Pertahanan, Email_Pertahanan, Informasi_Pertahanan_Yang_Dibutuhkan, Surat_Yang_Ditandatangani_Pertahanan) VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO kegiatan_pertahanan_keamanan (ID_Pertahanan, Nama_Pertahanan, No_Telepon_Pertahanan, Email_Pertahanan, Surat_Yang_Ditandatangani_Pertahanan) VALUES (?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "isssss",
+            "issss",
             $data['ID_Pertahanan'],
             $data['Nama_Pertahanan'],
             $data['No_Telepon_Pertahanan'],
             $data['Email_Pertahanan'],
-            $data['Informasi_Pertahanan_Yang_Dibutuhkan'],
             $data['Surat_Yang_Ditandatangani_Pertahanan']
         );
 
@@ -1352,6 +1351,20 @@ class Pengajuan
         }
     }
 
+    public function ambilIDKeamananTerakhir()
+    {
+        $query = "SELECT ID_Pertahanan FROM kegiatan_pertahanan_keamanan ORDER BY ID_Pertahanan DESC LIMIT 1";
+
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['ID_Pertahanan'];
+        } else {
+            return null;
+        }
+    }
+
     public function tambahDataPengajuanBencana($dataPengajuanBencana)
     {
         $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Bencana, Status_Pengajuan, Tanggal_Pengajuan) 
@@ -1392,7 +1405,7 @@ class Pengajuan
         }
     }
 
-    public function tambahDataPengajuanKeagamaan($dataPengajuanSosial)
+    public function tambahDataPengajuanKeagamaan($dataPengajuanKeagamaan)
     {
         $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Keagamaan, Status_Pengajuan, Tanggal_Pengajuan) 
               VALUES (?, ?, ?, ?, NOW())";
@@ -1400,10 +1413,30 @@ class Pengajuan
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
             "iiis",
-            $dataPengajuanSosial['ID_Pengguna'],
-            $dataPengajuanSosial['ID_Perusahaan'],
-            $dataPengajuanSosial['ID_Keagamaan'],
-            $dataPengajuanSosial['Status_Pengajuan'],
+            $dataPengajuanKeagamaan['ID_Pengguna'],
+            $dataPengajuanKeagamaan['ID_Perusahaan'],
+            $dataPengajuanKeagamaan['ID_Keagamaan'],
+            $dataPengajuanKeagamaan['Status_Pengajuan'],
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tambahDataPengajuanPertahanaan($dataPengajuanPertahanan)
+    {
+        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Pertahanan, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, ?, NOW())";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iiis",
+            $dataPengajuanPertahanan['ID_Pengguna'],
+            $dataPengajuanPertahanan['ID_Perusahaan'],
+            $dataPengajuanPertahanan['ID_Pertahanan'],
+            $dataPengajuanPertahanan['Status_Pengajuan'],
         );
         if ($statement->execute()) {
             return true;

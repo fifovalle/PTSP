@@ -55,7 +55,8 @@
                             </p>
                             <p class="fw-semibold deskriptorSmall m-auto">
                                 <?php
-                                echo ($transaksi['ID_Informasi'] != null) ? $transaksi['Deskripsi_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Deskripsi_Jasa'] : 'Deskripsi Tidak Tersedia');
+                                $deskripsi = ($transaksi['ID_Informasi'] != null) ? $transaksi['Deskripsi_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Deskripsi_Jasa'] : 'Deskripsi Tidak Tersedia');
+                                echo strlen($deskripsi) > 4 ? substr($deskripsi, 0, 4) . '...' : $deskripsi;
                                 ?>
                             </p>
                             <div class="iconContainerData">

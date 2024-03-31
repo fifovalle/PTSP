@@ -41,12 +41,17 @@
                     </td>
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
+                        <div>
+                            <img class="imageData" src="../assets/image/uploads/<?php echo $pengajuan['Surat_Pengantar_Permintaan_Data_Bencana'] ?? $pengajuan['Surat_Yang_Ditandatangani_Sosial'] ?? $pengajuan['Surat_Yang_Ditandatangani_Keagamaan'] ?? $pengajuan['Surat_Yang_Ditandatangani_Pertahanan']; ?>" alt="Foto">
+                        </div>
                         <div class="deskriptorContainer">
-                            <div>
-                                <img class="imageData" src="../assets/image/uploads/<?php echo $pengajuan['Surat_Pengantar_Permintaan_Data_Bencana'] ?? $pengajuan['Surat_Yang_Ditandatangani_Sosial'] ?? $pengajuan['Surat_Yang_Ditandatangani_Keagamaan']; ?>" alt="Foto">
-                            </div>
-                            <p class="fw-semibold m-auto"><?php echo $pengajuan['Nama_Bencana'] ?? $pengajuan['Nama_Sosial'] ?? $pengajuan['Nama_Keagamaan']; ?></p>
-                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $pengajuan['No_Telepon_Bencana'] ?? $pengajuan['No_Telepon_Sosial'] ?? $pengajuan['No_Telepon_Keagamaan']; ?></p>
+                            <p class="fw-semibold m-auto"><?php echo $pengajuan['Nama_Bencana'] ?? $pengajuan['Nama_Sosial'] ?? $pengajuan['Nama_Keagamaan'] ?? $pengajuan['Nama_Pertahanan']; ?></p>
+                            <p class="fw-semibold deskriptorSmall m-auto">
+                                <?php
+                                $no_telepon = $pengajuan['No_Telepon_Bencana'] ?? $pengajuan['No_Telepon_Sosial'] ?? $pengajuan['No_Telepon_Keagamaan'] ?? $pengajuan['No_Telepon_Pertahanan'];
+                                echo strlen($no_telepon) > 4 ? substr($no_telepon, 0, 4) . '...' : $no_telepon;
+                                ?>
+                            </p>
                             <div class="iconContainerData">
                                 <a class="linkData buttonServices" data-id='<?php echo $pengajuan['ID_Pengajuan']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>

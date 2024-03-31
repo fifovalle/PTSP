@@ -46,7 +46,12 @@
                         </div>
                         <div class="deskriptorContainer">
                             <p class="fw-semibold m-auto"><?php echo $jasa['Nama_Jasa']; ?></p>
-                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $jasa['Deskripsi_Jasa']; ?></p>
+                            <p class="fw-semibold deskriptorSmall m-auto">
+                                <?php
+                                $deskripsi_jasa = $jasa['Deskripsi_Jasa'];
+                                echo strlen($deskripsi_jasa) > 4 ? substr($deskripsi_jasa, 0, 4) . '...' : $deskripsi_jasa;
+                                ?>
+                            </p>
                             <div class="iconContainerData">
                                 <a class="linkData buttonServices" data-id='<?php echo $jasa['ID_Jasa']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>

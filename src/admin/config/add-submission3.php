@@ -8,7 +8,7 @@ if (isset($_POST['Apply'])) {
 
     $nomorTeleponFormatted = '+62 ' . substr($nomorHP, 0, 3) . '-' . substr($nomorHP, 4, 4) . '-' . substr($nomorHP, 7);
 
-    $objekDataSosial = new Pengajuan($koneksi);
+    $objekDataKeagamaan = new Pengajuan($koneksi);
 
     if ($_FILES['Surat_Yang_Ditandatangani_Keagamaan']['error'] !== UPLOAD_ERR_OK) {
         setPesanKesalahan("Gagal mengupload surat pengantar.");
@@ -33,19 +33,19 @@ if (isset($_POST['Apply'])) {
         'Surat_Yang_Ditandatangani_Keagamaan' => $namaSuratPengantarBaru
     );
 
-    $simpanDataSosial = $objekDataSosial->tambahDataKeagamaan($dataSosial);
+    $simpanDataKeagamaan = $objekDataKeagamaan->tambahDataKeagamaan($dataSosial);
 
-    $dataPengajuanSosial = array(
+    $dataPengajuanKeagamaan = array(
         'ID_Pengguna' => $_SESSION['ID_Pengguna'],
         'ID_Perusahaan' => $_SESSION['ID_Perusahaan'],
-        'ID_Keagamaan' => $objekDataSosial->ambilIDKeagamaanTerakhir(),
+        'ID_Keagamaan' => $objekDataKeagamaan->ambilIDKeagamaanTerakhir(),
         'Status_Pengajuan' => 'Sedang Ditinjau',
         'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
     );
 
-    $simpanDataPengajuanSosial = $objekDataSosial->tambahDataPengajuanKeagamaan($dataPengajuanSosial);
+    $simpanDataPengajuanKeagamaan = $objekDataKeagamaan->tambahDataPengajuanKeagamaan($dataPengajuanKeagamaan);
 
-    if ($simpanDataSosial && $simpanDataPengajuanSosial) {
+    if ($simpanDataKeagamaan && $simpanDataPengajuanKeagamaan) {
         setPesanKeberhasilan("Data kegiatan penanggulangan sosial berhasil dikirim harap menunggu konfirmasi oleh admin.");
         header("Location: $akarUrl" . "src/user/pages/checkout.php");
         exit();

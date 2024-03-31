@@ -45,7 +45,12 @@
                         </div>
                         <div class="deskriptorContainer">
                             <p class="fw-semibold m-auto"><?php echo htmlspecialchars($informasi['Nama_Informasi']); ?></p>
-                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo htmlspecialchars($informasi['Deskripsi_Informasi']); ?></p>
+                            <p class="fw-semibold deskriptorSmall m-auto">
+                                <?php
+                                $deskripsi = htmlspecialchars($informasi['Deskripsi_Informasi']);
+                                echo strlen($deskripsi) > 4 ? substr($deskripsi, 0, 4) . '...' : $deskripsi;
+                                ?>
+                            </p>
                             <div class="iconContainerData">
                                 <a class="linkData buttonInformation" data-id='<?php echo $informasi['ID_Informasi']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>
