@@ -1283,11 +1283,11 @@ class Pengajuan
 
     public function tambahDataPendidikanPenelitian($data)
     {
-        $query = "INSERT INTO pendidikan_dan_penelitian (ID_Pendidikan_Penelitian, Nama_Pendidikan_Dan_Penelitian, NIM_KTP, Program_Studi_Fakultas, Universitas_Instansi, No_Telepon_Pendidikan_Penelitian, Email_Pendidikan_Penelitian, Informasi_Pendidikan_Penelitian_Yang_Dibutuhkan, Identitas_Diri, Surat_Pengantar_Kepsek_Rektor_Dekan, Pernyataan_Tidak_Digunakan_Kepentingan_Lain, Proposal_Penelitian_Telah_Disetujui) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO pendidikan_dan_penelitian (ID_Pendidikan_Penelitian, Nama_Pendidikan_Dan_Penelitian, NIM_KTP, Program_Studi_Fakultas, Universitas_Instansi, No_Telepon_Pendidikan_Penelitian, Email_Pendidikan_Penelitian, Identitas_Diri, Surat_Pengantar_Kepsek_Rektor_Dekan, Pernyataan_Tidak_Digunakan_Kepentingan_Lain, Proposal_Penelitian_Telah_Disetujui) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "isssssssssss",
+            "issssssssss",
             $data['ID_Pendidikan_Penelitian'],
             $data['Nama_Pendidikan_Dan_Penelitian'],
             $data['NIM_KTP'],
@@ -1295,7 +1295,6 @@ class Pengajuan
             $data['Universitas_Instansi'],
             $data['No_Telepon_Pendidikan_Penelitian'],
             $data['Email_Pendidikan_Penelitian'],
-            $data['Informasi_Pendidikan_Penelitian_Yang_Dibutuhkan'],
             $data['Identitas_Diri'],
             $data['Surat_Pengantar_Kepsek_Rektor_Dekan'],
             $data['Pernyataan_Tidak_Digunakan_Kepentingan_Lain'],
@@ -1360,6 +1359,20 @@ class Pengajuan
         if ($result->num_rows > 0) {
             $data = $result->fetch_assoc();
             return $data['ID_Pertahanan'];
+        } else {
+            return null;
+        }
+    }
+
+    public function ambilIDPenelitianTerakhir()
+    {
+        $query = "SELECT ID_Pendidikan_Penelitian FROM pendidikan_dan_penelitian ORDER BY ID_Pendidikan_Penelitian DESC LIMIT 1";
+
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['ID_Pendidikan_Penelitian'];
         } else {
             return null;
         }
@@ -1437,6 +1450,26 @@ class Pengajuan
             $dataPengajuanPertahanan['ID_Perusahaan'],
             $dataPengajuanPertahanan['ID_Pertahanan'],
             $dataPengajuanPertahanan['Status_Pengajuan'],
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tambahDataPengajuanPenelitian($dataPengajuanPenelitian)
+    {
+        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Penelitian, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, ?, NOW())";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iiis",
+            $dataPengajuanPenelitian['ID_Pengguna'],
+            $dataPengajuanPenelitian['ID_Perusahaan'],
+            $dataPengajuanPenelitian['ID_Penelitian'],
+            $dataPengajuanPenelitian['Status_Pengajuan'],
         );
         if ($statement->execute()) {
             return true;

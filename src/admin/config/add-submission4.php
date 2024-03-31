@@ -26,14 +26,14 @@ if (isset($_POST['Apply'])) {
         exit;
     }
 
-    $dataSosial = array(
+    $dataPertahanan = array(
         'Nama_Pertahanan' => $nama,
         'No_Telepon_Pertahanan' => $nomorTeleponFormatted,
         'Email_Pertahanan' => $email,
         'Surat_Yang_Ditandatangani_Pertahanan' => $namaSuratPengantarBaru
     );
 
-    $simpanDataPertahanan = $objekDataPertahanan->tambahDataPertahanan($dataSosial);
+    $simpanDataPertahanan = $objekDataPertahanan->tambahDataPertahanan($dataPertahanan);
 
     $dataPengajuanPetahanan = array(
         'ID_Pengguna' => $_SESSION['ID_Pengguna'],

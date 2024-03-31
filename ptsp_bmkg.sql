@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2024 at 04:55 AM
+-- Generation Time: Mar 31, 2024 at 05:35 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -207,7 +207,6 @@ CREATE TABLE `pendidikan_dan_penelitian` (
   `Universitas_Instansi` varchar(30) NOT NULL,
   `No_Telepon_Pendidikan_Penelitian` varchar(20) NOT NULL,
   `Email_Pendidikan_Penelitian` varchar(30) NOT NULL,
-  `Informasi_Pendidikan_Penelitian_Yang_Dibutuhkan` varchar(100) NOT NULL,
   `Identitas_Diri` longblob NOT NULL,
   `Surat_Pengantar_Kepsek_Rektor_Dekan` longblob NOT NULL,
   `Pernyataan_Tidak_Digunakan_Kepentingan_Lain` longblob NOT NULL,
@@ -495,13 +494,13 @@ ALTER TABLE `pemerintah_pusat_daerah`
 -- AUTO_INCREMENT for table `pendidikan_dan_penelitian`
 --
 ALTER TABLE `pendidikan_dan_penelitian`
-  MODIFY `ID_Pendidikan_Penelitian` int(16) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Pendidikan_Penelitian` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `pengguna`

@@ -9,30 +9,30 @@
             <h4 class="header mb-4">Data Pribadi</h4>
             <div class="col-md-6">
                 <label for="nameInput">Nama</label>
-                <input type="text" class="form-control my-3" id="Nama" name="Nama" placeholder="Masukkan Nama" style="height: 40px">
+                <input type="text" class="form-control my-3" id="Nama" name="Nama" placeholder="Masukkan Nama" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <label for="nameInput">NIM / KTP</label>
-                <input type="text" class="form-control my-3" id="NIM_atau_KTP" name="NIM_atau_KTP" placeholder="Masukkan NIM / KTP" style="height: 40px">
+                <input type="text" class="form-control my-3" id="NIM_atau_KTP" name="NIM_atau_KTP" placeholder="Masukkan NIM / KTP" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <label for="nameInput">Program Studi / Fakultas</label>
-                <input type="text" class="form-control my-3" id="Program_Studi_atau_Fakultas" name="Program_Studi_atau_Fakultas" placeholder="Masukkan Program Studi / Fakultas" style="height: 40px">
+                <input type="text" class="form-control my-3" id="Program_Studi_atau_Fakultas" name="Program_Studi_atau_Fakultas" placeholder="Masukkan Program Studi / Fakultas" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <label for="nameInput">Universitas / Instansi</label>
-                <input type="text" class="form-control my-3" id="Universitas_atau_Instansi" name="Universitas_atau_Instansi" placeholder="Masukkan Universitas / Instansi" style="height: 40px">
+                <input type="text" class="form-control my-3" id="Universitas_atau_Instansi" name="Universitas_atau_Instansi" placeholder="Masukkan Universitas / Instansi" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <label for="phonenumberInput">Nomor Handphone</label>
                 <div class="input-group my-3" style="height: 40px">
                     <span class="input-group-text spanNumberData">+62</span>
-                    <input type="number" placeholder="Masukkan Nomor Handphone" class="form-control inputData" id="No_HP" name="No_HP" autocomplete="off">
+                    <input type="number" placeholder="Masukkan Nomor Handphone" class="form-control inputData" id="No_HP" name="No_HP" autocomplete="off" autocomplete="off">
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="emailInput">Email</label>
-                <input type="email" class="form-control my-3" id="Email" name="Email" placeholder="Masukkan Email" style="height: 40px">
+                <input type="email" class="form-control my-3" id="Email" name="Email" placeholder="Masukkan Email" style="height: 40px" autocomplete="off">
             </div>
         </div>
     </div>
@@ -40,12 +40,8 @@
         <div class="row">
             <h4 class="header mb-4">Data Keperluan</h4>
             <div class="col-md-6">
-                <label for="informasidataInput">Data Informasi yang Dibutuhkan</label>
-                <input type="text" class="form-control my-3" id="Informasi_Yang_Dibutuhkan" name="Informasi_Yang_Dibutuhkan" placeholder="Masukkan Data Informasi yang Dibutuhkan" style="height: 40px">
-            </div>
-            <div class="col-md-6">
                 <label for="suratpengantarInput">Identitas Diri KTP / KTM / SIM / Paspor</label>
-                <input type="file" class="form-control my-3" id="Identitas_Diri" name="Identitas_Diri" style="height: 40px">
+                <input type="file" class="form-control my-3" id="Identitas_Diri" name="Identitas_Diri" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <div class="label-container">
@@ -56,7 +52,7 @@
                         </button>
                     </div>
                 </div>
-                <input type="file" class="form-control my-3" id="Surat_Pengantar" name="Surat_Pengantar" style="height: 40px">
+                <input type="file" class="form-control my-3" id="Surat_Pengantar" name="Surat_Pengantar" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <div class="label-container">
@@ -67,11 +63,11 @@
                         </button>
                     </div>
                 </div>
-                <input type="file" class="form-control my-3" id="Surat_Pernyataan" name="Surat_Pernyataan" style="height: 40px">
+                <input type="file" class="form-control my-3" id="Surat_Pernyataan" name="Surat_Pernyataan" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <label for="suratpengantarInput">Proposal Penelitian Berisi Maksud dan Tujuan Penelitian yang Telah Disetujui</label>
-                <input type="file" class="form-control my-3" id="Proposal_Penelitian" name="Proposal_Penelitian" style="height: 40px">
+                <input type="file" class="form-control my-3" id="Proposal_Penelitian" name="Proposal_Penelitian" style="height: 40px" autocomplete="off">
             </div>
         </div>
     </div>
