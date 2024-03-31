@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2024 at 05:35 AM
+-- Generation Time: Mar 31, 2024 at 06:07 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -188,7 +188,6 @@ CREATE TABLE `pemerintah_pusat_daerah` (
   `Nama_Pusat_Daerah` varchar(30) NOT NULL,
   `No_Telepon_Pusat_Daerah` varchar(20) NOT NULL,
   `Email_Pusat_Daerah` varchar(30) NOT NULL,
-  `Informasi_Pusat_Daerah_Yang_Dibutuhkan` varchar(100) NOT NULL,
   `Memiliki_Kerja_Sama_Dengan_BMKG` longblob NOT NULL,
   `Surat_Pengantar_Pusat_Daerah` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -488,7 +487,7 @@ ALTER TABLE `kegiatan_sosial`
 -- AUTO_INCREMENT for table `pemerintah_pusat_daerah`
 --
 ALTER TABLE `pemerintah_pusat_daerah`
-  MODIFY `ID_Pusat` int(16) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Pusat` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pendidikan_dan_penelitian`
@@ -500,7 +499,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
