@@ -1176,16 +1176,15 @@ class Pengajuan
 
     public function tambahDataBencana($data)
     {
-        $query = "INSERT INTO kegiatan_bencana (ID_Bencana, Nama_Bencana, No_Telepon_Bencana, Email_Bencana, Informasi_Bencana_Yang_Dibutuhkan, Surat_Pengantar_Permintaan_Data_Bencana) VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO kegiatan_bencana (ID_Bencana, Nama_Bencana, No_Telepon_Bencana, Email_Bencana, Surat_Pengantar_Permintaan_Data_Bencana) VALUES (?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "isssss",
+            "issss",
             $data['ID_Bencana'],
             $data['Nama_Bencana'],
             $data['No_Telepon_Bencana'],
             $data['Email_Bencana'],
-            $data['Informasi_Bencana_Yang_Dibutuhkan'],
             $data['Surat_Pengantar_Permintaan_Data_Bencana']
         );
 

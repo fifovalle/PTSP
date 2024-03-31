@@ -9,31 +9,27 @@
             <h4 class="header mb-4">Data Pribadi</h4>
             <div class="col-md-6">
                 <label for="nameInput">Nama</label>
-                <input type="text" class="form-control my-3" id="Nama" name="Nama" placeholder="Masukkan Nama" style="height: 40px">
+                <input type="text" class="form-control my-3" id="Nama" name="Nama" placeholder="Masukkan Nama" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <label for="phonenumberInput">Nomor Handphone</label>
                 <div class="input-group my-3" style="height: 40px">
                     <span class="input-group-text spanNumberData">+62</span>
-                    <input type="number" placeholder="Masukkan Nomor Handphone" class="form-control inputData" id="No_HP" name="No_HP" autocomplete="off">
+                    <input type="number" placeholder="Masukkan Nomor Handphone" class="form-control inputData" id="No_HP" name="No_HP" autocomplete="off" autocomplete="off">
                 </div>
             </div>
             <div class="col-md-6">
                 <label for="emailInput">Email</label>
-                <input type="email" class="form-control my-3" id="Email" name="Email" placeholder="Masukkan Email" style="height: 40px">
+                <input type="email" class="form-control my-3" id="Email" name="Email" placeholder="Masukkan Email" style="height: 40px" autocomplete="off">
             </div>
         </div>
     </div>
     <div class="container my-3" id="DataKeperluan">
         <div class="row">
             <h4 class="header mb-4">Data Keperluan</h4>
-            <div class="col-md-6">
-                <label for="informasidataInput">Data Informasi yang Dibutuhkan</label>
-                <input type="text" class="form-control my-3" id="Data_Informasi_Yang_Dibutuhkan" name="Data_Informasi_Yang_Dibutuhkan" placeholder="Masukkan Data Informasi yang Dibutuhkan" style="height: 40px">
-            </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <label for="suratpengantarInput">Surat Pengantar Permintaan Data</label>
-                <input type="file" class="form-control my-3" id="Surat_Pengantar_Permintaan_Data" name="Surat_Pengantar_Permintaan_Data" placeholder="Upload File Yang Sesuai" style="height: 40px">
+                <input type="file" class="form-control my-3" id="Surat_Pengantar_Permintaan_Data" name="Surat_Pengantar_Permintaan_Data" placeholder="Upload File Yang Sesuai" style="height: 40px" autocomplete="off">
             </div>
         </div>
     </div>

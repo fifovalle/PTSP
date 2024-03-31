@@ -46,7 +46,7 @@
                                 <img class="imageData" src="../assets/image/uploads/<?php echo $pengajuan['Surat_Pengantar_Permintaan_Data_Bencana'] ?? $pengajuan['Foto_Perusahaan']; ?>" alt="Foto">
                             </div>
                             <p class="fw-semibold m-auto"><?php echo $pengajuan['Nama_Bencana']; ?></p>
-                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $pengajuan['Informasi_Bencana_Yang_Dibutuhkan']; ?></p>
+                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $pengajuan['No_Telepon_Bencana']; ?></p>
                             <div class="iconContainerData">
                                 <a class="linkData buttonServices" data-id='<?php echo $pengajuan['ID_Pengajuan']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                     </td>
-                    <td class="text-center"><?php echo $pengajuan['Nama_Perusahaan']; ?></td>
+                    <td class="text-center"><?php echo $pengajuan['Nama_Pengguna'] ? $pengajuan['Nama_Pengguna'] : $pengajuan['Nama_Perusahaan']; ?></td>
                     <td class="text-center"><?php echo $pengajuan['Keterangan_Surat_Ditolak']; ?></td>
                     <td class="text-center"><?php echo $pengajuan['Tanggal_Pengajuan']; ?></td>
                     <td class="text-center">

@@ -5,7 +5,8 @@ if (isset($_POST['Apply'])) {
     $nama = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama']));
     $nomorHP = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_HP']));
     $email = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Email']));
-    $informasiDibutuhkan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Data_Informasi_Yang_Dibutuhkan']));
+
+    $nomorTeleponFormatted = '+62 ' . substr($nomorHP, 0, 3) . '-' . substr($nomorHP, 4, 4) . '-' . substr($nomorHP, 7);
 
     $obyekDataBencana = new Pengajuan($koneksi);
 
@@ -28,9 +29,8 @@ if (isset($_POST['Apply'])) {
 
     $dataBencana = array(
         'Nama_Bencana' => $nama,
-        'No_Telepon_Bencana' => $nomorHP,
+        'No_Telepon_Bencana' => $nomorTeleponFormatted,
         'Email_Bencana' => $email,
-        'Informasi_Bencana_Yang_Dibutuhkan' => $informasiDibutuhkan,
         'Surat_Pengantar_Permintaan_Data_Bencana' => $namaSuratPengantarBaru
     );
 
