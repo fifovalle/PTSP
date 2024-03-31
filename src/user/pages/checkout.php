@@ -148,51 +148,64 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                     <div class="card cart">
                         <label class="title"><button type="button" class="btn-close me-2" data-bs-dismiss="modal" aria-label="Close"></button>PESAN</label>
                         <div class="steps">
-                            <div class="step">
-                                <div>
-                                    <span>PENERIMA</span>
-                                    <p>Nama Penerima</p>
-                                    <p>Email Penerima</p>
-                                    <p>No Telepon Penerima</p>
-                                </div>
-                                <hr>
-                                <div>
-                                    <span>PRODUK</span>
-                                    <p>Informasi Barang</p>
-                                    <p>Jumlah</p>
-                                </div>
-                                <hr>
-                                <div>
-                                    <span>METODE PEMBAYARAN</span>
-                                    <p>No. Rekening BCA</p>
-                                    <p>**** **** **** 4243</p>
-                                </div>
-                                <hr>
-                                <div class="payments">
-                                    <span>TOTAL PEMBAYARAN</span>
-                                    <div class="details">
-                                        <span>TOTAL:</span>
-                                        <span>Rp</span>
+                            <?php
+                            $idPembeli = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                            $transaksiPembeliModel = new Transaksi($koneksi);
+                            $dataTransaksiPembeli = $transaksiPembeliModel->tampilkanTransaksiSesuaiPembeli($idPembeli);
+                            if (!empty($dataTransaksiPembeli)) {
+                                $totalHarga = 0;
+                            ?>
+                                <div class="step">
+                                    <div>
+                                        <span>PENERIMA</span>
+                                        <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
+                                            <p>Nama Penerima: <?php echo $transaksiPembeli['Pemilik_Informasi']; ?></p>
+                                        <?php endforeach; ?>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <span>PRODUK</span>
+                                        <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
+                                            <p>Nama Produk: <?php echo $transaksiPembeli['Nama_Informasi']; ?></p>
+                                            <p>Jumlah Produk: <?php echo $transaksiPembeli['Jumlah_Barang']; ?></p>
+                                        <?php endforeach; ?>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <span>METODE PEMBAYARAN</span>
+                                        <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
+                                            <p>Transfer ke No Rekening: <?php echo $transaksiPembeli['No_Rekening_Informasi']; ?></p>
+                                        <?php endforeach; ?>
+                                    </div>
+                                    <hr>
+                                    <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
+                                        <?php $totalHarga += $transaksiPembeli['Harga_Informasi']; ?>
+                                    <?php endforeach; ?>
+                                    <div class="payments">
+                                        <span>TOTAL PEMBAYARAN</span>
+                                        <div class="details">
+                                            <span>TOTAL: Rp<?php echo number_format($totalHarga, 0, ',', '.'); ?></span>
+                                        </div>
                                     </div>
                                 </div>
+                        </div>
+                        <div class="card checkout">
+                            <div class="footer">
+                                <label class="price">Rp<?php echo number_format($totalHarga, 0, ',', '.'); ?></label>
+                                <button class="checkout-btn" type="button">Pesan</button>
                             </div>
                         </div>
                     </div>
-                    <div class="card checkout">
-                        <div class="footer">
-                            <label class="price">Rp</label>
-                            <button class="checkout-btn" type="button">Pesan</button>
-                        </div>
-                    </div>
+                <?php }
+                ?>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End Modal Checkout -->
-    <script src="../assets/js/navbar.js"></script>
-    <script src="../assets/js/cart.js"></script>
-    <!-- ALERT -->
-    <?php include '../../../src/admin/partials/utils/alert.php' ?>
+        <!-- End Modal Checkout -->
+        <script src="../assets/js/navbar.js"></script>
+        <script src="../assets/js/cart.js"></script>
+        <!-- ALERT -->
+        <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>
