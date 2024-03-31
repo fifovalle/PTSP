@@ -1260,16 +1260,15 @@ class Pengajuan
 
     public function tambahDataPusatDaerah($data)
     {
-        $query = "INSERT INTO pemerintah_pusat_daerah (ID_Pusat, Nama_Pusat_Daerah, No_Telepon_Pusat_Daerah, Email_Pusat_Daerah, Informasi_Pusat_Daerah_Yang_Dibutuhkan, Memiliki_Kerja_Sama_Dengan_BMKG, Surat_Pengantar_Pusat_Daerah) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO pemerintah_pusat_daerah (ID_Pusat, Nama_Pusat_Daerah, No_Telepon_Pusat_Daerah, Email_Pusat_Daerah, Memiliki_Kerja_Sama_Dengan_BMKG, Surat_Pengantar_Pusat_Daerah) VALUES (?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "issssss",
+            "isssss",
             $data['ID_Pusat'],
             $data['Nama_Pusat_Daerah'],
             $data['No_Telepon_Pusat_Daerah'],
             $data['Email_Pusat_Daerah'],
-            $data['Informasi_Pusat_Daerah_Yang_Dibutuhkan'],
             $data['Memiliki_Kerja_Sama_Dengan_BMKG'],
             $data['Surat_Pengantar_Pusat_Daerah']
         );
@@ -1378,6 +1377,20 @@ class Pengajuan
         }
     }
 
+    public function ambilIDPusatTerakhir()
+    {
+        $query = "SELECT ID_Pusat FROM pemerintah_pusat_daerah ORDER BY ID_Pusat DESC LIMIT 1";
+
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['ID_Pusat'];
+        } else {
+            return null;
+        }
+    }
+
     public function tambahDataPengajuanBencana($dataPengajuanBencana)
     {
         $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Bencana, Status_Pengajuan, Tanggal_Pengajuan) 
@@ -1460,7 +1473,7 @@ class Pengajuan
 
     public function tambahDataPengajuanPenelitian($dataPengajuanPenelitian)
     {
-        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Penelitian, Status_Pengajuan, Tanggal_Pengajuan) 
+        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Pusat_Daerah, Status_Pengajuan, Tanggal_Pengajuan) 
               VALUES (?, ?, ?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
@@ -1468,8 +1481,28 @@ class Pengajuan
             "iiis",
             $dataPengajuanPenelitian['ID_Pengguna'],
             $dataPengajuanPenelitian['ID_Perusahaan'],
-            $dataPengajuanPenelitian['ID_Penelitian'],
+            $dataPengajuanPenelitian['ID_Pusat_Daerah'],
             $dataPengajuanPenelitian['Status_Pengajuan'],
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tambahDataPengajuanPusat($dataPengajuanPusat)
+    {
+        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Pusat_Daerah, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, ?, NOW())";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iiis",
+            $dataPengajuanPusat['ID_Pengguna'],
+            $dataPengajuanPusat['ID_Perusahaan'],
+            $dataPengajuanPusat['ID_Pusat_Daerah'],
+            $dataPengajuanPusat['Status_Pengajuan'],
         );
         if ($statement->execute()) {
             return true;

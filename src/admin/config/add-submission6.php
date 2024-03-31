@@ -5,66 +5,59 @@ if (isset($_POST['Apply'])) {
     $nama = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama']));
     $nomorHP = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_HP']));
     $email = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Email']));
-    $dataInformasi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Data_dan_Informasi_Yang_Dibutuhkan']));
 
-    $objekPemerintah = new Pengajuan($koneksi);
-    $pesanKesalahan = '';
+    $nomorTeleponFormatted = '+62 ' . substr($nomorHP, 0, 3) . '-' . substr($nomorHP, 4, 4) . '-' . substr($nomorHP, 7);
 
-    $nomorHPFormatted = preg_replace('/^(\d{3})(\d{4})(\d{4})$/', '+62 $1-$2-$3', $nomorHP);
+    $objekDataPusatDanDaerah = new Pengajuan($koneksi);
 
-    $suratKerjaSamaBmkg = $_FILES['Mempunyai_Perjanjian_Kerjasama_dengan_BMKG'];
-    $namaSurat = mysqli_real_escape_string($koneksi, htmlspecialchars($suratKerjaSamaBmkg['name']));
-    $suratBmkgTemp = $suratKerjaSamaBmkg['tmp_name'];
-    $ukuranSuratKerjaSama = $suratKerjaSamaBmkg['size'];
-    $errorSuratBmkg = $suratKerjaSamaBmkg['error'];
+    $tujuanFolder = '../assets/image/uploads/';
+    $suratPerjanjian = uploadFile('Mempunyai_Perjanjian_Kerjasama_dengan_BMKG', $tujuanFolder);
+    $suratPengantarBaru = uploadFile('Surat_Pengantar', $tujuanFolder);
 
-    $suratPengantarFile = $_FILES['Surat_Pengantar'];
-    $namaSuratPengantar = mysqli_real_escape_string($koneksi, htmlspecialchars($suratPengantarFile['name']));
-    $suratPengantarTemp = $suratPengantarFile['tmp_name'];
-    $ukuranSuratPengantar = $suratPengantarFile['size'];
-    $errorSuratPengantar = $suratPengantarFile['error'];
-
-    $ukuranMaksimal = 5 * 1024 * 1024;
-    $formatDisetujui = ['jpg', 'jpeg', 'png', 'pdf'];
-
-    $formatBmkg = strtolower(pathinfo($namaSurat, PATHINFO_EXTENSION));
-    $formatPengantar = strtolower(pathinfo($namaSuratPengantar, PATHINFO_EXTENSION));
-
-    $suratKerjaSama = uniqid() . '.' . $formatBmkg;
-    $lokasiSuratBmkg = '../assets/image/uploads/' . $suratKerjaSama;
-
-    $suratPengantarBaru = uniqid() . '.' . $formatPengantar;
-    $lokasiPenyimpananPengantar = '../assets/image/uploads/' . $suratPengantarBaru;
-
-    if (!empty($pesanKesalahan)) {
-        setPesanKesalahan($pesanKesalahan);
-        header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-        exit;
-    }
-
-    $data = array(
+    $dataPusat = array(
         'Nama_Pusat_Daerah' => $nama,
-        'No_Telepon_Pusat_Daerah' => $nomorHPFormatted,
+        'No_Telepon_Pusat_Daerah' => $nomorTeleponFormatted,
         'Email_Pusat_Daerah' => $email,
-        'Informasi_Pusat_Daerah_Yang_Dibutuhkan' => $dataInformasi,
-        'Memiliki_Kerja_Sama_Dengan_BMKG' => $suratKerjaSama,
-        'Surat_Pengantar_Pusat_Daerah' => $suratPengantarBaru
+        'Memiliki_Kerja_Sama_Dengan_BMKG' => $suratPerjanjian,
+        'Surat_Pengantar_Pusat_Daerah' => $suratPengantarBaru,
     );
 
-    $simpanData = $objekPemerintah->tambahDataPusatDaerah($data);
+    $simpanDataPusat = $objekDataPusatDanDaerah->tambahDataPusatDaerah($dataPusat);
 
-    if ($simpanData) {
-        $_SESSION['Ajuan'] = true;
-        setPesanKeberhasilan("Data kegiatan penanggulangan bencana berhasil dikirim harap menunggu konfirmasi oleh admin.");
+    $dataPengajuanPusat = array(
+        'ID_Pengguna' => $_SESSION['ID_Pengguna'],
+        'ID_Perusahaan' => $_SESSION['ID_Perusahaan'],
+        'ID_Pusat_Daerah' => $objekDataPusatDanDaerah->ambilIDPusatTerakhir(),
+        'Status_Pengajuan' => 'Sedang Ditinjau',
+        'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
+    );
+
+    $simpanDataPengajuanPusat = $objekDataPusatDanDaerah->tambahDataPengajuanPusat($dataPengajuanPusat);
+
+    if ($simpanDataPusat && $simpanDataPengajuanPusat) {
+        setPesanKeberhasilan("Data kegiatan penanggulangan sosial berhasil dikirim harap menunggu konfirmasi oleh admin.");
         header("Location: $akarUrl" . "src/user/pages/checkout.php");
         exit();
     } else {
-        setPesanKesalahan("Gagal menambahkan data.");
+        setPesanKesalahan("Gagal menambahkan data kegiatan penanggulangan bencana.");
+        header("Location: $akarUrl" . "src/user/pages/ajukan.php");
+        exit;
     }
-
-    header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-    exit;
 } else {
     header("Location: $akarUrl" . "src/user/pages/ajukan.php");
     exit;
+}
+
+function uploadFile($fileInputName, $tujuanFolder)
+{
+    if ($_FILES[$fileInputName]['error'] !== UPLOAD_ERR_OK) {
+    }
+
+    $namaFileBaru = uniqid() . '_' . basename($_FILES[$fileInputName]['name']);
+    $tujuanFile = $tujuanFolder . $namaFileBaru;
+
+    if (!move_uploaded_file($_FILES[$fileInputName]['tmp_name'], $tujuanFile)) {
+    }
+
+    return $namaFileBaru;
 }

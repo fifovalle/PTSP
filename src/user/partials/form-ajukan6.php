@@ -9,7 +9,7 @@
             <h4 class="header mb-4">Data Pribadi</h4>
             <div class="col-md-6">
                 <label for="nameInput">Nama</label>
-                <input type="text" class="form-control my-3" id="Nama" name="Nama" placeholder="Masukkan Nama" style="height: 40px">
+                <input type="text" class="form-control my-3" id="Nama" name="Nama" placeholder="Masukkan Nama" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <label for="phonenumberInput">Nomor Handphone</label>
@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-6">
                 <label for="emailInput">Email</label>
-                <input type="email" class="form-control my-3" id="Email" name="Email" placeholder="Masukkan Email" style="height: 40px">
+                <input type="email" class="form-control my-3" id="Email" name="Email" placeholder="Masukkan Email" style="height: 40px" autocomplete="off">
             </div>
         </div>
     </div>
@@ -28,16 +28,12 @@
         <div class="row">
             <h4 class="header mb-4">Data Keperluan</h4>
             <div class="col-md-6">
-                <label for="informasidataInput">Data Informasi yang Dibutuhkan</label>
-                <input type="text" class="form-control my-3" id="Data_dan_Informasi_Yang_Dibutuhkan" name="Data_dan_Informasi_Yang_Dibutuhkan" placeholder="Masukkan Data Informasi yang Dibutuhkan" style="height: 40px">
-            </div>
-            <div class="col-md-6">
                 <label for="suratpengantarInput">Mempunyai Perjanjian Kerjasama dengan BMKG tentang Kebutuhan Informasi MKKuG</label>
-                <input type="file" class="form-control my-3" id="Mempunyai_Perjanjian_Kerjasama_dengan_BMKG" name="Mempunyai_Perjanjian_Kerjasama_dengan_BMKG" style="height: 40px">
+                <input type="file" class="form-control my-3" id="Mempunyai_Perjanjian_Kerjasama_dengan_BMKG" name="Mempunyai_Perjanjian_Kerjasama_dengan_BMKG" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <label for="suratpengantarInput">Surat Pengantar</label>
-                <input type="file" class="form-control my-3" id="Surat_Pengantar" name="Surat_Pengantar" style="height: 40px">
+                <input type="file" class="form-control my-3" id="Surat_Pengantar" name="Surat_Pengantar" style="height: 40px" autocomplete="off">
             </div>
         </div>
     </div>
