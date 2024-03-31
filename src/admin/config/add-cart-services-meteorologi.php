@@ -20,7 +20,7 @@ if (isset($_POST['tambah_keranjang'])) {
             $simpanDataKeranjang = $transaksiModel->masukKeranjangTransaksiPenggunaJasa($dataKeranjang);
 
             if ($simpanDataKeranjang) {
-                setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang");
+                setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang Silahkan Mengisi Pengajuan Terlebih Dahulu");
             } else {
                 setPesanKesalahan("Gagal");
             }
@@ -39,7 +39,7 @@ if (isset($_POST['tambah_keranjang'])) {
             $simpanDataKeranjang = $transaksiModel->masukKeranjangTransaksiPerusahaanJasa($dataKeranjang);
 
             if ($simpanDataKeranjang) {
-                setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang");
+                setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang Silahkan Mengisi Pengajuan Terlebih Dahulu");
             } else {
                 setPesanKesalahan("Gagal");
             }
@@ -50,9 +50,9 @@ if (isset($_POST['tambah_keranjang'])) {
         setPesanKesalahan("Anda harus login atau mendaftar terlebih dahulu.");
     }
 
-    header("Location: $akarUrl" . "src/user/pages/checkout.php");
+    header("Location: $akarUrl" . "src/user/pages/ajukan.php");
     exit;
 } else {
-    header("Location: $akarUrl" . "src/user/pages/checkout.php");
+    header("Location: $akarUrl" . "src/user/pages/ajukan.php");
     exit;
 }

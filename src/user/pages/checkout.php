@@ -27,63 +27,9 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     <div class="container-fluid">
         <div class="row">
             <h1 class="header mb-5 ps-5">Pesan</h1>
-            <?php
-            $pengajuanModel = new Pengajuan($koneksi);
-            $dataPengajuan = $pengajuanModel->tampilkanSemuaDataPengajuan();
-            if (!is_null($dataPengajuan) && (is_array($dataPengajuan) || is_object($dataPengajuan))) {
-                $statusDiterimaPerusahaan = false;
-                $statusDiterimaPengguna = false;
-                $statusSedangDitinjau = false;
-                $statusDitolak = false;
-                if (!empty($_SESSION['ID_Perusahaan'])) {
-                    foreach ($dataPengajuan as $pengajuan) {
-                        if ($pengajuan['ID_Perusahaan'] == $_SESSION['ID_Perusahaan']) {
-                            if ($pengajuan['Status_Pengajuan'] == 'Diterima') {
-                                $statusDiterimaPerusahaan = true;
-                            } elseif ($pengajuan['Status_Pengajuan'] == 'Sedang Ditinjau') {
-                                $statusSedangDitinjau = true;
-                            } elseif ($pengajuan['Status_Pengajuan'] == 'Ditolak') {
-                                $statusDitolak = true;
-                            }
-                        }
-                    }
-                }
-                if (!empty($_SESSION['ID_Pengguna'])) {
-                    foreach ($dataPengajuan as $pengajuan) {
-                        if ($pengajuan['ID_Pengguna'] == $_SESSION['ID_Pengguna']) {
-                            if ($pengajuan['Status_Pengajuan'] == 'Diterima') {
-                                $statusDiterimaPengguna = true;
-                            } elseif ($pengajuan['Status_Pengajuan'] == 'Sedang Ditinjau') {
-                                $statusSedangDitinjau = true;
-                            } elseif ($pengajuan['Status_Pengajuan'] == 'Ditolak') {
-                                $statusDitolak = true;
-                            }
-                        }
-                    }
-                }
-                if (!$statusDiterimaPerusahaan && !$statusDiterimaPengguna && !$statusSedangDitinjau && !$statusDitolak) {
-                    echo '<div class="d-flex col-md-12 justify-content-end text-right">
-                    <p class="text-secondary me-4 mb-4 fw-bold"><a class="text-decoration-none fw-bold text-info" href="ajukan.php">Klik disini</a> untuk mengajukan pesanan</p>
-                </div>';
-                } elseif ($statusDiterimaPerusahaan || $statusDiterimaPengguna) {
-                    echo '<div class="d-flex col-md-12 justify-content-end text-right">
-                                <button type="button" class="btn btn-outline-warning me-4 mb-4" data-bs-toggle="modal" data-bs-target="#Checkout">Pesan</button>
-                            </div>';
-                } elseif ($statusSedangDitinjau) {
-                    echo '<div class="d-flex col-md-12 justify-content-end text-right">
-                                <p class="text-warning me-4 mb-4 fw-bold">Pengajuan Anda sedang ditinjau oleh admin.</p>
-                            </div>';
-                } elseif ($statusDitolak) {
-                    echo '<div class="d-flex col-md-12 justify-content-end text-right">
-                                <p class="text-danger me-4 mb-4 fw-bold">Pengajuan Anda ditolak oleh admin.</p>
-                            </div>';
-                }
-            } else {
-                echo '<div class="d-flex col-md-12 justify-content-end text-right">
-                            <p class="text-secondary me-4 mb-4 fw-bold">Tidak ada data pengajuan yang tersedia. Silakan mengisi formulir pengajuan terlebih dahulu!</p>
-                        </div>';
-            }
-            ?>
+            <div class="d-flex col-md-12 justify-content-end text-right">
+                <button type="button" class="btn btn-outline-warning me-4 mb-4" data-bs-toggle="modal" data-bs-target="#Checkout">Pesan</button>
+            </div>
             <div class="col-md-12  justify-content-center">
                 <div class="row" id="dropdown-informasi">
                     <div class="col-md-12">
