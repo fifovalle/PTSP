@@ -1197,16 +1197,15 @@ class Pengajuan
 
     public function tambahDataKeagamaan($data)
     {
-        $query = "INSERT INTO kegiatan_keagamaan (ID_Keagamaan, Nama_Keagamaan, No_Telepon, Email, Informasi_Keagamaan_Yang_Dibutuhkan, Surat_Yang_Ditandatangani_Keagamaan) VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO kegiatan_keagamaan (ID_Keagamaan, Nama_Keagamaan, No_Telepon_Keagamaan, Email_Keagamaan, Surat_Yang_Ditandatangani_Keagamaan) VALUES (?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "isssss",
+            "issss",
             $data['ID_Keagamaan'],
             $data['Nama_Keagamaan'],
-            $data['No_Telepon'],
-            $data['Email'],
-            $data['Informasi_Keagamaan_Yang_Dibutuhkan'],
+            $data['No_Telepon_Keagamaan'],
+            $data['Email_Keagamaan'],
             $data['Surat_Yang_Ditandatangani_Keagamaan']
         );
 
@@ -1339,6 +1338,20 @@ class Pengajuan
         }
     }
 
+    public function ambilIDKeagamaanTerakhir()
+    {
+        $query = "SELECT ID_Keagamaan FROM kegiatan_keagamaan ORDER BY ID_Keagamaan DESC LIMIT 1";
+
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['ID_Keagamaan'];
+        } else {
+            return null;
+        }
+    }
+
     public function tambahDataPengajuanBencana($dataPengajuanBencana)
     {
         $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Bencana, Status_Pengajuan, Tanggal_Pengajuan) 
@@ -1370,6 +1383,26 @@ class Pengajuan
             $dataPengajuanSosial['ID_Pengguna'],
             $dataPengajuanSosial['ID_Perusahaan'],
             $dataPengajuanSosial['ID_Sosial'],
+            $dataPengajuanSosial['Status_Pengajuan'],
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tambahDataPengajuanKeagamaan($dataPengajuanSosial)
+    {
+        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Keagamaan, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, ?, NOW())";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iiis",
+            $dataPengajuanSosial['ID_Pengguna'],
+            $dataPengajuanSosial['ID_Perusahaan'],
+            $dataPengajuanSosial['ID_Keagamaan'],
             $dataPengajuanSosial['Status_Pengajuan'],
         );
         if ($statement->execute()) {

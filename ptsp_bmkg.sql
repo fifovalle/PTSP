@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2024 at 04:21 AM
+-- Generation Time: Mar 31, 2024 at 04:36 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -146,7 +146,6 @@ CREATE TABLE `kegiatan_keagamaan` (
   `Nama_Keagamaan` varchar(30) NOT NULL,
   `No_Telepon_Keagamaan` varchar(20) NOT NULL,
   `Email_Keagamaan` varchar(30) NOT NULL,
-  `Informasi_Keagamaan_Yang_Dibutuhkan` varchar(100) NOT NULL,
   `Surat_Yang_Ditandatangani_Keagamaan` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -473,7 +472,7 @@ ALTER TABLE `kegiatan_bencana`
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
 --
 ALTER TABLE `kegiatan_keagamaan`
-  MODIFY `ID_Keagamaan` int(16) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Keagamaan` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_pertahanan_keamanan`
@@ -503,7 +502,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `pengguna`

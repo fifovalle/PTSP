@@ -9,7 +9,7 @@
             <h4 class="header mb-4">Data Pribadi</h4>
             <div class="col-md-6">
                 <label for="nameInput">Nama</label>
-                <input type="text" class="form-control my-3" id="Nama" name="Nama" placeholder="Masukkan Nama" style="height: 40px">
+                <input type="text" class="form-control my-3" id="Nama" name="Nama" placeholder="Masukkan Nama" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <label for="phonenumberInput">Nomor Handphone</label>
@@ -20,20 +20,16 @@
             </div>
             <div class="col-md-6">
                 <label for="emailInput">Email</label>
-                <input type="email" class="form-control my-3" id="Email" name="Email" placeholder="Masukkan Email" style="height: 40px">
+                <input type="email" class="form-control my-3" id="Email" name="Email" placeholder="Masukkan Email" style="height: 40px" autocomplete="off">
             </div>
         </div>
     </div>
     <div class="container my-3" id="DataKeperluan">
         <div class="row">
             <h4 class="header mb-4">Data Keperluan</h4>
-            <div class="col-md-6">
-                <label for="informasidataInput">Data Informasi yang Dibutuhkan</label>
-                <input type="text" class="form-control my-3" id="Informasi_Keagamaan_Yang_Dibutuhkan" name="Informasi_Keagamaan_Yang_Dibutuhkan" placeholder="Masukkan Data Informasi yang Dibutuhkan" style="height: 40px">
-            </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <label for="suratpengantarInput">Surat Permintaan Ditandatangani Camat atau Pejabat Setingkat</label>
-                <input type="file" class="form-control my-3" id="Surat_Yang_Ditandatangani_Keagamaan" name="Surat_Yang_Ditandatangani_Keagamaan" style="height: 40px">
+                <input type="file" class="form-control my-3" id="Surat_Yang_Ditandatangani_Keagamaan" name="Surat_Yang_Ditandatangani_Keagamaan" style="height: 40px" autocomplete="off">
             </div>
         </div>
     </div>
