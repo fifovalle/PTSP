@@ -1,7 +1,7 @@
 <form class="row form g-3" action="../../../src/admin/config/add-submission7.php" method="POST" enctype="multipart/form-data">
     <div class="col-md-12">
         <div class="container my-4" id="TitleForm">
-            <h4><b>Form Pelayanban Informasi dengan Tarif PNBP</b></h4>
+            <h4><b>Form Pelayanan Informasi dengan Tarif PNBP</b></h4>
         </div>
     </div>
     <div class="container my-3" id="DataPribadi">
@@ -9,7 +9,7 @@
             <h4 class="header mb-4">Data Pribadi</h4>
             <div class="col-md-6">
                 <label for="nameInput">Nama</label>
-                <input type="text" class="form-control my-3" id="Nama" name="Nama" placeholder="Masukkan Nama" style="height: 40px">
+                <input type="text" class="form-control my-3" id="Nama" name="Nama" placeholder="Masukkan Nama" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <label for="phonenumberInput">Nomor Handphone</label>
@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-6">
                 <label for="emailInput">Email</label>
-                <input type="email" class="form-control my-3" id="Email" name="Email" placeholder="Masukkan Email" style="height: 40px">
+                <input type="email" class="form-control my-3" id="Email" name="Email" placeholder="Masukkan Email" style="height: 40px" autocomplete="off">
             </div>
         </div>
     </div>
@@ -28,16 +28,12 @@
         <div class="row">
             <h4 class="header mb-4">Data Keperluan</h4>
             <div class="col-md-6">
-                <label for="informasidataInput">Data Informasi yang Dibutuhkan</label>
-                <input type="text" class="form-control my-3" id="Data_dan_Informasi_Yang_Dibutuhkan" name="Data_dan_Informasi_Yang_Dibutuhkan" placeholder="Masukkan Data Informasi yang Dibutuhkan" style="height: 40px">
-            </div>
-            <div class="col-md-6">
                 <label for="suratpengantarInput">Identitas (KTP)</label>
-                <input type="file" class="form-control my-3" id="Identitas_(KTP)" name="Identitas_KTP" style="height: 40px">
+                <input type="file" class="form-control my-3" id="Identitas_(KTP)" name="Identitas_KTP" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <label for="suratpengantarInput">Surat Pengantar</label>
-                <input type="file" class="form-control my-3" id="Surat_Pengantar" name="Surat_Pengantar" style="height: 40px">
+                <input type="file" class="form-control my-3" id="Surat_Pengantar" name="Surat_Pengantar" style="height: 40px" autocomplete="off">
             </div>
         </div>
     </div>

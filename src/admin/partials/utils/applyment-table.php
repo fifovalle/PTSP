@@ -42,13 +42,13 @@
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
                         <div>
-                            <img class="imageData" src="../assets/image/uploads/<?php echo $pengajuan['Surat_Pengantar_Permintaan_Data_Bencana'] ?? $pengajuan['Surat_Yang_Ditandatangani_Sosial'] ?? $pengajuan['Surat_Yang_Ditandatangani_Keagamaan'] ?? $pengajuan['Surat_Yang_Ditandatangani_Pertahanan'] ?? $pengajuan['Surat_Pengantar_Kepsek_Rektor_Dekan'] ?? $pengajuan['Surat_Pengantar_Pusat_Daerah']; ?>" alt="Foto">
+                            <img class="imageData" src="../assets/image/uploads/<?php echo $pengajuan['Surat_Pengantar_Permintaan_Data_Bencana'] ?? $pengajuan['Surat_Yang_Ditandatangani_Sosial'] ?? $pengajuan['Surat_Yang_Ditandatangani_Keagamaan'] ?? $pengajuan['Surat_Yang_Ditandatangani_Pertahanan'] ?? $pengajuan['Surat_Pengantar_Kepsek_Rektor_Dekan'] ?? $pengajuan['Surat_Pengantar_Pusat_Daerah'] ?? $pengajuan['Surat_Pengantar_PNBP']; ?>" alt="Foto">
                         </div>
                         <div class="deskriptorContainer">
-                            <p class="fw-semibold m-auto"><?php echo $pengajuan['Nama_Bencana'] ?? $pengajuan['Nama_Sosial'] ?? $pengajuan['Nama_Keagamaan'] ?? $pengajuan['Nama_Pertahanan'] ?? $pengajuan['Nama_Pendidikan_Dan_Penelitian'] ?? $pengajuan['Nama_Pusat_Daerah']; ?></p>
+                            <p class="fw-semibold m-auto"><?php echo $pengajuan['Nama_Bencana'] ?? $pengajuan['Nama_Sosial'] ?? $pengajuan['Nama_Keagamaan'] ?? $pengajuan['Nama_Pertahanan'] ?? $pengajuan['Nama_Pendidikan_Dan_Penelitian'] ?? $pengajuan['Nama_Pusat_Daerah'] ?? $pengajuan['Nama_PNBP']; ?></p>
                             <p class="fw-semibold deskriptorSmall m-auto">
                                 <?php
-                                $no_telepon = $pengajuan['No_Telepon_Bencana'] ?? $pengajuan['No_Telepon_Sosial'] ?? $pengajuan['No_Telepon_Keagamaan'] ?? $pengajuan['No_Telepon_Pertahanan'] ?? $pengajuan['No_Telepon_Pendidikan_Penelitian'] ?? $pengajuan['No_Telepon_Pusat_Daerah'];
+                                $no_telepon = $pengajuan['No_Telepon_Bencana'] ?? $pengajuan['No_Telepon_Sosial'] ?? $pengajuan['No_Telepon_Keagamaan'] ?? $pengajuan['No_Telepon_Pertahanan'] ?? $pengajuan['No_Telepon_Pendidikan_Penelitian'] ?? $pengajuan['No_Telepon_Pusat_Daerah'] ?? $pengajuan['No_Telepon_PNBP'];
                                 echo strlen($no_telepon) > 4 ? substr($no_telepon, 0, 4) . '...' : $no_telepon;
                                 ?>
                             </p>

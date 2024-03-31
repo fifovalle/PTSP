@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2024 at 06:07 AM
+-- Generation Time: Mar 31, 2024 at 06:42 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -89,7 +89,6 @@ CREATE TABLE `informasi_tarif_pnbp` (
   `Nama_PNBP` varchar(30) NOT NULL,
   `No_Telepon_PNBP` varchar(20) NOT NULL,
   `Email_PNBP` varchar(30) NOT NULL,
-  `Informasi_PNBP_Yang_Dibutuhkan` varchar(100) NOT NULL,
   `Identitas_KTP_PNBP` longblob NOT NULL,
   `Surat_Pengantar_PNBP` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -229,6 +228,7 @@ CREATE TABLE `pengajuan` (
   `ID_Sosial` int(11) DEFAULT NULL,
   `ID_Pusat_Daerah` int(11) DEFAULT NULL,
   `ID_Penelitian` int(11) DEFAULT NULL,
+  `ID_Tarif` int(11) DEFAULT NULL,
   `Status_Pengajuan` enum('Sedang Ditinjau','Ditolak','Diterima') NOT NULL,
   `Keterangan_Surat_Ditolak` varchar(100) DEFAULT NULL,
   `Tanggal_Pengajuan` datetime NOT NULL
@@ -406,7 +406,8 @@ ALTER TABLE `pengajuan`
   ADD KEY `ID_Sosial` (`ID_Sosial`),
   ADD KEY `ID_Pusat_Daerah` (`ID_Pusat_Daerah`),
   ADD KEY `ID_Penelitian` (`ID_Penelitian`),
-  ADD KEY `ID_Admin` (`ID_Admin`);
+  ADD KEY `ID_Admin` (`ID_Admin`),
+  ADD KEY `ID_Tarif` (`ID_Tarif`);
 
 --
 -- Indexes for table `pengguna`
@@ -451,7 +452,7 @@ ALTER TABLE `informasi`
 -- AUTO_INCREMENT for table `informasi_tarif_pnbp`
 --
 ALTER TABLE `informasi_tarif_pnbp`
-  MODIFY `ID_PNBP` int(16) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_PNBP` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `jasa`
@@ -499,7 +500,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -528,6 +529,7 @@ ALTER TABLE `transaksi`
 --
 ALTER TABLE `pengajuan`
   ADD CONSTRAINT `pengajuan_ibfk_1` FOREIGN KEY (`ID_Bencana`) REFERENCES `kegiatan_bencana` (`ID_Bencana`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pengajuan_ibfk_10` FOREIGN KEY (`ID_Tarif`) REFERENCES `informasi_tarif_pnbp` (`ID_PNBP`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pengajuan_ibfk_2` FOREIGN KEY (`ID_Pusat_Daerah`) REFERENCES `pemerintah_pusat_daerah` (`ID_Pusat`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pengajuan_ibfk_3` FOREIGN KEY (`ID_Penelitian`) REFERENCES `pendidikan_dan_penelitian` (`ID_Pendidikan_Penelitian`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pengajuan_ibfk_4` FOREIGN KEY (`ID_Perusahaan`) REFERENCES `perusahaan` (`ID_Perusahaan`) ON DELETE CASCADE ON UPDATE CASCADE,

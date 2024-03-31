@@ -1153,16 +1153,15 @@ class Pengajuan
 
     public function tambahInformasiPNBP($data)
     {
-        $query = "INSERT INTO informasi_tarif_pnbp (ID_PNBP, Nama_PNBP, No_Telepon_PNBP, Email_PNBP, Informasi_PNBP_Yang_Dibutuhkan, Identitas_KTP_PNBP, Surat_Pengantar_PNBP) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO informasi_tarif_pnbp (ID_PNBP, Nama_PNBP, No_Telepon_PNBP, Email_PNBP, Identitas_KTP_PNBP, Surat_Pengantar_PNBP) VALUES (?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "issssss",
+            "isssss",
             $data['ID_PNBP'],
             $data['Nama_PNBP'],
             $data['No_Telepon_PNBP'],
             $data['Email_PNBP'],
-            $data['Informasi_PNBP_Yang_Dibutuhkan'],
             $data['Identitas_KTP_PNBP'],
             $data['Surat_Pengantar_PNBP']
         );
@@ -1391,6 +1390,20 @@ class Pengajuan
         }
     }
 
+    public function ambilIDTarfiTerakhir()
+    {
+        $query = "SELECT ID_PNBP FROM informasi_tarif_pnbp ORDER BY ID_PNBP DESC LIMIT 1";
+
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['ID_PNBP'];
+        } else {
+            return null;
+        }
+    }
+
     public function tambahDataPengajuanBencana($dataPengajuanBencana)
     {
         $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Bencana, Status_Pengajuan, Tanggal_Pengajuan) 
@@ -1511,9 +1524,29 @@ class Pengajuan
         }
     }
 
+    public function tambahDataPengajuanTarif($dataPengajuanTarif)
+    {
+        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Tarif, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, ?, NOW())";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iiis",
+            $dataPengajuanTarif['ID_Pengguna'],
+            $dataPengajuanTarif['ID_Perusahaan'],
+            $dataPengajuanTarif['ID_Tarif'],
+            $dataPengajuanTarif['Status_Pengajuan'],
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function tampilkanDataPengajuan()
     {
-        $query = "SELECT pengajuan.*, pengguna.*, perusahaan.*, admin.*, kegiatan_bencana.*, kegiatan_keagamaan.*, kegiatan_pertahanan_keamanan.*, kegiatan_sosial.*, pemerintah_pusat_daerah.*, pendidikan_dan_penelitian.* FROM pengajuan 
+        $query = "SELECT pengajuan.*, pengguna.*, perusahaan.*, admin.*, kegiatan_bencana.*, kegiatan_keagamaan.*, kegiatan_pertahanan_keamanan.*, kegiatan_sosial.*, pemerintah_pusat_daerah.*, pendidikan_dan_penelitian.*, informasi_tarif_pnbp.* FROM pengajuan 
                   LEFT JOIN pengguna ON pengajuan.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN perusahaan ON pengajuan.ID_Perusahaan = perusahaan.ID_Perusahaan
                   LEFT JOIN admin ON pengajuan.ID_Admin = admin.ID_Admin
@@ -1522,7 +1555,8 @@ class Pengajuan
                   LEFT JOIN kegiatan_pertahanan_keamanan ON pengajuan.ID_Pertahanan = kegiatan_pertahanan_keamanan.ID_Pertahanan
                   LEFT JOIN kegiatan_sosial ON pengajuan.ID_Sosial = kegiatan_sosial.ID_Sosial
                   LEFT JOIN pemerintah_pusat_daerah ON pengajuan.ID_Pusat_Daerah = pemerintah_pusat_daerah.ID_Pusat
-                  LEFT JOIN pendidikan_dan_penelitian ON pengajuan.ID_Penelitian = pendidikan_dan_penelitian.ID_Pendidikan_Penelitian WHERE Status_Pengajuan = 'Sedang Ditinjau'";
+                  LEFT JOIN pendidikan_dan_penelitian ON pengajuan.ID_Penelitian = pendidikan_dan_penelitian.ID_Pendidikan_Penelitian
+                  LEFT JOIN informasi_tarif_pnbp ON pengajuan.ID_Tarif = informasi_tarif_pnbp.ID_PNBP  WHERE Status_Pengajuan = 'Sedang Ditinjau'";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
