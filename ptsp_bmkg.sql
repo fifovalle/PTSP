@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2024 at 08:01 AM
+-- Generation Time: Mar 31, 2024 at 03:26 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -74,9 +74,7 @@ CREATE TABLE `informasi` (
 --
 
 INSERT INTO `informasi` (`ID_Informasi`, `Foto_Informasi`, `Nama_Informasi`, `Deskripsi_Informasi`, `Harga_Informasi`, `Pemilik_Informasi`, `No_Rekening_Informasi`, `Kategori_Informasi`, `Status_Informasi`) VALUES
-(15, 0x363566656633303038346564332e6a7067, 'a', 'a', 100000000, 'Instansi A', 1111, 'Geofisika', 'Tersedia'),
-(16, 0x363630303566363366316632632e706e67, 'Data1', 'shdshf', 500000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
-(17, 0x363630303566396664653137372e6a7067, 'Data2', 'ndajd', 90000, 'Instansi A', 1111, 'Klimatologi', 'Tersedia');
+(18, 0x363630386262336338623337612e706e67, 'Data 1', 'Beli Data ini', 100000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -117,9 +115,7 @@ CREATE TABLE `jasa` (
 --
 
 INSERT INTO `jasa` (`ID_Jasa`, `Foto_Jasa`, `Nama_Jasa`, `Deskripsi_Jasa`, `Harga_Jasa`, `Pemilik_Jasa`, `No_Rekening_Jasa`, `Kategori_Jasa`, `Status_Jasa`) VALUES
-(14, 0x363630303661613539303864372e706e67, 'Jasa Pijat', 'jahdjhshdh', 80000000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
-(15, 0x363630303661643765626339662e706e67, 'Tukang Sunat', 'hjSHDKJSF', 8900000, 'Instansi A', 1111, 'Klimatologi', 'Tersedia'),
-(16, 0x363630303662303162326534362e706e67, 'Parut Gibran', 'hsjhsjfh', 600000, 'Instansi A', 1111, 'Geofisika', 'Tersedia');
+(17, 0x363630386262616639396365362e6a7067, 'Jasa1', 'Beli Jasa ini', 200000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -135,21 +131,6 @@ CREATE TABLE `kegiatan_bencana` (
   `Informasi_Bencana_Yang_Dibutuhkan` varchar(100) NOT NULL,
   `Surat_Pengantar_Permintaan_Data_Bencana` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kegiatan_bencana`
---
-
-INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencana`, `Email_Bencana`, `Informasi_Bencana_Yang_Dibutuhkan`, `Surat_Pengantar_Permintaan_Data_Bencana`) VALUES
-(3, 'Naufal', '81223652490', 'fifanaufal10@gmail.com', 'Butuh', 0x363630323965396535633939365f6c6f6769632e706e67),
-(4, 'Naufal', '81223652490', 'fifanaufal10@gmail.com', 'Butuh', 0x363630323966323464653531345f6c6f6769632e706e67),
-(5, 'Naufal', '81223652490', 'asep@gmail.com', 'Butuh', 0x363630323966633637396436375f6c6f6769632e706e67),
-(6, 'Ahsan', '1', 'asep@gmail.com', 'Butuh', 0x363630326130383433323730625f6c6f6769632e706e67),
-(7, 'Naufal', '81223652490', 'asep@gmail.com', 'Butuh', 0x363630326131366136613264395f6c6f6769632e706e67),
-(8, 'a', '81223652490', 'a@gmail.com', 'a', 0x363630326265643433313762375f57494e5f32303232303831315f31315f33315f31375f50726f2e6a7067),
-(9, 'a', '81223652490', 'a@gmail.com', 'a', 0x363630326334393236663331345f57494e5f32303232313031325f32305f35345f33325f50726f2e6a7067),
-(10, 'Naufal', '81223652490', 'naufal@gmai.com', 'Butuh', 0x363630336238343963353331385f6c6f6769632e706e67),
-(11, 'Naufal', '81223652490', 'asep@gmail.com', 'Butuh', 0x363630336332633339333766345f6c6f6769632e706e67);
 
 -- --------------------------------------------------------
 
@@ -351,15 +332,6 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Rekening_Pengguna`, `Jumlah_Barang`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(32, NULL, NULL, 5, 17, NULL, NULL, 0, '2024-03-26 10:34:44', 'Belum Disetujui'),
-(33, NULL, NULL, 5, NULL, 14, NULL, 0, '2024-03-26 16:08:18', 'Belum Disetujui'),
-(35, NULL, 16, NULL, 16, NULL, NULL, 0, '2024-03-27 13:09:46', 'Belum Disetujui');
-
---
 -- Indexes for dumped tables
 --
 
@@ -475,7 +447,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `informasi`
 --
 ALTER TABLE `informasi`
-  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `informasi_tarif_pnbp`
@@ -487,13 +459,13 @@ ALTER TABLE `informasi_tarif_pnbp`
 -- AUTO_INCREMENT for table `jasa`
 --
 ALTER TABLE `jasa`
-  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
@@ -529,25 +501,25 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  MODIFY `ID_Perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_Perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Constraints for dumped tables
