@@ -139,7 +139,6 @@ class Admin
         }
     }
 
-
     public function perbaruiPhotoProfile($id, $data)
     {
         $query = "UPDATE admin SET Foto=? WHERE ID_Admin=?";
@@ -422,7 +421,33 @@ class Pengguna
         }
     }
 
+    public function perbaruiFotoPengguna($id, $data)
+    {
+        $query = "UPDATE pengguna SET Foto=? WHERE ID_Pengguna=?";
 
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("si", $data['Foto'], $id);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function perbaruiFotoPerusahaan($id, $data)
+    {
+        $query = "UPDATE perusahaan SET Foto_Perusahaan=? WHERE ID_Perusahaan=?";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("si", $data['Foto_Perusahaan'], $id);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function tampilkanDataPengguna()
     {
@@ -507,7 +532,6 @@ class Pengguna
             return false;
         }
     }
-
 
 
     public function autentikasiPengguna($email, $kataSandi)
@@ -653,6 +677,21 @@ class Pengguna
         }
     }
 
+    public function getFotoPerusahaanById($idPerusahaan)
+    {
+        $query = "SELECT Foto_Perusahaan FROM perusahaan WHERE ID_Perusahaan = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $idPerusahaan);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['Foto_Perusahaan'];
+        } else {
+            return null;
+        }
+    }
     public function generateRandomCaptchaPengguna($length = 5)
     {
         $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -1788,3 +1827,40 @@ class Transaksi
     }
 }
 // ===================================TRANSAKSI===================================
+
+// ===================================IKM=====================================
+class Ikm
+{
+    private $koneksi;
+
+    public function __construct($koneksi)
+    {
+        $this->koneksi = $koneksi;
+    }
+
+    public function tambahDataIkm($data)
+    {
+        $query = "INSERT INTO ikm (Nama, Jenis_Kelamin, Pendidikan_Terakhir, NIK, Umur, Pekerjaan, Koresponden, Jenis_Layanan, Asal_Daerah) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "sssisssss",
+            $data['Nama'],
+            $data['Jenis_Kelamin'],
+            $data['Pendidikan_Terakhir'],
+            $data['NIK'],
+            $data['Umur'],
+            $data['Pekerjaan'],
+            $data['Koresponden'],
+            $data['Jenis_Layanan'],
+            $data['Asal_Daerah']
+        );
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+// ===================================IKM=====================================

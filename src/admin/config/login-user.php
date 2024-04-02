@@ -31,6 +31,7 @@ if (isset($_POST['Masuk'])) {
 
     if ($pengguna !== null) {
         $_SESSION['ID_Pengguna'] = htmlspecialchars($pengguna['ID_Pengguna']);
+        $_SESSION['Foto_Pengguna'] = htmlspecialchars($pengguna['Foto']);
         $_SESSION['Nama_Pengguna'] = htmlspecialchars($pengguna['Nama_Pengguna']);
         $_SESSION['Nama_Depan_Pengguna'] = htmlspecialchars($pengguna['Nama_Depan_Pengguna']);
         $_SESSION['Nama_Belakang_Pengguna'] = htmlspecialchars($pengguna['Nama_Belakang_Pengguna']);
@@ -51,6 +52,7 @@ if (isset($_POST['Masuk'])) {
 
     if ($perusahaan !== null) {
         $_SESSION['ID_Perusahaan'] = htmlspecialchars($perusahaan['ID_Perusahaan']);
+        $_SESSION['Foto_Perusahaan'] = htmlspecialchars($perusahaan['Foto_Perusahaan']);
         $_SESSION['Nama_Perusahaan'] = htmlspecialchars($perusahaan['Nama_Perusahaan']);
         $_SESSION['Nama_Depan_Anggota_Perusahaan'] = htmlspecialchars($perusahaan['Nama_Depan_Anggota_Perusahaan']);
         $_SESSION['Nama_Belakang_Anggota_Perusahaan'] = htmlspecialchars($perusahaan['Nama_Belakang_Anggota_Perusahaan']);

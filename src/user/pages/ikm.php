@@ -1,3 +1,6 @@
+<?php
+include '../../admin/config/databases.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +13,9 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <link rel="stylesheet" href="../assets/css/ikm.css">
     <script src="../assets/js/javascript.js"></script>
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <title>PTSP BMKG Provinsi Bengkulu</title>
 </head>
 
@@ -47,7 +53,7 @@
                     <h3 class="text-black">Penilaian Layanan</h3>
                 </div>
             </div>
-            <form action="" method="POST">
+            <form action="../../../src/admin/config/add-ikm.php" method="POST">
                 <div class="row form justify-content-between mx-5" id="DataDiri">
                     <div class="col-md-4 mb-4">
                         <div class="form-floating">
@@ -59,8 +65,8 @@
                         <div class="form-floating">
                             <select class="form-control" id="floatingInput" name="JenisKelamin">
                                 <option selected>Pilih Jenis Kelamin</option>
-                                <option value="L">Laki-Laki</option>
-                                <option value="P">Perempuan</option>
+                                <option value="Pria">Pria</option>
+                                <option value="Wanita">Wanita</option>
                             </select>
                             <label for="floatingInput">Jenis Kelamin</label>
                         </div>
@@ -99,7 +105,7 @@
                         <div class="form-floating">
                             <select class="form-control" id="floatingInput" name="Koresponden">
                                 <option selected>Pilih Koresponden</option>
-                                <option value="Masyarakat_Umum">Masyarakat Umum</option>
+                                <option value="Masyarakat Umum">Masyarakat Umum</option>
                                 <option value="Instansi">Instansi</option>
                             </select>
                             <label for="floatingInput">Koresponden</label>
@@ -1257,7 +1263,7 @@
                             </div>
                             <div class="row justify-content-center mt-5">
                                 <div class="col-md-6 text-center">
-                                    <button type="submit" class="btn btn-primary w-50" id="submit-ikm">Submit Now</button>
+                                    <button type="submit" class="btn btn-primary w-50" id="submit-ikm" name="submit">Submit Now</button>
                                 </div>
                             </div>
                         </div>
@@ -1267,6 +1273,8 @@
         </div>
     </main>
     <script src="../assets/js/ikm.js"></script>
+    <!-- ALERT -->
+    <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>

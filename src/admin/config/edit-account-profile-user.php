@@ -15,7 +15,7 @@ if (isset($_POST['Simpan'])) {
     $obyekPengguna = new Pengguna($koneksi);
 
     if (isset($_SESSION['ID_Pengguna']) || isset($_SESSION['ID_Perusahaan'])) {
-        if ($username == $_SESSION['Nama_Pengguna'] || $username == $_SESSION['Nama_Pengguna_Anggota_Perusahaan']) {
+        if ($username == $_SESSION['ID_Pengguna'] || $username == $_SESSION['ID_Perusahaan']) {
             $username = isset($_SESSION['Nama_Pengguna']) ? $_SESSION['Nama_Pengguna'] : $_SESSION['Nama_Pengguna_Anggota_Perusahaan'];
             $namaDepan = isset($_SESSION['Nama_Depan_Pengguna']) ? $_SESSION['Nama_Depan_Pengguna'] : $_SESSION['Nama_Depan_Anggota_Perusahaan'];
             $namaBelakang = isset($_SESSION['Nama_Belakang_Pengguna']) ? $_SESSION['Nama_Belakang_Pengguna'] : $_SESSION['Nama_Belakang_Anggota_Perusahaan'];
