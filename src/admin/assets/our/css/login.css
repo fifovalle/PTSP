@@ -64,7 +64,7 @@ body {
   width: 250px;
   position: absolute;
   top: 45%;
-  left: 29%;
+  left: 27.8%;
 }
 
 @media screen and (width: 1536px) {
@@ -284,5 +284,14 @@ a:hover {
 
   .login-content {
     justify-content: center;
+  }
+}
+
+@media (min-width: 1920px) and (min-height: 1080px) {
+  .forgotBG img {
+    width: 250px;
+    position: absolute;
+    top: 45%;
+    left: 29%;
   }
 }

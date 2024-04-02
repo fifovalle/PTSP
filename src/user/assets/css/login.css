@@ -4,7 +4,6 @@
   --color-btn-masuk: #0077ff;
 }
 
-/************** Scrollbar Effect **************/
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -21,20 +20,17 @@
   background: #555;
 }
 
-/************** End Scrollbar Effect **************/
 body {
   padding: 0;
   margin: 0;
 }
 
-/* Section 1 Effect */
 .section1 {
   height: 837px;
 }
 
 .section1 .right-content {
   padding: 5rem 7rem 5rem 7rem;
-  /* Atas, kanan, bawah, kiri */
 }
 
 .form {
@@ -107,8 +103,6 @@ body {
 .custom-shape-divider-bottom-1709729084 .shape-fill {
   fill: var(--divider-color);
 }
-
-/* End Section 1 Effect */
 
 .button {
   position: relative;
