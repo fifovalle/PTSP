@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2024 at 05:09 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 02, 2024 at 09:38 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -59,16 +59,49 @@ INSERT INTO `admin` (`ID_Admin`, `Foto`, `Nama_Depan_Admin`, `Nama_Belakang_Admi
 
 CREATE TABLE `ikm` (
   `ID_Ikm` int(11) NOT NULL,
-  `Nama` varchar(50) NOT NULL,
-  `Jenis_Kelamin` enum('Pria','Wanita') NOT NULL,
-  `Pendidikan_Terakhir` enum('SMP','SMA','S1','S2') NOT NULL,
-  `NIK` int(11) NOT NULL,
-  `Umur` int(11) NOT NULL,
-  `Pekerjaan` varchar(50) NOT NULL,
-  `Koresponden` enum('Masyarakat Umum','Instansi') NOT NULL,
-  `Jenis_Layanan` enum('Informasi','Jasa') NOT NULL,
-  `Asal_Daerah` varchar(100) NOT NULL
+  `Nama` varchar(50) DEFAULT NULL,
+  `Jenis_Kelamin` enum('Pria','Wanita') DEFAULT NULL,
+  `Pendidikan_Terakhir` enum('SMP','SMA','S1','S2') DEFAULT NULL,
+  `NIK` int(11) DEFAULT NULL,
+  `Umur` int(11) DEFAULT NULL,
+  `Pekerjaan` varchar(50) DEFAULT NULL,
+  `Koresponden` enum('Masyarakat Umum','Instansi') DEFAULT NULL,
+  `Jenis_Layanan` enum('Informasi','Jasa') DEFAULT NULL,
+  `Asal_Daerah` varchar(100) DEFAULT NULL,
+  `Informasi_Cuaca_Publik` varchar(100) DEFAULT NULL,
+  `Informasi_Cuaca_Khusus` varchar(100) DEFAULT NULL,
+  `Analisis_Cuaca` varchar(100) DEFAULT NULL,
+  `Informasi_Titik_Panas` varchar(100) DEFAULT NULL,
+  `Informasi_Tentang_Tingkat` varchar(100) DEFAULT NULL,
+  `Prakiraan_Musim` varchar(100) DEFAULT NULL,
+  `Informasi_Iklim_Khusus` varchar(100) DEFAULT NULL,
+  `Analisis_Prakiraan` varchar(100) DEFAULT NULL,
+  `Tren_Curah_Hujan` varchar(100) DEFAULT NULL,
+  `Informasi_Kualitas_Udara` varchar(100) DEFAULT NULL,
+  `Analisis_Iklim_Ekstrim` varchar(100) DEFAULT NULL,
+  `Informasi_Iklim_Terapan` varchar(100) DEFAULT NULL,
+  `Informasi_Perubahan_Iklim` varchar(100) DEFAULT NULL,
+  `Pengambilan_Pengujian` varchar(100) DEFAULT NULL,
+  `Informasi_Gempabumi` varchar(100) DEFAULT NULL,
+  `Peta_Seismisitas` varchar(100) DEFAULT NULL,
+  `Informasi_Tanda_Waktu` varchar(100) DEFAULT NULL,
+  `Informasi_Geofisika_Potensial` varchar(100) DEFAULT NULL,
+  `Peta_Rendaman_Tsunami` varchar(100) DEFAULT NULL,
+  `Informasi_Seismologi_Teknik` varchar(100) DEFAULT NULL,
+  `Data_MKG` varchar(100) DEFAULT NULL,
+  `Kalibrasi` varchar(100) DEFAULT NULL,
+  `Konsultasi` varchar(100) DEFAULT NULL,
+  `Sewa_Peralatan_MKG` varchar(100) DEFAULT NULL,
+  `Kunjungan` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ikm`
+--
+
+INSERT INTO `ikm` (`ID_Ikm`, `Nama`, `Jenis_Kelamin`, `Pendidikan_Terakhir`, `NIK`, `Umur`, `Pekerjaan`, `Koresponden`, `Jenis_Layanan`, `Asal_Daerah`, `Informasi_Cuaca_Publik`, `Informasi_Cuaca_Khusus`, `Analisis_Cuaca`, `Informasi_Titik_Panas`, `Informasi_Tentang_Tingkat`, `Prakiraan_Musim`, `Informasi_Iklim_Khusus`, `Analisis_Prakiraan`, `Tren_Curah_Hujan`, `Informasi_Kualitas_Udara`, `Analisis_Iklim_Ekstrim`, `Informasi_Iklim_Terapan`, `Informasi_Perubahan_Iklim`, `Pengambilan_Pengujian`, `Informasi_Gempabumi`, `Peta_Seismisitas`, `Informasi_Tanda_Waktu`, `Informasi_Geofisika_Potensial`, `Peta_Rendaman_Tsunami`, `Informasi_Seismologi_Teknik`, `Data_MKG`, `Kalibrasi`, `Konsultasi`, `Sewa_Peralatan_MKG`, `Kunjungan`) VALUES
+(15, '', '', '', 0, 0, '', '', '', '', '', '', 'Analisis cuaca', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '', '', '', '', '', '1', '', '', '', '1'),
+(16, '', '', '', 0, 0, '', '', '', '', '', '', '3', '', '', '', '7', '', '', '', '', '', '', '', '15', '', '', '', '', '', '21', '', '', '', '25');
 
 -- --------------------------------------------------------
 
@@ -286,7 +319,8 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `Token`) VALUES
-(16, 0x363630616636356335366530652e706e67, '1', 1, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifovalle', 'fifanaufal10@gmail.com', '$2y$10$hFkeyUBRO03VAqiq/98hheIjBnJM6006XxZz1SmFAm6FmG9BP0K8O', '$2y$10$hFkeyUBRO03VAqiq/98hheIjBnJM6006XxZz1SmFAm6FmG9BP0K8O', '+62 812-2365-2490', 'Pria', 'Batujajar', 'Bandung', 'Bandung', 'Belum Terverifikasi', 83981283);
+(16, 0x363630616636356335366530652e706e67, '1', 1, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifovalle', 'fifanaufal10@gmail.com', '$2y$10$hFkeyUBRO03VAqiq/98hheIjBnJM6006XxZz1SmFAm6FmG9BP0K8O', '$2y$10$hFkeyUBRO03VAqiq/98hheIjBnJM6006XxZz1SmFAm6FmG9BP0K8O', '+62 812-2365-2490', 'Pria', 'Batujajar', 'Bandung', 'Bandung', 'Belum Terverifikasi', 83981283),
+(18, '', '15', 90, 'Intel', 'Rezki', 'Gey', 'SMA', 'Rezki', 'rezki@gmail.com', '$2y$10$PATAcZuKCQNIsKeB6SSekOKGqzHZLrkfZ9phuQkRdeINkc4.xXnBi', '$2y$10$PATAcZuKCQNIsKeB6SSekOKGqzHZLrkfZ9phuQkRdeINkc4.xXnBi', '+62 822-7788-5432', 'Pria', 'Depok', 'Jawa Barat', 'Depok', 'Belum Terverifikasi', 49813016);
 
 -- --------------------------------------------------------
 
@@ -327,7 +361,8 @@ CREATE TABLE `perusahaan` (
 --
 
 INSERT INTO `perusahaan` (`ID_Perusahaan`, `Foto_Perusahaan`, `No_Identitas_Anggota_Perusahaan`, `Nama_Depan_Anggota_Perusahaan`, `Nama_Belakang_Anggota_Perusahaan`, `Pekerjaan_Anggota_Perusahaan`, `Pendidikan_Terakhir_Anggota_Perusahaan`, `Jenis_Kelamin_Anggota_Perusahaan`, `Alamat_Anggota_Perusahaan`, `No_Telepon_Anggota_Perusahaan`, `Provinsi_Anggota_Perusahaan`, `Kabupaten_Kota_Anggota_Perusahaan`, `No_NPWP`, `Nama_Perusahaan`, `Alamat_Perusahaan`, `Provinsi_Perusahaan`, `Kabupaten_Kota_Perusahaan`, `Email_Perusahaan`, `No_Telepon_Perusahaan`, `Email_Anggota_Perusahaan`, `Nama_Pengguna_Anggota_Perusahaan`, `Kata_Sandi_Anggota_Perusahaan`, `Konfirmasi_Kata_Sandi_Anggota_Perusahaan`, `Status_Verifikasi_Perusahaan`, `Token`) VALUES
-(5, 0x363630616638663139626161642e6a7067, 2, 'zonaNyaman', 'zona', 'Nganggur', 'SMP', 'Pria', 'Batujajar', '+62 812-2365-2490', 'Jawa Barat', 'Bandung Barat', '1', 'Iku', 'Bandung', 'Jawa Barat', 'Bandung', 'iku@gmail.com', '+62 812-2365-2490', 'iku@gmail.com', 'iku', '$2y$10$NEdvO4G1xq9mR7L6HC4HduaiDQA0UjZ.DYurM6C.E8Ya0yx3fsdOK', '$2y$10$NEdvO4G1xq9mR7L6HC4HduaiDQA0UjZ.DYurM6C.E8Ya0yx3fsdOK', 'Belum Terverifikasi', 72540572);
+(5, 0x363630616638663139626161642e6a7067, 2, 'zonaNyaman', 'zona', 'Nganggur', 'SMP', 'Pria', 'Batujajar', '+62 812-2365-2490', 'Jawa Barat', 'Bandung Barat', '1', 'Iku', 'Bandung', 'Jawa Barat', 'Bandung', 'iku@gmail.com', '+62 812-2365-2490', 'iku@gmail.com', 'iku', '$2y$10$NEdvO4G1xq9mR7L6HC4HduaiDQA0UjZ.DYurM6C.E8Ya0yx3fsdOK', '$2y$10$NEdvO4G1xq9mR7L6HC4HduaiDQA0UjZ.DYurM6C.E8Ya0yx3fsdOK', 'Belum Terverifikasi', 72540572),
+(7, '', 2, 'Sandro', 'Ganteng', 'Pelajar', 'S3', 'Pria', 'Cimahi Selatan', '+62 822-1234-5678', 'Jawa Barat', 'Cimahi', '21', 'Syntax Squad', 'jln.ss no12', 'Jawa Barat', 'Bandung Kota', 'syntaxsquad@gmail.com', '+62 822-9087-6543', 'ganteng@gmail.com', 'Sandro', '$2y$10$VHPmmyUGILfVEwpESrT9vuWXjgc.x/WPC4T9f0ss5xgzwGI9D2ugu', '$2y$10$VHPmmyUGILfVEwpESrT9vuWXjgc.x/WPC4T9f0ss5xgzwGI9D2ugu', 'Belum Terverifikasi', 66882468);
 
 -- --------------------------------------------------------
 
@@ -485,7 +520,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `ikm`
 --
 ALTER TABLE `ikm`
-  MODIFY `ID_Ikm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Ikm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `informasi`
@@ -551,13 +586,13 @@ ALTER TABLE `pengajuan`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  MODIFY `ID_Perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_Perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `transaksi`

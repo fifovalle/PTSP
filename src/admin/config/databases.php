@@ -1839,28 +1839,62 @@ class Ikm
     }
 
     public function tambahDataIkm($data)
-    {
-        $query = "INSERT INTO ikm (Nama, Jenis_Kelamin, Pendidikan_Terakhir, NIK, Umur, Pekerjaan, Koresponden, Jenis_Layanan, Asal_Daerah) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+{
+    $query = "INSERT INTO ikm (Nama, Jenis_Kelamin, Pendidikan_Terakhir, NIK, Umur, Pekerjaan, Koresponden, Jenis_Layanan, Asal_Daerah,
+                               Informasi_Cuaca_Publik, Informasi_Cuaca_Khusus, Analisis_Cuaca, Informasi_Titik_Panas,
+                               Informasi_Tentang_Tingkat, Prakiraan_Musim, Informasi_Iklim_Khusus, Analisis_Prakiraan, 
+                               Tren_Curah_Hujan, Informasi_Kualitas_Udara, Analisis_Iklim_Ekstrim, Informasi_Iklim_Terapan,
+                               Informasi_Perubahan_Iklim, Pengambilan_Pengujian, Informasi_Gempabumi, Peta_Seismisitas,
+                               Informasi_Tanda_Waktu, Informasi_Geofisika_Potensial, Peta_Rendaman_Tsunami,
+                               Informasi_Seismologi_Teknik, Data_MKG, Kalibrasi, Konsultasi, Sewa_Peralatan_MKG, Kunjungan)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
+    $statement = $this->koneksi->prepare($query);
+    $statement->bind_param(
+        "sssissssssssssssssssssssssssssssss",
+        $data['Nama'],
+        $data['Jenis_Kelamin'],
+        $data['Pendidikan_Terakhir'],
+        $data['NIK'],
+        $data['Umur'],
+        $data['Pekerjaan'],
+        $data['Koresponden'],
+        $data['Jenis_Layanan'],
+        $data['Asal_Daerah'],
+        $data['Informasi_Cuaca_Publik'],
+        $data['Informasi_Cuaca_Khusus'],
+        $data['Analisis_Cuaca'],
+        $data['Informasi_Titik_Panas'],
+        $data['Informasi_Tentang_Tingkat'],
+        $data['Prakiraan_Musim'],
+        $data['Informasi_Iklim_Khusus'],
+        $data['Analisis_Prakiraan'],
+        $data['Tren_Curah_Hujan'],
+        $data['Informasi_Kualitas_Udara'],
+        $data['Analisis_Iklim_Ekstrim'],
+        $data['Informasi_Iklim_Terapan'],
+        $data['Informasi_Perubahan_Iklim'],
+        $data['Pengambilan_Pengujian'],
+        $data['Informasi_Gempabumi'],
+        $data['Peta_Seismisitas'],
+        $data['Informasi_Tanda_Waktu'],
+        $data['Informasi_Geofisika_Potensial'],
+        $data['Peta_Rendaman_Tsunami'],
+        $data['Informasi_Seismologi_Teknik'],
+        $data['Data_MKG'],
+        $data['Kalibrasi'],
+        $data['Konsultasi'],
+        $data['Sewa_Peralatan_MKG'],
+        $data['Kunjungan']
+    );
 
-        $statement = $this->koneksi->prepare($query);
-        $statement->bind_param(
-            "sssisssss",
-            $data['Nama'],
-            $data['Jenis_Kelamin'],
-            $data['Pendidikan_Terakhir'],
-            $data['NIK'],
-            $data['Umur'],
-            $data['Pekerjaan'],
-            $data['Koresponden'],
-            $data['Jenis_Layanan'],
-            $data['Asal_Daerah']
-        );
-
-        if ($statement->execute()) {
-            return true;
-        } else {
-            return false;
-        }
+    if ($statement->execute()) {
+        return true;
+    } else {
+        return false;
     }
 }
+
+}
+
 // ===================================IKM=====================================

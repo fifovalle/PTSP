@@ -252,11 +252,14 @@ include '../../admin/config/databases.php';
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card">
-                                            <div class="text-center position-relative">
-                                                <?php if (isset($_SESSION['ID_Pengguna'])) : ?>
+                                        <div class="text-center position-relative">
+                                        <div class="text-center position-relative">
+                                                <?php if (isset($_SESSION['ID_Pengguna']) && !empty($_SESSION['Foto_Pengguna'])) : ?>
                                                     <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto_Pengguna'] ?>" class="img-thumbnail" alt="Foto Pengguna" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
-                                                <?php elseif (isset($_SESSION['ID_Perusahaan'])) : ?>
+                                                <?php elseif (isset($_SESSION['ID_Perusahaan']) && !empty($_SESSION['Foto_Perusahaan'])) : ?>
                                                     <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto_Perusahaan'] ?>" class="img-thumbnail" alt="Foto Perusahaan" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
+                                                <?php else : ?>
+                                                    <img src="../../admin/assets/image/uploads/2.png" class="img-thumbnail" alt="Foto Default" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
                                                 <?php endif; ?>
                                             </div>
                                             <div class="box position-absolute" style="display: none;">

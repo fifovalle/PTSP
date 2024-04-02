@@ -1,3 +1,5 @@
+                    <!-- Grid column -->
+                    <!-- Grid column -->
 <?php
 include 'databases.php';
 
@@ -118,7 +120,7 @@ if (isset($_POST['Daftar'])) {
         setPesanKesalahan("Gagal mendaftar silahkan untuk mencoba lagi.");
     }
 
-    header("Location: $akarUrl" . "src/user/pages/signup2.php");
+    header("Location: $akarUrl" . "src/user/pages/login.php");
     exit;
 } else {
     header("Location: $akarUrl" . "src/user/pages/signup2.php");
