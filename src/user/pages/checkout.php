@@ -159,14 +159,14 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     <div>
                                         <span>PENERIMA</span>
                                         <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
-                                            <p>Nama Penerima: <?php echo $transaksiPembeli['Pemilik_Informasi']; ?></p>
+                                            <p>Nama Penerima: <?php echo $transaksiPembeli['Pemilik_Informasi'] ?? $transaksiPembeli['Pemilik_Jasa']; ?></p>
                                         <?php endforeach; ?>
                                     </div>
                                     <hr>
                                     <div>
                                         <span>PRODUK</span>
                                         <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
-                                            <p>Nama Produk: <?php echo $transaksiPembeli['Nama_Informasi']; ?></p>
+                                            <p>Nama Produk: <?php echo $transaksiPembeli['Nama_Informasi'] ?? $transaksiPembeli['Nama_Jasa']; ?></p>
                                             <p>Jumlah Produk: <?php echo $transaksiPembeli['Jumlah_Barang']; ?></p>
                                         <?php endforeach; ?>
                                     </div>
@@ -174,18 +174,20 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     <div>
                                         <span>METODE PEMBAYARAN</span>
                                         <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
-                                            <p>Transfer ke No Rekening: <?php echo $transaksiPembeli['No_Rekening_Informasi']; ?></p>
+                                            <p>Transfer ke No Rekening: <?php echo $transaksiPembeli['No_Rekening_Informasi'] ?? $transaksiPembeli['No_Rekening_Jasa']; ?></p>
                                         <?php endforeach; ?>
                                     </div>
                                     <hr>
                                     <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
-                                        <?php $totalHarga += $transaksiPembeli['Harga_Informasi']; ?>
+                                        <?php $totalHarga += $transaksiPembeli['Harga_Informasi'] ?? $transaksiPembeli['Harga_Jasa']; ?>
                                     <?php endforeach; ?>
                                     <div class="payments">
-                                        <span>TOTAL PEMBAYARAN</span>
-                                        <div class="details">
-                                            <span>TOTAL: Rp<?php echo number_format($totalHarga, 0, ',', '.'); ?></span>
-                                        </div>
+                                        <span>HARGA PER PRODUK</span>
+                                        <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
+                                            <div class="details">
+                                                <span>Nama Penerima: <?php echo $transaksiPembeli['Pemilik_Informasi'] ?? $transaksiPembeli['Pemilik_Jasa']; ?> <br> HARGA: <?php echo $transaksiPembeli['Harga_Informasi'] ?? $transaksiPembeli['Harga_Jasa']; ?></span>
+                                            </div>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                         </div>
