@@ -60,9 +60,9 @@
                                 ?>
                             </p>
                             <div class="iconContainerData">
-                                <a class="linkData" data-bs-toggle="modal" data-bs-target="#editAdmin">
+                                <a class="linkData" data-bs-toggle="modal" data-bs-target="#aproveFile">
                                     <span class="">
-                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-upload"></i>
                                     </span>
                                 </a>
                                 <a class="linkData iconDataRight">

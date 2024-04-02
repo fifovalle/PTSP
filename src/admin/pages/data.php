@@ -149,6 +149,9 @@ if (!isset($_SESSION['ID'])) {
     include "../partials/utils/modal-send-feedback.php";
     ?>
     <?php
+    include "../partials/utils/modal-aprove.php";
+    ?>
+    <?php
     include "../partials/utils/isAdmin.php";
     ?>
     <!-- ALL MODAL END -->

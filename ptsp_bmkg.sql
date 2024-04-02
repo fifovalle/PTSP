@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2024 at 05:10 AM
+-- Generation Time: Apr 02, 2024 at 05:09 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -344,6 +344,8 @@ CREATE TABLE `transaksi` (
   `ID_Jasa` int(11) DEFAULT NULL,
   `Rekening_Pengguna` int(20) DEFAULT NULL,
   `Jumlah_Barang` int(11) NOT NULL,
+  `Total_Transaksi` int(11) DEFAULT NULL,
+  `File_Penerimaan` longblob DEFAULT NULL,
   `Tanggal_Pembelian` datetime NOT NULL,
   `Status_Transaksi` enum('Disetujui','Belum Disetujui') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -352,9 +354,13 @@ CREATE TABLE `transaksi` (
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Rekening_Pengguna`, `Jumlah_Barang`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(48, NULL, 16, NULL, 18, NULL, NULL, 0, '2024-03-31 14:48:34', 'Belum Disetujui'),
-(49, NULL, 16, NULL, 19, NULL, NULL, 0, '2024-03-31 15:08:20', 'Belum Disetujui');
+INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Rekening_Pengguna`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
+(48, NULL, 16, NULL, 18, NULL, NULL, 0, NULL, '', '2024-03-31 14:48:34', 'Belum Disetujui'),
+(49, NULL, 16, NULL, 19, NULL, NULL, 0, NULL, '', '2024-03-31 15:08:20', 'Belum Disetujui'),
+(50, NULL, 16, NULL, 20, NULL, NULL, 0, NULL, '', '2024-04-02 21:22:25', 'Belum Disetujui'),
+(51, NULL, 16, NULL, NULL, 17, NULL, 0, NULL, '', '2024-04-02 21:46:01', 'Belum Disetujui'),
+(52, NULL, 16, NULL, NULL, 18, NULL, 0, NULL, '', '2024-04-02 21:46:06', 'Belum Disetujui'),
+(53, NULL, 16, NULL, NULL, 19, NULL, 0, NULL, '', '2024-04-02 21:46:13', 'Belum Disetujui');
 
 --
 -- Indexes for dumped tables
@@ -557,7 +563,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- Constraints for dumped tables
