@@ -53,10 +53,10 @@
                                 ?>
                             </p>
                             <div class="iconContainerData">
-                                <a class="linkData buttonServices" data-id='<?php echo $pengajuan['ID_Pengajuan']; ?>'>
-                                    <span><i class="fas fa-edit"></i></span>
+                                <a class="linkData buttonApplyment" data-id='<?php echo $pengajuan['ID_Pengajuan']; ?>'>
+                                    <span><i class="fas fa-upload"></i></span>
                                 </a>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteServices(<?php echo $pengajuan['ID_Pengajuan']; ?>)">
+                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteApplyment(<?php echo $pengajuan['ID_Pengajuan']; ?>)">
                                     <span>
                                         <i class="fas fa-trash"></i>
                                     </span>

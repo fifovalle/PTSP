@@ -762,6 +762,31 @@ class Informasi
         }
     }
 
+    public function tampilkanInformasiTerlaris($limit = 1)
+    {
+        $query = "SELECT informasi.*, 
+                        COUNT(transaksi.ID_Tranksaksi) AS total_transaksi
+                FROM informasi 
+                LEFT JOIN transaksi ON informasi.ID_Informasi = transaksi.ID_Informasi 
+                ORDER BY total_transaksi DESC 
+                LIMIT ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $limit);
+        $statement->execute();
+        $result = $statement->get_result();
+    
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return [];
+        }
+    }
+    
+
     public function tampilkanDataInformasiMeteorologi()
     {
         $query = "SELECT * FROM informasi WHERE Kategori_Informasi = 'Meteorologi'";
@@ -992,6 +1017,31 @@ class Jasa
             return null;
         }
     }
+
+    public function tampilkanJasaTerlaris($limit = 1)
+    {
+        $query = "SELECT jasa.*, 
+                        COUNT(transaksi.ID_Tranksaksi) AS total_transaksi
+                FROM jasa 
+                LEFT JOIN transaksi ON jasa.ID_Jasa = transaksi.ID_Jasa 
+                ORDER BY total_transaksi DESC 
+                LIMIT ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $limit);
+        $statement->execute();
+        $result = $statement->get_result();
+    
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return [];
+        }
+    }
+
 
     public function tampilkanDataJasaTerbaru($limit = 3)
     {
@@ -1633,6 +1683,47 @@ class Pengajuan
             return null;
         }
     }
+
+    public function hapusPengajuan($id)
+    {
+        $querySelect = "SELECT ID_Pengajuan, Surat_Keterangan_Ditolak FROM pengajuan WHERE ID_Pengajuan=?";
+        $statementSelect = $this->koneksi->prepare($querySelect);
+        $statementSelect->bind_param("i", $id);
+        $statementSelect->execute();
+        $resultSelect = $statementSelect->get_result();
+        $row = $resultSelect->fetch_assoc();
+        $idPengajuan = $row['ID_Pengajuan'];
+        $namaFileSurat = $row['Surat_Keterangan_Ditolak'];
+
+        if ($idPengajuan != $id) {
+            return false; 
+        }
+
+        $queryDelete = "DELETE FROM pengajuan WHERE ID_Pengajuan=?";
+        $statementDelete = $this->koneksi->prepare($queryDelete);
+        $statementDelete->bind_param("i", $id);
+        $isDeleted = $statementDelete->execute();
+
+        if ($isDeleted) {
+            if (!empty($namaFileSurat)) {
+                $direktoriFileSurat = "../assets/image/uploads/"; 
+
+                if (file_exists($direktoriFileSurat . $namaFileSurat)) {
+                    if (unlink($direktoriFileSurat . $namaFileSurat)) {
+                        return true; 
+                    } else {
+                        return false; 
+                    }
+                } else {
+                    return true; 
+                }
+            } else {
+                return true; 
+            }
+        } else {
+            return false; 
+        }
+    }
 }
 // ===================================PENGAJUAN===================================
 
@@ -1823,6 +1914,88 @@ class Transaksi
             return $data;
         } else {
             return null;
+        }
+    }
+
+    public function hapusTransaksi($id)
+    {
+        $querySelect = "SELECT ID_Tranksaksi, File_Penerimaan FROM transaksi WHERE ID_Tranksaksi=?";
+        $statementSelect = $this->koneksi->prepare($querySelect);
+        $statementSelect->bind_param("i", $id);
+        $statementSelect->execute();
+        $resultSelect = $statementSelect->get_result();
+        $row = $resultSelect->fetch_assoc();
+        $idTransaksi = $row['ID_Tranksaksi'];
+        $namaFilePenerimaan = $row['File_Penerimaan'];
+
+        if ($idTransaksi != $id) {
+            return false; 
+        }
+
+        $queryDelete = "DELETE FROM transaksi WHERE ID_Tranksaksi=?";
+        $statementDelete = $this->koneksi->prepare($queryDelete);
+        $statementDelete->bind_param("i", $id);
+        $isDeleted = $statementDelete->execute();
+
+        if ($isDeleted) {
+            if (!empty($namaFilePenerimaan)) {
+                $direktoriFilePenerimaan = "../assets/image/uploads/"; 
+
+                if (file_exists($direktoriFilePenerimaan . $namaFilePenerimaan)) {
+                    if (unlink($direktoriFilePenerimaan . $namaFilePenerimaan)) {
+                        return true;
+                    } else {
+                        return false; 
+                    }
+                } else {
+                    return true; 
+                }
+            } else {
+                return true; 
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function hapusRiwayatTransaksi($id)
+    {
+        $querySelect = "SELECT ID_Tranksaksi, File_Penerimaan FROM transaksi WHERE ID_Tranksaksi=?";
+        $statementSelect = $this->koneksi->prepare($querySelect);
+        $statementSelect->bind_param("i", $id);
+        $statementSelect->execute();
+        $resultSelect = $statementSelect->get_result();
+        $row = $resultSelect->fetch_assoc();
+        $idTransaksi = $row['ID_Tranksaksi'];
+        $namaFilePenerimaan = $row['File_Penerimaan'];
+
+        if ($idTransaksi != $id) {
+            return false; 
+        }
+
+        $queryDelete = "DELETE FROM transaksi WHERE ID_Tranksaksi=?";
+        $statementDelete = $this->koneksi->prepare($queryDelete);
+        $statementDelete->bind_param("i", $id);
+        $isDeleted = $statementDelete->execute();
+
+        if ($isDeleted) {
+            if (!empty($namaFilePenerimaan)) {
+                $direktoriFilePenerimaan = "../assets/image/uploads/"; 
+
+                if (file_exists($direktoriFilePenerimaan . $namaFilePenerimaan)) {
+                    if (unlink($direktoriFilePenerimaan . $namaFilePenerimaan)) {
+                        return true;
+                    } else {
+                        return false; 
+                    }
+                } else {
+                    return true; 
+                }
+            } else {
+                return true; 
+            }
+        } else {
+            return false;
         }
     }
 }

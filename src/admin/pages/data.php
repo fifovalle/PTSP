@@ -152,6 +152,9 @@ if (!isset($_SESSION['ID'])) {
     include "../partials/utils/modal-aprove.php";
     ?>
     <?php
+    include "../partials/utils/modal-aprove-applyment.php";
+    ?>
+    <?php
     include "../partials/utils/isAdmin.php";
     ?>
     <!-- ALL MODAL END -->
@@ -165,14 +168,17 @@ if (!isset($_SESSION['ID'])) {
     <!-- OUR JS -->
     <script src="../assets/our/js/data.js"></script>
     <script src="../assets/our/js/index.js"></script>
-    <script src="../assets/our/js/toggle-password.js"></script>
     <script src="../assets/our/js/filter-data.js"></script>
     <script src="../assets/our/js/delete-admin.js"></script>
     <script src="../assets/our/js/delete-user.js"></script>
     <script src="../assets/our/js/delete-information.js"></script>
     <script src="../assets/our/js/delete-services.js"></script>
+    <script src="../assets/our/js/delete-transaction.js"></script>
+    <script src="../assets/our/js/delete-history-transaction.js"></script>
+    <script src="../assets/our/js/delete-applyment.js"></script>
     <script src="../assets/our/js/value-admin.js"></script>
     <script src="../assets/our/js/value-services.js"></script>
+    <script src="../assets/our/js/value-applyment.js"></script>
     <script src="../assets/our/js/value-user.js"></script>
     <script src="../assets/our/js/value-information.js"></script>
     <script src="../assets/our/js/filter.js"></script>

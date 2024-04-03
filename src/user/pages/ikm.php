@@ -143,31 +143,31 @@ include '../../admin/config/databases.php';
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="1">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="1" id="c_1" name="c_1">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Informasi cuaca publik" id="c_1" name="c_1">
                                 </td>
                                 <td>Informasi cuaca publik (rutin, peringatan, dini cuaca, pasang surut air laut)</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="2">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="2" id="c_2" name="c_2">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Informasi cuaca khusus" id="c_2" name="c_2">
                                 </td>
                                 <td>Informasi cuaca khusus (maritim, penerbangan, klaim asuransi)</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="3">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="3" id="c_3" name="c_3">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Analisis cuaca" id="c_3" name="c_3">
                                 </td>
                                 <td>Analisis cuaca (kecelakaan pesawat, kecelakaan kapal laut)</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="4">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="4" id="c_4" name="c_4">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Informasi titik" id="c_4" name="c_4">
                                 </td>
                                 <td>Informasi titik panas(hotspot)</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="5">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="5" id="c_5" name="c_5">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="lnformasi tentang tingkat kemudahan terjadinya kebakaran hutan dan lahan" id="c_5" name="c_5">
                                 </td>
                                 <td>lnformasi tentang tingkat kemudahan terjadinya kebakaran hutan dan lahan</td>
                             </tr>
@@ -178,55 +178,55 @@ include '../../admin/config/databases.php';
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="6">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="6" id="c_6" name="c_6">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Prakiraan musim" id="c_6" name="c_6">
                                 </td>
                                 <td>Prakiraan musim</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="7">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="7" id="c_7" name="c_7">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="lnformasi iklim khusus" id="c_7" name="c_7">
                                 </td>
                                 <td>lnformasi iklim khusus</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="8">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="8" id="c_8" name="c_8">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Analisis dan prakiraan curah hujan bulanan/dasarian" id="c_8" name="c_8">
                                 </td>
                                 <td>Analisis dan prakiraan curah hujan bulanan/dasarian</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="9">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="9" id="c_9" name="c_9">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Tren curah hujan" id="c_9" name="c_9">
                                 </td>
                                 <td>Tren curah hujan</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="10">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="10" id="c_10" name="c_10">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="lnformasi kualitas udara" id="c_10" name="c_10">
                                 </td>
                                 <td>lnformasi kualitas udara</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="11">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="11" id="c_11" name="c_11">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Analisis iklim ekstrim" id="c_11" name="c_11">
                                 </td>
                                 <td>Analisis iklim ekstrim</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="12">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="12" id="c_12" name="c_12">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Informasi iklim terapan" id="c_12" name="c_12">
                                 </td>
                                 <td>Informasi iklim terapan (peta potensi energi baru terbarukan, informasi potensi DBD, dst)</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="13">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="13" id="c_13" name="c_13">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Informasi perubahan iklim" id="c_13" name="c_13">
                                 </td>
                                 <td>Informasi perubahan iklim (keterpaparan dan/atau proveksi)</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="14">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="14" id="c_14" name="c_14">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Pengambilan dan pengujian sampel parameter iklim dan kualitas udara(laboratorium)" id="c_14" name="c_14">
                                 </td>
                                 <td>Pengambilan dan pengujian sampel parameter iklim dan kualitas udara(laboratorium)</td>
                             </tr>
@@ -237,37 +237,37 @@ include '../../admin/config/databases.php';
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="15">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="15" id="c_15" name="c_15">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Informasi gempabumi dan peringatan dini tsunami" id="c_15" name="c_15">
                                 </td>
                                 <td>Informasi gempabumi dan peringatan dini tsunami</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="16">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="16" id="c_16" name="c_16">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Peta seismisitas" id="c_16" name="c_16">
                                 </td>
                                 <td>Peta seismisitas</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="17">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="17" id="c_17" name="c_17">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="lnformasi tanda waktu" id="c_17" name="c_17">
                                 </td>
                                 <td>lnformasi tanda waktu(hilal dan gerhana)</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="18">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="18" id="c_18" name="c_18">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="lnformasi geofisika potensial" id="c_18" name="c_18">
                                 </td>
                                 <td>lnformasi geofisika potensial(gravitasi, magnet bumi, dan hari guruh/petir)</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="19">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="19" id="c_19" name="c_19">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Peta rendaman tsunami" id="c_19" name="c_19">
                                 </td>
                                 <td>Peta rendaman tsunami</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="20">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="20" id="c_20" name="c_20">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Informasi seismologi teknik" id="c_20" name="c_20">
                                 </td>
                                 <td>Informasi seismologi teknik(shake map)(peta mikrozonasi dan percepatan tanah)</td>
                             </tr>
@@ -278,25 +278,25 @@ include '../../admin/config/databases.php';
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="21">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="21" id="c_21" name="c_21">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Data meteorologi, klimatologi, dan geofisika" id="c_21" name="c_21">
                                 </td>
                                 <td>Data meteorologi, klimatologi, dan geofisika(suhu, curah hujan, angin, dan grid)</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="22">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="22" id="c_22" name="c_22">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Kalibrasi" id="c_22" name="c_22">
                                 </td>
                                 <td>Kalibrasi (peralatan MKG)</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="23">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="23" id="c_23" name="c_23">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Konsultasi" id="c_23" name="c_23">
                                 </td>
                                 <td>Konsultasi(untuk penerapan informasi khusus MKG)</td>
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="24">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="24" id="c_24" name="c_24">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Sewa peralatan MKG" id="c_24" name="c_24">
                                 </td>
                                 <td>Sewa peralatan MKG</td>
                             </tr>
@@ -307,7 +307,7 @@ include '../../admin/config/databases.php';
                             </tr>
                             <tr>
                                 <td class="c-frame text-center" scope="25">
-                                    <input class="form-check-input border border-primary" type="checkbox" value="25" id="c_25" name="c_25">
+                                    <input class="form-check-input border border-primary" type="checkbox" value="Kunjungan" id="c_25" name="c_25">
                                 </td>
                                 <td>Kunjungan</td>
                             </tr>

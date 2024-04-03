@@ -9,14 +9,14 @@
             </div>
             <div class="modal-body">
                 <form method="POST" enctype="multipart/form-data">
-                    <input type="hidden" id="editAdminID" name="ID_Admin" autocomplete="off">
+                    <input type="hidden" id="editApllyment" name="ID_Admin" autocomplete="off">
                     <div class="mb-3">
                         <label for="fileAproveTransaction" class="form-label">Upload File</label>
                         <input type="file" class="form-control" id="fileAproveTransaction" name="Upload_File" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="statusTransactionAprovement" class="form-label">Status Transaksi</label>
-                        <select name="Jenis_Kelamin_Admin" id="statusTransactionAprovement" class="form-control inputData">
+                        <select name="Status_Transaksi" id="statusTransactionAprovement" class="form-control inputData">
                             <option value="Belum Disetujui">Belum Disetujui</option>
                             <option value="Disetujui">Disetujui</option>
                         </select>
