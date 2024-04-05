@@ -1,16 +1,14 @@
 <?php
-    // DATABASES
-    include '../../src/admin/config/databases.php';
-    // MEMAKSA MASUK
-    if (!isset($_SESSION['ID'])) {
-        setPesanKesalahan("Anda tidak bisa mengakses halaman ini. Silakan login terlebih dahulu.");
-        header("Location: $akarUrl" . "src/admin/pages/login.php");
-        exit();
-    }
-
-    // Inisialisasi variabel
-    $totalTransaksiLainnya = 0;
-    $adaData = false;
+// DATABASES
+include '../../src/admin/config/databases.php';
+// MEMAKSA MASUK
+if (!isset($_SESSION['ID'])) {
+    setPesanKesalahan("Anda tidak bisa mengakses halaman ini. Silakan login terlebih dahulu.");
+    header("Location: $akarUrl" . "src/admin/pages/login.php");
+    exit();
+}
+$totalTransaksiLainnya = 0;
+$adaData = false;
 ?>
 <!doctype html>
 <html lang="en">
@@ -66,50 +64,50 @@
                         </div>
                     </div>
                     <div class="row">
-                    <?php
-                    $transaksiModel = new Transaksi($koneksi);
-                    $dataTransaksi = $transaksiModel->tampilkanTransaksi();
-                    $jumlahDataDitampilkan = 0; 
-                    foreach ($dataTransaksi as $produk) {
-                        if ($jumlahDataDitampilkan < 1 && $produk['Total_Transaksi'] > $totalTransaksiLainnya && $produk['ID_Tranksaksi'] > $totalTransaksiLainnya) {
-                ?>
-                            <div class="col-4">
-                                <div class="card">
-                                    <h5 class="card-title py-4 mx-auto">Penjualan Terbaik</h5>
-                                    <div class="position-relative mx-auto">
-                                        <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $produk['Foto_Informasi'] ?? $produk['Foto_Jasa']; ?>" class="imageCard card-img-top" alt="Performa Produk Terbaru">
-                                        <h5 class="card-title titleProduct fw-bold"><?php echo $produk['Nama_Jasa']; ?></h5>
-                                    </div>
-                                    <div class="d-flex justify-content-around align-items-center mt-4">
-                                        <div class="d-flex justify-content-between gap-3">
-                                            <i class="fas fa-users"><span class="ms-2 many">10</span></i>
-                                            <i class="fas fa-money-bill"><span class="ms-2 many">Rp.1.000.000</span></i>
+                        <?php
+                        $transaksiModel = new Transaksi($koneksi);
+                        $dataTransaksi = $transaksiModel->tampilkanTransaksi();
+                        $jumlahDataDitampilkan = 0;
+                        foreach ($dataTransaksi as $produk) {
+                            if ($jumlahDataDitampilkan < 1 && $produk['Total_Transaksi'] > $totalTransaksiLainnya && $produk['ID_Tranksaksi'] > $totalTransaksiLainnya) {
+                        ?>
+                                <div class="col-4">
+                                    <div class="card">
+                                        <h5 class="card-title py-4 mx-auto">Penjualan Terbaik</h5>
+                                        <div class="position-relative mx-auto">
+                                            <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $produk['Foto_Informasi'] ?? $produk['Foto_Jasa']; ?>" class="imageCard card-img-top" alt="Performa Produk Terbaru">
+                                            <h5 class="card-title titleProduct fw-bold"><?php echo $produk['Nama_Jasa']; ?></h5>
                                         </div>
-                                        <div id="caretIconForDrive">
-                                            <i class="fas fa-caret-up caret-icon"></i>
+                                        <div class="d-flex justify-content-around align-items-center mt-4">
+                                            <div class="d-flex justify-content-between gap-3">
+                                                <i class="fas fa-users"><span class="ms-2 many">10</span></i>
+                                                <i class="fas fa-money-bill"><span class="ms-2 many">Rp.1.000.000</span></i>
+                                            </div>
+                                            <div id="caretIconForDrive">
+                                                <i class="fas fa-caret-up caret-icon"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <hr>
-                                    <div class="card-body hidden-content">
-                                        <p class="card-text textCardProduct my-3 mb-4">Performa Selama Ini</p>
-                                        <div class="row ms-auto">
-                                            <div class="col-7 me-4">Pembeli</div>
-                                            <div class="col-2">10</div>
+                                        <hr>
+                                        <div class="card-body hidden-content">
+                                            <p class="card-text textCardProduct my-3 mb-4">Performa Selama Ini</p>
+                                            <div class="row ms-auto">
+                                                <div class="col-7 me-4">Pembeli</div>
+                                                <div class="col-2">10</div>
+                                            </div>
+                                            <div class="row ms-auto">
+                                                <div class="col-7 me-4">Penghasilan</div>
+                                                <div class="col-4">Rp.1.000.000</div>
+                                            </div>
                                         </div>
-                                        <div class="row ms-auto">
-                                            <div class="col-7 me-4">Penghasilan</div>
-                                            <div class="col-4">Rp.1.000.000</div>
+                                        <div class="card-body">
+                                            <a id="seeAnaliticForDrive1" href="#" class="card-link">Lihat Analitik</a>
                                         </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <a id="seeAnaliticForDrive1" href="#" class="card-link">Lihat Analitik</a>
                                     </div>
                                 </div>
-                            </div>
-                <?php
-                            $jumlahDataDitampilkan++; 
+                            <?php
+                                $jumlahDataDitampilkan++;
+                            }
                         }
-                    }
 
                         if (!$produk) {
                             ?>
