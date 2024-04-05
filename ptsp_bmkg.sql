@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2024 at 09:38 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Apr 05, 2024 at 04:17 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -390,7 +390,6 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Rekening_Pengguna`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(48, NULL, 16, NULL, 18, NULL, NULL, 0, NULL, '', '2024-03-31 14:48:34', 'Belum Disetujui'),
 (49, NULL, 16, NULL, 19, NULL, NULL, 0, NULL, '', '2024-03-31 15:08:20', 'Belum Disetujui'),
 (50, NULL, 16, NULL, 20, NULL, NULL, 0, NULL, '', '2024-04-02 21:22:25', 'Belum Disetujui'),
 (51, NULL, 16, NULL, NULL, 17, NULL, 0, NULL, '', '2024-04-02 21:46:01', 'Belum Disetujui'),
