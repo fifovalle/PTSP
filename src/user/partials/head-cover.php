@@ -8,5 +8,5 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <link rel="stylesheet" href="../../src/user/assets/css/cover.css">
     <script src="../../src/user/assets/js/javascript.js"></script>
-    <title>Welcome To PTSP BMKG Provinsi Bengkulu</title>
+    <title>Selamat Datang Di PTSP BMKG Provinsi Bengkulu</title>
 </head>

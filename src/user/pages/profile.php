@@ -14,28 +14,6 @@ include '../../admin/config/databases.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        .profileContainer {
-            position: relative;
-            overflow: hidden;
-            max-width: 100%;
-            max-height: 100%;
-            display: inline-block;
-        }
-
-        .imgprofileContent {
-            position: relative;
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        .imgprofileContent img {
-            width: 300px;
-            height: 300px;
-            display: block;
-            margin-top: -30px;
-        }
-    </style>
 </head>
 
 <body>
@@ -253,13 +231,15 @@ include '../../admin/config/databases.php';
                                     <div class="col-md-4">
                                         <div class="card">
                                             <div class="text-center position-relative">
-                                                <?php if (isset($_SESSION['ID_Pengguna']) && !empty($_SESSION['Foto_Pengguna'])) : ?>
-                                                    <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto_Pengguna'] ?>" class="img-thumbnail" alt="Foto Pengguna" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
-                                                <?php elseif (isset($_SESSION['ID_Perusahaan']) && !empty($_SESSION['Foto_Perusahaan'])) : ?>
-                                                    <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto_Perusahaan'] ?>" class="img-thumbnail" alt="Foto Perusahaan" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
-                                                <?php else : ?>
-                                                    <img src="../../admin/assets/image/uploads/default.jpg" class="img-thumbnail" alt="Foto Default" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
-                                                <?php endif; ?>
+                                                <div class="profile-img text-center position-relative">
+                                                    <?php if (isset($_SESSION['ID_Pengguna']) && !empty($_SESSION['Foto_Pengguna'])) : ?>
+                                                        <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto_Pengguna'] ?>" class="img-thumbnail" alt="Foto Pengguna" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
+                                                    <?php elseif (isset($_SESSION['ID_Perusahaan']) && !empty($_SESSION['Foto_Perusahaan'])) : ?>
+                                                        <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto_Perusahaan'] ?>" class="img-thumbnail" alt="Foto Perusahaan" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
+                                                    <?php else : ?>
+                                                        <img src="../../admin/assets/image/uploads/default.jpg" class="img-thumbnail" alt="Foto Default" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
+                                                    <?php endif; ?>
+                                                </div>
                                                 <div class="box position-absolute" style="display: none;">
                                                     <button class="btn border-0 opacity-100" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSuntingFoto">
                                                         <box-icon name='edit-alt' id="icon-edit" color='rgba(255,255,255,0.9)'></box-icon>
@@ -282,8 +262,7 @@ include '../../admin/config/databases.php';
             </div>
         </div>
     </div>
-    <script src="../assets/js/navbar.js"></script>
-    <script src="../assets/js/profile.js"></script>
+
     <div class="modal fade" id="modalSuntingFoto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -310,26 +289,8 @@ include '../../admin/config/databases.php';
             </div>
         </div>
     </div>
-    <script>
-        document.getElementById("unggahFoto").addEventListener("change", function() {
-            let file = this.files[0];
-            let reader = new FileReader();
-
-            reader.onload = function(e) {
-                let imageSrc = e.target.result;
-                let formUploadDiv = document.querySelector(".formUpload");
-
-                formUploadDiv.classList.remove("formUpload");
-
-                let label = document.querySelector(".upload-icon");
-                label.innerHTML =
-                    '<img class="img-fluid" src="' + imageSrc + '" alt="Uploaded Image">';
-            };
-
-            reader.readAsDataURL(file);
-        });
-    </script>
-    <!-- ALERT -->
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/profile.js"></script>
     <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>
 

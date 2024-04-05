@@ -22,12 +22,13 @@
 }
 
 .ps-4.nav-link box-icon {
-  margin-right: 10px; /* Sesuaikan jarak antara ikon dan teks sesuai kebutuhan */
+  margin-right: 10px;
 }
 
-.checker {
+#checker.checker {
   display: flex;
   align-items: center;
+  justify-content: end;
 }
 
 #btnCart {
@@ -69,6 +70,7 @@
   padding-top: 8px;
   padding-bottom: 8px;
 }
+
 .dropdown-menu.regulasi-menu {
   width: 2.3in;
 }
@@ -120,9 +122,7 @@
 #Beranda.nav-link:hover,
 #Regulasi.nav-link:hover,
 #Pesanan.nav-link:hover {
-  color: var(
-    --color-bmkg2
-  ) !important; /* Mengubah warna teks menjadi biru saat dihover */
+  color: var(--color-bmkg2) !important;
 }
 
 .nav-item.active .nav-link::before {
@@ -205,38 +205,36 @@ hr.vertical {
 
 /* Regulasi Effect */
 #modalAlurPelayanan {
-  max-width: 1200px; /* Atur lebar maksimum */
-  width: 100%; /* Atur lebar relatif */
-  backdrop-filter: blur(5px); /* Atur tingkat blur */
+  max-width: 1200px;
+  /width: 100%;
+  backdrop-filter: blur(5px);
 }
 
 #modalStandarLayanan {
-  max-width: 1200px; /* Atur lebar maksimum */
-  width: 100%; /* Atur lebar relatif */
-  backdrop-filter: blur(5px); /* Atur tingkat blur */
+  max-width: 1200px;
+  width: 100%;
+  backdrop-filter: blur(5px);
 }
 #modalRegulasiLayanan {
-  max-width: 900px; /* Atur lebar maksimum */
-  width: 100%; /* Atur lebar relatif */
-  backdrop-filter: blur(5px); /* Atur tingkat blur */
+  max-width: 900px;
+  width: 100%;
+  backdrop-filter: blur(5px);
 }
 
-@media screen and (max-width: 768px) {
-  /* Media query untuk tablet dan smartphone */
-
-  #modalAlurPelayanan,
-  #modalStandarLayanan,
-  #modalRegulasiLayanan {
-    max-width: 100%; /* Mengatur lebar maksimum menjadi 100% */
-    width: auto; /* Mengatur lebar menjadi otomatis */
-    backdrop-filter: none; /* Menghapus efek blur pada latar belakang */
-  }
-}
 #modalTarifLayanan {
-  max-width: 1500px; /* Atur lebar maksimum */
-  width: 100%; /* Atur lebar relatif */
-  backdrop-filter: blur(5px); /* Atur tingkat blur */
+  max-width: 1500px;
+  width: 100%;
+  backdrop-filter: blur(5px);
 }
+
+#modalAlurPelayanan,
+#modalStandarLayanan,
+#modalRegulasiLayanan {
+  max-width: 100%;
+  width: auto;
+  backdrop-filter: none;
+}
+
 .modal-body .container1,
 .modal-body .container2,
 .modal-body .container3 {
@@ -319,3 +317,56 @@ hr.vertical {
   border: none;
   background-color: transparent;
 }
+
+/****************************** Responsive Navbar Tablet ******************************/
+@media screen and (min-width: 765px) and (max-width: 850px) {
+  #box-navbar.container-fluid {
+    width: 100%;
+    padding: 2px 50px 2px 50px;
+  }
+  .dropdown-menu.profile-menu {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 2.8rem;
+    left: -2.5rem;
+    width: 3rem;
+    border: none;
+    border-radius: 3px;
+  }
+}
+
+/****************************** End Responsive Navbar Tablet ******************************/
+
+/****************************** Responsive Navbar Smartphone ******************************/
+@media screen and (min-width: 360px) and (max-width: 428px) {
+  #box-navbar.container-fluid {
+    padding: 2px 10px 2px 10px;
+  }
+
+  .dropdown-menu.regulasi-menu {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 2.8rem;
+    left: 1.5rem;
+    width: 17rem;
+    border: none;
+    border-radius: 3px;
+  }
+  #checker.checker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+/****************************** End Responsive Navbar Smartphone ******************************/

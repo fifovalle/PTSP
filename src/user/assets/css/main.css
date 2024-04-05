@@ -54,12 +54,6 @@ body {
   padding: 5rem 5rem 5rem 5rem;
   background-color: #b6ccd7;
 }
-@media screen and (max-width: 768px) {
-  #button-content.container-fluid {
-    padding: 1rem 1rem 1rem 1rem;
-    background-color: #b6ccd7;
-  }
-}
 
 #button-content.container-fluid button {
   border: none;
@@ -179,8 +173,66 @@ button:hover span::before {
   right: 5px;
   z-index: 999;
 }
+
 .button button {
   position: relative;
   backdrop-filter: none;
 }
 /* End Button Up */
+
+/****************************** Responsive Navbar Tablet ******************************/
+@media screen and (max-width: 850px) {
+  #button-content.container-fluid {
+    padding: 2rem 5rem 2rem 5rem;
+    background-color: #b6ccd7;
+  }
+
+  #button-content.container-fluid button {
+    border: none;
+    position: relative;
+    padding: 1rem 2.5rem 1rem 2.5rem;
+    font-size: 15px;
+    background: transparent;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    color: #178636;
+    z-index: 1;
+    font-family: inherit;
+    font-weight: 500;
+    display: inline-block;
+  }
+
+  .button-container {
+    position: fixed;
+    bottom: 100px;
+    right: 5px;
+    z-index: 999;
+  }
+}
+/****************************** End Responsive Navbar Tablet ******************************/
+
+/****************************** Responsive Navbar Smartphone ******************************/
+@media screen and (min-width: 360px) and (max-width: 428px) {
+  #button-content.container-fluid {
+    padding: 2rem 5rem 2rem 5rem;
+    background-color: #b6ccd7;
+  }
+
+  #button-content.container-fluid button {
+    border: none;
+    position: relative;
+    padding: 0.7rem 1.5rem 0.7rem 1.5rem;
+    font-size: 13px;
+    background: transparent;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    color: #178636;
+    z-index: 1;
+    font-family: inherit;
+    font-weight: 500;
+    display: inline-block;
+  }
+}
+/****************************** End Responsive Navbar Smartphone ******************************/
