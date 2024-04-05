@@ -29,21 +29,39 @@ include '../../admin/config/databases.php';
             <div class="col-md-10 px-5" id="history-pesanan">
                 <div class="container-fluid w-100">
                     <div class="d-flex row status" id="opsi-statuspesanan">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="col" id="nama_barang">Informasi Klimatologi - Data Iklim 1 Bulan</div>
-                                <div class="col" id="jmlh_barang">x2</div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="col text-end" id="harga_barang">Rp30.000</div>
-                            </div>
+                        <?php
+                        $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                        $transaksiModel = new Transaksi($koneksi);
+                        $dataTraksaksi = $transaksiModel->tampilkanRiwayatTransaksiSesuaiSession($id);
+                        if (!empty($dataTraksaksi)) {
+                            $totalPesanan = 0;
+                            foreach ($dataTraksaksi as $transaksi) {
+                        ?>
+                                <div class="col-md-8">
+                                    <div class="col" id="nama_barang"><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></div>
+                                    <div class="col" id="jmlh_barang">x<?php echo $transaksi['Jumlah_Barang']; ?></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="col text-end" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                </div>
+                            <?php
+                                $totalPesanan += ($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']) * $transaksi['Jumlah_Barang'];
+                            }
+                            ?>
                             <hr class="my-3">
-                        </div>
-                        <div class="d-flex row">
-                            <div class="col text-end" id="total_harga">
-                                <p>Total Pesanan :</p> Rp30.000
+                            <div class="d-flex row">
+                                <div class="col text-end" id="total_harga">
+                                    <p>Total Pesanan : Rp<?php echo number_format($totalPesanan, 0, ',', '.'); ?></p>
+                                </div>
                             </div>
-                        </div>
+                        <?php
+                        } else {
+                        ?>
+                            <div class='text-danger fw-bold'>Tidak ada data riwayat transaksi Anda.</div>
+                            <hr class="my-3">
+                        <?php
+                        }
+                        ?>
                         <div class="row">
                             <div class="d-flex col ">
                                 <button class="btn btn-outline-danger px-2 mx-3" type="button" id="btn-beli-lagi" style="width:100px;">Beli Lagi</button>
@@ -183,19 +201,39 @@ include '../../admin/config/databases.php';
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-8">
-                                    <div class="col" id="nama_barang">Informasi Klimatologi - Data Iklim 1 Bulan</div>
-                                    <div class="col" id="jmlh_barang">x2</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="col text-end" id="harga_barang">Rp30.000</div>
-                                </div>
-                                <hr class="my-3">
-                            </div>
-                            <div class="d-flex row">
-                                <div class="col text-end" id="total_harga">
-                                    <p>Total Pesanan :</p> Rp30.000
-                                </div>
+                                <?php
+                                $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                                $transaksiModel = new Transaksi($koneksi);
+                                $dataTraksaksi = $transaksiModel->tampilkanTransaksiSesuaiSession($id);
+                                if (!empty($dataTraksaksi)) {
+                                    $totalPesanan = 0;
+                                    foreach ($dataTraksaksi as $transaksi) {
+                                ?>
+                                        <div class="col-md-8">
+                                            <div class="col" id="nama_barang"><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></div>
+                                            <div class="col" id="jmlh_barang">x<?php echo $transaksi['Jumlah_Barang']; ?></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="col text-end" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                        </div>
+                                    <?php
+                                        $totalPesanan += ($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']) * $transaksi['Jumlah_Barang'];
+                                    }
+                                    ?>
+                                    <hr class="my-3">
+                                    <div class="d-flex row">
+                                        <div class="col text-end" id="total_harga">
+                                            <p>Total Pesanan : Rp<?php echo number_format($totalPesanan, 0, ',', '.'); ?></p>
+                                        </div>
+                                    </div>
+                                <?php
+                                } else {
+                                ?>
+                                    <div class='text-danger fw-bold'>Tidak ada data transaksi Anda.</div>
+                                    <hr class="my-3">
+                                <?php
+                                }
+                                ?>
                             </div>
                             <div class="d-flex row mt-4">
                                 <div class="col" id="pagenation">

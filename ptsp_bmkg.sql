@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2024 at 04:17 AM
+-- Generation Time: Apr 05, 2024 at 04:45 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -390,7 +390,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Rekening_Pengguna`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(49, NULL, 16, NULL, 19, NULL, NULL, 0, NULL, '', '2024-03-31 15:08:20', 'Belum Disetujui'),
+(49, NULL, 16, NULL, 19, NULL, NULL, 2, NULL, '', '2024-03-31 15:08:20', 'Disetujui'),
 (50, NULL, 16, NULL, 20, NULL, NULL, 0, NULL, '', '2024-04-02 21:22:25', 'Belum Disetujui'),
 (51, NULL, 16, NULL, NULL, 17, NULL, 0, NULL, '', '2024-04-02 21:46:01', 'Belum Disetujui'),
 (52, NULL, 16, NULL, NULL, 18, NULL, 0, NULL, '', '2024-04-02 21:46:06', 'Belum Disetujui'),

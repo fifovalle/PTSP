@@ -774,7 +774,7 @@ class Informasi
         $statement->bind_param("i", $limit);
         $statement->execute();
         $result = $statement->get_result();
-    
+
         if ($result->num_rows > 0) {
             $data = [];
             while ($baris = $result->fetch_assoc()) {
@@ -785,7 +785,7 @@ class Informasi
             return [];
         }
     }
-    
+
 
     public function tampilkanDataInformasiMeteorologi()
     {
@@ -1030,7 +1030,7 @@ class Jasa
         $statement->bind_param("i", $limit);
         $statement->execute();
         $result = $statement->get_result();
-    
+
         if ($result->num_rows > 0) {
             $data = [];
             while ($baris = $result->fetch_assoc()) {
@@ -1696,7 +1696,7 @@ class Pengajuan
         $namaFileSurat = $row['Surat_Keterangan_Ditolak'];
 
         if ($idPengajuan != $id) {
-            return false; 
+            return false;
         }
 
         $queryDelete = "DELETE FROM pengajuan WHERE ID_Pengajuan=?";
@@ -1706,22 +1706,22 @@ class Pengajuan
 
         if ($isDeleted) {
             if (!empty($namaFileSurat)) {
-                $direktoriFileSurat = "../assets/image/uploads/"; 
+                $direktoriFileSurat = "../assets/image/uploads/";
 
                 if (file_exists($direktoriFileSurat . $namaFileSurat)) {
                     if (unlink($direktoriFileSurat . $namaFileSurat)) {
-                        return true; 
+                        return true;
                     } else {
-                        return false; 
+                        return false;
                     }
                 } else {
-                    return true; 
+                    return true;
                 }
             } else {
-                return true; 
+                return true;
             }
         } else {
-            return false; 
+            return false;
         }
     }
 }
@@ -1880,6 +1880,46 @@ class Transaksi
         }
     }
 
+    public function tampilkanRiwayatTransaksiSesuaiSession($id)
+    {
+        $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Disetujui' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanTransaksiSesuaiSession($id)
+    {
+        $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Belum Disetujui' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
     public function tampilkanTransaksiInformasi($id)
     {
         $query = "SELECT transaksi.*, informasi.* FROM transaksi 
@@ -1929,7 +1969,7 @@ class Transaksi
         $namaFilePenerimaan = $row['File_Penerimaan'];
 
         if ($idTransaksi != $id) {
-            return false; 
+            return false;
         }
 
         $queryDelete = "DELETE FROM transaksi WHERE ID_Tranksaksi=?";
@@ -1939,19 +1979,19 @@ class Transaksi
 
         if ($isDeleted) {
             if (!empty($namaFilePenerimaan)) {
-                $direktoriFilePenerimaan = "../assets/image/uploads/"; 
+                $direktoriFilePenerimaan = "../assets/image/uploads/";
 
                 if (file_exists($direktoriFilePenerimaan . $namaFilePenerimaan)) {
                     if (unlink($direktoriFilePenerimaan . $namaFilePenerimaan)) {
                         return true;
                     } else {
-                        return false; 
+                        return false;
                     }
                 } else {
-                    return true; 
+                    return true;
                 }
             } else {
-                return true; 
+                return true;
             }
         } else {
             return false;
@@ -1970,7 +2010,7 @@ class Transaksi
         $namaFilePenerimaan = $row['File_Penerimaan'];
 
         if ($idTransaksi != $id) {
-            return false; 
+            return false;
         }
 
         $queryDelete = "DELETE FROM transaksi WHERE ID_Tranksaksi=?";
@@ -1980,19 +2020,19 @@ class Transaksi
 
         if ($isDeleted) {
             if (!empty($namaFilePenerimaan)) {
-                $direktoriFilePenerimaan = "../assets/image/uploads/"; 
+                $direktoriFilePenerimaan = "../assets/image/uploads/";
 
                 if (file_exists($direktoriFilePenerimaan . $namaFilePenerimaan)) {
                     if (unlink($direktoriFilePenerimaan . $namaFilePenerimaan)) {
                         return true;
                     } else {
-                        return false; 
+                        return false;
                     }
                 } else {
-                    return true; 
+                    return true;
                 }
             } else {
-                return true; 
+                return true;
             }
         } else {
             return false;
@@ -2012,8 +2052,8 @@ class Ikm
     }
 
     public function tambahDataIkm($data)
-{
-    $query = "INSERT INTO ikm (Nama, Jenis_Kelamin, Pendidikan_Terakhir, NIK, Umur, Pekerjaan, Koresponden, Jenis_Layanan, Asal_Daerah,
+    {
+        $query = "INSERT INTO ikm (Nama, Jenis_Kelamin, Pendidikan_Terakhir, NIK, Umur, Pekerjaan, Koresponden, Jenis_Layanan, Asal_Daerah,
                                Informasi_Cuaca_Publik, Informasi_Cuaca_Khusus, Analisis_Cuaca, Informasi_Titik_Panas,
                                Informasi_Tentang_Tingkat, Prakiraan_Musim, Informasi_Iklim_Khusus, Analisis_Prakiraan, 
                                Tren_Curah_Hujan, Informasi_Kualitas_Udara, Analisis_Iklim_Ekstrim, Informasi_Iklim_Terapan,
@@ -2021,53 +2061,52 @@ class Ikm
                                Informasi_Tanda_Waktu, Informasi_Geofisika_Potensial, Peta_Rendaman_Tsunami,
                                Informasi_Seismologi_Teknik, Data_MKG, Kalibrasi, Konsultasi, Sewa_Peralatan_MKG, Kunjungan)
                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    
-    $statement = $this->koneksi->prepare($query);
-    $statement->bind_param(
-        "sssissssssssssssssssssssssssssssss",
-        $data['Nama'],
-        $data['Jenis_Kelamin'],
-        $data['Pendidikan_Terakhir'],
-        $data['NIK'],
-        $data['Umur'],
-        $data['Pekerjaan'],
-        $data['Koresponden'],
-        $data['Jenis_Layanan'],
-        $data['Asal_Daerah'],
-        $data['Informasi_Cuaca_Publik'],
-        $data['Informasi_Cuaca_Khusus'],
-        $data['Analisis_Cuaca'],
-        $data['Informasi_Titik_Panas'],
-        $data['Informasi_Tentang_Tingkat'],
-        $data['Prakiraan_Musim'],
-        $data['Informasi_Iklim_Khusus'],
-        $data['Analisis_Prakiraan'],
-        $data['Tren_Curah_Hujan'],
-        $data['Informasi_Kualitas_Udara'],
-        $data['Analisis_Iklim_Ekstrim'],
-        $data['Informasi_Iklim_Terapan'],
-        $data['Informasi_Perubahan_Iklim'],
-        $data['Pengambilan_Pengujian'],
-        $data['Informasi_Gempabumi'],
-        $data['Peta_Seismisitas'],
-        $data['Informasi_Tanda_Waktu'],
-        $data['Informasi_Geofisika_Potensial'],
-        $data['Peta_Rendaman_Tsunami'],
-        $data['Informasi_Seismologi_Teknik'],
-        $data['Data_MKG'],
-        $data['Kalibrasi'],
-        $data['Konsultasi'],
-        $data['Sewa_Peralatan_MKG'],
-        $data['Kunjungan']
-    );
 
-    if ($statement->execute()) {
-        return true;
-    } else {
-        return false;
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "sssissssssssssssssssssssssssssssss",
+            $data['Nama'],
+            $data['Jenis_Kelamin'],
+            $data['Pendidikan_Terakhir'],
+            $data['NIK'],
+            $data['Umur'],
+            $data['Pekerjaan'],
+            $data['Koresponden'],
+            $data['Jenis_Layanan'],
+            $data['Asal_Daerah'],
+            $data['Informasi_Cuaca_Publik'],
+            $data['Informasi_Cuaca_Khusus'],
+            $data['Analisis_Cuaca'],
+            $data['Informasi_Titik_Panas'],
+            $data['Informasi_Tentang_Tingkat'],
+            $data['Prakiraan_Musim'],
+            $data['Informasi_Iklim_Khusus'],
+            $data['Analisis_Prakiraan'],
+            $data['Tren_Curah_Hujan'],
+            $data['Informasi_Kualitas_Udara'],
+            $data['Analisis_Iklim_Ekstrim'],
+            $data['Informasi_Iklim_Terapan'],
+            $data['Informasi_Perubahan_Iklim'],
+            $data['Pengambilan_Pengujian'],
+            $data['Informasi_Gempabumi'],
+            $data['Peta_Seismisitas'],
+            $data['Informasi_Tanda_Waktu'],
+            $data['Informasi_Geofisika_Potensial'],
+            $data['Peta_Rendaman_Tsunami'],
+            $data['Informasi_Seismologi_Teknik'],
+            $data['Data_MKG'],
+            $data['Kalibrasi'],
+            $data['Konsultasi'],
+            $data['Sewa_Peralatan_MKG'],
+            $data['Kunjungan']
+        );
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
-}
-
 }
 
 // ===================================IKM=====================================
