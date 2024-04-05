@@ -252,37 +252,35 @@ include '../../admin/config/databases.php';
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card">
-                                        <div class="text-center position-relative">
-                                        <div class="text-center position-relative">
+                                            <div class="text-center position-relative">
                                                 <?php if (isset($_SESSION['ID_Pengguna']) && !empty($_SESSION['Foto_Pengguna'])) : ?>
                                                     <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto_Pengguna'] ?>" class="img-thumbnail" alt="Foto Pengguna" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
                                                 <?php elseif (isset($_SESSION['ID_Perusahaan']) && !empty($_SESSION['Foto_Perusahaan'])) : ?>
                                                     <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $_SESSION['Foto_Perusahaan'] ?>" class="img-thumbnail" alt="Foto Perusahaan" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
                                                 <?php else : ?>
-                                                    <img src="../../admin/assets/image/uploads/2.png" class="img-thumbnail" alt="Foto Default" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
+                                                    <img src="../../admin/assets/image/uploads/default.jpg" class="img-thumbnail" alt="Foto Default" style="border-radius: 50%; width: 250px; height: 250px; border: none;">
                                                 <?php endif; ?>
-                                            </div>
-                                            <div class="box position-absolute" style="display: none;">
-                                                <button class="btn border-0 opacity-100" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSuntingFoto">
-                                                    <box-icon name='edit-alt' id="icon-edit" color='rgba(255,255,255,0.9)'></box-icon>
-                                                </button>
+                                                <div class="box position-absolute" style="display: none;">
+                                                    <button class="btn border-0 opacity-100" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSuntingFoto">
+                                                        <box-icon name='edit-alt' id="icon-edit" color='rgba(255,255,255,0.9)'></box-icon>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
+                                        <hr class="my-3">
                                     </div>
-                                    <hr class="my-3">
-                                </div>
-                                <div class="row">
-                                    <div class="d-flex col p-0">
-                                        <button class="btn btn-outline-success px-2 mx-3" type="submit" name="Simpan" style="width:100px;">Simpan</button>
+                                    <div class="row">
+                                        <div class="d-flex col p-0">
+                                            <button class="btn btn-outline-success px-2 mx-3" type="submit" name="Simpan" style="width:100px;">Simpan</button>
+                                        </div>
                                     </div>
                                 </div>
+                            </form>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/profile.js"></script>
