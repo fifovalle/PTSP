@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2024 at 04:45 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 05, 2024 at 02:02 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -319,8 +319,7 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `Token`) VALUES
-(16, 0x363630616636356335366530652e706e67, '1', 1, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifovalle', 'fifanaufal10@gmail.com', '$2y$10$hFkeyUBRO03VAqiq/98hheIjBnJM6006XxZz1SmFAm6FmG9BP0K8O', '$2y$10$hFkeyUBRO03VAqiq/98hheIjBnJM6006XxZz1SmFAm6FmG9BP0K8O', '+62 812-2365-2490', 'Pria', 'Batujajar', 'Bandung', 'Bandung', 'Belum Terverifikasi', 83981283),
-(18, '', '15', 90, 'Intel', 'Rezki', 'Gey', 'SMA', 'Rezki', 'rezki@gmail.com', '$2y$10$PATAcZuKCQNIsKeB6SSekOKGqzHZLrkfZ9phuQkRdeINkc4.xXnBi', '$2y$10$PATAcZuKCQNIsKeB6SSekOKGqzHZLrkfZ9phuQkRdeINkc4.xXnBi', '+62 822-7788-5432', 'Pria', 'Depok', 'Jawa Barat', 'Depok', 'Belum Terverifikasi', 49813016);
+(16, 0x363630616636356335366530652e706e67, '1', 1, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifovalle', 'fifanaufal10@gmail.com', '$2y$10$hFkeyUBRO03VAqiq/98hheIjBnJM6006XxZz1SmFAm6FmG9BP0K8O', '$2y$10$hFkeyUBRO03VAqiq/98hheIjBnJM6006XxZz1SmFAm6FmG9BP0K8O', '+62 812-2365-2490', 'Pria', 'Batujajar', 'Bandung', 'Bandung', 'Belum Terverifikasi', 83981283);
 
 -- --------------------------------------------------------
 
@@ -361,8 +360,7 @@ CREATE TABLE `perusahaan` (
 --
 
 INSERT INTO `perusahaan` (`ID_Perusahaan`, `Foto_Perusahaan`, `No_Identitas_Anggota_Perusahaan`, `Nama_Depan_Anggota_Perusahaan`, `Nama_Belakang_Anggota_Perusahaan`, `Pekerjaan_Anggota_Perusahaan`, `Pendidikan_Terakhir_Anggota_Perusahaan`, `Jenis_Kelamin_Anggota_Perusahaan`, `Alamat_Anggota_Perusahaan`, `No_Telepon_Anggota_Perusahaan`, `Provinsi_Anggota_Perusahaan`, `Kabupaten_Kota_Anggota_Perusahaan`, `No_NPWP`, `Nama_Perusahaan`, `Alamat_Perusahaan`, `Provinsi_Perusahaan`, `Kabupaten_Kota_Perusahaan`, `Email_Perusahaan`, `No_Telepon_Perusahaan`, `Email_Anggota_Perusahaan`, `Nama_Pengguna_Anggota_Perusahaan`, `Kata_Sandi_Anggota_Perusahaan`, `Konfirmasi_Kata_Sandi_Anggota_Perusahaan`, `Status_Verifikasi_Perusahaan`, `Token`) VALUES
-(5, 0x363630616638663139626161642e6a7067, 2, 'zonaNyaman', 'zona', 'Nganggur', 'SMP', 'Pria', 'Batujajar', '+62 812-2365-2490', 'Jawa Barat', 'Bandung Barat', '1', 'Iku', 'Bandung', 'Jawa Barat', 'Bandung', 'iku@gmail.com', '+62 812-2365-2490', 'iku@gmail.com', 'iku', '$2y$10$NEdvO4G1xq9mR7L6HC4HduaiDQA0UjZ.DYurM6C.E8Ya0yx3fsdOK', '$2y$10$NEdvO4G1xq9mR7L6HC4HduaiDQA0UjZ.DYurM6C.E8Ya0yx3fsdOK', 'Belum Terverifikasi', 72540572),
-(7, '', 2, 'Sandro', 'Ganteng', 'Pelajar', 'S3', 'Pria', 'Cimahi Selatan', '+62 822-1234-5678', 'Jawa Barat', 'Cimahi', '21', 'Syntax Squad', 'jln.ss no12', 'Jawa Barat', 'Bandung Kota', 'syntaxsquad@gmail.com', '+62 822-9087-6543', 'ganteng@gmail.com', 'Sandro', '$2y$10$VHPmmyUGILfVEwpESrT9vuWXjgc.x/WPC4T9f0ss5xgzwGI9D2ugu', '$2y$10$VHPmmyUGILfVEwpESrT9vuWXjgc.x/WPC4T9f0ss5xgzwGI9D2ugu', 'Belum Terverifikasi', 66882468);
+(5, 0x363630616638663139626161642e6a7067, 2, 'zonaNyaman', 'zona', 'Nganggur', 'SMP', 'Pria', 'Batujajar', '+62 812-2365-2490', 'Jawa Barat', 'Bandung Barat', '1', 'Iku', 'Bandung', 'Jawa Barat', 'Bandung', 'iku@gmail.com', '+62 812-2365-2490', 'iku@gmail.com', 'iku', '$2y$10$NEdvO4G1xq9mR7L6HC4HduaiDQA0UjZ.DYurM6C.E8Ya0yx3fsdOK', '$2y$10$NEdvO4G1xq9mR7L6HC4HduaiDQA0UjZ.DYurM6C.E8Ya0yx3fsdOK', 'Belum Terverifikasi', 72540572);
 
 -- --------------------------------------------------------
 

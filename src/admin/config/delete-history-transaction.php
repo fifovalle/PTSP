@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
 
     $transaksiModel = new Transaksi($koneksi);
 
-    $hapusData =  $transaksiModel->hapusTransaksi($id);
+    $hapusData =  $transaksiModel->hapusRiwayatTransaksi($id);
 
     $pesanKeberhasilan = "Data transaksi berhasil dihapus.";
     $pesanKegagalan = "Gagal menghapus data transaksi.";

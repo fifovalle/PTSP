@@ -1,7 +1,7 @@
 function confirmDeleteHistoryTransaction(id) {
   swal({
-    title: "Yakin Menghapus Jasa?",
-    text: "Jasa yang dihapus tidak dapat dipulihkan!",
+    title: "Yakin Menghapus Riwayat Transaksi?",
+    text: "Riwayat Transaksi yang dihapus tidak dapat dipulihkan!",
     icon: "warning",
     buttons: {
       cancel: {

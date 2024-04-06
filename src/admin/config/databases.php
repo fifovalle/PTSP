@@ -1957,6 +1957,20 @@ class Transaksi
         }
     }
 
+    public function updateTransaksi($id, $file, $status)
+    {
+        $query = "UPDATE transaksi SET File_Penerimaan=?, Status_Transaksi=? WHERE ID_Tranksaksi=?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("ssi", $file, $status, $id);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public function hapusTransaksi($id)
     {
         $querySelect = "SELECT ID_Tranksaksi, File_Penerimaan FROM transaksi WHERE ID_Tranksaksi=?";
