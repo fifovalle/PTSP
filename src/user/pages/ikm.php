@@ -13,6 +13,7 @@ include '../../admin/config/databases.php';
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <link rel="stylesheet" href="../assets/css/ikm.css">
     <script src="../assets/js/javascript.js"></script>
+    <link rel="icon" href="../../admin/assets/image/logo/1.png">
     <!-- SWEETALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
