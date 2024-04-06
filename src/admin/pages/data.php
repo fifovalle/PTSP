@@ -70,6 +70,9 @@ if (!isset($_SESSION['ID'])) {
                                 <div class="menu col-2">
                                     <p class="fw-semibold dataAll">Pengajuan</p>
                                 </div>
+                                <div class="menu col-2 historyMenuDataPengajuan">
+                                    <p class="fw-semibold dataAll">Riwayat Pengajuan</p>
+                                </div>
                                 <div class="menu col-2">
                                     <p class="fw-semibold dataAll">Transaksi</p>
                                 </div>
@@ -109,6 +112,7 @@ if (!isset($_SESSION['ID'])) {
                                 <?php include "../partials/utils/informations-table.php" ?>
                                 <?php include "../partials/utils/sevices-table.php" ?>
                                 <?php include "../partials/utils/applyment-table.php" ?>
+                                <?php include "../partials/utils/history-applyment-table.php" ?>
                                 <?php include "../partials/utils/transaction-table.php" ?>
                                 <?php include "../partials/utils/transaction-table-history.php" ?>
                                 <!-- ALL TABLE END -->

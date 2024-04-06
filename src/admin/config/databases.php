@@ -1659,6 +1659,32 @@ class Pengajuan
         }
     }
 
+    public function tampilkanDataRiwayatPengajuan()
+    {
+        $query = "SELECT pengajuan.*, pengguna.*, perusahaan.*, admin.*, kegiatan_bencana.*, kegiatan_keagamaan.*, kegiatan_pertahanan_keamanan.*, kegiatan_sosial.*, pemerintah_pusat_daerah.*, pendidikan_dan_penelitian.*, informasi_tarif_pnbp.* FROM pengajuan
+                  LEFT JOIN pengguna ON pengajuan.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN perusahaan ON pengajuan.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN admin ON pengajuan.ID_Admin = admin.ID_Admin
+                  LEFT JOIN kegiatan_bencana ON pengajuan.ID_Bencana = kegiatan_bencana.ID_Bencana
+                  LEFT JOIN kegiatan_keagamaan ON pengajuan.ID_Keagamaan = kegiatan_keagamaan.ID_Keagamaan
+                  LEFT JOIN kegiatan_pertahanan_keamanan ON pengajuan.ID_Pertahanan = kegiatan_pertahanan_keamanan.ID_Pertahanan
+                  LEFT JOIN kegiatan_sosial ON pengajuan.ID_Sosial = kegiatan_sosial.ID_Sosial
+                  LEFT JOIN pemerintah_pusat_daerah ON pengajuan.ID_Pusat_Daerah = pemerintah_pusat_daerah.ID_Pusat
+                  LEFT JOIN pendidikan_dan_penelitian ON pengajuan.ID_Penelitian = pendidikan_dan_penelitian.ID_Pendidikan_Penelitian
+                  LEFT JOIN informasi_tarif_pnbp ON pengajuan.ID_Tarif = informasi_tarif_pnbp.ID_PNBP  WHERE Status_Pengajuan = 'Diterima'";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
     public function tampilkanSemuaDataPengajuan()
     {
         $query = "SELECT pengajuan.*, pengguna.*, perusahaan.*, admin.*, kegiatan_bencana.*, kegiatan_keagamaan.*, kegiatan_pertahanan_keamanan.*, kegiatan_sosial.*, pemerintah_pusat_daerah.*, pendidikan_dan_penelitian.* FROM pengajuan 

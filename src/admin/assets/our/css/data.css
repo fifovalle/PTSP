@@ -30,6 +30,10 @@
   width: 155px;
 }
 
+.historyMenuDataPengajuan {
+  width: 162px;
+}
+
 .historyMenuDataIKM {
   width: 115px;
 }
@@ -127,7 +131,8 @@
 .transactionTable,
 .servicesTable,
 .applymentTable,
-.transactionTableHistory {
+.transactionTableHistory,
+.historyApplymentTable {
   display: none;
 }
 

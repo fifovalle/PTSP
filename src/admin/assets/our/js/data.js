@@ -7,35 +7,40 @@ $(document).ready(function () {
     menuText === "Admin"
       ? ($(".adminTable").show(),
         $(
-          ".userTable, .informationTable, .transactionTable, .servicesTable, .applymentTabl, .transactionTableHistory"
+          ".userTable, .informationTable, .transactionTable, .servicesTable, .applymentTabl, .transactionTableHistory, .historyApplymentTable"
         ).hide())
       : menuText === "Pengguna"
       ? ($(
-          ".adminTable, .informationTable, .transactionTable, .servicesTable, .applymentTable, .transactionTableHistory"
+          ".adminTable, .informationTable, .transactionTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable"
         ).hide(),
         $(".userTable").show())
       : menuText === "Informasi"
       ? ($(
-          ".adminTable, .userTable, .transactionTable, .servicesTable, .applymentTable, .transactionTableHistory"
+          ".adminTable, .userTable, .transactionTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable"
         ).hide(),
         $(".informationTable").show())
       : menuText === "Jasa"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .transactionTable, .applymentTable, transactionTableHistory"
+          ".adminTable, .userTable, .informationTable, .transactionTable, .applymentTable, transactionTableHistory, .historyApplymentTable"
         ).hide(),
         $(".servicesTable").show())
       : menuText === "Pengajuan"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable, .transactionTableHistory"
+          ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable, .transactionTableHistory, .historyApplymentTable"
         ).hide(),
         $(".applymentTable").show())
+      : menuText === "Riwayat Pengajuan"
+      ? ($(
+          ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable, .transactionTableHistory, .applymentTable"
+        ).hide(),
+        $(".historyApplymentTable").show())
       : menuText === "Transaksi"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTableHistory"
+          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable"
         ).hide(),
         $(".transactionTable").show())
       : ($(
-          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTable"
+          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTable, .historyApplymentTable"
         ).hide(),
         $(".transactionTableHistory").show());
   });
