@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2024 at 05:02 AM
+-- Generation Time: Apr 06, 2024 at 05:12 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -405,6 +405,7 @@ CREATE TABLE `transaksi` (
   `ID_Perusahaan` int(11) DEFAULT NULL,
   `ID_Informasi` int(11) DEFAULT NULL,
   `ID_Jasa` int(11) DEFAULT NULL,
+  `ID_Ikm` int(11) DEFAULT NULL,
   `Rekening_Pengguna` int(20) DEFAULT NULL,
   `Jumlah_Barang` int(11) NOT NULL,
   `Total_Transaksi` int(11) DEFAULT NULL,
@@ -520,7 +521,8 @@ ALTER TABLE `transaksi`
   ADD KEY `ID_Pengguna` (`ID_Pengguna`),
   ADD KEY `ID_Perusahaan` (`ID_Perusahaan`),
   ADD KEY `ID_Informasi` (`ID_Informasi`),
-  ADD KEY `ID_Jasa` (`ID_Jasa`);
+  ADD KEY `ID_Jasa` (`ID_Jasa`),
+  ADD KEY `ID_IKM` (`ID_Ikm`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -643,7 +645,8 @@ ALTER TABLE `transaksi`
   ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`ID_Jasa`) REFERENCES `jasa` (`ID_Jasa`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transaksi_ibfk_3` FOREIGN KEY (`ID_Informasi`) REFERENCES `informasi` (`ID_Informasi`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transaksi_ibfk_4` FOREIGN KEY (`ID_Admin`) REFERENCES `admin` (`ID_Admin`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `transaksi_ibfk_5` FOREIGN KEY (`ID_Perusahaan`) REFERENCES `perusahaan` (`ID_Perusahaan`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `transaksi_ibfk_5` FOREIGN KEY (`ID_Perusahaan`) REFERENCES `perusahaan` (`ID_Perusahaan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaksi_ibfk_6` FOREIGN KEY (`ID_Ikm`) REFERENCES `ikm` (`ID_Ikm`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
