@@ -60,11 +60,21 @@
                         <?php } ?>
                         <div class="deskriptorContainer">
                             <p class="fw-semibold m-auto"><?php echo $data['Nama_Pengguna'] ?? $data['Nama_Pengguna_Anggota_Perusahaan']; ?></p>
-                            <?php if (isset($data['Nama_Depan_Pengguna'])) : ?>
-                                <p class="fw-semibold deskriptorSmall m-auto"><?php echo $data['Nama_Depan_Pengguna'] . ' ' . $data['Nama_Belakang_Pengguna']; ?></p>
-                            <?php else : ?>
-                                <p class="fw-semibold deskriptorSmall m-auto"><?php echo $data['Nama_Depan_Anggota_Perusahaan'] . ' ' . $data['Nama_Belakang_Anggota_Perusahaan']; ?></p>
-                            <?php endif; ?>
+                            <?php
+                            if (isset($data['Nama_Depan_Pengguna'])) {
+                                $namaDepan = $data['Nama_Depan_Pengguna'];
+                                $namaBelakang = $data['Nama_Belakang_Pengguna'];
+                            } else {
+                                $namaDepan = $data['Nama_Depan_Anggota_Perusahaan'];
+                                $namaBelakang = $data['Nama_Belakang_Anggota_Perusahaan'];
+                            }
+                            $namaLengkap = $namaDepan . ' ' . $namaBelakang;
+                            $panjangNama = strlen($namaBelakang);
+                            if ($panjangNama > 2) {
+                                $namaBelakang = substr($namaBelakang, 0, 2) . '...';
+                            }
+                            ?>
+                            <p class="fw-semibold deskriptorSmall m-auto"><?php echo $namaDepan . ' ' . $namaBelakang; ?></p>
                             <div class="iconContainerData">
                                 <a class="linkData buttonUser" data-id='<?php echo $data['ID_Pengguna'] ?? $data['ID_Perusahaan']; ?>'>
                                     <span><i class="fas fa-edit"></i></span>
