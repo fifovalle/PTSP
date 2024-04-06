@@ -1886,6 +1886,26 @@ class Transaksi
         }
     }
 
+    public function tampilkanTransaksiSesuaiCheckoutPembeli($idPembeli)
+    {
+        $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
+        LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+        LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+        LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+        LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.ID_Tranksaksi = $idPembeli";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
     public function tampilkanRiwayatTransaksi()
     {
         $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 

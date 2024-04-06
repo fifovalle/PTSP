@@ -69,9 +69,10 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                             echo "Rp " . $harga_rupiah;
                                             ?>
                                         </td>
-                                        <td class="content_kuantitas_informasi py-5 text-center"><button type="button" class="btn btn-danger" onclick="kurangiNilai()"><i class="bi bi-dash"></i></button>
-                                            <span id="nilai_informasi">1</span>
-                                            <button type="button" class="btn btn-primary" class="plus" onclick="tambahNilai()"><i class="bi bi-plus"></i></button>
+                                        <td class="content_kuantitas_informasi py-5 text-center">
+                                            <button type="button" class="btn btn-danger" onclick="kurangiNilai(<?php echo $transaksiInformasi['ID_Tranksaksi']; ?>)"><i class="bi bi-dash"></i></button>
+                                            <span class="nilai_informasi" id="nilai_<?php echo $transaksiInformasi['ID_Tranksaksi']; ?>" data-id-tombol="<?php echo $transaksiInformasi['ID_Tranksaksi']; ?>">0</span>
+                                            <button type="button" class="btn btn-primary plus" onclick="tambahNilai(<?php echo $transaksiInformasi['ID_Tranksaksi']; ?>)"><i class="bi bi-plus"></i></button>
                                         </td>
                                     </tr>
                             <?php
@@ -152,8 +153,8 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                             $idPembeli = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                             $transaksiPembeliModel = new Transaksi($koneksi);
                             $dataTransaksiPembeli = $transaksiPembeliModel->tampilkanTransaksiSesuaiPembeli($idPembeli);
+                            $nomorUrut = 1;
                             if (!empty($dataTransaksiPembeli)) {
-                                $totalHarga = 0;
                             ?>
                                 <div class="step">
                                     <div>
@@ -167,7 +168,10 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         <span>PRODUK</span>
                                         <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
                                             <p>Nama Produk: <?php echo $transaksiPembeli['Nama_Informasi'] ?? $transaksiPembeli['Nama_Jasa']; ?></p>
-                                            <p>Jumlah Produk: <?php echo $transaksiPembeli['Jumlah_Barang']; ?></p>
+                                            <div class="d-flex">
+                                                <p>Jumlah Produk : </p>
+                                                <p class="ms-1" id="jumlah_barang_<?php echo $transaksiPembeli['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksiPembeli['ID_Tranksaksi']; ?>">0</p>
+                                            </div>
                                         <?php endforeach; ?>
                                     </div>
                                     <hr>
@@ -178,36 +182,40 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         <?php endforeach; ?>
                                     </div>
                                     <hr>
-                                    <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
-                                        <?php $totalHarga += $transaksiPembeli['Harga_Informasi'] ?? $transaksiPembeli['Harga_Jasa']; ?>
-                                    <?php endforeach; ?>
                                     <div class="payments">
                                         <span>HARGA PER PRODUK</span>
                                         <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
                                             <div class="details">
-                                                <span>Nama Penerima: <?php echo $transaksiPembeli['Pemilik_Informasi'] ?? $transaksiPembeli['Pemilik_Jasa']; ?> <br> HARGA: <?php echo $transaksiPembeli['Harga_Informasi'] ?? $transaksiPembeli['Harga_Jasa']; ?></span>
+                                                <span>Nama Penerima: <?php echo $transaksiPembeli['Pemilik_Informasi'] ?? $transaksiPembeli['Pemilik_Jasa']; ?> <br>
+                                                    <div class="d-flex">
+                                                        HARGA : <p class="ms-1 hargaPerProduk" data-harga="<?php echo $transaksiPembeli['ID_Tranksaksi']; ?>">Rp<?php echo $transaksiPembeli['Harga_Informasi'] ?? $transaksiPembeli['Harga_Jasa']; ?></p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
+                                <div class="card checkout">
+                                    <div class="footer">
+                                        <?php foreach ($dataTransaksiPembeli as $transaksiPembeli) : ?>
+                                            <p id="total_harga_<?php echo $transaksiPembeli['ID_Tranksaksi']; ?>" class="price">Rp</p>
+                                            <button class="checkout-btn" type="button">Pesan</button>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
                         </div>
-                        <div class="card checkout">
-                            <div class="footer">
-                                <label class="price">Rp<?php echo number_format($totalHarga, 0, ',', '.'); ?></label>
-                                <button class="checkout-btn" type="button">Pesan</button>
-                            </div>
-                        </div>
+                    <?php }
+                    ?>
                     </div>
-                <?php }
-                ?>
                 </div>
             </div>
         </div>
-        <!-- End Modal Checkout -->
-        <script src="../assets/js/navbar.js"></script>
-        <script src="../assets/js/cart.js"></script>
-        <!-- ALERT -->
-        <?php include '../../../src/admin/partials/utils/alert.php' ?>
+    </div>
+    <?php include '../partials/checkout-modal-js.php'; ?>
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <!-- ALERT -->
+    <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>
