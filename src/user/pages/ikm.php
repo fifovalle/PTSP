@@ -333,20 +333,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis1_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Terbuka" id="Sangat Setuju" value="Sangat Setuju, Setuju, Kurang Setuju, Tidak Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis1_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Terbuka" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis1_pt1" id="inlineRadio3_1" value="option3">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Terbuka" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis1_pt1" id="inlineRadio4_1" value="option4">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Terbuka" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -354,20 +354,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis1_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Terbuka" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis1_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Terbuka" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis1_pt2" id="inlineRadio3_2" value="option3">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Terbuka" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis1_pt2" id="inlineRadio4_2" value="option4">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Terbuka" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -380,20 +380,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis2_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Persyaratan" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis2_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Persyaratan" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis2_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Persyaratan" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis2_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Persyaratan" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -401,20 +401,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis2_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Persyaratan" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis2_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Persyaratan" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis2_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Persyaratan" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis2_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Persyaratan" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -429,20 +429,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis3_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Kehidupan" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis3_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Kehidupan" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis3_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Kehidupan" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis3_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Kehidupan" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -450,20 +450,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis3_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Kehidupan" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis3_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Kehidupan" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis3_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Kehidupan" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis3_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Kehidupan" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -476,20 +476,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis4_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Diakses" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis4_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Diakses" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis4_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Diakses" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis4_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Diakses" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -497,20 +497,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis4_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Diakses" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis4_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Diakses" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis4_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Diakses" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis4_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Diakses" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -525,20 +525,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis5_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Dipahami" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis5_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Dipahami" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis5_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Dipahami" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis5_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Dipahami" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -546,20 +546,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis5_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Dipahami" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis5_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Dipahami" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis5_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Dipahami" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis5_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Dipahami" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -572,20 +572,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis6_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Akurat" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis6_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Akurat" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis6_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Akurat" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis6_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Akurat" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -593,20 +593,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis6_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Akurat" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis6_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Akurat" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis6_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Akurat" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis6_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Akurat" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -621,20 +621,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis7_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Data" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis7_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Data" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis7_pt1" id="inlineRadio3_1" value="option3">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Data" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis7_pt1" id="inlineRadio4_1" value="option4">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Data" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -642,20 +642,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis7_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Data" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis7_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Data" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis7_pt2" id="inlineRadio3_2" value="option3">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Data" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis7_pt2" id="inlineRadio3_2" value="option4">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Data" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -678,20 +678,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis8_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sederhana" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis8_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sederhana" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis8_pt1" id="inlineRadio3_1" value="option3">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sederhana" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis8_pt1" id="inlineRadio4_1" value="option4">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sederhana" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -704,20 +704,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis9_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_KKN" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis9_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_KKN" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis9_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_KKN" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis9_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_KKN" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -732,20 +732,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis10_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Waktu" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis10_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Waktu" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis10_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Waktu" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis10_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Waktu" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -753,20 +753,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis10_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Waktu" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis10_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Waktu" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis10_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Waktu" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis10_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Waktu" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -779,20 +779,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis11_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sesuai" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis11_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sesuai" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis11_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sesuai" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis11_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sesuai" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -800,20 +800,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis11_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sesuai" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis11_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sesuai" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis11_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sesuai" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis11_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sesuai" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -828,20 +828,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis12_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Biaya_Terbuka" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis12_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Biaya_Terbuka" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis12_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Biaya_Terbuka" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis12_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Biaya_Terbuka" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -849,20 +849,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis12_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Biaya_Terbuka" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis12_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Biaya_Terbuka" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis12_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Biaya_Terbuka" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis12_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Biaya_Terbuka" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -875,20 +875,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis13_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Daftar" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis13_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Daftar" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis13_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Daftar" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis13_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Daftar" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -896,20 +896,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis13_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Daftar" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis13_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Daftar" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis13_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Daftar" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis13_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Daftar" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -924,20 +924,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis14_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sarana" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis14_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sarana" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis14_pt1" id="inlineRadio3_1" value="option3">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sarana" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis14_pt1" id="inlineRadio4_1" value="option4">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sarana" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -945,20 +945,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis14_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sarana" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis14_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sarana" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis14_pt2" id="inlineRadio3_2" value="option3">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sarana" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis14_pt2" id="inlineRadio3_2" value="option4">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sarana" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -981,20 +981,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis15_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Prosedur" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis15_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Prosedur" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis15_pt1" id="inlineRadio3_1" value="option3">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Prosedur" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis15_pt1" id="inlineRadio4_1" value="option4">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Prosedur" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -1002,20 +1002,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis15_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Prosedur" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis15_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Prosedur" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis15_pt2" id="inlineRadio3_2" value="option3">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Prosedur" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis15_pt2" id="inlineRadio3_2" value="option4">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Prosedur" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -1028,20 +1028,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis16_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Keberadaan" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis16_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Keberadaan" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis16_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Keberadaan" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis16_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Keberadaan" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -1049,19 +1049,19 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis16_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Keberadaan" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis16_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Keberadaan" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis16_pt2" id="inlineRadio3_2" value="option3">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Keberadaan" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis16_pt2" id="inlineRadio3_2" value="option4">
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Keberadaan" id="inlineRadio3_2" value="option4">
                                                     <label class="form-check-label" for="inlineRadio3_2">Tidak Penting</label>
                                                 </div>
                                             </div>
@@ -1077,20 +1077,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis17_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Petugas" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis17_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Petugas" id="Setuju" value=" Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis17_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Petugas" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis17_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Petugas" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -1098,20 +1098,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis17_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Petugas" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis17_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Petugas" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis17_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Petugas" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis17_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Petugas" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -1124,20 +1124,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis18_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sikap" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis18_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sikap" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis18_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sikap" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis18_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Sikap" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -1145,20 +1145,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis18_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sikap" id="Sangat Penting" value="option1">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis18_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sikap" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis18_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sikap" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis18_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sikap" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -1173,20 +1173,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis19_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Aman" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis19_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Aman" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis19_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Aman" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis19_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Aman" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -1194,20 +1194,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis19_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Aman" id="Sangat Penting" value="option1">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis19_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Aman" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis19_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Aman" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis19_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Aman" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -1220,20 +1220,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis20_pt1" id="inlineRadio1_1" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_1">Sangat Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Publik" id="Sangat Setuju" value="Sangat Setuju">
+                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis20_pt1" id="inlineRadio2_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_1">Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Publik" id="Setuju" value="Setuju">
+                                                    <label class="form-check-label" for="Setuju">Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis20_pt1" id="inlineRadio3_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_1">Kurang Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Publik" id="Kurang Setuju" value="Kurang Setuju">
+                                                    <label class="form-check-label" for="Kurang Setuju">Kurang Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis20_pt1" id="inlineRadio4_1" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_1">Tidak Setuju</label>
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Publik" id="Tidak Setuju" value="Tidak Setuju">
+                                                    <label class="form-check-label" for="Tidak Setuju">Tidak Setuju</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -1241,20 +1241,20 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kuis20_pt2" id="inlineRadio1_2" value="option1">
-                                                    <label class="form-check-label" for="inlineRadio1_2">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Publik" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis20_pt2" id="inlineRadio2_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio2_2">Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Publik" id="Penting" value="Penting">
+                                                    <label class="form-check-label" for="Penting">Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-0">
-                                                    <input class="form-check-input" type="radio" name="Kuis20_pt2" id="inlineRadio3_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio3_2">Kurang Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Publik" id="Kurang Penting" value="Kurang Penting">
+                                                    <label class="form-check-label" for="Kurang Penting">Kurang Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
-                                                    <input class="form-check-input" type="radio" name="Kuis20_pt2" id="inlineRadio4_2" value="option2">
-                                                    <label class="form-check-label" for="inlineRadio4_2">Tidak Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Publik" id="Tidak Penting" value="Tidak Penting">
+                                                    <label class="form-check-label" for="Tidak Penting">Tidak Penting</label>
                                                 </div>
                                             </div>
                                         </div>

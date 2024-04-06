@@ -2068,17 +2068,27 @@ class Ikm
     public function tambahDataIkm($data)
     {
         $query = "INSERT INTO ikm (Nama, Jenis_Kelamin, Pendidikan_Terakhir, NIK, Umur, Pekerjaan, Koresponden, Jenis_Layanan, Asal_Daerah,
-                               Informasi_Cuaca_Publik, Informasi_Cuaca_Khusus, Analisis_Cuaca, Informasi_Titik_Panas,
-                               Informasi_Tentang_Tingkat, Prakiraan_Musim, Informasi_Iklim_Khusus, Analisis_Prakiraan, 
-                               Tren_Curah_Hujan, Informasi_Kualitas_Udara, Analisis_Iklim_Ekstrim, Informasi_Iklim_Terapan,
-                               Informasi_Perubahan_Iklim, Pengambilan_Pengujian, Informasi_Gempabumi, Peta_Seismisitas,
-                               Informasi_Tanda_Waktu, Informasi_Geofisika_Potensial, Peta_Rendaman_Tsunami,
-                               Informasi_Seismologi_Teknik, Data_MKG, Kalibrasi, Konsultasi, Sewa_Peralatan_MKG, Kunjungan)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        Informasi_Cuaca_Publik, Informasi_Cuaca_Khusus, Analisis_Cuaca, Informasi_Titik_Panas,
+        Informasi_Tentang_Tingkat, Prakiraan_Musim, Informasi_Iklim_Khusus, Analisis_Prakiraan, 
+        Tren_Curah_Hujan, Informasi_Kualitas_Udara, Analisis_Iklim_Ekstrim, Informasi_Iklim_Terapan,
+        Informasi_Perubahan_Iklim, Pengambilan_Pengujian, Informasi_Gempabumi, Peta_Seismisitas,
+        Informasi_Tanda_Waktu, Informasi_Geofisika_Potensial, Peta_Rendaman_Tsunami,
+        Informasi_Seismologi_Teknik, Data_MKG, Kalibrasi, Konsultasi, Sewa_Peralatan_MKG, Kunjungan,
+        Kualitas_Pelayanan_Terbuka, Harapan_Konsumen_Terbuka, Kualitas_Pelayanan_Kehidupan, Harapan_Konsumen_Kehidupan, 
+        Kualitas_Pelayanan_Dipahami, Harapan_Konsumen_Dipahami, Kualitas_Pelayanan_Persyaratan, Harapan_Konsumen_Persyaratan, 
+        Kualitas_Pelayanan_Diakses, Harapan_Konsumen_Diakses, Kualitas_Pelayanan_Akurat, Harapan_Konsumen_Akurat,
+        Kualitas_Pelayanan_Data, Harapan_Konsumen_Data, Kualitas_Pelayanan_Sederhana,
+        Kualitas_Pelayanan_Waktu, Harapan_Konsumen_Waktu, Kualitas_Pelayanan_Biaya_Terbuka, Harapan_Konsumen_Biaya_Terbuka,
+        Kualitas_Pelayanan_KKN, Kualitas_Pelayanan_Sesuai, Harapan_Konsumen_Sesuai,
+        Kualitas_Pelayanan_Daftar, Harapan_Konsumen_Daftar, Kualitas_Pelayanan_Sarana, Harapan_Konsumen_Sarana,
+        Kualitas_Pelayanan_Prosedur, Harapan_Konsumen_Prosedur, Kualitas_Pelayanan_Petugas, Harapan_Konsumen_Petugas,
+        Kualitas_Pelayanan_Aman, Harapan_Konsumen_Aman, Kualitas_Pelayanan_Keberadaan, Harapan_Konsumen_Keberadaan,
+        Kualitas_Pelayanan_Sikap, Harapan_Konsumen_Sikap, Kualitas_Pelayanan_Publik, Harapan_Konsumen_Publik)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "sssissssssssssssssssssssssssssssss",
+            "sssissssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
             $data['Nama'],
             $data['Jenis_Kelamin'],
             $data['Pendidikan_Terakhir'],
@@ -2112,7 +2122,45 @@ class Ikm
             $data['Kalibrasi'],
             $data['Konsultasi'],
             $data['Sewa_Peralatan_MKG'],
-            $data['Kunjungan']
+            $data['Kunjungan'],
+            $data['Kualitas_Pelayanan_Terbuka'],
+            $data['Harapan_Konsumen_Terbuka'],
+            $data['Kualitas_Pelayanan_Kehidupan'],
+            $data['Harapan_Konsumen_Kehidupan'],
+            $data['Kualitas_Pelayanan_Dipahami'],
+            $data['Harapan_Konsumen_Dipahami'],
+            $data['Kualitas_Pelayanan_Persyaratan'],
+            $data['Harapan_Konsumen_Persyaratan'],
+            $data['Kualitas_Pelayanan_Diakses'],
+            $data['Harapan_Konsumen_Diakses'],
+            $data['Kualitas_Pelayanan_Akurat'],
+            $data['Harapan_Konsumen_Akurat'],
+            $data['Kualitas_Pelayanan_Data'],
+            $data['Harapan_Konsumen_Data'],
+            $data['Kualitas_Pelayanan_Sederhana'],
+            $data['Kualitas_Pelayanan_Waktu'],
+            $data['Harapan_Konsumen_Waktu'],
+            $data['Kualitas_Pelayanan_Biaya_Terbuka'],
+            $data['Harapan_Konsumen_Biaya_Terbuka'],
+            $data['Kualitas_Pelayanan_KKN'],
+            $data['Kualitas_Pelayanan_Sesuai'],
+            $data['Harapan_Konsumen_Sesuai'],
+            $data['Kualitas_Pelayanan_Daftar'],
+            $data['Harapan_Konsumen_Daftar'],
+            $data['Kualitas_Pelayanan_Sarana'],
+            $data['Harapan_Konsumen_Sarana'],
+            $data['Kualitas_Pelayanan_Prosedur'],
+            $data['Harapan_Konsumen_Prosedur'],
+            $data['Kualitas_Pelayanan_Petugas'],
+            $data['Harapan_Konsumen_Petugas'],
+            $data['Kualitas_Pelayanan_Aman'],
+            $data['Harapan_Konsumen_Aman'],
+            $data['Kualitas_Pelayanan_Keberadaan'],
+            $data['Harapan_Konsumen_Keberadaan'],
+            $data['Kualitas_Pelayanan_Sikap'],
+            $data['Harapan_Konsumen_Sikap'],
+            $data['Kualitas_Pelayanan_Publik'],
+            $data['Harapan_Konsumen_Publik']
         );
 
         if ($statement->execute()) {

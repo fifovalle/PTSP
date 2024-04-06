@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2024 at 02:02 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Apr 06, 2024 at 05:02 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -92,16 +92,46 @@ CREATE TABLE `ikm` (
   `Kalibrasi` varchar(100) DEFAULT NULL,
   `Konsultasi` varchar(100) DEFAULT NULL,
   `Sewa_Peralatan_MKG` varchar(100) DEFAULT NULL,
-  `Kunjungan` varchar(100) DEFAULT NULL
+  `Kunjungan` varchar(100) DEFAULT NULL,
+  `Kualitas_Pelayanan_Terbuka` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Terbuka` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Kehidupan` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Kehidupan` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Dipahami` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Dipahami` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Persyaratan` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Persyaratan` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Diakses` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Diakses` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Akurat` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Akurat` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Data` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Data` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Sederhana` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') DEFAULT NULL,
+  `Kualitas_Pelayanan_Waktu` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Waktu` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Biaya_Terbuka` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Biaya_Terbuka` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_KKN` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Kualitas_Pelayanan_Sesuai` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Sesuai` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Daftar` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Daftar` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Sarana` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Sarana` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Prosedur` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Prosedur` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Petugas` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Petugas` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Aman` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Aman` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Keberadaan` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Keberadaan` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Sikap` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Sikap` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL,
+  `Kualitas_Pelayanan_Publik` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
+  `Harapan_Konsumen_Publik` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ikm`
---
-
-INSERT INTO `ikm` (`ID_Ikm`, `Nama`, `Jenis_Kelamin`, `Pendidikan_Terakhir`, `NIK`, `Umur`, `Pekerjaan`, `Koresponden`, `Jenis_Layanan`, `Asal_Daerah`, `Informasi_Cuaca_Publik`, `Informasi_Cuaca_Khusus`, `Analisis_Cuaca`, `Informasi_Titik_Panas`, `Informasi_Tentang_Tingkat`, `Prakiraan_Musim`, `Informasi_Iklim_Khusus`, `Analisis_Prakiraan`, `Tren_Curah_Hujan`, `Informasi_Kualitas_Udara`, `Analisis_Iklim_Ekstrim`, `Informasi_Iklim_Terapan`, `Informasi_Perubahan_Iklim`, `Pengambilan_Pengujian`, `Informasi_Gempabumi`, `Peta_Seismisitas`, `Informasi_Tanda_Waktu`, `Informasi_Geofisika_Potensial`, `Peta_Rendaman_Tsunami`, `Informasi_Seismologi_Teknik`, `Data_MKG`, `Kalibrasi`, `Konsultasi`, `Sewa_Peralatan_MKG`, `Kunjungan`) VALUES
-(15, '', '', '', 0, 0, '', '', '', '', '', '', 'Analisis cuaca', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '', '', '', '', '', '1', '', '', '', '1'),
-(16, '', '', '', 0, 0, '', '', '', '', '', '', '3', '', '', '', '7', '', '', '', '', '', '', '', '15', '', '', '', '', '', '21', '', '', '', '25');
 
 -- --------------------------------------------------------
 
@@ -384,17 +414,6 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Rekening_Pengguna`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(49, NULL, 16, NULL, 19, NULL, NULL, 2, NULL, '', '2024-03-31 15:08:20', 'Disetujui'),
-(50, NULL, 16, NULL, 20, NULL, NULL, 0, NULL, '', '2024-04-02 21:22:25', 'Belum Disetujui'),
-(51, NULL, 16, NULL, NULL, 17, NULL, 0, NULL, '', '2024-04-02 21:46:01', 'Belum Disetujui'),
-(52, NULL, 16, NULL, NULL, 18, NULL, 0, NULL, '', '2024-04-02 21:46:06', 'Belum Disetujui'),
-(53, NULL, 16, NULL, NULL, 19, NULL, 0, NULL, '', '2024-04-02 21:46:13', 'Belum Disetujui');
-
---
 -- Indexes for dumped tables
 --
 
@@ -517,7 +536,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `ikm`
 --
 ALTER TABLE `ikm`
-  MODIFY `ID_Ikm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID_Ikm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `informasi`
