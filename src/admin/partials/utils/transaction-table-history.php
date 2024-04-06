@@ -85,7 +85,7 @@
         <?php
             }
         } else {
-            echo "<tr><td colspan='8' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Transaksi!</td></tr>";
+            echo "<tr><td colspan='8' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Riwayat Transaksi!</td></tr>";
         }
         ?>
     </tbody>
