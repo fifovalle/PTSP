@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2024 at 08:16 AM
+-- Generation Time: Apr 06, 2024 at 12:17 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -441,7 +441,8 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Ikm`, `Rekening_Pengguna`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(54, NULL, 16, NULL, 18, NULL, NULL, NULL, 0, NULL, NULL, '2024-04-06 10:17:17', 'Belum Disetujui');
+(54, NULL, 16, NULL, 18, NULL, NULL, NULL, 0, NULL, NULL, '2024-04-06 10:17:17', 'Belum Disetujui'),
+(56, NULL, 16, NULL, 19, NULL, NULL, NULL, 0, NULL, NULL, '2024-04-06 15:28:26', 'Belum Disetujui');
 
 --
 -- Indexes for dumped tables
@@ -645,7 +646,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- Constraints for dumped tables
