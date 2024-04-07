@@ -120,6 +120,26 @@ if (!isset($_SESSION['ID'])) {
                 </main>
                 <!-- MAIN END -->
             </div>
+            <div class="fab-wrapper">
+                <input id="fabCheckbox" type="checkbox" class="fab-checkbox" />
+                <label class="fab" for="fabCheckbox">
+                    <span class="fab-dots fab-dots-1"></span>
+                    <span class="fab-dots fab-dots-2"></span>
+                    <span class="fab-dots fab-dots-3"></span>
+                </label>
+                <div class="fab-wheel">
+                    <a class="fab-action fab-action-1" id="spanHelp">
+                        <i class="fas fa-question"></i>
+                    </a>
+                    <a class="fab-action fab-action-2" data-bs-toggle="modal" data-bs-target="#sendFeedbackModal">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a class="fab-action fab-action-3">
+                    </a>
+                    <a class="fab-action fab-action-4">
+                    </a>
+                </div>
+            </div>
         </section>
     </section>
 
@@ -161,6 +181,7 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/delete-services.js"></script>
     <script src="../assets/our/js/delete-profile.js"></script>
     <script src="../assets/our/js/value-information.js"></script>
+    <script src="../assets/our/js/drive-all.js"></script>
     <script src="../assets/our/js/value-services.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>

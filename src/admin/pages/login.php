@@ -59,7 +59,25 @@ include '../config/databases.php';
         </div>
     </div>
     <!-- MAIN END -->
-
+    <div class="fab-wrapper">
+        <input id="fabCheckbox" type="checkbox" class="fab-checkbox" />
+        <label class="fab" for="fabCheckbox">
+            <span class="fab-dots fab-dots-1"></span>
+            <span class="fab-dots fab-dots-2"></span>
+            <span class="fab-dots fab-dots-3"></span>
+        </label>
+        <div class="fab-wheel">
+            <a class="fab-action fab-action-1" id="spanHelp">
+                <i class="fas fa-question"></i>
+            </a>
+            <a class="fab-action fab-action-2">
+            </a>
+            <a class="fab-action fab-action-3">
+            </a>
+            <a class="fab-action fab-action-4">
+            </a>
+        </div>
+    </div>
     <!-- CDN JQUERY -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>

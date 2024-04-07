@@ -68,53 +68,65 @@ $adaData = false;
                         $transaksiModel = new Transaksi($koneksi);
                         $dataTransaksi = $transaksiModel->tampilkanTransaksi();
                         $jumlahDataDitampilkan = 0;
-                        foreach ($dataTransaksi as $produk) {
-                            if ($jumlahDataDitampilkan < 1 && $produk['Total_Transaksi'] > $totalTransaksiLainnya && $produk['ID_Tranksaksi'] > $totalTransaksiLainnya) {
+                        if (!$dataTransaksi) {
                         ?>
-                                <div class="col-4">
-                                    <div class="card">
-                                        <h5 class="card-title py-4 mx-auto">Penjualan Terbaik</h5>
-                                        <div class="position-relative mx-auto">
-                                            <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $produk['Foto_Informasi'] ?? $produk['Foto_Jasa']; ?>" class="imageCard card-img-top" alt="Performa Produk Terbaru">
-                                            <h5 class="card-title titleProduct fw-bold"><?php echo $produk['Nama_Jasa']; ?></h5>
-                                        </div>
-                                        <div class="d-flex justify-content-around align-items-center mt-4">
-                                            <div class="d-flex justify-content-between gap-3">
-                                                <i class="fas fa-users"><span class="ms-2 many">10</span></i>
-                                                <i class="fas fa-money-bill"><span class="ms-2 many">Rp.1.000.000</span></i>
-                                            </div>
-                                            <div id="caretIconForDrive">
-                                                <i class="fas fa-caret-up caret-icon"></i>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="card-body hidden-content">
-                                            <p class="card-text textCardProduct my-3 mb-4">Performa Selama Ini</p>
-                                            <div class="row ms-auto">
-                                                <div class="col-7 me-4">Pembeli</div>
-                                                <div class="col-2">10</div>
-                                            </div>
-                                            <div class="row ms-auto">
-                                                <div class="col-7 me-4">Penghasilan</div>
-                                                <div class="col-4">Rp.1.000.000</div>
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <a id="seeAnaliticForDrive1" href="#" class="card-link">Lihat Analitik</a>
-                                        </div>
+                            <div class="col-4">
+                                <div class="card">
+                                    <h5 class="card-title py-4 mx-auto text-danger">Sedang diolah</h5>
+                                    <div class="position-relative mx-auto">
                                     </div>
                                 </div>
+                            </div>
                             <?php
-                                $jumlahDataDitampilkan++;
+                        } else {
+                            foreach ($dataTransaksi as $produk) {
+                                if ($jumlahDataDitampilkan < 1 && $produk['Total_Transaksi'] > $totalTransaksiLainnya && $produk['ID_Tranksaksi'] > $totalTransaksiLainnya) {
+                            ?>
+                                    <div class="col-4">
+                                        <div class="card">
+                                            <h5 class="card-title py-4 mx-auto">Penjualan Terbaik</h5>
+                                            <div class="position-relative mx-auto">
+                                                <img src="<?php echo $akarUrl ?>src/admin/assets/image/uploads/<?php echo $produk['Foto_Informasi'] ?? $produk['Foto_Jasa']; ?>" class="imageCard card-img-top" alt="Performa Produk Terbaru">
+                                                <h5 class="card-title titleProduct fw-bold"><?php echo $produk['Nama_Jasa']; ?></h5>
+                                            </div>
+                                            <div class="d-flex justify-content-around align-items-center mt-4">
+                                                <div class="d-flex justify-content-between gap-3">
+                                                    <i class="fas fa-users"><span class="ms-2 many">10</span></i>
+                                                    <i class="fas fa-money-bill"><span class="ms-2 many">Rp.1.000.000</span></i>
+                                                </div>
+                                                <div id="caretIconForDrive">
+                                                    <i class="fas fa-caret-up caret-icon"></i>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="card-body hidden-content">
+                                                <p class="card-text textCardProduct my-3 mb-4">Performa Selama Ini</p>
+                                                <div class="row ms-auto">
+                                                    <div class="col-7 me-4">Pembeli</div>
+                                                    <div class="col-2">10</div>
+                                                </div>
+                                                <div class="row ms-auto">
+                                                    <div class="col-7 me-4">Penghasilan</div>
+                                                    <div class="col-4">Rp.1.000.000</div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <a id="seeAnaliticForDrive1" href="#" class="card-link">Lihat Analitik</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <?php
+                                    $jumlahDataDitampilkan++;
+                                }
                             }
                         }
-
-                        if (!$produk) {
+                        if ($jumlahDataDitampilkan === 0 && $dataTransaksi) {
                             ?>
                             <div class="col-4">
                                 <div class="card">
-                                    <h5 class="card-title py-4 mx-auto text-danger">Tidak Ada Data!</h5>
+                                    <h5 class="card-title py-4 mx-auto">Penjualan Terbaik</h5>
                                     <div class="position-relative mx-auto">
+                                        <h5 class="py-4 mx-auto text-danger">Tidak Ada Data!</h5>
                                     </div>
                                 </div>
                             </div>
@@ -164,8 +176,28 @@ $adaData = false;
                     ?>
                     <!-- FOOTER END -->
                 </main>
+                <!-- MAIN END -->
             </div>
-            <!-- MAIN END -->
+            <div class="fab-wrapper">
+                <input id="fabCheckbox" type="checkbox" class="fab-checkbox" />
+                <label class="fab" for="fabCheckbox">
+                    <span class="fab-dots fab-dots-1"></span>
+                    <span class="fab-dots fab-dots-2"></span>
+                    <span class="fab-dots fab-dots-3"></span>
+                </label>
+                <div class="fab-wheel">
+                    <a class="fab-action fab-action-1" id="spanHelp">
+                        <i class="fas fa-question"></i>
+                    </a>
+                    <a class="fab-action fab-action-2" data-bs-toggle="modal" data-bs-target="#sendFeedbackModal">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a class="fab-action fab-action-3">
+                    </a>
+                    <a class="fab-action fab-action-4">
+                    </a>
+                </div>
+            </div>
         </section>
     </section>
 

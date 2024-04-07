@@ -37,13 +37,4 @@
             </li>
         </a>
     </ul>
-    <hr class="hrSidebar">
-    <ul id="menuSidebarSendFeedbackForDrive" class="list-unstyled components listSidebar">
-        <a data-bs-toggle="modal" data-bs-target="#sendFeedbackModal">
-            <li class="liSidebar">
-                <span class="textSidebar"><i class="fas fa-envelope-open-text me-2 my-2"></i>Kirim
-                    Masukan</span>
-            </li>
-        </a>
-    </ul>
 </aside>
