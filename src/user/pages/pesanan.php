@@ -1,5 +1,10 @@
 <?php
 include '../../admin/config/databases.php';
+if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
+    setPesanKesalahan("Anda tidak bisa mengakses halaman pesanan. Silakan login terlebih dahulu.");
+    header("Location: $akarUrl" . "src/user/pages/login.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
