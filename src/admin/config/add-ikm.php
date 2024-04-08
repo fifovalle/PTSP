@@ -128,6 +128,7 @@ if (isset($_POST['submit'])) {
         'Harapan_Konsumen_Akurat' => $HarapanKonsumenAkurat,
         'Kualitas_Pelayanan_Data' => $KualitasPelayananData,
         'Harapan_Konsumen_Data' => $HarapanKonsumenData,
+        'Kualitas_Pelayanan_Sederhana' => $KualitasPelayananSederhana,
         'Kualitas_Pelayanan_Waktu' => $KualitasPelayananWaktu,
         'Harapan_Konsumen_Waktu' => $HarapanKonsumenWaktu,
         'Kualitas_Pelayanan_Biaya_Terbuka' => $KualitasPelayananBiayaTerbuka,

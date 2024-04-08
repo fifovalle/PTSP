@@ -334,7 +334,7 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Terbuka" id="Sangat Setuju" value="Sangat Setuju, Setuju, Kurang Setuju, Tidak Setuju">
+                                                    <input class="form-check-input" type="radio" name="Kualitas_Pelayanan_Terbuka" id="Sangat Setuju" value="Sangat Setuju">
                                                     <label class="form-check-label" for="Sangat Setuju">Sangat Setuju</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
