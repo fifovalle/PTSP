@@ -158,7 +158,7 @@ if (isset($_POST['submit'])) {
 
     if ($simpanDataIkm) {
         setPesanKeberhasilan("Data berhasil ditambahkan.");
-        header("Location: $akarUrl" . "src/user/pages/ikm.php");
+        header("Location: $akarUrl" . "src/user/pages/pesanan.php");
         exit();
     } else {
         setPesanKesalahan("Gagal menambahkan data.");
