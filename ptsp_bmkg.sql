@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2024 at 10:40 AM
+-- Generation Time: Apr 09, 2024 at 10:13 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -441,8 +441,12 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Ikm`, `Rekening_Pengguna`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(54, NULL, 16, NULL, 18, NULL, NULL, NULL, 0, NULL, NULL, '2024-04-06 10:17:17', 'Belum Disetujui'),
-(56, NULL, 16, NULL, 19, NULL, NULL, NULL, 0, NULL, NULL, '2024-04-06 15:28:26', 'Belum Disetujui');
+(61, NULL, 16, NULL, 18, NULL, NULL, NULL, 0, NULL, NULL, '2024-04-09 15:12:03', 'Belum Disetujui'),
+(62, NULL, 16, NULL, 19, NULL, NULL, NULL, 0, NULL, NULL, '2024-04-09 15:12:08', 'Belum Disetujui'),
+(63, NULL, 16, NULL, 20, NULL, NULL, NULL, 0, NULL, NULL, '2024-04-09 15:12:11', 'Belum Disetujui'),
+(64, NULL, 16, NULL, NULL, 17, NULL, NULL, 0, NULL, NULL, '2024-04-09 15:12:22', 'Belum Disetujui'),
+(65, NULL, 16, NULL, NULL, 18, NULL, NULL, 0, NULL, NULL, '2024-04-09 15:12:26', 'Belum Disetujui'),
+(66, NULL, 16, NULL, NULL, 19, NULL, NULL, 0, NULL, NULL, '2024-04-09 15:12:29', 'Belum Disetujui');
 
 --
 -- Indexes for dumped tables
@@ -646,7 +650,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- Constraints for dumped tables
