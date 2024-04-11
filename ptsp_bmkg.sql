@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2024 at 04:46 AM
+-- Generation Time: Apr 11, 2024 at 06:14 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -428,7 +428,6 @@ CREATE TABLE `transaksi` (
   `ID_Informasi` int(11) DEFAULT NULL,
   `ID_Jasa` int(11) DEFAULT NULL,
   `ID_Ikm` int(11) DEFAULT NULL,
-  `Rekening_Pengguna` int(20) DEFAULT NULL,
   `Jumlah_Barang` int(11) NOT NULL,
   `Total_Transaksi` int(11) DEFAULT NULL,
   `File_Penerimaan` longblob DEFAULT NULL,
@@ -440,13 +439,13 @@ CREATE TABLE `transaksi` (
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Ikm`, `Rekening_Pengguna`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(61, NULL, 16, NULL, 18, NULL, NULL, NULL, 0, NULL, NULL, '2024-04-09 15:12:03', 'Belum Disetujui'),
-(62, NULL, 16, NULL, 19, NULL, NULL, NULL, 0, NULL, NULL, '2024-04-09 15:12:08', 'Belum Disetujui'),
-(63, NULL, 16, NULL, 20, NULL, NULL, NULL, 0, NULL, NULL, '2024-04-09 15:12:11', 'Belum Disetujui'),
-(64, NULL, 16, NULL, NULL, 17, NULL, NULL, 0, NULL, NULL, '2024-04-09 15:12:22', 'Belum Disetujui'),
-(65, NULL, 16, NULL, NULL, 18, NULL, NULL, 0, NULL, NULL, '2024-04-09 15:12:26', 'Belum Disetujui'),
-(66, NULL, 16, NULL, NULL, 19, NULL, NULL, 0, NULL, NULL, '2024-04-09 15:12:29', 'Belum Disetujui');
+INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Ikm`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
+(61, NULL, 16, NULL, 18, NULL, NULL, 0, 0, NULL, '2024-04-09 15:12:03', 'Belum Disetujui'),
+(62, NULL, 16, NULL, 19, NULL, NULL, 0, 0, NULL, '2024-04-09 15:12:08', 'Belum Disetujui'),
+(63, NULL, 16, NULL, 20, NULL, NULL, 0, 0, NULL, '2024-04-09 15:12:11', 'Belum Disetujui'),
+(64, NULL, 16, NULL, NULL, 17, NULL, 0, 0, NULL, '2024-04-09 15:12:22', 'Belum Disetujui'),
+(65, NULL, 16, NULL, NULL, 18, NULL, 0, 0, NULL, '2024-04-09 15:12:26', 'Belum Disetujui'),
+(66, NULL, 16, NULL, NULL, 19, NULL, 0, 0, NULL, '2024-04-09 15:12:29', 'Belum Disetujui');
 
 --
 -- Indexes for dumped tables
