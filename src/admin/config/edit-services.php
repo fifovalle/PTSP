@@ -60,7 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        // Hapus foto lama
         if (!empty($fotoJasaLama)) {
             if (file_exists($fotoJasaLama)) {
                 unlink($fotoJasaLama);

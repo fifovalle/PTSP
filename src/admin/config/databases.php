@@ -2068,6 +2068,36 @@ class Transaksi
         }
     }
 
+    public function updateTransaksiDetail($transaksiID, $jumlahBarang, $totalHarga)
+    {
+        $query = "UPDATE transaksi SET Jumlah_Barang=?, Total_Transaksi=? WHERE ID_Tranksaksi=?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("iii", $jumlahBarang, $totalHarga, $transaksiID);
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getHargaPerBarang($transaksiID)
+    {
+        $query = "SELECT COALESCE(informasi.Harga_Informasi, jasa.Harga_Jasa) AS Harga
+                  FROM transaksi 
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+                  WHERE transaksi.ID_Tranksaksi = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $transaksiID);
+        $statement->execute();
+        $result = $statement->get_result();
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row['Harga'];
+        } else {
+            return 0;
+        }
+    }
 
     public function hapusTransaksi($id)
     {
