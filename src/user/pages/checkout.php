@@ -160,31 +160,28 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 ?>
                                     <div class="col-4">
                                         <span class="fw-bold">PENERIMA INSTANSI A</span>
-                                        <form action="../../../src/admin/config/update-transaction.php" method="post">
-                                            <table class="table">
-                                                <thead>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Produk</th>
+                                                    <th scope="col">Rekening</th>
+                                                    <th scope="col">Harga</th>
+                                                    <th scope="col">Jumlah</th>
+                                                    <th scope="col">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($dataTransaksiPembeli as $transaksi) { ?>
                                                     <tr>
-                                                        <th scope="col">Produk</th>
-                                                        <th scope="col">Rekening</th>
-                                                        <th scope="col">Harga</th>
-                                                        <th scope="col">Jumlah</th>
-                                                        <th scope="col">Total</th>
+                                                        <td><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></td>
+                                                        <td><?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?></td>
+                                                        <td>Rp <?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?></td>
+                                                        <td id="jumlah_barang_<?php echo $transaksi['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">0</td>
+                                                        <td id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp</td>
                                                     </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach ($dataTransaksiPembeli as $transaksi) { ?>
-                                                        <tr>
-                                                            <td><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></td>
-                                                            <td><?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?></td>
-                                                            <td>Rp <?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?></td>
-                                                            <td id="jumlah_barang_<?php echo $transaksi['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">0</td>
-                                                            <td id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp</td>
-                                                        </tr>
-                                                    <?php } ?>
-                                                </tbody>
-                                            </table>
-                                            <button type="button" class="btn btn-primary" id="btnPesan">Pesan</button>
-                                        </form>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 <?php } ?>
                                 <?php
@@ -196,31 +193,28 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 ?>
                                     <div class="col-4">
                                         <span class="fw-bold">PENERIMA INSTANSI B</span>
-                                        <form action="">
-                                            <table class="table">
-                                                <thead>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Produk</th>
+                                                    <th scope="col">Rekening</th>
+                                                    <th scope="col">Harga</th>
+                                                    <th scope="col">Jumlah</th>
+                                                    <th scope="col">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($dataTransaksiPembeli as $transaksi) { ?>
                                                     <tr>
-                                                        <th scope="col">Produk</th>
-                                                        <th scope="col">Rekening</th>
-                                                        <th scope="col">Harga</th>
-                                                        <th scope="col">Jumlah</th>
-                                                        <th scope="col">Total</th>
+                                                        <td><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></td>
+                                                        <td><?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?></td>
+                                                        <td>Rp <?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?></td>
+                                                        <td id="jumlah_barang_<?php echo $transaksi['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">0</td>
+                                                        <td id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp</td>
                                                     </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach ($dataTransaksiPembeli as $transaksi) { ?>
-                                                        <tr>
-                                                            <td><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></td>
-                                                            <td><?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?></td>
-                                                            <td>Rp <?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?></td>
-                                                            <td id="jumlah_barang_<?php echo $transaksi['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">0</td>
-                                                            <td id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp</td>
-                                                        </tr>
-                                                    <?php } ?>
-                                                </tbody>
-                                            </table>
-                                            <button type="submit" class="btn btn-primary">Pesan</button>
-                                        </form>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 <?php } ?>
                                 <?php
@@ -232,32 +226,30 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 ?>
                                     <div class="col-4">
                                         <span class="fw-bold">PENERIMA INSTANSI C</span>
-                                        <form action="">
-                                            <table class="table">
-                                                <thead>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Produk</th>
+                                                    <th scope="col">Rekening</th>
+                                                    <th scope="col">Harga</th>
+                                                    <th scope="col">Jumlah</th>
+                                                    <th scope="col">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($dataTransaksiPembeli as $transaksi) { ?>
                                                     <tr>
-                                                        <th scope="col">Produk</th>
-                                                        <th scope="col">Rekening</th>
-                                                        <th scope="col">Harga</th>
-                                                        <th scope="col">Jumlah</th>
-                                                        <th scope="col">Total</th>
+                                                        <td><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></td>
+                                                        <td><?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?></td>
+                                                        <td>Rp <?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?></td>
+                                                        <td id="jumlah_barang_<?php echo $transaksi['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">0</td>
+                                                        <td id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp</td>
                                                     </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach ($dataTransaksiPembeli as $transaksi) { ?>
-                                                        <tr>
-                                                            <td><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></td>
-                                                            <td><?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?></td>
-                                                            <td>Rp <?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?></td>
-                                                            <td id="jumlah_barang_<?php echo $transaksi['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">0</td>
-                                                            <td id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp</td>
-                                                        </tr>
-                                                    <?php } ?>
-                                                </tbody>
-                                            </table>
-                                            <button type="submit" class="btn btn-primary">Pesan</button>
-                                        </form>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
                                     </div>
+                                    <button type="button" class="btn btn-primary" id="btnPesan">Pesan</button>
                                 <?php } ?>
                             </div>
                         </div>
