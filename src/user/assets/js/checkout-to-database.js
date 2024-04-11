@@ -22,6 +22,10 @@ document.getElementById("btnPesan").addEventListener("click", function () {
             position: "top-end",
             showConfirmButton: false,
             timer: 3000,
+          }).then((result) => {
+            setTimeout(function () {
+              window.location.href = "ikm.php";
+            }, 2000);
           });
         } else {
           Swal.fire({
