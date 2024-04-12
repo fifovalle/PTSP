@@ -152,7 +152,17 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                         <label class="title"><button type="button" class="btn-close me-2" data-bs-dismiss="modal" aria-label="Close"></button>KONFIRMASI PESANAN</label>
                         <div class="steps">
                             <div class="row">
-                                <h4>Pesanan #178VBYDG523</h4>
+                                <?php
+                                function generateRandomOrderNumber()
+                                {
+                                    $waktu = time();
+                                    $angkaAcak = mt_rand(1000, 9999);
+                                    $nomorPesanan = '#' . $waktu . $angkaAcak;
+                                    return $nomorPesanan;
+                                }
+                                $nomorPesanan = generateRandomOrderNumber();
+                                echo "<h4>Nomor Pesanan Anda: " . $nomorPesanan . "</h4>";
+                                ?>
                                 <?php
                                 $idPembeli = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                                 $transaksiPembeliModel = new Transaksi($koneksi);
