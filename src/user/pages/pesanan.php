@@ -179,7 +179,9 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibayarkan</div>
-                                        <p class="card-text">Update Tanggal</p>
+                                        <p class="card-text"><a type="button" class="text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#invoicePesanan">Klik disini</a> untuk melihat detail pesanan
+                                        </p>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -261,7 +263,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </nav>
                                 </div>
                                 <div class="col text-end">
-                                    <button class="btn btn-outline-primary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>
+                                    <button class="btn btn-outline-primary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#perbaikanPesanan" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>
                                 </div>
                             </div>
                         </div>
@@ -541,6 +543,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     </div>
     <?php
     include('../partials/modal-perbaikan-pesanan.php');
+    include('../partials/modal-invoice-pesanan.php');
     ?>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/pesanan.js"></script>

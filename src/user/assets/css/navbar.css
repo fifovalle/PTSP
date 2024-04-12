@@ -25,7 +25,7 @@
   margin-right: 10px;
 }
 
-#checker.checker {
+.checker {
   display: flex;
   align-items: center;
   justify-content: end;

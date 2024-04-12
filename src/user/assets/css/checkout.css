@@ -1,5 +1,5 @@
-:root {
-}
+/* :root {
+} */
 
 body {
   padding: 0;
@@ -39,7 +39,7 @@ body {
 }
 .content_informasi,
 .content_jasa {
-  height: 200px;
+  height: 100px;
 }
 
 .number_informasi,
@@ -96,10 +96,12 @@ hr.hr-checkout {
   font-size: 1.5rem;
   color: #000000;
 }
-
-/* Cart */
+#btnPesan,
+#btnKonfirmasiPesan {
+  width: 6.2rem;
+}
 .cart {
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 8px 8px 8px 8px;
 }
 
 .cart .steps {
@@ -113,71 +115,21 @@ hr.hr-checkout {
   gap: 10px;
 }
 
-.cart .steps .step span {
-  font-size: 22px;
+.row.header {
+  color: #6c757d;
   font-weight: 600;
-  color: #000000;
-  margin-bottom: 8px;
-  display: block;
 }
 
-.cart .steps .step p {
-  font-size: 15px;
-  font-weight: 600;
-  color: #000000;
-}
-
-/* Checkout */
-.payments .details {
-  display: grid;
-  grid-template-columns: 10fr 1fr;
-  padding: 0px;
-  gap: 5px;
-}
-
-.payments .details span:nth-child(odd) {
-  font-size: 15px;
-  font-weight: 600;
-  color: #000000;
-  margin: auto auto auto 0;
-}
-
-.payments .details span:nth-child(even) {
-  font-size: 15px;
-  font-weight: 600;
-  color: #000000;
-  margin: auto 0 auto auto;
-}
-
-.checkout .footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 10px 10px 20px;
-  background-color: rgba(16, 86, 82, 0.5);
-}
-
-.price {
-  position: relative;
-  font-size: 26px;
-  color: #2b2b2f;
-  font-weight: 900;
-}
-
-.checkout .checkout-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 150px;
-  height: 36px;
-  background: rgba(16, 86, 82, 0.55);
-  box-shadow: 0px 0.5px 0.5px rgba(16, 86, 82, 0.75),
-    0px 1px 0.5px rgba(16, 86, 82, 0.75);
-  border-radius: 7px;
-  border: 1px solid rgb(16, 86, 82);
-  color: #000000;
-  font-size: 13px;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+.produk,
+.rekening,
+.harga,
+.jumlah,
+.total {
+  background: rgba(211, 211, 211, 0.25);
+  box-shadow: 0 2px 10px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border-radius: 12px 12px 12px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 10px 15px 10px 15px;
 }
