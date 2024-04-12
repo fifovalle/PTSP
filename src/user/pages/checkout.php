@@ -194,7 +194,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                     <p class="jumlah" id="jumlah_barang_<?php echo $transaksi['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">0</p>
                                                 </div>
                                                 <div class="col-md-2 text-start mb-2 px-3">
-                                                    <p class="total" id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp 1000</p>
+                                                    <p class="total" id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp 0</p>
                                                 </div>
                                             <?php } ?>
                                         </div>
@@ -241,7 +241,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                     <p class="jumlah" id="jumlah_barang_<?php echo $transaksi['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">0</p>
                                                 </div>
                                                 <div class="col-md-2 text-start mb-2 px-3">
-                                                    <p class="total" id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp 1000</p>
+                                                    <p class="total" id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp 0</p>
                                                 </div>
                                             <?php } ?>
                                         </div>
@@ -288,7 +288,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                     <p class="jumlah" id="jumlah_barang_<?php echo $transaksi['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">0</p>
                                                 </div>
                                                 <div class="col-md-2 text-start mb-2 px-3">
-                                                    <p class="total" id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp 1000</p>
+                                                    <p class="total" id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp 0</p>
                                                 </div>
                                             <?php } ?>
                                         </div>
