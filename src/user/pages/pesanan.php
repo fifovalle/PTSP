@@ -315,35 +315,55 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                            $jumlahDataPerHalaman = 2;
+                            $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                            $transaksiModel = new Transaksi($koneksi);
+                            $dataTraksaksi = $transaksiModel->tampilkanTransaksiSesuaiSession($id);
+                            $jumlahHalaman = ceil(count($dataTraksaksi) / $jumlahDataPerHalaman);
+                            $halamanAktif = isset($_GET['halaman']) ? $_GET['halaman'] : 1;
+                            $indexAwal = ($halamanAktif - 1) * $jumlahDataPerHalaman;
+                            $indexAkhir = $indexAwal + $jumlahDataPerHalaman;
+                            $dataTraksaksiHalaman = array_slice($dataTraksaksi, $indexAwal, $jumlahDataPerHalaman);
+                            ?>
                             <div class="row">
-                                <div class="col-md-8">
-                                    <div class="col" id="nama_barang">Informasi Klimatologi - Data Iklim 1 Bulan</div>
-                                    <div class="col" id="jmlh_barang">x2</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="col text-end" id="harga_barang">Rp30.000</div>
-                                </div>
-                                <hr class="my-3">
-                            </div>
-                            <div class="d-flex row">
-                                <div class="col text-end" id="total_harga">
-                                    <p>Total Pesanan :</p> Rp30.000
-                                </div>
+                                <?php if (!empty($dataTraksaksiHalaman)) : ?>
+                                    <?php $totalPesanan = 0; ?>
+                                    <?php foreach ($dataTraksaksiHalaman as $transaksi) : ?>
+                                        <div class="col-md-8 mt-3">
+                                            <div class="col" id="nama_barang"><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></div>
+                                            <div class="col" id="jmlh_barang">x<?php echo $transaksi['Jumlah_Barang']; ?></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="col text-end" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                        </div>
+                                        <?php $totalPesanan += ($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']) * $transaksi['Jumlah_Barang']; ?>
+                                    <?php endforeach; ?>
+                                    <hr class="my-3">
+                                    <div class="d-flex row">
+                                        <div class="col text-end" id="total_harga">
+                                            <p>Total Pesanan : Rp<?php echo number_format($totalPesanan, 0, ',', '.'); ?></p>
+                                        </div>
+                                    </div>
+                                <?php else : ?>
+                                    <div class='text-danger fw-bold'>Tidak ada data transaksi Anda.</div>
+                                    <hr class="my-3">
+                                <?php endif; ?>
                             </div>
                             <div class="row">
                                 <div class="col" id="pagenation">
                                     <nav aria-label="Page navigation example">
                                         <ul class="pagination">
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Previous">
+                                            <li class="page-item <?php echo ($halamanAktif == 1) ? 'disabled' : ''; ?>">
+                                                <a class="page-link" href="?halaman=<?php echo ($halamanAktif - 1); ?>" aria-label="Previous">
                                                     <span aria-hidden="true">&laquo;</span>
                                                 </a>
                                             </li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Next">
+                                            <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+                                                <li class="page-item <?php echo ($halamanAktif == $i) ? 'active' : ''; ?>"><a class="page-link" href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                                            <?php endfor; ?>
+                                            <li class="page-item <?php echo ($halamanAktif == $jumlahHalaman) ? 'disabled' : ''; ?>">
+                                                <a class="page-link" href="?halaman=<?php echo ($halamanAktif + 1); ?>" aria-label="Next">
                                                     <span aria-hidden="true">&raquo;</span>
                                                 </a>
                                             </li>
@@ -400,35 +420,55 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                            $jumlahDataPerHalaman = 2;
+                            $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                            $transaksiModel = new Transaksi($koneksi);
+                            $dataTraksaksi = $transaksiModel->tampilkanTransaksiSesuaiSession($id);
+                            $jumlahHalaman = ceil(count($dataTraksaksi) / $jumlahDataPerHalaman);
+                            $halamanAktif = isset($_GET['halaman']) ? $_GET['halaman'] : 1;
+                            $indexAwal = ($halamanAktif - 1) * $jumlahDataPerHalaman;
+                            $indexAkhir = $indexAwal + $jumlahDataPerHalaman;
+                            $dataTraksaksiHalaman = array_slice($dataTraksaksi, $indexAwal, $jumlahDataPerHalaman);
+                            ?>
                             <div class="row">
-                                <div class="col-md-8">
-                                    <div class="col" id="nama_barang">Informasi Klimatologi - Data Iklim 1 Bulan</div>
-                                    <div class="col" id="jmlh_barang">x2</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="col text-end" id="harga_barang">Rp30.000</div>
-                                </div>
-                                <hr class="my-3">
-                            </div>
-                            <div class="d-flex row">
-                                <div class="col text-end" id="total_harga">
-                                    <p>Total Pesanan :</p> Rp30.000
-                                </div>
+                                <?php if (!empty($dataTraksaksiHalaman)) : ?>
+                                    <?php $totalPesanan = 0; ?>
+                                    <?php foreach ($dataTraksaksiHalaman as $transaksi) : ?>
+                                        <div class="col-md-8 mt-3">
+                                            <div class="col" id="nama_barang"><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></div>
+                                            <div class="col" id="jmlh_barang">x<?php echo $transaksi['Jumlah_Barang']; ?></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="col text-end" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                        </div>
+                                        <?php $totalPesanan += ($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']) * $transaksi['Jumlah_Barang']; ?>
+                                    <?php endforeach; ?>
+                                    <hr class="my-3">
+                                    <div class="d-flex row">
+                                        <div class="col text-end" id="total_harga">
+                                            <p>Total Pesanan : Rp<?php echo number_format($totalPesanan, 0, ',', '.'); ?></p>
+                                        </div>
+                                    </div>
+                                <?php else : ?>
+                                    <div class='text-danger fw-bold'>Tidak ada data transaksi Anda.</div>
+                                    <hr class="my-3">
+                                <?php endif; ?>
                             </div>
                             <div class="row">
                                 <div class="col" id="pagenation">
                                     <nav aria-label="Page navigation example">
                                         <ul class="pagination">
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Previous">
+                                            <li class="page-item <?php echo ($halamanAktif == 1) ? 'disabled' : ''; ?>">
+                                                <a class="page-link" href="?halaman=<?php echo ($halamanAktif - 1); ?>" aria-label="Previous">
                                                     <span aria-hidden="true">&laquo;</span>
                                                 </a>
                                             </li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Next">
+                                            <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+                                                <li class="page-item <?php echo ($halamanAktif == $i) ? 'active' : ''; ?>"><a class="page-link" href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                                            <?php endfor; ?>
+                                            <li class="page-item <?php echo ($halamanAktif == $jumlahHalaman) ? 'disabled' : ''; ?>">
+                                                <a class="page-link" href="?halaman=<?php echo ($halamanAktif + 1); ?>" aria-label="Next">
                                                     <span aria-hidden="true">&raquo;</span>
                                                 </a>
                                             </li>
@@ -485,45 +525,55 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                            $jumlahDataPerHalaman = 2;
+                            $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                            $transaksiModel = new Transaksi($koneksi);
+                            $dataTraksaksi = $transaksiModel->tampilkanTransaksiSesuaiSession($id);
+                            $jumlahHalaman = ceil(count($dataTraksaksi) / $jumlahDataPerHalaman);
+                            $halamanAktif = isset($_GET['halaman']) ? $_GET['halaman'] : 1;
+                            $indexAwal = ($halamanAktif - 1) * $jumlahDataPerHalaman;
+                            $indexAkhir = $indexAwal + $jumlahDataPerHalaman;
+                            $dataTraksaksiHalaman = array_slice($dataTraksaksi, $indexAwal, $jumlahDataPerHalaman);
+                            ?>
                             <div class="row">
-                                <div class="col-md-8">
-                                    <div class="col" id="nama_barang">Informasi Klimatologi - Data Iklim 1 Bulan</div>
-                                    <div class="col" id="jmlh_barang">x2</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="col text-end" id="harga_barang">Rp30.000</div>
-                                </div>
-                                <hr class="my-3">
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <div class="col" id="nama_barang">Informasi Meteorologi - Data Statistik Petir 1 Bulan</div>
-                                    <div class="col" id="jmlh_barang">x2</div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="col text-end" id="harga_barang">Rp30.000</div>
-                                </div>
-                                <hr class="my-3">
-                            </div>
-                            <div class="d-flex row">
-                                <div class="col text-end" id="total_harga">
-                                    <p>Total Pesanan :</p> Rp30.000
-                                </div>
+                                <?php if (!empty($dataTraksaksiHalaman)) : ?>
+                                    <?php $totalPesanan = 0; ?>
+                                    <?php foreach ($dataTraksaksiHalaman as $transaksi) : ?>
+                                        <div class="col-md-8 mt-3">
+                                            <div class="col" id="nama_barang"><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></div>
+                                            <div class="col" id="jmlh_barang">x<?php echo $transaksi['Jumlah_Barang']; ?></div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="col text-end" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                        </div>
+                                        <?php $totalPesanan += ($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']) * $transaksi['Jumlah_Barang']; ?>
+                                    <?php endforeach; ?>
+                                    <hr class="my-3">
+                                    <div class="d-flex row">
+                                        <div class="col text-end" id="total_harga">
+                                            <p>Total Pesanan : Rp<?php echo number_format($totalPesanan, 0, ',', '.'); ?></p>
+                                        </div>
+                                    </div>
+                                <?php else : ?>
+                                    <div class='text-danger fw-bold'>Tidak ada data transaksi Anda.</div>
+                                    <hr class="my-3">
+                                <?php endif; ?>
                             </div>
                             <div class="d-flex row mt-4">
                                 <div class="col" id="pagenation">
                                     <nav aria-label="Page navigation example">
                                         <ul class="pagination">
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Previous">
+                                            <li class="page-item <?php echo ($halamanAktif == 1) ? 'disabled' : ''; ?>">
+                                                <a class="page-link" href="?halaman=<?php echo ($halamanAktif - 1); ?>" aria-label="Previous">
                                                     <span aria-hidden="true">&laquo;</span>
                                                 </a>
                                             </li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Next">
+                                            <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+                                                <li class="page-item <?php echo ($halamanAktif == $i) ? 'active' : ''; ?>"><a class="page-link" href="?halaman=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                                            <?php endfor; ?>
+                                            <li class="page-item <?php echo ($halamanAktif == $jumlahHalaman) ? 'disabled' : ''; ?>">
+                                                <a class="page-link" href="?halaman=<?php echo ($halamanAktif + 1); ?>" aria-label="Next">
                                                     <span aria-hidden="true">&raquo;</span>
                                                 </a>
                                             </li>
