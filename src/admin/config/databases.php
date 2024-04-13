@@ -1874,7 +1874,7 @@ class Transaksi
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
-                  WHERE (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
+                  WHERE (Total_Transaksi IS NULL AND Jumlah_Barang IS NULL) AND (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
                   AND (informasi.Pemilik_Informasi = 'Instansi A' OR jasa.Pemilik_Jasa = 'Instansi A')";
 
         $result = $this->koneksi->query($query);
@@ -1898,7 +1898,7 @@ class Transaksi
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
-                  WHERE (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
+                  WHERE (Total_Transaksi IS NULL AND Jumlah_Barang IS NULL) AND (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
                   AND (informasi.Pemilik_Informasi = 'Instansi C' OR jasa.Pemilik_Jasa = 'Instansi C')";
 
         $result = $this->koneksi->query($query);
@@ -1922,7 +1922,7 @@ class Transaksi
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
-                  WHERE (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
+                  WHERE (Total_Transaksi IS NULL AND Jumlah_Barang IS NULL) AND (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
                   AND (informasi.Pemilik_Informasi = 'Instansi B' OR jasa.Pemilik_Jasa = 'Instansi B')";
 
         $result = $this->koneksi->query($query);
@@ -2022,7 +2022,7 @@ class Transaksi
     {
         $query = "SELECT transaksi.*, informasi.* FROM transaksi 
                   INNER JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
-                  WHERE transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id";
+                  WHERE (Total_Transaksi IS NULL AND Jumlah_Barang IS NULL) AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
 
         $result = $this->koneksi->query($query);
 
@@ -2040,7 +2040,7 @@ class Transaksi
     public function tampilkanTransaksiJasa($id)
     {
         $query = "SELECT transaksi.*, jasa.* FROM transaksi 
-                  INNER JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id";
+                  INNER JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE (Total_Transaksi IS NULL AND Jumlah_Barang IS NULL) AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
 
         $result = $this->koneksi->query($query);
 

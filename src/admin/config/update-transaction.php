@@ -8,7 +8,18 @@ $transaksiModel = new Transaksi($koneksi);
 $responses = array();
 
 foreach ($dataJumlah as $transaksiID => $jumlahBarang) {
+    if ($jumlahBarang === 0) {
+        $responses[] = array("success" => false, "message" => "Jumlah barang tidak boleh 0 untuk transaksi dengan ID $transaksiID.");
+        continue;
+    }
+
     $totalHarga = $jumlahBarang * $transaksiModel->getHargaPerBarang($transaksiID);
+
+    if ($totalHarga === 0) {
+        $responses[] = array("success" => false, "message" => "Total harga tidak boleh 0 untuk transaksi dengan ID $transaksiID.");
+        continue;
+    }
+
     $isUpdated = $transaksiModel->updateTransaksiDetail($transaksiID, $jumlahBarang, $totalHarga);
 
     if ($isUpdated) {

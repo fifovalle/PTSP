@@ -6,6 +6,21 @@ document.getElementById("btnPesan").addEventListener("click", function () {
     let jumlahBarang = parseInt(element.textContent.trim());
     dataJumlah[transaksiId] = jumlahBarang;
   });
+
+  let isInvalid = Object.values(dataJumlah).some((value) => value === 0);
+  if (isInvalid) {
+    Swal.fire({
+      icon: "error",
+      title: "Gagal",
+      text: "Jumlah barang atau total harga tidak boleh 0.",
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+    });
+    return;
+  }
+
   let xhr = new XMLHttpRequest();
   xhr.open("POST", "../../../src/admin/config/update-transaction.php", true);
   xhr.setRequestHeader("Content-Type", "application/json");

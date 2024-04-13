@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2024 at 02:19 AM
+-- Generation Time: Apr 13, 2024 at 02:30 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -439,12 +439,12 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(71, NULL, 16, NULL, 18, NULL, NULL, NULL, NULL, '2024-04-13 07:12:42', 'Belum Disetujui'),
-(72, NULL, 16, NULL, 19, NULL, NULL, NULL, NULL, '2024-04-13 07:12:45', 'Belum Disetujui'),
-(73, NULL, 16, NULL, 20, NULL, NULL, NULL, NULL, '2024-04-13 07:12:50', 'Belum Disetujui'),
-(74, NULL, 16, NULL, NULL, 17, NULL, NULL, NULL, '2024-04-13 07:12:53', 'Belum Disetujui'),
-(75, NULL, 16, NULL, NULL, 18, NULL, NULL, NULL, '2024-04-13 07:12:58', 'Belum Disetujui'),
-(76, NULL, 16, NULL, NULL, 19, NULL, NULL, NULL, '2024-04-13 07:13:01', 'Belum Disetujui');
+(71, NULL, 16, NULL, 18, NULL, 1, 100000, NULL, '2024-04-13 07:12:42', 'Belum Disetujui'),
+(72, NULL, 16, NULL, 19, NULL, 1, 200000, NULL, '2024-04-13 07:12:45', 'Belum Disetujui'),
+(73, NULL, 16, NULL, 20, NULL, 1, 300000, NULL, '2024-04-13 07:12:50', 'Belum Disetujui'),
+(74, NULL, 16, NULL, NULL, 17, 1, 200000, NULL, '2024-04-13 07:12:53', 'Belum Disetujui'),
+(75, NULL, 16, NULL, NULL, 18, 1, 300000, NULL, '2024-04-13 07:12:58', 'Belum Disetujui'),
+(76, NULL, 16, NULL, NULL, 19, 1, 400000, NULL, '2024-04-13 07:13:01', 'Belum Disetujui');
 
 --
 -- Indexes for dumped tables
