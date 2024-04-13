@@ -143,7 +143,6 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
         </div>
     </div>
 
-    <!-- Modal Checkout -->
     <div class="modal fade" id="Checkout" aria-labelledby="CheckoutLabel" aria-hidden="true">
         <div class="modal-dialog" id="modalCheckout">
             <div class="modal-content">
