@@ -45,13 +45,13 @@
                                         <?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?>
                                     </td>
                                     <td class="harga ps-3">
-                                        Rp <?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?>
+                                        Rp<?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?>
                                     </td>
                                     <td class="jumlah ps-3">
                                         <?php echo $transaksi['Jumlah_Barang']; ?>
                                     </td>
                                     <td class="total ps-3">
-                                        Rp <?php echo number_format(($transaksi['Total_Transaksi']), 0, ',', '.'); ?>
+                                        Rp<?php echo number_format(($transaksi['Total_Transaksi']), 0, ',', '.'); ?>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -86,13 +86,13 @@
                                         <?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?>
                                     </td>
                                     <td class="harga ps-3">
-                                        Rp <?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?>
+                                        Rp<?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?>
                                     </td>
                                     <td class="jumlah ps-3">
                                         <?php echo $transaksi['Jumlah_Barang']; ?>
                                     </td>
                                     <td class="total ps-3">
-                                        Rp <?php echo number_format(($transaksi['Total_Transaksi']), 0, ',', '.'); ?>
+                                        Rp<?php echo number_format(($transaksi['Total_Transaksi']), 0, ',', '.'); ?>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -127,13 +127,13 @@
                                         <?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?>
                                     </td>
                                     <td class="harga ps-3">
-                                        Rp <?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?>
+                                        Rp<?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?>
                                     </td>
                                     <td class="jumlah ps-3">
                                         <?php echo $transaksi['Jumlah_Barang']; ?>
                                     </td>
                                     <td class="total ps-3">
-                                        Rp <?php echo number_format(($transaksi['Total_Transaksi']), 0, ',', '.'); ?>
+                                        Rp<?php echo number_format(($transaksi['Total_Transaksi']), 0, ',', '.'); ?>
                                     </td>
                                 </tr>
                             <?php } ?>
