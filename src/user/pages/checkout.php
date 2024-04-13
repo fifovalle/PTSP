@@ -66,7 +66,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                             <?php
                                             $harga = $transaksiInformasi['Harga_Informasi'];
                                             $harga_rupiah = number_format($harga, 0, ',', '.');
-                                            echo "Rp " . $harga_rupiah;
+                                            echo "Rp" . $harga_rupiah;
                                             ?>
                                         </td>
                                         <td class="content_kuantitas_informasi text-center">
@@ -120,7 +120,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                 <?php
                                                 $harga = $transaksiJasa['Harga_Jasa'];
                                                 $harga_rupiah = number_format($harga, 0, ',', '.');
-                                                echo "Rp " . $harga_rupiah;
+                                                echo "Rp" . $harga_rupiah;
                                                 ?>
                                             </td>
                                             <td class="content_kuantitas_informasi text-center">
@@ -197,13 +197,13 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                     <p class="rekening"><?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?></p>
                                                 </div>
                                                 <div class="col-md-2 text-start mb-2 px-3">
-                                                    <p class="harga">Rp <?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?></p>
+                                                    <p class="harga">Rp<?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?></p>
                                                 </div>
                                                 <div class="col-md-1 text-start mb-2 px-3">
                                                     <p class="jumlah" id="jumlah_barang_<?php echo $transaksi['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">0</p>
                                                 </div>
                                                 <div class="col-md-2 text-start mb-2 px-3">
-                                                    <p class="total" id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp 0</p>
+                                                    <p class="total" id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp0</p>
                                                 </div>
                                             <?php } ?>
                                         </div>
@@ -244,13 +244,13 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                     <p class="rekening"><?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?></p>
                                                 </div>
                                                 <div class="col-md-2 text-start mb-2 px-3">
-                                                    <p class="harga">Rp <?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?></p>
+                                                    <p class="harga">Rp<?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?></p>
                                                 </div>
                                                 <div class="col-md-1 text-start mb-2 px-3">
                                                     <p class="jumlah" id="jumlah_barang_<?php echo $transaksi['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">0</p>
                                                 </div>
                                                 <div class="col-md-2 text-start mb-2 px-3">
-                                                    <p class="total" id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp 0</p>
+                                                    <p class="total" id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp0</p>
                                                 </div>
                                             <?php } ?>
                                         </div>
@@ -291,13 +291,13 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                     <p class="rekening"><?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?></p>
                                                 </div>
                                                 <div class="col-md-2 text-start mb-2 px-3">
-                                                    <p class="harga">Rp <?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?></p>
+                                                    <p class="harga">Rp<?php echo number_format(($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']), 0, ',', '.'); ?></p>
                                                 </div>
                                                 <div class="col-md-1 text-start mb-2 px-3">
                                                     <p class="jumlah" id="jumlah_barang_<?php echo $transaksi['ID_Tranksaksi']; ?>" data-transaksi-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">0</p>
                                                 </div>
                                                 <div class="col-md-2 text-start mb-2 px-3">
-                                                    <p class="total" id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp 0</p>
+                                                    <p class="total" id="total_harga_<?php echo $transaksi['ID_Tranksaksi']; ?>">Rp0</p>
                                                 </div>
                                             <?php } ?>
                                         </div>
