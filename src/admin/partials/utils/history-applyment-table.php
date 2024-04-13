@@ -68,7 +68,7 @@
                     <td class="text-center"><?php echo $pengajuan['Keterangan_Surat_Ditolak']; ?></td>
                     <td class="text-center"><?php echo $pengajuan['Tanggal_Pengajuan']; ?></td>
                     <td class="text-center">
-                        <?php echo ($pengajuan['Status_Pengajuan'] == 'Sedang Ditinjau') ? '<span class="badge text-bg-warning text-white">Sedang Ditinjau</span>' : '<span class="badge text-bg-danger">Ditolak</span>'; ?>
+                        <?php echo ($pengajuan['Status_Pengajuan'] == 'Diterima') ? '<span class="badge text-bg-success text-white">Diterima</span>' : '<span class="badge text-bg-danger">Ditolak</span>'; ?>
                     </td>
                 </tr>
         <?php
