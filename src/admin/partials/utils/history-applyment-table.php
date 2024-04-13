@@ -42,7 +42,27 @@
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
                         <div>
-                            <img class="imageData" src="../assets/image/uploads/<?php echo $pengajuan['Surat_Pengantar_Permintaan_Data_Bencana'] ?? $pengajuan['Surat_Yang_Ditandatangani_Sosial'] ?? $pengajuan['Surat_Yang_Ditandatangani_Keagamaan'] ?? $pengajuan['Surat_Yang_Ditandatangani_Pertahanan'] ?? $pengajuan['Surat_Pengantar_Kepsek_Rektor_Dekan'] ?? $pengajuan['Surat_Pengantar_Pusat_Daerah'] ?? $pengajuan['Surat_Pengantar_PNBP']; ?>" alt="Foto">
+                            <?php
+                            $sumberFile = $pengajuan['Surat_Pengantar_Permintaan_Data_Bencana'] ??
+                                $pengajuan['Surat_Yang_Ditandatangani_Sosial'] ??
+                                $pengajuan['Surat_Yang_Ditandatangani_Keagamaan'] ??
+                                $pengajuan['Surat_Yang_Ditandatangani_Pertahanan'] ??
+                                $pengajuan['Surat_Pengantar_Kepsek_Rektor_Dekan'] ??
+                                $pengajuan['Surat_Pengantar_Pusat_Daerah'] ??
+                                $pengajuan['Surat_Pengantar_PNBP'];
+                            if (!empty($sumberFile)) {
+                                $ekstensi = pathinfo($sumberFile, PATHINFO_EXTENSION);
+                                if (in_array(strtolower($ekstensi), ['jpg', 'jpeg', 'png'])) {
+                                    echo '<img class="imageData" src="../assets/image/uploads/' . $sumberFile . '" alt="Foto">';
+                                } elseif (in_array(strtolower($ekstensi), ['pdf', 'doc', 'docx'])) {
+                                    echo '<a href="../assets/image/uploads/' . $sumberFile . '">Buka Dokumen</a>';
+                                } else {
+                                    echo '<p>Format file tidak didukung.</p>';
+                                }
+                            } else {
+                                echo '<p>Tidak ada dokumen atau gambar yang tersedia.</p>';
+                            }
+                            ?>
                         </div>
                         <div class="deskriptorContainer">
                             <p class="fw-semibold m-auto"><?php echo $pengajuan['Nama_Bencana'] ?? $pengajuan['Nama_Sosial'] ?? $pengajuan['Nama_Keagamaan'] ?? $pengajuan['Nama_Pertahanan'] ?? $pengajuan['Nama_Pendidikan_Dan_Penelitian'] ?? $pengajuan['Nama_Pusat_Daerah'] ?? $pengajuan['Nama_PNBP']; ?></p>

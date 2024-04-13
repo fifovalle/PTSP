@@ -1671,7 +1671,7 @@ class Pengajuan
                   LEFT JOIN kegiatan_sosial ON pengajuan.ID_Sosial = kegiatan_sosial.ID_Sosial
                   LEFT JOIN pemerintah_pusat_daerah ON pengajuan.ID_Pusat_Daerah = pemerintah_pusat_daerah.ID_Pusat
                   LEFT JOIN pendidikan_dan_penelitian ON pengajuan.ID_Penelitian = pendidikan_dan_penelitian.ID_Pendidikan_Penelitian
-                  LEFT JOIN informasi_tarif_pnbp ON pengajuan.ID_Tarif = informasi_tarif_pnbp.ID_PNBP  WHERE Status_Pengajuan = 'Diterima'";
+                  LEFT JOIN informasi_tarif_pnbp ON pengajuan.ID_Tarif = informasi_tarif_pnbp.ID_PNBP  WHERE Status_Pengajuan = 'Diterima' OR Status_Pengajuan = 'Ditolak'";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
