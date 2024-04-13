@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2024 at 02:08 AM
+-- Generation Time: Apr 13, 2024 at 02:19 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -427,13 +427,24 @@ CREATE TABLE `transaksi` (
   `ID_Perusahaan` int(11) DEFAULT NULL,
   `ID_Informasi` int(11) DEFAULT NULL,
   `ID_Jasa` int(11) DEFAULT NULL,
-  `ID_Ikm` int(11) DEFAULT NULL,
   `Jumlah_Barang` int(11) DEFAULT NULL,
   `Total_Transaksi` int(11) DEFAULT NULL,
   `File_Penerimaan` longblob DEFAULT NULL,
   `Tanggal_Pembelian` datetime NOT NULL,
   `Status_Transaksi` enum('Disetujui','Belum Disetujui') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
+(71, NULL, 16, NULL, 18, NULL, NULL, NULL, NULL, '2024-04-13 07:12:42', 'Belum Disetujui'),
+(72, NULL, 16, NULL, 19, NULL, NULL, NULL, NULL, '2024-04-13 07:12:45', 'Belum Disetujui'),
+(73, NULL, 16, NULL, 20, NULL, NULL, NULL, NULL, '2024-04-13 07:12:50', 'Belum Disetujui'),
+(74, NULL, 16, NULL, NULL, 17, NULL, NULL, NULL, '2024-04-13 07:12:53', 'Belum Disetujui'),
+(75, NULL, 16, NULL, NULL, 18, NULL, NULL, NULL, '2024-04-13 07:12:58', 'Belum Disetujui'),
+(76, NULL, 16, NULL, NULL, 19, NULL, NULL, NULL, '2024-04-13 07:13:01', 'Belum Disetujui');
 
 --
 -- Indexes for dumped tables
@@ -542,8 +553,7 @@ ALTER TABLE `transaksi`
   ADD KEY `ID_Pengguna` (`ID_Pengguna`),
   ADD KEY `ID_Perusahaan` (`ID_Perusahaan`),
   ADD KEY `ID_Informasi` (`ID_Informasi`),
-  ADD KEY `ID_Jasa` (`ID_Jasa`),
-  ADD KEY `ID_IKM` (`ID_Ikm`);
+  ADD KEY `ID_Jasa` (`ID_Jasa`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -637,7 +647,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- Constraints for dumped tables
@@ -666,8 +676,7 @@ ALTER TABLE `transaksi`
   ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`ID_Jasa`) REFERENCES `jasa` (`ID_Jasa`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transaksi_ibfk_3` FOREIGN KEY (`ID_Informasi`) REFERENCES `informasi` (`ID_Informasi`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transaksi_ibfk_4` FOREIGN KEY (`ID_Admin`) REFERENCES `admin` (`ID_Admin`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `transaksi_ibfk_5` FOREIGN KEY (`ID_Perusahaan`) REFERENCES `perusahaan` (`ID_Perusahaan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `transaksi_ibfk_6` FOREIGN KEY (`ID_Ikm`) REFERENCES `ikm` (`ID_Ikm`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `transaksi_ibfk_5` FOREIGN KEY (`ID_Perusahaan`) REFERENCES `perusahaan` (`ID_Perusahaan`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
