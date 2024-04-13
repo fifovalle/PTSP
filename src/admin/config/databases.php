@@ -2070,6 +2070,25 @@ class Transaksi
         }
     }
 
+    public function hitungRiwayatTransaksiSesuaiSession($id)
+    {
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi 
+              LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+              LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+              LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+              LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+              WHERE transaksi.Status_Transaksi = 'Disetujui' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+        $result = $this->koneksi->query($query);
+
+        if ($result) {
+            $row = $result->fetch_assoc();
+            return $row['jumlah'];
+        } else {
+            return 0;
+        }
+    }
+
+
     public function tampilkanTransaksiSesuaiSession($id)
     {
         $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
@@ -2087,6 +2106,23 @@ class Transaksi
             return $data;
         } else {
             return null;
+        }
+    }
+
+    public function hitungTransaksiSesuaiSession($id)
+    {
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi 
+              LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+              LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+              LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+              LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Belum Disetujui' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+        $result = $this->koneksi->query($query);
+
+        if ($result) {
+            $row = $result->fetch_assoc();
+            return $row['jumlah'];
+        } else {
+            return 0;
         }
     }
 

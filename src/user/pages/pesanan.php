@@ -25,7 +25,14 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
         <div class="row">
             <div class="col-md-2 p-0 h-100" id="opsi-pemesanan">
                 <div class="row mx-5 my-3">
-                    <div class="btn btn-success" id="history-order" onclick="showContentPemesanan('history-pesanan')"> Riwayat Pesanan <span class="badge text-bg-secondary ms-2">0</span></div>
+                    <div class="btn btn-success" id="history-order" onclick="showContentPemesanan('history-pesanan')"> Riwayat Pesanan <span class="badge text-bg-secondary ms-2">
+                            <?php
+                            $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                            $transaksiModel = new Transaksi($koneksi);
+                            $jumlahTransaksi = $transaksiModel->hitungRiwayatTransaksiSesuaiSession($id);
+                            echo $jumlahTransaksi;
+                            ?>
+                        </span></div>
                 </div>
                 <div class="row mx-5 my-3">
                     <div class="btn btn-outline-success" id="tracking-order" onclick="showContentPemesanan('detail-pesanan')">Pelacakan Pesanan</div>
@@ -79,10 +86,54 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
             <div class="col-md-10 px-5" id="detail-pesanan" style="display:none;">
                 <div class="container-fluid w-100">
                     <div class="d-flex row text-center mb-3" id="status-pesanan">
-                        <div class="col-md-3"><button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pengajuan">Status Pengajuan <span class="badge text-bg-secondary">0</span></button></div>
-                        <div class=" col-md-3"><button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pembayaran">Status Pembayaran <span class="badge text-bg-secondary">0</span></button></div>
-                        <div class="col-md-3"><button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pembuatan">Status Pembuatan <span class="badge text-bg-secondary">0</span></button></div>
-                        <div class=" col-md-3"><button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-selesai">Status Selesai <span class="badge text-bg-secondary">0</span></button></div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pengajuan">Status Pengajuan
+                                <span class="badge text-bg-secondary">
+                                    <?php
+                                    $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                                    $transaksiModel = new Transaksi($koneksi);
+                                    $jumlahTransaksi = $transaksiModel->hitungTransaksiSesuaiSession($id);
+                                    echo $jumlahTransaksi;
+                                    ?>
+                                </span>
+                            </button>
+                        </div>
+                        <div class=" col-md-3">
+                            <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pembayaran">Status Pembayaran
+                                <span class="badge text-bg-secondary">
+                                    <?php
+                                    $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                                    $transaksiModel = new Transaksi($koneksi);
+                                    $jumlahTransaksi = $transaksiModel->hitungTransaksiSesuaiSession($id);
+                                    echo $jumlahTransaksi;
+                                    ?>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pembuatan">Status Pembuatan
+                                <span class="badge text-bg-secondary">
+                                    <?php
+                                    $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                                    $transaksiModel = new Transaksi($koneksi);
+                                    $jumlahTransaksi = $transaksiModel->hitungTransaksiSesuaiSession($id);
+                                    echo $jumlahTransaksi;
+                                    ?>
+                                </span>
+                            </button>
+                        </div>
+                        <div class=" col-md-3">
+                            <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-selesai">Status Selesai
+                                <span class="badge text-bg-secondary">
+                                    <?php
+                                    $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                                    $transaksiModel = new Transaksi($koneksi);
+                                    $jumlahTransaksi = $transaksiModel->hitungTransaksiSesuaiSession($id);
+                                    echo $jumlahTransaksi;
+                                    ?>
+                                </span>
+                            </button>
+                        </div>
                     </div>
                     <div class=" d-none" id="ajuan">
                         <div class="d-flex row status">
