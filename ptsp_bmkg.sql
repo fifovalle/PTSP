@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2024 at 02:30 AM
+-- Generation Time: Apr 13, 2024 at 02:37 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -335,7 +335,7 @@ CREATE TABLE `pengajuan` (
 --
 
 INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Admin`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `ID_Tarif`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Tanggal_Pengajuan`) VALUES
-(27, 16, NULL, NULL, 18, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, '2024-04-06 10:17:53'),
+(27, 16, NULL, NULL, 18, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, '2024-04-06 10:17:53'),
 (28, 16, NULL, NULL, NULL, NULL, NULL, 5, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, '2024-04-06 13:14:12');
 
 -- --------------------------------------------------------
