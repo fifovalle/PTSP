@@ -4,9 +4,9 @@ include 'databases.php';
 $penggunaDatabase = new Pengguna($koneksi);
 
 if (isset($_POST['Masuk'])) {
-    $emailNamaPengguna = htmlspecialchars($_POST['Nama_Pengguna_Email']);
-    $kataSandi = htmlspecialchars($_POST['Kata_Sandi']);
-    $kodeCaptcha = htmlspecialchars($_POST['Kode_Captcha']);
+    $emailNamaPengguna = filter_input(INPUT_POST, 'Nama_Pengguna_Email', FILTER_SANITIZE_EMAIL);
+    $kataSandi = filter_input(INPUT_POST, 'Kata_Sandi', FILTER_SANITIZE_STRING);
+    $kodeCaptcha = filter_input(INPUT_POST, 'Kode_Captcha', FILTER_SANITIZE_STRING);
 
     if (empty($emailNamaPengguna) || empty($kataSandi) || empty($kodeCaptcha)) {
         setPesanKesalahan("Semua field harus diisi.");

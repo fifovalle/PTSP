@@ -4,8 +4,8 @@ include 'databases.php';
 $adminDatabase = new Admin($koneksi);
 
 if (isset($_POST['Masuk'])) {
-    $emailNamaPengguna = htmlspecialchars($_POST['Email_Nama_Pengguna']);
-    $kataSandi = htmlspecialchars($_POST['Kata_Sandi']);
+    $emailNamaPengguna = filter_input(INPUT_POST, 'Email_Nama_Pengguna', FILTER_SANITIZE_EMAIL);
+    $kataSandi = filter_input(INPUT_POST, 'Kata_Sandi', FILTER_SANITIZE_STRING);
 
     if (empty($emailNamaPengguna) || empty($kataSandi)) {
         setPesanKesalahan("Semua field harus diisi.");

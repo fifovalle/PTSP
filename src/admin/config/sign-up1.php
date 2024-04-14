@@ -2,21 +2,21 @@
 include 'databases.php';
 
 if (isset($_POST['Daftar'])) {
-    $_SESSION['NPWP'] = $_POST['NPWP_Pengguna'];
-    $_SESSION['No_Identitas'] = $_POST['No_Identitas_Pengguna'];
-    $_SESSION['Pekerjaan'] = $_POST['Pekerjaan_Pengguna'];
-    $_SESSION['Nama_Depan'] = $_POST['Nama_Depan_Pengguna'];
-    $_SESSION['Nama_Belakang'] = $_POST['Nama_Belakang_Pengguna'];
-    $_SESSION['Pendidikan'] = $_POST['Pendidikan_Terakhir_Pengguna'];
-    $_SESSION['Jenis_Kelamin'] = $_POST['Jenis_Kelamin_Pengguna'];
-    $_SESSION['Alamat'] = $_POST['Alamat_Pengguna'];
-    $_SESSION['No_Telepon'] = $_POST['No_Telepon_Pengguna'];
-    $_SESSION['Provinsi'] = $_POST['Provinsi'];
-    $_SESSION['Kab/Kota'] = $_POST['Kota_Kabupaten'];
-    $_SESSION['Email'] = $_POST['Email_Pengguna'];
-    $_SESSION['Nama_Pengguna'] = $_POST['Nama_Pengguna'];
-    $_SESSION['Kata_Sandi'] = $_POST['Kata_Sandi'];
-    $_SESSION['Konfirmasi_Kata_Sandi'] = $_POST['Konfirmasi_Kata_Sandi'];
+    $_SESSION['NPWP'] = htmlspecialchars($_POST['NPWP_Pengguna']);
+    $_SESSION['No_Identitas'] = htmlspecialchars($_POST['No_Identitas_Pengguna']);
+    $_SESSION['Pekerjaan'] = htmlspecialchars($_POST['Pekerjaan_Pengguna']);
+    $_SESSION['Nama_Depan'] = htmlspecialchars($_POST['Nama_Depan_Pengguna']);
+    $_SESSION['Nama_Belakang'] = htmlspecialchars($_POST['Nama_Belakang_Pengguna']);
+    $_SESSION['Pendidikan'] = htmlspecialchars($_POST['Pendidikan_Terakhir_Pengguna']);
+    $_SESSION['Jenis_Kelamin'] = htmlspecialchars($_POST['Jenis_Kelamin_Pengguna']);
+    $_SESSION['Alamat'] = htmlspecialchars($_POST['Alamat_Pengguna']);
+    $_SESSION['No_Telepon'] = htmlspecialchars($_POST['No_Telepon_Pengguna']);
+    $_SESSION['Provinsi'] = htmlspecialchars($_POST['Provinsi']);
+    $_SESSION['Kab/Kota'] = htmlspecialchars($_POST['Kota_Kabupaten']);
+    $_SESSION['Email'] = htmlspecialchars($_POST['Email_Pengguna']);
+    $_SESSION['Nama_Pengguna'] = htmlspecialchars($_POST['Nama_Pengguna']);
+    $_SESSION['Kata_Sandi'] = htmlspecialchars($_POST['Kata_Sandi']);
+    $_SESSION['Konfirmasi_Kata_Sandi'] = htmlspecialchars($_POST['Konfirmasi_Kata_Sandi']);
     $npwpPengguna = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['NPWP_Pengguna']));
     $noIdentitasPengguna = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_Identitas_Pengguna']));
     $pekerjaanPengguna = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Pekerjaan_Pengguna']));
