@@ -10,7 +10,6 @@ include '../../admin/config/databases.php';
     include('../partials/header.php');
     ?>
     <link rel="stylesheet" href="../assets/css/profile.css">
-    <!-- SWEETALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -66,7 +65,6 @@ include '../../admin/config/databases.php';
                                                 ?>
                                             </label>
                                         </div>
-
                                         <hr class="my-4">
                                         <div class="col-md-3">
                                             <label for="nameInput">No. Identitas</label>

@@ -8,11 +8,14 @@
   margin: 0;
   padding: 2px 50px 2px 50px;
 }
+
 .navbar {
   background-color: transparent !important;
   box-shadow: 15px 5px 10px var(--color-default-abu);
   position: relative;
   border-bottom: 5px solid var(--color-default-abu);
+}
+#Ajukan {
 }
 
 .ps-4.nav-link {
@@ -25,25 +28,26 @@
   margin-right: 10px;
 }
 
-.checker {
+.profile-cart {
   display: flex;
   align-items: center;
   justify-content: end;
 }
 
 #btnCart {
-  display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
+  display: flex;
 }
 
 #btnProfile {
-  display: flex;
   justify-content: center;
   align-items: center;
   background-color: transparent !important;
   color: black;
   border: none;
+  margin: 0;
 }
 
 #icon-profile {
@@ -316,10 +320,11 @@ hr.vertical {
 #btnPesanan {
   border: none;
   background-color: transparent;
+  font-weight: 600;
 }
 
 /****************************** Responsive Navbar Tablet ******************************/
-@media screen and (min-width: 765px) and (max-width: 850px) {
+/* @media screen and (min-width: 765px) and (max-width: 850px) {
   #box-navbar.container-fluid {
     width: 100%;
     padding: 2px 50px 2px 50px;
@@ -338,12 +343,12 @@ hr.vertical {
     border: none;
     border-radius: 3px;
   }
-}
+} */
 
 /****************************** End Responsive Navbar Tablet ******************************/
 
 /****************************** Responsive Navbar Smartphone ******************************/
-@media screen and (min-width: 360px) and (max-width: 428px) {
+/* @media screen and (min-width: 360px) and (max-width: 428px) {
   #box-navbar.container-fluid {
     padding: 2px 10px 2px 10px;
   }
@@ -368,5 +373,5 @@ hr.vertical {
     justify-content: center;
     margin-bottom: 20px;
   }
-}
+} */
 /****************************** End Responsive Navbar Smartphone ******************************/

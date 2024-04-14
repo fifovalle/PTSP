@@ -16,7 +16,7 @@
                         <a class="nav-link mx-2" id="Beranda" aria-current="page" href="../pages/main.php">Beranda</a>
                     </button>
                     <button class="nav-item mx-2" id="btnAjukan">
-                        <a class="nav-link" id="Ajukan" href="../pages/ajukan.php">Ajukan</a>
+                        <a class="nav-link " id="Ajukan" href="../pages/ajukan.php">Ajukan</a>
                     </button>
                     <button class="nav-item mx-2 dropdown" id="btnRegulasi">
                         <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="Regulasi">
@@ -38,12 +38,12 @@
                     </button>
                 </ul>
                 <hr>
-                <div class="checker" role="search">
+                <div class="profile-cart" role="search">
                     <button type="button" class="btn btn-outline-warning" id=btnCart><box-icon name='cart-alt'></box-icon></button>
                     <hr class="vertical">
                     <button id="btnLogin" class="btn btn-outline-success" type="button" style="display: none;">Login</button>
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" id="btnProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="display: absolute;">
+                        <button class="btn btn-secondary dropdown-toggle" id="btnProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="display: flex;">
                             <?php
                             if (isset($_SESSION['ID_Pengguna'])) {
                                 echo "<box-icon name='user' id='icon-profile'></box-icon>" . $_SESSION['Nama_Pengguna'];

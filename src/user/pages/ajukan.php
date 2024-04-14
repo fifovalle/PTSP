@@ -14,7 +14,6 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     include('../partials/header.php');
     ?>
     <link rel="stylesheet" href="../assets/css/ajukan.css">
-    <!-- SWEETALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <title>Ajukan PTSP BMKG Provinsi Bengkulu</title>
@@ -24,7 +23,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     <?php
     include('../partials/navbar.php');
     ?>
-    <main class="container-fluid w-100 mt-5">
+    <div class="container-fluid w-100 mt-5">
         <div class="row" id="option">
             <div class="col-md-12" id="button-option">
                 <div class="row">
@@ -105,7 +104,6 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                 </div>
             </div>
         </div>
-        </div>
         <div class="row" id="form-ajukan">
             <div class="form-content" id="form1">
                 <?php
@@ -152,7 +150,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
         <script src="../assets/js/ajukan.js"></script>
         <!-- ALERT -->
         <?php include '../../../src/admin/partials/utils/alert.php' ?>
-    </main>
+    </div>
 </body>
 
 </html>

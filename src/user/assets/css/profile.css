@@ -1,12 +1,8 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: Verdana, serif;
 }
-body {
-  padding: 0;
-  margin: 0;
-}
+
 /* Scrollbar Effect */
 ::-webkit-scrollbar {
   width: 5px;

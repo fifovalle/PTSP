@@ -22,10 +22,10 @@
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">STASIUN METEOROLOGI</h6>
                         <p>
-                        Jl. Depati Payung Negara, Pekan Sabtu, Kec. Selebar, Kota Bengkulu, Bengkulu 38213
+                            Jl. Depati Payung Negara, Pekan Sabtu, Kec. Selebar, Kota Bengkulu, Bengkulu 38213
                         </p>
                         <p>
-                        0736-51064
+                            0736-51064
                         </p>
                     </div>
 
@@ -36,13 +36,13 @@
                             STASIUN KLIMATOLOGI
                         </h6>
                         <p>
-                        Jl. Ir. Rustandi Sugianto P. Baai Bengkulu 39172
+                            Jl. Ir. Rustandi Sugianto P. Baai Bengkulu 39172
                         </p>
                         <p>
-                        0736-51251 / 0736-51426 / 0736-53030
+                            0736-51251 / 0736-51426 / 0736-53030
                         </p>
                         <p>
-                        staklim.pulaubaai@bmkg.go.id
+                            staklim.pulaubaai@bmkg.go.id
                         </p>
                     </div>
 
@@ -72,7 +72,7 @@
 
                     <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
                         <!-- Facebook -->
-                        <a href="https://www.instagram.com/info_bmkg_bengkulu/" class="btn btn-outline-light mx-2" style="padding: 10px 12px 6px 12px;" class="text-white" role="button" ><box-icon type='logo' name='instagram'></box-icon></a>
+                        <a href="https://www.instagram.com/info_bmkg_bengkulu/" class="btn btn-outline-light mx-2" style="padding: 10px 12px 6px 12px;" class="text-white" role="button"><box-icon type='logo' name='instagram'></box-icon></a>
                         <a href="https://t.me/joinchat/WKhKhIs5nORrQyOo" class="btn btn-outline-light" style="padding: 10px 12px 6px 12px;" class="text-white" role="button"><box-icon type='logo' name='telegram'></box-icon></a>
                     </div>
                 </div>
