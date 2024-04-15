@@ -11,14 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $kategoriJasa = $_POST['Kategori_Jasa'] ?? '';
     $statusJasa = $_POST['Status_Jasa'] ?? '';
 
-    $requiredFields = ['ID_Jasa', 'Nama_Jasa', 'Deskripsi_Jasa', 'Harga_Jasa', 'Pemilik_Jasa', 'Kategori_Jasa', 'Status_Jasa'];
-    foreach ($requiredFields as $field) {
-        if (empty($_POST[$field])) {
-            echo json_encode(array("success" => false, "message" => "Gagal mengedit data jasa. Harap isi semua field."));
-            exit;
-        }
-    }
-
     $jasaModel = new Jasa($koneksi);
 
     $jasaLama = $jasaModel->getDataJasaById($jasaID);

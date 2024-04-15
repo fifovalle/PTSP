@@ -11,14 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $kategoriInformasi = $_POST['Kategori_Informasi'] ?? '';
     $statusInformasi = $_POST['Status_Informasi'] ?? '';
 
-    $requiredFields = ['ID_Informasi', 'Nama_Informasi', 'Deskripsi_Informasi', 'Harga_Informasi', 'Pemilik_Informasi', 'Kategori_Informasi', 'Status_Informasi'];
-    foreach ($requiredFields as $field) {
-        if (empty($_POST[$field])) {
-            echo json_encode(array("success" => false, "message" => "Gagal mengedit data informasi. Harap isi semua field."));
-            exit;
-        }
-    }
-
     $informasiModel = new Informasi($koneksi);
 
     $informasiLama = $informasiModel->getDataInformasiById($informasiID);

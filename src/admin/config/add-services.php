@@ -15,10 +15,6 @@ if (isset($_POST['Simpan'])) {
 
     $pesanKesalahan = '';
 
-    if (empty($namaJasa) || empty($deskripsiJasa) || empty($hargaJasa) || empty($pemilikJasa) || empty($kategoriJasa) || empty($statusJasa)) {
-        $pesanKesalahan .= "Semua bidang harus diisi. ";
-    }
-
     if ($pemilikJasa === 'Instansi A') {
         $nomorRekeningJasa = '1111';
     } elseif ($pemilikJasa === 'Instansi B') {
