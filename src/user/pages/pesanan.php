@@ -75,9 +75,10 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                         }
                         ?>
                         <div class="row">
-                            <div class="d-flex col ">
-                                <button class="btn btn-outline-danger px-2 mx-3" type="button" id="btn-beli-lagi" style="width:100px;">Beli Lagi</button>
-                                <button class="btn btn-outline-success px-2 mx-3" type="button" style="width:100px;">Download</button>
+                            <div class="col-md-12 text-start">
+                                <button class="btn btn-outline-danger px-2 mx-2" type="button" id="btn-beli-lagi" style="width:100px;">Beli Lagi</button>
+                                <button class="btn btn-outline-success px-2 mx-2" type="button" style="width:100px;">Download</button>
+                                <button class="btn btn-outline-warning px-2 mx-2" type="button" style="width:200px;" data-bs-toggle="modal" data-bs-target="#historiPengisianIKM">Histori Pengisian IKM</button>
                             </div>
                         </div>
                     </div>
@@ -230,9 +231,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibayarkan</div>
-                                        <p class="card-text"><a type="button" class="text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#invoicePesanan">Klik disini</a> untuk melihat detail pesanan
-                                        </p>
-                                        </p>
+                                        <p>Update Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -340,7 +339,8 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibayarkan</div>
-                                        <p class="card-text">Update Tanggal</p>
+                                        <p class="card-text"><a type="button" class="text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#invoicePesanan">Klik disini</a> untuk melihat detail pesanan
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -643,11 +643,13 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
         </div>
     </div>
     <?php
+    include('../partials/modal-histori-ikm.php');
     include('../partials/modal-perbaikan-pesanan.php');
     include('../partials/modal-invoice-pesanan.php');
     ?>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/pesanan.js"></script>
+
 </body>
 
 </html>

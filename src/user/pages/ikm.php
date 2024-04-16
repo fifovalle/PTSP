@@ -323,7 +323,7 @@ include '../../admin/config/databases.php';
                 <div class="row form" id="UnsurPelayanan" style="display: none;">
                     <div class="container-fluid w-100 unsur-pelayanan headkuis">
                         <div class="row justify-content-around" id="kuisioner_pt1">
-                            <div class="col-md-12">
+                            <div class="col-md-12 p-0">
                                 <h2 class="title text-center my-5">Unsur Pelayanan</h2>
                                 <div class="row">
                                     <div class="col-md-6 px-2 py-2 bodykuis1">
@@ -663,12 +663,15 @@ include '../../admin/config/databases.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 mt-5 text-center">
-                                <button class="btn btn-primary py-2 px-2" id="btn_next1"><box-icon name='right-arrow' color='rgba(255,255,255,0.9)'></box-icon></button>
+                            <div class="col-md-12 mt-4 text-center">
+                                <button class="d-flex btn btn-primary py-2 px-2 mx-auto" id="btn_next1">
+                                    <box-icon name='right-arrow' color='rgba(255,255,255,0.9)'>
+                                    </box-icon>
+                                </button>
                             </div>
                         </div>
                         <div class="row justify-content-around" id="kuisioner_pt2" style="display: none;">
-                            <div class="col-md-12">
+                            <div class="col-md-12 p-0">
                                 <h2 class="title text-center my-5">Unsur Pelayanan</h2>
                                 <div class="row">
                                     <div class="col-md-6 px-2 py-2 bodykuis1">
@@ -966,12 +969,15 @@ include '../../admin/config/databases.php';
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 mt-5 text-center">
-                                <button class="btn btn-primary py-2 px-2" type="button" id="btn_next2"><box-icon name='right-arrow' color='rgba(255,255,255,0.9)'></box-icon></button>
+                            <div class="col-md-12 mt-4 text-center">
+                                <button class="d-flex btn btn-primary py-2 px-2 mx-auto" id="btn_next2">
+                                    <box-icon name='right-arrow' color='rgba(255,255,255,0.9)'>
+                                    </box-icon>
+                                </button>
                             </div>
                         </div>
                         <div class="row justify-content-around" id="kuisioner_pt3" style="display: none;">
-                            <div class="col-md-12">
+                            <div class="col-md-12 p-0">
                                 <h2 class="title text-center my-5">Unsur Pelayanan</h2>
                                 <div class="row">
                                     <div class="col-md-6 px-2 py-2 bodykuis1">

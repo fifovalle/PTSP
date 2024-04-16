@@ -122,3 +122,94 @@ body {
   top: 90px;
   left: -100px;
 }
+
+#box-invoice {
+  width: 60rem;
+  position: absolute;
+  top: 50px;
+  left: -200px;
+}
+#box-uploadbuktipembayaran {
+  width: 60rem;
+  position: absolute;
+  top: 50px;
+  left: -220px;
+}
+
+#box-historiPengisianIKM {
+  width: 90rem;
+  position: absolute;
+  top: 40px;
+  left: -440px;
+}
+
+.header-ikm {
+  background: #d3d3d3;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+  padding: 10px 0 10px 0;
+  border: 1px solid #333333;
+}
+
+.body-ikm {
+  border: 1px solid #333333;
+}
+.status-invoice {
+  color: white;
+  background: #db0000; //Untuk Lunas dia warnanya #00CB00
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 5px 40px 5px 40px;
+}
+
+.custum-file-upload {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  gap: 20px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ffff;
+  background-color: #797979;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 28px 32px -28px black;
+}
+
+.custum-file-upload .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .icon svg {
+  height: 80px;
+  fill: #ffff;
+}
+
+.custum-file-upload .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custum-file-upload .text span {
+  font-weight: 400;
+  color: #ffff;
+}
+
+.custum-file-upload input {
+  display: none;
+}
+
+#preview-file {
+  border: 1px dashed black;
+  padding: 10px 150px 10px 50px;
+  border-radius: 10px;
+}
