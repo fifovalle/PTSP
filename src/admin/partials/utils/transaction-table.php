@@ -65,9 +65,9 @@
                                         <i class="fas fa-upload"></i>
                                     </span>
                                 </a>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteTransaction(<?php echo $transaksi['ID_Tranksaksi']; ?>)">
+                                <a class="linkData iconDataRight" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#seeApplyment">
                                     <span>
-                                        <i class="fas fa-trash"></i>
+                                        <i class="fas fa-eye"></i>
                                     </span>
                                 </a>
                             </div>
