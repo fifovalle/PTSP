@@ -11,57 +11,62 @@ if (isset($_POST['Apply'])) {
     $obyekDataBencana = new Pengajuan($koneksi);
     $obyekDataTransaksi = new Transaksi($koneksi);
 
-    if ($_FILES['Surat_Pengantar_Permintaan_Data']['error'] !== UPLOAD_ERR_OK) {
-        setPesanKesalahan("Gagal mengupload surat pengantar.");
-        header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-        exit;
-    }
+    $dataCekPengajuan = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
 
-    $tujuanSuratPengantar = '../assets/image/uploads/';
-    $namaSuratPengantarBaru = uniqid() . '_' . basename($_FILES['Surat_Pengantar_Permintaan_Data']['name']);
-    $tujuanFileSuratPengantar = $tujuanSuratPengantar . $namaSuratPengantarBaru;
+    $hasilCekPengguna = $obyekDataTransaksi->cekPengguna($dataCekPengajuan);
 
-    if (!move_uploaded_file($_FILES['Surat_Pengantar_Permintaan_Data']['tmp_name'], $tujuanFileSuratPengantar)) {
-        setPesanKesalahan("Gagal menyimpan surat pengantar.");
-        header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-        exit;
-    }
+    if ($hasilCekPengguna  > 0) {
+        if ($_FILES['Surat_Pengantar_Permintaan_Data']['error'] === UPLOAD_ERR_OK) {
+            $tujuanSuratPengantar = '../assets/image/uploads/';
+            $ekstensiFile = pathinfo($_FILES['Surat_Pengantar_Permintaan_Data']['name'], PATHINFO_EXTENSION);
+            $namaSuratPengantarBaru = uniqid() . '.' . $ekstensiFile;
+            $tujuanFileSuratPengantar = $tujuanSuratPengantar . $namaSuratPengantarBaru;
 
-    $dataBencana = array(
-        'Nama_Bencana' => $nama,
-        'No_Telepon_Bencana' => $nomorTeleponFormatted,
-        'Email_Bencana' => $email,
-        'Surat_Pengantar_Permintaan_Data_Bencana' => $namaSuratPengantarBaru
-    );
+            if (move_uploaded_file($_FILES['Surat_Pengantar_Permintaan_Data']['tmp_name'], $tujuanFileSuratPengantar)) {
+                $dataBencana = array(
+                    'Nama_Bencana' => $nama,
+                    'No_Telepon_Bencana' => $nomorTeleponFormatted,
+                    'Email_Bencana' => $email,
+                    'Surat_Pengantar_Permintaan_Data_Bencana' => $namaSuratPengantarBaru
+                );
 
-    $simpanDataBencana = $obyekDataBencana->tambahDataBencana($dataBencana);
+                $simpanDataBencana = $obyekDataBencana->tambahDataBencana($dataBencana);
 
-    $dataPengajuanBencana = array(
-        'ID_Bencana' => $obyekDataBencana->ambilIDBencanaTerakhir(),
-        'Status_Pengajuan' => 'Sedang Ditinjau',
-        'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
-    );
+                $dataPengajuanBencana = array(
+                    'ID_Bencana' => $obyekDataBencana->ambilIDBencanaTerakhir(),
+                    'Status_Pengajuan' => 'Sedang Ditinjau',
+                    'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
+                );
 
-    $simpanDataPengajuanBencana = $obyekDataBencana->tambahDataPengajuanBencana($dataPengajuanBencana);
+                $simpanDataPengajuanBencana = $obyekDataBencana->tambahDataPengajuanBencana($dataPengajuanBencana);
 
-    $dataPengajuanBencana = array(
-        'ID_Pengguna' => isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : null,
-        'ID_Perusahaan' => isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null,
-        'ID_Pengajuan' => $obyekDataBencana->ambilIDPengajuanTerakhir(),
-    );
+                $dataPengajuanBencana = array(
+                    'ID_Pengajuan' => $obyekDataBencana->ambilIDPengajuanTerakhir(),
+                );
 
-    $simpanDataTransaksiPengajuanBencana = $obyekDataTransaksi->tambahPengajuanBencanaKeTransaksi($dataPengajuanBencana);
+                $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
 
-    if ($simpanDataBencana && $simpanDataPengajuanBencana && $simpanDataTransaksiPengajuanBencana) {
-        setPesanKeberhasilan("Data kegiatan penanggulangan bencana berhasil dikirim harap menunggu konfirmasi oleh admin.");
-        header("Location: $akarUrl" . "src/user/pages/checkout.php");
-        exit();
+                $simpanDataTransaksiPengajuanBencana = $obyekDataTransaksi->perbaharuiPengajuanBencanaKeTransaksiSesuaiSession($dataPengajuanBencana, $idSession);
+
+                if ($simpanDataBencana && $simpanDataPengajuanBencana && $simpanDataTransaksiPengajuanBencana) {
+                    setPesanKeberhasilan("Data kegiatan penanggulangan bencana berhasil dikirim harap menunggu konfirmasi oleh admin.");
+                    header("Location: $akarUrl" . "src/user/pages/checkout.php");
+                    exit();
+                } else {
+                    setPesanKesalahan("Gagal menambahkan data kegiatan penanggulangan bencana.");
+                }
+            } else {
+                setPesanKesalahan("Gagal menyimpan surat pengantar.");
+            }
+        } else {
+            setPesanKesalahan("Gagal mengupload surat pengantar.");
+        }
     } else {
-        setPesanKesalahan("Gagal menambahkan data kegiatan penanggulangan bencana.");
-        header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-        exit;
+        setPesanKesalahan("Silahkan memilih katalog produk terlebih dahulu");
+        header("Location: $akarUrl" . "src/user/pages/katalogproduk.php");
+        exit();
     }
 } else {
     header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-    exit;
+    exit();
 }

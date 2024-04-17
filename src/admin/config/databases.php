@@ -1776,17 +1776,16 @@ class Transaksi
         }
     }
 
-    public function tambahPengajuanBencanaKeTransaksi($dataTransaksiPengajuanBencana)
+    public function perbaharuiPengajuanBencanaKeTransaksiSesuaiSession($dataTransaksiPengajuanBencana, $idSession)
     {
-        $query = "INSERT INTO transaksi (ID_Pengguna, ID_Perusahaan, ID_Pengajuan) 
-              VALUES (?, ?, ?)";
+        $query = "UPDATE transaksi SET ID_Pengajuan = ? WHERE ID_Pengguna = ? OR ID_Perusahaan = ?";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
             "iii",
-            $dataTransaksiPengajuanBencana['ID_Pengguna'],
-            $dataTransaksiPengajuanBencana['ID_Perusahaan'],
-            $dataTransaksiPengajuanBencana['ID_Pengajuan']
+            $dataTransaksiPengajuanBencana['ID_Pengajuan'],
+            $idSession,
+            $idSession
         );
         if ($statement->execute()) {
             return true;
@@ -1822,6 +1821,28 @@ class Transaksi
             return true;
         } else {
             return false;
+        }
+    }
+
+    public function cekPengguna($ID)
+    {
+        $query = "SELECT transaksi.*, pengguna.* FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  WHERE transaksi.ID_Pengguna = ?";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $ID);
+        $statement->execute();
+        $result = $statement->get_result();
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
         }
     }
 
