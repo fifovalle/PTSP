@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2024 at 04:43 AM
+-- Generation Time: Apr 17, 2024 at 04:53 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -301,9 +301,6 @@ CREATE TABLE `pendidikan_dan_penelitian` (
 
 CREATE TABLE `pengajuan` (
   `ID_Pengajuan` int(11) NOT NULL,
-  `ID_Pengguna` int(11) DEFAULT NULL,
-  `ID_Perusahaan` int(11) DEFAULT NULL,
-  `ID_Admin` int(11) DEFAULT NULL,
   `ID_Bencana` int(11) DEFAULT NULL,
   `ID_Keagamaan` int(11) DEFAULT NULL,
   `ID_Pertahanan` int(11) DEFAULT NULL,
@@ -405,21 +402,13 @@ CREATE TABLE `transaksi` (
   `ID_Perusahaan` int(11) DEFAULT NULL,
   `ID_Informasi` int(11) DEFAULT NULL,
   `ID_Jasa` int(11) DEFAULT NULL,
+  `ID_Pengajuan` int(11) DEFAULT NULL,
   `Jumlah_Barang` int(11) DEFAULT NULL,
   `Total_Transaksi` int(11) DEFAULT NULL,
   `File_Penerimaan` longblob DEFAULT NULL,
   `Tanggal_Pembelian` datetime NOT NULL,
   `Status_Transaksi` enum('Disetujui','Belum Disetujui') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(81, NULL, 16, NULL, 18, NULL, 1, 100000, NULL, '2024-04-14 17:01:41', 'Belum Disetujui'),
-(82, NULL, 16, NULL, 19, NULL, 1, 200000, NULL, '2024-04-14 17:01:56', 'Belum Disetujui'),
-(83, NULL, 16, NULL, 20, NULL, 1, 300000, NULL, '2024-04-14 17:03:50', 'Belum Disetujui');
 
 --
 -- Indexes for dumped tables
@@ -496,15 +485,12 @@ ALTER TABLE `pendidikan_dan_penelitian`
 --
 ALTER TABLE `pengajuan`
   ADD PRIMARY KEY (`ID_Pengajuan`),
-  ADD KEY `ID_Pengguna` (`ID_Pengguna`),
-  ADD KEY `ID_Perusahaan` (`ID_Perusahaan`),
   ADD KEY `ID_Bencana` (`ID_Bencana`),
   ADD KEY `ID_Keagamaan` (`ID_Keagamaan`),
   ADD KEY `ID_Pertahanan` (`ID_Pertahanan`),
   ADD KEY `ID_Sosial` (`ID_Sosial`),
   ADD KEY `ID_Pusat_Daerah` (`ID_Pusat_Daerah`),
   ADD KEY `ID_Penelitian` (`ID_Penelitian`),
-  ADD KEY `ID_Admin` (`ID_Admin`),
   ADD KEY `ID_Tarif` (`ID_Tarif`);
 
 --
@@ -528,7 +514,8 @@ ALTER TABLE `transaksi`
   ADD KEY `ID_Pengguna` (`ID_Pengguna`),
   ADD KEY `ID_Perusahaan` (`ID_Perusahaan`),
   ADD KEY `ID_Informasi` (`ID_Informasi`),
-  ADD KEY `ID_Jasa` (`ID_Jasa`);
+  ADD KEY `ID_Jasa` (`ID_Jasa`),
+  ADD KEY `ID_Pengajuan` (`ID_Pengajuan`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -636,12 +623,9 @@ ALTER TABLE `pengajuan`
   ADD CONSTRAINT `pengajuan_ibfk_10` FOREIGN KEY (`ID_Tarif`) REFERENCES `informasi_tarif_pnbp` (`ID_PNBP`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pengajuan_ibfk_2` FOREIGN KEY (`ID_Pusat_Daerah`) REFERENCES `pemerintah_pusat_daerah` (`ID_Pusat`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pengajuan_ibfk_3` FOREIGN KEY (`ID_Penelitian`) REFERENCES `pendidikan_dan_penelitian` (`ID_Pendidikan_Penelitian`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `pengajuan_ibfk_4` FOREIGN KEY (`ID_Perusahaan`) REFERENCES `perusahaan` (`ID_Perusahaan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `pengajuan_ibfk_5` FOREIGN KEY (`ID_Pengguna`) REFERENCES `pengguna` (`ID_Pengguna`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pengajuan_ibfk_6` FOREIGN KEY (`ID_Sosial`) REFERENCES `kegiatan_sosial` (`ID_Sosial`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pengajuan_ibfk_7` FOREIGN KEY (`ID_Pertahanan`) REFERENCES `kegiatan_pertahanan_keamanan` (`ID_Pertahanan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `pengajuan_ibfk_8` FOREIGN KEY (`ID_Keagamaan`) REFERENCES `kegiatan_keagamaan` (`ID_Keagamaan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `pengajuan_ibfk_9` FOREIGN KEY (`ID_Admin`) REFERENCES `admin` (`ID_Admin`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `pengajuan_ibfk_8` FOREIGN KEY (`ID_Keagamaan`) REFERENCES `kegiatan_keagamaan` (`ID_Keagamaan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `transaksi`
@@ -651,7 +635,8 @@ ALTER TABLE `transaksi`
   ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`ID_Jasa`) REFERENCES `jasa` (`ID_Jasa`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transaksi_ibfk_3` FOREIGN KEY (`ID_Informasi`) REFERENCES `informasi` (`ID_Informasi`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transaksi_ibfk_4` FOREIGN KEY (`ID_Admin`) REFERENCES `admin` (`ID_Admin`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `transaksi_ibfk_5` FOREIGN KEY (`ID_Perusahaan`) REFERENCES `perusahaan` (`ID_Perusahaan`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `transaksi_ibfk_5` FOREIGN KEY (`ID_Perusahaan`) REFERENCES `perusahaan` (`ID_Perusahaan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaksi_ibfk_6` FOREIGN KEY (`ID_Pengajuan`) REFERENCES `pengajuan` (`ID_Pengajuan`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

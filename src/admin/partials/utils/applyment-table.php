@@ -28,55 +28,41 @@
     </thead>
     <tbody class="tbodyData">
         <?php
-        $pengajuanModel = new Pengajuan($koneksi);
-        $dataPengajuan = $pengajuanModel->tampilkanDataPengajuan();
+        $transaksiModel = new Transaksi($koneksi);
+        $dataTransaksi = $transaksiModel->tampilkanTransaksi();
 
-        if (!empty($dataPengajuan)) {
+        if (!empty($dataTransaksi)) {
             $nomorUrut = 1;
-            foreach ($dataPengajuan as $pengajuan) {
+            foreach ($dataTransaksi as $transaksi) {
         ?>
                 <tr class="trDataN">
                     <td class="text-center">
-                        <input class="checkBoxData checkBoxDataProduct checkBoxDataProductData" type="checkbox">
+                        <input class="checkBoxData checkBoxDataTransaction checkBoxDataTransactionData" type="checkbox">
                     </td>
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
                         <div>
-                            <?php
-                            $sumberFile = $pengajuan['Surat_Pengantar_Permintaan_Data_Bencana'] ??
-                                $pengajuan['Surat_Yang_Ditandatangani_Sosial'] ??
-                                $pengajuan['Surat_Yang_Ditandatangani_Keagamaan'] ??
-                                $pengajuan['Surat_Yang_Ditandatangani_Pertahanan'] ??
-                                $pengajuan['Surat_Pengantar_Kepsek_Rektor_Dekan'] ??
-                                $pengajuan['Surat_Pengantar_Pusat_Daerah'] ??
-                                $pengajuan['Surat_Pengantar_PNBP'];
-                            if (!empty($sumberFile)) {
-                                $ekstensi = pathinfo($sumberFile, PATHINFO_EXTENSION);
-                                if (in_array(strtolower($ekstensi), ['jpg', 'jpeg', 'png'])) {
-                                    echo '<img class="imageData" src="../assets/image/uploads/' . $sumberFile . '" alt="Foto">';
-                                } elseif (in_array(strtolower($ekstensi), ['pdf', 'doc', 'docx'])) {
-                                    echo '<a href="../assets/image/uploads/' . $sumberFile . '">Buka Dokumen</a>';
-                                } else {
-                                    echo '<p>Format file tidak didukung.</p>';
-                                }
-                            } else {
-                                echo '<p>Tidak ada dokumen atau gambar yang tersedia.</p>';
-                            }
-                            ?>
+                            <img class="imageData" src="../assets/image/uploads/<?php echo htmlspecialchars(($transaksi['ID_Informasi'] != null) ? $transaksi['Foto_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Foto_Jasa'] : 'nama-file-default.jpg')); ?>" alt="Foto Produk">
                         </div>
                         <div class="deskriptorContainer">
-                            <p class="fw-semibold m-auto"><?php echo $pengajuan['Nama_Bencana'] ?? $pengajuan['Nama_Sosial'] ?? $pengajuan['Nama_Keagamaan'] ?? $pengajuan['Nama_Pertahanan'] ?? $pengajuan['Nama_Pendidikan_Dan_Penelitian'] ?? $pengajuan['Nama_Pusat_Daerah'] ?? $pengajuan['Nama_PNBP']; ?></p>
+                            <p class="fw-semibold m-auto">
+                                <?php
+                                echo ($transaksi['ID_Informasi'] != null) ? $transaksi['Nama_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Nama_Jasa'] : 'Nama Tidak Tersedia');
+                                ?>
+                            </p>
                             <p class="fw-semibold deskriptorSmall m-auto">
                                 <?php
-                                $no_telepon = $pengajuan['No_Telepon_Bencana'] ?? $pengajuan['No_Telepon_Sosial'] ?? $pengajuan['No_Telepon_Keagamaan'] ?? $pengajuan['No_Telepon_Pertahanan'] ?? $pengajuan['No_Telepon_Pendidikan_Penelitian'] ?? $pengajuan['No_Telepon_Pusat_Daerah'] ?? $pengajuan['No_Telepon_PNBP'];
-                                echo strlen($no_telepon) > 4 ? substr($no_telepon, 0, 4) . '...' : $no_telepon;
+                                $deskripsi = ($transaksi['ID_Informasi'] != null) ? $transaksi['Deskripsi_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Deskripsi_Jasa'] : 'Deskripsi Tidak Tersedia');
+                                echo strlen($deskripsi) > 4 ? substr($deskripsi, 0, 4) . '...' : $deskripsi;
                                 ?>
                             </p>
                             <div class="iconContainerData">
-                                <a class="linkData buttonApplyment" data-id='<?php echo $pengajuan['ID_Pengajuan']; ?>'>
-                                    <span><i class="fas fa-upload"></i></span>
+                                <a class="linkData" data-bs-toggle="modal" data-bs-target="#aproveFile">
+                                    <span class="">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
                                 </a>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteApplyment(<?php echo $pengajuan['ID_Pengajuan']; ?>)">
+                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteTransaction(<?php echo $transaksi['ID_Tranksaksi']; ?>)">
                                     <span>
                                         <i class="fas fa-trash"></i>
                                     </span>
@@ -84,17 +70,20 @@
                             </div>
                         </div>
                     </td>
-                    <td class="text-center"><?php echo $pengajuan['Nama_Pengguna'] ? $pengajuan['Nama_Pengguna'] : $pengajuan['Nama_Perusahaan']; ?></td>
-                    <td class="text-center"><?php echo $pengajuan['Keterangan_Surat_Ditolak']; ?></td>
-                    <td class="text-center"><?php echo $pengajuan['Tanggal_Pengajuan']; ?></td>
+                    <td class="text-center"><?php echo ($transaksi['ID_Pengguna'] != null) ? $transaksi['Nama_Pengguna'] : (($transaksi['ID_Perusahaan'] != null) ? $transaksi['Nama_Pengguna_Anggota_Perusahaan'] : 'Nama Pengguna Tidak Ada') ?></td>
+                    <td class="text-center"><?php echo ($transaksi['ID_Informasi'] != null) ? 'Informasi' : (($transaksi['ID_Jasa'] != null) ? 'Jasa' : 'Tidak Diketahui') ?></td>
+                    <td class="text-center"><?php echo $transaksi['Jumlah_Barang']; ?></td>
+                    <td class="text-center"><?php echo $transaksi['Tanggal_Pembelian']; ?></td>
                     <td class="text-center">
-                        <?php echo ($pengajuan['Status_Pengajuan'] == 'Sedang Ditinjau') ? '<span class="badge text-bg-warning text-white">Sedang Ditinjau</span>' : '<span class="badge text-bg-danger">Ditolak</span>'; ?>
+                        <span class="badge <?php echo ($transaksi['Status_Transaksi'] === 'Belum Disetujui') ? 'text-bg-danger' : 'text-bg-success'; ?>">
+                            <?php echo $transaksi['Status_Transaksi']; ?>
+                        </span>
                     </td>
                 </tr>
         <?php
             }
         } else {
-            echo "<tr><td colspan='7' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Pengajuan!</td></tr>";
+            echo "<tr><td colspan='8' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Transaksi!</td></tr>";
         }
         ?>
     </tbody>
