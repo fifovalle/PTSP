@@ -270,6 +270,12 @@
   opacity: 1;
 }
 
+.imageModalDetail {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
 @media (min-width: 1920px) and (min-height: 1080px) {
   .tableData {
     width: 1220px;

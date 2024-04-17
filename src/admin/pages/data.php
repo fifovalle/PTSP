@@ -176,6 +176,9 @@ if (!isset($_SESSION['ID'])) {
     include "../partials/utils/modal-aprove.php";
     ?>
     <?php
+    include "../partials/utils/modal-see-applyment.php";
+    ?>
+    <?php
     include "../partials/utils/modal-aprove-applyment.php";
     ?>
     <?php
@@ -208,6 +211,7 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/filter.js"></script>
     <script src="../assets/our/js/drive-all.js"></script>
     <script src="../assets/our/js/search-alldata.js"></script>
+    <script src="../assets/our/js/view-image.js"></script>
     <!-- BOOTSTRAP JS -->
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- ALERT -->

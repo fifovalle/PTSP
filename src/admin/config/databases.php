@@ -1823,7 +1823,7 @@ class Transaksi
     {
         $query = "SELECT transaksi.*, pengguna.* FROM transaksi 
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
-                  WHERE transaksi.ID_Pengguna = ?";
+                  WHERE transaksi.ID_Pengguna = ? AND transaksi.ID_Pengajuan IS NULL";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("i", $ID);
@@ -1882,6 +1882,27 @@ class Transaksi
         }
     }
 
+    public function tampilkanSemuaPengajuanTransaksi()
+    {
+        $query = "SELECT transaksi.*, pengguna.*, informasi.*, pengajuan.*, kegiatan_bencana.*, perusahaan.*, jasa.* FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+                  LEFT JOIN kegiatan_bencana ON pengajuan.ID_Bencana = kegiatan_bencana.ID_Bencana
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Sedang Ditinjau'";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
 
     public function tampilkanRiwayatPengajuanTransaksi()
     {

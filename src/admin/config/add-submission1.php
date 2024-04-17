@@ -15,7 +15,7 @@ if (isset($_POST['Apply'])) {
 
     $hasilCekPengguna = $obyekDataTransaksi->cekPengguna($dataCekPengajuan);
 
-    if ($hasilCekPengguna  > 0) {
+    if ($hasilCekPengguna) {
         if ($_FILES['Surat_Pengantar_Permintaan_Data']['error'] === UPLOAD_ERR_OK) {
             $tujuanSuratPengantar = '../assets/image/uploads/';
             $ekstensiFile = pathinfo($_FILES['Surat_Pengantar_Permintaan_Data']['name'], PATHINFO_EXTENSION);

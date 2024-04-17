@@ -62,9 +62,9 @@
                                         <i class="fas fa-upload"></i>
                                     </span>
                                 </a>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteTransaction(<?php echo $transaksi['ID_Tranksaksi']; ?>)">
+                                <a class="linkData iconDataRight" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#seeApplyment">
                                     <span>
-                                        <i class="fas fa-trash"></i>
+                                        <i class="fas fa-eye"></i>
                                     </span>
                                 </a>
                             </div>
@@ -73,12 +73,12 @@
                     <td class="text-center"><?php echo ($transaksi['ID_Pengguna'] != null) ? $transaksi['Nama_Pengguna'] : (($transaksi['ID_Perusahaan'] != null) ? $transaksi['Nama_Pengguna_Anggota_Perusahaan'] : 'Nama Pengguna Tidak Ada') ?></td>
                     <td class="text-center">
                         <?php
-                        echo $transaksi['Keterangan_Surat_Ditolak'] !== NULL ? $transaksi['Keterangan_Surat_Ditolak'] : "Tidak ada surat yang ditolak";
+                        echo $transaksi['Keterangan_Surat_Ditolak'] !== NULL ? $transaksi['Keterangan_Surat_Ditolak'] : "Jika ada surat yang ditolak silahkan untuk diunggah";
                         ?>
                     </td>
                     <td class="text-center"><?php echo $transaksi['Tanggal_Pengajuan']; ?></td>
                     <td class="text-center">
-                        <span class="badge <?php echo ($transaksi['Status_Pengajuan'] === 'Belum Disetujui') ? 'text-bg-danger' : 'text-bg-success'; ?>">
+                        <span class="badge <?php echo ($transaksi['Status_Pengajuan'] === 'Sedang Ditinjau') ? 'text-bg-warning' : 'text-bg-success'; ?>">
                             <?php echo $transaksi['Status_Pengajuan']; ?>
                         </span>
                     </td>
