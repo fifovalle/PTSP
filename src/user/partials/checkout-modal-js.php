@@ -57,9 +57,9 @@
         let jumlahBarang = parseInt(jumlahBarangSpan.innerHTML);
         nilai--;
         if (nilai < 1) {
-            nilai = 1;
+            nilai = 0;
         }
-        if (jumlahBarang > 1) {
+        if (jumlahBarang > 0) {
             jumlahBarang--;
         }
         nilaiSpan.innerHTML = nilai;
@@ -74,9 +74,9 @@
         let jumlahBarang = parseInt(jumlahBarangSpan.innerHTML);
         nilai--;
         if (nilai < 1) {
-            nilai = 1;
+            nilai = 0;
         }
-        if (jumlahBarang > 1) {
+        if (jumlahBarang > 0) {
             jumlahBarang--;
         }
         nilaiSpan.innerHTML = nilai;

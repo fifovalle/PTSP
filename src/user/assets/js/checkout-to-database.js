@@ -40,7 +40,7 @@ document.getElementById("btnPesan").addEventListener("click", function () {
           }).then((result) => {
             setTimeout(function () {
               window.location.href = "pesanan.php";
-            }, 2000);
+            }, 500);
           });
         } else {
           Swal.fire({

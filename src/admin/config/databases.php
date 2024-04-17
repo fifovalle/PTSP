@@ -2321,6 +2321,21 @@ class Transaksi
         }
     }
 
+    public function getPengajuanID($transaksiID)
+    {
+        $query = "SELECT ID_Pengajuan FROM transaksi WHERE ID_Pengajuan  IS NOT NULL AND ID_Tranksaksi = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $transaksiID);
+        $statement->execute();
+        $result = $statement->get_result();
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row['ID_Pengajuan'];
+        } else {
+            return null;
+        }
+    }
+
     public function hapusTransaksi($id)
     {
         $querySelect = "SELECT ID_Tranksaksi, File_Penerimaan FROM transaksi WHERE ID_Tranksaksi=?";
