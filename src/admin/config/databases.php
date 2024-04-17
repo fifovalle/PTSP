@@ -1395,6 +1395,20 @@ class Pengajuan
         }
     }
 
+    public function ambilIDPengajuanTerakhir()
+    {
+        $query = "SELECT ID_Pengajuan FROM pengajuan ORDER BY ID_Pengajuan DESC LIMIT 1";
+
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['ID_Pengajuan'];
+        } else {
+            return null;
+        }
+    }
+
     public function ambilIDBencanaTerakhir()
     {
         $query = "SELECT ID_Bencana FROM kegiatan_bencana ORDER BY ID_Bencana DESC LIMIT 1";
@@ -1495,14 +1509,12 @@ class Pengajuan
 
     public function tambahDataPengajuanBencana($dataPengajuanBencana)
     {
-        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Bencana, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, ?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Bencana, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "iiis",
-            $dataPengajuanBencana['ID_Pengguna'],
-            $dataPengajuanBencana['ID_Perusahaan'],
+            "is",
             $dataPengajuanBencana['ID_Bencana'],
             $dataPengajuanBencana['Status_Pengajuan'],
         );
@@ -1633,10 +1645,6 @@ class Pengajuan
         }
     }
 
-
-
-
-
     public function tampilkanSemuaDataPengajuan()
     {
         $query = "SELECT pengajuan.*, pengguna.*, perusahaan.*, admin.*, kegiatan_bencana.*, kegiatan_keagamaan.*, kegiatan_pertahanan_keamanan.*, kegiatan_sosial.*, pemerintah_pusat_daerah.*, pendidikan_dan_penelitian.* FROM pengajuan 
@@ -1761,6 +1769,25 @@ class Transaksi
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("iss", $data['ID_Jasa'], $data['ID_Perusahaan'], $data['Status_Transaksi']);
 
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function tambahPengajuanBencanaKeTransaksi($dataTransaksiPengajuanBencana)
+    {
+        $query = "INSERT INTO transaksi (ID_Pengguna, ID_Perusahaan, ID_Pengajuan) 
+              VALUES (?, ?, ?)";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iii",
+            $dataTransaksiPengajuanBencana['ID_Pengguna'],
+            $dataTransaksiPengajuanBencana['ID_Perusahaan'],
+            $dataTransaksiPengajuanBencana['ID_Pengajuan']
+        );
         if ($statement->execute()) {
             return true;
         } else {

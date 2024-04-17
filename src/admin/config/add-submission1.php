@@ -9,6 +9,7 @@ if (isset($_POST['Apply'])) {
     $nomorTeleponFormatted = '+62 ' . substr($nomorHP, 0, 3) . '-' . substr($nomorHP, 4, 4) . '-' . substr($nomorHP, 7);
 
     $obyekDataBencana = new Pengajuan($koneksi);
+    $obyekDataTransaksi = new Transaksi($koneksi);
 
     if ($_FILES['Surat_Pengantar_Permintaan_Data']['error'] !== UPLOAD_ERR_OK) {
         setPesanKesalahan("Gagal mengupload surat pengantar.");
@@ -36,8 +37,6 @@ if (isset($_POST['Apply'])) {
     $simpanDataBencana = $obyekDataBencana->tambahDataBencana($dataBencana);
 
     $dataPengajuanBencana = array(
-        'ID_Pengguna' => $_SESSION['ID_Pengguna'],
-        'ID_Perusahaan' => $_SESSION['ID_Perusahaan'],
         'ID_Bencana' => $obyekDataBencana->ambilIDBencanaTerakhir(),
         'Status_Pengajuan' => 'Sedang Ditinjau',
         'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
@@ -45,7 +44,15 @@ if (isset($_POST['Apply'])) {
 
     $simpanDataPengajuanBencana = $obyekDataBencana->tambahDataPengajuanBencana($dataPengajuanBencana);
 
-    if ($simpanDataBencana && $simpanDataPengajuanBencana) {
+    $dataPengajuanBencana = array(
+        'ID_Pengguna' => isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : null,
+        'ID_Perusahaan' => isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null,
+        'ID_Pengajuan' => $obyekDataBencana->ambilIDPengajuanTerakhir(),
+    );
+
+    $simpanDataTransaksiPengajuanBencana = $obyekDataTransaksi->tambahPengajuanBencanaKeTransaksi($dataPengajuanBencana);
+
+    if ($simpanDataBencana && $simpanDataPengajuanBencana && $simpanDataTransaksiPengajuanBencana) {
         setPesanKeberhasilan("Data kegiatan penanggulangan bencana berhasil dikirim harap menunggu konfirmasi oleh admin.");
         header("Location: $akarUrl" . "src/user/pages/checkout.php");
         exit();
