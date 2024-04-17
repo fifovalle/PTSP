@@ -70,11 +70,11 @@ if (!isset($_SESSION['ID'])) {
                                 <div class="menu col-2">
                                     <p class="fw-semibold dataAll">Pengajuan</p>
                                 </div>
-                                <div class="menu col-2 historyMenuDataPengajuan">
-                                    <p class="fw-semibold dataAll">Riwayat Pengajuan</p>
-                                </div>
                                 <div class="menu col-2">
                                     <p class="fw-semibold dataAll">Transaksi</p>
+                                </div>
+                                <div class="menu col-2 historyMenuDataPengajuan">
+                                    <p class="fw-semibold dataAll">Riwayat Pengajuan</p>
                                 </div>
                                 <div class="menu col-2 historyMenuData">
                                     <p class="fw-semibold dataAll">Riwayat Transaksi</p>

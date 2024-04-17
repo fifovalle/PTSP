@@ -29,7 +29,7 @@
     <tbody class="tbodyData">
         <?php
         $transaksiModel = new Transaksi($koneksi);
-        $dataTransaksi = $transaksiModel->tampilkanTransaksi();
+        $dataTransaksi = $transaksiModel->tampilkanRiwayatPengajuanTransaksi();
 
         if (!empty($dataTransaksi)) {
             $nomorUrut = 1;
@@ -71,9 +71,12 @@
                         </div>
                     </td>
                     <td class="text-center"><?php echo ($transaksi['ID_Pengguna'] != null) ? $transaksi['Nama_Pengguna'] : (($transaksi['ID_Perusahaan'] != null) ? $transaksi['Nama_Pengguna_Anggota_Perusahaan'] : 'Nama Pengguna Tidak Ada') ?></td>
-                    <td class="text-center"><?php echo ($transaksi['ID_Informasi'] != null) ? 'Informasi' : (($transaksi['ID_Jasa'] != null) ? 'Jasa' : 'Tidak Diketahui') ?></td>
-                    <td class="text-center"><?php echo $transaksi['Jumlah_Barang']; ?></td>
-                    <td class="text-center"><?php echo $transaksi['Tanggal_Pembelian']; ?></td>
+                    <td class="text-center">
+                        <?php
+                        echo $transaksi['Keterangan_Surat_Ditolak'] !== NULL ? $transaksi['Keterangan_Surat_Ditolak'] : "Tidak ada surat yang ditolak";
+                        ?>
+                    </td>
+                    <td class="text-center"><?php echo $transaksi['Tanggal_Pengajuan']; ?></td>
                     <td class="text-center">
                         <span class="badge <?php echo ($transaksi['Status_Transaksi'] === 'Belum Disetujui') ? 'text-bg-danger' : 'text-bg-success'; ?>">
                             <?php echo $transaksi['Status_Transaksi']; ?>
@@ -83,7 +86,7 @@
         <?php
             }
         } else {
-            echo "<tr><td colspan='8' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Transaksi!</td></tr>";
+            echo "<tr><td colspan='8' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Riwayat Pengajuan!</td></tr>";
         }
         ?>
     </tbody>
