@@ -78,8 +78,8 @@
                     </td>
                     <td class="text-center"><?php echo $transaksi['Tanggal_Pengajuan']; ?></td>
                     <td class="text-center">
-                        <span class="badge <?php echo ($transaksi['Status_Transaksi'] === 'Belum Disetujui') ? 'text-bg-danger' : 'text-bg-success'; ?>">
-                            <?php echo $transaksi['Status_Transaksi']; ?>
+                        <span class="badge <?php echo ($transaksi['Status_Pengajuan'] === 'Belum Disetujui') ? 'text-bg-danger' : 'text-bg-success'; ?>">
+                            <?php echo $transaksi['Status_Pengajuan']; ?>
                         </span>
                     </td>
                 </tr>
