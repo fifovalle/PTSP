@@ -93,7 +93,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     <?php
                                     $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                                     $transaksiModel = new Transaksi($koneksi);
-                                    $jumlahTransaksi = $transaksiModel->hitungTransaksiSesuaiSession($id);
+                                    $jumlahTransaksi = $transaksiModel->hitungPengajuanTransaksiSesuaiSession($id);
                                     echo $jumlahTransaksi;
                                     ?>
                                 </span>
@@ -105,7 +105,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     <?php
                                     $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                                     $transaksiModel = new Transaksi($koneksi);
-                                    $jumlahTransaksi = $transaksiModel->hitungTransaksiSesuaiSession($id);
+                                    $jumlahTransaksi = $transaksiModel->hitungPembayaranTransaksiSesuaiSession($id);
                                     echo $jumlahTransaksi;
                                     ?>
                                 </span>
@@ -117,7 +117,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     <?php
                                     $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                                     $transaksiModel = new Transaksi($koneksi);
-                                    $jumlahTransaksi = $transaksiModel->hitungTransaksiSesuaiSession($id);
+                                    $jumlahTransaksi = $transaksiModel->hitungPembuatanTransaksiSesuaiSession($id);
                                     echo $jumlahTransaksi;
                                     ?>
                                 </span>
@@ -129,7 +129,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     <?php
                                     $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                                     $transaksiModel = new Transaksi($koneksi);
-                                    $jumlahTransaksi = $transaksiModel->hitungTransaksiSesuaiSession($id);
+                                    $jumlahTransaksi = $transaksiModel->hitungSelesaiTransaksiSesuaiSession($id);
                                     echo $jumlahTransaksi;
                                     ?>
                                 </span>
@@ -261,7 +261,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                             $jumlahDataPerHalaman = 2;
                             $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                             $transaksiModel = new Transaksi($koneksi);
-                            $dataTraksaksi = $transaksiModel->tampilkanTransaksiSesuaiSession($id);
+                            $dataTraksaksi = $transaksiModel->tampilkanPengajuanTransaksiSesuaiSession($id);
                             $jumlahHalaman = ceil(count($dataTraksaksi) / $jumlahDataPerHalaman);
                             $halamanAktif = isset($_GET['halaman']) ? $_GET['halaman'] : 1;
                             $indexAwal = ($halamanAktif - 1) * $jumlahDataPerHalaman;
@@ -288,7 +288,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         </div>
                                     </div>
                                 <?php else : ?>
-                                    <div class='text-danger fw-bold'>Tidak ada data transaksi Anda.</div>
+                                    <div class='text-danger fw-bold'>Tidak ada data transaksi yang tersedia.</div>
                                     <hr class="my-3">
                                 <?php endif; ?>
                             </div>
@@ -370,7 +370,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                             $jumlahDataPerHalaman = 2;
                             $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                             $transaksiModel = new Transaksi($koneksi);
-                            $dataTraksaksi = $transaksiModel->tampilkanTransaksiSesuaiSession($id);
+                            $dataTraksaksi = $transaksiModel->tampilkanPembayaranTransaksiSesuaiSession($id);
                             $jumlahHalaman = ceil(count($dataTraksaksi) / $jumlahDataPerHalaman);
                             $halamanAktif = isset($_GET['halaman']) ? $_GET['halaman'] : 1;
                             $indexAwal = ($halamanAktif - 1) * $jumlahDataPerHalaman;
@@ -397,7 +397,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         </div>
                                     </div>
                                 <?php else : ?>
-                                    <div class='text-danger fw-bold'>Tidak ada data transaksi Anda.</div>
+                                    <div class='text-danger fw-bold'>Tidak ada data transaksi yang tersedia.</div>
                                     <hr class="my-3">
                                 <?php endif; ?>
                             </div>
@@ -475,7 +475,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                             $jumlahDataPerHalaman = 2;
                             $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                             $transaksiModel = new Transaksi($koneksi);
-                            $dataTraksaksi = $transaksiModel->tampilkanTransaksiSesuaiSession($id);
+                            $dataTraksaksi = $transaksiModel->tampilkanPembuatanTransaksiSesuaiSession($id);
                             $jumlahHalaman = ceil(count($dataTraksaksi) / $jumlahDataPerHalaman);
                             $halamanAktif = isset($_GET['halaman']) ? $_GET['halaman'] : 1;
                             $indexAwal = ($halamanAktif - 1) * $jumlahDataPerHalaman;
@@ -502,7 +502,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         </div>
                                     </div>
                                 <?php else : ?>
-                                    <div class='text-danger fw-bold'>Tidak ada data transaksi Anda.</div>
+                                    <div class='text-danger fw-bold'>Tidak ada data transaksi yang tersedia.</div>
                                     <hr class="my-3">
                                 <?php endif; ?>
                             </div>
@@ -580,7 +580,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                             $jumlahDataPerHalaman = 2;
                             $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                             $transaksiModel = new Transaksi($koneksi);
-                            $dataTraksaksi = $transaksiModel->tampilkanTransaksiSesuaiSession($id);
+                            $dataTraksaksi = $transaksiModel->tampilkanSelesaiTransaksiSesuaiSession($id);
                             $jumlahHalaman = ceil(count($dataTraksaksi) / $jumlahDataPerHalaman);
                             $halamanAktif = isset($_GET['halaman']) ? $_GET['halaman'] : 1;
                             $indexAwal = ($halamanAktif - 1) * $jumlahDataPerHalaman;
@@ -607,7 +607,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         </div>
                                     </div>
                                 <?php else : ?>
-                                    <div class='text-danger fw-bold'>Tidak ada data transaksi Anda.</div>
+                                    <div class='text-danger fw-bold'>Tidak ada data transaksi yang tersedia.</div>
                                     <hr class="my-3">
                                 <?php endif; ?>
                             </div>

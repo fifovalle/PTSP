@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2024 at 06:43 AM
+-- Generation Time: Apr 17, 2024 at 08:25 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -420,6 +420,7 @@ CREATE TABLE `transaksi` (
   `Jumlah_Barang` int(11) DEFAULT NULL,
   `Total_Transaksi` int(11) DEFAULT NULL,
   `File_Penerimaan` longblob DEFAULT NULL,
+  `Bukti_Pembayaran` longblob DEFAULT NULL,
   `Tanggal_Pembelian` datetime NOT NULL,
   `Status_Transaksi` enum('Disetujui','Belum Disetujui') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -428,8 +429,8 @@ CREATE TABLE `transaksi` (
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(101, NULL, 16, NULL, 18, NULL, 50, NULL, NULL, NULL, '2024-04-17 11:43:17', 'Belum Disetujui');
+INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Bukti_Pembayaran`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
+(101, NULL, 16, NULL, 18, NULL, 50, 1, 100000, NULL, NULL, '2024-04-17 11:43:17', 'Belum Disetujui');
 
 --
 -- Indexes for dumped tables

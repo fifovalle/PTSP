@@ -1647,16 +1647,11 @@ class Pengajuan
 
     public function tampilkanSemuaDataPengajuan()
     {
-        $query = "SELECT pengajuan.*, pengguna.*, perusahaan.*, admin.*, kegiatan_bencana.*, kegiatan_keagamaan.*, kegiatan_pertahanan_keamanan.*, kegiatan_sosial.*, pemerintah_pusat_daerah.*, pendidikan_dan_penelitian.* FROM pengajuan 
-                  LEFT JOIN pengguna ON pengajuan.ID_Pengguna = pengguna.ID_Pengguna
-                  LEFT JOIN perusahaan ON pengajuan.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN admin ON pengajuan.ID_Admin = admin.ID_Admin
-                  LEFT JOIN kegiatan_bencana ON pengajuan.ID_Bencana = kegiatan_bencana.ID_Bencana
-                  LEFT JOIN kegiatan_keagamaan ON pengajuan.ID_Keagamaan = kegiatan_keagamaan.ID_Keagamaan
-                  LEFT JOIN kegiatan_pertahanan_keamanan ON pengajuan.ID_Pertahanan = kegiatan_pertahanan_keamanan.ID_Pertahanan
-                  LEFT JOIN kegiatan_sosial ON pengajuan.ID_Sosial = kegiatan_sosial.ID_Sosial
-                  LEFT JOIN pemerintah_pusat_daerah ON pengajuan.ID_Pusat_Daerah = pemerintah_pusat_daerah.ID_Pusat
-                  LEFT JOIN pendidikan_dan_penelitian ON pengajuan.ID_Penelitian = pendidikan_dan_penelitian.ID_Pendidikan_Penelitian";
+        $query = "SELECT transaksi.*, pengguna.*, perusahaan.*, pengajuan.* FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+               ";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2088,14 +2083,14 @@ class Transaksi
         }
     }
 
-
-    public function tampilkanTransaksiSesuaiSession($id)
+    public function tampilkanPengajuanTransaksiSesuaiSession($id)
     {
-        $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
+        $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Belum Disetujui' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Sedang Ditinjau' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2105,17 +2100,136 @@ class Transaksi
             }
             return $data;
         } else {
-            return null;
+            return [];
         }
     }
 
-    public function hitungTransaksiSesuaiSession($id)
+    public function tampilkanPembayaranTransaksiSesuaiSession($id)
+    {
+        $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Diterima' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return [];
+        }
+    }
+
+    public function tampilkanPembuatanTransaksiSesuaiSession($id)
+    {
+        $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+                  WHERE transaksi.Bukti_Pembayaran IS NOT NULL AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return [];
+        }
+    }
+
+    public function tampilkanSelesaiTransaksiSesuaiSession($id)
+    {
+        $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+                  WHERE transaksi.Status_Transaksi = 'Disetujui' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return [];
+        }
+    }
+
+    public function hitungPengajuanTransaksiSesuaiSession($id)
+    {
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi 
+              LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+              LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+              LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+              LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+              LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Sedang Ditinjau' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+        $result = $this->koneksi->query($query);
+
+        if ($result) {
+            $row = $result->fetch_assoc();
+            return $row['jumlah'];
+        } else {
+            return 0;
+        }
+    }
+
+
+    public function hitungPembayaranTransaksiSesuaiSession($id)
+    {
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi 
+              LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+              LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+              LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+              LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+              LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Diterima' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+        $result = $this->koneksi->query($query);
+
+        if ($result) {
+            $row = $result->fetch_assoc();
+            return $row['jumlah'];
+        } else {
+            return 0;
+        }
+    }
+
+    public function hitungPembuatanTransaksiSesuaiSession($id)
     {
         $query = "SELECT COUNT(*) as jumlah FROM transaksi 
               LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
               LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
               LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-              LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Belum Disetujui' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+              LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+              WHERE transaksi.Bukti_Pembayaran IS NOT NULL AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+        $result = $this->koneksi->query($query);
+
+        if ($result) {
+            $row = $result->fetch_assoc();
+            return $row['jumlah'];
+        } else {
+            return 0;
+        }
+    }
+
+    public function hitungSelesaiTransaksiSesuaiSession($id)
+    {
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi 
+              LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+              LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+              LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+              LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+              WHERE transaksi.Status_Transaksi = 'Disetujui' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
         $result = $this->koneksi->query($query);
 
         if ($result) {
