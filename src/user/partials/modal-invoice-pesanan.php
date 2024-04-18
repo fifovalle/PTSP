@@ -175,7 +175,7 @@
             <div class="modal-body">
                 <form action="" method="post">
                     <label for="file" class="custum-file-upload">
-                        <div class="icon">
+                        <div class="icon" id="icon1">
                             <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -185,14 +185,54 @@
                             </svg>
                         </div>
                         <div class="text">
-                            <span>Click to upload image</span>
+                            <span>Ketuk untuk mengunggah</span>
                         </div>
-                        <input id="file" type="file" multiple>
+                        <input id="file" type="file">
                     </label>
-                    <div class="container-fluid ">
+                    <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-12 mt-4" id="preview-file">
-                                <span> <strong>NamaFile-InstansiMananya-Tanggal</strong></span>
+                            <div class="col-md-12 mt-4" id="preview-file" style="display: none;">
+                                <span>
+                                    <strong>NamaFile-InstansiMananya-Tanggal</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form action="" method="post">
+                    <label for="file2" class="add-file-upload mt-2 mb-2" style="display: none;">
+                        <div class="icon" id="icon2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                                <path d="M5 21h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2zm2-10h4V7h2v4h4v2h-4v4h-2v-4H7v-2z"></path>
+                            </svg>
+                        </div>
+                        <input id="file2" type="file">
+                    </label>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12 mt-4" id="preview-file2" style="display: none;">
+                                <span>
+                                    <strong>NamaFile2-InstansiMananya2-Tanggal2</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form action="" method="post">
+                    <label for="file3" class="add-file-upload add-file-upload3 mt-2 mb-2" style="display: none;">
+                        <div class="icon" id="icon3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                                <path d="M5 21h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2zm2-10h4V7h2v4h4v2h-4v4h-2v-4H7v-2z"></path>
+                            </svg>
+                        </div>
+                        <input id="file3" type="file">
+                    </label>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12 mt-4" id="preview-file3" style="display: none;">
+                                <span>
+                                    <strong>NamaFile3-InstansiMananya3-Tanggal3</strong>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -203,3 +243,4 @@
             </div>
         </div>
     </div>
+</div>

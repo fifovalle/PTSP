@@ -106,3 +106,79 @@ document
 document.getElementById("nilai-ikm").addEventListener("click", function () {
   window.location.href = "ikm.php";
 });
+
+document.getElementById("file").addEventListener("change", function() {
+    let file = this.files[0];
+    let reader = new FileReader();
+
+    reader.onload = function(e) {
+        let previewFileDiv = document.getElementById("preview-file");
+
+        // Display the preview file div
+        previewFileDiv.style.display = "block";
+
+        // Display file name
+        let fileNameSpan = document.createElement("span");
+        fileNameSpan.innerHTML = "<strong>" + file.name + "</strong>";
+        previewFileDiv.innerHTML = ""; // Clear previous content
+        previewFileDiv.appendChild(fileNameSpan);
+
+        let label = document.querySelector(".custum-file-upload");
+        label.style.display = "none";
+
+        let label2 = document.querySelector(".add-file-upload");
+        label2.style.display = "block";
+    };
+
+    reader.readAsDataURL(file);
+});
+
+document.getElementById("file2").addEventListener("change", function() {
+    let file2 = this.files[0];
+    let reader2 = new FileReader();
+
+    reader2.onload = function(e) {
+        let previewFileDiv2 = document.getElementById("preview-file2");
+
+        // Display the preview file div
+        previewFileDiv2.style.display = "block";
+
+        // Display file name
+        let fileNameSpan2 = document.createElement("span");
+        fileNameSpan2.innerHTML = "<strong>" + file2.name + "</strong>";
+        previewFileDiv2.innerHTML = ""; // Clear previous content
+        previewFileDiv2.appendChild(fileNameSpan2);
+
+        let label2 = document.querySelector(".add-file-upload");
+        label2.style.display = "none";
+
+        let label3 = document.querySelector(".add-file-upload3");
+        label3.style.display = "block";
+    };
+
+    reader2.readAsDataURL(file2);
+});
+
+document.getElementById("file3").addEventListener("change", function() {
+    let file3 = this.files[0];
+    let reader3 = new FileReader();
+
+    reader3.onload = function(e) {
+        let previewFileDiv3 = document.getElementById("preview-file3");
+
+        // Display the preview file div
+        previewFileDiv3.style.display = "block";
+
+        // Display file name
+        let fileNameSpan3 = document.createElement("span");
+        fileNameSpan3.innerHTML = "<strong>" + file3.name + "</strong>";
+        previewFileDiv3.innerHTML = ""; // Clear previous content
+        previewFileDiv3.appendChild(fileNameSpan3);
+
+        let label3 = document.querySelector(".add-file-upload3");
+        label3.style.display = "none";
+    };
+
+    reader3.readAsDataURL(file3);
+});
+

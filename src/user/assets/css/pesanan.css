@@ -171,15 +171,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: space-between;
-  gap: 20px;
+  gap: 25px;
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  border: 2px dashed #ffff;
-  background-color: #797979;
+  border: 3.2px dashed #797979;
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0px 28px 32px -28px black;
 }
 
 .custum-file-upload .icon {
@@ -190,7 +188,7 @@ body {
 
 .custum-file-upload .icon svg {
   height: 80px;
-  fill: #ffff;
+  fill: #797979;
 }
 
 .custum-file-upload .text {
@@ -201,15 +199,55 @@ body {
 
 .custum-file-upload .text span {
   font-weight: 400;
-  color: #ffff;
+  color: #797979;
 }
 
 .custum-file-upload input {
   display: none;
 }
 
+.add-file-upload {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 48%;
+}
+
+.add-file-upload .icon svg{
+  border-radius: 8px;
+}
+
+.add-file-upload:hover .icon svg{
+  fill: white;
+  transition: 0.3s;
+  background-color: black;
+}
+
+.add-file-upload .text span {
+  font-weight: 400;
+  color: #797979;
+}
+
+.add-file-upload input {
+  display: none;
+}
+
 #preview-file {
   border: 1px dashed black;
-  padding: 10px 150px 10px 50px;
+  padding: 10px 150px 10px 15px;
+  border-radius: 10px;
+}
+
+#preview-file2 {
+  border: 1px dashed black;
+  padding: 10px 150px 10px 15px;
+  border-radius: 10px;
+}
+
+#preview-file3 {
+  border: 1px dashed black;
+  padding: 10px 150px 10px 15px;
   border-radius: 10px;
 }
