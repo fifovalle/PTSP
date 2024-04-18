@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2024 at 02:16 AM
+-- Generation Time: Apr 18, 2024 at 02:19 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -430,7 +430,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Bukti_Pembayaran`, `Tanggal_Pembelian`, `Status_Transaksi`) VALUES
-(109, NULL, 16, NULL, 18, NULL, 56, NULL, NULL, NULL, NULL, '2024-04-17 18:25:21', 'Belum Disetujui');
+(109, NULL, 16, NULL, 18, NULL, 56, 1, 100000, NULL, NULL, '2024-04-17 18:25:21', 'Belum Disetujui');
 
 --
 -- Indexes for dumped tables
