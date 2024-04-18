@@ -29,11 +29,12 @@
                 <?php
                 $idPembeli = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                 $transaksiPembeliModel = new Transaksi($koneksi);
-                $dataTransaksiPembeli = $transaksiPembeliModel->tampilkanTransaksiPembeliSesuaiPemilikProdukInstansiInovoiceA($idPembeli);
+                $dataTransaksiA = $transaksiPembeliModel->tampilkanTransaksiPembeliSesuaiPemilikProdukInstansiInovoiceA($idPembeli);
+                $hasTransaksiA = !empty($dataTransaksiA);
                 $nomorUrut = 1;
-                if (!empty($dataTransaksiPembeli)) {
+                if ($hasTransaksiA) {
                 ?>
-                    <h6 class="fw-bold mt-4">PENERIMA INSTANSI A (No.Rekening 114215352332)</h6>
+                    <h6 class="fw-bold mt-4">PENERIMA INSTANSI A (No.Rekening <?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?>)</h6>
                     <table class="table" style="border-radius: 10px;">
                         <thead class="table-secondary">
                             <tr>
@@ -45,7 +46,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($dataTransaksiPembeli as $transaksi) { ?>
+                            <?php foreach ($dataTransaksiA as $transaksi) { ?>
                                 <tr>
                                     <td class="produk ps-3">
                                         <?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?>
@@ -70,11 +71,12 @@
                 <?php
                 $idPembeli = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                 $transaksiPembeliModel = new Transaksi($koneksi);
-                $dataTransaksiPembeli = $transaksiPembeliModel->tampilkanTransaksiPembeliSesuaiPemilikProdukInstansiInovoiceB($idPembeli);
+                $dataTransaksiB = $transaksiPembeliModel->tampilkanTransaksiPembeliSesuaiPemilikProdukInstansiInovoiceB($idPembeli);
+                $hasTransaksiB = !empty($dataTransaksiB);
                 $nomorUrut = 1;
-                if (!empty($dataTransaksiPembeli)) {
+                if ($hasTransaksiB) {
                 ?>
-                    <h6 class="fw-bold mt-4">PENERIMA INSTANSI B (No.Rekening 2324328787043)</h6>
+                    <h6 class="fw-bold mt-4">PENERIMA INSTANSI B (No.Rekening <?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?>)</h6>
                     <table class="table" style="border-radius: 10px;">
                         <thead class="table-secondary">
                             <tr>
@@ -86,7 +88,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($dataTransaksiPembeli as $transaksi) { ?>
+                            <?php foreach ($dataTransaksiB as $transaksi) { ?>
                                 <tr>
                                     <td class="produk ps-3">
                                         <?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?>
@@ -111,11 +113,12 @@
                 <?php
                 $idPembeli = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                 $transaksiPembeliModel = new Transaksi($koneksi);
-                $dataTransaksiPembeli = $transaksiPembeliModel->tampilkanTransaksiPembeliSesuaiPemilikProdukInstansiInovoiceC($idPembeli);
+                $dataTransaksiC = $transaksiPembeliModel->tampilkanTransaksiPembeliSesuaiPemilikProdukInstansiInovoiceC($idPembeli);
+                $hasTransaksiC = !empty($dataTransaksiC);
                 $nomorUrut = 1;
-                if (!empty($dataTransaksiPembeli)) {
+                if ($hasTransaksiC) {
                 ?>
-                    <h6 class="fw-bold mt-4">PENERIMA INSTANSI C (No.Rekening 64358340534)</h6>
+                    <h6 class="fw-bold mt-4">PENERIMA INSTANSI C (No.Rekening <?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?>)</h6>
                     <table class="table" style="border-radius: 10px;">
                         <thead class="table-secondary">
                             <tr>
@@ -127,7 +130,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($dataTransaksiPembeli as $transaksi) { ?>
+                            <?php foreach ($dataTransaksiC as $transaksi) { ?>
                                 <tr>
                                     <td class="produk ps-3">
                                         <?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?>
@@ -164,7 +167,6 @@
     </div>
 </div>
 
-<!-- Modal Upload Bukti Pembayaran -->
 <div class="modal fade" id="uploadBuktiPembayaran" tabindex="-1" aria-labelledby="uploadBuktiPembayaranLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" id="box-uploadbuktipembayaran">

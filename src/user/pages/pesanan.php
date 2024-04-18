@@ -14,6 +14,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     include('../partials/header.php');
     ?>
     <link rel="stylesheet" href="../assets/css/pesanan.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <title>Pesanan PTSP BMKG Provinsi Bengkulu</title>
 </head>
 
@@ -231,7 +232,6 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibayarkan</div>
-                                        <p>Update Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -242,7 +242,6 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibuat</div>
-                                        <p class="card-text">Update Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +252,6 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title text-center">Pesanan Selesai</div>
-                                        <p class="card-text">Update Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -323,13 +321,87 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                             <hr id="line-pesanan">
                             <div class="col-md-3">
                                 <div class="card">
-                                    <span class="dot selected">
-                                        <box-icon name='check-shield' id="icon" color='rgba(255,255,255,0.9)'></box-icon>
-                                    </span>
-                                    <div class="card-body text-center">
-                                        <div class="card-title">Ajuan Diterima</div>
-                                        <p class="card-text">Update Tanggal</p>
-                                    </div>
+                                    <?php
+                                    $pengajuanModel = new Pengajuan($koneksi);
+                                    $dataPengajuan = $pengajuanModel->tampilkanSemuaDataPengajuan();
+                                    if (!is_null($dataPengajuan)) {
+                                        $statusDiterimaPerusahaan = false;
+                                        $statusDiterimaPengguna = false;
+                                        $statusSedangDitinjau = false;
+                                        $statusDitolak = false;
+                                        if (!empty($_SESSION['ID_Perusahaan'])) {
+                                            foreach ($dataPengajuan as $pengajuan) {
+                                                if ($pengajuan['ID_Perusahaan'] == $_SESSION['ID_Perusahaan']) {
+                                                    if ($pengajuan['Status_Pengajuan'] == 'Diterima') {
+                                                        $statusDiterimaPerusahaan = true;
+                                                    } elseif ($pengajuan['Status_Pengajuan'] == 'Sedang Ditinjau') {
+                                                        $statusSedangDitinjau = true;
+                                                    } elseif ($pengajuan['Status_Pengajuan'] == 'Ditolak') {
+                                                        $statusDitolak = true;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if (!empty($_SESSION['ID_Pengguna'])) {
+                                            foreach ($dataPengajuan as $pengajuan) {
+                                                if ($pengajuan['ID_Pengguna'] == $_SESSION['ID_Pengguna']) {
+                                                    if ($pengajuan['Status_Pengajuan'] == 'Diterima') {
+                                                        $statusDiterimaPengguna = true;
+                                                    } elseif ($pengajuan['Status_Pengajuan'] == 'Sedang Ditinjau') {
+                                                        $statusSedangDitinjau = true;
+                                                    } elseif ($pengajuan['Status_Pengajuan'] == 'Ditolak') {
+                                                        $statusDitolak = true;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if (!$statusDiterimaPerusahaan && !$statusDiterimaPengguna && !$statusSedangDitinjau && !$statusDitolak) {
+                                            echo '<span class="dot selected">
+                                                        <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                    </span>
+                                                    <div class="card-body text-center">
+                                                        <div class="card-title">Belum Ada Ajuan</div>
+                                                        <p class="card-text">
+                                                        <a class="text-decoration-none fw-bold" href="ajukan.php">Klik disini</a> untuk mengajukan pesanan
+                                                        </p>
+                                                    </div>';
+                                        } elseif ($statusDiterimaPerusahaan || $statusDiterimaPengguna) {
+                                            echo '<span class="dot selected">
+                                                        <box-icon name="check-shield" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                    </span>
+                                                    <div class="card-body text-center">
+                                                        <div class="card-title">Ajuan Diterima</div>
+                                                        <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                                    </div>';
+                                        } elseif ($statusSedangDitinjau) {
+                                            echo '<span class="dot selected">
+                                                        <box-icon name="time" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                    </span>
+                                                    <div class="card-body text-center">
+                                                        <div class="card-title">Ajuan Sedang Ditinjau</div>
+                                                        <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                                    </div>';
+                                        } elseif ($statusDitolak) {
+                                            echo '<span class="dot selected">
+                                                        <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                    </span>
+                                                    <div class="card-body text-center">
+                                                        <div class="card-title">Ajuan Ditolak</div>
+                                                        <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                                    </div>';
+                                        }
+                                    } else {
+                                        echo '<span class="dot selected">
+                                                    <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                </span>
+                                                <div class="card-body text-center">
+                                                    <div class="card-title">Belum Ada Ajuan</div>
+                                                    <p class="card-text">
+                                                    <a class="text-decoration-none fw-bold" href="ajukan.php">Klik disini</a> untuk mengajukan pesanan
+                                                    </p>
+                                                </div>';
+                                    }
+                                    ?>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -649,6 +721,120 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     ?>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/pesanan.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script>
+        <?php if ($hasTransaksiA) { ?>
+            document.getElementById("file").addEventListener("change", function() {
+                let file = this.files[0];
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    let previewFileDiv = document.getElementById("preview-file");
+                    previewFileDiv.style.display = "block";
+                    let fileNameSpan = document.createElement("span");
+                    fileNameSpan.innerHTML = "<strong>" + file.name + "</strong>";
+                    previewFileDiv.innerHTML = "";
+                    previewFileDiv.appendChild(fileNameSpan);
+                    let label = document.querySelector(".custum-file-upload");
+                    label.style.display = "none";
+                    let label2 = document.querySelector(".add-file-upload");
+                    label2.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            });
+        <?php } else { ?>
+            document.getElementById("file").addEventListener("change", function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Tidak Ada Transaksi di Instansi A',
+                    text: 'Anda tidak memiliki transaksi di Instansi A.',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 5000,
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+            });
+        <?php } ?>
+
+        <?php if ($hasTransaksiB) { ?>
+            document.getElementById("file2").addEventListener("change", function() {
+                let file2 = this.files[0];
+                let reader2 = new FileReader();
+                reader2.onload = function(e) {
+                    let previewFileDiv2 = document.getElementById("preview-file2");
+                    previewFileDiv2.style.display = "block";
+                    let fileNameSpan2 = document.createElement("span");
+                    fileNameSpan2.innerHTML = "<strong>" + file2.name + "</strong>";
+                    previewFileDiv2.innerHTML = "";
+                    previewFileDiv2.appendChild(fileNameSpan2);
+                    let label2 = document.querySelector(".add-file-upload");
+                    label2.style.display = "none";
+                    let label3 = document.querySelector(".add-file-upload3");
+                    label3.style.display = "block";
+                };
+                reader2.readAsDataURL(file2);
+            });
+        <?php } else { ?>
+            document.getElementById("file2").addEventListener("change", function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Tidak Ada Transaksi di Instansi B',
+                    text: 'Anda tidak memiliki transaksi di Instansi B.',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 5000,
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+            });
+        <?php } ?>
+
+        <?php if ($hasTransaksiC) { ?>
+            document.getElementById("file3").addEventListener("change", function() {
+                let file3 = this.files[0];
+                let reader3 = new FileReader();
+                reader3.onload = function(e) {
+                    let previewFileDiv3 = document.getElementById("preview-file3");
+                    previewFileDiv3.style.display = "block";
+                    let fileNameSpan3 = document.createElement("span");
+                    fileNameSpan3.innerHTML = "<strong>" + file3.name + "</strong>";
+                    previewFileDiv3.innerHTML = "";
+                    previewFileDiv3.appendChild(fileNameSpan3);
+                    let label3 = document.querySelector(".add-file-upload3");
+                    label3.style.display = "none";
+                };
+                reader3.readAsDataURL(file3);
+            });
+        <?php } else { ?>
+            document.getElementById("file3").addEventListener("change", function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Tidak Ada Transaksi di Instansi C',
+                    text: 'Anda tidak memiliki transaksi di Instansi C.',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 5000,
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+            });
+        <?php } ?>
+    </script>
 
 </body>
 
