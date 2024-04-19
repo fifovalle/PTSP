@@ -232,6 +232,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibayarkan</div>
+                                        <p class="card-text">Update Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -242,6 +243,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibuat</div>
+                                        <p class="card-text">Update Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -252,6 +254,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title text-center">Pesanan Selesai</div>
+                                        <p class="card-text">Update Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -534,7 +537,6 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibuat</div>
-                                        <p class="card-text">Update Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -650,7 +652,6 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title text-center">Pesanan Selesai</div>
-                                        <p class="card-text">Update Tanggal</p>
                                     </div>
                                 </div>
                             </div>
