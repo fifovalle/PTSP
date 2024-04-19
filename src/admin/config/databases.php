@@ -1773,7 +1773,7 @@ class Transaksi
 
     public function perbaharuiPengajuanBencanaKeTransaksiSesuaiSession($dataTransaksiPengajuanBencana, $idSession)
     {
-        $query = "UPDATE transaksi SET ID_Pengajuan = ? WHERE ID_Pengguna = ? OR ID_Perusahaan = ?";
+        $query = "UPDATE transaksi SET ID_Pengajuan = ? WHERE (ID_Pengguna = ? OR ID_Perusahaan = ?) AND ID_Pengajuan IS NULL";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
