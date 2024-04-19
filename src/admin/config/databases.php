@@ -2356,7 +2356,7 @@ class Transaksi
 
     public function updateTransaksiDetail($transaksiID, $jumlahBarang, $totalHarga)
     {
-        $query = "UPDATE transaksi SET Jumlah_Barang=?, Total_Transaksi=? WHERE ID_Tranksaksi=?";
+        $query = "UPDATE transaksi SET Jumlah_Barang=?, Total_Transaksi=?, Status_Pesanan='Sedang Ditinjau' WHERE ID_Tranksaksi=?";
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("iii", $jumlahBarang, $totalHarga, $transaksiID);
         if ($statement->execute()) {
