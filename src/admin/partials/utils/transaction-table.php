@@ -65,7 +65,7 @@
                                         <i class="fas fa-upload"></i>
                                     </span>
                                 </a>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#seeApplyment">
+                                <a class="linkData iconDataRight" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#seeTransaction">
                                     <span>
                                         <i class="fas fa-eye"></i>
                                     </span>

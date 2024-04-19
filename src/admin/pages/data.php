@@ -115,6 +115,7 @@ if (!isset($_SESSION['ID'])) {
                                 <?php include "../partials/utils/history-applyment-table.php" ?>
                                 <?php include "../partials/utils/transaction-table.php" ?>
                                 <?php include "../partials/utils/transaction-table-history.php" ?>
+                                <?php include "../partials/utils/history-ikm-table.php" ?>
                                 <!-- ALL TABLE END -->
                             </div>
                         </div>
@@ -177,6 +178,9 @@ if (!isset($_SESSION['ID'])) {
     ?>
     <?php
     include "../partials/utils/modal-see-applyment.php";
+    ?>
+    <?php
+    include "../partials/utils/modal-see-transactions.php";
     ?>
     <?php
     include "../partials/utils/modal-aprove-applyment.php";

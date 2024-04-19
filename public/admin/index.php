@@ -91,8 +91,8 @@ $adaData = false;
                                             </div>
                                             <div class="d-flex justify-content-around align-items-center mt-4">
                                                 <div class="d-flex justify-content-between gap-3">
-                                                    <i class="fas fa-users"><span class="ms-2 many">10</span></i>
-                                                    <i class="fas fa-money-bill"><span class="ms-2 many">Rp.1.000.000</span></i>
+                                                    <i class="fas fa-users"><span class="ms-2 many"><?php echo $produk['ID_Pengguna']; ?></span></i>
+                                                    <i class="fas fa-money-bill"><span class="ms-2 many">Rp<?php echo number_format($produk['Total_Transaksi'], 0, ',', '.'); ?></span></i>
                                                 </div>
                                                 <div id="caretIconForDrive">
                                                     <i class="fas fa-caret-up caret-icon"></i>
@@ -103,11 +103,11 @@ $adaData = false;
                                                 <p class="card-text textCardProduct my-3 mb-4">Performa Selama Ini</p>
                                                 <div class="row ms-auto">
                                                     <div class="col-7 me-4">Pembeli</div>
-                                                    <div class="col-2">10</div>
+                                                    <div class="col-2"><?php echo $produk['ID_Pengguna']; ?></div>
                                                 </div>
                                                 <div class="row ms-auto">
                                                     <div class="col-7 me-4">Penghasilan</div>
-                                                    <div class="col-4">Rp.1.000.000</div>
+                                                    <div class="col-4">Rp<?php echo number_format($produk['Total_Transaksi'], 0, ',', '.'); ?></div>
                                                 </div>
                                             </div>
                                             <div class="card-body">
@@ -137,15 +137,36 @@ $adaData = false;
                             <div class="card">
                                 <h5 class="card-title pt-4 mx-auto">IKM Terbaru</h5>
                                 <hr>
-                                <div class="row mx-2 my-3">
-                                    <div class="col-3">
-                                        <img src="../../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
+                                <?php
+                                $ikmModel = new Ikm($koneksi);
+                                $dataIKM = $ikmModel->tampilkanIkmTerbaru();
+                                if (!$dataIKM) {
+                                ?>
+                                    <div class="row mx-2 my-3">
+                                        <div class="col-3">
+                                            <img src="../../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
+                                        </div>
+                                        <div class="col-9">
+                                            <h5>Naufal FIFA</h5>
+                                            <p class="card-text textCardProduct">Waduh Saya Puas Banget Sih Bang :)../..</p>
+                                        </div>
                                     </div>
-                                    <div class="col-9">
-                                        <h5>Naufal FIFA</h5>
-                                        <p class="card-text textCardProduct">Waduh Saya Puas Banget Sih Bang :)../..</p>
-                                    </div>
-                                </div>
+                                    <?php
+                                } else {
+                                    foreach ($dataIKM as $ikm) {
+                                    ?>
+                                        <div class="row mx-2 my-3">
+                                            <div class="col-3">
+                                            </div>
+                                            <div class="col-9">
+                                                <h5><?php echo $ikm['Nama']; ?></h5>
+                                                <p class="card-text textCardProduct"><?php echo $ikm['Informasi_Cuaca_Publik']; ?></p>
+                                            </div>
+                                        </div>
+                                <?php
+                                    }
+                                }
+                                ?>
                                 <div class="card-body btnAnalitic">
                                     <a id="seeAnaliticForDrive2" href="#" class="card-link">Lihat Analitik</a>
                                 </div>
@@ -155,15 +176,38 @@ $adaData = false;
                             <div class="card">
                                 <h5 class="card-title pt-4 mx-auto">Transaksi Terbaru</h5>
                                 <hr>
-                                <div class="row mx-2 my-3">
-                                    <div class="col-3">
-                                        <img src="../../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
+                                <?php
+                                $transaksiTerbaruModel = new Transaksi($koneksi);
+                                $dataTransaksiTerbaru = $transaksiTerbaruModel->tampilkanTransaksiTerbaru();
+
+                                if (!$dataTransaksiTerbaru) {
+                                ?>
+                                    <div class="row mx-2 my-3">
+                                        <div class="col-3">
+                                            <img src="../../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
+                                        </div>
+                                        <div class="col-9">
+                                            <h5>Seismon</h5>
+                                            <p class="card-text textCardProduct">Naufal FIFA</p>
+                                        </div>
                                     </div>
-                                    <div class="col-9">
-                                        <h5>Seismon</h5>
-                                        <p class="card-text textCardProduct">Naufal FIFA</p>
-                                    </div>
-                                </div>
+                                    <?php
+                                } else {
+                                    foreach ($dataTransaksiTerbaru as $transaksi) {
+                                    ?>
+                                        <div class="row mx-2 my-3">
+                                            <div class="col-3">
+                                                <img src="../../src/admin/assets/image/uploads/<?php echo $transaksi['Foto']; ?>" alt="GambarTransaksi" class="surveyImageCard">
+                                            </div>
+                                            <div class="col-9">
+                                                <h5><?php echo $transaksi['Nama_Pengguna']; ?></h5>
+                                                <p class="card-text textCardProduct"><?php echo $transaksi['Tanggal_Pembelian']; ?></p>
+                                            </div>
+                                        </div>
+                                <?php
+                                    }
+                                }
+                                ?>
                                 <div class="card-body btnAnalitic">
                                     <a id="seeAnaliticForDrive3" href="#" class="card-link">Lihat Analitik</a>
                                 </div>

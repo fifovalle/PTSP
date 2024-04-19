@@ -132,7 +132,8 @@
 .servicesTable,
 .applymentTable,
 .transactionTableHistory,
-.historyApplymentTable {
+.historyApplymentTable,
+.historyIkmTable {
   display: none;
 }
 

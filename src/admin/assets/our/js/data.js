@@ -7,42 +7,47 @@ $(document).ready(function () {
     menuText === "Admin"
       ? ($(".adminTable").show(),
         $(
-          ".userTable, .informationTable, .transactionTable, .servicesTable, .applymentTabl, .transactionTableHistory, .historyApplymentTable"
+          ".userTable, .informationTable, .transactionTable, .servicesTable, .applymentTabl, .transactionTableHistory, .historyApplymentTable, .historyIkmTable"
         ).hide())
       : menuText === "Pengguna"
       ? ($(
-          ".adminTable, .informationTable, .transactionTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable"
+          ".adminTable, .informationTable, .transactionTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable, .historyIkmTable"
         ).hide(),
         $(".userTable").show())
       : menuText === "Informasi"
       ? ($(
-          ".adminTable, .userTable, .transactionTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable"
+          ".adminTable, .userTable, .transactionTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable, .historyIkmTable"
         ).hide(),
         $(".informationTable").show())
       : menuText === "Jasa"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .transactionTable, .applymentTable, transactionTableHistory, .historyApplymentTable"
+          ".adminTable, .userTable, .informationTable, .transactionTable, .applymentTable, transactionTableHistory, .historyApplymentTable, .historyIkmTable"
         ).hide(),
         $(".servicesTable").show())
       : menuText === "Pengajuan"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable, .transactionTableHistory, .historyApplymentTable"
+          ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable, .transactionTableHistory, .historyApplymentTable, .historyIkmTable"
         ).hide(),
         $(".applymentTable").show())
       : menuText === "Riwayat Pengajuan"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable, .transactionTableHistory, .applymentTable"
+          ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable, .transactionTableHistory, .applymentTable, .historyIkmTable"
         ).hide(),
         $(".historyApplymentTable").show())
       : menuText === "Transaksi"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable"
+          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable, .historyIkmTable"
         ).hide(),
         $(".transactionTable").show())
-      : ($(
-          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTable, .historyApplymentTable"
+      : menuText === "Riwayat Transaksi"
+      ? ($(
+          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTable, .historyApplymentTable, .historyIkmTable"
         ).hide(),
-        $(".transactionTableHistory").show());
+        $(".transactionTableHistory").show())
+      : ($(
+          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTable, .historyApplymentTable, .transactionTableHistory"
+        ).hide(),
+        $(".historyIkmTable").show());
   });
 });
 

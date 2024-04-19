@@ -23,6 +23,13 @@
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label for="apakahGratis" class="form-label">Produk Gratis</label>
+                        <select name="apakahGratis" id="apakahGratis" class="form-control inputData">
+                            <option value="1">Gratis</option>
+                            <option value="0">Bayar</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="descriptionApplyment" class="form-label">Keterangan Pengajuan Yang Ditolak</label>
                         <textarea name="Ket_Pengajuan" class="form-control" id="descriptionApplyment" placeholder="Masukkan Keterangan"></textarea>
                     </div>

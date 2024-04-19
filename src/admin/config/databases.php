@@ -1861,6 +1861,25 @@ class Transaksi
         }
     }
 
+    public function tampilkanTransaksiTerbaru()
+    {
+        $query = "SELECT * FROM transaksi
+        LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+        LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+        ORDER BY ID_Tranksaksi DESC LIMIT 1";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
     public function tampilkanPengajuanTransaksi()
     {
         $query = "SELECT transaksi.*, pengguna.*, informasi.*, pengajuan.*, perusahaan.*, jasa.* FROM transaksi 
@@ -1891,6 +1910,28 @@ class Transaksi
                   LEFT JOIN kegiatan_bencana ON pengajuan.ID_Bencana = kegiatan_bencana.ID_Bencana
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Sedang Ditinjau'";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanSemuaDataTransaksi()
+    {
+        $query = "SELECT transaksi.*, pengguna.*, informasi.*, pengajuan.*, kegiatan_bencana.*, perusahaan.*, jasa.* FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+                  LEFT JOIN kegiatan_bencana ON pengajuan.ID_Bencana = kegiatan_bencana.ID_Bencana
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Belum Disetujui'";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2596,6 +2637,60 @@ class Ikm
             return true;
         } else {
             return false;
+        }
+    }
+
+    public function tampilkanRiwayatIKMSesuaiPenggunaYangLogin($id)
+    {
+        $query = "SELECT transaksi.*, ikm.* FROM transaksi 
+        LEFT JOIN ikm ON transaksi.ID_IKM = ikm.ID_Ikm WHERE transaksi.ID_Pengguna = ? OR transaksi.ID_Perusahaan = ?";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("ii", $id, $id);
+        $statement->execute();
+        $result = $statement->get_result();
+        if ($result && $result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanRiwayatIKM()
+    {
+        $query = "SELECT * FROM ikm";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->execute();
+        $result = $statement->get_result();
+        if ($result && $result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanIkmTerbaru()
+    {
+        $query = "SELECT * FROM ikm ORDER BY ID_Ikm DESC LIMIT 1";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
         }
     }
 }
