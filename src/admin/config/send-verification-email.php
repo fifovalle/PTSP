@@ -62,8 +62,6 @@ $mail->Body = '
             </table>
         </body>
        ';
-
-// Tambahkan properti isHTML(true) untuk mengirim email dengan format HTML
 $mail->isHTML(true);
 
 try {
