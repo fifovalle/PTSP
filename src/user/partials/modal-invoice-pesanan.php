@@ -38,7 +38,7 @@
                 if ($hasTransaksiA) {
                 ?>
                     <h5 class="fw-bold mt-4">PENERIMA INSTANSI A (No.Rekening 1111)</h5>
-                    <table class="table" style="border-radius: 10px;">
+                    <table id="tabelTransaksiA" class="table" style="border-radius: 10px;">
                         <thead class="table-secondary">
                             <tr>
                                 <td>Produk</td>
@@ -155,16 +155,16 @@
                         </tbody>
                     </table>
                 <?php } ?>
-                <form action="#" method="POST">
-                    <div class="container-fluid">
+                <div class="container-fluid">
+                    <form action="../../admin/config/generate-invoice.php" method="post">
                         <div class="row mx-auto text-end">
                             <div class="col-md-12 mt-3 mb-2">
-                                <button type="button" class="btn btn-outline-success mx-2">Download</button>
+                                <button type="submit" name="generate_pdf" class="btn btn-outline-success mx-2">Download</button>
                                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#uploadBuktiPembayaran">Upload Bukti Pembayaran</button>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
