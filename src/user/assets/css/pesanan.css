@@ -155,6 +155,16 @@ body {
 .body-ikm {
   border: 1px solid #333333;
 }
+.stamp-logo {
+  background-color: #e2e3e5;
+  margin: 0 0 0 80px;
+  padding: 70px 10px 10px 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+.header-invoice {
+  padding: 70px 10px 10px 10px;
+}
 .status-invoice {
   color: white;
   background: #db0000; //Untuk Lunas dia warnanya #00CB00
@@ -162,7 +172,6 @@ body {
   -webkit-backdrop-filter: blur(3px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 5px 40px 5px 40px;
 }
 
 .custum-file-upload {
@@ -215,11 +224,11 @@ body {
   margin-left: 48%;
 }
 
-.add-file-upload .icon svg{
+.add-file-upload .icon svg {
   border-radius: 8px;
 }
 
-.add-file-upload:hover .icon svg{
+.add-file-upload:hover .icon svg {
   fill: white;
   transition: 0.3s;
   background-color: black;

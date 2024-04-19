@@ -731,7 +731,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                     let previewFileDiv = document.getElementById("preview-file");
                     previewFileDiv.style.display = "block";
                     let fileNameSpan = document.createElement("span");
-                    fileNameSpan.innerHTML = "<strong>" + file.name + "</strong>";
+                    fileNameSpan.innerHTML = "<strong>" + file.name + "</strong>" + "<span class='align-middle text-end'><box-icon type='solid' name='trash'></box-icon></span>";
                     previewFileDiv.innerHTML = "";
                     previewFileDiv.appendChild(fileNameSpan);
                     let label = document.querySelector(".custum-file-upload");
@@ -769,7 +769,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                     let previewFileDiv2 = document.getElementById("preview-file2");
                     previewFileDiv2.style.display = "block";
                     let fileNameSpan2 = document.createElement("span");
-                    fileNameSpan2.innerHTML = "<strong>" + file2.name + "</strong>";
+                    fileNameSpan2.innerHTML = "<strong>" + file2.name + "</strong>" + "<span class='align-middle'><box-icon type='solid' name='trash'></box-icon></span>";
                     previewFileDiv2.innerHTML = "";
                     previewFileDiv2.appendChild(fileNameSpan2);
                     let label2 = document.querySelector(".add-file-upload");
@@ -807,7 +807,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                     let previewFileDiv3 = document.getElementById("preview-file3");
                     previewFileDiv3.style.display = "block";
                     let fileNameSpan3 = document.createElement("span");
-                    fileNameSpan3.innerHTML = "<strong>" + file3.name + "</strong>";
+                    fileNameSpan3.innerHTML = "<strong>" + file3.name + "</strong>" + "<span class='align-middle'><box-icon type='solid' name='trash'></box-icon></span>";
                     previewFileDiv3.innerHTML = "";
                     previewFileDiv3.appendChild(fileNameSpan3);
                     let label3 = document.querySelector(".add-file-upload3");

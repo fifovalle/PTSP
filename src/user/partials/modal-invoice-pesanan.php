@@ -15,14 +15,17 @@
                 ?>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body mx-2">
+            <div class="modal-body mx-2 px-2 pt-0">
                 <div class="container-fluid p-0">
-                    <div class="row justify-content-between">
-                        <div class="col-md-6">
-                            <h4 class="title">INFORMASI PESANAN</h4>
+                    <div class="row justify-content-between mb-5">
+                        <div class="col-md-2 stamp-logo">
+                            <img src="../assets/img/Logo PTSP1.png" class="img-fluid" alt="">
                         </div>
-                        <div class="col-md-4 text-center align-self-center status-invoice">
-                            <span><strong class="">Status Pesanan : Belum Lunas</strong></span>
+                        <div class="col-md-4 text-center header-invoice">
+                            <h3 class="title fw-bold">INFORMASI PESANAN</h3>
+                            <div class="col-md-12 mt-3 status-invoice">
+                                <span><strong class="">Status Pesanan : Belum Lunas</strong></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -34,7 +37,7 @@
                 $nomorUrut = 1;
                 if ($hasTransaksiA) {
                 ?>
-                    <h6 class="fw-bold mt-4">PENERIMA INSTANSI A (No.Rekening <?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?>)</h6>
+                    <h5 class="fw-bold mt-4">PENERIMA INSTANSI A (No.Rekening <?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?>)</h5>
                     <table class="table" style="border-radius: 10px;">
                         <thead class="table-secondary">
                             <tr>
@@ -76,7 +79,7 @@
                 $nomorUrut = 1;
                 if ($hasTransaksiB) {
                 ?>
-                    <h6 class="fw-bold mt-4">PENERIMA INSTANSI B (No.Rekening <?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?>)</h6>
+                    <h5 class="fw-bold mt-4">PENERIMA INSTANSI B (No.Rekening <?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?>)</h5>
                     <table class="table" style="border-radius: 10px;">
                         <thead class="table-secondary">
                             <tr>
@@ -118,7 +121,7 @@
                 $nomorUrut = 1;
                 if ($hasTransaksiC) {
                 ?>
-                    <h6 class="fw-bold mt-4">PENERIMA INSTANSI C (No.Rekening <?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?>)</h6>
+                    <h5 class="fw-bold mt-4">PENERIMA INSTANSI C (No.Rekening <?php echo $transaksi['No_Rekening_Informasi'] ?? $transaksi['No_Rekening_Jasa']; ?>)</h5>
                     <table class="table" style="border-radius: 10px;">
                         <thead class="table-secondary">
                             <tr>
