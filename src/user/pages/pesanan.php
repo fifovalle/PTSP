@@ -410,9 +410,15 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         <box-icon name='money' id="icon" color='rgba(255,255,255,0.9)'></box-icon>
                                     </span>
                                     <div class="card-body text-center">
+                                        <?php
+                                        $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                                        $transaksiModel = new Transaksi($koneksi);
+                                        $dataTraksaksi = $transaksiModel->tampilkanPembayaranTransaksiSesuaiSession($id);
+                                        ?>
                                         <div class="card-title">Pesanan Dibayarkan</div>
-                                        <p class="card-text"><a type="button" class="text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#invoicePesanan">Klik disini</a> untuk melihat detail pesanan
-                                        </p>
+                                        <?php if (!empty($dataTraksaksi)) : ?>
+                                            <p class="card-text"><a type="button" class="text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#invoicePesanan">Klik disini</a> untuk melihat detail pesanan</p>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
