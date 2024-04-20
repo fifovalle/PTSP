@@ -14,8 +14,9 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     include('../partials/header.php');
     ?>
     <link rel="stylesheet" href="../assets/css/pesanan.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <title>Pesanan PTSP BMKG Provinsi Bengkulu</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -726,9 +727,9 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     include('../partials/modal-perbaikan-pesanan.php');
     include('../partials/modal-invoice-pesanan.php');
     ?>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/pesanan.js"></script>
+
 </body>
 
 </html>
