@@ -1,120 +1,267 @@
 <?php
-require_once('../../../vendor2/vendor/tecnickcom/tcpdf/tcpdf.php');
+require_once '../../../vendor2/vendor/autoload.php';
 
-if (isset($_POST['generate_pdf'])) {
-    $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
-    $pdf->SetTitle('Invoice Pesanan');
-    $pdf->AddPage();
-    $bootstrap_css = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
-    $bootstrap_js = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js';
-    $html = '<head>';
-    $html .= '<link href="' . $bootstrap_css . '" rel="stylesheet">';
-    $html .= '<script src="' . $bootstrap_js . '" crossorigin="anonymous"></script>';
-    $html .= '</head>';
-    $html .= '<body>';
-    $html .= '<div class="container-fluid px-5">';
-    $html .= '<div class="row justify-content-between mb-5">';
-    $html .= '<div class="col-md-2 stamp-logo">';
-    $html .= '<img src="../assets/img/Logo PTSP1.png" class="img-fluid" alt=""
-    style="background-color: #e2e3e5; margin: 0 0 0 80px; padding: 70px 10px 10px 10px; border-radius: 0 0 10px 10px;">';
-    $html .= '<div class="container-fluid px-5">';
-    $html .= '<h3 class="text-center fw-bold">Invoice Pesanan</h3>';
-    $html .= '<hr>';
-    $html .= '<div class="row justify-content-between mb-5">';
-    $html .= '<div class="col-md-2 stamp-logo">';
-    $html .= '<img src="./Logo PTSP1.png" class="img-fluid" alt="" style="background-color: #e2e3e5; margin: 0 0 0 80px; padding: 70px 10px 10px 10px; border-radius: 0 0 10px 10px;">';
-    $html .= '</div>';
-    $html .= '<div class="col-md-4 text-center header-invoice" style="padding: 70px 10px 10px 10px;">';
-    $html .= '<h3 class="title fw-bold">INFORMASI PESANAN</h3>';
-    $html .= '<h4>No Pesanan #35426582362387</h4>';
-    $html .= '</div>';
-    $html .= '</div>';
-    $html .= '<div class="row justify-content-between mb-3">';
-    $html .= '<div class="col-md-4 mt-4">';
-    $html .= '<h5 class="fw-bold">PENERIMA INSTANSI A (No.Rekening 1111)</h5>';
-    $html .= '</div>';
-    $html .= '<div class="col-md-2 mt-4 text-center status-invoice" style="color: white; background: #db0000; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.18);">';
-    $html .= '<span class="align-middle"><strong class="">Status Pesanan : Belum Lunas</strong></span>';
-    $html .= '</div>';
-    $html .= '</div>';
-    $html .= '<table id="tabelTransaksiA" class="table mb-4">';
-    $html .= '<thead class="table-secondary">';
-    $html .= '<tr>';
-    $html .= '<td>Produk</td>';
-    $html .= '<td>Rekening</td>';
-    $html .= '<td>Harga</td>';
-    $html .= '<td>Jumlah</td>';
-    $html .= '<td>Total</td>';
-    $html .= '</tr>';
-    $html .= '</thead>';
-    $html .= '<tbody>';
-    $html .= '<tr>';
-    $html .= '<td class="produk ps-3">Jasa 1</td>';
-    $html .= '<td class="rekening ps-3">1111</td>';
-    $html .= '<td class="harga ps-3">Rp 100.000</td>';
-    $html .= '<td class="jumlah ps-3">2</td>';
-    $html .= '<td class="total ps-3">Rp 200.000</td>';
-    $html .= '</tr>';
-    $html .= '</tbody>';
-    $html .= '</table>';
-    $html .= '<div class="row justify-content-between mb-3">';
-    $html .= '<div class="col-md-4 mt-4">';
-    $html .= '<h5 class="fw-bold">PENERIMA INSTANSI B (No.Rekening 2222)</h5>';
-    $html .= '</div>';
-    $html .= '<div class="col-md-2 mt-4 text-center status-invoice" style="color: white; background: #db0000; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.18);">';
-    $html .= '<span class="align-middle"><strong class="">Status Pesanan : Belum Lunas</strong></span>';
-    $html .= '</div>';
-    $html .= '</div>';
-    $html .= '<table id="tabelTransaksiB" class="table mb-4">';
-    $html .= '<thead class="table-secondary">';
-    $html .= '<tr>';
-    $html .= '<td>Produk</td>';
-    $html .= '<td>Rekening</td>';
-    $html .= '<td>Harga</td>';
-    $html .= '<td>Jumlah</td>';
-    $html .= '<td>Total</td>';
-    $html .= '</tr>';
-    $html .= '</thead>';
-    $html .= '<tbody>';
-    $html .= '<tr>';
-    $html .= '<td class="produk ps-3">Informasi 2</td>';
-    $html .= '<td class="rekening ps-3">1111</td>';
-    $html .= '<td class="harga ps-3">Rp 100.000</td>';
-    $html .= '<td class="jumlah ps-3">2</td>';
-    $html .= '<td class="total ps-3">Rp 200.000</td>';
-    $html .= '</tr>';
-    $html .= '</tbody>';
-    $html .= '</table>';
-    $html .= '<div class="row justify-content-between mb-3">';
-    $html .= '<div class="col-md-4 mt-4">';
-    $html .= '<h5 class="fw-bold">PENERIMA INSTANSI C (No.Rekening 3333)</h5>';
-    $html .= '</div>';
-    $html .= '<div class="col-md-2 mt-4 text-center status-invoice" style="color: white; background: #db0000; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.18);">';
-    $html .= '<span class="align-middle"><strong class="">Status Pesanan : Belum Lunas</strong></span>';
-    $html .= '</div>';
-    $html .= '</div>';
-    $html .= '<table id="tabelTransaksiC" class="table mb-4">';
-    $html .= '<thead class="table-secondary">';
-    $html .= '<tr>';
-    $html .= '<td>Produk</td>';
-    $html .= '<td>Rekening</td>';
-    $html .= '<td>Harga</td>';
-    $html .= '<td>Jumlah</td>';
-    $html .= '<td>Total</td>';
-    $html .= '</tr>';
-    $html .= '</thead>';
-    $html .= '<tbody>';
-    $html .= '<tr>';
-    $html .= '<td class="produk ps-3">Informasi 3</td>';
-    $html .= '<td class="rekening ps-3">1111</td>';
-    $html .= '<td class="harga ps-3">Rp 100.000</td>';
-    $html .= '<td class="jumlah ps-3">2</td>';
-    $html .= '<td class="total ps-3">Rp 200.000</td>';
-    $html .= '</tr>';
-    $html .= '</tbody>';
-    $html .= '</table>';
-    $html .= '</div>';
-    $html .= '</body>';
-    $pdf->writeHTML($html, true, false, true, false, '');
-    $pdf->Output('invoice_pesanan.pdf', 'D');
-}
+use Dompdf\Dompdf;
+
+$dompdf = new Dompdf();
+
+$html = '
+  <style>
+  body {
+    font-size: 16px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table tr td {
+    padding: 0;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  .right {
+    text-align: right;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .left {
+    text-align: left;
+  }
+  
+  .total {
+    font-weight: bold;
+    color: #fb7578;
+  }
+  
+  .invoice-info-container {
+    font-size: 0.875em;
+  }
+  .invoice-info-container td {
+    padding: 4px 0;
+  }
+  
+  .client-name {
+    font-size: 1.5em;
+    vertical-align: top;
+  }
+  
+  .line-items-container {
+    margin: 70px 0;
+    font-size: 0.875em;
+  }
+  
+  .line-items-container th {
+    text-align: left;
+    color: #999;
+    border-bottom: 2px solid #ddd;
+    padding: 10px 0 15px 0;
+    font-size: 0.75em;
+    text-transform: uppercase;
+  }
+  
+  .line-items-container th:last-child {
+    text-align: right;
+  }
+  
+  .line-items-container td {
+    padding: 15px 0;
+  }
+  
+  .line-items-container tbody tr:first-child td {
+    padding-top: 25px;
+  }
+  
+  .line-items-container th.heading-description {
+    width: 250px;
+    text-align: left;
+  }
+
+  
+
+  .line-items-container th.heading-rekening {
+    width: 70px;
+    text-align: center;
+  }
+  
+  .line-items-container th.heading-subtotal {
+    width: 100px;
+    text-align: center;
+  }
+
+  .line-items-container th.heading-quantity {
+    width: 50px;
+    text-align: center;
+  }
+
+  .line-items-container th.heading-total {
+    width: 100px;
+    text-align: center;
+  }
+  
+  .footer {
+    margin-top: 100px;
+  }
+  
+  .footer-thanks {
+    font-size: 1.125em;
+  }
+  
+  .footer-info {
+    float: right;
+    margin-top: 5px;
+    font-size: 0.75em;
+    color: #ccc;
+  }
+  
+  .footer-info span {
+    padding: 0 5px;
+    color: black;
+  }
+  
+  .footer-info span:last-child {
+    padding-right: 0;
+  }
+  
+  </style>
+<table class="invoice-info-container">
+  <tr>
+    <td rowspan="2" class="client-name">
+      Invoice Pemesanan
+    </td>
+    <td class="right">
+      PTSP BMKG Provinsi Bengkulu
+    </td>
+  </tr>
+  <tr>
+    <td class="right">
+    Kota Bengkulu 
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Invoice Date: <strong>May 24th, 2024</strong>
+    </td>
+    <td class="right">
+      0823 7560 9090
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Invoice No: <strong>12345</strong>
+    </td>
+    <td class="right">
+    https://bengkulu.bmkg.go.id/
+    </td>
+  </tr>
+</table>
+
+<table class="line-items-container">
+  <h2>Stasiun Meteorologi</h2>
+  <thead>
+    <tr>
+      <th class="heading-description">Produk</th>
+      <th class="heading-rekening">No. Rekening</th>
+      <th class="heading-subtotal">Harga</th>
+      <th class="heading-quantity">Jumlah</th>
+      <th class="heading-total">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">Jasa 1</td>
+      <td class="center">1111111111</td>
+      <td class="center">Rp 100.000</td>
+      <td class="center">2</td>
+      <td class="center">Rp 200.000</td>
+    </tr>
+    <tr>
+      <td class="left">Informasi 1</td>
+      <td class="center">1111111111</td>
+      <td class="center">Rp 100.000</td>
+      <td class="center">2</td>
+      <td class="center">Rp 200.000</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="line-items-container">
+  <h2>Stasiun Klimatologi</h2>
+  <thead>
+    <tr>
+      <th class="heading-description">Produk</th>
+      <th class="heading-rekening">No. Rekening</th>
+      <th class="heading-subtotal">Harga</th>
+      <th class="heading-quantity">Jumlah</th>
+      <th class="heading-total">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">Jasa 2</td>
+      <td class="center">1111111111</td>
+      <td class="center">Rp 100.000</td>
+      <td class="center">2</td>
+      <td class="center">Rp 200.000</td>
+    </tr>
+    <tr>
+      <td class="left">Informasi 2</td>
+      <td class="center">1111111111</td>
+      <td class="center">Rp 100.000</td>
+      <td class="center">2</td>
+      <td class="center">Rp 200.000</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="line-items-container">
+  <h2>Stasiun Geofisika</h2>
+  <thead>
+    <tr>
+      <th class="heading-description">Produk</th>
+      <th class="heading-rekening">No. Rekening</th>
+      <th class="heading-subtotal">Harga</th>
+      <th class="heading-quantity">Jumlah</th>
+      <th class="heading-total">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">Informasi 3</td>
+      <td class="center">1111111111</td>
+      <td class="center">Rp 100.000</td>
+      <td class="center">2</td>
+      <td class="center">Rp 200.000</td>
+    </tr>
+    <tr>
+      <td class="left">Jasa 3</td>
+      <td class="center">1111111111</td>
+      <td class="center">Rp 100.000</td>
+      <td class="center">2</td>
+      <td class="center">Rp 200.000</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="footer">
+  <div class="footer-info">
+    <span>PTSP BMKG Provinsi Bengkulu </span> |
+    <span>0823 7560 9090</span> |
+    <span>https://bengkulu.bmkg.go.id/</span>
+  </div>
+  <div class="footer-thanks">
+    <span>Terima Kasih!</span>
+  </div>
+</div>
+';
+$dompdf->loadHtml($html);
+$dompdf->setPaper('A4', 'portrait');
+$dompdf->render();
+$dompdf->stream('invoice.pdf');

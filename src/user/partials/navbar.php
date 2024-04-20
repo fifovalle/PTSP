@@ -18,6 +18,9 @@
                     <button class="nav-item mx-2" id="btnAjukan">
                         <a class="nav-link " id="Ajukan" href="../pages/ajukan.php">Ajukan</a>
                     </button>
+                    <button class="nav-item mx-2" id="btnProduk">
+                        <a class="nav-link " id="Produk" href="../pages/katalogproduk.php">Produk</a>
+                    </button>
                     <button class="nav-item mx-2 dropdown" id="btnRegulasi">
                         <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="Regulasi">
                             Regulasi

@@ -15,8 +15,6 @@
   position: relative;
   border-bottom: 5px solid var(--color-default-abu);
 }
-#Ajukan {
-}
 
 .ps-4.nav-link {
   display: flex;
@@ -98,7 +96,8 @@
 #Ajukan.nav-link::before,
 #Beranda.nav-link::before,
 #Regulasi.nav-link::before,
-#Pesanan.nav-link::before {
+#Pesanan.nav-link::before,
+#Produk.nav-link::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -115,17 +114,20 @@
 #Beranda.nav-active::before,
 #Regulasi.nav-active::before,
 #Pesanan.nav-active::before,
+#Produk.nav-active::before,
 #Ajukan.nav-link:hover::before,
 #Beranda.nav-link:hover::before,
 #Regulasi.nav-link:hover::before,
-#Pesanan.nav-link:hover::before {
+#Pesanan.nav-link:hover::before,
+#Produk.nav-link:hover::before {
   transform: scaleX(1);
 }
 
 #Ajukan.nav-link:hover,
 #Beranda.nav-link:hover,
 #Regulasi.nav-link:hover,
-#Pesanan.nav-link:hover {
+#Pesanan.nav-link:hover,
+#Produk.nav-link:hover {
   color: var(--color-bmkg2) !important;
 }
 
@@ -317,7 +319,8 @@ hr.vertical {
 #btnBeranda,
 #btnAjukan,
 #btnRegulasi,
-#btnPesanan {
+#btnPesanan,
+#btnProduk {
   border: none;
   background-color: transparent;
   font-weight: 600;

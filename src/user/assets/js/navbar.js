@@ -69,6 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("btnAjukan").classList.add("active");
     } else if (urlHalaman.includes("pesanan.php")) {
         document.getElementById("btnPesanan").classList.add("active");
+    }else if (urlHalaman.includes("katalogproduk.php")) {
+        document.getElementById("btnProduk").classList.add("active");
     }
 });
 
