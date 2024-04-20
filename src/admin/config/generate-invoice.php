@@ -51,10 +51,11 @@ $html = '
   .client-name {
     font-size: 1.5em;
     vertical-align: top;
+    font-weight: bold;
   }
   
   .line-items-container {
-    margin: 70px 0;
+    margin: 20px 0;
     font-size: 0.875em;
   }
   
@@ -63,7 +64,7 @@ $html = '
     color: #999;
     border-bottom: 2px solid #ddd;
     padding: 10px 0 15px 0;
-    font-size: 0.75em;
+    font-size: 13px;
     text-transform: uppercase;
   }
   
@@ -76,15 +77,17 @@ $html = '
   }
   
   .line-items-container tbody tr:first-child td {
-    padding-top: 25px;
+    padding-top: 15px;
   }
   
+  .status-stasiunA, .status-stasiunB, .status-stasiunC {
+    color: red;
+  }  
+
   .line-items-container th.heading-description {
     width: 250px;
     text-align: left;
   }
-
-  
 
   .line-items-container th.heading-rekening {
     width: 70px;
@@ -108,10 +111,7 @@ $html = '
   
   .footer {
     margin-top: 100px;
-  }
-  
-  .footer-thanks {
-    font-size: 1.125em;
+    background-color: black;
   }
   
   .footer-info {
@@ -123,7 +123,7 @@ $html = '
   
   .footer-info span {
     padding: 0 5px;
-    color: black;
+    color: #999;
   }
   
   .footer-info span:last-child {
@@ -162,10 +162,13 @@ $html = '
     </td>
   </tr>
 </table>
-
+<hr style="color: #999">
 <table class="line-items-container">
-  <h2>Stasiun Meteorologi</h2>
   <thead>
+    <tr>
+      <td colspan="3" class="left"><h3>STASIUN METEOROLOGI</h3></td>
+      <td colspan="2" class="status-stasiunA right"><h3>BELUM LUNAS</h3></td>
+    </tr>
     <tr>
       <th class="heading-description">Produk</th>
       <th class="heading-rekening">No. Rekening</th>
@@ -193,8 +196,11 @@ $html = '
 </table>
 
 <table class="line-items-container">
-  <h2>Stasiun Klimatologi</h2>
   <thead>
+    <tr>
+      <td colspan="3" class="left"><h3>STASIUN KLIMATOLOGI</h3></td>
+      <td colspan="2" class="status-stasiunB right"><h3>BELUM LUNAS</h3></td>
+    </tr>
     <tr>
       <th class="heading-description">Produk</th>
       <th class="heading-rekening">No. Rekening</th>
@@ -222,8 +228,11 @@ $html = '
 </table>
 
 <table class="line-items-container">
-  <h2>Stasiun Geofisika</h2>
   <thead>
+  <tr>
+      <td colspan="3" class="left"><h3>STASIUN GEOFISIKA</h3></td>
+      <td colspan="2" class="status-stasiunC right"><h3>BELUM LUNAS</h3></td>
+    </tr>
     <tr>
       <th class="heading-description">Produk</th>
       <th class="heading-rekening">No. Rekening</th>
@@ -256,12 +265,9 @@ $html = '
     <span>0823 7560 9090</span> |
     <span>https://bengkulu.bmkg.go.id/</span>
   </div>
-  <div class="footer-thanks">
-    <span>Terima Kasih!</span>
-  </div>
 </div>
 ';
 $dompdf->loadHtml($html);
 $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
-$dompdf->stream('invoice.pdf');
+$dompdf->stream('faktur.pdf');

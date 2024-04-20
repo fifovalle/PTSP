@@ -557,7 +557,7 @@
 </div>
 
 <script>
-    function setupFileInput(inputId, previewDivId, labelId, guideId) {
+    function setupFileInput(inputId, previewDivId, labelId, guideId, deleteBtnId) {
         document.getElementById(inputId).addEventListener("change", function() {
             let file = this.files[0];
             let reader = new FileReader();
@@ -565,14 +565,14 @@
                 let previewFileDiv = document.getElementById(previewDivId);
                 previewFileDiv.style.display = "block";
                 let fileNameSpan = document.createElement("span");
-                fileNameSpan.innerHTML = "<strong>" + file.name + "</strong>" + "<span class='align-middle text-end'><box-icon type='solid' name='trash' id='deleteFile'></box-icon></span>";
+                fileNameSpan.innerHTML = "<strong>" + file.name + "</strong>" + "<button type='button' style='border: none; background-color: transparent;' id='" + deleteBtnId + "' class='float-end'><span class='align-middle text-end'><box-icon type='solid' name='trash'></box-icon></span></button>";
                 previewFileDiv.innerHTML = "";
                 previewFileDiv.appendChild(fileNameSpan);
                 let label = document.getElementById(labelId);
                 label.style.display = "none";
                 let guide = document.getElementById(guideId);
                 guide.style.display = "none";
-                document.getElementById("deleteFile").addEventListener("click", function() {
+                document.getElementById(deleteBtnId).addEventListener("click", function() {
                     document.getElementById(inputId).value = "";
                     previewFileDiv.style.display = "none";
                     label.style.display = "block";
@@ -583,7 +583,14 @@
         });
     }
 
-    setupFileInput("file", "preview-file", "btnUpload", "guide-meteorologi");
-    setupFileInput("file2", "preview-file2", "btnUpload1", "guide-klimatologi");
-    setupFileInput("file3", "preview-file3", "btnUpload2", "guide-geofisika");
+    function deleteFile(inputId, previewDivId, labelId, guideId) {
+        document.getElementById(inputId).value = "";
+        document.getElementById(previewDivId).style.display = "none";
+        document.getElementById(labelId).style.display = "block";
+        document.getElementById(guideId).style.display = "block";
+    }
+
+    setupFileInput("file", "preview-file", "btnUpload", "guide-meteorologi", "deleteFile");
+    setupFileInput("file2", "preview-file2", "btnUpload1", "guide-klimatologi", "deleteFile2");
+    setupFileInput("file3", "preview-file3", "btnUpload2", "guide-geofisika", "deleteFile3");
 </script>
