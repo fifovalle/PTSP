@@ -85,10 +85,6 @@ $html = <<<HTML
     padding-top: 15px;
   }
   
-  .status-stasiunA, .status-stasiunB, .status-stasiunC {
-    color: red;
-  }  
-
   .line-items-container th.heading-description {
     width: 250px;
     text-align: left;
@@ -171,8 +167,7 @@ $html = <<<HTML
 <table class="line-items-container">
   <thead>
     <tr>
-      <td colspan="3" class="left"><h3>STASIUN METEOROLOGI</h3></td>
-      <td colspan="2" class="status-stasiunA right"><h3>BELUM LUNAS</h3></td>
+      <td colspan="6" class="left"><h3>STASIUN METEOROLOGI</h3></td>
     </tr>
     <tr>
       <th class="heading-description">Produk</th>
@@ -180,6 +175,7 @@ $html = <<<HTML
       <th class="heading-subtotal">Harga</th>
       <th class="heading-quantity">Jumlah</th>
       <th class="heading-total">Total</th>
+      <th class="heading-total">Status Pesanan</th>
     </tr>
   </thead>
   <tbody>
@@ -197,13 +193,29 @@ if (!empty($dataTransaksiA)) {
           <td class="center">Rp{$hargaProdukA}</td>
           <td class="center">{$transaksiA['Jumlah_Barang']}</td>
           <td class="center">Rp{$totalProdukA}</td>
-      </tr>
+          <td style="font-size: 14px; font-weight: bold; border-radius: 5px;
 HTML;
+
+    switch ($transaksiA['Status_Pesanan']) {
+      case 'Belum Lunas':
+        $html .= 'background-color: #dc3545; color: white;">Belum Lunas</td>';
+        break;
+      case 'Sedang Ditinjau':
+        $html .= 'background-color: #ffc107; color: black;">Sedang Ditinjau</td>';
+        break;
+      case 'Lunas':
+        $html .= 'background-color: #28a745; color: white;">Lunas</td>';
+        break;
+      default:
+        $html .= 'background-color: #6c757d; color: white;">Status Tidak Dikenali</td>';
+        break;
+    }
+    $html .= "</td></tr>";
   }
 } else {
   $html .= <<<HTML
   <tr>
-    <td colspan="5" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
+    <td colspan="6" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
   </tr>
 HTML;
 }
@@ -213,8 +225,7 @@ $html .= <<<HTML
 <table class="line-items-container">
   <thead>
     <tr>
-      <td colspan="3" class="left"><h3>STASIUN KLIMATOLOGI</h3></td>
-      <td colspan="2" class="status-stasiunB right"><h3>BELUM LUNAS</h3></td>
+      <td colspan="6" class="left"><h3>STASIUN KLIMATOLOGI</h3></td>
     </tr>
     <tr>
       <th class="heading-description">Produk</th>
@@ -222,6 +233,7 @@ $html .= <<<HTML
       <th class="heading-subtotal">Harga</th>
       <th class="heading-quantity">Jumlah</th>
       <th class="heading-total">Total</th>
+      <th class="heading-total">Status Pesanan</th>
     </tr>
   </thead>
   <tbody>
@@ -239,13 +251,29 @@ if (!empty($dataTransaksiB)) {
           <td class="center">Rp{$hargaProdukB}</td>
           <td class="center">{$transaksiB['Jumlah_Barang']}</td>
           <td class="center">Rp{$totalProdukB}</td>
-      </tr>
+          <td style="font-size: 14px; font-weight: bold; border-radius: 5px;
 HTML;
+
+    switch ($transaksiA['Status_Pesanan']) {
+      case 'Belum Lunas':
+        $html .= 'background-color: #dc3545; color: white;">Belum Lunas</td>';
+        break;
+      case 'Sedang Ditinjau':
+        $html .= 'background-color: #ffc107; color: black;">Sedang Ditinjau</td>';
+        break;
+      case 'Lunas':
+        $html .= 'background-color: #28a745; color: white;">Lunas</td>';
+        break;
+      default:
+        $html .= 'background-color: #6c757d; color: white;">Status Tidak Dikenali</td>';
+        break;
+    }
+    $html .= "</td></tr>";
   }
 } else {
   $html .= <<<HTML
   <tr>
-    <td colspan="5" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
+    <td colspan="6" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
   </tr>
 HTML;
 }
@@ -256,8 +284,7 @@ $html .= <<<HTML
 <table class="line-items-container">
   <thead>
   <tr>
-      <td colspan="3" class="left"><h3>STASIUN GEOFISIKA</h3></td>
-      <td colspan="2" class="status-stasiunC right"><h3>BELUM LUNAS</h3></td>
+      <td colspan="6" class="left"><h3>STASIUN GEOFISIKA</h3></td>
     </tr>
     <tr>
       <th class="heading-description">Produk</th>
@@ -265,6 +292,7 @@ $html .= <<<HTML
       <th class="heading-subtotal">Harga</th>
       <th class="heading-quantity">Jumlah</th>
       <th class="heading-total">Total</th>
+      <th class="heading-total">Status Pesanan</th>
     </tr>
   </thead>
   <tbody>
@@ -282,13 +310,29 @@ if (!empty($dataTransaksiC)) {
           <td class="center">Rp{$hargaProdukA}</td>
           <td class="center">{$transaksiC['Jumlah_Barang']}</td>
           <td class="center">Rp{$totalProdukA}</td>
-      </tr>
+          <td style="font-size: 14px; font-weight: bold; border-radius: 5px;
 HTML;
+
+    switch ($transaksiA['Status_Pesanan']) {
+      case 'Belum Lunas':
+        $html .= 'background-color: #dc3545; color: white;">Belum Lunas</td>';
+        break;
+      case 'Sedang Ditinjau':
+        $html .= 'background-color: #ffc107; color: black;">Sedang Ditinjau</td>';
+        break;
+      case 'Lunas':
+        $html .= 'background-color: #28a745; color: white;">Lunas</td>';
+        break;
+      default:
+        $html .= 'background-color: #6c757d; color: white;">Status Tidak Dikenali</td>';
+        break;
+    }
+    $html .= "</td></tr>";
   }
 } else {
   $html .= <<<HTML
   <tr>
-    <td colspan="5" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
+    <td colspan="6" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
   </tr>
 HTML;
 }
