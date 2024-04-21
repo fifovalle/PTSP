@@ -1,11 +1,16 @@
 <?php
 require_once '../../../vendor2/vendor/autoload.php';
+include 'databases.php';
 
 use Dompdf\Dompdf;
 
 $dompdf = new Dompdf();
-
-$html = '
+$id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+$transaksiModel = new Transaksi($koneksi);
+$dataTransaksiA = $transaksiModel->tampilkanPembayaranTransaksiASesuaiSession($id);
+$dataTransaksiB = $transaksiModel->tampilkanPembayaranTransaksiBSesuaiSession($id);
+$dataTransaksiC = $transaksiModel->tampilkanPembayaranTransaksiCSesuaiSession($id);
+$html = <<<HTML
   <style>
   body {
     font-size: 16px;
@@ -129,12 +134,12 @@ $html = '
   .footer-info span:last-child {
     padding-right: 0;
   }
-  
   </style>
+  
 <table class="invoice-info-container">
   <tr>
     <td rowspan="2" class="client-name">
-      Invoice Pemesanan
+      Faktur Pemesanan
     </td>
     <td class="right">
       PTSP BMKG Provinsi Bengkulu
@@ -178,23 +183,33 @@ $html = '
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td class="left">Jasa 1</td>
-      <td class="center">1111111111</td>
-      <td class="center">Rp 100.000</td>
-      <td class="center">2</td>
-      <td class="center">Rp 200.000</td>
-    </tr>
-    <tr>
-      <td class="left">Informasi 1</td>
-      <td class="center">1111111111</td>
-      <td class="center">Rp 100.000</td>
-      <td class="center">2</td>
-      <td class="center">Rp 200.000</td>
-    </tr>
+HTML;
+if (!empty($dataTransaksiA)) {
+  foreach ($dataTransaksiA as $transaksiA) {
+    $namaProdukA = isset($transaksiA['Nama_Informasi']) ? $transaksiA['Nama_Informasi'] : (isset($transaksiA['Nama_Jasa']) ? $transaksiA['Nama_Jasa'] : '');
+    $rekeningProdukA = isset($transaksiA['No_Rekening_Informasi']) ? $transaksiA['No_Rekening_Informasi'] : (isset($transaksiA['No_Rekening_Jasa']) ? $transaksiA['No_Rekening_Jasa'] : '');
+    $hargaProdukA = isset($transaksiA['Harga_Informasi']) ? number_format($transaksiA['Harga_Informasi'], 0, ',', '.') : number_format($transaksiA['Harga_Jasa'], 0, ',', '.');
+    $totalProdukA = number_format($transaksiA['Total_Transaksi'], 0, ',', '.');
+    $html .= <<<HTML
+      <tr>
+          <td class="left">{$namaProdukA}</td>
+          <td class="center">{$rekeningProdukA}</td>
+          <td class="center">Rp{$hargaProdukA}</td>
+          <td class="center">{$transaksiA['Jumlah_Barang']}</td>
+          <td class="center">Rp{$totalProdukA}</td>
+      </tr>
+HTML;
+  }
+} else {
+  $html .= <<<HTML
+  <tr>
+    <td colspan="5" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
+  </tr>
+HTML;
+}
+$html .= <<<HTML
   </tbody>
 </table>
-
 <table class="line-items-container">
   <thead>
     <tr>
@@ -210,20 +225,31 @@ $html = '
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td class="left">Jasa 2</td>
-      <td class="center">1111111111</td>
-      <td class="center">Rp 100.000</td>
-      <td class="center">2</td>
-      <td class="center">Rp 200.000</td>
-    </tr>
-    <tr>
-      <td class="left">Informasi 2</td>
-      <td class="center">1111111111</td>
-      <td class="center">Rp 100.000</td>
-      <td class="center">2</td>
-      <td class="center">Rp 200.000</td>
-    </tr>
+HTML;
+if (!empty($dataTransaksiB)) {
+  foreach ($dataTransaksiB as $transaksiB) {
+    $namaProdukB = isset($transaksiB['Nama_Informasi']) ? $transaksiB['Nama_Informasi'] : (isset($transaksiB['Nama_Jasa']) ? $transaksiB['Nama_Jasa'] : '');
+    $rekeningProdukB = isset($transaksiB['No_Rekening_Informasi']) ? $transaksiB['No_Rekening_Informasi'] : (isset($transaksiB['No_Rekening_Jasa']) ? $transaksiB['No_Rekening_Jasa'] : '');
+    $hargaProdukB = isset($transaksiB['Harga_Informasi']) ? number_format($transaksiB['Harga_Informasi'], 0, ',', '.') : number_format($transaksiB['Harga_Jasa'], 0, ',', '.');
+    $totalProdukB = number_format($transaksiB['Total_Transaksi'], 0, ',', '.');
+    $html .= <<<HTML
+      <tr>
+          <td class="left">{$namaProdukB}</td>
+          <td class="center">{$rekeningProdukB}</td>
+          <td class="center">Rp{$hargaProdukB}</td>
+          <td class="center">{$transaksiB['Jumlah_Barang']}</td>
+          <td class="center">Rp{$totalProdukB}</td>
+      </tr>
+HTML;
+  }
+} else {
+  $html .= <<<HTML
+  <tr>
+    <td colspan="5" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
+  </tr>
+HTML;
+}
+$html .= <<<HTML
   </tbody>
 </table>
 
@@ -242,21 +268,31 @@ $html = '
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td class="left">Informasi 3</td>
-      <td class="center">1111111111</td>
-      <td class="center">Rp 100.000</td>
-      <td class="center">2</td>
-      <td class="center">Rp 200.000</td>
-    </tr>
-    <tr>
-      <td class="left">Jasa 3</td>
-      <td class="center">1111111111</td>
-      <td class="center">Rp 100.000</td>
-      <td class="center">2</td>
-      <td class="center">Rp 200.000</td>
-    </tr>
-  </tbody>
+HTML;
+if (!empty($dataTransaksiC)) {
+  foreach ($dataTransaksiC as $transaksiC) {
+    $namaProdukA = isset($transaksiC['Nama_Informasi']) ? $transaksiC['Nama_Informasi'] : (isset($transaksiC['Nama_Jasa']) ? $transaksiC['Nama_Jasa'] : '');
+    $rekeningProdukA = isset($transaksiC['No_Rekening_Informasi']) ? $transaksiC['No_Rekening_Informasi'] : (isset($transaksiC['No_Rekening_Jasa']) ? $transaksiC['No_Rekening_Jasa'] : '');
+    $hargaProdukA = isset($transaksiC['Harga_Informasi']) ? number_format($transaksiC['Harga_Informasi'], 0, ',', '.') : number_format($transaksiC['Harga_Jasa'], 0, ',', '.');
+    $totalProdukA = number_format($transaksiC['Total_Transaksi'], 0, ',', '.');
+    $html .= <<<HTML
+      <tr>
+          <td class="left">{$namaProdukA}</td>
+          <td class="center">{$rekeningProdukA}</td>
+          <td class="center">Rp{$hargaProdukA}</td>
+          <td class="center">{$transaksiC['Jumlah_Barang']}</td>
+          <td class="center">Rp{$totalProdukA}</td>
+      </tr>
+HTML;
+  }
+} else {
+  $html .= <<<HTML
+  <tr>
+    <td colspan="5" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
+  </tr>
+HTML;
+}
+$html .= <<<HTML
 </table>
 
 <div class="footer">
@@ -266,7 +302,7 @@ $html = '
     <span>https://bengkulu.bmkg.go.id/</span>
   </div>
 </div>
-';
+HTML;
 $dompdf->loadHtml($html);
 $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
