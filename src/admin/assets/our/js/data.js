@@ -29,12 +29,12 @@ $(document).ready(function () {
           ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable, .transactionTableHistory, .historyApplymentTable, .historyIkmTable"
         ).hide(),
         $(".applymentTable").show())
-      : menuText === "Riwayat Pengajuan"
+      : menuText === "Pembuatan"
       ? ($(
           ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable, .transactionTableHistory, .applymentTable, .historyIkmTable"
         ).hide(),
         $(".historyApplymentTable").show())
-      : menuText === "Transaksi"
+      : menuText === "Pembayaran"
       ? ($(
           ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable, .historyIkmTable"
         ).hide(),

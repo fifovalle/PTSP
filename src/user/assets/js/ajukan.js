@@ -1,20 +1,36 @@
+document.getElementById('button-berbayar').addEventListener('click', function() {
+    document.getElementById('option-berbayar').style.display = 'block';
+    document.getElementById('option-gratis').style.display = 'none';
+    document.getElementById('button-berbayar').classList.add('selected');
+    document.getElementById('button-gratis').classList.remove('selected1');
+});
+
+document.getElementById('button-gratis').addEventListener('click', function() {
+    document.getElementById('option-gratis').style.display = 'block';
+    document.getElementById('option-berbayar').style.display = 'none';
+    document.getElementById('button-gratis').classList.add('selected1');
+    document.getElementById('button-berbayar').classList.remove('selected');
+});
+
 function showContent(id) {
-    var contents = document.querySelectorAll('.form-content');
+    let contents = document.querySelectorAll('.form-content');
     contents.forEach(function(content) {
         content.style.display = 'none';
     });
     document.getElementById(id).style.display = 'block';
-
-    // Remove 'selected' class from all spans
-    var allOptions = document.querySelectorAll('.box-option');
-    allOptions.forEach(function(option) {
-        option.classList.remove('selected');
-    });
-
-    // Add 'selected' class to the clicked span
-    var clickedOption = document.querySelector('#button-option button[onclick="showContent(\'' + id + '\')"] .box-option');
-    clickedOption.classList.add('selected');
 }
+
+// Memilih semua elemen dengan kelas 'dropdown-item'
+let dropdownItems = document.querySelectorAll('.dropdown-item');
+dropdownItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+        dropdownItems.forEach(function(item) {
+            item.classList.remove('active');
+        });
+        item.classList.add('active');
+    });
+});
+
 
 document.querySelector('.btn-ajukantutorial').addEventListener('click', ajukanTutorial);
 function ajukanTutorial() {

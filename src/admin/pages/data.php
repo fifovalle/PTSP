@@ -70,11 +70,11 @@ if (!isset($_SESSION['ID'])) {
                                 <div class="menu col-2">
                                     <p class="fw-semibold dataAll">Pengajuan</p>
                                 </div>
-                                <div class="menu col-2">
-                                    <p class="fw-semibold dataAll">Transaksi</p>
+                                <div class="menu col-2 creation">
+                                    <p class="fw-semibold dataAll">Pembayaran</p>
                                 </div>
-                                <div class="menu col-2 historyMenuDataPengajuan">
-                                    <p class="fw-semibold dataAll">Riwayat Pengajuan</p>
+                                <div class="menu col-2 creation">
+                                    <p class="fw-semibold dataAll">Pembuatan</p>
                                 </div>
                                 <div class="menu col-2 historyMenuData">
                                     <p class="fw-semibold dataAll">Riwayat Transaksi</p>
@@ -172,6 +172,9 @@ if (!isset($_SESSION['ID'])) {
     ?>
     <?php
     include "../partials/utils/modal-send-feedback.php";
+    ?>
+    <?php
+    include "../partials/utils/modal-aprove-payment.php";
     ?>
     <?php
     include "../partials/utils/modal-aprove.php";

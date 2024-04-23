@@ -11,10 +11,6 @@
                 <form method="POST" enctype="multipart/form-data">
                     <input type="hidden" id="editApplyment" name="ID_Admin" autocomplete="off">
                     <div class="mb-3">
-                        <label for="fileAproveApplyment" class="form-label">Upload Foto Keterangan Surat Yang Ditolak</label>
-                        <input type="file" class="form-control" id="fileAproveApplyment" name="Upload_Bukti" autocomplete="off">
-                    </div>
-                    <div class="mb-3">
                         <label for="statusTransactionApplyment" class="form-label">Status Pengajuan</label>
                         <select name="Status_Pengajuan" id="statusTransactionApplyment" class="form-control inputData">
                             <option value="Belum Disetujui">Belum Disetujui</option>

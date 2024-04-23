@@ -24,19 +24,19 @@
                             <div class="col-md-2 p-2">Persyaratan pelayanan jelas dan terbuka</div>
                             <div class="col-md-5 text-center align-middle p-2">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] === 'Sangat Setuju') ? 'checked' : ''; ?> name="Kualitas_Pelayanan_Terbuka" id="Sangat_Setuju" value="<?php echo $ikm['Kualitas_Pelayanan_Terbuka'] === 'Sangat Setuju'; ?>" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] !== 'Sangat Setuju') ? 'disabled' : ''; ?>>
+                                    <input class="form-check-input" type="radio" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] === 'Sangat Setuju') ? 'checked' : ''; ?> name="Kualitas_Pelayanan_Terbuka" id="Sangat_Setuju" value="Sangat Setuju" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] !== 'Sangat Setuju') ? 'disabled' : ''; ?>>
                                     <label class="form-check-label" for="Sangat_Setuju">Sangat Setuju</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] === 'Setuju') ? 'checked' : ''; ?> name="Kualitas_Pelayanan_Terbuka" id="Setuju" value="<?php echo $ikm['Kualitas_Pelayanan_Terbuka'] === 'Setuju'; ?>" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] !== 'Setuju') ? 'disabled' : ''; ?>>
+                                    <input class="form-check-input" type="radio" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] === 'Setuju') ? 'checked' : ''; ?> name="Kualitas_Pelayanan_Terbuka" id="Setuju" value="Setuju" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] !== 'Setuju') ? 'disabled' : ''; ?>>
                                     <label class="form-check-label" for="Setuju">Setuju</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] === 'Kurang Setuju') ? 'checked' : ''; ?> name="Kualitas_Pelayanan_Terbuka" id="Kurang_Setuju" value="<?php echo $ikm['Kualitas_Pelayanan_Terbuka'] === 'Kurang Setuju'; ?>" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] !== 'Kurang Setuju') ? 'disabled' : ''; ?>>
+                                    <input class="form-check-input" type="radio" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] === 'Kurang Setuju') ? 'checked' : ''; ?> name="Kualitas_Pelayanan_Terbuka" id="Kurang_Setuju" value="Kurang Setuju" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] !== 'Kurang Setuju') ? 'disabled' : ''; ?>>
                                     <label class="form-check-label" for="Kurang_Setuju">Kurang Setuju</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] === 'Tidak Setuju') ? 'checked' : ''; ?> name="Kualitas_Pelayanan_Terbuka" id="Tidak_Setuju" value="<?php echo $ikm['Kualitas_Pelayanan_Terbuka'] === 'Tidak Setuju'; ?>" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] !== 'Tidak Setuju') ? 'disabled' : ''; ?>>
+                                    <input class="form-check-input" type="radio" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] === 'Tidak Setuju') ? 'checked' : ''; ?> name="Kualitas_Pelayanan_Terbuka" id="Tidak_Setuju" value="Tidak Setuju" <?php echo ($ikm['Kualitas_Pelayanan_Terbuka'] !== 'Tidak Setuju') ? 'disabled' : ''; ?>>
                                     <label class="form-check-label" for="Tidak_Setuju">Tidak Setuju</label>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                                     <label class="form-check-label" for="Kurang_Penting">Kurang Penting</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" <?php echo ($ikm['Harapan_Konsumen_Terbuka'] === 'Tidak Penting') ? 'checked' : ''; ?> name="Harapan_Konsumen_Terbuka" id="Tidak_Penting" value="<?php echo $ikm['Harapan_Konsumen_Terbuka'] === 'Tidak Penting'; ?>" <?php echo ($ikm['Harapan_Konsumen_Terbuka'] !== 'Tidak Penting') ? 'disabled' : ''; ?>>
+                                    <input class="form-check-input" type="radio" <?php echo ($ikm['Harapan_Konsumen_Terbuka'] === 'Tidak Penting') ? 'checked' : ''; ?> name="Harapan_Konsumen_Terbuka" id="Tidak_Penting" value="Tidak Penting" <?php echo ($ikm['Harapan_Konsumen_Terbuka'] !== 'Tidak Penting') ? 'disabled' : ''; ?>>
                                     <label class="form-check-label" for="Tidak_Penting">Tidak Penting</label>
                                 </div>
                             </div>

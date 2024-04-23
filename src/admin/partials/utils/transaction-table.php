@@ -25,7 +25,7 @@
                 Tanggal Pembelian
             </th>
             <th class="text-center" data-field="data5">
-                Status Transaksi
+                Status Pembayaran
             </th>
         </tr>
     </thead>
@@ -60,7 +60,7 @@
                                 ?>
                             </p>
                             <div class="iconContainerData">
-                                <a class="linkData" data-bs-toggle="modal" data-bs-target="#aproveFile">
+                                <a class="linkData" data-bs-toggle="modal" data-bs-target="#aproveFilePayment">
                                     <span class="">
                                         <i class="fas fa-upload"></i>
                                     </span>

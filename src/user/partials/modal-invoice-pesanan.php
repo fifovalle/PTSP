@@ -455,7 +455,7 @@
                         </div>
                     </form>
                 <?php } else if ($hasTransaksiA && $hasTransaksiB && $hasTransaksiC) { ?>
-                    <form action="" method="post">
+                    <form action="../../admin/config/upload-payment.php" method="post" enctype="multipart/form-data">
                         <h5 class="mb-2">Stasiun Meteorologi
                             <span class="fs-6 text-secondary" id="guide-meteorologi"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunMeteorologi_NoPesanan_TanggalPesanan)</strong>
                             </span>
@@ -473,7 +473,7 @@
                             <div class="text">
                                 <span>Ketuk untuk mengunggah</span>
                             </div>
-                            <input id="file" type="file">
+                            <input id="file" type="file" name="File_Instansi_A">
                         </label>
                         <div class="container-fluid">
                             <div class="row" id="preview-header">
@@ -484,8 +484,6 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
-                    <form action="" method="post">
                         <h5 class="mt-4 mb-2">Stasiun Klimatologi
                             <span class="fs-6 text-secondary" id="guide-klimatologi"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunKlimatologi_NoPesanan_TanggalPesanan)</strong>
                             </span>
@@ -503,7 +501,7 @@
                             <div class="text">
                                 <span>Ketuk untuk mengunggah</span>
                             </div>
-                            <input id="file2" type="file">
+                            <input id="file2" type="file" name="File_Instansi_B">
                         </label>
                         <div class="container-fluid">
                             <div class="row">
@@ -514,8 +512,6 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
-                    <form action="" method="post">
                         <h5 class="mt-4 mb-2">Stasiun Geofisika
                             <span class=" fs-6 text-secondary" id="guide-geofisika"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunGeofisika_NoPesanan_TanggalPesanan)</strong>
                             </span>
@@ -533,7 +529,7 @@
                             <div class="text">
                                 <span>Ketuk untuk mengunggah</span>
                             </div>
-                            <input id="file3" type="file">
+                            <input id="file3" type="file" name="File_Instansi_C">
                         </label>
                         <div class="container-fluid">
                             <div class="row">
@@ -544,13 +540,13 @@
                                 </div>
                             </div>
                         </div>
+                        <?php } else { ?>
+                            <p class="fw-bold text-danger text-center">TIDAK ADA TRANSAKSI!</p>
+                        <?php } ?>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-outline-primary" name="Kirim">Kirim Bukti</button>
+                        </div>
                     </form>
-                <?php } else { ?>
-                    <p class="fw-bold text-danger text-center">TIDAK ADA TRANSAKSI!</p>
-                <?php } ?>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-outline-primary">Kirim Bukti</button>
-                </div>
             </div>
         </div>
     </div>

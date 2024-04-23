@@ -729,7 +729,8 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     ?>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/pesanan.js"></script>
-
+    <!-- ALERT -->
+    <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>

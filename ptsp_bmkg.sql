@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2024 at 03:33 AM
+-- Generation Time: Apr 23, 2024 at 02:24 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -138,7 +138,7 @@ CREATE TABLE `ikm` (
 --
 
 INSERT INTO `ikm` (`ID_Ikm`, `Nama`, `Jenis_Kelamin`, `Pendidikan_Terakhir`, `NIK`, `Umur`, `Pekerjaan`, `Koresponden`, `Jenis_Layanan`, `Asal_Daerah`, `Informasi_Cuaca_Publik`, `Informasi_Cuaca_Khusus`, `Analisis_Cuaca`, `Informasi_Titik_Panas`, `Informasi_Tentang_Tingkat`, `Prakiraan_Musim`, `Informasi_Iklim_Khusus`, `Analisis_Prakiraan`, `Tren_Curah_Hujan`, `Informasi_Kualitas_Udara`, `Analisis_Iklim_Ekstrim`, `Informasi_Iklim_Terapan`, `Informasi_Perubahan_Iklim`, `Pengambilan_Pengujian`, `Informasi_Gempabumi`, `Peta_Seismisitas`, `Informasi_Tanda_Waktu`, `Informasi_Geofisika_Potensial`, `Peta_Rendaman_Tsunami`, `Informasi_Seismologi_Teknik`, `Data_MKG`, `Kalibrasi`, `Konsultasi`, `Sewa_Peralatan_MKG`, `Kunjungan`, `Kualitas_Pelayanan_Terbuka`, `Harapan_Konsumen_Terbuka`, `Kualitas_Pelayanan_Kehidupan`, `Harapan_Konsumen_Kehidupan`, `Kualitas_Pelayanan_Dipahami`, `Harapan_Konsumen_Dipahami`, `Kualitas_Pelayanan_Persyaratan`, `Harapan_Konsumen_Persyaratan`, `Kualitas_Pelayanan_Diakses`, `Harapan_Konsumen_Diakses`, `Kualitas_Pelayanan_Akurat`, `Harapan_Konsumen_Akurat`, `Kualitas_Pelayanan_Data`, `Harapan_Konsumen_Data`, `Kualitas_Pelayanan_Sederhana`, `Kualitas_Pelayanan_Waktu`, `Harapan_Konsumen_Waktu`, `Kualitas_Pelayanan_Biaya_Terbuka`, `Harapan_Konsumen_Biaya_Terbuka`, `Kualitas_Pelayanan_KKN`, `Kualitas_Pelayanan_Sesuai`, `Harapan_Konsumen_Sesuai`, `Kualitas_Pelayanan_Daftar`, `Harapan_Konsumen_Daftar`, `Kualitas_Pelayanan_Sarana`, `Harapan_Konsumen_Sarana`, `Kualitas_Pelayanan_Prosedur`, `Harapan_Konsumen_Prosedur`, `Kualitas_Pelayanan_Petugas`, `Harapan_Konsumen_Petugas`, `Kualitas_Pelayanan_Aman`, `Harapan_Konsumen_Aman`, `Kualitas_Pelayanan_Keberadaan`, `Harapan_Konsumen_Keberadaan`, `Kualitas_Pelayanan_Sikap`, `Harapan_Konsumen_Sikap`, `Kualitas_Pelayanan_Publik`, `Harapan_Konsumen_Publik`) VALUES
-(27, 'Sandro', 'Pria', 'SMA', 214343545, 19, 'Pelajar', 'Instansi', 'Informasi', 'Medan', 'Informasi cuaca publik', '', '', '', '', 'Prakiraan musim', '', '', '', '', '', '', '', '', 'Informasi gempabumi dan peringatan dini tsunami', '', '', '', '', '', 'Data meteorologi, klimatologi, dan geofisika', '', '', '', 'Kunjungan', 'Sangat Setuju', 'Penting', 'Tidak Setuju', 'Kurang Penting', 'Sangat Setuju', 'Penting', 'Setuju', 'Penting', 'Kurang Setuju', 'Penting', 'Sangat Setuju', 'Sangat Penting', 'Tidak Setuju', 'Penting', 'Tidak Setuju', 'Setuju', 'Penting', 'Kurang Setuju', 'Penting', 'Tidak Setuju', 'Tidak Setuju', 'Penting', 'Sangat Setuju', 'Sangat Penting', 'Tidak Setuju', 'Tidak Penting', 'Tidak Setuju', 'Tidak Penting', 'Setuju', 'Penting', 'Tidak Setuju', 'Tidak Penting', 'Tidak Setuju', 'Penting', 'Kurang Setuju', 'Penting', 'Tidak Setuju', 'Tidak Penting');
+(27, 'Sandro', 'Pria', 'SMA', 214343545, 19, 'Pelajar', 'Instansi', 'Informasi', 'Medan', 'Informasi cuaca publik', '', '', '', '', 'Prakiraan musim', '', '', '', '', '', '', '', '', 'Informasi gempabumi dan peringatan dini tsunami', '', '', '', '', '', 'Data meteorologi, klimatologi, dan geofisika', '', '', '', 'Kunjungan', 'Setuju', 'Penting', 'Tidak Setuju', 'Kurang Penting', 'Sangat Setuju', 'Penting', 'Setuju', 'Penting', 'Kurang Setuju', 'Penting', 'Sangat Setuju', 'Sangat Penting', 'Tidak Setuju', 'Penting', 'Tidak Setuju', 'Setuju', 'Penting', 'Kurang Setuju', 'Penting', 'Tidak Setuju', 'Tidak Setuju', 'Penting', 'Sangat Setuju', 'Sangat Penting', 'Tidak Setuju', 'Tidak Penting', 'Tidak Setuju', 'Tidak Penting', 'Setuju', 'Penting', 'Tidak Setuju', 'Tidak Penting', 'Tidak Setuju', 'Penting', 'Kurang Setuju', 'Penting', 'Tidak Setuju', 'Tidak Penting');
 
 -- --------------------------------------------------------
 
@@ -222,13 +222,6 @@ CREATE TABLE `kegiatan_bencana` (
   `Email_Bencana` varchar(50) NOT NULL,
   `Surat_Pengantar_Permintaan_Data_Bencana` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kegiatan_bencana`
---
-
-INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencana`, `Email_Bencana`, `Surat_Pengantar_Permintaan_Data_Bencana`) VALUES
-(59, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363632343663373931613566382e6a7067);
 
 -- --------------------------------------------------------
 
@@ -326,13 +319,6 @@ CREATE TABLE `pengajuan` (
   `Keterangan_Surat_Ditolak` varchar(100) DEFAULT NULL,
   `Tanggal_Pengajuan` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `pengajuan`
---
-
-INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `ID_Tarif`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Tanggal_Pengajuan`) VALUES
-(69, 59, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, '2024-04-21 08:31:37');
 
 -- --------------------------------------------------------
 
@@ -433,18 +419,6 @@ CREATE TABLE `transaksi` (
   `Status_Transaksi` enum('Disetujui','Belum Disetujui') NOT NULL,
   `Status_Pesanan` enum('Belum Lunas','Sedang Ditinjau','Lunas') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `ID_IKM`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Bukti_Pembayaran`, `Tanggal_Pembelian`, `Status_Transaksi`, `Status_Pesanan`) VALUES
-(139, NULL, 16, NULL, 18, NULL, 69, NULL, 1, 100000, NULL, NULL, '2024-04-21 08:30:57', 'Belum Disetujui', 'Sedang Ditinjau'),
-(140, NULL, 16, NULL, 19, NULL, 69, NULL, 1, 200000, NULL, NULL, '2024-04-21 08:31:00', 'Belum Disetujui', 'Sedang Ditinjau'),
-(141, NULL, 16, NULL, 20, NULL, 69, NULL, 1, 300000, NULL, NULL, '2024-04-21 08:31:03', 'Belum Disetujui', 'Sedang Ditinjau'),
-(142, NULL, 16, NULL, NULL, 17, 69, NULL, 1, 200000, NULL, NULL, '2024-04-21 08:31:07', 'Belum Disetujui', 'Sedang Ditinjau'),
-(143, NULL, 16, NULL, NULL, 18, 69, NULL, 1, 300000, NULL, NULL, '2024-04-21 08:31:11', 'Belum Disetujui', 'Sedang Ditinjau'),
-(144, NULL, 16, NULL, NULL, 19, 69, NULL, 1, 400000, NULL, NULL, '2024-04-21 08:31:15', 'Belum Disetujui', 'Sedang Ditinjau');
 
 --
 -- Indexes for dumped tables

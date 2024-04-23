@@ -14,13 +14,6 @@
                         <label for="fileAproveTransaction" class="form-label">Upload File</label>
                         <input type="file" class="form-control" id="fileAproveTransaction" name="Upload_File" autocomplete="off">
                     </div>
-                    <div class="mb-3">
-                        <label for="statusTransactionAprovement" class="form-label">Status Transaksi</label>
-                        <select name="Status_Transaksi" id="statusTransactionAprovement" class="form-control inputData">
-                            <option value="Belum Disetujui">Belum Disetujui</option>
-                            <option value="Disetujui">Disetujui</option>
-                        </select>
-                    </div>
                     <button type="submit" class="btn btnUpload" id="tombolSimpanTransaksi" name="Simpan">Kirim</button>
                 </form>
             </div>

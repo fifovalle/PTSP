@@ -1758,6 +1758,19 @@ class Transaksi
         }
     }
 
+    public function uploadFileBuktiPembayaran($idPengguna, $namaFile)
+    {
+        $query = "UPDATE transaksi SET Bukti_Pembayaran = ? WHERE ID_Pengguna = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("si", $namaFile, $idPengguna);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function masukKeranjangTransaksiPerusahaanJasa($data)
     {
         $query = "INSERT INTO transaksi (ID_Jasa, ID_Perusahaan, Tanggal_Pembelian, Status_Transaksi) VALUES (?, ?, NOW(), ?)";
@@ -2706,7 +2719,9 @@ class Ikm
     public function tampilkanRiwayatIKMSesuaiPenggunaYangLogin($id)
     {
         $query = "SELECT transaksi.*, ikm.* FROM transaksi 
-        LEFT JOIN ikm ON transaksi.ID_IKM = ikm.ID_Ikm WHERE transaksi.ID_Pengguna = ? OR transaksi.ID_Perusahaan = ?";
+        LEFT JOIN ikm ON transaksi.ID_IKM = ikm.ID_Ikm 
+        WHERE (transaksi.ID_Pengguna = ? OR transaksi.ID_Perusahaan = ?) 
+        AND transaksi.ID_IKM IS NOT NULL";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("ii", $id, $id);

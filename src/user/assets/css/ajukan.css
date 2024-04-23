@@ -3,7 +3,7 @@
   --color-bmkg2: #178636;
   --color-default-abu: #d3d3d3;
 }
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 body {
   padding: 0;
   margin: 0;
@@ -29,18 +29,13 @@ body {
 /************** Button Opsi **************/
 #option.row {
   background: rgba(8, 49, 141, 0.21);
-  border-radius: 16px;
+  border-radius: 20px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.2px);
   -webkit-backdrop-filter: blur(4.2px);
   border: 1px solid rgba(8, 49, 141, 0.22);
-  padding: 50px 4rem 50px 4rem;
-  margin: 3rem 2.5rem 3rem 2.5rem;
-}
-
-#button-option {
-  position: relative;
-  margin: 20px 0 20px 0;
+  padding: 40px 0 40px 0;
+  margin: 3rem 5in 3rem 5in;
 }
 
 .row.form {
@@ -118,11 +113,17 @@ button {
   margin: 0 25px 0 25px;
 }
 
-.badge {
+#berbayar.badge {
   z-index: 1;
   position: absolute;
-  top: 5px;
-  left: 1px;
+  top: 1px;
+  left: 40px;
+}
+#gratis.badge {
+  z-index: 1;
+  position: absolute;
+  top: 1px;
+  left: 40px;
 }
 /************** End Button Opsi **************/
 
@@ -239,13 +240,6 @@ input[type="file"]::before {
   }
 }
 
-.selected {
-  background-color: white;
-  box-shadow: 6px 10px 10px var(--color-bmkg1);
-  border-radius: 8px;
-}
-
-/* Button Up */
 .btn-ajukantutorial {
   width: 45px;
   height: 45px;
@@ -287,7 +281,6 @@ input[type="file"]::before {
   bottom: -20px;
   content: "Butuh Bantuan";
   color: white;
-  /* transition-duration: .3s; */
   font-size: 0px;
 }
 
@@ -295,7 +288,6 @@ input[type="file"]::before {
   font-size: 13px;
   opacity: 0.9;
   bottom: unset;
-  /* transform: translateY(-30px); */
   transition-duration: 0.3s;
 }
 
@@ -309,4 +301,102 @@ input[type="file"]::before {
   position: relative;
   backdrop-filter: none;
 }
+
+.btnopsiAjukan {
+  height: 50px;
+  width: 250px;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #008000;
+  overflow: hidden;
+  border-radius: 30px;
+  color: #008000;
+  transition: all 0.5s ease-in-out;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.btnopsiAjukan2 {
+  height: 50px;
+  width: 250px;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #08318d;
+  overflow: hidden;
+  border-radius: 30px;
+  color: #08318d;
+  transition: all 0.5s ease-in-out;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.btn-txt {
+  z-index: 1;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+
+.type1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+  background-color: #008000;
+  border-radius: 30px;
+  visibility: hidden;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+}
+
+.type2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+  background-color: #08318d;
+  border-radius: 30px;
+  visibility: hidden;
+  height: 10px;
+  width: 10px;
+  z-index: -1;
+}
+
+.btnopsiAjukan:hover {
+  box-shadow: 1px 1px 200px #252525;
+  color: #ffffff;
+  border: none;
+}
+
+.btnopsiAjukan2:hover {
+  box-shadow: 1px 1px 200px #08318d;
+  color: #ffffff;
+  border: none;
+}
+
+.type1:hover::after {
+  visibility: visible;
+  transform: scale(100) translateX(2px);
+}
+
+.type2:hover::after {
+  visibility: visible;
+  transform: scale(100) translateX(2px);
+}
+
+.selected {
+  background-color: #008000 !important;
+  color: #ffffff !important;
+}
+.selected1 {
+  background-color: #08318d !important;
+  color: #ffffff !important;
+}
+
 /* End Button Up */

@@ -167,7 +167,8 @@ $html = <<<HTML
 <table class="line-items-container">
   <thead>
     <tr>
-      <td colspan="6" class="left"><h3>STASIUN METEOROLOGI</h3></td>
+      <td colspan="5" class="left"><h3>STASIUN METEOROLOGI</h3></td>
+      <td class="left"><h3>Status Pesanan: Lunas</h3></td>
     </tr>
     <tr>
       <th class="heading-description">Produk</th>
@@ -175,7 +176,6 @@ $html = <<<HTML
       <th class="heading-subtotal">Harga</th>
       <th class="heading-quantity">Jumlah</th>
       <th class="heading-total">Total</th>
-      <th class="heading-total">Status Pesanan</th>
     </tr>
   </thead>
   <tbody>
@@ -215,7 +215,7 @@ HTML;
 } else {
   $html .= <<<HTML
   <tr>
-    <td colspan="6" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
+    <td colspan="5" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
   </tr>
 HTML;
 }
@@ -225,7 +225,7 @@ $html .= <<<HTML
 <table class="line-items-container">
   <thead>
     <tr>
-      <td colspan="6" class="left"><h3>STASIUN KLIMATOLOGI</h3></td>
+      <td colspan="5" class="left"><h3>STASIUN KLIMATOLOGI</h3></td>
     </tr>
     <tr>
       <th class="heading-description">Produk</th>
@@ -233,7 +233,6 @@ $html .= <<<HTML
       <th class="heading-subtotal">Harga</th>
       <th class="heading-quantity">Jumlah</th>
       <th class="heading-total">Total</th>
-      <th class="heading-total">Status Pesanan</th>
     </tr>
   </thead>
   <tbody>
@@ -273,7 +272,7 @@ HTML;
 } else {
   $html .= <<<HTML
   <tr>
-    <td colspan="6" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
+    <td colspan="5" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
   </tr>
 HTML;
 }
@@ -284,7 +283,7 @@ $html .= <<<HTML
 <table class="line-items-container">
   <thead>
   <tr>
-      <td colspan="6" class="left"><h3>STASIUN GEOFISIKA</h3></td>
+      <td colspan="5" class="left"><h3>STASIUN GEOFISIKA</h3></td>
     </tr>
     <tr>
       <th class="heading-description">Produk</th>
@@ -292,7 +291,6 @@ $html .= <<<HTML
       <th class="heading-subtotal">Harga</th>
       <th class="heading-quantity">Jumlah</th>
       <th class="heading-total">Total</th>
-      <th class="heading-total">Status Pesanan</th>
     </tr>
   </thead>
   <tbody>
@@ -332,7 +330,7 @@ HTML;
 } else {
   $html .= <<<HTML
   <tr>
-    <td colspan="6" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
+    <td colspan="5" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
   </tr>
 HTML;
 }

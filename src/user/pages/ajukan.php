@@ -25,87 +25,40 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     ?>
     <div class="container-fluid w-100 mt-5">
         <div class="row" id="option">
-            <div class="col-md-12" id="button-option">
-                <div class="row">
-                    <div class="col-lg-3 pt-lg-2 col-sm-12 pt-sm-2 px-sm-0 text-center" id="ajukan1">
-                        <button onclick="showContent('form1')">
-                            <span class="translate-middle badge rounded-pill bg-success">
-                                GRATIS
-                            </span>
-                            <span class="box-option selected">
-                                Kegiatan Penanggulangan Bencana
-                            </span>
-                        </button>
-                    </div>
-                    <div class="col-lg-3 pt-lg-2 col-sm-12 pt-sm-4 px-sm-0 text-center" id="ajukan2">
-                        <button onclick="showContent('form2')">
-                            <span class="translate-middle badge rounded-pill bg-success">
-                                GRATIS
-                            </span>
-                            <span class="box-option">
-                                Kegiatan Sosial
-                            </span>
-                        </button>
-                    </div>
-                    <div class="col-lg-3 pt-lg-2 col-sm-12 pt-sm-4 px-sm-0 text-center" id="ajukan3">
-                        <button onclick="showContent('form3')">
-                            <span class="translate-middle badge rounded-pill bg-success">
-                                GRATIS
-                            </span>
-                            <span class="box-option">
-                                Kegiatan Keagamaan
-                            </span>
-                        </button>
-                    </div>
-                    <div class="col-lg-3 pt-lg-2 col-sm-12 pt-sm-4 px-sm-0 text-center" id="ajukan4">
-                        <button onclick="showContent('form4')">
-                            <span class="translate-middle badge rounded-pill bg-success">
-                                GRATIS
-                            </span>
-                            <span class="box-option">
-                                Kegiatan Pertahanan dan Keamanan
-                            </span>
-                        </button>
-                    </div>
-                </div>
+            <div class="position-relative col-lg-6 pt-lg-2 col-sm-12 pt-sm-4 px-sm-0 text-center" id="ajukan7">
+                <span class="badge rounded-pill bg-danger" id="berbayar">
+                    BERBAYAR
+                </span>
+                <button class="btnopsiAjukan type1 selected" id="button-berbayar">
+                    <span class="btn-txt">Layanan Berbayar</span>
+                </button>
             </div>
-            <div class="col-lg-12 mt-lg-5 mx-lg-5 col-sm-12 mt-sm-0 mx-sm-0 text-center" id="button-option">
-                <div class="row">
-                    <div class="col-lg-4 pt-lg-2 col-sm-12 pt-sm-0 px-sm-0 text-center" id="ajukan5">
-                        <button onclick="showContent('form5')">
-                            <span class="translate-middle badge rounded-pill bg-success">
-                                GRATIS
-                            </span>
-                            <span class="box-option">
-                                Kegiatan Pendidikan dan Penilitian non Komersil
-                            </span>
-                        </button>
-                    </div>
-                    <div class="col-lg-4 pt-lg-2 col-sm-12 pt-sm-4 px-sm-0 text-center" id="ajukan6">
-                        <button onclick="showContent('form6')">
-                            <span class="translate-middle badge rounded-pill bg-success">
-                                GRATIS
-                            </span>
-                            <span class="box-option">
-                                Pemerintah Pusat atau Daerah
-                            </span>
-                        </button>
-                    </div>
-                    <div class="col-lg-4 pt-lg-2 col-sm-12 pt-sm-4 px-sm-0 text-center" id="ajukan7">
-                        <button onclick="showContent('form7')">
-                            <span class=" top-0 start-0 translate-middle badge rounded-pill bg-danger">
-                                BERBAYAR
-                            </span>
-                            <span class="box-option">
-                                Pelayanan Informasi dengan Tarif PNBP
-                            </span>
-                        </button>
-                    </div>
-                </div>
+            <div class="position-relative col-lg-6 pt-lg-2 col-sm-12 pt-sm-4 px-sm-0 text-center" id="ajukan7">
+                <span class="badge rounded-pill bg-success" id="gratis">
+                    GRATIS
+                </span>
+                <button class="btnopsiAjukan2 type2" id="button-gratis">
+                    <span class="btn-txt">Layanan Gratis</span>
+                </button>
             </div>
         </div>
         <div class="row" id="form-ajukan">
-            <div class="form-content" id="form1">
+            <div class="option-gratis" id="option-gratis" style="display: none">
+                <div class="dropdown text-center">
+                    <button class="btn btn-secondary dropdown-toggle w-50" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Pilih opsi layanan gratis
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark w-50" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" onclick="showContent('form1')">Kegiatan Penanggulangan Bencana</a></li>
+                        <li><a class="dropdown-item" onclick="showContent('form2')">Kegiatan Sosial</a></li>
+                        <li><a class="dropdown-item" onclick="showContent('form3')">Kegiatan Keagamaan</a></li>
+                        <li><a class="dropdown-item" onclick="showContent('form4')">Kegiatan Pertahanan dan Keamanan</a></li>
+                        <li><a class="dropdown-item" onclick="showContent('form5')">Kegiatan Pendidikan dan Penilitian non Komersil</a></li>
+                        <li><a class="dropdown-item" onclick="showContent('form6')">Pemerintah Pusat atau Daerah</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-content" id="form1" style="display: none;">
                 <?php
                 include('../partials/form-ajukan1.php');
                 ?>
@@ -135,7 +88,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                 include('../partials/form-ajukan6.php');
                 ?>
             </div>
-            <div class="form-content" id="form7" style="display: none;">
+            <div class="form-content" id="option-berbayar">
                 <?php
                 include('../partials/form-ajukan7.php');
                 ?>

@@ -30,8 +30,9 @@
   width: 155px;
 }
 
-.historyMenuDataPengajuan {
-  width: 162px;
+.creation {
+  width: 135px;
+  margin-right: -30px;
 }
 
 .historyMenuDataIKM {
@@ -123,7 +124,7 @@
   font-weight: 500;
   line-height: 30px;
   margin: auto;
-  width: 1300px;
+  width: 1250px;
 }
 
 .userTable,
@@ -283,9 +284,9 @@
   opacity: 0.5;
 }
 
-@media (min-width: 1920px) and (min-height: 1080px) {
+@media only screen and (min-width: 1920px) and (min-height: 1080px) {
   .tableData {
-    width: 1220px;
+    width: 1200px;
   }
 
   .deskriptorContainer {
