@@ -112,9 +112,9 @@ if (!isset($_SESSION['ID'])) {
                                 <?php include "../partials/utils/informations-table.php" ?>
                                 <?php include "../partials/utils/sevices-table.php" ?>
                                 <?php include "../partials/utils/applyment-table.php" ?>
-                                <?php include "../partials/utils/history-applyment-table.php" ?>
-                                <?php include "../partials/utils/transaction-table.php" ?>
-                                <?php include "../partials/utils/transaction-table-history.php" ?>
+                                <?php include "../partials/utils/creation-table.php" ?>
+                                <?php include "../partials/utils/payment-table.php" ?>
+                                <?php include "../partials/utils/payment-table-history.php" ?>
                                 <?php include "../partials/utils/history-ikm-table.php" ?>
                                 <!-- ALL TABLE END -->
                             </div>

@@ -7,45 +7,45 @@ $(document).ready(function () {
     menuText === "Admin"
       ? ($(".adminTable").show(),
         $(
-          ".userTable, .informationTable, .transactionTable, .servicesTable, .applymentTabl, .transactionTableHistory, .historyApplymentTable, .historyIkmTable"
+          ".userTable, .informationTable, .paymentTable, .servicesTable, .applymentTabl, .paymentTableHistory, .creationTable, .historyIkmTable"
         ).hide())
       : menuText === "Pengguna"
       ? ($(
-          ".adminTable, .informationTable, .transactionTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable, .historyIkmTable"
+          ".adminTable, .informationTable, .paymentTable, .servicesTable, .applymentTable, .paymentTableHistory, .creationTable, .historyIkmTable"
         ).hide(),
         $(".userTable").show())
       : menuText === "Informasi"
       ? ($(
-          ".adminTable, .userTable, .transactionTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable, .historyIkmTable"
+          ".adminTable, .userTable, .paymentTable, .servicesTable, .applymentTable, .paymentTableHistory, .creationTable, .historyIkmTable"
         ).hide(),
         $(".informationTable").show())
       : menuText === "Jasa"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .transactionTable, .applymentTable, transactionTableHistory, .historyApplymentTable, .historyIkmTable"
+          ".adminTable, .userTable, .informationTable, .paymentTable, .applymentTable, paymentTableHistory, .creationTable, .historyIkmTable"
         ).hide(),
         $(".servicesTable").show())
       : menuText === "Pengajuan"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable, .transactionTableHistory, .historyApplymentTable, .historyIkmTable"
+          ".adminTable, .userTable, .informationTable, .paymentTable, .servicesTable, .paymentTableHistory, .creationTable, .historyIkmTable"
         ).hide(),
         $(".applymentTable").show())
       : menuText === "Pembuatan"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .transactionTable, .servicesTable, .transactionTableHistory, .applymentTable, .historyIkmTable"
+          ".adminTable, .userTable, .informationTable, .paymentTable, .servicesTable, .paymentTableHistory, .applymentTable, .historyIkmTable"
         ).hide(),
-        $(".historyApplymentTable").show())
+        $(".creationTable").show())
       : menuText === "Pembayaran"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTableHistory, .historyApplymentTable, .historyIkmTable"
+          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .paymentTableHistory, .creationTable, .historyIkmTable"
         ).hide(),
-        $(".transactionTable").show())
+        $(".paymentTable").show())
       : menuText === "Riwayat Transaksi"
       ? ($(
-          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTable, .historyApplymentTable, .historyIkmTable"
+          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .paymentTable, .creationTable, .historyIkmTable"
         ).hide(),
-        $(".transactionTableHistory").show())
+        $(".paymentTableHistory").show())
       : ($(
-          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .transactionTable, .historyApplymentTable, .transactionTableHistory"
+          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .paymentTable, .creationTable, .paymentTableHistory"
         ).hide(),
         $(".historyIkmTable").show());
   });

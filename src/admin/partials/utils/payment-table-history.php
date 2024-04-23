@@ -1,4 +1,4 @@
-<table class="tableData transactionTableHistory">
+<table class="tableData paymentTableHistory">
     <div id="actionsTransaction" class="actions">
         <button class="btn btn-danger" onclick="edit()"> <i class="fas fa-trash"></i>
             Hapus</button>
@@ -85,7 +85,7 @@
         <?php
             }
         } else {
-            echo "<tr><td colspan='8' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Riwayat Transaksi!</td></tr>";
+            echo "<tr><td colspan='8' class='text-center text-danger fw-bold pt-4 pb-2'>Tidak Ada Data Riwayat Pembayaran!</td></tr>";
         }
         ?>
     </tbody>

@@ -129,11 +129,11 @@
 
 .userTable,
 .informationTable,
-.transactionTable,
+.paymentTable,
 .servicesTable,
 .applymentTable,
-.transactionTableHistory,
-.historyApplymentTable,
+.paymentTableHistory,
+.creationTable,
 .historyIkmTable {
   display: none;
 }
