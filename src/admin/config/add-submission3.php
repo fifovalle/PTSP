@@ -9,49 +9,56 @@ if (isset($_POST['Apply'])) {
     $nomorTeleponFormatted = '+62 ' . substr($nomorHP, 0, 3) . '-' . substr($nomorHP, 4, 4) . '-' . substr($nomorHP, 7);
 
     $objekDataKeagamaan = new Pengajuan($koneksi);
+    $obyekDataTransaksi = new Transaksi($koneksi);
 
-    if ($_FILES['Surat_Yang_Ditandatangani_Keagamaan']['error'] !== UPLOAD_ERR_OK) {
-        setPesanKesalahan("Gagal mengupload surat pengantar.");
-        header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-        exit;
-    }
+    $dataCekPengajuan = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
 
-    $tujuanSuratPengantar = '../assets/image/uploads/';
-    $namaSuratPengantarBaru = uniqid() . '_' . basename($_FILES['Surat_Yang_Ditandatangani_Keagamaan']['name']);
-    $tujuanFileSuratPengantar = $tujuanSuratPengantar . $namaSuratPengantarBaru;
+    $hasilCekPengguna = $obyekDataTransaksi->cekPengguna($dataCekPengajuan);
 
-    if (!move_uploaded_file($_FILES['Surat_Yang_Ditandatangani_Keagamaan']['tmp_name'], $tujuanFileSuratPengantar)) {
-        setPesanKesalahan("Gagal menyimpan surat pengantar.");
-        header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-        exit;
-    }
+    if ($hasilCekPengguna) {
+        if ($_FILES['Surat_Yang_Ditandatangani_Keagamaan']['error'] === UPLOAD_ERR_OK) {
+            $tujuanSuratPengantar = '../assets/image/uploads/';
+            $namaSuratPengantarBaru = uniqid() . '_' . basename($_FILES['Surat_Yang_Ditandatangani_Keagamaan']['name']);
+            $tujuanFileSuratPengantar = $tujuanSuratPengantar . $namaSuratPengantarBaru;
 
-    $dataSosial = array(
-        'Nama_Keagamaan' => $nama,
-        'No_Telepon_Keagamaan' => $nomorTeleponFormatted,
-        'Email_Keagamaan' => $email,
-        'Surat_Yang_Ditandatangani_Keagamaan' => $namaSuratPengantarBaru
-    );
+            if (move_uploaded_file($_FILES['Surat_Yang_Ditandatangani_Keagamaan']['tmp_name'], $tujuanFileSuratPengantar)) {
+                $dataKeagamaan = array(
+                    'Nama_Keagamaan' => $nama,
+                    'No_Telepon_Keagamaan' => $nomorTeleponFormatted,
+                    'Email_Keagamaan' => $email,
+                    'Surat_Yang_Ditandatangani_Keagamaan' => $namaSuratPengantarBaru
+                );
 
-    $simpanDataKeagamaan = $objekDataKeagamaan->tambahDataKeagamaan($dataSosial);
+                $simpanDataKeagamaan = $objekDataKeagamaan->tambahDataKeagamaan($dataKeagamaan);
 
-    $dataPengajuanKeagamaan = array(
-        'ID_Pengguna' => $_SESSION['ID_Pengguna'],
-        'ID_Perusahaan' => $_SESSION['ID_Perusahaan'],
-        'ID_Keagamaan' => $objekDataKeagamaan->ambilIDKeagamaanTerakhir(),
-        'Status_Pengajuan' => 'Sedang Ditinjau',
-        'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
-    );
+                $dataPengajuanKeagamaan = array(
+                    'ID_Keagamaan' => $objekDataKeagamaan->ambilIDKeagamaanTerakhir(),
+                    'Status_Pengajuan' => 'Sedang Ditinjau',
+                    'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
+                );
 
-    $simpanDataPengajuanKeagamaan = $objekDataKeagamaan->tambahDataPengajuanKeagamaan($dataPengajuanKeagamaan);
+                $simpanDataPengajuanKeagamaan = $objekDataKeagamaan->tambahDataPengajuanKeagamaan($dataPengajuanKeagamaan);
 
-    if ($simpanDataKeagamaan && $simpanDataPengajuanKeagamaan) {
-        setPesanKeberhasilan("Data kegiatan penanggulangan sosial berhasil dikirim harap menunggu konfirmasi oleh admin.");
-        header("Location: $akarUrl" . "src/user/pages/checkout.php");
-        exit();
+                $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
+
+                $simpanDataTransaksiPengajuanKeagamaan = $obyekDataTransaksi->perbaharuiPengajuanBencanaKeTransaksiSesuaiSession($dataPengajuanKeagamaan, $idSession);
+
+                if ($simpanDataKeagamaan && $simpanDataPengajuanKeagamaan && $simpanDataTransaksiPengajuanKeagamaan) {
+                    setPesanKeberhasilan("Data kegiatan penanggulangan keagamaan berhasil dikirim harap menunggu konfirmasi oleh admin.");
+                    header("Location: $akarUrl" . "src/user/pages/checkout.php");
+                    exit();
+                } else {
+                    setPesanKesalahan("Gagal menambahkan data kegiatan penanggulangan keagamaan.");
+                }
+            } else {
+                setPesanKesalahan("Gagal menyimpan surat pengantar.");
+            }
+        } else {
+            setPesanKesalahan("Gagal mengupload surat pengantar.");
+        }
     } else {
-        setPesanKesalahan("Gagal menambahkan data kegiatan penanggulangan bencana.");
-        header("Location: $akarUrl" . "src/user/pages/ajukan.php");
+        setPesanKesalahan("Silahkan memilih katalog produk terlebih dahulu");
+        header("Location: $akarUrl" . "src/user/pages/katalogproduk.php");
         exit;
     }
 } else {

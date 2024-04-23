@@ -1423,6 +1423,7 @@ class Pengajuan
         }
     }
 
+
     public function ambilIDSosialTerakhir()
     {
         $query = "SELECT ID_Sosial FROM kegiatan_sosial ORDER BY ID_Sosial DESC LIMIT 1";
@@ -1527,14 +1528,12 @@ class Pengajuan
 
     public function tambahDataPengajuanSosial($dataPengajuanSosial)
     {
-        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Sosial, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, ?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Sosial, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "iiis",
-            $dataPengajuanSosial['ID_Pengguna'],
-            $dataPengajuanSosial['ID_Perusahaan'],
+            "is",
             $dataPengajuanSosial['ID_Sosial'],
             $dataPengajuanSosial['Status_Pengajuan'],
         );

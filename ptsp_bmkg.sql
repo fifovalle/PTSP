@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2024 at 02:24 PM
+-- Generation Time: Apr 23, 2024 at 03:31 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -265,6 +265,14 @@ CREATE TABLE `kegiatan_sosial` (
   `Surat_Yang_Ditandatangani_Sosial` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `kegiatan_sosial`
+--
+
+INSERT INTO `kegiatan_sosial` (`ID_Sosial`, `Nama_Sosial`, `No_Telepon_Sosial`, `Email_Sosial`, `Surat_Yang_Ditandatangani_Sosial`) VALUES
+(6, 'ahsan', '+62 841-8340-0811', 'hh@gmail.com', 0x363632376232316263356639625f3132332e706e67),
+(7, 'ahsan', '+62 821-4118-8355', 'ah@gmail.com', 0x363632376233303038313962325f3132332e706e67);
+
 -- --------------------------------------------------------
 
 --
@@ -317,8 +325,17 @@ CREATE TABLE `pengajuan` (
   `ID_Tarif` int(11) DEFAULT NULL,
   `Status_Pengajuan` enum('Sedang Ditinjau','Ditolak','Diterima') NOT NULL,
   `Keterangan_Surat_Ditolak` varchar(100) DEFAULT NULL,
+  `Perbaikan_Dokumen` longblob DEFAULT NULL,
+  `Jenis_Perbaikan` enum('1','2','3','4','5','6','7','8','9') DEFAULT NULL,
   `Tanggal_Pengajuan` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pengajuan`
+--
+
+INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `ID_Tarif`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Perbaikan_Dokumen`, `Jenis_Perbaikan`, `Tanggal_Pengajuan`) VALUES
+(70, NULL, NULL, NULL, 7, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, NULL, '1', '2024-04-23 20:09:20');
 
 -- --------------------------------------------------------
 
@@ -419,6 +436,13 @@ CREATE TABLE `transaksi` (
   `Status_Transaksi` enum('Disetujui','Belum Disetujui') NOT NULL,
   `Status_Pesanan` enum('Belum Lunas','Sedang Ditinjau','Lunas') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `ID_IKM`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Bukti_Pembayaran`, `Tanggal_Pembelian`, `Status_Transaksi`, `Status_Pesanan`) VALUES
+(145, NULL, 16, NULL, 19, NULL, 70, NULL, NULL, NULL, NULL, NULL, '2024-04-23 20:05:01', 'Belum Disetujui', 'Belum Lunas');
 
 --
 -- Indexes for dumped tables
@@ -584,7 +608,7 @@ ALTER TABLE `kegiatan_pertahanan_keamanan`
 -- AUTO_INCREMENT for table `kegiatan_sosial`
 --
 ALTER TABLE `kegiatan_sosial`
-  MODIFY `ID_Sosial` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_Sosial` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pemerintah_pusat_daerah`
@@ -602,7 +626,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -620,7 +644,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- Constraints for dumped tables

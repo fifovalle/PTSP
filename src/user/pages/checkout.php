@@ -44,6 +44,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 <th class="title_informasi text-center">NAMA INFORMASI</th>
                                 <th class="harga_informasi text-center">HARGA</th>
                                 <th class="kuantitas_informasi text-center">KUANTITAS</th>
+                                <th class="hapus text-center"></th>
                             </tr>
                             <?php
                             $idInformasi = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
@@ -74,6 +75,13 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                             <span class="nilai_informasi" id="nilai_<?php echo $transaksiInformasi['ID_Tranksaksi']; ?>" data-id-tombol="<?php echo $transaksiInformasi['ID_Tranksaksi']; ?>">0</span>
                                             <button type="button" class="btn btn-primary plus" onclick="tambahNilai(<?php echo $transaksiInformasi['ID_Tranksaksi']; ?>)"><i class="bi bi-plus"></i></button>
                                         </td>
+                                        <td class="btn-hapus text-center">
+                                            <div type="button" class="btn btn-outline-secondary">
+                                                <span>
+                                                    <box-icon name='trash-alt'></box-icon>
+                                                </span>
+                                            </div>
+                                        </td>
                                     </tr>
                             <?php
                                 }
@@ -98,6 +106,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     <th class="title_jasa text-center">NAMA INFORMASI</th>
                                     <th class="harga_jasa text-center">HARGA</th>
                                     <th class="kuantitas_jasa text-center">KUANTITAS</th>
+                                    <th class="hapus text-center"></th>
                                 </tr>
                                 <?php
                                 $idJasa = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
@@ -127,6 +136,13 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                 <button type="button" class="btn btn-danger" onclick="kurangiNilai1(<?php echo $transaksiJasa['ID_Tranksaksi']; ?>)"><i class="bi bi-dash"></i></button>
                                                 <span class="nilai_informasi" id="nilai_<?php echo $transaksiJasa['ID_Tranksaksi']; ?>" data-id-tombol="<?php echo $transaksiJasa['ID_Tranksaksi']; ?>">0</span>
                                                 <button type="button" class="btn btn-primary plus" onclick="tambahNilai1(<?php echo $transaksiJasa['ID_Tranksaksi']; ?>)"><i class="bi bi-plus"></i></button>
+                                            </td>
+                                            <td class="btn-hapus-jasa text-center">
+                                                <div type="button" class="btn btn-outline-secondary">
+                                                    <span>
+                                                        <box-icon name='trash-alt'></box-icon>
+                                                    </span>
+                                                </div>
                                             </td>
                                         </tr>
                                 <?php

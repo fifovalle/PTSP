@@ -8,7 +8,7 @@
             <form action="" method="post">
                 <div class="modal-body">
                     <select class="form-select" aria-label="Default select example">
-                        <option selected>Pilih perbaikan dokumen</option>
+                        <option value="" selected>Pilih perbaikan dokumen</option>
                         <option value="1">Surat Pengantar Permintaan Data</option>
                         <option value="2">Surat Permintaan Ditandatangani Camat atau Pejabat Setingkat</option>
                         <option value="3">Surat Pengantar dari Kepala Sekolah / Rektor / Dekan</option>
