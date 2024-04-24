@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2024 at 02:26 AM
+-- Generation Time: Apr 24, 2024 at 02:27 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -181,13 +181,6 @@ CREATE TABLE `informasi_tarif_pnbp` (
   `Identitas_KTP_PNBP` longblob NOT NULL,
   `Surat_Pengantar_PNBP` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `informasi_tarif_pnbp`
---
-
-INSERT INTO `informasi_tarif_pnbp` (`ID_PNBP`, `Nama_PNBP`, `No_Telepon_PNBP`, `Email_PNBP`, `Identitas_KTP_PNBP`, `Surat_Pengantar_PNBP`) VALUES
-(5, 'ahsan', '+62 812-4008-8344', 'ashj@gmail.com', 0x363632376431306433663738315f7061736562616e2e6a7067, 0x363632376431306433666139615f7361736d697461206c6f6b612061686d61642079616e692e6a7067);
 
 -- --------------------------------------------------------
 
