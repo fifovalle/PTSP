@@ -14,10 +14,11 @@
                         <label for="descriptionApplyment" class="form-label">Keterangan Pembayaran Yang Ditolak</label>
                         <textarea name="Ket_Pengajuan" class="form-control" id="descriptionApplyment" placeholder="Masukkan Keterangan"></textarea>
                     </div>
+                    <!-- JIKA STATUS PEMBAYARAN INI DI SETUJUI MAKA STATUS PESANAN OTOMATIS LUNAS DAN SEBALIKNYA -->
                     <div class="mb-3">
                         <label for="statusTransactionAprovement" class="form-label">Status Pembayaran</label>
                         <select name="Status_Transaksi" id="statusTransactionAprovement" class="form-control inputData">
-                            <option value="Belum Disetujui">Belum Disetujui</option>
+                            <option value="Ditolak">Ditolak</option>
                             <option value="Disetujui">Disetujui</option>
                         </select>
                     </div>

@@ -53,10 +53,10 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-3">
-                                            <h6 class="mb-0">Surat</h6>
+                                            <h6 class="mb-0">Bukti Pembayaran</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <img class="imageModalDetail" src="../assets/image/uploads/<?php echo $pengajuan['Surat_Pengantar_Permintaan_Data_Bencana']; ?>" alt="Deskripsi Gambar">
+                                            <img class="imageModalDetail" src="../assets/image/uploads/<?php echo $pengajuan['Bukti_Pembayaran']; ?>" alt="Deskripsi Gambar">
                                         </div>
                                     </div>
                                     <hr>

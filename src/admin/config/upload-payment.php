@@ -13,7 +13,7 @@ if (isset($_POST['Kirim'])) {
         $errorFileA = $fileA['error'];
 
         if ($errorFileA === 0) {
-            $ukuranMaksimal = 2 * 1024 * 1024; 
+            $ukuranMaksimal = 2 * 1024 * 1024;
             if ($ukuranFileA <= $ukuranMaksimal) {
                 $ekstensiValid = ['jpg', 'jpeg', 'png'];
                 $ekstensiA = pathinfo($namaFileA, PATHINFO_EXTENSION);
@@ -48,7 +48,7 @@ if (isset($_POST['Kirim'])) {
         $errorFileB = $fileB['error'];
 
         if ($errorFileB === 0) {
-            $ukuranMaksimal = 2 * 1024 * 1024; 
+            $ukuranMaksimal = 2 * 1024 * 1024;
             if ($ukuranFileB <= $ukuranMaksimal) {
                 $ekstensiValid = ['jpg', 'jpeg', 'png'];
                 $ekstensiB = pathinfo($namaFileB, PATHINFO_EXTENSION);
@@ -75,7 +75,6 @@ if (isset($_POST['Kirim'])) {
         }
     }
 
-    // Validasi file Instansi C
     if (isset($_FILES['File_Instansi_C'])) {
         $fileC = $_FILES['File_Instansi_C'];
         $namaFileC = $fileC['name'];
@@ -83,10 +82,8 @@ if (isset($_POST['Kirim'])) {
         $ukuranFileC = $fileC['size'];
         $errorFileC = $fileC['error'];
 
-        // Validasi file C
         if ($errorFileC === 0) {
-            // Validasi ukuran file
-            $ukuranMaksimal = 2 * 1024 * 1024; // 2MB
+            $ukuranMaksimal = 2 * 1024 * 1024;
             if ($ukuranFileC <= $ukuranMaksimal) {
                 $ekstensiValid = ['jpg', 'jpeg', 'png'];
                 $ekstensiC = pathinfo($namaFileC, PATHINFO_EXTENSION);
@@ -116,4 +113,3 @@ if (isset($_POST['Kirim'])) {
     header("Location: $akarUrl/src/user/pages/pesanan.php");
     exit;
 }
-?>

@@ -59,11 +59,6 @@
                                 ?>
                             </p>
                             <div class="iconContainerData">
-                                <a class="linkData" data-bs-toggle="modal" data-bs-target="#editAdmin">
-                                    <span class="">
-                                        <i class="fas fa-edit"></i>
-                                    </span>
-                                </a>
                                 <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteHistoryTransaction(<?php echo $riwayatTransaksi['ID_Tranksaksi']; ?>)">
                                     <span>
                                         <i class="fas fa-trash"></i>

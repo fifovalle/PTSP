@@ -13,9 +13,8 @@
                     <div class="mb-3">
                         <label for="statusTransactionApplyment" class="form-label">Status Pengajuan</label>
                         <select name="Status_Pengajuan" id="statusTransactionApplyment" class="form-control inputData">
-                            <option value="Belum Disetujui">Belum Disetujui</option>
-                            <option value="Sedang Ditinjau">Sedang Ditinjau</option>
-                            <option value="Disetujui">Disetujui</option>
+                            <option value="Ditolak">Ditolak</option>
+                            <option value="Diterima">Diterima</option>
                         </select>
                     </div>
                     <div class="mb-3">

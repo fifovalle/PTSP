@@ -32,7 +32,7 @@
     <tbody class="tbodyData">
         <?php
         $transaksiModel = new Transaksi($koneksi);
-        $dataTransaksi = $transaksiModel->tampilkanTransaksi();
+        $dataTransaksi = $transaksiModel->tampilkanTransaksiPembayaran();
 
         if (!empty($dataTransaksi)) {
             $nomorUrut = 1;
@@ -78,8 +78,11 @@
                     <td class="text-center"><?php echo $transaksi['Jumlah_Barang']; ?></td>
                     <td class="text-center"><?php echo $transaksi['Tanggal_Pembelian']; ?></td>
                     <td class="text-center">
-                        <span class="badge <?php echo ($transaksi['Status_Transaksi'] === 'Belum Disetujui') ? 'text-bg-danger' : 'text-bg-success'; ?>">
-                            <?php echo $transaksi['Status_Transaksi']; ?>
+                        <span class="badge <?php
+                                            echo ($transaksi['Status_Transaksi'] === 'Sedang Ditinjau') ? 'text-bg-warning' : (($transaksi['Status_Transaksi'] === 'Ditolak') ? 'text-bg-danger' : (($transaksi['Status_Transaksi'] === 'Belum Disetujui') ? 'text-bg-info' : 'text-bg-success')); ?>">
+                            <?php
+                            echo ($transaksi['Status_Transaksi'] === 'Sedang Ditinjau') ? 'Sedang Ditinjau' : (($transaksi['Status_Transaksi'] === 'Ditolak') ? 'Ditolak' : (($transaksi['Status_Transaksi'] === 'Belum Disetujui') ? 'Belum Dibayar' : $transaksi['Status_Transaksi']));
+                            ?>
                         </span>
                     </td>
                 </tr>
