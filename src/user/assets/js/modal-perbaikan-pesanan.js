@@ -1,6 +1,6 @@
 function tampilkanModalPerbaikan() {
   var modalPerbaikan = new bootstrap.Modal(
-    document.getElementById("modalPerbaikan")
+    document.getElementById("modalPerbaikan"),
   ); // Buat instance modal
   modalPerbaikan.show(); // Tampilkan modal
 }

@@ -12,7 +12,6 @@ and DOMNodeList into HTML5.
           ||
        [ HTML5 ]     // HTML5 document or fragment in text.
 
-
 ## HTML5 Class
 
 Provides the top level interface for saving.

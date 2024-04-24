@@ -9,7 +9,7 @@ togglePasswordAdmin.addEventListener("click", function () {
 });
 
 const toggleConfirmPasswordAdmin = document.getElementById(
-  "toggleConfirmPasswordAdmin"
+  "toggleConfirmPasswordAdmin",
 );
 const confirmPasswordAdmin = document.getElementById("confirmPasswordAdmin");
 
@@ -33,7 +33,7 @@ togglePasswordUser.addEventListener("click", function () {
 });
 
 const toggleConfirmPasswordUser = document.getElementById(
-  "toggleConfirmPasswordUser"
+  "toggleConfirmPasswordUser",
 );
 const confirmPasswordUser = document.getElementById("confirmPasswordUser");
 

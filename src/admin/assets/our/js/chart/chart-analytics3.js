@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let chart = new ApexCharts(
     document.querySelector("#transactionChart"),
-    options
+    options,
   );
 
   chart.render();

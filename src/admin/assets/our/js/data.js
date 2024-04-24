@@ -7,47 +7,47 @@ $(document).ready(function () {
     menuText === "Admin"
       ? ($(".adminTable").show(),
         $(
-          ".userTable, .informationTable, .paymentTable, .servicesTable, .applymentTabl, .paymentTableHistory, .creationTable, .historyIkmTable"
+          ".userTable, .informationTable, .paymentTable, .servicesTable, .applymentTabl, .paymentTableHistory, .creationTable, .historyIkmTable",
         ).hide())
       : menuText === "Pengguna"
-      ? ($(
-          ".adminTable, .informationTable, .paymentTable, .servicesTable, .applymentTable, .paymentTableHistory, .creationTable, .historyIkmTable"
-        ).hide(),
-        $(".userTable").show())
-      : menuText === "Informasi"
-      ? ($(
-          ".adminTable, .userTable, .paymentTable, .servicesTable, .applymentTable, .paymentTableHistory, .creationTable, .historyIkmTable"
-        ).hide(),
-        $(".informationTable").show())
-      : menuText === "Jasa"
-      ? ($(
-          ".adminTable, .userTable, .informationTable, .paymentTable, .applymentTable, paymentTableHistory, .creationTable, .historyIkmTable"
-        ).hide(),
-        $(".servicesTable").show())
-      : menuText === "Pengajuan"
-      ? ($(
-          ".adminTable, .userTable, .informationTable, .paymentTable, .servicesTable, .paymentTableHistory, .creationTable, .historyIkmTable"
-        ).hide(),
-        $(".applymentTable").show())
-      : menuText === "Pembuatan"
-      ? ($(
-          ".adminTable, .userTable, .informationTable, .paymentTable, .servicesTable, .paymentTableHistory, .applymentTable, .historyIkmTable"
-        ).hide(),
-        $(".creationTable").show())
-      : menuText === "Pembayaran"
-      ? ($(
-          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .paymentTableHistory, .creationTable, .historyIkmTable"
-        ).hide(),
-        $(".paymentTable").show())
-      : menuText === "Riwayat Transaksi"
-      ? ($(
-          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .paymentTable, .creationTable, .historyIkmTable"
-        ).hide(),
-        $(".paymentTableHistory").show())
-      : ($(
-          ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .paymentTable, .creationTable, .paymentTableHistory"
-        ).hide(),
-        $(".historyIkmTable").show());
+        ? ($(
+            ".adminTable, .informationTable, .paymentTable, .servicesTable, .applymentTable, .paymentTableHistory, .creationTable, .historyIkmTable",
+          ).hide(),
+          $(".userTable").show())
+        : menuText === "Informasi"
+          ? ($(
+              ".adminTable, .userTable, .paymentTable, .servicesTable, .applymentTable, .paymentTableHistory, .creationTable, .historyIkmTable",
+            ).hide(),
+            $(".informationTable").show())
+          : menuText === "Jasa"
+            ? ($(
+                ".adminTable, .userTable, .informationTable, .paymentTable, .applymentTable, paymentTableHistory, .creationTable, .historyIkmTable",
+              ).hide(),
+              $(".servicesTable").show())
+            : menuText === "Pengajuan"
+              ? ($(
+                  ".adminTable, .userTable, .informationTable, .paymentTable, .servicesTable, .paymentTableHistory, .creationTable, .historyIkmTable",
+                ).hide(),
+                $(".applymentTable").show())
+              : menuText === "Pembuatan"
+                ? ($(
+                    ".adminTable, .userTable, .informationTable, .paymentTable, .servicesTable, .paymentTableHistory, .applymentTable, .historyIkmTable",
+                  ).hide(),
+                  $(".creationTable").show())
+                : menuText === "Pembayaran"
+                  ? ($(
+                      ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .paymentTableHistory, .creationTable, .historyIkmTable",
+                    ).hide(),
+                    $(".paymentTable").show())
+                  : menuText === "Riwayat Transaksi"
+                    ? ($(
+                        ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .paymentTable, .creationTable, .historyIkmTable",
+                      ).hide(),
+                      $(".paymentTableHistory").show())
+                    : ($(
+                        ".adminTable, .userTable, .informationTable, .servicesTable, .applymentTable, .paymentTable, .creationTable, .paymentTableHistory",
+                      ).hide(),
+                      $(".historyIkmTable").show());
   });
 });
 
@@ -69,7 +69,7 @@ const checkBoxesAdmin = document.querySelectorAll(".checkBoxDataAdminData");
 checkBoxesAdmin.forEach(function (checkbox) {
   checkbox.addEventListener("click", function () {
     const checkedCheckboxesAdmin = document.querySelectorAll(
-      ".checkBoxDataAdminData:checked"
+      ".checkBoxDataAdminData:checked",
     );
     const actionsDiv = document.getElementById("actionsAdmin");
     if (checkedCheckboxesAdmin.length > 0) {
@@ -84,7 +84,7 @@ const checkBoxesUser = document.querySelectorAll(".checkBoxDataUserData");
 checkBoxesUser.forEach(function (checkbox) {
   checkbox.addEventListener("click", function () {
     const checkedCheckboxesUser = document.querySelectorAll(
-      ".checkBoxDataUserData:checked"
+      ".checkBoxDataUserData:checked",
     );
     const actionsDiv = document.getElementById("actionsUser");
     if (checkedCheckboxesUser.length > 0) {
@@ -113,7 +113,7 @@ const checkBoxesProduct = document.querySelectorAll(".checkBoxDataProductData");
 checkBoxesProduct.forEach(function (checkbox) {
   checkbox.addEventListener("click", function () {
     const checkedCheckboxesProduct = document.querySelectorAll(
-      ".checkBoxDataProductData:checked"
+      ".checkBoxDataProductData:checked",
     );
     const actionsDiv = document.getElementById("actionsProduct");
     if (checkedCheckboxesProduct.length > 0) {
@@ -139,12 +139,12 @@ checkBoxHeaderProduct.addEventListener("click", function () {
 });
 
 const checkBoxesTransaction = document.querySelectorAll(
-  ".checkBoxDataTransactionData"
+  ".checkBoxDataTransactionData",
 );
 checkBoxesTransaction.forEach(function (checkbox) {
   checkbox.addEventListener("click", function () {
     const checkedCheckboxesTransaction = document.querySelectorAll(
-      ".checkBoxDataTransactionData:checked"
+      ".checkBoxDataTransactionData:checked",
     );
     const actionsDiv = document.getElementById("actionsTransaction");
     if (checkedCheckboxesTransaction.length > 0) {
@@ -156,7 +156,7 @@ checkBoxesTransaction.forEach(function (checkbox) {
 });
 
 const checkBoxHeaderTransaction = document.querySelector(
-  ".checkBoxDataTransaction"
+  ".checkBoxDataTransaction",
 );
 checkBoxHeaderTransaction.addEventListener("click", function () {
   const checkBoxes = document.querySelectorAll(".checkBoxDataTransaction");

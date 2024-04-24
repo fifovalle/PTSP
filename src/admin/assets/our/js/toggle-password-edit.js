@@ -1,5 +1,5 @@
 const togglePasswordAdminEdit = document.getElementById(
-  "togglePasswordAdminEdit"
+  "togglePasswordAdminEdit",
 );
 const passwordProfil = document.getElementById("passwordProfil");
 
@@ -11,7 +11,7 @@ togglePasswordAdminEdit.addEventListener("click", function () {
 });
 
 const toggleConfirmPasswordAdminEdit = document.getElementById(
-  "toggleConfirmPasswordAdminEdit"
+  "toggleConfirmPasswordAdminEdit",
 );
 const confirmPasswordProfil = document.getElementById("confirmPasswordProfil");
 

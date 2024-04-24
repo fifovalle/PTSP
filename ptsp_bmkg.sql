@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2024 at 03:31 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 23, 2024 at 05:22 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -182,6 +182,13 @@ CREATE TABLE `informasi_tarif_pnbp` (
   `Surat_Pengantar_PNBP` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `informasi_tarif_pnbp`
+--
+
+INSERT INTO `informasi_tarif_pnbp` (`ID_PNBP`, `Nama_PNBP`, `No_Telepon_PNBP`, `Email_PNBP`, `Identitas_KTP_PNBP`, `Surat_Pengantar_PNBP`) VALUES
+(5, 'ahsan', '+62 812-4008-8344', 'ashj@gmail.com', 0x363632376431306433663738315f7061736562616e2e6a7067, 0x363632376431306433666139615f7361736d697461206c6f6b612061686d61642079616e692e6a7067);
+
 -- --------------------------------------------------------
 
 --
@@ -237,6 +244,13 @@ CREATE TABLE `kegiatan_keagamaan` (
   `Surat_Yang_Ditandatangani_Keagamaan` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `kegiatan_keagamaan`
+--
+
+INSERT INTO `kegiatan_keagamaan` (`ID_Keagamaan`, `Nama_Keagamaan`, `No_Telepon_Keagamaan`, `Email_Keagamaan`, `Surat_Yang_Ditandatangani_Keagamaan`) VALUES
+(2, 'ahsan', '+62 812-4118-8340', 'hahsa@gmail.com', 0x363632376332663134653333395f62616e6a69722e6a7067);
+
 -- --------------------------------------------------------
 
 --
@@ -250,6 +264,15 @@ CREATE TABLE `kegiatan_pertahanan_keamanan` (
   `Email_Pertahanan` varchar(30) NOT NULL,
   `Surat_Yang_Ditandatangani_Pertahanan` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kegiatan_pertahanan_keamanan`
+--
+
+INSERT INTO `kegiatan_pertahanan_keamanan` (`ID_Pertahanan`, `Nama_Pertahanan`, `No_Telepon_Pertahanan`, `Email_Pertahanan`, `Surat_Yang_Ditandatangani_Pertahanan`) VALUES
+(2, 'ahsan', '+62 869-3512-2647', 'hasha@gmail.com', 0x363632376334616335373965305f356536383965343065363138652e6a7067),
+(3, 'ahsas', '+62 894-5932-2146', 'hasjas@gmail.com', 0x363632376334663539613631375f4841414141412e6a7067),
+(4, 'asjahs', '+62 812-4118-8340', 'ahsan@gmail.com', 0x363632376335363439663533635f3132332e706e67);
 
 -- --------------------------------------------------------
 
@@ -287,6 +310,13 @@ CREATE TABLE `pemerintah_pusat_daerah` (
   `Memiliki_Kerja_Sama_Dengan_BMKG` longblob NOT NULL,
   `Surat_Pengantar_Pusat_Daerah` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pemerintah_pusat_daerah`
+--
+
+INSERT INTO `pemerintah_pusat_daerah` (`ID_Pusat`, `Nama_Pusat_Daerah`, `No_Telepon_Pusat_Daerah`, `Email_Pusat_Daerah`, `Memiliki_Kerja_Sama_Dengan_BMKG`, `Surat_Pengantar_Pusat_Daerah`) VALUES
+(4, 'ahsan', '+62 812-0118-8340', 'ahsan@gmail.com', 0x363632376366336361316630355f41492e646f6378, 0x363632376366336361323431355f4b617274755f556a69616e5f416873616e2e646f6378);
 
 -- --------------------------------------------------------
 
@@ -335,7 +365,13 @@ CREATE TABLE `pengajuan` (
 --
 
 INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `ID_Tarif`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Perbaikan_Dokumen`, `Jenis_Perbaikan`, `Tanggal_Pengajuan`) VALUES
-(70, NULL, NULL, NULL, 7, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, NULL, '1', '2024-04-23 20:09:20');
+(70, NULL, NULL, NULL, 7, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, NULL, '1', '2024-04-23 20:09:20'),
+(71, NULL, 2, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, NULL, NULL, '2024-04-23 21:17:21'),
+(72, NULL, NULL, 2, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, NULL, NULL, '2024-04-23 21:24:44'),
+(73, NULL, NULL, 3, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, NULL, NULL, '2024-04-23 21:25:57'),
+(74, NULL, NULL, 4, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, NULL, NULL, '2024-04-23 21:27:48'),
+(75, NULL, NULL, NULL, NULL, 4, NULL, NULL, 'Sedang Ditinjau', NULL, NULL, NULL, '2024-04-23 22:09:48'),
+(76, NULL, NULL, NULL, NULL, NULL, NULL, 5, 'Sedang Ditinjau', NULL, NULL, NULL, '2024-04-23 22:17:33');
 
 -- --------------------------------------------------------
 
@@ -442,7 +478,8 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `ID_IKM`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Bukti_Pembayaran`, `Tanggal_Pembelian`, `Status_Transaksi`, `Status_Pesanan`) VALUES
-(145, NULL, 16, NULL, 19, NULL, 70, NULL, NULL, NULL, NULL, NULL, '2024-04-23 20:05:01', 'Belum Disetujui', 'Belum Lunas');
+(145, NULL, 16, NULL, 19, NULL, 70, NULL, NULL, NULL, NULL, NULL, '2024-04-23 20:05:01', 'Belum Disetujui', 'Belum Lunas'),
+(146, NULL, 16, NULL, 20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-23 21:16:34', 'Belum Disetujui', 'Belum Lunas');
 
 --
 -- Indexes for dumped tables
@@ -578,7 +615,7 @@ ALTER TABLE `informasi`
 -- AUTO_INCREMENT for table `informasi_tarif_pnbp`
 --
 ALTER TABLE `informasi_tarif_pnbp`
-  MODIFY `ID_PNBP` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_PNBP` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `jasa`
@@ -596,13 +633,13 @@ ALTER TABLE `kegiatan_bencana`
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
 --
 ALTER TABLE `kegiatan_keagamaan`
-  MODIFY `ID_Keagamaan` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_Keagamaan` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_pertahanan_keamanan`
 --
 ALTER TABLE `kegiatan_pertahanan_keamanan`
-  MODIFY `ID_Pertahanan` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_Pertahanan` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_sosial`
@@ -614,7 +651,7 @@ ALTER TABLE `kegiatan_sosial`
 -- AUTO_INCREMENT for table `pemerintah_pusat_daerah`
 --
 ALTER TABLE `pemerintah_pusat_daerah`
-  MODIFY `ID_Pusat` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_Pusat` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pendidikan_dan_penelitian`
@@ -626,7 +663,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -644,7 +681,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
 
 --
 -- Constraints for dumped tables

@@ -1,11 +1,10 @@
-Dompdf
-======
+# Dompdf
 
 [![Build Status](https://github.com/dompdf/dompdf/actions/workflows/test.yml/badge.svg)](https://github.com/dompdf/dompdf/actions/workflows/test.yml)
 [![Latest Release](https://poser.pugx.org/dompdf/dompdf/v/stable.png)](https://packagist.org/packages/dompdf/dompdf)
 [![Total Downloads](https://poser.pugx.org/dompdf/dompdf/downloads.png)](https://packagist.org/packages/dompdf/dompdf)
 [![License](https://poser.pugx.org/dompdf/dompdf/license.png)](https://packagist.org/packages/dompdf/dompdf)
- 
+
 **Dompdf is an HTML to PDF converter**
 
 At its heart, dompdf is (mostly) a [CSS 2.1](http://www.w3.org/TR/CSS2/) compliant
@@ -14,11 +13,11 @@ it will download and read external stylesheets, inline style tags, and the style
 attributes of individual HTML elements. It also supports most presentational
 HTML attributes.
 
-*This document applies to the latest stable code which may not reflect the current 
+_This document applies to the latest stable code which may not reflect the current
 release. For released code please
-[navigate to the appropriate tag](https://github.com/dompdf/dompdf/tags).*
+[navigate to the appropriate tag](https://github.com/dompdf/dompdf/tags)._
 
-----
+---
 
 **Check out the [demo](http://eclecticgeek.com/dompdf/debug.php) and ask any
 question on [StackOverflow](https://stackoverflow.com/questions/tagged/dompdf) or
@@ -28,38 +27,36 @@ Follow us on [![Twitter](http://twitter-badges.s3.amazonaws.com/twitter-a.png)](
 
 ---
 
-
-
 ## Features
 
- * Handles most CSS 2.1 and a few CSS3 properties, including @import, @media &
-   @page rules
- * Supports most presentational HTML 4.0 attributes
- * Supports external stylesheets, either local or through http/ftp (via
-   fopen-wrappers)
- * Supports complex tables, including row & column spans, separate & collapsed
-   border models, individual cell styling
- * Image support (gif, png (8, 24 and 32 bit with alpha channel), bmp & jpeg)
- * No dependencies on external PDF libraries, thanks to the R&OS PDF class
- * Inline PHP support
- * Basic SVG support (see "Limitations" below)
- 
+- Handles most CSS 2.1 and a few CSS3 properties, including @import, @media &
+  @page rules
+- Supports most presentational HTML 4.0 attributes
+- Supports external stylesheets, either local or through http/ftp (via
+  fopen-wrappers)
+- Supports complex tables, including row & column spans, separate & collapsed
+  border models, individual cell styling
+- Image support (gif, png (8, 24 and 32 bit with alpha channel), bmp & jpeg)
+- No dependencies on external PDF libraries, thanks to the R&OS PDF class
+- Inline PHP support
+- Basic SVG support (see "Limitations" below)
+
 ## Requirements
 
- * PHP version 7.1 or higher
- * DOM extension
- * MBString extension
- * php-font-lib
- * php-svg-lib
- 
-Note that some required dependencies may have further dependencies 
+- PHP version 7.1 or higher
+- DOM extension
+- MBString extension
+- php-font-lib
+- php-svg-lib
+
+Note that some required dependencies may have further dependencies
 (notably php-svg-lib requires sabberworm/php-css-parser).
 
 ### Recommendations
 
- * OPcache (OPcache, XCache, APC, etc.): improves performance
- * GD (for image processing)
- * IMagick or GMagick extension: improves image processing performance
+- OPcache (OPcache, XCache, APC, etc.): improves performance
+- GD (for image processing)
+- IMagick or GMagick extension: improves image processing performance
 
 Visit the wiki for more information:
 https://github.com/dompdf/dompdf/wiki/Requirements
@@ -103,13 +100,13 @@ require 'vendor/autoload.php';
 
 ### Download and install
 
-Download a packaged archive of dompdf and extract it into the 
+Download a packaged archive of dompdf and extract it into the
 directory where dompdf will reside
 
- * You can download stable copies of dompdf from
-   https://github.com/dompdf/dompdf/releases
- * Or download a nightly (the latest, unreleased code) from
-   http://eclecticgeek.com/dompdf
+- You can download stable copies of dompdf from
+  https://github.com/dompdf/dompdf/releases
+- Or download a nightly (the latest, unreleased code) from
+  http://eclecticgeek.com/dompdf
 
 Use the packaged release autoloader to load dompdf, libraries,
 and helper functions in your PHP:
@@ -120,7 +117,7 @@ require_once 'dompdf/autoload.inc.php';
 ```
 
 Note: packaged releases are named according using semantic
-versioning (_dompdf_MAJOR-MINOR-PATCH.zip_). So the 1.0.0 
+versioning (_dompdf_MAJOR-MINOR-PATCH.zip_). So the 1.0.0
 release would be dompdf_1-0-0.zip. This is the only download
 that includes the autoloader for Dompdf and all its dependencies.
 
@@ -201,32 +198,35 @@ See [Dompdf\Options](src/Options.php) for a list of available options.
 
 ### Resource Reference Requirements
 
-In order to protect potentially sensitive information Dompdf imposes 
-restrictions on files referenced from the local file system or the web. 
+In order to protect potentially sensitive information Dompdf imposes
+restrictions on files referenced from the local file system or the web.
 
 Files accessed through web-based protocols have the following requirements:
- * The Dompdf option "isRemoteEnabled" must be set to "true"
- * PHP must either have the curl extension enabled or the 
-   allow_url_fopen setting set to true
-   
+
+- The Dompdf option "isRemoteEnabled" must be set to "true"
+- PHP must either have the curl extension enabled or the
+  allow_url_fopen setting set to true
+
 Files accessed through the local file system have the following requirement:
- * The file must fall within the path(s) specified for the Dompdf "chroot" option
+
+- The file must fall within the path(s) specified for the Dompdf "chroot" option
 
 ## Limitations (Known Issues)
 
- * Table cells are not pageable, meaning a table row must fit on a single page.
- * Elements are rendered on the active page when they are parsed.
- * Embedding "raw" SVG's (`<svg><path...></svg>`) isn't working yet, you need to
-   either link to an external SVG file, or use a DataURI like this:
-     ```php
-     $html = '<img src="data:image/svg+xml;base64,' . base64_encode($svg) . '" ...>';
-     ```
-     Watch https://github.com/dompdf/dompdf/issues/320 for progress
- * Does not support CSS flexbox.
- * Does not support CSS Grid.
+- Table cells are not pageable, meaning a table row must fit on a single page.
+- Elements are rendered on the active page when they are parsed.
+- Embedding "raw" SVG's (`<svg><path...></svg>`) isn't working yet, you need to
+  either link to an external SVG file, or use a DataURI like this:
+  ```php
+  $html = '<img src="data:image/svg+xml;base64,' . base64_encode($svg) . '" ...>';
+  ```
+  Watch https://github.com/dompdf/dompdf/issues/320 for progress
+- Does not support CSS flexbox.
+- Does not support CSS Grid.
+
 ---
 
 [![Donate button](https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif)](http://goo.gl/DSvWf)
 
-*If you find this project useful, please consider making a donation.
-Any funds donated will be used to help further development on this project.)*
+_If you find this project useful, please consider making a donation.
+Any funds donated will be used to help further development on this project.)_

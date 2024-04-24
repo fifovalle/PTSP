@@ -166,7 +166,9 @@ body {
 .button1 button:hover {
   color: var(--color-buttonhover-cover);
   background-color: var(--backgroundcolor-buttonhover-cover);
-  box-shadow: -2px -1px 8px 0px #000000, 2px 1px 8px 0px rgba(0, 0, 0, 0.48);
+  box-shadow:
+    -2px -1px 8px 0px #000000,
+    2px 1px 8px 0px rgba(0, 0, 0, 0.48);
 }
 
 .button1 button:active {
@@ -190,7 +192,8 @@ body {
   padding: 16px 24px 16px 28px;
   transform: translate(0px, 0px) rotate(0deg);
   transition: 0.2s;
-  box-shadow: -4px -2px 16px 0px rgba(255, 255, 255, 0.4),
+  box-shadow:
+    -4px -2px 16px 0px rgba(255, 255, 255, 0.4),
     4px 2px 16px 0px rgba(95, 157, 231, 0.24);
 }
 /* End Cover Effect*/
@@ -322,7 +325,9 @@ body {
 .button2 button:hover {
   color: var(--color-buttonhover-cover);
   background-color: var(--backgroundcolor-buttonhover-cover);
-  box-shadow: -2px -1px 8px 0px #000000, 2px 1px 8px 0px rgba(0, 0, 0, 0.48);
+  box-shadow:
+    -2px -1px 8px 0px #000000,
+    2px 1px 8px 0px rgba(0, 0, 0, 0.48);
 }
 
 .button2 button:active {
@@ -346,7 +351,8 @@ body {
   padding: 16px 24px 16px 28px;
   transform: translate(0px, 0px) rotate(0deg);
   transition: 0.2s;
-  box-shadow: -4px -2px 16px 0px rgba(255, 255, 255, 0.4),
+  box-shadow:
+    -4px -2px 16px 0px rgba(255, 255, 255, 0.4),
     4px 2px 16px 0px rgba(95, 157, 231, 0.24);
 }
 /* End Section 5 Effect */

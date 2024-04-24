@@ -1,14 +1,14 @@
 This project aims at increasing the number of available Arabic free and
 open source fonts. The goals of this project are,
 
- * Create and/or salvage high quality free and open TTF Arabic fonts.
+- Create and/or salvage high quality free and open TTF Arabic fonts.
 
- * Create a central repository of all free and open source Arabic fonts
-(TTF and otherwise) in order to get them included into the various
-distributions.
+- Create a central repository of all free and open source Arabic fonts
+  (TTF and otherwise) in order to get them included into the various
+  distributions.
 
- * To better couple and artistically match Arabic fonts to their latin
-counterparts.
+- To better couple and artistically match Arabic fonts to their latin
+  counterparts.
 
 You can visit our web page
 http://www.arabeyes.org/project.php?proj=Khotot
@@ -20,7 +20,7 @@ This software package/product and attached documentations are provided
 
 If you'd like to help the Arabeyes Project, then consider:
 
-  http://www.arabeyes.org/donate.php
+http://www.arabeyes.org/donate.php
 
 Typeface and data © 2003-2007, Arabeyes.org.
 
@@ -42,17 +42,17 @@ extend this exception to your version of the font, but you are not
 obligated to do so. If you do not wish to do so, delete this exception
 statement from your version.
 
-Release Notes
--------------
+## Release Notes
+
 2.0
 This the second major release of Arabeyes fonts, this release features:
-  * Completely new Latin Glyphs, based on font distributed by FreeFonts project
-    (See the legal notes above)
-  * Proper support for Arabic diacritics; all fonts now have anchor points
-    adjusted manually to fit nicely with each glyph.
-  * Diacritics for AlMothnna, AlArabiya and Tholoth fonts have been redisigned
-    too look better and fit with the style of the font.
-  * We dropped ae_ prefix from all fonts, so please fix your configuration
-    files.
-  * Various other small fixes, see ChangeLog file for details.
 
+- Completely new Latin Glyphs, based on font distributed by FreeFonts project
+  (See the legal notes above)
+- Proper support for Arabic diacritics; all fonts now have anchor points
+  adjusted manually to fit nicely with each glyph.
+- Diacritics for AlMothnna, AlArabiya and Tholoth fonts have been redisigned
+  too look better and fit with the style of the font.
+- We dropped ae\_ prefix from all fonts, so please fix your configuration
+  files.
+- Various other small fixes, see ChangeLog file for details.

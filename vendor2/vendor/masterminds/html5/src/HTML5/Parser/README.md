@@ -14,7 +14,6 @@ of the HTML5 specification, though we do not assume a networking layer.
            ||
      [ DOM Document ]     // The final state of the parsed document.
 
-
 ## InputStream
 
 This is an interface with at least two concrete implementations:

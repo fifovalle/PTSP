@@ -1546,14 +1546,12 @@ class Pengajuan
 
     public function tambahDataPengajuanKeagamaan($dataPengajuanKeagamaan)
     {
-        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Keagamaan, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, ?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Keagamaan, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "iiis",
-            $dataPengajuanKeagamaan['ID_Pengguna'],
-            $dataPengajuanKeagamaan['ID_Perusahaan'],
+            "is",
             $dataPengajuanKeagamaan['ID_Keagamaan'],
             $dataPengajuanKeagamaan['Status_Pengajuan'],
         );
@@ -1566,14 +1564,12 @@ class Pengajuan
 
     public function tambahDataPengajuanPertahanaan($dataPengajuanPertahanan)
     {
-        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Pertahanan, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, ?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Pertahanan, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "iiis",
-            $dataPengajuanPertahanan['ID_Pengguna'],
-            $dataPengajuanPertahanan['ID_Perusahaan'],
+            "is",
             $dataPengajuanPertahanan['ID_Pertahanan'],
             $dataPengajuanPertahanan['Status_Pengajuan'],
         );
@@ -1586,14 +1582,12 @@ class Pengajuan
 
     public function tambahDataPengajuanPenelitian($dataPengajuanPenelitian)
     {
-        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Pusat_Daerah, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, ?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Pusat_Daerah, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "iiis",
-            $dataPengajuanPenelitian['ID_Pengguna'],
-            $dataPengajuanPenelitian['ID_Perusahaan'],
+            "is",
             $dataPengajuanPenelitian['ID_Pusat_Daerah'],
             $dataPengajuanPenelitian['Status_Pengajuan'],
         );
@@ -1606,14 +1600,12 @@ class Pengajuan
 
     public function tambahDataPengajuanPusat($dataPengajuanPusat)
     {
-        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Pusat_Daerah, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, ?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Pusat_Daerah, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "iiis",
-            $dataPengajuanPusat['ID_Pengguna'],
-            $dataPengajuanPusat['ID_Perusahaan'],
+            "is",
             $dataPengajuanPusat['ID_Pusat_Daerah'],
             $dataPengajuanPusat['Status_Pengajuan'],
         );
@@ -1626,14 +1618,12 @@ class Pengajuan
 
     public function tambahDataPengajuanTarif($dataPengajuanTarif)
     {
-        $query = "INSERT INTO pengajuan (ID_Pengguna, ID_Perusahaan, ID_Tarif, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, ?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Tarif, Status_Pengajuan, Tanggal_Pengajuan) 
+              VALUES (?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "iiis",
-            $dataPengajuanTarif['ID_Pengguna'],
-            $dataPengajuanTarif['ID_Perusahaan'],
+            "is",
             $dataPengajuanTarif['ID_Tarif'],
             $dataPengajuanTarif['Status_Pengajuan'],
         );
@@ -1791,6 +1781,114 @@ class Transaksi
         $statement->bind_param(
             "iii",
             $dataTransaksiPengajuanBencana['ID_Pengajuan'],
+            $idSession,
+            $idSession
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function perbaharuiPengajuanSosialKeTransaksiSesuaiSession($dataTransaksiPengajuanSosial, $idSession)
+    {
+        $query = "UPDATE transaksi SET ID_Pengajuan = ? WHERE (ID_Pengguna = ? OR ID_Perusahaan = ?) AND ID_Pengajuan IS NULL";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iii",
+            $dataTransaksiPengajuanSosial['ID_Pengajuan'],
+            $idSession,
+            $idSession
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function perbaharuiPengajuanKeagamaanKeTransaksiSesuaiSession($dataTransaksiPengajuanKeagamaan, $idSession)
+    {
+        $query = "UPDATE transaksi SET ID_Pengajuan = ? WHERE (ID_Pengguna = ? OR ID_Perusahaan = ?) AND ID_Pengajuan IS NULL";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iii",
+            $dataTransaksiPengajuanKeagamaan['ID_Pengajuan'],
+            $idSession,
+            $idSession
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function perbaharuiPengajuanPertahananKeTransaksiSesuaiSession($dataTransaksiPengajuanPertahanan, $idSession)
+    {
+        $query = "UPDATE transaksi SET ID_Pengajuan = ? WHERE (ID_Pengguna = ? OR ID_Perusahaan = ?) AND ID_Pengajuan IS NULL";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iii",
+            $dataTransaksiPengajuanPertahanan['ID_Pengajuan'],
+            $idSession,
+            $idSession
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function perbaharuiPengajuanPendidikanKeTransaksiSesuaiSession($dataTransaksiPengajuanPendidikan, $idSession)
+    {
+        $query = "UPDATE transaksi SET ID_Pengajuan = ? WHERE (ID_Pengguna = ? OR ID_Perusahaan = ?) AND ID_Pengajuan IS NULL";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iii",
+            $dataTransaksiPengajuanPendidikan['ID_Pengajuan'],
+            $idSession,
+            $idSession
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function perbaharuiPengajuanPusatKeTransaksiSesuaiSession($dataTransaksiPengajuanPusat, $idSession)
+    {
+        $query = "UPDATE transaksi SET ID_Pengajuan = ? WHERE (ID_Pengguna = ? OR ID_Perusahaan = ?) AND ID_Pengajuan IS NULL";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iii",
+            $dataTransaksiPengajuanPusat['ID_Pengajuan'],
+            $idSession,
+            $idSession
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function perbaharuiPengajuanTarifKeTransaksiSesuaiSession($dataTransaksiPengajuanTarif, $idSession)
+    {
+        $query = "UPDATE transaksi SET ID_Pengajuan = ? WHERE (ID_Pengguna = ? OR ID_Perusahaan = ?) AND ID_Pengajuan IS NULL";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iii",
+            $dataTransaksiPengajuanTarif['ID_Pengajuan'],
             $idSession,
             $idSession
         );

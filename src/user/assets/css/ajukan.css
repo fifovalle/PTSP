@@ -92,14 +92,18 @@ body {
   border-color: #08318d;
   height: 100%;
   transform: translateX(0);
-  transition: 0.3s transform linear, 0.3s height linear 0.3s;
+  transition:
+    0.3s transform linear,
+    0.3s height linear 0.3s;
 }
 
 .box-option:hover:after {
   border-color: #178636;
   height: 100%;
   transform: translateX(0);
-  transition: 0.3s transform linear, 0.3s height linear 0.5s;
+  transition:
+    0.3s transform linear,
+    0.3s height linear 0.5s;
 }
 
 button {

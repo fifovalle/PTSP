@@ -146,12 +146,12 @@ form {
   transition: 0.3s;
 }
 
-.input-div>div {
+.input-div > div {
   position: relative;
   height: 45px;
 }
 
-.input-div>div>h5 {
+.input-div > div > h5 {
   position: absolute;
   left: 10px;
   top: 50%;
@@ -185,16 +185,16 @@ form {
   width: 50%;
 }
 
-.input-div.focus>div>h5 {
+.input-div.focus > div > h5 {
   top: -5px;
   font-size: 15px;
 }
 
-.input-div.focus>.i>i {
+.input-div.focus > .i > i {
   color: #38d39f;
 }
 
-.input-div>div>input {
+.input-div > div > input {
   position: absolute;
   left: 0;
   top: 0;
@@ -332,7 +332,7 @@ a:hover {
   background-color: var(--latar);
 }
 
-.fab-checkbox:checked~.fab:before {
+.fab-checkbox:checked ~ .fab:before {
   width: 90%;
   height: 90%;
   left: 5%;
@@ -374,7 +374,7 @@ a:hover {
   animation-delay: 0.8s;
 }
 
-.fab-checkbox:checked~.fab .fab-dots {
+.fab-checkbox:checked ~ .fab .fab-dots {
   height: 6px;
 }
 
@@ -382,14 +382,14 @@ a:hover {
   transform: translateX(-50%) translateY(-50%) rotate(0deg);
 }
 
-.fab-checkbox:checked~.fab .fab-dots-1 {
+.fab-checkbox:checked ~ .fab .fab-dots-1 {
   width: 32px;
   border-radius: 10px;
   left: 50%;
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
 }
 
-.fab-checkbox:checked~.fab .fab-dots-3 {
+.fab-checkbox:checked ~ .fab .fab-dots-3 {
   width: 32px;
   border-radius: 10px;
   right: 50%;
@@ -402,7 +402,7 @@ a:hover {
   }
 }
 
-.fab-checkbox:checked~.fab .fab-dots {
+.fab-checkbox:checked ~ .fab .fab-dots {
   animation: none;
 }
 
@@ -417,7 +417,7 @@ a:hover {
   transform: scale(0);
 }
 
-.fab-checkbox:checked~.fab-wheel {
+.fab-checkbox:checked ~ .fab-wheel {
   transform: scale(1);
 }
 
@@ -435,7 +435,7 @@ a:hover {
   opacity: 0;
 }
 
-.fab-checkbox:checked~.fab-wheel .fab-action {
+.fab-checkbox:checked ~ .fab-wheel .fab-action {
   opacity: 1;
 }
 

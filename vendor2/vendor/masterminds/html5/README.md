@@ -5,14 +5,15 @@
 > Your support is urgently needed.
 >
 > - Donate to the volunteers. Here is the volunteer fund helping the Ukrainian army to provide all the necessary equipment:
->  https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi or https://savelife.in.ua/en/donate/
+>   https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi or https://savelife.in.ua/en/donate/
 > - Triple-check social media sources. Russian disinformation is attempting to coverup and distort the reality in Ukraine.
 > - Help Ukrainian refugees who are fleeing Russian attacks and shellings: https://www.globalcitizen.org/en/content/ways-to-help-ukraine-conflict/
-> -  Put pressure on your political representatives to provide help to Ukraine.
-> -  Believe in the Ukrainian people, they will not surrender, they don't have another Ukraine.
+> - Put pressure on your political representatives to provide help to Ukraine.
+> - Believe in the Ukrainian people, they will not surrender, they don't have another Ukraine.
 >
 > THANK YOU!
-----
+
+---
 
 # HTML5-PHP
 
@@ -44,9 +45,9 @@ By adding the `masterminds/html5` dependency to your `composer.json` file:
 
 ```json
 {
-  "require" : {
+  "require": {
     "masterminds/html5": "^2.0"
-  },
+  }
 }
 ```
 
@@ -115,15 +116,15 @@ $dom = $html5->loadHTML($html);
 
 The following options are supported:
 
-* `encode_entities` (boolean): Indicates that the serializer should aggressively
+- `encode_entities` (boolean): Indicates that the serializer should aggressively
   encode characters as entities. Without this, it only encodes the bare
   minimum.
-* `disable_html_ns` (boolean): Prevents the parser from automatically
+- `disable_html_ns` (boolean): Prevents the parser from automatically
   assigning the HTML5 namespace to the DOM document. This is for
   non-namespace aware DOM tools.
-* `target_document` (\DOMDocument): A DOM document that will be used as the
+- `target_document` (\DOMDocument): A DOM document that will be used as the
   destination for the parsed nodes.
-* `implicit_namespaces` (array): An assoc array of namespaces that should be
+- `implicit_namespaces` (array): An assoc array of namespaces that should be
   used by the parser. Name is tag prefix, value is NS URI.
 
 ## The Low-Level API
@@ -132,9 +133,9 @@ This library provides the following low-level APIs that you can use to
 create more customized HTML5 tools:
 
 - A SAX-like event-based parser that you can hook into for special kinds
-of parsing.
+  of parsing.
 - A flexible error-reporting mechanism that can be tuned to document
-syntax checking.
+  syntax checking.
 - A DOM implementation that uses PHP's built-in DOM library.
 
 The unit tests exercise each piece of the API, and every public function
@@ -146,11 +147,11 @@ The parser is designed as follows:
 
 - The `Scanner` handles scanning on behalf of the parser.
 - The `Tokenizer` requests data off of the scanner, parses it, clasifies
-it, and sends it to an `EventHandler`. It is a *recursive descent parser.*
+  it, and sends it to an `EventHandler`. It is a _recursive descent parser._
 - The `EventHandler` receives notifications and data for each specific
-semantic event that occurs during tokenization.
+  semantic event that occurs during tokenization.
 - The `DOMBuilder` is an `EventHandler` that listens for tokenizing
-events and builds a document tree (`DOMDocument`) based on the events.
+  events and builds a document tree (`DOMDocument`) based on the events.
 
 ### Serializer Design
 
@@ -160,13 +161,13 @@ it into a character representation -- an HTML5 document.
 The serializer is broken into three parts:
 
 - The `OutputRules` contain the rules to turn DOM elements into strings. The
-rules are an implementation of the interface `RulesInterface` allowing for
-different rule sets to be used.
+  rules are an implementation of the interface `RulesInterface` allowing for
+  different rule sets to be used.
 - The `Traverser`, which is a special-purpose tree walker. It visits
-each node node in the tree and uses the `OutputRules` to transform the node
-into a string.
+  each node node in the tree and uses the `OutputRules` to transform the node
+  into a string.
 - `HTML5` manages the `Traverser` and stores the resultant data
-in the correct place.
+  in the correct place.
 
 The serializer (`save()`, `saveHTML()`) follows the
 [section 8.9 of the HTML 5.0 spec](http://www.w3.org/TR/2012/CR-html5-20121217/syntax.html#serializing-html-fragments).
@@ -185,7 +186,7 @@ issues known issues that are not presently on the roadmap:
   and they do not operate in the same way as XML namespaces. A `:` has no special
   meaning.
   By default the parser does not support XML style namespaces via `:`;
-  to enable the XML namespaces see the  [XML Namespaces section](#xml-namespaces)
+  to enable the XML namespaces see the [XML Namespaces section](#xml-namespaces)
 - Scripts: This parser does not contain a JavaScript or a CSS
   interpreter. While one may be supplied, not all features will be
   supported.
@@ -196,9 +197,9 @@ issues known issues that are not presently on the roadmap:
   conforms to the standard. (Should you wish, you can build a validating
   parser by extending DOMTree or building your own EventHandler
   implementation.)
-  * There is limited support for insertion modes.
-  * Some autocorrection is done automatically.
-  * Per the spec, many legacy tags are admitted and correctly handled,
+  - There is limited support for insertion modes.
+  - Some autocorrection is done automatically.
+  - Per the spec, many legacy tags are admitted and correctly handled,
     even though they are technically not part of HTML5.
 - Attribute names and values: Due to the implementation details of the
   PHP implementation of DOM, attribute names that do not follow the

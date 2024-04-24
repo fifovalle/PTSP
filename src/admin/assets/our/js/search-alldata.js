@@ -21,7 +21,7 @@ function cariDataLangsung() {
     xhttp.open(
       "POST",
       "http://localhost/PTSP/src/admin/config/search.php",
-      true
+      true,
     );
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("keyword=" + keyword);

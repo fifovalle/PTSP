@@ -75,10 +75,10 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                             <span class="nilai_informasi" id="nilai_<?php echo $transaksiInformasi['ID_Tranksaksi']; ?>" data-id-tombol="<?php echo $transaksiInformasi['ID_Tranksaksi']; ?>">0</span>
                                             <button type="button" class="btn btn-primary plus" onclick="tambahNilai(<?php echo $transaksiInformasi['ID_Tranksaksi']; ?>)"><i class="bi bi-plus"></i></button>
                                         </td>
-                                        <td class="btn-hapus text-center">
-                                            <div type="button" class="btn btn-outline-secondary">
+                                        <td id="btn-hapus-informasi">
+                                            <div type="button" class="btn btn-secondary">
                                                 <span>
-                                                    <box-icon name='trash-alt'></box-icon>
+                                                    <box-icon name='trash-alt' color='rgba(255,255,255,0.9)'></box-icon>
                                                 </span>
                                             </div>
                                         </td>
@@ -137,10 +137,10 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                 <span class="nilai_informasi" id="nilai_<?php echo $transaksiJasa['ID_Tranksaksi']; ?>" data-id-tombol="<?php echo $transaksiJasa['ID_Tranksaksi']; ?>">0</span>
                                                 <button type="button" class="btn btn-primary plus" onclick="tambahNilai1(<?php echo $transaksiJasa['ID_Tranksaksi']; ?>)"><i class="bi bi-plus"></i></button>
                                             </td>
-                                            <td class="btn-hapus-jasa text-center">
-                                                <div type="button" class="btn btn-outline-secondary">
+                                            <td id="btn-hapus-jasa">
+                                                <div type="button" class="btn btn-secondary">
                                                     <span>
-                                                        <box-icon name='trash-alt'></box-icon>
+                                                        <box-icon name='trash-alt' color='rgba(255,255,255,0.9)'></box-icon>
                                                     </span>
                                                 </div>
                                             </td>

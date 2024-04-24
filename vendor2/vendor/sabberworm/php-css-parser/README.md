@@ -79,8 +79,8 @@ To append a new item (selector, media query, etc.) to an existing `CSSList`, con
 
 `RuleSet` is a container for individual rules. The most common form of a rule set is one constrained by a selector. The following concrete subtypes exist:
 
-* `AtRuleSet` – for generic at-rules for generic at-rules which are not covered by specific classes, i.e., not `@import`, `@charset` or `@media`. A common example for this is `@font-face`.
-* `DeclarationBlock` – a `RuleSet` constrained by a `Selector`; contains an array of selector objects (comma-separated in the CSS) as well as the rules to be applied to the matching elements.
+- `AtRuleSet` – for generic at-rules for generic at-rules which are not covered by specific classes, i.e., not `@import`, `@charset` or `@media`. A common example for this is `@font-face`.
+- `DeclarationBlock` – a `RuleSet` constrained by a `Selector`; contains an array of selector objects (comma-separated in the CSS) as well as the rules to be applied to the matching elements.
 
 Note: A `CSSList` can contain other `CSSList`s (and `Import`s as well as a `Charset`), while a `RuleSet` can only contain `Rule`s.
 
@@ -94,31 +94,31 @@ If you want to manipulate a `RuleSet`, use the methods `addRule(Rule $rule)`, `g
 
 `Value` is an abstract class that only defines the `render` method. The concrete subclasses for atomic value types are:
 
-* `Size` – consists of a numeric `size` value and a unit.
-* `Color` – colors can be input in the form #rrggbb, #rgb or schema(val1, val2, …) but are always stored as an array of ('s' => val1, 'c' => val2, 'h' => val3, …) and output in the second form.
-* `CSSString` – this is just a wrapper for quoted strings to distinguish them from keywords; always output with double quotes.
-* `URL` – URLs in CSS; always output in `URL("")` notation.
+- `Size` – consists of a numeric `size` value and a unit.
+- `Color` – colors can be input in the form #rrggbb, #rgb or schema(val1, val2, …) but are always stored as an array of ('s' => val1, 'c' => val2, 'h' => val3, …) and output in the second form.
+- `CSSString` – this is just a wrapper for quoted strings to distinguish them from keywords; always output with double quotes.
+- `URL` – URLs in CSS; always output in `URL("")` notation.
 
 There is another abstract subclass of `Value`, `ValueList`: A `ValueList` represents a lists of `Value`s, separated by some separation character (mostly `,`, whitespace, or `/`).
 
 There are two types of `ValueList`s:
 
-* `RuleValueList` – The default type, used to represent all multivalued rules like `font: bold 12px/3 Helvetica, Verdana, sans-serif;` (where the value would be a whitespace-separated list of the primitive value `bold`, a slash-separated list and a comma-separated list).
-* `CSSFunction` – A special kind of value that also contains a function name and where the values are the function’s arguments. Also handles equals-sign-separated argument lists like `filter: alpha(opacity=90);`.
+- `RuleValueList` – The default type, used to represent all multivalued rules like `font: bold 12px/3 Helvetica, Verdana, sans-serif;` (where the value would be a whitespace-separated list of the primitive value `bold`, a slash-separated list and a comma-separated list).
+- `CSSFunction` – A special kind of value that also contains a function name and where the values are the function’s arguments. Also handles equals-sign-separated argument lists like `filter: alpha(opacity=90);`.
 
 #### Convenience methods
 
 There are a few convenience methods on `Document` to ease finding, manipulating and deleting rules:
 
-* `getAllDeclarationBlocks()` – does what it says; no matter how deeply nested the selectors are. Aliased as `getAllSelectors()`.
-* `getAllRuleSets()` – does what it says; no matter how deeply nested the rule sets are.
-* `getAllValues()` – finds all `Value` objects inside `Rule`s.
+- `getAllDeclarationBlocks()` – does what it says; no matter how deeply nested the selectors are. Aliased as `getAllSelectors()`.
+- `getAllRuleSets()` – does what it says; no matter how deeply nested the rule sets are.
+- `getAllValues()` – finds all `Value` objects inside `Rule`s.
 
 ## To-Do
 
-* More convenience methods (like `selectorsWithElement($sId/Class/TagName)`, `attributesOfType($type)`, `removeAttributesOfType($type)`)
-* Real multibyte support. Currently, only multibyte charsets whose first 255 code points take up only one byte and are identical with ASCII are supported (yes, UTF-8 fits this description).
-* Named color support (using `Color` instead of an anonymous string literal)
+- More convenience methods (like `selectorsWithElement($sId/Class/TagName)`, `attributesOfType($type)`, `removeAttributesOfType($type)`)
+- Real multibyte support. Currently, only multibyte charsets whose first 255 code points take up only one byte and are identical with ASCII are supported (yes, UTF-8 fits this description).
+- Named color support (using `Color` instead of an anonymous string literal)
 
 ## Use cases
 
@@ -158,7 +158,7 @@ foreach($cssDocument->getAllRuleSets() as $oRuleSet) {
     // Note that the added dash will make this remove all rules starting with
     // `font-` (like `font-size`, `font-weight`, etc.) as well as a potential
     // `font` rule.
-    $oRuleSet->removeRule('font-'); 
+    $oRuleSet->removeRule('font-');
     $oRuleSet->removeRule('cursor');
 }
 ```
@@ -204,15 +204,19 @@ To see what you can do with output formatting, look at the tests in `tests/Outpu
   src: url("../media/cr.ttf");
 }
 
-html, body {
-    font-size: 1.6em;
+html,
+body {
+  font-size: 1.6em;
 }
 
 @keyframes mymove {
-    from { top: 0px; }
-    to { top: 200px; }
+  from {
+    top: 0px;
+  }
+  to {
+    top: 200px;
+  }
 }
-
 ```
 
 <details>
@@ -437,15 +441,29 @@ class Sabberworm\CSS\CSSList\Document#4 (2) {
 }
 
 ```
+
 </details>
 
 #### Output (`render()`)
 
 ```css
 @charset "utf-8";
-@font-face {font-family: "CrassRoots";src: url("../media/cr.ttf");}
-html, body {font-size: 1.6em;}
-@keyframes mymove {from {top: 0px;} to {top: 200px;}}
+@font-face {
+  font-family: "CrassRoots";
+  src: url("../media/cr.ttf");
+}
+html,
+body {
+  font-size: 1.6em;
+}
+@keyframes mymove {
+  from {
+    top: 0px;
+  }
+  to {
+    top: 200px;
+  }
+}
 ```
 
 ### Example 2 (Values)
@@ -454,11 +472,10 @@ html, body {font-size: 1.6em;}
 
 ```css
 #header {
-    margin: 10px 2em 1cm 2%;
-    font-family: Verdana, Helvetica, "Gill Sans", sans-serif;
-    color: red !important;
+  margin: 10px 2em 1cm 2%;
+  font-family: Verdana, Helvetica, "Gill Sans", sans-serif;
+  color: red !important;
 }
-
 ```
 
 <details>
@@ -607,31 +624,36 @@ class Sabberworm\CSS\CSSList\Document#4 (2) {
 }
 
 ```
+
 </details>
 
 #### Output (`render()`)
 
 ```css
-#header {margin: 10px 2em 1cm 2%;font-family: Verdana,Helvetica,"Gill Sans",sans-serif;color: red !important;}
+#header {
+  margin: 10px 2em 1cm 2%;
+  font-family: Verdana, Helvetica, "Gill Sans", sans-serif;
+  color: red !important;
+}
 ```
 
 ## Contributors/Thanks to
 
-* [oliverklee](https://github.com/oliverklee) for lots of refactorings, code modernizations and CI integrations
-* [raxbg](https://github.com/raxbg) for contributions to parse `calc`, grid lines, and various bugfixes.
-* [westonruter](https://github.com/westonruter) for bugfixes and improvements.
-* [FMCorz](https://github.com/FMCorz) for many patches and suggestions, for being able to parse comments and IE hacks (in lenient mode).
-* [Lullabot](https://github.com/Lullabot) for a patch that allows to know the line number for each parsed token.
-* [ju1ius](https://github.com/ju1ius) for the specificity parsing code and the ability to expand/compact shorthand properties.
-* [ossinkine](https://github.com/ossinkine) for a 150 time performance boost.
-* [GaryJones](https://github.com/GaryJones) for lots of input and [https://css-specificity.info/](https://css-specificity.info/).
-* [docteurklein](https://github.com/docteurklein) for output formatting and `CSSList->remove()` inspiration.
-* [nicolopignatelli](https://github.com/nicolopignatelli) for PSR-0 compatibility.
-* [diegoembarcadero](https://github.com/diegoembarcadero) for keyframe at-rule parsing.
-* [goetas](https://github.com/goetas) for @namespace at-rule support.
-* [View full list](https://github.com/sabberworm/PHP-CSS-Parser/contributors)
+- [oliverklee](https://github.com/oliverklee) for lots of refactorings, code modernizations and CI integrations
+- [raxbg](https://github.com/raxbg) for contributions to parse `calc`, grid lines, and various bugfixes.
+- [westonruter](https://github.com/westonruter) for bugfixes and improvements.
+- [FMCorz](https://github.com/FMCorz) for many patches and suggestions, for being able to parse comments and IE hacks (in lenient mode).
+- [Lullabot](https://github.com/Lullabot) for a patch that allows to know the line number for each parsed token.
+- [ju1ius](https://github.com/ju1ius) for the specificity parsing code and the ability to expand/compact shorthand properties.
+- [ossinkine](https://github.com/ossinkine) for a 150 time performance boost.
+- [GaryJones](https://github.com/GaryJones) for lots of input and [https://css-specificity.info/](https://css-specificity.info/).
+- [docteurklein](https://github.com/docteurklein) for output formatting and `CSSList->remove()` inspiration.
+- [nicolopignatelli](https://github.com/nicolopignatelli) for PSR-0 compatibility.
+- [diegoembarcadero](https://github.com/diegoembarcadero) for keyframe at-rule parsing.
+- [goetas](https://github.com/goetas) for @namespace at-rule support.
+- [View full list](https://github.com/sabberworm/PHP-CSS-Parser/contributors)
 
 ## Misc
 
-* Legacy Support: The latest pre-PSR-0 version of this project can be checked with the `0.9.0` tag.
-* Running Tests: To run all unit tests for this project, run `composer install` to install phpunit and use `./vendor/bin/phpunit`.
+- Legacy Support: The latest pre-PSR-0 version of this project can be checked with the `0.9.0` tag.
+- Running Tests: To run all unit tests for this project, run `composer install` to install phpunit and use `./vendor/bin/phpunit`.

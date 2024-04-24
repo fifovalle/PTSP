@@ -167,7 +167,7 @@ body {
 }
 .status-invoice {
   color: white;
-  background: #db0000; //Untuk Lunas dia warnanya #00CB00
+  background: #db0000; /* Untuk Lunas dia warnanya #00CB00 */
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   border-radius: 10px;

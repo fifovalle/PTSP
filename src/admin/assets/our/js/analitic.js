@@ -7,27 +7,27 @@ $(document).ready(function () {
     menuText === "Semua"
       ? ($(".allData").show(),
         $(
-          ".allDataInformation, .allDataIKM, .allDataTransaction, .allDataServices"
+          ".allDataInformation, .allDataIKM, .allDataTransaction, .allDataServices",
         ).hide())
       : menuText === "Informasi"
-      ? ($(".allDataInformation").show(),
-        $(
-          ".allData, .allDataIKM, .allDataTransaction, .allDataServices"
-        ).hide())
-      : menuText === "IKM"
-      ? ($(".allDataIKM").show(),
-        $(
-          ".allData, .allDataInformation, .allDataTransaction, .allDataServices"
-        ).hide())
-      : menuText === "Transaksi"
-      ? ($(".allDataTransaction").show(),
-        $(
-          ".allData, .allDataInformation, .allDataIKM, .allDataServices"
-        ).hide())
-      : ($(".allDataServices").show(),
-        $(
-          ".allData, .allDataInformation, .allDataIKM, .allDataTransaction"
-        ).hide());
+        ? ($(".allDataInformation").show(),
+          $(
+            ".allData, .allDataIKM, .allDataTransaction, .allDataServices",
+          ).hide())
+        : menuText === "IKM"
+          ? ($(".allDataIKM").show(),
+            $(
+              ".allData, .allDataInformation, .allDataTransaction, .allDataServices",
+            ).hide())
+          : menuText === "Transaksi"
+            ? ($(".allDataTransaction").show(),
+              $(
+                ".allData, .allDataInformation, .allDataIKM, .allDataServices",
+              ).hide())
+            : ($(".allDataServices").show(),
+              $(
+                ".allData, .allDataInformation, .allDataIKM, .allDataTransaction",
+              ).hide());
   });
 });
 
@@ -41,13 +41,13 @@ $(document).ready(function () {
       ? ($(".productChart").show(),
         $(".ikmChart, .servicesChart, .transactionChart").hide())
       : menuText === "Jasa"
-      ? ($(".servicesChart").show(),
-        $(".ikmChart, .transactionChart, .productChart").hide())
-      : menuText === "IKM"
-      ? ($(".ikmChart").show(),
-        $(".productChart, .servicesChart, .transactionChart").hide())
-      : ($(".transactionChart").show(),
-        $(".ikmChart, .servicesChart, .productChart").hide());
+        ? ($(".servicesChart").show(),
+          $(".ikmChart, .transactionChart, .productChart").hide())
+        : menuText === "IKM"
+          ? ($(".ikmChart").show(),
+            $(".productChart, .servicesChart, .transactionChart").hide())
+          : ($(".transactionChart").show(),
+            $(".ikmChart, .servicesChart, .productChart").hide());
   });
 });
 

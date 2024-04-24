@@ -37,19 +37,19 @@ card.addEventListener("mouseleave", function () {
   box.style.display = "none";
 });
 
-document.getElementById("unggahFoto").addEventListener("change", function() {
+document.getElementById("unggahFoto").addEventListener("change", function () {
   let file = this.files[0];
   let reader = new FileReader();
 
-  reader.onload = function(e) {
-      let imageSrc = e.target.result;
-      let formUploadDiv = document.querySelector(".formUpload");
+  reader.onload = function (e) {
+    let imageSrc = e.target.result;
+    let formUploadDiv = document.querySelector(".formUpload");
 
-      formUploadDiv.classList.remove("formUpload");
+    formUploadDiv.classList.remove("formUpload");
 
-      let label = document.querySelector(".upload-icon");
-      label.innerHTML =
-          '<img class="img-fluid" src="' + imageSrc + '" alt="Uploaded Image">';
+    let label = document.querySelector(".upload-icon");
+    label.innerHTML =
+      '<img class="img-fluid" src="' + imageSrc + '" alt="Uploaded Image">';
   };
 
   reader.readAsDataURL(file);

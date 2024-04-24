@@ -45,7 +45,7 @@ if (isset($_POST['Apply'])) {
 
                 $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
 
-                $simpanDataTransaksiPengajuanSosial = $obyekDataTransaksi->perbaharuiPengajuanBencanaKeTransaksiSesuaiSession($dataPengajuanSosial, $idSession);
+                $simpanDataTransaksiPengajuanSosial = $obyekDataTransaksi->perbaharuiPengajuanSosialKeTransaksiSesuaiSession($dataPengajuanSosial, $idSession);
 
                 if ($simpanDataSosial && $simpanDataPengajuanSosial && $simpanDataTransaksiPengajuanSosial) {
                     setPesanKeberhasilan("Data kegiatan penanggulangan sosial berhasil dikirim harap menunggu konfirmasi oleh admin.");

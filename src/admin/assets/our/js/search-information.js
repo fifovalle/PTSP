@@ -2,7 +2,9 @@ var xhrInformasi;
 var timeoutInformasi;
 
 function cariDataLiveInformasi() {
-  var inputPencarianInformasi = document.getElementById("inputPencarianInformasi").value;
+  var inputPencarianInformasi = document.getElementById(
+    "inputPencarianInformasi",
+  ).value;
 
   if (xhrInformasi && xhrInformasi.readyState !== XMLHttpRequest.DONE) {
     xhrInformasi.abort();
@@ -14,14 +16,15 @@ function cariDataLiveInformasi() {
 
     xhrInformasi.onreadystatechange = function () {
       if (xhrInformasi.readyState == 4 && xhrInformasi.status == 200) {
-        document.getElementById("tabelInformasi").innerHTML = xhrInformasi.responseText;
+        document.getElementById("tabelInformasi").innerHTML =
+          xhrInformasi.responseText;
       }
     };
 
     xhrInformasi.open(
       "GET",
       "../config/search-live-information.php?q=" + inputPencarianInformasi,
-      true
+      true,
     );
 
     xhrInformasi.send();

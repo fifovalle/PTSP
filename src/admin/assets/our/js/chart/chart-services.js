@@ -62,19 +62,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var chartServices1 = new ApexCharts(
     document.querySelector("#chartServices1"),
-    Object.assign({}, options, dataChart1)
+    Object.assign({}, options, dataChart1),
   );
   chartServices1.render();
 
   var chartServices2 = new ApexCharts(
     document.querySelector("#chartServices2"),
-    Object.assign({}, options, dataChart2)
+    Object.assign({}, options, dataChart2),
   );
   chartServices2.render();
 
   var chartServices3 = new ApexCharts(
     document.querySelector("#chartServices3"),
-    Object.assign({}, options, dataChart3)
+    Object.assign({}, options, dataChart3),
   );
   chartServices3.render();
 });
