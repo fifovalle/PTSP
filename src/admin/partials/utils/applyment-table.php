@@ -29,11 +29,11 @@
     <tbody class="tbodyData">
         <?php
         $transaksiModel = new Transaksi($koneksi);
-        $dataTransaksi = $transaksiModel->tampilkanPengajuanTransaksi();
+        $dataPengajuan = $transaksiModel->tampilkanPengajuanTransaksi();
 
-        if (!empty($dataTransaksi)) {
+        if (!empty($dataPengajuan)) {
             $nomorUrut = 1;
-            foreach ($dataTransaksi as $transaksi) {
+            foreach ($dataPengajuan as $pengajuan) {
         ?>
                 <tr class="trDataN">
                     <td class="text-center">
@@ -42,22 +42,22 @@
                     <td class="text-center"><?php echo $nomorUrut++; ?></td>
                     <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
                         <div>
-                            <img class="imageData" src="../assets/image/uploads/<?php echo htmlspecialchars(($transaksi['ID_Informasi'] != null) ? $transaksi['Foto_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Foto_Jasa'] : 'nama-file-default.jpg')); ?>" alt="Foto Produk">
+                            <img class="imageData" src="../assets/image/uploads/<?php echo htmlspecialchars(($pengajuan['ID_Informasi'] != null) ? $pengajuan['Foto_Informasi'] : (($pengajuan['ID_Jasa'] != null) ? $pengajuan['Foto_Jasa'] : 'nama-file-default.jpg')); ?>" alt="Foto Produk">
                         </div>
                         <div class="deskriptorContainer">
                             <p class="fw-semibold m-auto">
                                 <?php
-                                echo ($transaksi['ID_Informasi'] != null) ? $transaksi['Nama_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Nama_Jasa'] : 'Nama Tidak Tersedia');
+                                echo ($pengajuan['ID_Informasi'] != null) ? $pengajuan['Nama_Informasi'] : (($pengajuan['ID_Jasa'] != null) ? $pengajuan['Nama_Jasa'] : 'Nama Tidak Tersedia');
                                 ?>
                             </p>
                             <p class="fw-semibold deskriptorSmall m-auto">
                                 <?php
-                                $deskripsi = ($transaksi['ID_Informasi'] != null) ? $transaksi['Deskripsi_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Deskripsi_Jasa'] : 'Deskripsi Tidak Tersedia');
+                                $deskripsi = ($pengajuan['ID_Informasi'] != null) ? $pengajuan['Deskripsi_Informasi'] : (($pengajuan['ID_Jasa'] != null) ? $pengajuan['Deskripsi_Jasa'] : 'Deskripsi Tidak Tersedia');
                                 echo strlen($deskripsi) > 4 ? substr($deskripsi, 0, 4) . '...' : $deskripsi;
                                 ?>
                             </p>
                             <div class="iconContainerData">
-                                <a class="linkData" data-bs-toggle="modal" data-bs-target="#aproveApllyment">
+                                <a class="linkData" data-bs-toggle="modal" data-bs-target="#approveApplicationModal" data-id="<?php echo $pengajuan['ID_Pengajuan']; ?>">
                                     <span class="">
                                         <i class="fas fa-upload"></i>
                                     </span>
@@ -70,16 +70,16 @@
                             </div>
                         </div>
                     </td>
-                    <td class="text-center"><?php echo ($transaksi['ID_Pengguna'] != null) ? $transaksi['Nama_Pengguna'] : (($transaksi['ID_Perusahaan'] != null) ? $transaksi['Nama_Pengguna_Anggota_Perusahaan'] : 'Nama Pengguna Tidak Ada') ?></td>
+                    <td class="text-center"><?php echo ($pengajuan['ID_Pengguna'] != null) ? $pengajuan['Nama_Pengguna'] : (($pengajuan['ID_Perusahaan'] != null) ? $pengajuan['Nama_Pengguna_Anggota_Perusahaan'] : 'Nama Pengguna Tidak Ada') ?></td>
                     <td class="text-center">
                         <?php
-                        echo $transaksi['Keterangan_Surat_Ditolak'] !== NULL ? $transaksi['Keterangan_Surat_Ditolak'] : "Jika ada surat yang ditolak silahkan untuk diunggah";
+                        echo $pengajuan['Keterangan_Surat_Ditolak'] !== NULL ? $pengajuan['Keterangan_Surat_Ditolak'] : "Jika ada surat yang ditolak silahkan untuk diunggah";
                         ?>
                     </td>
-                    <td class="text-center"><?php echo $transaksi['Tanggal_Pengajuan']; ?></td>
+                    <td class="text-center"><?php echo $pengajuan['Tanggal_Pengajuan']; ?></td>
                     <td class="text-center">
-                        <span class="badge <?php echo ($transaksi['Status_Pengajuan'] === 'Sedang Ditinjau') ? 'text-bg-warning' : 'text-bg-success'; ?>">
-                            <?php echo $transaksi['Status_Pengajuan']; ?>
+                        <span class="badge <?php echo ($pengajuan['Status_Pengajuan'] === 'Sedang Ditinjau') ? 'text-bg-warning' : 'text-bg-success'; ?>">
+                            <?php echo $pengajuan['Status_Pengajuan']; ?>
                         </span>
                     </td>
                 </tr>

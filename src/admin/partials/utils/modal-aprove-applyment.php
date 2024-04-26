@@ -1,34 +1,34 @@
-<div class="modal fade" id="aproveApllyment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="approveApplicationModal" tabindex="-1" aria-labelledby="approveApplicationModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Penerimaan</h1>
+                <h1 class="modal-title fs-5" id="approveApplicationModalLabel">Penerimaan</h1>
                 <div class="modalClose" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fas fa-times"></i>
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" enctype="multipart/form-data">
-                    <input type="hidden" id="editApplyment" name="ID_Admin" autocomplete="off">
+                <form method="POST">
+                    <input type="hidden" id="editApplymentID" name="ID_Pengajuan" autocomplete="off">
                     <div class="mb-3">
-                        <label for="statusTransactionApplyment" class="form-label">Status Pengajuan</label>
-                        <select name="Status_Pengajuan" id="statusTransactionApplyment" class="form-control inputData">
+                        <label for="editStatusTransactionApplyment" class="form-label">Status Pengajuan</label>
+                        <select name="Status_Pengajuan" id="editStatusTransactionApplyment" class="form-control inputData">
                             <option value="Ditolak">Ditolak</option>
                             <option value="Diterima">Diterima</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="apakahGratis" class="form-label">Produk Gratis</label>
-                        <select name="apakahGratis" id="apakahGratis" class="form-control inputData">
+                        <label for="editApakahGratis" class="form-label">Produk Gratis</label>
+                        <select name="Apakah_Gratis" id="editApakahGratis" class="form-control inputData">
                             <option value="1">Gratis</option>
                             <option value="0">Bayar</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="descriptionApplyment" class="form-label">Keterangan Pengajuan Yang Ditolak</label>
-                        <textarea name="Ket_Pengajuan" class="form-control" id="descriptionApplyment" placeholder="Masukkan Keterangan"></textarea>
+                        <label for="editDescriptionApplyment" class="form-label">Keterangan Pengajuan Yang Ditolak</label>
+                        <textarea name="Keterangan_Surat_Ditolak" class="form-control" id="editDescriptionApplyment" placeholder="Masukkan Keterangan"></textarea>
                     </div>
-                    <button type="submit" class="btn btnUpload" id="tombolSimpanPengajuan" name="Simpan">Kirim</button>
+                    <button type="submit" class="btn btnUpload" name="Simpan" id="tombolSimpanApplyment">Kirim</button>
                 </form>
             </div>
         </div>

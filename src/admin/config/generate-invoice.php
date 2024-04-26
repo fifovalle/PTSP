@@ -5,6 +5,7 @@ include 'databases.php';
 use Dompdf\Dompdf;
 
 $dompdf = new Dompdf();
+$dompdf->set_option('isRemoteEnabled', true);
 $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
 $transaksiModel = new Transaksi($koneksi);
 $dataTransaksiA = $transaksiModel->tampilkanPembayaranTransaksiASesuaiSession($id);
@@ -16,6 +17,11 @@ $html = <<<HTML
     font-size: 16px;
   }
   
+  .header-invoice, 
+  .footer-invoice {
+    width: 100%;
+    padding: 0;
+  }
   table {
     width: 100%;
     border-collapse: collapse;
@@ -109,66 +115,41 @@ $html = <<<HTML
     width: 100px;
     text-align: center;
   }
-  
-  .footer {
-    margin-top: 100px;
-    background-color: black;
+
+  .line-items-container th.heading-result {
+    width: 50px;
+    text-align: center;
   }
   
-  .footer-info {
-    float: right;
-    margin-top: 5px;
-    font-size: 0.75em;
-    color: #ccc;
-  }
-  
-  .footer-info span {
-    padding: 0 5px;
-    color: #999;
-  }
-  
-  .footer-info span:last-child {
-    padding-right: 0;
+  .info-result td{
+    width: 30px;
   }
   </style>
   
+<img class="header-invoice" src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-head.jpg" alt="">
+<hr style="color: #999">
 <table class="invoice-info-container">
   <tr>
     <td rowspan="2" class="client-name">
       Faktur Pemesanan
     </td>
-    <td class="right">
-      PTSP BMKG Provinsi Bengkulu
-    </td>
   </tr>
-  <tr>
-    <td class="right">
-    Kota Bengkulu 
-    </td>
-  </tr>
+  <tr></tr>
   <tr>
     <td>
       Invoice Date: <strong>May 24th, 2024</strong>
-    </td>
-    <td class="right">
-      0823 7560 9090
     </td>
   </tr>
   <tr>
     <td>
       Invoice No: <strong>12345</strong>
     </td>
-    <td class="right">
-    https://bengkulu.bmkg.go.id/
-    </td>
   </tr>
 </table>
-<hr style="color: #999">
 <table class="line-items-container">
   <thead>
     <tr>
-      <td colspan="5" class="left"><h3>STASIUN METEOROLOGI</h3></td>
-      <td class="left"><h3>Status Pesanan: Lunas</h3></td>
+      <td colspan="4" class="left"><h3>STASIUN METEOROLOGI</h3></td>
     </tr>
     <tr>
       <th class="heading-description">Produk</th>
@@ -176,6 +157,7 @@ $html = <<<HTML
       <th class="heading-subtotal">Harga</th>
       <th class="heading-quantity">Jumlah</th>
       <th class="heading-total">Total</th>
+      <th class="heading-result">Status Pesanan</th>
     </tr>
   </thead>
   <tbody>
@@ -193,29 +175,33 @@ if (!empty($dataTransaksiA)) {
           <td class="center">Rp{$hargaProdukA}</td>
           <td class="center">{$transaksiA['Jumlah_Barang']}</td>
           <td class="center">Rp{$totalProdukA}</td>
-          <td style="font-size: 14px; font-weight: bold; border-radius: 5px;
-HTML;
+      HTML;
 
+    $html .= <<<HTML
+        <td class="center">
+    HTML;
     switch ($transaksiA['Status_Pesanan']) {
       case 'Belum Lunas':
-        $html .= 'background-color: #dc3545; color: white;">Belum Lunas</td>';
+        $html .= '<img  src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-cross.svg" alt="Belum Lunas">';
         break;
       case 'Sedang Ditinjau':
-        $html .= 'background-color: #ffc107; color: black;">Sedang Ditinjau</td>';
+        $html .= '<img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-pending.svg" alt="Sedang Ditinjau">';
         break;
       case 'Lunas':
-        $html .= 'background-color: #28a745; color: white;">Lunas</td>';
+        $html .= '<img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-check.svg" alt="Lunas">';
         break;
       default:
-        $html .= 'background-color: #6c757d; color: white;">Status Tidak Dikenali</td>';
+        $html .= '';
         break;
     }
-    $html .= "</td></tr>";
+    $html .= <<<HTML
+    </td>
+HTML;
   }
 } else {
   $html .= <<<HTML
   <tr>
-    <td colspan="5" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
+    <td colspan="6" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
   </tr>
 HTML;
 }
@@ -233,6 +219,7 @@ $html .= <<<HTML
       <th class="heading-subtotal">Harga</th>
       <th class="heading-quantity">Jumlah</th>
       <th class="heading-total">Total</th>
+      <th class="heading-result">Status Pesanan</th>
     </tr>
   </thead>
   <tbody>
@@ -250,29 +237,32 @@ if (!empty($dataTransaksiB)) {
           <td class="center">Rp{$hargaProdukB}</td>
           <td class="center">{$transaksiB['Jumlah_Barang']}</td>
           <td class="center">Rp{$totalProdukB}</td>
-          <td style="font-size: 14px; font-weight: bold; border-radius: 5px;
-HTML;
-
+    HTML;
+    $html .= <<<HTML
+        <td class="center">
+    HTML;
     switch ($transaksiA['Status_Pesanan']) {
       case 'Belum Lunas':
-        $html .= 'background-color: #dc3545; color: white;">Belum Lunas</td>';
+        $html .= '<img  src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-cross.svg" alt="Belum Lunas">';
         break;
       case 'Sedang Ditinjau':
-        $html .= 'background-color: #ffc107; color: black;">Sedang Ditinjau</td>';
+        $html .= '<img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-pending.svg" alt="Sedang Ditinjau">';
         break;
       case 'Lunas':
-        $html .= 'background-color: #28a745; color: white;">Lunas</td>';
+        $html .= '<img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-check.svg" alt="Lunas">';
         break;
       default:
-        $html .= 'background-color: #6c757d; color: white;">Status Tidak Dikenali</td>';
+        $html .= '';
         break;
     }
-    $html .= "</td></tr>";
+    $html .= <<<HTML
+    </td>
+HTML;
   }
 } else {
   $html .= <<<HTML
   <tr>
-    <td colspan="5" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
+    <td colspan="6" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
   </tr>
 HTML;
 }
@@ -291,6 +281,7 @@ $html .= <<<HTML
       <th class="heading-subtotal">Harga</th>
       <th class="heading-quantity">Jumlah</th>
       <th class="heading-total">Total</th>
+      <th class="heading-result">Status Pesanan</th>
     </tr>
   </thead>
   <tbody>
@@ -308,42 +299,56 @@ if (!empty($dataTransaksiC)) {
           <td class="center">Rp{$hargaProdukA}</td>
           <td class="center">{$transaksiC['Jumlah_Barang']}</td>
           <td class="center">Rp{$totalProdukA}</td>
-          <td style="font-size: 14px; font-weight: bold; border-radius: 5px;
-HTML;
-
+      HTML;
+    $html .= <<<HTML
+        <td class="center">
+    HTML;
     switch ($transaksiA['Status_Pesanan']) {
       case 'Belum Lunas':
-        $html .= 'background-color: #dc3545; color: white;">Belum Lunas</td>';
+        $html .= '<img  src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-cross.svg" alt="Belum Lunas">';
         break;
       case 'Sedang Ditinjau':
-        $html .= 'background-color: #ffc107; color: black;">Sedang Ditinjau</td>';
+        $html .= '<img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-pending.svg" alt="Sedang Ditinjau">';
         break;
       case 'Lunas':
-        $html .= 'background-color: #28a745; color: white;">Lunas</td>';
+        $html .= '<img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-check.svg" alt="Lunas">';
         break;
       default:
-        $html .= 'background-color: #6c757d; color: white;">Status Tidak Dikenali</td>';
+        $html .= '';
         break;
     }
-    $html .= "</td></tr>";
+    $html .= <<<HTML
+    </td>
+HTML;
   }
 } else {
   $html .= <<<HTML
   <tr>
-    <td colspan="5" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
+    <td colspan="6" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
   </tr>
 HTML;
 }
 $html .= <<<HTML
 </table>
-
-<div class="footer">
-  <div class="footer-info">
-    <span>PTSP BMKG Provinsi Bengkulu </span> |
-    <span>0823 7560 9090</span> |
-    <span>https://bengkulu.bmkg.go.id/</span>
-  </div>
-</div>
+<table class="info-result">
+  <tr>
+    <th class="left" colspan="6">Keterangan</th>
+  </tr>
+  <tr>
+    <td class="right image">
+      <img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-check.svg" alt="Lunas">
+    </td>
+    <td>: Lunas</td>
+    <td class="right image">
+      <img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-pending.svg" alt="Lunas">
+    </td>
+    <td>: Sedang Ditinjau</td>
+    <td class="right image">
+      <img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-cross.svg" alt="Lunas">
+    </td>
+    <td>: Belum Lunas</td>
+  </tr>
+</table>
 HTML;
 $dompdf->loadHtml($html);
 $dompdf->setPaper('A4', 'portrait');
