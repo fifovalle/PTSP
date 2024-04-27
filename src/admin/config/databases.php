@@ -1918,6 +1918,74 @@ class Transaksi
         }
     }
 
+    public function cekDataDiKeranjangPengguna($idInformasi, $idPengguna)
+    {
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi WHERE ID_Informasi = ? AND ID_Pengguna = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("ii", $idInformasi, $idPengguna);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+        $jumlah = $row['jumlah'];
+
+        if ($jumlah > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function cekDataDiKeranjangPerusahaan($idInformasi, $idPerusahaan)
+    {
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi WHERE ID_Informasi = ? AND ID_Perusahaan = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("ii", $idInformasi, $idPerusahaan);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+        $jumlah = $row['jumlah'];
+
+        if ($jumlah > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function cekJasaDiKeranjangPengguna($idJasa, $idPengguna)
+    {
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi WHERE ID_Jasa = ? AND ID_Pengguna = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("ii", $idJasa, $idPengguna);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+        $jumlah = $row['jumlah'];
+
+        if ($jumlah > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function cekJasaDiKeranjangPerusahaan($idJasa, $idPerusahaan)
+    {
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi WHERE ID_Jasa = ? AND ID_Perusahaan = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("ii", $idJasa, $idPerusahaan);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+        $jumlah = $row['jumlah'];
+
+        if ($jumlah > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function cekPenggunaTerdaftar($pengguna_id)
     {
         $query = "SELECT * FROM pengguna WHERE ID_Pengguna = ?";

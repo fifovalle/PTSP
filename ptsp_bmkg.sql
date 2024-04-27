@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2024 at 09:25 PM
+-- Generation Time: Apr 27, 2024 at 05:37 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -228,8 +228,8 @@ CREATE TABLE `kegiatan_bencana` (
 --
 
 INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencana`, `Email_Bencana`, `Surat_Pengantar_Permintaan_Data_Bencana`) VALUES
-(62, 'Naufal', '+62 812-3652-2490', 'fifnaufal10@gmail.com', 0x363632626638353264656137622e6a7067),
-(63, 'P', '+62 813-3336-6756', 'p@gmail.com', 0x363632626662316339656230642e6a7067);
+(64, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363632633732333339623662392e6a7067),
+(65, 'Opal', '+62 812-3652-2490', 'opal@gmail.com', 0x363632633732643164626231612e6a7067);
 
 -- --------------------------------------------------------
 
@@ -336,8 +336,8 @@ CREATE TABLE `pengajuan` (
 --
 
 INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `ID_Tarif`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Apakah_Gratis`, `Perbaikan_Dokumen`, `Jenis_Perbaikan`, `Tanggal_Pengajuan`) VALUES
-(79, 62, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-04-27 01:54:10'),
-(80, 63, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-04-27 02:06:04');
+(81, 64, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-04-27 10:34:11'),
+(82, 65, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-04-27 10:36:49');
 
 -- --------------------------------------------------------
 
@@ -445,8 +445,12 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `ID_IKM`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Bukti_Pembayaran`, `Keterangan_Pembayaran_Ditolak`, `Tanggal_Pembelian`, `Status_Transaksi`, `Status_Pesanan`) VALUES
-(150, NULL, 16, NULL, 18, NULL, 79, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-27 01:53:35', 'Belum Disetujui', 'Belum Lunas'),
-(151, NULL, 16, NULL, 19, NULL, 80, NULL, NULL, NULL, NULL, NULL, NULL, '2024-04-27 01:59:45', 'Belum Disetujui', 'Belum Lunas');
+(160, NULL, 16, NULL, 18, NULL, 81, NULL, 1, 100000, NULL, NULL, NULL, '2024-04-27 10:33:43', 'Belum Disetujui', 'Sedang Ditinjau'),
+(161, NULL, 16, NULL, 19, NULL, 81, NULL, 1, 200000, NULL, NULL, NULL, '2024-04-27 10:33:47', 'Belum Disetujui', 'Sedang Ditinjau'),
+(162, NULL, 16, NULL, 20, NULL, 81, NULL, 1, 300000, NULL, NULL, NULL, '2024-04-27 10:33:51', 'Belum Disetujui', 'Sedang Ditinjau'),
+(163, NULL, 16, NULL, NULL, 17, 82, NULL, 1, 200000, NULL, NULL, NULL, '2024-04-27 10:36:22', 'Belum Disetujui', 'Sedang Ditinjau'),
+(164, NULL, 16, NULL, NULL, 18, 82, NULL, 1, 300000, NULL, NULL, NULL, '2024-04-27 10:36:25', 'Belum Disetujui', 'Sedang Ditinjau'),
+(165, NULL, 16, NULL, NULL, 19, 82, NULL, 1, 400000, NULL, NULL, NULL, '2024-04-27 10:36:29', 'Belum Disetujui', 'Sedang Ditinjau');
 
 --
 -- Indexes for dumped tables
@@ -594,7 +598,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
@@ -630,7 +634,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -648,7 +652,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
 
 --
 -- Constraints for dumped tables

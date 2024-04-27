@@ -76,7 +76,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                             <button type="button" class="btn btn-primary plus" onclick="tambahNilai(<?php echo $transaksiInformasi['ID_Tranksaksi']; ?>)"><i class="bi bi-plus"></i></button>
                                         </td>
                                         <td id="btn-hapus-informasi">
-                                            <div type="button" class="btn btn-secondary">
+                                            <div type="button" class="btn btn-secondary" onclick="confirmDeleteCheckoutInformation(<?php echo $transaksiInformasi['ID_Tranksaksi']; ?>)">
                                                 <span>
                                                     <box-icon name='trash-alt' color='rgba(255,255,255,0.9)'></box-icon>
                                                 </span>
@@ -137,8 +137,8 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                 <span class="nilai_informasi" id="nilai_<?php echo $transaksiJasa['ID_Tranksaksi']; ?>" data-id-tombol="<?php echo $transaksiJasa['ID_Tranksaksi']; ?>">0</span>
                                                 <button type="button" class="btn btn-primary plus" onclick="tambahNilai1(<?php echo $transaksiJasa['ID_Tranksaksi']; ?>)"><i class="bi bi-plus"></i></button>
                                             </td>
-                                            <td id="btn-hapus-jasa">
-                                                <div type="button" class="btn btn-secondary">
+                                            <td id="btn-hapus-informasi">
+                                                <div type="button" class="btn btn-secondary" onclick="confirmDeleteCheckoutJasa(<?php echo $transaksiJasa['ID_Tranksaksi']; ?>)">
                                                     <span>
                                                         <box-icon name='trash-alt' color='rgba(255,255,255,0.9)'></box-icon>
                                                     </span>
@@ -333,6 +333,8 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/cart.js"></script>
     <script src="../assets/js/checkout-to-database.js"></script>
+    <script src="../assets/js/hapus-checkout-informasi.js"></script>
+    <script src="../assets/js/hapus-checkout-jasa.js"></script>
     <!-- ALERT -->
     <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>

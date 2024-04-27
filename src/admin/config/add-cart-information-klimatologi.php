@@ -9,7 +9,17 @@ if (isset($_POST['tambah_keranjang'])) {
         $tanggal_pembelian = date('Y-m-d H:i:s');
         $transaksiModel = new Transaksi($koneksi);
 
-        if (!is_null($pengguna) && $transaksiModel->cekPenggunaTerdaftar($pengguna)) {
+        if (!is_null($pengguna)) {
+            if ($transaksiModel->cekDataDiKeranjangPengguna($informasi, $pengguna)) {
+                setPesanKesalahan("Data sudah ada di keranjang.");
+                header("Location: $akarUrl" . "src/user/pages/checkout.php");
+                exit;
+            }
+            if (!$transaksiModel->cekPenggunaTerdaftar($pengguna)) {
+                setPesanKesalahan("Pengguna belum terdaftar atau tidak valid.");
+                header("Location: $akarUrl" . "src/user/pages/ajukan.php");
+                exit;
+            }
             $dataKeranjang = array(
                 'ID_Informasi' => $informasi,
                 'ID_Pengguna' => $pengguna,
@@ -22,13 +32,21 @@ if (isset($_POST['tambah_keranjang'])) {
             if ($simpanDataKeranjang) {
                 setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang Silahkan Mengisi Pengajuan Terlebih Dahulu");
             } else {
-                setPesanKesalahan("Gagal");
+                setPesanKesalahan("Maaf, terjadi kesalahan saat mencoba menambahkan barang ke keranjang belanja. Mohon coba lagi nanti.");
             }
-        } else {
-            setPesanKesalahan("Pengguna belum terdaftar atau tidak valid.");
         }
 
-        if (!is_null($perusahaan) && $transaksiModel->cekPerusahaanTerdaftar($perusahaan)) {
+        if (!is_null($perusahaan)) {
+            if ($transaksiModel->cekDataDiKeranjangPerusahaan($informasi, $perusahaan)) {
+                setPesanKesalahan("Data sudah ada di keranjang.");
+                header("Location: $akarUrl" . "src/user/pages/checkout.php");
+                exit;
+            }
+            if (!$transaksiModel->cekPerusahaanTerdaftar($perusahaan)) {
+                setPesanKesalahan("Perusahaan belum terdaftar atau tidak valid.");
+                header("Location: $akarUrl" . "src/user/pages/ajukan.php");
+                exit;
+            }
             $dataKeranjang = array(
                 'ID_Informasi' => $informasi,
                 'ID_Perusahaan' => $perusahaan,
@@ -43,8 +61,6 @@ if (isset($_POST['tambah_keranjang'])) {
             } else {
                 setPesanKesalahan("Gagal");
             }
-        } else {
-            setPesanKesalahan("Perusahaan belum terdaftar atau tidak valid.");
         }
     } else {
         setPesanKesalahan("Anda harus login atau mendaftar terlebih dahulu.");
