@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2024 at 06:27 AM
+-- Generation Time: Apr 29, 2024 at 12:00 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -228,7 +228,7 @@ CREATE TABLE `kegiatan_bencana` (
 --
 
 INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencana`, `Email_Bencana`, `Surat_Pengantar_Permintaan_Data_Bencana`) VALUES
-(73, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363632663231333232343631652e6a7067);
+(74, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363632663663353431306135612e6a7067);
 
 -- --------------------------------------------------------
 
@@ -335,7 +335,7 @@ CREATE TABLE `pengajuan` (
 --
 
 INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `ID_Tarif`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Apakah_Gratis`, `Perbaikan_Dokumen`, `Jenis_Perbaikan`, `Tanggal_Pengajuan`) VALUES
-(90, 73, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 0, NULL, NULL, '2024-04-29 11:25:22');
+(91, 74, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 0, NULL, NULL, '2024-04-29 16:45:56');
 
 -- --------------------------------------------------------
 
@@ -445,7 +445,12 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `ID_IKM`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Upload_File_Penerimaan`, `Bukti_Pembayaran`, `Tanggal_Upload_Bukti`, `Keterangan_Pembayaran_Ditolak`, `Tanggal_Pembelian`, `Status_Transaksi`, `Status_Pesanan`) VALUES
-(178, NULL, 16, NULL, 18, NULL, 90, NULL, 1, 100000, NULL, NULL, 0x363632663231356631396137382e6a7067, '2024-04-29 11:26:07', NULL, '2024-04-29 11:24:55', 'Disetujui', 'Lunas');
+(179, NULL, 16, NULL, 18, NULL, 91, NULL, 1, 100000, NULL, NULL, 0x363632663664323037623537642e6a7067, '2024-04-29 16:49:20', NULL, '2024-04-29 16:45:11', 'Sedang Ditinjau', 'Sedang Ditinjau'),
+(180, NULL, 16, NULL, 19, NULL, 91, NULL, 1, 200000, NULL, NULL, 0x363632663664323037623537642e6a7067, '2024-04-29 16:49:20', NULL, '2024-04-29 16:45:16', 'Sedang Ditinjau', 'Sedang Ditinjau'),
+(181, NULL, 16, NULL, 20, NULL, 91, NULL, 1, 300000, NULL, NULL, 0x363632663664323037623537642e6a7067, '2024-04-29 16:49:20', NULL, '2024-04-29 16:45:19', 'Sedang Ditinjau', 'Sedang Ditinjau'),
+(182, NULL, 16, NULL, NULL, 17, 91, NULL, 1, 200000, NULL, NULL, 0x363632663664323037623537642e6a7067, '2024-04-29 16:49:20', NULL, '2024-04-29 16:45:22', 'Sedang Ditinjau', 'Sedang Ditinjau'),
+(183, NULL, 16, NULL, NULL, 18, 91, NULL, 1, 300000, NULL, NULL, 0x363632663664323037623537642e6a7067, '2024-04-29 16:49:20', NULL, '2024-04-29 16:45:25', 'Sedang Ditinjau', 'Sedang Ditinjau'),
+(184, NULL, 16, NULL, NULL, 19, 91, NULL, 1, 400000, NULL, NULL, 0x363632663664323037623537642e6a7067, '2024-04-29 16:49:20', NULL, '2024-04-29 16:45:28', 'Sedang Ditinjau', 'Sedang Ditinjau');
 
 --
 -- Indexes for dumped tables
@@ -593,7 +598,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
@@ -629,7 +634,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -647,7 +652,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=179;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 
 --
 -- Constraints for dumped tables
