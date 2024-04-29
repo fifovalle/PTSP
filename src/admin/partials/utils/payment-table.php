@@ -60,7 +60,7 @@
                                 ?>
                             </p>
                             <div class="iconContainerData">
-                                <a class="linkData" data-bs-toggle="modal" data-bs-target="#aproveFilePayment">
+                                <a class="linkData buttonPayment" data-bs-toggle="modal" data-bs-target="#aproveFilePayment">
                                     <span class="">
                                         <i class="fas fa-upload"></i>
                                     </span>

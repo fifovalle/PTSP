@@ -11,7 +11,6 @@ if (isset($_POST['submit'])) {
     $koresponden = mysqli_real_escape_string($koneksi, $_POST['Koresponden']);
     $jenisLayanan = mysqli_real_escape_string($koneksi, $_POST['JenisLayanan']);
     $asalDaerah = mysqli_real_escape_string($koneksi, $_POST['AsalDaerah']);
-
     $c1 = isset($_POST['c_1']) ? mysqli_real_escape_string($koneksi, $_POST['c_1']) : '';
     $c2 = isset($_POST['c_2']) ? mysqli_real_escape_string($koneksi, $_POST['c_2']) : '';
     $c3 = isset($_POST['c_3']) ? mysqli_real_escape_string($koneksi, $_POST['c_3']) : '';
@@ -37,7 +36,6 @@ if (isset($_POST['submit'])) {
     $c23 = isset($_POST['c_23']) ? mysqli_real_escape_string($koneksi, $_POST['c_23']) : '';
     $c24 = isset($_POST['c_24']) ? mysqli_real_escape_string($koneksi, $_POST['c_24']) : '';
     $c25 = isset($_POST['c_25']) ? mysqli_real_escape_string($koneksi, $_POST['c_25']) : '';
-
     $KualitasPelayananTerbuka = isset($_POST['Kualitas_Pelayanan_Terbuka']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Terbuka'])) : '';
     $HarapanKonsumenTerbuka = isset($_POST['Harapan_Konsumen_Terbuka']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Terbuka'])) : '';
     $KualitasPelayananKehidupan = isset($_POST['Kualitas_Pelayanan_Kehidupan']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Kehidupan'])) : '';

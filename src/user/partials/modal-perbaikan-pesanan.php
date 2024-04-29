@@ -5,9 +5,9 @@
                 <h1 class="modal-title fs-5" id="perbaikanPesananLabel">Perbaikan Dokumen</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" method="post">
+            <form action="../../admin/config/improve-document-submition.php" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" name="Perbaikan_Dokumen" aria-label="Default select example">
                         <option value="" selected>Pilih perbaikan dokumen</option>
                         <option value="1">Surat Pengantar Permintaan Data</option>
                         <option value="2">Surat Permintaan Ditandatangani Camat atau Pejabat Setingkat</option>
@@ -20,12 +20,12 @@
                         <option value="9">Surat Pengantar (Pelayanan informasi dengan tarif PNBP)</option>
                     </select>
                     <div class="mb-3 mt-4">
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" name="dokumen" type="file" id="formFile">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary" name="Simpan">Simpan</button>
                 </div>
             </form>
         </div>

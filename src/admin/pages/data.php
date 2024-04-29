@@ -213,6 +213,7 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/value-admin.js"></script>
     <script src="../assets/our/js/value-services.js"></script>
     <script src="../assets/our/js/value-applyment.js"></script>
+    <script src="../assets/our/js/value-transactions.js"></script>
     <script src="../assets/our/js/value-user.js"></script>
     <script src="../assets/our/js/value-information.js"></script>
     <script src="../assets/our/js/filter.js"></script>

@@ -1,37 +1,37 @@
 $(document).ready(function () {
-  $(".buttonApplyment").click(function (e) {
+  $(".buttonPayment").click(function (e) {
     e.preventDefault();
-    let pengajuanID = $(this).data("id");
+    let transaksiID = $(this).data("id");
 
     $.ajax({
-      url: "http://localhost/PTSP/src/admin/config/get-applyment-data.php",
+      url: "http://localhost/PTSP/src/admin/config/get-transactions-data.php",
       method: "GET",
       data: {
-        pengajuan_id: pengajuanID,
+        transaksi_id: transaksiID,
       },
       success: function (data) {
-        console.log("Data Pengajuan yang Diterima:", data);
-        let dataApplyment = JSON.parse(data);
+        console.log("Data Transaksi yang Diterima:", data);
+        let dataTransaction = JSON.parse(data);
         console.log(
-          "Data Pengajuan yang Diterima (setelah parsing):",
-          dataApplyment
+          "Data Transaksi yang Diterima (setelah parsing):",
+          dataTransaction
         );
-        $("#editApplymentID").val(dataApplyment.ID_Pengajuan);
-        $("#approveApplicationModal").modal("show");
+        $("#editPayment").val(dataTransaction.ID_Transaksi);
+        $("#aproveFilePayment").modal("show");
       },
       error: function (xhr) {
-        console.error("Error saat mengambil data pengajuan:", xhr.responseText);
+        console.error("Error saat mengambil data transaksi:", xhr.responseText);
       },
     });
   });
 
-  $("#tombolSimpanApplyment").click(function (e) {
+  $("#tombolSimpanTransaksi").click(function (e) {
     e.preventDefault();
 
     let formData = new FormData($(this).closest("form")[0]);
 
     $.ajax({
-      url: "http://localhost/PTSP/src/admin/config/edit-applyment.php",
+      url: "http://localhost/PTSP/src/admin/config/edit-transactions.php",
       method: "POST",
       data: formData,
       processData: false,
@@ -84,7 +84,7 @@ $(document).ready(function () {
         });
       },
       complete: function () {
-        $("#approveApplicationModal").modal("hide");
+        $("#aproveFilePayment").modal("hide");
       },
     });
   });

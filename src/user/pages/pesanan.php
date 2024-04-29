@@ -233,7 +233,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibayarkan</div>
-                                        <p class="card-text">Update Tanggal</p>
+                                        <p class="card-text">Perbaharui Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -244,7 +244,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibuat</div>
-                                        <p class="card-text">Update Tanggal</p>
+                                        <p class="card-text">Perbaharui Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -255,7 +255,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title text-center">Pesanan Selesai</div>
-                                        <p class="card-text">Update Tanggal</p>
+                                        <p class="card-text">Perbaharui Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -500,7 +500,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibuat</div>
-                                        <p class="card-text">Update Tanggal</p>
+                                        <p class="card-text">Perbaharui Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -511,7 +511,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title text-center">Pesanan Selesai</div>
-                                        <p class="card-text">Update Tanggal</p>
+                                        <p class="card-text">Perbaharui Tanggal</p>
                                     </div>
                                 </div>
                             </div>
@@ -716,7 +716,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                     </span>
                                                     <div class="card-body text-center">
                                                         <div class="card-title">Pembayaran Diterima</div>
-                                                        <p class="card-text"><a type="button" class="text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#invoicePesanan">Klik disini</a> untuk melihat detail pesanan</p>
+                                                        <p class="card-text">' . $pembayaran['Tanggal_Upload_Bukti'] . '</p>
                                                         </div>';
                                         } elseif ($statusSedangDitinjau) {
                                             echo '<span class="dot selected">
@@ -763,7 +763,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title text-center">Pesanan Selesai</div>
-                                        <p class="card-text">Update Tanggal</p>
+                                        <p class="card-text">Perbaharui Tanggal</p>
                                     </div>
                                 </div>
                             </div>

@@ -8,8 +8,8 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" action="../config/approve-transaction.php" enctype="multipart/form-data">
-                    <input type="hidden" id="editApllyment" name="ID_Admin" autocomplete="off">
+                <form id="formUpdateTransaksi" method="POST">
+                    <input type="hidden" id="editPayment" name="ID_Tranksaksi" autocomplete="off">
                     <div class="mb-3">
                         <label for="descriptionApplyment" class="form-label">Keterangan Pembayaran Yang Ditolak</label>
                         <textarea name="Ket_Pengajuan" class="form-control" id="descriptionApplyment" placeholder="Masukkan Keterangan"></textarea>

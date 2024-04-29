@@ -57,7 +57,7 @@
                                 ?>
                             </p>
                             <div class="iconContainerData">
-                                <a class="linkData" data-bs-toggle="modal" data-bs-target="#approveApplicationModal" data-id="<?php echo $pengajuan['ID_Pengajuan']; ?>">
+                                <a class="linkData buttonApplyment" data-bs-toggle="modal" data-id="<?php echo $pengajuan['ID_Pengajuan']; ?>">
                                     <span class="">
                                         <i class="fas fa-upload"></i>
                                     </span>

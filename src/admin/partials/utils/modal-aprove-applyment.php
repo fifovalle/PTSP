@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST">
+                <form id="formUpdatePengajuan" method="POST">
                     <input type="hidden" id="editApplymentID" name="ID_Pengajuan" autocomplete="off">
                     <div class="mb-3">
                         <label for="editStatusTransactionApplyment" class="form-label">Status Pengajuan</label>
@@ -28,7 +28,7 @@
                         <label for="editDescriptionApplyment" class="form-label">Keterangan Pengajuan Yang Ditolak</label>
                         <textarea name="Keterangan_Surat_Ditolak" class="form-control" id="editDescriptionApplyment" placeholder="Masukkan Keterangan"></textarea>
                     </div>
-                    <button type="submit" class="btn btnUpload" name="Simpan" id="tombolSimpanApplyment">Kirim</button>
+                    <button type="submit" class="btn btnUpload" id="tombolSimpanApplyment" name="Simpan">Kirim</button>
                 </form>
             </div>
         </div>
