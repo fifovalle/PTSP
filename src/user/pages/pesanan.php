@@ -314,8 +314,17 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         </ul>
                                     </nav>
                                 </div>
-                                <div class="col text-end">
-                                    <button class="btn btn-outline-primary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#perbaikanPesanan" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>
+                                <?php
+                                $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                                $transaksiModel = new Transaksi($koneksi);
+                                $dataTraksaksi = $transaksiModel->tampilkanPerbaikanDokumenPengajuanTransaksiSesuaiSession($id);
+                                $tampilkanTombol = !empty($dataTraksaksi);
+                                $style = $tampilkanTombol ? 'display: block;' : 'display: none;';
+                                ?>
+                                <div class="col text-end" style="<?php echo $style; ?>">
+                                    <?php
+                                    echo '<button class="btn btn-outline-primary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#perbaikanPesanan" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>';
+                                    ?>
                                 </div>
                             </div>
                         </div>

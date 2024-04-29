@@ -2502,6 +2502,27 @@ class Transaksi
         }
     }
 
+    public function tampilkanPerbaikanDokumenPengajuanTransaksiSesuaiSession($id)
+    {
+        $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Ditolak' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return [];
+        }
+    }
+
     public function tampilkanPembayaranTransaksiSesuaiSession($id)
     {
         $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
