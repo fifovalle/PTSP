@@ -323,7 +323,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 ?>
                                 <div class="col text-end" style="<?php echo $style; ?>">
                                     <?php
-                                    echo '<button class="btn btn-outline-primary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#perbaikanPesanan" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>';
+                                    echo '<button class="btn btn-outline-primary ms-3 buttonImproveApplyment" type="button" data-bs-toggle="modal" data-id="' . $pengajuan['ID_Pengajuan'] . '" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>';
                                     ?>
                                 </div>
                             </div>
@@ -1093,13 +1093,18 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
             </div>
         </div>
     </div>
+
     <?php
     include('../partials/modal-histori-ikm.php');
     include('../partials/modal-perbaikan-pesanan.php');
     include('../partials/modal-invoice-pesanan.php');
     ?>
+    <!-- CDN JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/pesanan.js"></script>
+    <script src="../../admin/assets/our/js/value-improve-applyment.js"></script>
     <!-- ALERT -->
     <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>

@@ -5,7 +5,8 @@
                 <h1 class="modal-title fs-5" id="perbaikanPesananLabel">Perbaikan Dokumen</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="../../admin/config/improve-document-submition.php" method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" name="ID_Penngajuan" id="improveIDPengajuan">
                 <div class="modal-body">
                     <select class="form-select" name="Perbaikan_Dokumen" aria-label="Default select example">
                         <option value="" selected>Pilih perbaikan dokumen</option>
@@ -22,10 +23,15 @@
                     <div class="mb-3 mt-4">
                         <input class="form-control" name="dokumen" type="file" id="formFile">
                     </div>
+                    <div class="col text-end">
+                        <p class="text-danger fw-bold">
+                            <?php echo $pengajuan['Keterangan_Surat_Ditolak']; ?>
+                        </p>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary" name="Simpan">Simpan</button>
+                    <button type="submit" class="btn btn-primary" id="tombolSimpanImproveApplyment" name="Simpan">Simpan</button>
                 </div>
             </form>
         </div>
