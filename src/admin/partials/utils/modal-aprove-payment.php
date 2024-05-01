@@ -8,13 +8,12 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form id="formUpdateTransaksi" method="POST">
-                    <input type="hidden" id="editPayment" name="ID_Tranksaksi" autocomplete="off">
+                <form id="formUpdateTransaksi">
+                    <input type="hidden" id="editPayment" name="ID_Pembayaran" autocomplete="off">
                     <div class="mb-3">
                         <label for="descriptionApplyment" class="form-label">Keterangan Pembayaran Yang Ditolak</label>
-                        <textarea name="Ket_Pengajuan" class="form-control" id="descriptionApplyment" placeholder="Masukkan Keterangan"></textarea>
+                        <textarea name="Keterangan_Pembayaran_Ditolak" class="form-control" id="descriptionApplyment" placeholder="Masukkan Keterangan"></textarea>
                     </div>
-                    <!-- JIKA STATUS PEMBAYARAN INI DI SETUJUI MAKA STATUS PESANAN OTOMATIS LUNAS DAN SEBALIKNYA -->
                     <div class="mb-3">
                         <label for="statusTransactionAprovement" class="form-label">Status Pembayaran</label>
                         <select name="Status_Transaksi" id="statusTransactionAprovement" class="form-control inputData">
@@ -22,7 +21,7 @@
                             <option value="Disetujui">Disetujui</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btnUpload" id="tombolSimpanTransaksi" name="Simpan">Kirim</button>
+                    <button type="submit" class="btn btnUpload" id="tombolSimpanPembayaran" name="Simpan">Kirim</button>
                 </form>
             </div>
         </div>

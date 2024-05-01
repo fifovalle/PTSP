@@ -56,7 +56,7 @@
                                             <h6 class="mb-0">Surat</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <img class="imageModalDetail" src="../assets/image/uploads/<?php echo $pengajuan['Surat_Pengantar_Permintaan_Data_Bencana']; ?>" alt="Deskripsi Gambar">
+                                            <embed src="../assets/image/uploads/<?php echo $pengajuan['Perbaikan_Dokumen']; ?>" type="application/pdf" width="100%" height="600px" />
                                         </div>
                                     </div>
                                     <hr>

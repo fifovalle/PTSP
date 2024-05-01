@@ -1731,6 +1731,21 @@ class Pengajuan
         return $result;
     }
 
+    public function perbaruiPerbaikanPengajuan($idImprovePengajuan, $PerbaikanDokumen, $Dokumen, $statusPengajuan)
+    {
+        $idImprovePengajuan = mysqli_real_escape_string($this->koneksi, $idImprovePengajuan);
+        $PerbaikanDokumen = mysqli_real_escape_string($this->koneksi, $PerbaikanDokumen);
+        $Dokumen = mysqli_real_escape_string($this->koneksi, $Dokumen);
+
+        $query = "UPDATE pengajuan SET Perbaikan_Dokumen = '$Dokumen', Jenis_Perbaikan = '$PerbaikanDokumen', Status_Pengajuan = '$statusPengajuan'";
+
+        $query .= " WHERE ID_Pengajuan = '$idImprovePengajuan'";
+
+        $result = mysqli_query($this->koneksi, $query);
+
+        return $result;
+    }
+
     public function hapusPengajuan($id)
     {
         $querySelect = "SELECT ID_Pengajuan, Surat_Keterangan_Ditolak FROM pengajuan WHERE ID_Pengajuan=?";
@@ -1849,6 +1864,27 @@ class Transaksi
             return false;
         }
     }
+
+    public function perbaruiPembayaran($pembayaranID, $keterangan, $status, $statusPesanan)
+    {
+        $pembayaranID = mysqli_real_escape_string($this->koneksi, $pembayaranID);
+        $keterangan = mysqli_real_escape_string($this->koneksi, $keterangan);
+        $status = mysqli_real_escape_string($this->koneksi, $status);
+        $statusPesanan = mysqli_real_escape_string($this->koneksi, $statusPesanan);
+
+        $query = "UPDATE transaksi SET Keterangan_Pembayaran_Ditolak = '$keterangan', Status_Transaksi = '$status', Status_Pesanan = '$statusPesanan'";
+        $query .= " WHERE ID_Tranksaksi = '$pembayaranID'";
+
+        $result = mysqli_query($this->koneksi, $query);
+
+        if (!$result) {
+            error_log("Error updating payment: " . mysqli_error($this->koneksi));
+            return false;
+        }
+
+        return true;
+    }
+
 
     public function perbaharuiPengajuanBencanaKeTransaksiSesuaiSession($dataTransaksiPengajuanBencana, $idSession)
     {

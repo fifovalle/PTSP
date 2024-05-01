@@ -178,6 +178,22 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <?php if (isset($transaksi['Keterangan_Pembayaran_Ditolak']) && !empty($transaksi['Keterangan_Pembayaran_Ditolak'])) : ?>
+                    <div class="col-md-12 text-start">
+                        <div class="alert alert-danger text-danger fw-bold" role="alert">
+                            <div class="d-flex col-md-12 mb-0">
+                                <span class="align-middle me-3"><box-icon name='message-error' color='rgba(176, 42, 55, 0.9)'></box-icon></span>
+                                <span class="align-middle m-0"><strong>PERBAIKAN TERHADAP DOKUMEN</strong></span>
+                            </div>
+                            <hr>
+                            <p class="text-dark">
+                                <?php echo $transaksi['Keterangan_Pembayaran_Ditolak']; ?>
+                            </p>
+                        </div>
+                    </div>
+                <?php else : ?>
+                    <div class="col-md-12" style="display: none;"></div>
+                <?php endif; ?>
                 <?php if ($hasTransaksiA && !$hasTransaksiB && !$hasTransaksiC) { ?>
                     <form action="../../admin/config/upload-payment.php" method="post" enctype="multipart/form-data">
                         <h5 class="mb-2">Stasiun Meteorologi

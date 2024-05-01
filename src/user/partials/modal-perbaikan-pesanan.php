@@ -8,6 +8,18 @@
             <form method="post" enctype="multipart/form-data">
                 <input type="hidden" name="ID_Penngajuan" id="improveIDPengajuan">
                 <div class="modal-body">
+                    <div class="col-md-12 text-start">
+                        <div class="alert alert-danger text-danger fw-bold" role="alert">
+                            <div class="d-flex col-md-12 mb-0">
+                                <span class="align-middle me-3"><box-icon name='message-error' color='rgba(176, 42, 55, 0.9)'></box-icon></span>
+                                <span class="align-middle m-0"><strong>PERBAIKAN TERHADAP DOKUMEN</strong></span>
+                            </div>
+                            <hr>
+                            <p class="text-dark">
+                                <?php echo $pengajuan['Keterangan_Surat_Ditolak']; ?>
+                            </p>
+                        </div>
+                    </div>
                     <select class="form-select" name="Perbaikan_Dokumen" aria-label="Default select example">
                         <option value="" selected>Pilih perbaikan dokumen</option>
                         <option value="1">Surat Pengantar Permintaan Data</option>
@@ -21,12 +33,7 @@
                         <option value="9">Surat Pengantar (Pelayanan informasi dengan tarif PNBP)</option>
                     </select>
                     <div class="mb-3 mt-4">
-                        <input class="form-control" name="dokumen" type="file" id="formFile">
-                    </div>
-                    <div class="col text-end">
-                        <p class="text-danger fw-bold">
-                            <?php echo $pengajuan['Keterangan_Surat_Ditolak']; ?>
-                        </p>
+                        <input class="form-control" name="Unggah_Dokumen" type="file" id="formFile">
                     </div>
                 </div>
                 <div class="modal-footer">
