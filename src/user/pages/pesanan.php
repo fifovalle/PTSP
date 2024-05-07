@@ -87,8 +87,24 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 ?>
                                     <button class="btn btn-outline-success px-2 mx-2" id="btn-download-file" type="button" style="width:118px;">Download File</button>
                                 <?php } else {
-                                    echo ' <button class="btn btn-outline-success px-2 mx-2" id="btn-download-file" onclick="confirmDeleteTransaction()" type="button" style="width:118px;">Tidak Bisa Download</button>';
+                                    echo '<button class="btn btn-outline-success px-2 mx-2" id="btn-download-file" onclick="showAlert()" type="button" style="width:118px;">Download File</button>';
                                 } ?>
+                                <script>
+                                    function showAlert() {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Tidak Bisa Download File',
+                                            text: 'Silahkan isi IKM Anda',
+                                            showCancelButton: false,
+                                            confirmButtonColor: '#3085d6',
+                                            confirmButtonText: 'OK'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                window.location.href = 'ikm.php';
+                                            }
+                                        });
+                                    }
+                                </script>
                                 <button class="btn btn-outline-secondary px-2 mx-2" type="button" style="width:200px;" data-bs-toggle="modal" data-bs-target="#historiPengisianIKM">Riwayat Pengisian IKM</button>
                             </div>
                         </div>

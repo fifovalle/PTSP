@@ -2469,7 +2469,7 @@ class Transaksi
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Disetujui' AND transaksi.File_Penerimaan IS NOT NULL AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Disetujui' AND transaksi.File_Penerimaan IS NOT NULL AND transaksi.ID_IKM IS NOT NULL AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2490,7 +2490,7 @@ class Transaksi
               LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
               LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
               LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
-              WHERE transaksi.Status_Transaksi = 'Disetujui' AND transaksi.File_Penerimaan IS NOT NULL AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+              WHERE transaksi.Status_Transaksi = 'Disetujui' AND transaksi.File_Penerimaan IS NOT NULL  AND transaksi.ID_IKM IS NOT NULL AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
         $result = $this->koneksi->query($query);
 
         if ($result) {
