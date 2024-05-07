@@ -2702,6 +2702,28 @@ class Transaksi
         }
     }
 
+
+    public function tampilkanPembuatanTanggalTransaksi($id)
+    {
+        $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+                  WHERE transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return [];
+        }
+    }
+
     public function tampilkanSelesaiTransaksiSesuaiSession($id)
     {
         $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
@@ -2832,11 +2854,11 @@ class Transaksi
         }
     }
 
-    public function updateTransaksi($id, $file, $status)
+    public function updateTransaksi($id, $file)
     {
-        $query = "UPDATE transaksi SET File_Penerimaan=?, Status_Transaksi=? WHERE ID_Tranksaksi=?";
+        $query = "UPDATE transaksi SET File_Penerimaan=?, Tanggal_Upload_File_Penerimaan = NOW() WHERE ID_Tranksaksi=?";
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("ssi", $file, $status, $id);
+        $statement->bind_param("si", $file, $id);
 
         if ($statement->execute()) {
             return true;

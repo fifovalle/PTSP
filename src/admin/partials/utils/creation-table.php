@@ -60,7 +60,7 @@
                                 ?>
                             </p>
                             <div class="iconContainerData">
-                                <a class="linkData" data-bs-toggle="modal" data-bs-target="#aproveFile">
+                                <a class="linkData buttonCreation" data-bs-toggle="modal" data-bs-toggle="modal" data-id="<?php echo $transaksi['ID_Tranksaksi'] ?>">
                                     <span class="">
                                         <i class="fas fa-upload"></i>
                                     </span>

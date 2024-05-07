@@ -8,13 +8,13 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" action="../config/approve-transaction.php" enctype="multipart/form-data">
-                    <input type="hidden" id="editApllyment" name="ID_Admin" autocomplete="off">
+                <form>
+                    <input type="hidden" id="editCreation" name="ID_Pembuatan" autocomplete="off">
                     <div class="mb-3">
-                        <label for="fileAproveTransaction" class="form-label">Upload File</label>
-                        <input type="file" class="form-control" id="fileAproveTransaction" name="Upload_File" autocomplete="off">
+                        <label for="fileCreation" class="form-label">Upload File</label>
+                        <input type="file" class="form-control" id="fileCreation" name="Upload_File" autocomplete="off">
                     </div>
-                    <button type="submit" class="btn btnUpload" id="tombolSimpanTransaksi" name="Simpan">Kirim</button>
+                    <button type="submit" class="btn btnUpload" id="tombolSimpanPembuatan">Kirim</button>
                 </form>
             </div>
         </div>

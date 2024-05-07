@@ -217,6 +217,7 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/value-user.js"></script>
     <script src="../assets/our/js/value-information.js"></script>
     <script src="../assets/our/js/value-payment.js"></script>
+    <script src="../assets/our/js/value-creation.js"></script>
     <script src="../assets/our/js/filter.js"></script>
     <script src="../assets/our/js/drive-all.js"></script>
     <script src="../assets/our/js/search-alldata.js"></script>

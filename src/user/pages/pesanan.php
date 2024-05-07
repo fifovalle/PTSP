@@ -79,7 +79,16 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                         <div class="row">
                             <div class="col-md-12 text-start">
                                 <button class="btn btn-outline-danger px-2 mx-2" type="button" id="btn-beli-lagi" style="width:100px;">Beli Lagi</button>
-                                <button class="btn btn-outline-success px-2 mx-2" type="button" style="width:118px;">Download File</button>
+                                <?php
+                                $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                                $transaksiModel = new Transaksi($koneksi);
+                                $dataTraksaksi = $transaksiModel->tampilkanRiwayatTransaksiSesuaiSession($id);
+                                if (!empty($dataTraksaksi)) {
+                                ?>
+                                    <button class="btn btn-outline-success px-2 mx-2" id="btn-download-file" type="button" style="width:118px;">Download File</button>
+                                <?php } else {
+                                    echo ' <button class="btn btn-outline-success px-2 mx-2" id="btn-download-file" onclick="confirmDeleteTransaction()" type="button" style="width:118px;">Tidak Bisa Download</button>';
+                                } ?>
                                 <button class="btn btn-outline-secondary px-2 mx-2" type="button" style="width:200px;" data-bs-toggle="modal" data-bs-target="#historiPengisianIKM">Riwayat Pengisian IKM</button>
                             </div>
                         </div>
@@ -762,6 +771,22 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibuat</div>
+                                        <?php
+                                        $id = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : $_SESSION['ID_Perusahaan'];
+                                        $transaksiModel = new Transaksi($koneksi);
+                                        $dataPembuatanModel = $transaksiModel->tampilkanPembuatanTanggalTransaksi($id);
+                                        if ($dataPembuatanModel !== null) {
+                                            foreach ($dataPembuatanModel as $data) {
+                                        ?>
+                                                <p class="card-text"><?php echo $data['Tanggal_Upload_File_Penerimaan']; ?></p>
+                                            <?php
+                                            }
+                                        } else {
+                                            ?>
+                                            <p class="card-text">Belum Ada Pembuatan</p>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -840,34 +865,39 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                             <div class="col-md-3">
                                 <div class="card">
                                     <?php
-                                    $pengajuanModel = new Pengajuan($koneksi);
-                                    $dataPengajuan = $pengajuanModel->tampilkanSemuaDataPengajuan();
-                                    if (!is_null($dataPengajuan)) {
+                                    $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                                    $transaksiModel = new Transaksi($koneksi);
+                                    $dataTraksaksi = $transaksiModel->tampilkanPembayaranTransaksiSesuaiSession($id);
+                                    ?>
+                                    <?php
+                                    $pembayaranModel = new Pengajuan($koneksi);
+                                    $dataPembayaran = $pembayaranModel->tampilkanSemuaDataPembayaran();
+                                    if (!is_null($dataPembayaran)) {
                                         $statusDiterimaPerusahaan = false;
                                         $statusDiterimaPengguna = false;
                                         $statusSedangDitinjau = false;
                                         $statusDitolak = false;
                                         if (!empty($_SESSION['ID_Perusahaan'])) {
-                                            foreach ($dataPengajuan as $pengajuan) {
-                                                if ($pengajuan['ID_Perusahaan'] == $_SESSION['ID_Perusahaan']) {
-                                                    if ($pengajuan['Status_Pengajuan'] == 'Diterima') {
+                                            foreach ($dataPembayaran as $pembayaran) {
+                                                if ($pembayaran['ID_Perusahaan'] == $_SESSION['ID_Perusahaan']) {
+                                                    if ($pembayaran['Status_Transaksi'] == 'Diterima') {
                                                         $statusDiterimaPerusahaan = true;
-                                                    } elseif ($pengajuan['Status_Pengajuan'] == 'Sedang Ditinjau') {
+                                                    } elseif ($pembayaran['Status_Transaksi'] == 'Sedang Ditinjau') {
                                                         $statusSedangDitinjau = true;
-                                                    } elseif ($pengajuan['Status_Pengajuan'] == 'Ditolak') {
+                                                    } elseif ($pembayaran['Status_Transaksi'] == 'Ditolak') {
                                                         $statusDitolak = true;
                                                     }
                                                 }
                                             }
                                         }
                                         if (!empty($_SESSION['ID_Pengguna'])) {
-                                            foreach ($dataPengajuan as $pengajuan) {
-                                                if ($pengajuan['ID_Pengguna'] == $_SESSION['ID_Pengguna']) {
-                                                    if ($pengajuan['Status_Pengajuan'] == 'Diterima') {
+                                            foreach ($dataPembayaran as $pembayaran) {
+                                                if ($pembayaran['ID_Pengguna'] == $_SESSION['ID_Pengguna']) {
+                                                    if ($pembayaran['Status_Transaksi'] == 'Disetujui') {
                                                         $statusDiterimaPengguna = true;
-                                                    } elseif ($pengajuan['Status_Pengajuan'] == 'Sedang Ditinjau') {
+                                                    } elseif ($pembayaran['Status_Transaksi'] == 'Sedang Ditinjau') {
                                                         $statusSedangDitinjau = true;
-                                                    } elseif ($pengajuan['Status_Pengajuan'] == 'Ditolak') {
+                                                    } elseif ($pembayaran['Status_Transaksi'] == 'Ditolak') {
                                                         $statusDitolak = true;
                                                     }
                                                 }
@@ -875,48 +905,43 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         }
                                         if (!$statusDiterimaPerusahaan && !$statusDiterimaPengguna && !$statusSedangDitinjau && !$statusDitolak) {
                                             echo '<span class="dot selected">
-                                                        <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                          <box-icon name="money" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
                                                     </span>
                                                     <div class="card-body text-center">
-                                                        <div class="card-title">Belum Ada Ajuan</div>
-                                                        <p class="card-text">
-                                                        <a class="text-decoration-none fw-bold" href="ajukan.php">Klik disini</a> untuk mengajukan pesanan
-                                                        </p>
+                                                        <div class="card-title">Unggah Bukti Pembayaran</div>
+                                                        <p class="card-text"><a type="button" class="text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#invoicePesanan">Klik disini</a> untuk melihat detail pesanan</p>
                                                     </div>';
                                         } elseif ($statusDiterimaPerusahaan || $statusDiterimaPengguna) {
                                             echo '<span class="dot selected">
-                                                        <box-icon name="check-shield" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                        <box-icon name="money" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
                                                     </span>
                                                     <div class="card-body text-center">
-                                                        <div class="card-title">Ajuan Diterima</div>
-                                                        <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
-                                                    </div>';
+                                                        <div class="card-title">Pembayaran Diterima</div>
+                                                        <p class="card-text">' . $pembayaran['Tanggal_Upload_Bukti'] . '</p>
+                                                        </div>';
                                         } elseif ($statusSedangDitinjau) {
                                             echo '<span class="dot selected">
                                                         <box-icon name="time" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
                                                     </span>
                                                     <div class="card-body text-center">
-                                                        <div class="card-title">Ajuan Sedang Ditinjau</div>
-                                                        <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                                        <div class="card-title">Pembayaran Sedang Ditinjau</div>
                                                     </div>';
                                         } elseif ($statusDitolak) {
                                             echo '<span class="dot selected">
                                                         <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
                                                     </span>
                                                     <div class="card-body text-center">
-                                                        <div class="card-title">Ajuan Ditolak</div>
-                                                        <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
-                                                    </div>';
+                                                    <div class="card-title">Pembayaran Ditolak</div>
+                                                        <p class="card-text"><a type="button" class="text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#invoicePesanan">Klik disini</a> untuk melihat detail pesanan</p>
+                                                    </div>
+                                                    ';
                                         }
                                     } else {
                                         echo '<span class="dot selected">
                                                     <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
                                                 </span>
                                                 <div class="card-body text-center">
-                                                    <div class="card-title">Belum Ada Ajuan</div>
-                                                    <p class="card-text">
-                                                    <a class="text-decoration-none fw-bold" href="ajukan.php">Klik disini</a> untuk mengajukan pesanan
-                                                    </p>
+                                                    <div class="card-title">Belum Ada Pembayaran</div>
                                                 </div>';
                                     }
                                     ?>
@@ -1014,6 +1039,22 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </span>
                                     <div class="card-body text-center">
                                         <div class="card-title">Pesanan Dibuat</div>
+                                        <?php
+                                        $id = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : $_SESSION['ID_Perusahaan'];
+                                        $transaksiModel = new Transaksi($koneksi);
+                                        $dataPembuatanModel = $transaksiModel->tampilkanPembuatanTanggalTransaksi($id);
+                                        if ($dataPembuatanModel !== null) {
+                                            foreach ($dataPembuatanModel as $data) {
+                                        ?>
+                                                <p class="card-text"><?php echo $data['Tanggal_Upload_File_Penerimaan']; ?></p>
+                                            <?php
+                                            }
+                                        } else {
+                                            ?>
+                                            <p class="card-text">Belum Ada Pembuatan</p>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
