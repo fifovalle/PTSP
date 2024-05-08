@@ -76,6 +76,7 @@ if (isset($_POST['submit'])) {
     $HarapanKonsumenPublik = isset($_POST['Harapan_Konsumen_Publik']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Publik'])) : '';
 
     $objekIkm = new Ikm($koneksi);
+    $objekTranksaksi = new Transaksi($koneksi);
 
     $dataIkm = array(
         'Nama' => $nama,
@@ -151,12 +152,20 @@ if (isset($_POST['submit'])) {
         'Kualitas_Pelayanan_Publik' => $KualitasPelayananPublik,
         'Harapan_Konsumen_Publik' => $HarapanKonsumenPublik
     );
+    $ambilIKMTerakhir = $objekIkm->ambilIDIKMTerakhir();
 
+    $dataIkmTransaksi = array(
+        'ID_IKM' => $ambilIKMTerakhir,
+    );
+
+    $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
+
+    $simpanDataTransaksi = $objekTranksaksi->updateIKMNULLSesuaiTransaksi($dataIkmTransaksi, $idSession);
     $simpanDataIkm = $objekIkm->tambahDataIkm($dataIkm);
 
-    if ($simpanDataIkm) {
+    if ($simpanDataIkm && $simpanDataTransaksi) {
         setPesanKeberhasilan("Data berhasil ditambahkan.");
-        header("Location: $akarUrl" . "src/user/pages/ikm.php");
+        header("Location: $akarUrl" . "src/user/pages/pesanan.php");
         exit();
     } else {
         setPesanKesalahan("Gagal menambahkan data.");

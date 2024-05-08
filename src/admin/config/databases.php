@@ -2265,7 +2265,7 @@ class Transaksi
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Disetujui' AND transaksi.File_Penerimaan IS NULL";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Disetujui' AND  transaksi.ID_IKM IS NULL OR transaksi.File_Penerimaan IS NULL";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2449,7 +2449,7 @@ class Transaksi
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Disetujui' AND transaksi.File_Penerimaan IS NOT NULL";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Disetujui' AND  transaksi.ID_IKM IS NOT NULL AND transaksi.File_Penerimaan IS NOT NULL";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2731,7 +2731,7 @@ class Transaksi
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
-                  WHERE transaksi.Status_Transaksi = 'Disetujui' AND transaksi.File_Penerimaan IS NOT NULL AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+                  WHERE transaksi.Status_Transaksi = 'Disetujui' AND transaksi.ID_IKM IS NULL AND transaksi.File_Penerimaan IS NOT NULL AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2806,7 +2806,7 @@ class Transaksi
               LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
               LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
               LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
-              WHERE transaksi.Status_Transaksi = 'Disetujui' AND transaksi.File_Penerimaan IS NOT NULL AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+              WHERE transaksi.Status_Transaksi = 'Disetujui' AND transaksi.File_Penerimaan IS NOT NULL  AND transaksi.ID_IKM IS NULL AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
         $result = $this->koneksi->query($query);
 
         if ($result) {
@@ -2994,6 +2994,25 @@ class Transaksi
             return false;
         }
     }
+
+    public function updateIKMNULLSesuaiTransaksi($IDIKM, $idSession)
+    {
+
+        $query = "UPDATE transaksi SET ID_IKM = ? WHERE (ID_Pengguna = ? OR ID_Perusahaan = ?) AND ID_IKM IS NULL";
+
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param(
+            "iii",
+            $IDIKM['ID_IKM'],
+            $idSession,
+            $idSession
+        );
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 // ===================================TRANSAKSI===================================
 
@@ -3163,6 +3182,19 @@ class Ikm
                 $data[] = $baris;
             }
             return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function ambilIDIKMTerakhir()
+    {
+        $query = "SELECT ID_Ikm FROM ikm ORDER BY ID_Ikm DESC LIMIT 1";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['ID_Ikm'];
         } else {
             return null;
         }
