@@ -1411,6 +1411,22 @@ class Pengajuan
         }
     }
 
+    public function tampilkanDataLihatPengajuan()
+    {
+        $query = "SELECT transaksi.*, pengajuan.*, pengguna.*, perusahaan.*, informasi.*, jasa.*, kegiatan_bencana.* FROM transaksi LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa LEFT JOIN kegiatan_bencana ON pengajuan.ID_Bencana = kegiatan_bencana.ID_Bencana";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
     public function ambilIDPengajuanTerakhir()
     {
         $query = "SELECT ID_Pengajuan FROM pengajuan ORDER BY ID_Pengajuan DESC LIMIT 1";
@@ -2196,11 +2212,11 @@ class Transaksi
     public function tampilkanPengajuanTransaksi()
     {
         $query = "SELECT transaksi.*, pengguna.*, informasi.*, pengajuan.*, perusahaan.*, jasa.* FROM transaksi 
-                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Sedang Ditinjau'";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Total_Transaksi IS NOT NULL AND transaksi.Jumlah_Barang IS NOT NULL";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2265,7 +2281,7 @@ class Transaksi
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Disetujui' AND  transaksi.ID_IKM IS NULL OR transaksi.File_Penerimaan IS NULL";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Disetujui' AND  transaksi.ID_IKM IS NULL OR transaksi.File_Penerimaan IS NULL AND transaksi.Bukti_Pembayaran IS NOT NULL";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2508,7 +2524,7 @@ class Transaksi
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Sedang Ditinjau' OR pengajuan.Status_Pengajuan = 'Ditolak' AND (transaksi.Total_Transaksi IS NOT NULL AND transaksi.Jumlah_Barang IS NOT NULL) AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Total_Transaksi IS NOT NULL AND transaksi.Jumlah_Barang IS NOT NULL AND transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
