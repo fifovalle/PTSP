@@ -4,7 +4,7 @@ $(document).ready(function () {
     let pembayaranID = $(this).data("id");
 
     $.ajax({
-      url: "http://localhost/PTSP/src/admin/config/get-see-applyment-data.php",
+      url: "http://localhost/PTSP/src/admin/config/get-see-payment-data.php",
       method: "GET",
       data: {
         pembayaran_id: pembayaranID,
