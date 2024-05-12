@@ -1,18 +1,18 @@
 <?php
 include 'databases.php';
 
-$pengajuanModel = new Pengajuan($koneksi);
+$pembayaranModel = new Pengajuan($koneksi);
 
-$pengajuanID = isset($_GET['pengajuan_id']) ? $_GET['pengajuan_id'] : null;
-$dataPengajuan = $pengajuanModel->tampilkanDataLihatPengajuan($pengajuanID);
+$pembayaranID = isset($_GET['pembayaran_id']) ? $_GET['pembayaran_id'] : null;
+$dataPembayaran = $pembayaranModel->tampilkanDataLihatPengajuan($pembayaranID);
 
 $pengajuanDitemukan = null;
 
-foreach ($dataPengajuan as $pengajuan) {
-    $pengajuanDitemukan = $pengajuan['ID_Pengajuan'] == $pengajuanID ? $pengajuan : null;
-    if ($pengajuanDitemukan) {
+foreach ($dataPembayaran as $pembayaran) {
+    $pembayaranDitemukan = $pembayaran['ID_Tranksaksi'] == $pembayaranID ? $pembayaran : null;
+    if ($pembayaranDitemukan) {
         break;
     }
 }
 
-echo json_encode($pengajuanDitemukan);
+echo json_encode($pembayaranDitemukan);

@@ -214,6 +214,7 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/value-services.js"></script>
     <script src="../assets/our/js/value-applyment.js"></script>
     <script src="../assets/our/js/value-see-applyment.js"></script>
+    <script src="../assets/our/js/value-see-payment.js"></script>
     <script src="../assets/our/js/value-transactions.js"></script>
     <script src="../assets/our/js/value-user.js"></script>
     <script src="../assets/our/js/value-information.js"></script>

@@ -2216,7 +2216,7 @@ class Transaksi
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Total_Transaksi IS NOT NULL AND transaksi.Jumlah_Barang IS NOT NULL";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Total_Transaksi IS NOT NULL AND transaksi.Jumlah_Barang IS NOT NULL AND pengajuan.Status_Pengajuan ='Sedang Ditinjau' OR pengajuan.Status_Pengajuan ='Ditolak'";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2277,11 +2277,13 @@ class Transaksi
     public function tampilkanPembuatanTransaksi()
     {
         $query = "SELECT transaksi.*, pengguna.*, informasi.*, pengajuan.*, perusahaan.*, jasa.* FROM transaksi 
-                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
-                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
-                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
-                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Disetujui' AND  transaksi.ID_IKM IS NULL OR transaksi.File_Penerimaan IS NULL AND transaksi.Bukti_Pembayaran IS NOT NULL";
+          LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+          LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+          LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+          LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+          LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+          WHERE (transaksi.Status_Transaksi = 'Disetujui' AND transaksi.ID_IKM IS NULL)
+          AND (transaksi.File_Penerimaan IS NULL AND transaksi.Bukti_Pembayaran IS NOT NULL AND transaksi.Status_Transaksi = 'Disetujui')";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {

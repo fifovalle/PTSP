@@ -83,12 +83,17 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                                 $transaksiModel = new Transaksi($koneksi);
                                 $dataTraksaksi = $transaksiModel->tampilkanRiwayatTransaksiSesuaiSession($id);
+
                                 if (!empty($dataTraksaksi)) {
-                                ?>
-                                    <button class="btn btn-outline-success px-2 mx-2" id="btn-download-file" type="button" style="width:118px;">Download File</button>
-                                <?php } else {
+                                    foreach ($dataTraksaksi as $transaksi) {
+                                        if (!empty($transaksi['File_Penerimaan'])) {
+                                            echo '<a href="../../admin/assets/image/uploads/' . $transaksi['File_Penerimaan'] . '" class="btn btn-outline-success px-2 mx-2" id="btn-download-file" type="button" style="width:118px;">Download File</a>';
+                                        }
+                                    }
+                                } else {
                                     echo '<button class="btn btn-outline-success px-2 mx-2" id="btn-download-file" onclick="showAlert()" type="button" style="width:118px;">Download File</button>';
-                                } ?>
+                                }
+                                ?>
                                 <script>
                                     function showAlert() {
                                         Swal.fire({

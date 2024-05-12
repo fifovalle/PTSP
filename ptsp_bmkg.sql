@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2024 at 04:53 AM
+-- Generation Time: May 12, 2024 at 07:15 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -132,6 +132,13 @@ CREATE TABLE `ikm` (
   `Kualitas_Pelayanan_Publik` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
   `Harapan_Konsumen_Publik` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ikm`
+--
+
+INSERT INTO `ikm` (`ID_Ikm`, `Nama`, `Jenis_Kelamin`, `Pendidikan_Terakhir`, `NIK`, `Umur`, `Pekerjaan`, `Koresponden`, `Jenis_Layanan`, `Asal_Daerah`, `Informasi_Cuaca_Publik`, `Informasi_Cuaca_Khusus`, `Analisis_Cuaca`, `Informasi_Titik_Panas`, `Informasi_Tentang_Tingkat`, `Prakiraan_Musim`, `Informasi_Iklim_Khusus`, `Analisis_Prakiraan`, `Tren_Curah_Hujan`, `Informasi_Kualitas_Udara`, `Analisis_Iklim_Ekstrim`, `Informasi_Iklim_Terapan`, `Informasi_Perubahan_Iklim`, `Pengambilan_Pengujian`, `Informasi_Gempabumi`, `Peta_Seismisitas`, `Informasi_Tanda_Waktu`, `Informasi_Geofisika_Potensial`, `Peta_Rendaman_Tsunami`, `Informasi_Seismologi_Teknik`, `Data_MKG`, `Kalibrasi`, `Konsultasi`, `Sewa_Peralatan_MKG`, `Kunjungan`, `Kualitas_Pelayanan_Terbuka`, `Harapan_Konsumen_Terbuka`, `Kualitas_Pelayanan_Kehidupan`, `Harapan_Konsumen_Kehidupan`, `Kualitas_Pelayanan_Dipahami`, `Harapan_Konsumen_Dipahami`, `Kualitas_Pelayanan_Persyaratan`, `Harapan_Konsumen_Persyaratan`, `Kualitas_Pelayanan_Diakses`, `Harapan_Konsumen_Diakses`, `Kualitas_Pelayanan_Akurat`, `Harapan_Konsumen_Akurat`, `Kualitas_Pelayanan_Data`, `Harapan_Konsumen_Data`, `Kualitas_Pelayanan_Sederhana`, `Kualitas_Pelayanan_Waktu`, `Harapan_Konsumen_Waktu`, `Kualitas_Pelayanan_Biaya_Terbuka`, `Harapan_Konsumen_Biaya_Terbuka`, `Kualitas_Pelayanan_KKN`, `Kualitas_Pelayanan_Sesuai`, `Harapan_Konsumen_Sesuai`, `Kualitas_Pelayanan_Daftar`, `Harapan_Konsumen_Daftar`, `Kualitas_Pelayanan_Sarana`, `Harapan_Konsumen_Sarana`, `Kualitas_Pelayanan_Prosedur`, `Harapan_Konsumen_Prosedur`, `Kualitas_Pelayanan_Petugas`, `Harapan_Konsumen_Petugas`, `Kualitas_Pelayanan_Aman`, `Harapan_Konsumen_Aman`, `Kualitas_Pelayanan_Keberadaan`, `Harapan_Konsumen_Keberadaan`, `Kualitas_Pelayanan_Sikap`, `Harapan_Konsumen_Sikap`, `Kualitas_Pelayanan_Publik`, `Harapan_Konsumen_Publik`) VALUES
+(38, 'Naufal', 'Pria', 'SMP', -1, -1, ' bos lele', 'Masyarakat Umum', 'Informasi', 'Batujajar', 'Informasi cuaca publik', 'Informasi cuaca khusus', 'Analisis cuaca', 'Informasi titik', 'lnformasi tentang tingkat kemudahan terjadinya kebakaran hutan dan lahan', 'Prakiraan musim', 'lnformasi iklim khusus', 'Analisis dan prakiraan curah hujan bulanan/dasarian', 'Tren curah hujan', 'lnformasi kualitas udara', 'Analisis iklim ekstrim', 'Informasi iklim terapan', 'Informasi perubahan iklim', 'Pengambilan dan pengujian sampel parameter iklim dan kualitas udara(laboratorium)', 'Informasi gempabumi dan peringatan dini tsunami', 'Peta seismisitas', 'lnformasi tanda waktu', 'lnformasi geofisika potensial', 'Peta rendaman tsunami', 'Informasi seismologi teknik', 'Data meteorologi, klimatologi, dan geofisika', 'Kalibrasi', 'Konsultasi', 'Sewa peralatan MKG', 'Kunjungan', 'Sangat Setuju', '', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', '', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', '', 'Sangat Setuju', 'Sangat Penting');
 
 -- --------------------------------------------------------
 
@@ -328,7 +335,7 @@ CREATE TABLE `pengajuan` (
 --
 
 INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `ID_Tarif`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Apakah_Gratis`, `Perbaikan_Dokumen`, `Jenis_Perbaikan`, `Tanggal_Pengajuan`) VALUES
-(99, 82, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-05-11 09:01:02');
+(99, 82, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 0, NULL, NULL, '2024-05-11 09:01:02');
 
 -- --------------------------------------------------------
 
@@ -438,7 +445,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `ID_IKM`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Upload_File_Penerimaan`, `Bukti_Pembayaran`, `Tanggal_Upload_Bukti`, `Keterangan_Pembayaran_Ditolak`, `Tanggal_Pembelian`, `Status_Transaksi`, `Status_Pesanan`) VALUES
-(192, NULL, 16, NULL, 18, NULL, 99, NULL, 5, 500000, NULL, NULL, NULL, NULL, NULL, '2024-05-11 09:00:42', 'Belum Disetujui', 'Sedang Ditinjau');
+(192, NULL, 16, NULL, 18, NULL, 99, 38, 5, 500000, 0x363634303463366366303535372e706466, '2024-05-12 11:58:20', 0x363634303461656164386461332e6a7067, '2024-05-12 11:51:54', '', '2024-05-11 09:00:42', 'Disetujui', 'Lunas');
 
 --
 -- Indexes for dumped tables
@@ -562,7 +569,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `ikm`
 --
 ALTER TABLE `ikm`
-  MODIFY `ID_Ikm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `ID_Ikm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `informasi`
