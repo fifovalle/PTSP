@@ -1,3 +1,6 @@
+composer.phar
+/vendor/
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -42,6 +45,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
-### Composer ###
-composer.phar
