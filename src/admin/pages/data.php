@@ -151,44 +151,17 @@ if (!isset($_SESSION['ID'])) {
     <!-- ALL MODAL START -->
     <?php
     include "../partials/utils/modal-add-admin.php";
-    ?>
-    <?php
     include "../partials/utils/modal-add-information.php";
-    ?>
-    <?php
     include "../partials/utils/modal-add-services.php";
-    ?>
-    <?php
     include "../partials/utils/modal-edit-admin.php";
-    ?>
-    <?php
-    include "../partials/utils/modal-edit-user.php";
-    ?>
-    <?php
     include "../partials/utils/modal-edit-information.php";
-    ?>
-    <?php
     include "../partials/utils/modal-edit-services.php";
-    ?>
-    <?php
     include "../partials/utils/modal-send-feedback.php";
-    ?>
-    <?php
     include "../partials/utils/modal-aprove-payment.php";
-    ?>
-    <?php
     include "../partials/utils/modal-aprove.php";
-    ?>
-    <?php
     include "../partials/utils/modal-see-applyment.php";
-    ?>
-    <?php
     include "../partials/utils/modal-see-transactions.php";
-    ?>
-    <?php
     include "../partials/utils/modal-aprove-applyment.php";
-    ?>
-    <?php
     include "../partials/utils/isAdmin.php";
     ?>
     <!-- ALL MODAL END -->
@@ -216,7 +189,6 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/value-see-applyment.js"></script>
     <script src="../assets/our/js/value-see-payment.js"></script>
     <script src="../assets/our/js/value-transactions.js"></script>
-    <script src="../assets/our/js/value-user.js"></script>
     <script src="../assets/our/js/value-information.js"></script>
     <script src="../assets/our/js/value-payment.js"></script>
     <script src="../assets/our/js/value-creation.js"></script>

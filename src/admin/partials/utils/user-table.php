@@ -76,9 +76,6 @@
                             ?>
                             <p class="fw-semibold deskriptorSmall m-auto"><?php echo $namaDepan . ' ' . $namaBelakang; ?></p>
                             <div class="iconContainerData">
-                                <a class="linkData buttonUser" data-id='<?php echo $data['ID_Pengguna'] ?? $data['ID_Perusahaan']; ?>'>
-                                    <span><i class="fas fa-edit"></i></span>
-                                </a>
                                 <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteUser(<?php echo $data['ID_Pengguna'] ?? $data['ID_Perusahaan']; ?>)">
                                     <span><i class="fas fa-trash"></i></span>
                                 </a>
