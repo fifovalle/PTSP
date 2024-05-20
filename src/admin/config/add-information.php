@@ -1,15 +1,48 @@
 <?php
 include 'databases.php';
 
+function containsXSS($input)
+{
+    $xss_patterns = [
+        "/<script\b[^>]*>(.*?)<\/script>/is",
+        "/<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:/i",
+        "/<iframe\b[^>]*>(.*?)<\/iframe>/is",
+        "/<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:/i",
+        "/<object\b[^>]*>(.*?)<\/object>/is",
+        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
+        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
+        "/<script\b[^>]*>[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/i",
+        "/<a\b[^>]*href\s*=\s*(?:\"|')(?:javascript:|.*?\"javascript:).*?(?:\"|')/i",
+        "/<embed\b[^>]*>(.*?)<\/embed>/is",
+        "/<applet\b[^>]*>(.*?)<\/applet>/is",
+        "/<!--.*?-->/",
+        "/(<script\b[^>]*>(.*?)<\/script>|<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:|<iframe\b[^>]*>(.*?)<\/iframe>|<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:|<object\b[^>]*>(.*?)<\/object>|on[a-zA-Z]+\s*=\s*\"[^\"]*\"|<[^>]*(>|$)(?:<|>)+|<[^>]*script\s*.*?(?:>|$)|<![^>]*-->|eval\s*\((.*?)\)|setTimeout\s*\((.*?)\)|<[^>]*\bstyle\s*=\s*[\"'][^\"']*[;{][^\"']*['\"]|<meta[^>]*http-equiv=[\"']?refresh[\"']?[^>]*url=|<[^>]*src\s*=\s*\"[^>]*\"[^>]*>|expression\s*\((.*?)\))/i"
+    ];
+
+    foreach ($xss_patterns as $pattern) {
+        if (preg_match($pattern, $input)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 if (isset($_POST['Simpan'])) {
+    require_once '../../../vendor/ezyang/htmlpurifier/library/HTMLPurifier.auto.php';
+    $config = HTMLPurifier_Config::createDefault();
+    $purifier = new HTMLPurifier($config);
     $fotoInformasi = $_FILES['Foto_Informasi'];
-    $namaInformasi = $_POST['Nama_Informasi'];
-    $deskripsiInformasi = $_POST['Deskripsi_Informasi'];
-    $hargaInformasi = $_POST['Harga_Informasi'];
-    $pemilikInformasi = $_POST['Pemilik_Informasi'];
-    $noRekening = $_POST['No_Rekening_Informasi'];
-    $kategoriInformasi = $_POST['Kategori_Informasi'];
-    $statusInformasi = $_POST['Status_Informasi'];
+    $namaInformasi = filter_input(INPUT_POST, 'Nama_Informasi', FILTER_SANITIZE_STRING);
+    $deskripsiInformasi = filter_input(INPUT_POST, 'Deskripsi_Informasi', FILTER_SANITIZE_STRING);
+    $hargaInformasi = filter_input(INPUT_POST, 'Harga_Informasi', FILTER_SANITIZE_NUMBER_INT);
+    $pemilikInformasi = filter_input(INPUT_POST, 'Pemilik_Informasi', FILTER_SANITIZE_STRING);
+    $noRekening = filter_input(INPUT_POST, 'No_Rekening_Informasi', FILTER_SANITIZE_STRING);
+    $kategoriInformasi = filter_input(INPUT_POST, 'Kategori_Informasi', FILTER_SANITIZE_STRING);
+    $statusInformasi = filter_input(INPUT_POST, 'Status_Informasi', FILTER_SANITIZE_STRING);
+
+    $namaInformasi = $purifier->purify($namaInformasi);
+    $deskripsiInformasi = $purifier->purify($deskripsiInformasi);
 
     $informasiModel = new Informasi($koneksi);
 
@@ -53,6 +86,10 @@ if (isset($_POST['Simpan'])) {
         }
     } else {
         $pesanKesalahan .= "Gagal mengupload foto informasi atau foto tidak diunggah atau ukuran melebihi batas maksimal 2MB. ";
+    }
+
+    if (containsXSS($namaDepan) || containsXSS($namaBelakang) || containsXSS($namaPengguna) || containsXSS($email) || containsXSS($kataSandi) || containsXSS($konfirmasiKataSandi) || containsXSS($nomorTelepon) || containsXSS($jenisKelamin) || containsXSS($peranAdmin) || containsXSS($alamatAdmin)) {
+        $pesanKesalahan .= "Input mengandung Serangan XSS, Saya tau anda ingin mennghack web saya 😡👿. ";
     }
 
     if (!empty($pesanKesalahan)) {

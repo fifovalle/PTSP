@@ -15,17 +15,17 @@
                     </div>
                     <div class="mb-3">
                         <label for="informationName" class="form-label">Nama Informasi</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Informasi" id="informationName" name="Nama_Informasi" autocomplete="off">
+                        <input type="text" class="form-control inputData" placeholder="<?php echo htmlspecialchars('Masukan Nama Informasi'); ?>" id="informationName" name="Nama_Informasi" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="informationDescription" class="form-label">Deskripsi Informasi</label>
-                        <textarea name="Deskripsi_Informasi" placeholder="Masukan Deskripsi Informasi" class="form-control inputData addressAddPengguna" id="informationDescription" autocomplete="off"><?php echo htmlspecialchars($_POST['Deskripsi_Informasi'] ?? ''); ?></textarea>
+                        <textarea name="Deskripsi_Informasi" placeholder="<?php echo htmlspecialchars('Masukan Deskripsi Informasi'); ?>" class="form-control inputData addressAddPengguna" id="informationDescription" autocomplete="off"><?php echo htmlspecialchars($_POST['Deskripsi_Informasi'] ?? ''); ?></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="informationPrice" class="form-label">Harga Informasi</label>
                         <div class="input-group">
                             <span class="input-group-text spanNumberData">Rp</span>
-                            <input type="number" placeholder="Masukan Harga Informasi" class="form-control inputData" id="informationPrice" name="Harga_Informasi" autocomplete="off">
+                            <input type="number" placeholder="<?php echo htmlspecialchars('Masukan Harga Informasi'); ?>" class="form-control inputData" id="informationPrice" name="Harga_Informasi" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3">

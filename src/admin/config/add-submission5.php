@@ -1,13 +1,43 @@
 <?php
 include 'databases.php';
 
+function containsXSS($input)
+{
+    $xss_patterns = [
+        "/<script\b[^>]*>(.*?)<\/script>/is",
+        "/<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:/i",
+        "/<iframe\b[^>]*>(.*?)<\/iframe>/is",
+        "/<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:/i",
+        "/<object\b[^>]*>(.*?)<\/object>/is",
+        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
+        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
+        "/<script\b[^>]*>[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/i",
+        "/<a\b[^>]*href\s*=\s*(?:\"|')(?:javascript:|.*?\"javascript:).*?(?:\"|')/i",
+        "/<embed\b[^>]*>(.*?)<\/embed>/is",
+        "/<applet\b[^>]*>(.*?)<\/applet>/is",
+        "/<!--.*?-->/",
+        "/(<script\b[^>]*>(.*?)<\/script>|<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:|<iframe\b[^>]*>(.*?)<\/iframe>|<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:|<object\b[^>]*>(.*?)<\/object>|on[a-zA-Z]+\s*=\s*\"[^\"]*\"|<[^>]*(>|$)(?:<|>)+|<[^>]*script\s*.*?(?:>|$)|<![^>]*-->|eval\s*\((.*?)\)|setTimeout\s*\((.*?)\)|<[^>]*\bstyle\s*=\s*[\"'][^\"']*[;{][^\"']*['\"]|<meta[^>]*http-equiv=[\"']?refresh[\"']?[^>]*url=|<[^>]*src\s*=\s*\"[^>]*\"[^>]*>|expression\s*\((.*?)\))/i"
+    ];
+
+    foreach ($xss_patterns as $pattern) {
+        if (preg_match($pattern, $input)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 if (isset($_POST['Apply'])) {
-    $nama = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama']));
-    $nim_atau_ktp = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['NIM_atau_KTP']));
-    $program_studi_atau_fakultas = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Program_Studi_atau_Fakultas']));
-    $universitas_atau_instansi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Universitas_atau_Instansi']));
-    $nomorHP = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_HP']));
-    $email = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Email']));
+    require_once '../../../vendor/ezyang/htmlpurifier/library/HTMLPurifier.auto.php';
+    $config = HTMLPurifier_Config::createDefault();
+    $purifier = new HTMLPurifier($config);
+    $nama = filter_input(INPUT_POST, 'Nama', FILTER_SANITIZE_STRING);
+    $nim_atau_ktp = filter_input(INPUT_POST, 'NIM_atau_KTP', FILTER_SANITIZE_STRING);
+    $program_studi_atau_fakultas = filter_input(INPUT_POST, 'Program_Studi_atau_Fakultas', FILTER_SANITIZE_STRING);
+    $universitas_atau_instansi = filter_input(INPUT_POST, 'Universitas_atau_Instansi', FILTER_SANITIZE_STRING);
+    $nomorHP = filter_input(INPUT_POST, 'No_HP', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'Email', FILTER_SANITIZE_STRING);
 
     $nomorTeleponFormatted = '+62 ' . substr($nomorHP, 0, 3) . '-' . substr($nomorHP, 4, 4) . '-' . substr($nomorHP, 7);
 

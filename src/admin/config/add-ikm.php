@@ -1,79 +1,109 @@
 <?php
 include 'databases.php';
 
+function containsXSS($input)
+{
+    $xss_patterns = [
+        "/<script\b[^>]*>(.*?)<\/script>/is",
+        "/<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:/i",
+        "/<iframe\b[^>]*>(.*?)<\/iframe>/is",
+        "/<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:/i",
+        "/<object\b[^>]*>(.*?)<\/object>/is",
+        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
+        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
+        "/<script\b[^>]*>[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/i",
+        "/<a\b[^>]*href\s*=\s*(?:\"|')(?:javascript:|.*?\"javascript:).*?(?:\"|')/i",
+        "/<embed\b[^>]*>(.*?)<\/embed>/is",
+        "/<applet\b[^>]*>(.*?)<\/applet>/is",
+        "/<!--.*?-->/",
+        "/(<script\b[^>]*>(.*?)<\/script>|<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:|<iframe\b[^>]*>(.*?)<\/iframe>|<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:|<object\b[^>]*>(.*?)<\/object>|on[a-zA-Z]+\s*=\s*\"[^\"]*\"|<[^>]*(>|$)(?:<|>)+|<[^>]*script\s*.*?(?:>|$)|<![^>]*-->|eval\s*\((.*?)\)|setTimeout\s*\((.*?)\)|<[^>]*\bstyle\s*=\s*[\"'][^\"']*[;{][^\"']*['\"]|<meta[^>]*http-equiv=[\"']?refresh[\"']?[^>]*url=|<[^>]*src\s*=\s*\"[^>]*\"[^>]*>|expression\s*\((.*?)\))/i"
+    ];
+
+    foreach ($xss_patterns as $pattern) {
+        if (preg_match($pattern, $input)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 if (isset($_POST['submit'])) {
-    $nama = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama']));
-    $jenisKelamin = mysqli_real_escape_string($koneksi, $_POST['JenisKelamin']);
-    $pendidikanTerakhir = mysqli_real_escape_string($koneksi, $_POST['PendidikanTerakhir']);
-    $NIK = mysqli_real_escape_string($koneksi, $_POST['NIK']);
-    $umur = mysqli_real_escape_string($koneksi, $_POST['Umur']);
-    $pekerjaan = mysqli_real_escape_string($koneksi, $_POST['Pekerjaan']);
-    $koresponden = mysqli_real_escape_string($koneksi, $_POST['Koresponden']);
-    $jenisLayanan = mysqli_real_escape_string($koneksi, $_POST['JenisLayanan']);
-    $asalDaerah = mysqli_real_escape_string($koneksi, $_POST['AsalDaerah']);
-    $c1 = isset($_POST['c_1']) ? mysqli_real_escape_string($koneksi, $_POST['c_1']) : '';
-    $c2 = isset($_POST['c_2']) ? mysqli_real_escape_string($koneksi, $_POST['c_2']) : '';
-    $c3 = isset($_POST['c_3']) ? mysqli_real_escape_string($koneksi, $_POST['c_3']) : '';
-    $c4 = isset($_POST['c_4']) ? mysqli_real_escape_string($koneksi, $_POST['c_4']) : '';
-    $c5 = isset($_POST['c_5']) ? mysqli_real_escape_string($koneksi, $_POST['c_5']) : '';
-    $c6 = isset($_POST['c_6']) ? mysqli_real_escape_string($koneksi, $_POST['c_6']) : '';
-    $c7 = isset($_POST['c_7']) ? mysqli_real_escape_string($koneksi, $_POST['c_7']) : '';
-    $c8 = isset($_POST['c_8']) ? mysqli_real_escape_string($koneksi, $_POST['c_8']) : '';
-    $c9 = isset($_POST['c_9']) ? mysqli_real_escape_string($koneksi, $_POST['c_9']) : '';
-    $c10 = isset($_POST['c_10']) ? mysqli_real_escape_string($koneksi, $_POST['c_10']) : '';
-    $c11 = isset($_POST['c_11']) ? mysqli_real_escape_string($koneksi, $_POST['c_11']) : '';
-    $c12 = isset($_POST['c_12']) ? mysqli_real_escape_string($koneksi, $_POST['c_12']) : '';
-    $c13 = isset($_POST['c_13']) ? mysqli_real_escape_string($koneksi, $_POST['c_13']) : '';
-    $c14 = isset($_POST['c_14']) ? mysqli_real_escape_string($koneksi, $_POST['c_14']) : '';
-    $c15 = isset($_POST['c_15']) ? mysqli_real_escape_string($koneksi, $_POST['c_15']) : '';
-    $c16 = isset($_POST['c_16']) ? mysqli_real_escape_string($koneksi, $_POST['c_16']) : '';
-    $c17 = isset($_POST['c_17']) ? mysqli_real_escape_string($koneksi, $_POST['c_17']) : '';
-    $c18 = isset($_POST['c_18']) ? mysqli_real_escape_string($koneksi, $_POST['c_18']) : '';
-    $c19 = isset($_POST['c_19']) ? mysqli_real_escape_string($koneksi, $_POST['c_19']) : '';
-    $c20 = isset($_POST['c_20']) ? mysqli_real_escape_string($koneksi, $_POST['c_20']) : '';
-    $c21 = isset($_POST['c_21']) ? mysqli_real_escape_string($koneksi, $_POST['c_21']) : '';
-    $c22 = isset($_POST['c_22']) ? mysqli_real_escape_string($koneksi, $_POST['c_22']) : '';
-    $c23 = isset($_POST['c_23']) ? mysqli_real_escape_string($koneksi, $_POST['c_23']) : '';
-    $c24 = isset($_POST['c_24']) ? mysqli_real_escape_string($koneksi, $_POST['c_24']) : '';
-    $c25 = isset($_POST['c_25']) ? mysqli_real_escape_string($koneksi, $_POST['c_25']) : '';
-    $KualitasPelayananTerbuka = isset($_POST['Kualitas_Pelayanan_Terbuka']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Terbuka'])) : '';
-    $HarapanKonsumenTerbuka = isset($_POST['Harapan_Konsumen_Terbuka']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Terbuka'])) : '';
-    $KualitasPelayananKehidupan = isset($_POST['Kualitas_Pelayanan_Kehidupan']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Kehidupan'])) : '';
-    $HarapanKonsumenKehidupan = isset($_POST['Harapan_Konsumen_Kehidupan']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Kehidupan'])) : '';
-    $KualitasPelayananDipahami = isset($_POST['Kualitas_Pelayanan_Dipahami']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Dipahami'])) : '';
-    $HarapanKonsumenDipahami = isset($_POST['Harapan_Konsumen_Dipahami']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Dipahami'])) : '';
-    $KualitasPelayananPersyaratan = isset($_POST['Kualitas_Pelayanan_Persyaratan']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Persyaratan'])) : '';
-    $HarapanKonsumenPersyaratan = isset($_POST['Harapan_Konsumen_Persyaratan']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Persyaratan'])) : '';
-    $KualitasPelayananDiakses = isset($_POST['Kualitas_Pelayanan_Diakses']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Diakses'])) : '';
-    $HarapanKonsumenDiakses = isset($_POST['Harapan_Konsumen_Diakses']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Diakses'])) : '';
-    $KualitasPelayananAkurat = isset($_POST['Kualitas_Pelayanan_Akurat']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Akurat'])) : '';
-    $HarapanKonsumenAkurat = isset($_POST['Harapan_Konsumen_Akurat']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Akurat'])) : '';
-    $KualitasPelayananData = isset($_POST['Kualitas_Pelayanan_Data']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Data'])) : '';
-    $HarapanKonsumenData = isset($_POST['Harapan_Konsumen_Data']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Data'])) : '';
-    $KualitasPelayananSederhana = isset($_POST['Kualitas_Pelayanan_Sederhana']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Sederhana'])) : '';
-    $KualitasPelayananWaktu = isset($_POST['Kualitas_Pelayanan_Waktu']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Waktu'])) : '';
-    $HarapanKonsumenWaktu = isset($_POST['Harapan_Konsumen_Waktu']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Waktu'])) : '';
-    $KualitasPelayananBiayaTerbuka = isset($_POST['Kualitas_Pelayanan_Biaya_Terbuka']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Biaya_Terbuka'])) : '';
-    $HarapanKonsumenBiayaTerbuka = isset($_POST['Harapan_Konsumen_Biaya_Terbuka']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Biaya_Terbuka'])) : '';
-    $KualitasPelayananKKN = isset($_POST['Kualitas_Pelayanan_KKN']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_KKN'])) : '';
-    $KualitasPelayananSesuai = isset($_POST['Kualitas_Pelayanan_Sesuai']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Sesuai'])) : '';
-    $HarapanKonsumenSesuai = isset($_POST['Harapan_Konsumen_Sesuai']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Sesuai'])) : '';
-    $KualitasPelayananDaftar = isset($_POST['Kualitas_Pelayanan_Daftar']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Daftar'])) : '';
-    $HarapanKonsumenDaftar = isset($_POST['Harapan_Konsumen_Daftar']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Daftar'])) : '';
-    $KualitasPelayananSarana = isset($_POST['Kualitas_Pelayanan_Sarana']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Sarana'])) : '';
-    $HarapanKonsumenSarana = isset($_POST['Harapan_Konsumen_Sarana']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Sarana'])) : '';
-    $KualitasPelayananProsedur = isset($_POST['Kualitas_Pelayanan_Prosedur']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Prosedur'])) : '';
-    $HarapanKonsumenProsedur = isset($_POST['Harapan_Konsumen_Prosedur']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Prosedur'])) : '';
-    $KualitasPelayananPetugas = isset($_POST['Kualitas_Pelayanan_Petugas']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Petugas'])) : '';
-    $HarapanKonsumenPetugas = isset($_POST['Harapan_Konsumen_Petugas']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Petugas'])) : '';
-    $KualitasPelayananAman = isset($_POST['Kualitas_Pelayanan_Aman']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Aman'])) : '';
-    $HarapanKonsumenAman = isset($_POST['Harapan_Konsumen_Aman']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Aman'])) : '';
-    $KualitasPelayananKeberadaan = isset($_POST['Kualitas_Pelayanan_Keberadaan']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Keberadaan'])) : '';
-    $HarapanKonsumenKeberadaan = isset($_POST['Harapan_Konsumen_Keberadaan']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Keberadaan'])) : '';
-    $KualitasPelayananSikap = isset($_POST['Kualitas_Pelayanan_Sikap']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Sikap'])) : '';
-    $HarapanKonsumenSikap = isset($_POST['Harapan_Konsumen_Sikap']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Sikap'])) : '';
-    $KualitasPelayananPublik = isset($_POST['Kualitas_Pelayanan_Publik']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kualitas_Pelayanan_Publik'])) : '';
-    $HarapanKonsumenPublik = isset($_POST['Harapan_Konsumen_Publik']) ? mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Harapan_Konsumen_Publik'])) : '';
+    require_once '../../../vendor/ezyang/htmlpurifier/library/HTMLPurifier.auto.php';
+    $config = HTMLPurifier_Config::createDefault();
+    $purifier = new HTMLPurifier($config);
+    $nama = filter_input(INPUT_POST, 'Nama', FILTER_SANITIZE_STRING);
+    $jenisKelamin = filter_input(INPUT_POST, 'JenisKelamin', FILTER_SANITIZE_STRING);
+    $pendidikanTerakhir = filter_input(INPUT_POST, 'PendidikanTerakhir', FILTER_SANITIZE_STRING);
+    $NIK = filter_input(INPUT_POST, 'NIK', FILTER_SANITIZE_STRING);
+    $umur = filter_input(INPUT_POST, 'Umur', FILTER_SANITIZE_STRING);
+    $pekerjaan = filter_input(INPUT_POST, 'Pekerjaan', FILTER_SANITIZE_STRING);
+    $koresponden = filter_input(INPUT_POST, 'Koresponden', FILTER_SANITIZE_STRING);
+    $jenisLayanan = filter_input(INPUT_POST, 'JenisLayanan', FILTER_SANITIZE_STRING);
+    $asalDaerah = filter_input(INPUT_POST, 'AsalDaerah', FILTER_SANITIZE_STRING);
+    $c1 = isset($_POST['c_1']) ? filter_input(INPUT_POST, 'c_1', FILTER_SANITIZE_STRING) : '';
+    $c2 = isset($_POST['c_2']) ? filter_input(INPUT_POST, 'c_2', FILTER_SANITIZE_STRING) : '';
+    $c3 = isset($_POST['c_3']) ? filter_input(INPUT_POST, 'c_3', FILTER_SANITIZE_STRING) : '';
+    $c4 = isset($_POST['c_4']) ? filter_input(INPUT_POST, 'c_4', FILTER_SANITIZE_STRING) : '';
+    $c5 = isset($_POST['c_5']) ? filter_input(INPUT_POST, 'c_5', FILTER_SANITIZE_STRING) : '';
+    $c6 = isset($_POST['c_6']) ? filter_input(INPUT_POST, 'c_6', FILTER_SANITIZE_STRING) : '';
+    $c7 = isset($_POST['c_7']) ? filter_input(INPUT_POST, 'c_7', FILTER_SANITIZE_STRING) : '';
+    $c8 = isset($_POST['c_8']) ? filter_input(INPUT_POST, 'c_8', FILTER_SANITIZE_STRING) : '';
+    $c9 = isset($_POST['c_9']) ? filter_input(INPUT_POST, 'c_9', FILTER_SANITIZE_STRING) : '';
+    $c10 = isset($_POST['c_10']) ? filter_input(INPUT_POST, 'c_10', FILTER_SANITIZE_STRING) : '';
+    $c11 = isset($_POST['c_11']) ? filter_input(INPUT_POST, 'c_11', FILTER_SANITIZE_STRING) : '';
+    $c12 = isset($_POST['c_12']) ? filter_input(INPUT_POST, 'c_12', FILTER_SANITIZE_STRING) : '';
+    $c13 = isset($_POST['c_13']) ? filter_input(INPUT_POST, 'c_13', FILTER_SANITIZE_STRING) : '';
+    $c14 = isset($_POST['c_14']) ? filter_input(INPUT_POST, 'c_14', FILTER_SANITIZE_STRING) : '';
+    $c15 = isset($_POST['c_15']) ? filter_input(INPUT_POST, 'c_15', FILTER_SANITIZE_STRING) : '';
+    $c16 = isset($_POST['c_16']) ? filter_input(INPUT_POST, 'c_16', FILTER_SANITIZE_STRING) : '';
+    $c17 = isset($_POST['c_17']) ? filter_input(INPUT_POST, 'c_17', FILTER_SANITIZE_STRING) : '';
+    $c18 = isset($_POST['c_18']) ? filter_input(INPUT_POST, 'c_18', FILTER_SANITIZE_STRING) : '';
+    $c19 = isset($_POST['c_19']) ? filter_input(INPUT_POST, 'c_19', FILTER_SANITIZE_STRING) : '';
+    $c20 = isset($_POST['c_20']) ? filter_input(INPUT_POST, 'c_20', FILTER_SANITIZE_STRING) : '';
+    $c21 = isset($_POST['c_21']) ? filter_input(INPUT_POST, 'c_21', FILTER_SANITIZE_STRING) : '';
+    $c22 = isset($_POST['c_22']) ? filter_input(INPUT_POST, 'c_22', FILTER_SANITIZE_STRING) : '';
+    $c23 = isset($_POST['c_23']) ? filter_input(INPUT_POST, 'c_23', FILTER_SANITIZE_STRING) : '';
+    $c24 = isset($_POST['c_24']) ? filter_input(INPUT_POST, 'c_24', FILTER_SANITIZE_STRING) : '';
+    $c25 = isset($_POST['c_25']) ? filter_input(INPUT_POST, 'c_25', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananTerbuka = isset($_POST['Kualitas_Pelayanan_Terbuka']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Terbuka', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenTerbuka = isset($_POST['Harapan_Konsumen_Terbuka']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Terbuka', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananKehidupan = isset($_POST['Kualitas_Pelayanan_Kehidupan']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Kehidupan', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenKehidupan = isset($_POST['Harapan_Konsumen_Kehidupan']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Kehidupan', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananDipahami = isset($_POST['Kualitas_Pelayanan_Dipahami']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Dipahami', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenDipahami = isset($_POST['Harapan_Konsumen_Dipahami']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Dipahami', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananPersyaratan = isset($_POST['Kualitas_Pelayanan_Persyaratan']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Persyaratan', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenPersyaratan = isset($_POST['Harapan_Konsumen_Persyaratan']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Persyaratan', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananDiakses = isset($_POST['Kualitas_Pelayanan_Diakses']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Diakses', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenDiakses = isset($_POST['Harapan_Konsumen_Diakses']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Diakses', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananAkurat = isset($_POST['Kualitas_Pelayanan_Akurat']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Akurat', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenAkurat = isset($_POST['Harapan_Konsumen_Akurat']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Akurat', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananData = isset($_POST['Kualitas_Pelayanan_Data']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Data', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenData = isset($_POST['Harapan_Konsumen_Data']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Data', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananSederhana = isset($_POST['Kualitas_Pelayanan_Sederhana']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Sederhana', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananWaktu = isset($_POST['Kualitas_Pelayanan_Waktu']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Waktu', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenWaktu = isset($_POST['Harapan_Konsumen_Waktu']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Waktu', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananBiayaTerbuka = isset($_POST['Kualitas_Pelayanan_Biaya_Terbuka']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Biaya_Terbuka', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenBiayaTerbuka = isset($_POST['Harapan_Konsumen_Biaya_Terbuka']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Biaya_Terbuka', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananKKN = isset($_POST['Kualitas_Pelayanan_KKN']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_KKN', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananSesuai = isset($_POST['Kualitas_Pelayanan_Sesuai']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Sesuai', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenSesuai = isset($_POST['Harapan_Konsumen_Sesuai']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Sesuai', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananDaftar = isset($_POST['Kualitas_Pelayanan_Daftar']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Daftar', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenDaftar = isset($_POST['Harapan_Konsumen_Daftar']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Daftar', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananSarana = isset($_POST['Kualitas_Pelayanan_Sarana']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Sarana', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenSarana = isset($_POST['Harapan_Konsumen_Sarana']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Sarana', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananProsedur = isset($_POST['Kualitas_Pelayanan_Prosedur']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Prosedur', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenProsedur = isset($_POST['Harapan_Konsumen_Prosedur']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Prosedur', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananPetugas = isset($_POST['Kualitas_Pelayanan_Petugas']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Petugas', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenPetugas = isset($_POST['Harapan_Konsumen_Petugas']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Petugas', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananAman = isset($_POST['Kualitas_Pelayanan_Aman']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Aman', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenAman = isset($_POST['Harapan_Konsumen_Aman']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Aman', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananKeberadaan = isset($_POST['Kualitas_Pelayanan_Keberadaan']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Keberadaan', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenKeberadaan = isset($_POST['Harapan_Konsumen_Keberadaan']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Keberadaan', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananSikap = isset($_POST['Kualitas_Pelayanan_Sikap']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Sikap', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenSikap = isset($_POST['Harapan_Konsumen_Sikap']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Sikap', FILTER_SANITIZE_STRING) : '';
+    $KualitasPelayananPublik = isset($_POST['Kualitas_Pelayanan_Publik']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Publik', FILTER_SANITIZE_STRING) : '';
+    $HarapanKonsumenPublik = isset($_POST['Harapan_Konsumen_Publik']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Publik', FILTER_SANITIZE_STRING) : '';
 
     $objekIkm = new Ikm($koneksi);
     $objekTranksaksi = new Transaksi($koneksi);
@@ -162,6 +192,11 @@ if (isset($_POST['submit'])) {
 
     $simpanDataTransaksi = $objekTranksaksi->updateIKMNULLSesuaiTransaksi($dataIkmTransaksi, $idSession);
     $simpanDataIkm = $objekIkm->tambahDataIkm($dataIkm);
+
+    if (containsXSS($namaDepan) || containsXSS($namaBelakang) || containsXSS($namaPengguna) || containsXSS($email) || containsXSS($kataSandi) || containsXSS($konfirmasiKataSandi) || containsXSS($nomorTelepon) || containsXSS($jenisKelamin) || containsXSS($peranAdmin) || containsXSS($alamatAdmin)) {
+        $pesanKesalahan .= "Input mengandung Serangan XSS, Saya tau anda ingin mennghack web saya 😡👿. ";
+    }
+
 
     if ($simpanDataIkm && $simpanDataTransaksi) {
         setPesanKeberhasilan("Data berhasil ditambahkan.");

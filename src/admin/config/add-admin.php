@@ -8,17 +8,47 @@ require '../../../vendor/phpmailer/src/Exception.php';
 require '../../../vendor/phpmailer/src/PHPMailer.php';
 require '../../../vendor/phpmailer/src/SMTP.php';
 
+function containsXSS($input)
+{
+    $xss_patterns = [
+        "/<script\b[^>]*>(.*?)<\/script>/is",
+        "/<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:/i",
+        "/<iframe\b[^>]*>(.*?)<\/iframe>/is",
+        "/<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:/i",
+        "/<object\b[^>]*>(.*?)<\/object>/is",
+        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
+        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
+        "/<script\b[^>]*>[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/i",
+        "/<a\b[^>]*href\s*=\s*(?:\"|')(?:javascript:|.*?\"javascript:).*?(?:\"|')/i",
+        "/<embed\b[^>]*>(.*?)<\/embed>/is",
+        "/<applet\b[^>]*>(.*?)<\/applet>/is",
+        "/<!--.*?-->/",
+        "/(<script\b[^>]*>(.*?)<\/script>|<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:|<iframe\b[^>]*>(.*?)<\/iframe>|<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:|<object\b[^>]*>(.*?)<\/object>|on[a-zA-Z]+\s*=\s*\"[^\"]*\"|<[^>]*(>|$)(?:<|>)+|<[^>]*script\s*.*?(?:>|$)|<![^>]*-->|eval\s*\((.*?)\)|setTimeout\s*\((.*?)\)|<[^>]*\bstyle\s*=\s*[\"'][^\"']*[;{][^\"']*['\"]|<meta[^>]*http-equiv=[\"']?refresh[\"']?[^>]*url=|<[^>]*src\s*=\s*\"[^>]*\"[^>]*>|expression\s*\((.*?)\))/i"
+    ];
+
+    foreach ($xss_patterns as $pattern) {
+        if (preg_match($pattern, $input)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 if (isset($_POST['Simpan'])) {
-    $namaDepan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Depan_Admin']));
-    $namaBelakang = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Belakang_Admin']));
-    $namaPengguna = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama_Pengguna_Admin']));
-    $email = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Email_Admin']));
-    $kataSandi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Kata_Sandi']));
-    $konfirmasiKataSandi = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Konfirmasi_Kata_Sandi']));
-    $nomorTelepon = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_Telepon_Admin']));
-    $jenisKelamin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Jenis_Kelamin_Admin']));
-    $peranAdmin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Peran_Admin']));
-    $alamatAdmin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Alamat_Admin']));
+    require_once '../../../vendor/ezyang/htmlpurifier/library/HTMLPurifier.auto.php';
+    $config = HTMLPurifier_Config::createDefault();
+    $purifier = new HTMLPurifier($config);
+    $namaDepan = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Nama_Depan_Admin', FILTER_SANITIZE_STRING));
+    $namaBelakang = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Nama_Belakang_Admin', FILTER_SANITIZE_STRING));
+    $namaPengguna = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Nama_Pengguna_Admin', FILTER_SANITIZE_STRING));
+    $email = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Email_Admin', FILTER_SANITIZE_EMAIL));
+    $kataSandi = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Kata_Sandi', FILTER_SANITIZE_STRING));
+    $konfirmasiKataSandi = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Konfirmasi_Kata_Sandi', FILTER_SANITIZE_STRING));
+    $nomorTelepon = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'No_Telepon_Admin', FILTER_SANITIZE_STRING));
+    $jenisKelamin = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Jenis_Kelamin_Admin', FILTER_SANITIZE_STRING));
+    $peranAdmin = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Peran_Admin', FILTER_SANITIZE_STRING));
+    $alamatAdmin = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Alamat_Admin', FILTER_SANITIZE_STRING));
     $obyekAdmin = new Admin($koneksi);
     do {
         $token = random_int(10000000, 99999999);
@@ -50,6 +80,7 @@ if (isset($_POST['Simpan'])) {
     if (!is_numeric($nomorTelepon)) {
         $pesanKesalahan .= "Nomor telepon hanya boleh berisi angka. ";
     }
+
 
     $fotoAdmin = $_FILES['Foto_Admin'];
 

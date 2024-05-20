@@ -8,24 +8,24 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" action="<?php echo $akarUrl; ?>src/admin/config/add-services.php" enctype="multipart/form-data">
+                <form method="POST" action="<?php echo htmlspecialchars($akarUrl); ?>src/admin/config/add-services.php" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="servicesFoto" class="form-label">Foto</label>
                         <input type="file" class="form-control" id="servicesFoto" name="Foto_Jasa" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="servicesName" class="form-label">Nama Jasa</label>
-                        <input type="text" class="form-control inputData" placeholder="Masukan Nama Jasa" id="servicesName" name="Nama_Jasa" autocomplete="off">
+                        <input type="text" class="form-control inputData" placeholder="<?php echo htmlspecialchars('Masukan Nama Jasa'); ?>" id="servicesName" name="Nama_Jasa" autocomplete="off">
                     </div>
                     <div class="mb-3">
                         <label for="servicesDescription" class="form-label">Deskripsi Jasa</label>
-                        <textarea name="Deskripsi_Jasa" placeholder="Masukan Deskripsi Jasa" class="form-control inputData addressAddPengguna" id="servicesDescription" autocomplete="off"></textarea>
+                        <textarea name="Deskripsi_Jasa" placeholder="<?php echo htmlspecialchars('Masukan Deskripsi Jasa'); ?>" class="form-control inputData addressAddPengguna" id="servicesDescription" autocomplete="off"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="servicesPrice" class="form-label">Harga Jasa</label>
                         <div class="input-group">
                             <span class="input-group-text spanNumberData">Rp</span>
-                            <input type="number" placeholder="Masukan Harga Jasa" class="form-control inputData" id="servicesPrice" name="Harga_Jasa" autocomplete="off">
+                            <input type="number" placeholder="<?php echo htmlspecialchars('Masukan Harga Jasa'); ?>" class="form-control inputData" id="servicesPrice" name="Harga_Jasa" autocomplete="off">
                         </div>
                     </div>
                     <div class="mb-3">

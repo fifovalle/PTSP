@@ -162,7 +162,9 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/chart/chart-analytics3.js"></script>
     <script src="../assets/our/js/chart/chart-analytics4.js"></script>
     <script src="../assets/our/js/chart/chart-information.js"></script>
+    <script src="../assets/our/js/chart/chart-transaction.js"></script>
     <script src="../assets/our/js/chart/chart-services.js"></script>
+    <script src="../assets/our/js/chart/chart-ikm.js"></script>
     <script src="../assets/our/js/chart/apexcharts.js"></script>
     <script src="../assets/our/js/delete-information.js"></script>
     <script src="../assets/our/js/delete-services.js"></script>

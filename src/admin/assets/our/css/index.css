@@ -11,9 +11,8 @@
   width: 120px;
   height: 15px;
   border-radius: 20px;
-  background:
-    repeating-linear-gradient(135deg, #f03355 0 10px, #ffa516 0 20px) 0/0%
-      no-repeat,
+  background: repeating-linear-gradient(135deg, #f03355 0 10px, #ffa516 0 20px)
+      0/0% no-repeat,
     repeating-linear-gradient(135deg, #ddd 0 10px, #eee 0 20px) 0/100%;
   animation: l3 5s infinite;
   display: none;
@@ -146,9 +145,7 @@ a {
   z-index: 1000;
   opacity: 0;
   transform: translateY(-20px);
-  transition:
-    opacity 0.3s ease-in-out,
-    transform 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .dropdown-menu.show {
@@ -442,10 +439,7 @@ aside {
   color: var(--teks);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  transition:
-    background-color 0.3s,
-    color 0.3s,
-    box-shadow 0.3s,
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s,
     border-radius 0.3s;
 }
 
@@ -738,6 +732,7 @@ aside {
 /* =============================MAIN END============================= */
 
 /* =============================FOOTER START============================= */
+
 .textFooter {
   color: var(--teks);
 }
