@@ -46,43 +46,43 @@ session_start();
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NPWP" name="NPWP_Pengguna" placeholder="123*****" value="<?= $_SESSION['NPWP'] ?? ''; ?>">
+                                    <input type="number" class="form-control" id="NPWP" name="NPWP_Pengguna" placeholder="123*****" value="<?= $_SESSION['NPWP'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">NPWP</label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="number" class="form-control" id="NoIdentitas" name="No_Identitas_Pengguna" placeholder="123*****" value="<?= $_SESSION['No_Identitas'] ?? ''; ?>">
+                                    <input type="number" class="form-control" id="NoIdentitas" name="No_Identitas_Pengguna" placeholder="123*****" value="<?= $_SESSION['No_Identitas'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">No Identitas (KTP/SIM/KITAS/PASSPORT) <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Pekerjaan" name="Pekerjaan_Pengguna" placeholder="Mengaja***" value="<?= $_SESSION['Pekerjaan'] ?? ''; ?>">
+                                    <input type="text" class="form-control" id="Pekerjaan" name="Pekerjaan_Pengguna" placeholder="Mengaja***" value="<?= $_SESSION['Pekerjaan'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">Pekerjaan <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="NamaDepan" name="Nama_Depan_Pengguna" placeholder="Ridwan***" value="<?= $_SESSION['Nama_Depan'] ?? ''; ?>">
+                                    <input type="text" class="form-control" id="NamaDepan" name="Nama_Depan_Pengguna" placeholder="Ridwan***" value="<?= $_SESSION['Nama_Depan'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">Nama Depan <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="NamaBelakang" name="Nama_Belakang_Pengguna" placeholder="Ridwan***" value="<?= $_SESSION['Nama_Belakang'] ?? ''; ?>">
+                                    <input type="text" class="form-control" id="NamaBelakang" name="Nama_Belakang_Pengguna" placeholder="Ridwan***" value="<?= $_SESSION['Nama_Belakang'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">Nama Belakang <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Pendidikan" name="Pendidikan_Terakhir_Pengguna" placeholder="Ridwan***" value="<?= $_SESSION['Pendidikan'] ?? ''; ?>">
+                                    <input type="text" class="form-control" id="Pendidikan" name="Pendidikan_Terakhir_Pengguna" placeholder="Ridwan***" value="<?= $_SESSION['Pendidikan'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">Pendidikan Terakhir <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <select class="form-select" aria-label="Default select example" id="Jenis_Kelamin_Pengguna" name="Jenis_Kelamin_Pengguna" value="<?= $_SESSION['Jenis_Kelamin'] ?? ''; ?>">
+                                    <select class="form-select" aria-label="Default select example" id="Jenis_Kelamin_Pengguna" name="Jenis_Kelamin_Pengguna" value="<?= $_SESSION['Jenis_Kelamin'] ?? ''; ?>" autocomplete="off">
                                         <option selected>Pilih Jenis Kelamin</option>
                                         <option value="1">Laki-laki</option>
                                         <option value="2">Perempuan</option>
@@ -113,7 +113,7 @@ session_start();
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Alamat" name="Alamat_Pengguna" placeholder="Jl.****" value="<?= $_SESSION['Alamat'] ?? ''; ?>">
+                                    <input type="text" class="form-control" id="Alamat" name="Alamat_Pengguna" placeholder="Jl.****" value="<?= $_SESSION['Alamat'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">Alamat <b>*</b></label>
                                 </div>
                             </div>
@@ -121,20 +121,20 @@ session_start();
                                 <div class="input-group has-validation">
                                     <span class="input-group-text my-3">+62</span>
                                     <div class="form-floating my-3">
-                                        <input type="number" class="form-control" id="NoTelepon" name="No_Telepon_Pengguna" placeholder="123*****" value="<?= $_SESSION['No_Telepon'] ?? ''; ?>">
+                                        <input type="number" class="form-control" id="NoTelepon" name="No_Telepon_Pengguna" placeholder="123*****" value="<?= $_SESSION['No_Telepon'] ?? ''; ?>" autocomplete="off">
                                         <label for="floatingInput">No Hp / No Telepon <b>*</b> </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Provinsi" name="Provinsi" placeholder="Jawa ***" value="<?= $_SESSION['Provinsi'] ?? ''; ?>">
+                                    <input type="text" class="form-control" id="Provinsi" name="Provinsi" placeholder="Jawa ***" value="<?= $_SESSION['Provinsi'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">Provinsi <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="KotaKab" name="Kota_Kabupaten" placeholder="Kab. ***" value="<?= $_SESSION['Kab/Kota'] ?? ''; ?>">
+                                    <input type="text" class="form-control" id="KotaKab" name="Kota_Kabupaten" placeholder="Kab. ***" value="<?= $_SESSION['Kab/Kota'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">Kabupaten/Kota <b>*</b> </label>
                                 </div>
                             </div>
@@ -171,26 +171,26 @@ session_start();
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3">
-                                    <input type="email" class="form-control" id="Email" name="Email_Pengguna" placeholder="***@example.com" value="<?= $_SESSION['Email'] ?? ''; ?>">
+                                    <input type="email" class="form-control" id="Email" name="Email_Pengguna" placeholder="***@example.com" value="<?= $_SESSION['Email'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">Email <b>*</b></label>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3">
-                                    <input type="text" class="form-control" id="Nama_Pengguna" name="Nama_Pengguna" placeholder="***sd**" value="<?= $_SESSION['Nama_Pengguna'] ?? ''; ?>">
+                                    <input type="text" class="form-control" id="Nama_Pengguna" name="Nama_Pengguna" placeholder="***sd**" value="<?= $_SESSION['Nama_Pengguna'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">Nama Pengguna <b>*</b> </label>
                                 </div>
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3 position-relative">
-                                    <input type="password" class="form-control" id="Kata_Sandi" name="Kata_Sandi" placeholder="*****" value="<?= $_SESSION['Kata_Sandi'] ?? ''; ?>">
+                                    <input type="password" class="form-control" id="Kata_Sandi" name="Kata_Sandi" placeholder="*****" value="<?= $_SESSION['Kata_Sandi'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">Kata Sandi <b>*</b> </label>
                                     <i class="bi bi-eye-slash eye-icon top-50 translate-middle-y" id="togglePassword1"></i>
                                 </div>
                             </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3 position-relative">
-                                    <input type="password" class="form-control" id="Konfirmasi_Kata_Sandi" name="Konfirmasi_Kata_Sandi" placeholder="*****" value="<?= $_SESSION['Konfirmasi_Kata_Sandi'] ?? ''; ?>">
+                                    <input type="password" class="form-control" id="Konfirmasi_Kata_Sandi" name="Konfirmasi_Kata_Sandi" placeholder="*****" value="<?= $_SESSION['Konfirmasi_Kata_Sandi'] ?? ''; ?>" autocomplete="off">
                                     <label for="floatingInput">Konfirmasi Kata Sandi <b>*</b> </label>
                                     <i class="bi bi-eye-slash eye-icon top-50 translate-middle-y" id="togglePassword2"></i>
                                 </div>
@@ -233,10 +233,10 @@ session_start();
                         </label>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button class="btn" type="submit" name="Daftar">
+                        <div class="pemuat" id="pemuat3"></div>
+                        <button class="btn" type="submit" name="Daftar" onclick="handleSubmit(event)" id="Daftar">
                             <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
-                                <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z">
-                                </path>
+                                <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
                             </svg>
                             <span class="text">Daftar</span>
                         </button>

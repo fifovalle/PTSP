@@ -36,3 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+document.getElementById("Daftar").addEventListener("click", function () {
+  document.getElementById("Daftar").style.display = "none";
+  document.getElementById("pemuat3").style.display = "block";
+});

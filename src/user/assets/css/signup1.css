@@ -234,11 +234,9 @@ label b {
 
 .btn:hover {
   background: linear-gradient(0deg, #1d893b, #006f23);
-  box-shadow:
-    inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
     inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
-    0px 0px 30px 0px #1d893b;
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 30px 0px #1d893b;
   transform: translateY(-2px);
 }
 
@@ -340,4 +338,26 @@ label b {
   cursor: pointer;
   position: absolute;
   right: 15px;
+}
+
+.pemuat {
+  width: 120px;
+  height: 15px;
+  border-radius: 20px;
+  background: repeating-linear-gradient(135deg, #f03355 0 10px, #ffa516 0 20px)
+      0/0% no-repeat,
+    repeating-linear-gradient(135deg, #ddd 0 10px, #eee 0 20px) 0/100%;
+  animation: l3 5s infinite;
+  display: none;
+}
+
+@keyframes l3 {
+  100% {
+    background-size: 100%;
+  }
+}
+
+.pemuatMengirim {
+  font-size: 12px;
+  margin-bottom: -10px;
 }

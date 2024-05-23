@@ -29,6 +29,12 @@ if (isset($_POST['Masuk'])) {
         exit();
     }
 
+    if ($pengguna['Status_Verifikasi_Pengguna'] !== 'Terverifikasi') {
+        setPesanKesalahan("Maaf, akun Anda belum terverifikasi.");
+        header("Location: $akarUrl" . "src/user/pages/login.php");
+        exit();
+    }
+
     if ($pengguna !== null) {
         $_SESSION['ID_Pengguna'] = htmlspecialchars($pengguna['ID_Pengguna']);
         $_SESSION['Foto_Pengguna'] = htmlspecialchars($pengguna['Foto']);

@@ -7,8 +7,8 @@ $mail->Password = 'vqio euwq gppe ppww';
 $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 $mail->setFrom('syntaxsquad24@gmail.com', 'BMKG');
-$mail->addAddress($email, $namaDepan . ' ' . $namaBelakang);
-$mail->Subject = 'Verifikasi Akun Admin';
+$mail->addAddress($emailPengguna, $namaDepan . ' ' . $namaBelakang);
+$mail->Subject = 'Verifikasi Akun Anda';
 $mail->Body = '
         <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #f2f3f8; font-family: \'Trebuchet MS\', sans-serif;" leftmargin="0">
             <table cellspacing="0" border="0" cellpadding="0" width="100%" bgcolor="#f2f3f8">
@@ -41,7 +41,7 @@ $mail->Body = '
                                             <p style="color:#455056; font-size:15px; line-height:24px; margin:0;">
                                                 Harap konfirmasikan bahwa Anda ingin menggunakan ini sebagai alamat email akun Anda. Setelah selesai, Anda akan dapat mulai mengakses!
                                             </p>
-                                            <a href="http://localhost/PTSP/src/admin/config/verification-email.php?Token=' . $token . '" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff; text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Verifikasi</a>
+                                            <a href="http://localhost/PTSP/src/admin/config/verification-email-user.php?Token=' . $token . '" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff; text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Verifikasi</a>
                                         </td>
                                     </tr>
                                         <tr>
@@ -66,9 +66,9 @@ $mail->isHTML(true);
 
 try {
     $mail->send();
-    setPesanKeberhasilan("Data admin berhasil disimpan. Email verifikasi telah dikirim.");
-    header("Location: $akarUrl" . "src/admin/pages/data.php");
+    setPesanKeberhasilan("Data anda berhasil disimpan. Email verifikasi telah dikirim.");
+    header("Location: $akarUrl" . "src/user/pages/login.php");
 } catch (Exception $e) {
     setPesanKesalahan("Gagal mengirim email verifikasi: {$mail->ErrorInfo}");
-    header("Location: $akarUrl" . "src/admin/pages/data.php");
+    header("Location: $akarUrl" . "src/user/pages/signup1.php");
 }

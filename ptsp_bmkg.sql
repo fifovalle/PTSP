@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2024 at 11:39 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: May 23, 2024 at 02:42 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -163,7 +163,7 @@ CREATE TABLE `informasi` (
 --
 
 INSERT INTO `informasi` (`ID_Informasi`, `Foto_Informasi`, `Nama_Informasi`, `Deskripsi_Informasi`, `Harga_Informasi`, `Pemilik_Informasi`, `No_Rekening_Informasi`, `Kategori_Informasi`, `Status_Informasi`) VALUES
-(18, 0x363630386262336338623337612e706e67, 'Data 1', 'Beli Data ini', 100000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
+(18, 0x363630386262336338623337612e706e67, 'Data 1', 'Beli Data OKEY', 100000, 'Instansi A', 0, 'Meteorologi', 'Tersedia'),
 (19, 0x363630386264373565636237662e706e67, 'Data 2', 'Beli Data ini', 200000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
 (20, 0x363630386264386363643934612e706e67, 'Data 3', 'Beli Data ini', 300000, 'Instansi C', 3333, 'Geofisika', 'Tersedia');
 
@@ -222,13 +222,6 @@ CREATE TABLE `kegiatan_bencana` (
   `Email_Bencana` varchar(50) NOT NULL,
   `Surat_Pengantar_Permintaan_Data_Bencana` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kegiatan_bencana`
---
-
-INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencana`, `Email_Bencana`, `Surat_Pengantar_Permintaan_Data_Bencana`) VALUES
-(83, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363634303836353834653730362e706466);
 
 -- --------------------------------------------------------
 
@@ -330,13 +323,6 @@ CREATE TABLE `pengajuan` (
   `Tanggal_Pengajuan` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `pengajuan`
---
-
-INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `ID_Tarif`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Apakah_Gratis`, `Perbaikan_Dokumen`, `Jenis_Perbaikan`, `Tanggal_Pengajuan`) VALUES
-(100, 83, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 0, NULL, NULL, '2024-05-12 16:05:28');
-
 -- --------------------------------------------------------
 
 --
@@ -361,7 +347,7 @@ CREATE TABLE `pengguna` (
   `Alamat_Pengguna` text NOT NULL,
   `Provinsi` varchar(30) NOT NULL,
   `Kabupaten_Kota` varchar(30) NOT NULL,
-  `Status_Verifikasi_Pengguna` enum('Terverivikasi','Belum Terverifikasi') NOT NULL,
+  `Status_Verifikasi_Pengguna` enum('Terverifikasi','Belum Terverifikasi') NOT NULL,
   `Token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -370,7 +356,7 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `Token`) VALUES
-(16, 0x363630616636356335366530652e706e67, '1', 1, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifovalle', 'fifanaufal10@gmail.com', '$2y$10$hFkeyUBRO03VAqiq/98hheIjBnJM6006XxZz1SmFAm6FmG9BP0K8O', '$2y$10$hFkeyUBRO03VAqiq/98hheIjBnJM6006XxZz1SmFAm6FmG9BP0K8O', '+62 812-2365-2490', 'Pria', 'Batujajar', 'Bandung', 'Bandung', 'Belum Terverifikasi', 83981283);
+(26, 0x363634663339373630343438632e6a7067, '1', 1, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifovalle', 'fifanaufal10@gmail.com', '$2y$10$F9WM5w6hJBlDwBOZW5fmkOMydDphmvhceF..Hr0MrZY4P6dnEK176', '$2y$10$F9WM5w6hJBlDwBOZW5fmkOMydDphmvhceF..Hr0MrZY4P6dnEK176', '+62 812-2365-2490', 'Pria', 'Batujajar', 'Jawa Barat', 'Bandung', 'Terverifikasi', 0);
 
 -- --------------------------------------------------------
 
@@ -439,13 +425,6 @@ CREATE TABLE `transaksi` (
   `Status_Transaksi` enum('Disetujui','Belum Disetujui','Ditolak','Sedang Ditinjau') NOT NULL,
   `Status_Pesanan` enum('Belum Lunas','Sedang Ditinjau','Lunas') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `ID_IKM`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Upload_File_Penerimaan`, `Bukti_Pembayaran`, `Tanggal_Upload_Bukti`, `Keterangan_Pembayaran_Ditolak`, `Tanggal_Pembelian`, `Status_Transaksi`, `Status_Pesanan`) VALUES
-(193, NULL, 16, NULL, 18, NULL, 100, 38, 5, 500000, 0x363634303837636263363164612e706466, '2024-05-12 16:11:39', 0x363634303837376361323439642e6a7067, '2024-05-12 16:10:20', '', '2024-05-12 16:04:59', 'Disetujui', 'Lunas');
 
 --
 -- Indexes for dumped tables
@@ -563,7 +542,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `ID_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `ikm`
@@ -575,7 +554,7 @@ ALTER TABLE `ikm`
 -- AUTO_INCREMENT for table `informasi`
 --
 ALTER TABLE `informasi`
-  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `informasi_tarif_pnbp`
@@ -587,7 +566,7 @@ ALTER TABLE `informasi_tarif_pnbp`
 -- AUTO_INCREMENT for table `jasa`
 --
 ALTER TABLE `jasa`
-  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_bencana`
@@ -635,7 +614,7 @@ ALTER TABLE `pengajuan`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `perusahaan`
@@ -647,7 +626,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=194;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
 
 --
 -- Constraints for dumped tables

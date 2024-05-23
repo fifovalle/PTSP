@@ -1,6 +1,13 @@
 <?php
 include 'databases.php';
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../../../vendor/phpmailer/src/Exception.php';
+require '../../../vendor/phpmailer/src/PHPMailer.php';
+require '../../../vendor/phpmailer/src/SMTP.php';
+
 if (isset($_POST['Daftar'])) {
     $_SESSION['NPWP'] = htmlspecialchars($_POST['NPWP_Pengguna']);
     $_SESSION['No_Identitas'] = htmlspecialchars($_POST['No_Identitas_Pengguna']);
@@ -67,6 +74,12 @@ if (isset($_POST['Daftar'])) {
         exit;
     }
 
+    if ($obyekPengguna->cekEmailSudahAda($emailPengguna)) {
+        setPesanKesalahan("Email yang dimasukkan sudah terdaftar.");
+        header("Location: $akarUrl" . "src/user/pages/signup1.php");
+        exit;
+    }
+
     $dataPengguna = array(
         'NPWP_Pengguna' => $npwpPengguna,
         'No_Identitas_Pengguna' => $noIdentitasPengguna,
@@ -91,7 +104,9 @@ if (isset($_POST['Daftar'])) {
 
     if ($simpanDataPengguna) {
         session_unset();
-        setPesanKeberhasilan("Pendaftaran berhasil, Silahkan login.");
+        require '../../../vendor/autoload.php';
+        $mail = new PHPMailer(true);
+        include 'send-verification-email-user.php';
     } else {
         setPesanKesalahan("Gagal mendaftar silahkan untuk mencoba lagi.");
     }

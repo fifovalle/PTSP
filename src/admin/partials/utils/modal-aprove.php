@@ -8,8 +8,8 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form>
-                    <input type="hidden" id="editCreation" name="ID_Pembuatan" autocomplete="off">
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" id="editCreation" name="ID_Pembuatan" autocomplete="off" value="<?php echo htmlspecialchars($id_pembuatan); ?>">
                     <div class="mb-3">
                         <label for="fileCreation" class="form-label">Upload File</label>
                         <input type="file" class="form-control" id="fileCreation" name="Upload_File" autocomplete="off">

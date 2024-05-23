@@ -421,6 +421,40 @@ class Pengguna
         }
     }
 
+    public function cekEmailSudahAda($email)
+    {
+        $query = "SELECT COUNT(*) as total FROM pengguna WHERE Email_Pengguna = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("s", $email);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+
+        $total = $row['total'];
+
+        if ($total > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateStatusVerifikasi($penggunaID, $status)
+    {
+        $query = "UPDATE pengguna SET Status_Verifikasi_Pengguna = ? WHERE ID_Pengguna = ?";
+        $stmt = mysqli_prepare($this->koneksi, $query);
+        mysqli_stmt_bind_param($stmt, "si", $status, $penggunaID);
+        return mysqli_stmt_execute($stmt);
+    }
+
+    public function updateToken($penggunaID, $token)
+    {
+        $query = "UPDATE pengguna SET Token = ? WHERE ID_Pengguna = ?";
+        $stmt = mysqli_prepare($this->koneksi, $query);
+        mysqli_stmt_bind_param($stmt, "si", $token, $penggunaID);
+        return mysqli_stmt_execute($stmt);
+    }
+
     public function perbaruiFotoPengguna($id, $data)
     {
         $query = "UPDATE pengguna SET Foto=? WHERE ID_Pengguna=?";
@@ -638,7 +672,6 @@ class Pengguna
             return false;
         }
     }
-
 
     public function getPenggunaByToken($token)
     {
