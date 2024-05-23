@@ -1,14 +1,44 @@
 <?php
 include 'databases.php';
 
+function containsXSS($input)
+{
+    $xss_patterns = [
+        "/<script\b[^>]*>(.*?)<\/script>/is",
+        "/<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:/i",
+        "/<iframe\b[^>]*>(.*?)<\/iframe>/is",
+        "/<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:/i",
+        "/<object\b[^>]*>(.*?)<\/object>/is",
+        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
+        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
+        "/<script\b[^>]*>[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/i",
+        "/<a\b[^>]*href\s*=\s*(?:\"|')(?:javascript:|.*?\"javascript:).*?(?:\"|')/i",
+        "/<embed\b[^>]*>(.*?)<\/embed>/is",
+        "/<applet\b[^>]*>(.*?)<\/applet>/is",
+        "/<!--.*?-->/",
+        "/(<script\b[^>]*>(.*?)<\/script>|<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:|<iframe\b[^>]*>(.*?)<\/iframe>|<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:|<object\b[^>]*>(.*?)<\/object>|on[a-zA-Z]+\s*=\s*\"[^\"]*\"|<[^>]*(>|$)(?:<|>)+|<[^>]*script\s*.*?(?:>|$)|<![^>]*-->|eval\s*\((.*?)\)|setTimeout\s*\((.*?)\)|<[^>]*\bstyle\s*=\s*[\"'][^\"']*[;{][^\"']*['\"]|<meta[^>]*http-equiv=[\"']?refresh[\"']?[^>]*url=|<[^>]*src\s*=\s*\"[^>]*\"[^>]*>|expression\s*\((.*?)\))/i"
+    ];
+
+    foreach ($xss_patterns as $pattern) {
+        if (preg_match($pattern, $input)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 if (isset($_POST['Simpan'])) {
-    $idAdmin = $_POST['ID_Admin'];
-    $namaDepan = $_POST['Nama_Depan_Admin'];
-    $namaBelakang = $_POST['Nama_Belakang_Admin'];
-    $namaPengguna = $_POST['Nama_Pengguna_Admin'];
-    $email = $_POST['Email_Admin'];
-    $nomorTelepon = $_POST['No_Telepon_Admin'];
-    $alamatAdmin = $_POST['Alamat_Admin'];
+    require_once '../../../vendor/ezyang/htmlpurifier/library/HTMLPurifier.auto.php';
+    $config = HTMLPurifier_Config::createDefault();
+    $purifier = new HTMLPurifier($config);
+    $idAdmin = filter_input(INPUT_POST, 'ID_Admin', FILTER_SANITIZE_STRING);
+    $namaDepan = filter_input(INPUT_POST, 'Nama_Depan_Admin', FILTER_SANITIZE_STRING);
+    $namaBelakang = filter_input(INPUT_POST, 'Nama_Belakang_Admin', FILTER_SANITIZE_STRING);
+    $namaPengguna = filter_input(INPUT_POST, 'Nama_Pengguna_Admin', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'Email_Admin', FILTER_VALIDATE_EMAIL);
+    $nomorTelepon = filter_input(INPUT_POST, 'No_Telepon_Admin', FILTER_SANITIZE_STRING);
+    $alamatAdmin = filter_input(INPUT_POST, 'Alamat_Admin', FILTER_SANITIZE_STRING);
 
     $obyekAdmin = new Admin($koneksi);
 

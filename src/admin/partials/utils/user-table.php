@@ -31,10 +31,12 @@
         $penggunaModel = new Pengguna($koneksi);
         $dataPengguna = $penggunaModel->tampilkanDataPengguna();
         $dataPerusahaan = $penggunaModel->tampilkanDataPerusahaan();
+
         function compareByName($a, $b)
         {
             return strcmp($a['Nama_Pengguna'] ?? $a['Nama_Pengguna_Anggota_Perusahaan'], $b['Nama_Pengguna'] ?? $b['Nama_Pengguna_Anggota_Perusahaan']);
         }
+
         if ($dataPengguna !== null || $dataPerusahaan !== null) {
             if ($dataPengguna !== null && $dataPerusahaan !== null) {
                 $dataGabungan = array_merge($dataPengguna, $dataPerusahaan);
@@ -43,8 +45,10 @@
             } else {
                 $dataGabungan = $dataPerusahaan;
             }
+
             usort($dataGabungan, 'compareByName');
             $nomorUrut = 1;
+
             foreach ($dataGabungan as $data) {
         ?>
                 <tr class="trDataN">
@@ -69,14 +73,13 @@
                                 $namaBelakang = $data['Nama_Belakang_Anggota_Perusahaan'];
                             }
                             $namaLengkap = $namaDepan . ' ' . $namaBelakang;
-                            $panjangNama = strlen($namaBelakang);
-                            if ($panjangNama > 2) {
+                            if (strlen($namaBelakang) > 2) {
                                 $namaBelakang = substr($namaBelakang, 0, 2) . '...';
                             }
                             ?>
                             <p class="fw-semibold deskriptorSmall m-auto"><?php echo $namaDepan . ' ' . $namaBelakang; ?></p>
                             <div class="iconContainerData">
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteUser(<?php echo $data['ID_Pengguna'] ?? $data['ID_Perusahaan']; ?>)">
+                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteUser(<?php echo $data['ID_Pengguna'] ?? $data['ID_Perusahaan']; ?>, '<?php echo isset($data['ID_Pengguna']) ? 'pengguna' : 'perusahaan'; ?>')">
                                     <span><i class="fas fa-trash"></i></span>
                                 </a>
                             </div>
@@ -89,7 +92,7 @@
                         <?php
                         $status_pengguna = $data['Status_Verifikasi_Pengguna'] ?? null;
                         $status_perusahaan = $data['Status_Verifikasi_Perusahaan'] ?? null;
-                        if ($status_pengguna === 'Terverifikasi') {
+                        if ($status_pengguna === 'Terverifikasi' || $status_perusahaan === 'Terverifikasi') {
                             echo '<span class="badge text-bg-success">Terverifikasi</span>';
                         } elseif ($status_pengguna !== null || $status_perusahaan !== null) {
                             echo '<span class="badge text-bg-danger">Belum Terverifikasi</span>';

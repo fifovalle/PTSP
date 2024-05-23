@@ -29,7 +29,7 @@ if (isset($_POST['Masuk'])) {
         exit();
     }
 
-    if ($pengguna['Status_Verifikasi_Pengguna'] !== 'Terverifikasi') {
+    if ($pengguna['Status_Verifikasi_Pengguna'] !== 'Terverifikasi' && $perusahaan['Status_Verifikasi_Perusahaan'] !== 'Terverifikasi') {
         setPesanKesalahan("Maaf, akun Anda belum terverifikasi.");
         header("Location: $akarUrl" . "src/user/pages/login.php");
         exit();

@@ -1,16 +1,46 @@
 <?php
 include 'databases.php';
 
+function containsXSS($input)
+{
+    $xss_patterns = [
+        "/<script\b[^>]*>(.*?)<\/script>/is",
+        "/<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:/i",
+        "/<iframe\b[^>]*>(.*?)<\/iframe>/is",
+        "/<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:/i",
+        "/<object\b[^>]*>(.*?)<\/object>/is",
+        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
+        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
+        "/<script\b[^>]*>[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/i",
+        "/<a\b[^>]*href\s*=\s*(?:\"|')(?:javascript:|.*?\"javascript:).*?(?:\"|')/i",
+        "/<embed\b[^>]*>(.*?)<\/embed>/is",
+        "/<applet\b[^>]*>(.*?)<\/applet>/is",
+        "/<!--.*?-->/",
+        "/(<script\b[^>]*>(.*?)<\/script>|<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:|<iframe\b[^>]*>(.*?)<\/iframe>|<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:|<object\b[^>]*>(.*?)<\/object>|on[a-zA-Z]+\s*=\s*\"[^\"]*\"|<[^>]*(>|$)(?:<|>)+|<[^>]*script\s*.*?(?:>|$)|<![^>]*-->|eval\s*\((.*?)\)|setTimeout\s*\((.*?)\)|<[^>]*\bstyle\s*=\s*[\"'][^\"']*[;{][^\"']*['\"]|<meta[^>]*http-equiv=[\"']?refresh[\"']?[^>]*url=|<[^>]*src\s*=\s*\"[^>]*\"[^>]*>|expression\s*\((.*?)\))/i"
+    ];
+
+    foreach ($xss_patterns as $pattern) {
+        if (preg_match($pattern, $input)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 if (isset($_POST['Simpan'])) {
-    $username = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['username']));
-    $namaDepan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama']));
-    $namaBelakang = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Nama']));
-    $pekerjaan = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Pekerjaan']));
-    $pendidikanTerakhir = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['PendidikanTerakhir']));
-    $email = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Email']));
-    $noHP = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['No_HP']));
-    $jenisKelamin = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['Jenis_Kelamin']));
-    $alamat = mysqli_real_escape_string($koneksi, htmlspecialchars($_POST['alamat']));
+    require_once '../../../vendor/ezyang/htmlpurifier/library/HTMLPurifier.auto.php';
+    $config = HTMLPurifier_Config::createDefault();
+    $purifier = new HTMLPurifier($config);
+    $username = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING));
+    $namaDepan = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Nama', FILTER_SANITIZE_STRING));
+    $namaBelakang = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Nama', FILTER_SANITIZE_STRING));
+    $pekerjaan = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Pekerjaan', FILTER_SANITIZE_STRING));
+    $pendidikanTerakhir = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'PendidikanTerakhir', FILTER_SANITIZE_STRING));
+    $email = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Email', FILTER_VALIDATE_EMAIL));
+    $noHP = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'No_HP', FILTER_SANITIZE_STRING));
+    $jenisKelamin = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'Jenis_Kelamin', FILTER_SANITIZE_STRING));
+    $alamat = mysqli_real_escape_string($koneksi, filter_input(INPUT_POST, 'alamat', FILTER_SANITIZE_STRING));
 
     $obyekPengguna = new Pengguna($koneksi);
 
@@ -74,4 +104,3 @@ if (isset($_POST['Simpan'])) {
     header("Location: $akarUrl" . "src/user/pages/profile.php");
     exit;
 }
-?>

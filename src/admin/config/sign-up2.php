@@ -1,7 +1,13 @@
-                    <!-- Grid column -->
-                    <!-- Grid column -->
 <?php
 include 'databases.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../../../vendor/phpmailer/src/Exception.php';
+require '../../../vendor/phpmailer/src/PHPMailer.php';
+require '../../../vendor/phpmailer/src/SMTP.php';
+
 
 if (isset($_POST['Daftar'])) {
     $_SESSION['No_Identitas'] = htmlspecialchars($_POST['No_Identitas_Anggota_Perusahaan']);
@@ -85,6 +91,12 @@ if (isset($_POST['Daftar'])) {
         exit;
     }
 
+    if ($obyekPerusahaan->cekEmailSudahAda($emailPerusahaan)) {
+        setPesanKesalahan("Email yang dimasukkan sudah terdaftar.");
+        header("Location: $akarUrl" . "src/user/pages/signup2.php");
+        exit;
+    }
+
     $dataPerusahaan = array(
         'No_Identitas_Anggota_Perusahaan' => $noIdentitas,
         'Nama_Depan_Anggota_Perusahaan' => $namaDepan,
@@ -115,7 +127,9 @@ if (isset($_POST['Daftar'])) {
 
     if ($simpanDataPerusahaan) {
         session_unset();
-        setPesanKeberhasilan("Pendaftaran berhasil, Silahkan ke halaman login.");
+        require '../../../vendor/autoload.php';
+        $mail = new PHPMailer(true);
+        include 'send-verification-email-company.php';
     } else {
         setPesanKesalahan("Gagal mendaftar silahkan untuk mencoba lagi.");
     }

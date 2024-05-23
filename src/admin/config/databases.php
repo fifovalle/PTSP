@@ -447,11 +447,27 @@ class Pengguna
         return mysqli_stmt_execute($stmt);
     }
 
+    public function updatePerusahaanStatusVerifikasi($perusahaanID, $status)
+    {
+        $query = "UPDATE perusahaan SET Status_Verifikasi_Perusahaan = ? WHERE ID_Perusahaan = ?";
+        $stmt = mysqli_prepare($this->koneksi, $query);
+        mysqli_stmt_bind_param($stmt, "si", $status, $perusahaanID);
+        return mysqli_stmt_execute($stmt);
+    }
+
     public function updateToken($penggunaID, $token)
     {
         $query = "UPDATE pengguna SET Token = ? WHERE ID_Pengguna = ?";
         $stmt = mysqli_prepare($this->koneksi, $query);
         mysqli_stmt_bind_param($stmt, "si", $token, $penggunaID);
+        return mysqli_stmt_execute($stmt);
+    }
+
+    public function updatePerusahaanToken($perusahaanID, $token)
+    {
+        $query = "UPDATE perusahaan SET Token = ? WHERE ID_Perusahaan = ?";
+        $stmt = mysqli_prepare($this->koneksi, $query);
+        mysqli_stmt_bind_param($stmt, "si", $token, $perusahaanID);
         return mysqli_stmt_execute($stmt);
     }
 
@@ -620,6 +636,43 @@ class Pengguna
         }
 
         $queryDelete = "DELETE FROM pengguna WHERE ID_Pengguna=?";
+        $statementDelete = $this->koneksi->prepare($queryDelete);
+        $statementDelete->bind_param("i", $id);
+        $isDeleted = $statementDelete->execute();
+
+        if ($isDeleted) {
+            $direktoriFoto = "../assets/image/uploads/";
+
+            if (file_exists($direktoriFoto . $namaFoto)) {
+                if (unlink($direktoriFoto . $namaFoto)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function hapusPerusahaan($id)
+    {
+        $query = "SELECT ID_Perusahaan, Foto_Perusahaan FROM perusahaan WHERE ID_Perusahaan=?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("i", $id);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+        $idPemilikFoto = $row['ID_Perusahaan'];
+        $namaFoto = $row['Foto'];
+
+        if ($idPemilikFoto != $id) {
+            return false;
+        }
+
+        $queryDelete = "DELETE FROM perusahaan WHERE ID_Perusahaan=?";
         $statementDelete = $this->koneksi->prepare($queryDelete);
         $statementDelete->bind_param("i", $id);
         $isDeleted = $statementDelete->execute();

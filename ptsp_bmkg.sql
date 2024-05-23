@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2024 at 02:42 PM
+-- Generation Time: May 23, 2024 at 04:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -351,13 +351,6 @@ CREATE TABLE `pengguna` (
   `Token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `pengguna`
---
-
-INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `Token`) VALUES
-(26, 0x363634663339373630343438632e6a7067, '1', 1, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifovalle', 'fifanaufal10@gmail.com', '$2y$10$F9WM5w6hJBlDwBOZW5fmkOMydDphmvhceF..Hr0MrZY4P6dnEK176', '$2y$10$F9WM5w6hJBlDwBOZW5fmkOMydDphmvhceF..Hr0MrZY4P6dnEK176', '+62 812-2365-2490', 'Pria', 'Batujajar', 'Jawa Barat', 'Bandung', 'Terverifikasi', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -388,7 +381,7 @@ CREATE TABLE `perusahaan` (
   `Nama_Pengguna_Anggota_Perusahaan` varchar(30) NOT NULL,
   `Kata_Sandi_Anggota_Perusahaan` varchar(100) NOT NULL,
   `Konfirmasi_Kata_Sandi_Anggota_Perusahaan` varchar(100) NOT NULL,
-  `Status_Verifikasi_Perusahaan` enum('Terverivikasi','Belum Terverifikasi') NOT NULL,
+  `Status_Verifikasi_Perusahaan` enum('Terverifikasi','Belum Terverifikasi') NOT NULL,
   `Token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -397,7 +390,7 @@ CREATE TABLE `perusahaan` (
 --
 
 INSERT INTO `perusahaan` (`ID_Perusahaan`, `Foto_Perusahaan`, `No_Identitas_Anggota_Perusahaan`, `Nama_Depan_Anggota_Perusahaan`, `Nama_Belakang_Anggota_Perusahaan`, `Pekerjaan_Anggota_Perusahaan`, `Pendidikan_Terakhir_Anggota_Perusahaan`, `Jenis_Kelamin_Anggota_Perusahaan`, `Alamat_Anggota_Perusahaan`, `No_Telepon_Anggota_Perusahaan`, `Provinsi_Anggota_Perusahaan`, `Kabupaten_Kota_Anggota_Perusahaan`, `No_NPWP`, `Nama_Perusahaan`, `Alamat_Perusahaan`, `Provinsi_Perusahaan`, `Kabupaten_Kota_Perusahaan`, `Email_Perusahaan`, `No_Telepon_Perusahaan`, `Email_Anggota_Perusahaan`, `Nama_Pengguna_Anggota_Perusahaan`, `Kata_Sandi_Anggota_Perusahaan`, `Konfirmasi_Kata_Sandi_Anggota_Perusahaan`, `Status_Verifikasi_Perusahaan`, `Token`) VALUES
-(5, 0x363630616638663139626161642e6a7067, 2, 'zonaNyaman', 'zona', 'Nganggur', 'SMP', 'Pria', 'Batujajar', '+62 812-2365-2490', 'Jawa Barat', 'Bandung Barat', '1', 'Iku', 'Bandung', 'Jawa Barat', 'Bandung', 'iku@gmail.com', '+62 812-2365-2490', 'iku@gmail.com', 'iku', '$2y$10$NEdvO4G1xq9mR7L6HC4HduaiDQA0UjZ.DYurM6C.E8Ya0yx3fsdOK', '$2y$10$NEdvO4G1xq9mR7L6HC4HduaiDQA0UjZ.DYurM6C.E8Ya0yx3fsdOK', 'Belum Terverifikasi', 72540572);
+(12, 0x363634663465636633633532372e6a7067, 1, 'Naufal', 'FIFA', 'Mahasiswa', 'SMK', 'Pria', 'Batujajar Timur', '+62 812-2365-2490', 'Jawa Barat', 'Bandung', '1', 'zonaDeveloper', 'Batujajar Timur', 'Jawa Barat', 'Bandung', 'fifanaufal10@gmail.com', '+62 812-2365-2490', 'fifanaufal10@gmail.com', 'zonaDeveloper', '$2y$10$3FRgsarkadd9G2UAffEM1ekbDEMcG8MXnkR9TuNje/nEwgUIr//Iy', '$2y$10$3FRgsarkadd9G2UAffEM1ekbDEMcG8MXnkR9TuNje/nEwgUIr//Iy', 'Terverifikasi', 0);
 
 -- --------------------------------------------------------
 
@@ -614,13 +607,13 @@ ALTER TABLE `pengajuan`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  MODIFY `ID_Perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `transaksi`

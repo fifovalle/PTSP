@@ -1,7 +1,10 @@
-function confirmDeleteUser(id) {
+function confirmDeleteUser(id, type) {
   swal({
-    title: "Yakin Menghapus Pengguna?",
-    text: "Pengguna yang dihapus tidak dapat dipulihkan!",
+    title:
+      "Yakin Menghapus " + (type === "pengguna" ? "Pengguna?" : "Perusahaan?"),
+    text:
+      (type === "pengguna" ? "Pengguna" : "Perusahaan") +
+      " yang dihapus tidak dapat dipulihkan!",
     icon: "warning",
     buttons: {
       cancel: {
@@ -21,7 +24,8 @@ function confirmDeleteUser(id) {
     },
   }).then((confirm) => {
     if (confirm) {
-      window.location.href = "../config/delete-user.php?id=" + id;
+      window.location.href =
+        "../config/delete-user.php?id=" + id + "&type=" + type;
     }
   });
 }

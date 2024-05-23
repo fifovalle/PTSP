@@ -12,7 +12,7 @@ if ($pengguna) {
     if ($updateStatus) {
         $emptyToken = $obyekPengguna->updateToken($pengguna['ID_Pengguna'], '');
         if ($emptyToken) {
-            setPesanKeberhasilan("Akun admin berhasil diverifikasi. Sekarang Anda dapat login.");
+            setPesanKeberhasilan("Akun pengguna berhasil diverifikasi. Sekarang Anda dapat login.");
         } else {
             setPesanKesalahan("Gagal mengosongkan token.");
         }
