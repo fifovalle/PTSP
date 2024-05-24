@@ -49,11 +49,6 @@ if (isset($_POST['Masuk'])) {
         $_SESSION['NPWP_Pengguna'] = htmlspecialchars($pengguna['NPWP_Pengguna']);
         $_SESSION['Jenis_Kelamin_Pengguna'] = htmlspecialchars($pengguna['Jenis_Kelamin_Pengguna']);
         $_SESSION['No_Telepon_Pengguna'] = htmlspecialchars($pengguna['No_Telepon_Pengguna']);
-
-        if ($ingatSaya) {
-            $_SESSION['Ingat_Saya_ID'] = $pengguna['ID_pengguna'];
-            $_SESSION['Ingat_Saya_Nama_Pengguna'] = $pengguna['Nama_Pengguna_Email'];
-        }
     }
 
     if ($perusahaan !== null) {
@@ -71,11 +66,6 @@ if (isset($_POST['Masuk'])) {
         $_SESSION['Jenis_Kelamin_Anggota_Perusahaan'] = htmlspecialchars($perusahaan['Jenis_Kelamin_Anggota_Perusahaan']);
         $_SESSION['No_Telepon_Anggota_Perusahaan'] = htmlspecialchars($perusahaan['No_Telepon_Anggota_Perusahaan']);
         $_SESSION['Nama_Pengguna_Anggota_Perusahaan'] = htmlspecialchars($perusahaan['Nama_Pengguna_Anggota_Perusahaan']);
-
-        if ($ingatSaya) {
-            $_SESSION['Ingat_Saya_ID_Perusahaan'] = $perusahaan['ID_perusahaan'];
-            $_SESSION['Ingat_Saya_Nama_Perusahaan'] = $perusahaan['Nama_Pengguna_Email'];
-        }
     }
 
     setPesanKeberhasilan("Selamat datang, " . $_SESSION['Nama_Pengguna']);

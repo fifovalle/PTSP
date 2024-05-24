@@ -439,6 +439,17 @@ class Pengguna
         }
     }
 
+    public function updateTokenByEmail($email, $newToken)
+    {
+        $query = "UPDATE pengguna SET Token = '$newToken' WHERE Email_Pengguna = '$email'";
+        $result = mysqli_query($this->koneksi, $query);
+
+        if ($result) {
+            return true;
+            return false;
+        }
+    }
+
     public function updateStatusVerifikasi($penggunaID, $status)
     {
         $query = "UPDATE pengguna SET Status_Verifikasi_Pengguna = ? WHERE ID_Pengguna = ?";
@@ -485,12 +496,40 @@ class Pengguna
         }
     }
 
+    public function getPenggunaByEmail($email)
+    {
+        $query = "SELECT * FROM pengguna WHERE Email_Pengguna = '$email'";
+        $result = mysqli_query($this->koneksi, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $adminData = mysqli_fetch_assoc($result);
+            return $adminData;
+        } else {
+            return null;
+        }
+    }
+
     public function perbaruiFotoPerusahaan($id, $data)
     {
         $query = "UPDATE perusahaan SET Foto_Perusahaan=? WHERE ID_Perusahaan=?";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("si", $data['Foto_Perusahaan'], $id);
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function perbaruiKataSandi($id, $data)
+    {
+        $query = "UPDATE pengguna SET Kata_Sandi=?, Konfirmasi_Kata_Sandi=? WHERE ID_Pengguna=?";
+
+        $statement = $this->koneksi->prepare($query);
+
+        $statement->bind_param("ssi", $data['Kata_Sandi'], $data['Konfirmasi_Kata_Sandi'], $id);
 
         if ($statement->execute()) {
             return true;

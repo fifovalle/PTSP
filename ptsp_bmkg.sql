@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2024 at 04:13 PM
+-- Generation Time: May 24, 2024 at 04:13 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -351,6 +351,13 @@ CREATE TABLE `pengguna` (
   `Token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `pengguna`
+--
+
+INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `Token`) VALUES
+(28, 0x363634666634326637663435632e6a7067, '1', 1, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifOvalle', 'fifanaufal10@gmail.com', '$2y$10$uRsruB83A/7Fn.JFx5Bt5e0he7znkNJI5BTTYzr43xglKdKu6Cmbq', '$2y$10$uRsruB83A/7Fn.JFx5Bt5e0he7znkNJI5BTTYzr43xglKdKu6Cmbq', '+62 812-2365-2490', 'Pria', 'Batujajar', 'Jawa Barat', 'Bandung', 'Terverifikasi', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -384,13 +391,6 @@ CREATE TABLE `perusahaan` (
   `Status_Verifikasi_Perusahaan` enum('Terverifikasi','Belum Terverifikasi') NOT NULL,
   `Token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `perusahaan`
---
-
-INSERT INTO `perusahaan` (`ID_Perusahaan`, `Foto_Perusahaan`, `No_Identitas_Anggota_Perusahaan`, `Nama_Depan_Anggota_Perusahaan`, `Nama_Belakang_Anggota_Perusahaan`, `Pekerjaan_Anggota_Perusahaan`, `Pendidikan_Terakhir_Anggota_Perusahaan`, `Jenis_Kelamin_Anggota_Perusahaan`, `Alamat_Anggota_Perusahaan`, `No_Telepon_Anggota_Perusahaan`, `Provinsi_Anggota_Perusahaan`, `Kabupaten_Kota_Anggota_Perusahaan`, `No_NPWP`, `Nama_Perusahaan`, `Alamat_Perusahaan`, `Provinsi_Perusahaan`, `Kabupaten_Kota_Perusahaan`, `Email_Perusahaan`, `No_Telepon_Perusahaan`, `Email_Anggota_Perusahaan`, `Nama_Pengguna_Anggota_Perusahaan`, `Kata_Sandi_Anggota_Perusahaan`, `Konfirmasi_Kata_Sandi_Anggota_Perusahaan`, `Status_Verifikasi_Perusahaan`, `Token`) VALUES
-(12, 0x363634663465636633633532372e6a7067, 1, 'Naufal', 'FIFA', 'Mahasiswa', 'SMK', 'Pria', 'Batujajar Timur', '+62 812-2365-2490', 'Jawa Barat', 'Bandung', '1', 'zonaDeveloper', 'Batujajar Timur', 'Jawa Barat', 'Bandung', 'fifanaufal10@gmail.com', '+62 812-2365-2490', 'fifanaufal10@gmail.com', 'zonaDeveloper', '$2y$10$3FRgsarkadd9G2UAffEM1ekbDEMcG8MXnkR9TuNje/nEwgUIr//Iy', '$2y$10$3FRgsarkadd9G2UAffEM1ekbDEMcG8MXnkR9TuNje/nEwgUIr//Iy', 'Terverifikasi', 0);
 
 -- --------------------------------------------------------
 
@@ -607,7 +607,7 @@ ALTER TABLE `pengajuan`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `perusahaan`

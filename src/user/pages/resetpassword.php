@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,13 +14,16 @@
     <link rel="icon" href="../../../src/admin/assets/image/logo/1.png">
     <link rel="stylesheet" href="../assets/css/resetpassword.css">
     <script src="../assets/js/javascript.js"></script>
-    <title>Reset Password PTSP BMKG Provinsi Bengkulu</title>
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <title>PTSP BMKG Provinsi Bengkulu</title>
 </head>
 
 <body>
     <div class="container-fluid w-100 section1">
         <div class="row text-center">
-            <h2 class="text-center my-5">RESET PASSWORD</h2>
+            <h2 class="text-center my-5">ATUR ULANG KATA SANDI</h2>
             <div class="align-middle col-lg align-items-center justify-content-center content">
                 <div class="custom-shape-divider-bottom-1709729084">
                     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -26,7 +33,7 @@
                     </svg>
                 </div>
                 <div class="resetpassword">
-                    <form class="form-control">
+                    <form class="form-control" method="post" action="../../admin/config/forgot-password-user.php">
                         <div class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 34 34" height="34" width="34">
                                 <path stroke-linejoin="round" stroke-width="2.5" stroke="#115DFC" d="M7.08385 9.91666L5.3572 11.0677C4.11945 11.8929 3.50056 12.3055 3.16517 12.9347C2.82977 13.564 2.83226 14.3035 2.83722 15.7825C2.84322 17.5631 2.85976 19.3774 2.90559 21.2133C3.01431 25.569 3.06868 27.7468 4.67008 29.3482C6.27148 30.9498 8.47873 31.0049 12.8932 31.1152C15.6396 31.1838 18.3616 31.1838 21.1078 31.1152C25.5224 31.0049 27.7296 30.9498 29.331 29.3482C30.9324 27.7468 30.9868 25.569 31.0954 21.2133C31.1413 19.3774 31.1578 17.5631 31.1639 15.7825C31.1688 14.3035 31.1712 13.564 30.8359 12.9347C30.5004 12.3055 29.8816 11.8929 28.6437 11.0677L26.9171 9.91666"></path>
@@ -36,11 +43,12 @@
                             </svg>
                         </div>
                         <div class="note">
-                            <label class="title">Reset Password</label>
-                            <span class="subtitle">Insert your email right here to reset your password</span>
+                            <label class="title">Atur Ulang Kata Sandi</label>
+                            <span class="subtitle">Masukkan email Anda di sini untuk mengatur ulang kata sandi Anda</span>
                         </div>
-                        <input placeholder="Enter your e-mail" title="Enter your e-mail" name="email" type="email" class="input_field">
-                        <button class="submit" type="submit" id="reset">RESET</button>
+                        <input placeholder="Masukan Email Anda" title="Enter your e-mail" name="email-user" type="email" class="input_field" autocomplete="off">
+                        <div class="pemuat mx-auto" id="pemuat"></div>
+                        <button class="submit" type="submit" name="Aturulang" id="reset">ATUR ULANG</button>
                     </form>
                 </div>
             </div>
@@ -49,6 +57,14 @@
     <?php
     require('../partials/footer.php');
     ?>
+    <script>
+        document.getElementById("reset").addEventListener("click", function() {
+            document.getElementById("reset").style.display = "none";
+            document.getElementById("pemuat").style.display = "block";
+        });
+    </script>
+    <!-- ALERT -->
+    <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>

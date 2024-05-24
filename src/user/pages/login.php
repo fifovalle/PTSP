@@ -63,10 +63,6 @@ $_SESSION['captcha'] = $captcha;
                         <span class="position-absolute captcha-code"><?php echo $_SESSION['captcha']; ?></span>
                     </svg>
                     <div class="form-check text-start my-3 ">
-                        <input class="form-check-input" name="Ingat_Saya" type="checkbox" value="remember-me" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Ingat saya
-                        </label>
                         <label class="form-check-label" for="flexCheckDefault" style="float: right; display: block;">
                             <a href="../pages/resetpassword.php" class="text-primary" style="text-decoration: none;">Lupa
                                 Sandi</a>

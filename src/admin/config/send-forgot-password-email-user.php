@@ -9,7 +9,7 @@ try {
     $mail->Port = 587;
 
     $mail->setFrom('syntaxsquad24@gmail.com', 'BMKG');
-    $mail->addAddress($emailAdmin, $namaDepan . ' ' . $namaBelakang);
+    $mail->addAddress($emailPengguna, $namaDepan . ' ' . $namaBelakang);
 
     $mail->isHTML(true);
     $mail->Subject = 'Lupa Kata Sandi - Permintaan Reset Kata Sandi';
@@ -45,7 +45,7 @@ try {
                                             <p style="color:#455056; font-size:15px; line-height:24px; margin:0;">
                                                 Anda telah meminta untuk mereset kata sandi Anda. Silakan klik tautan berikut untuk mereset kata sandi Anda! Jika Anda tidak meminta reset kata sandi, abaikan email ini.
                                             </p>
-                                            <a href="' . $akarUrl . 'src/admin/config/reset-pass.php?token=' . $tokenBaru . '" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:18px; color:#fff; text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Reset Kata Sandi</a>
+                                            <a href="' . $akarUrl . 'src/admin/config/reset-pass-user.php?token=' . $tokenBaru . '" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:18px; color:#fff; text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Reset Kata Sandi</a>
                                             <p style="color: #6c757d; font-size:12px; margin-top:15px;">
                                                 Jika Anda tidak meminta reset kata sandi, abaikan email ini.
                                             </p>
