@@ -2,8 +2,8 @@
 include 'databases.php';
 
 if (isset($_POST['Ubah_Kata_Sandi'])) {
-    $resetKataSandi = $_POST['Reset_Kata_Sandi'];
-    $konfirmasiReset = $_POST['Konfirmasi_Reset'];
+    $resetKataSandi = $_POST['Kata_Sandi_Baru'];
+    $konfirmasiReset = $_POST['Konfirmasi_Kata_Sandi_Baru'];
     $penggunaID = $_POST['ID_Pengguna'];
 
     if (!empty($resetKataSandi) && !empty($konfirmasiReset)) {

@@ -41,9 +41,10 @@ if (isset($_GET['token'])) {
                         </div>
                     </div>
                     <div class="align-middle col-lg-6 text-center justify-content-center right-content">
-                        <form class="form" action="../../../src/admin/config/login-user.php" method="POST">
+                        <form class="form" action="reset-pass-to-database-user.php" method="POST">
                             <img class="logo-mbkg" src="../../../src/user/assets/img/Logo PTSP1.png" alt="">
                             <h2 class="mb-3 fw-normal my-5 py-3"> <b>ATUR ULANG KATA SANDI</b></h2>
+                            <input type="hidden" name="ID_Pengguna" value="<?php echo $hasil['ID_Pengguna'] ?>">
                             <div class="form-floating my-3">
                                 <input type="password" name="Kata_Sandi_Baru" class="form-control" id="floatingPassword" placeholder="Password" autocomplete="off">
                                 <label for="floatingPassword">Masukan Kata Sandi Baru</label>
@@ -54,7 +55,7 @@ if (isset($_GET['token'])) {
                                 <label for="floatingPassword">Konfirmasi Kata Sandi Baru</label>
                                 <span data-toggle="password" class="eye-toggle2"><i class="bi bi-eye-slash"></i></span>
                             </div>
-                            <button class="button py-2 my-4" name="Masuk" type="submit">Atur Ulang</button>
+                            <button class="button py-2 my-4" name="Ubah_Kata_Sandi" type="submit">Atur Ulang</button>
                             <p class="mt-5 text-body-secondary">© PTSP BMKG Provinsi Bengkulu – 2024</p>
                         </form>
                     </div>
@@ -66,7 +67,6 @@ if (isset($_GET['token'])) {
             <!-- ALERT -->
             <?php include '../partials/utils/alert.php' ?>
         </body>
-
 
         </html>
 <?php
