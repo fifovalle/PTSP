@@ -1,0 +1,233 @@
+:root {
+  --divider-color: #d3d3d3;
+  --color-default-white: #ffff;
+  --color-btn-masuk: #0077ff;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.section1 {
+  height: 837px;
+}
+
+.section1 .right-content {
+  padding: 5rem 7rem 5rem 7rem;
+}
+
+.form {
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.27);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.background {
+  position: relative;
+}
+
+.reset-image {
+  width: 85%;
+  position: absolute;
+  top: 150px;
+  right: 70px;
+  z-index: 1;
+}
+
+.logo-mbkg {
+  width: 25%;
+  position: absolute;
+  top: 20px;
+  right: 440px;
+  z-index: 1;
+}
+
+.eye-toggle,
+.eye-toggle2 {
+  position: absolute;
+  top: 53%;
+  right: 17px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 100;
+}
+
+.bi-eye {
+  font-size: 17px;
+}
+
+.custom-shape-divider-bottom-1709729084 {
+  position: absolute;
+  bottom: -185px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1709729084 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 180px;
+}
+
+.custom-shape-divider-bottom-1709729084 .shape-fill {
+  fill: var(--divider-color);
+}
+
+.button {
+  position: relative;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  color: var(--color-default-white);
+  cursor: pointer;
+  background-color: var(--color-btn-masuk);
+  transition: all 0.2s ease;
+}
+
+.button:active {
+  transform: scale(0.96);
+}
+
+.button:before,
+.button:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
+
+.button:hover:before {
+  top: -70%;
+  background-image: radial-gradient(
+      circle,
+      var(--color-btn-masuk) 20%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle,
+      transparent 20%,
+      var(--color-btn-masuk) 20%,
+      transparent 30%
+    ),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(
+      circle,
+      transparent 10%,
+      var(--color-btn-masuk) 15%,
+      transparent 20%
+    ),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  background-position: 50% 120%;
+  animation: greentopBubbles 0.6s ease;
+}
+
+@keyframes greentopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+.button:hover::after {
+  bottom: -70%;
+  background-image: radial-gradient(
+      circle,
+      var(--color-btn-masuk) 20%,
+      transparent 20%
+    ),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(
+      circle,
+      transparent 10%,
+      var(--color-btn-masuk) 15%,
+      transparent 20%
+    ),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%),
+    radial-gradient(circle, var(--color-btn-masuk) 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  animation: greenbottomBubbles 0.6s ease;
+}
+
+@keyframes greenbottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+@media (max-width: 2560px) and (max-height: 1440px) {
+  .reset-image {
+    width: 85%;
+    position: absolute;
+    top: 150px;
+    right: 70px;
+    z-index: 1;
+  }
+
+  .logo-mbkg {
+    width: 25%;
+    position: absolute;
+    top: 20px;
+    right: 370px;
+    z-index: 1;
+  }
+}

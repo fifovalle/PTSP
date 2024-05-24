@@ -41,37 +41,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $statusInformasi = filter_input(INPUT_POST, 'Status_Informasi', FILTER_SANITIZE_STRING);
     $fotoInformasi = $_FILES['Foto_Informasi'] ?? '';
 
-
-
-
     $informasiModel = new Informasi($koneksi);
 
     $informasiLama = $informasiModel->getDataInformasiById($informasiID);
-    $pemilikInformasiLama = $informasiLama['Pemilik_Informasi'];
-    $nomorRekeningInformasiLama = $informasiLama['No_Rekening_Informasi'];
     $fotoInformasiLama = $informasiLama['Foto_Informasi'];
 
-    if ($pemilikInformasiLama !== $pemilikInformasi) {
-        if ($pemilikInformasi === 'Instansi A') {
-            $nomorRekeningInformasi = '1111';
-        } elseif ($pemilikInformasi === 'Instansi B') {
-            $nomorRekeningInformasi = '2222';
-        } elseif ($pemilikInformasi === 'Instansi C') {
-            $nomorRekeningInformasi = '3333';
-        } else {
-            echo json_encode(array("success" => false, "message" => "Instansi tidak valid."));
-            exit;
-        }
-
-        $updateNomorRekening = $informasiModel->perbaruiNomorRekening($informasiID, $nomorRekeningInformasi);
-
-        if (!$updateNomorRekening) {
-            echo json_encode(array("success" => false, "message" => "Gagal memperbarui nomor rekening."));
-            exit;
-        }
+    if ($pemilikInformasi === 'Instansi A') {
+        $nomorRekeningInformasi = '1111';
+    } elseif ($pemilikInformasi === 'Instansi B') {
+        $nomorRekeningInformasi = '2222';
+    } elseif ($pemilikInformasi === 'Instansi C') {
+        $nomorRekeningInformasi = '3333';
     } else {
-        $nomorRekeningInformasi = $nomorRekeningInformasiLama;
+        $pesanKesalahan .= "Instansi tidak valid. ";
     }
+
+    $nomorRekeningInformasiFormatted = $nomorRekeningInformasi;
 
     if (empty($fotoInformasi['name'])) {
         $namaFotoBaru = $fotoInformasiLama;
@@ -85,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        // Hapus foto lama
         if (!empty($fotoInformasiLama)) {
             if (file_exists($fotoInformasiLama)) {
                 unlink($fotoInformasiLama);
@@ -104,6 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'Deskripsi_Informasi' => $deskripsiInformasi,
         'Harga_Informasi' => $hargaInformasi,
         'Pemilik_Informasi' => $pemilikInformasi,
+        'No_Rekening_Informasi' => $nomorRekeningInformasiFormatted,
         'Kategori_Informasi' => $kategoriInformasi,
         'Status_Informasi' => $statusInformasi
     );

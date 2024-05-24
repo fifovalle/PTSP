@@ -13,71 +13,56 @@ if (isset($_GET['token'])) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Atur Ulang Kata Sandi</title>
-            <!-- OUR CSS -->
-            <link rel="stylesheet" type="text/css" href="../assets/our/css/reset-pass.css">
-            <!-- FONT -->
-            <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-            <!-- FAVICON -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
             <link rel="icon" href="../assets/image/logo/1.png">
+            <link rel="stylesheet" href="../assets/our/css/reset-pass-user.css">
+            <script src="../assets/js/javascript.js"></script>
+            <title>Atur Ulang Kata Sandi</title>
             <!-- SWEETALERT -->
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-            <!-- DRIVE JS  -->
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css" />
         </head>
 
         <body>
-            <img class="wave" src="../assets/image/pages/wave.png">
-            <!-- MAIN START -->
-            <div class="container">
-                <div class="img">
-                    <img src="../assets/image/pages/loginbg.svg">
-                    <div class="img2">
-                        <img src="../assets/image/pages/reset-pass.svg">
+            <div class="container-fluid w-100 section1">
+                <div class="row text-center" style="display: relative;">
+                    <div class="col-md-6 left-content">
+                        <div class="custom-shape-divider-bottom-1709729084">
+                            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+                            </svg>
+                        </div>
+                        <div class="background">
+                            <img class="reset-image" src="../assets/image/pages/reset-image.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="align-middle col-lg-6 text-center justify-content-center right-content">
+                        <form class="form" action="../../../src/admin/config/login-user.php" method="POST">
+                            <img class="logo-mbkg" src="../../../src/user/assets/img/Logo PTSP1.png" alt="">
+                            <h2 class="mb-3 fw-normal my-5 py-3"> <b>ATUR ULANG KATA SANDI</b></h2>
+                            <div class="form-floating my-3">
+                                <input type="password" name="Kata_Sandi_Baru" class="form-control" id="floatingPassword" placeholder="Password" autocomplete="off">
+                                <label for="floatingPassword">Masukan Kata Sandi Baru</label>
+                                <span data-toggle="password" class="eye-toggle"><i class="bi bi-eye-slash"></i></span>
+                            </div>
+                            <div class="form-floating my-3">
+                                <input type="password" name="Konfirmasi_Kata_Sandi_Baru" class="form-control" id="floatingPassword" placeholder="Password" autocomplete="off">
+                                <label for="floatingPassword">Konfirmasi Kata Sandi Baru</label>
+                                <span data-toggle="password" class="eye-toggle2"><i class="bi bi-eye-slash"></i></span>
+                            </div>
+                            <button class="button py-2 my-4" name="Masuk" type="submit">Atur Ulang</button>
+                            <p class="mt-5 text-body-secondary">© PTSP BMKG Provinsi Bengkulu – 2024</p>
+                        </form>
                     </div>
                 </div>
-                <div class="login-content">
-                    <form id="formulirLoginForDrive" action="reset-pass-to-database-user.php" method="post">
-                        <img class="imgForm" src="../assets/image/logo/logo2.png">
-                        <h2 class="title">Atur Ulang Kata Sandi</h2>
-                        <input type="hidden" name="ID_Pengguna" value="<?= $hasil['ID_Pengguna'] ?>">
-                        <div id="resetKataSandi" class="input-div pass">
-                            <div class="i">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                            <div class="div">
-                                <h5>Kata Sandi</h5>
-                                <input type="password" class="input" name="Reset_Kata_Sandi" id="resetPassword" autocomplete="off">
-                                <i class="fas fa-eye iconInputContainer" id="togglePassword"></i>
-                            </div>
-                        </div>
-                        <div id="resetKataSandi" class="input-div pass">
-                            <div class="i">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                            <div class="div">
-                                <h5>Konfirmasi Kata Sandi</h5>
-                                <input type="password" class="input" name="Konfirmasi_Reset" id="resetConfirmPassword" autocomplete="off">
-                                <i class="fas fa-eye iconInputContainer" id="toggleConfirmPassword"></i>
-                            </div>
-                        </div>
-                        <button id="btnLoginForDrive" name="Ubah_Kata_Sandi" type="submit" class="btn">Ubah Kata Sandi</button>
-                    </form>
-                </div>
             </div>
-            <!-- MAIN END -->
 
-            <!-- CDN JQUERY -->
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-            <!-- CDN DRIVE.JS -->
-            <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
             <!-- OUR JS -->
-            <script src="../assets/our/js/reset-pass.js"></script>
-            <script src="../assets/our/js/drive-all.js"></script>
-            <!-- ICON -->
-            <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+            <script src="../assets/our/js/toggle-password-reset-user.js"></script>
             <!-- ALERT -->
             <?php include '../partials/utils/alert.php' ?>
         </body>

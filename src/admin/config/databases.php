@@ -1028,7 +1028,6 @@ class Informasi
         }
     }
 
-
     public function getDataInformasiById($id)
     {
         $query = "SELECT * FROM informasi WHERE ID_Informasi = ?";
@@ -1058,19 +1057,6 @@ class Informasi
             return $data['Foto_Informasi'];
         } else {
             return null;
-        }
-    }
-
-    public function perbaruiNomorRekening($id, $nomorRekening)
-    {
-        $query = "UPDATE informasi SET No_Rekening_Informasi=? WHERE ID_Informasi=?";
-        $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("si", $nomorRekening, $id);
-
-        if ($statement->execute()) {
-            return true;
-        } else {
-            return false;
         }
     }
 
@@ -1313,18 +1299,6 @@ class Jasa
             return $data['Foto_Jasa'];
         } else {
             return null;
-        }
-    }
-    public function perbaruiNomorRekening($id, $nomorRekening)
-    {
-        $query = "UPDATE jasa SET No_Rekening_Jasa=? WHERE ID_Jasa=?";
-        $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("si", $nomorRekening, $id);
-
-        if ($statement->execute()) {
-            return true;
-        } else {
-            return false;
         }
     }
 

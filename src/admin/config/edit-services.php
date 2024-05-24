@@ -41,35 +41,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $statusJasa = filter_input(INPUT_POST, 'Status_Jasa', FILTER_SANITIZE_STRING);
     $fotoJasa = $_FILES['Foto_Jasa'] ?? '';
 
-
     $jasaModel = new Jasa($koneksi);
 
     $jasaLama = $jasaModel->getDataJasaById($jasaID);
-    $pemilikJasaLama = $jasaLama['Pemilik_Jasa'];
-    $nomorRekeningJasaLama = $jasaLama['No_Rekening_Jasa'];
     $fotoJasaLama = $jasaLama['Foto_Jasa'];
 
-    if ($pemilikJasaLama !== $pemilikJasa) {
-        if ($pemilikJasa === 'Instansi A') {
-            $nomorRekeningJasa = '1111';
-        } elseif ($pemilikJasa === 'Instansi B') {
-            $nomorRekeningJasa = '2222';
-        } elseif ($pemilikJasa === 'Instansi C') {
-            $nomorRekeningJasa = '3333';
-        } else {
-            echo json_encode(array("success" => false, "message" => "Instansi tidak valid."));
-            exit;
-        }
-
-        $updateNomorRekeningJasa = $jasaModel->perbaruiNomorRekening($jasaID, $nomorRekeningJasa);
-
-        if (!$updateNomorRekeningJasa) {
-            echo json_encode(array("success" => false, "message" => "Gagal memperbarui nomor rekening jasa."));
-            exit;
-        }
+    if ($pemilikJasa === 'Instansi A') {
+        $nomorRekeningJasa = '1111';
+    } elseif ($pemilikJasa === 'Instansi B') {
+        $nomorRekeningJasa = '2222';
+    } elseif ($pemilikJasa === 'Instansi C') {
+        $nomorRekeningJasa = '3333';
     } else {
-        $nomorRekeningJasa = $nomorRekeningJasaLama;
+        $pesanKesalahan .= "Instansi tidak valid. ";
     }
+
+    $nomorRekeningJasaFormatted = $nomorRekeningJasa;
 
     if (empty($fotoJasa['name'])) {
         $namaFotoBaru = $fotoJasaLama;
@@ -100,6 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'Nama_Jasa' => $namaJasa,
         'Deskripsi_Jasa' => $deskripsiJasa,
         'Harga_Jasa' => $hargaJasa,
+        'No_Rekening_Jasa' => $nomorRekeningJasaFormatted,
         'Pemilik_Jasa' => $pemilikJasa,
         'Kategori_Jasa' => $kategoriJasa,
         'Status_Jasa' => $statusJasa
