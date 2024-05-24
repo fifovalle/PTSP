@@ -11,7 +11,7 @@ foreach ($dataJumlah as $transaksiID => $jumlahBarang) {
     $idPengajuan = $transaksiModel->getPengajuanID($transaksiID);
 
     if ($idPengajuan === null) {
-        $responses[] = array("success" => false, "message" => "Silahkan mengisi pengajuan terlebih dahulu untuk menlanjutkan checkout.");
+        $responses[] = array("success" => false, "message" => "Silahkan mengisi pengajuan terlebih dahulu untuk melanjutkan checkout.");
         continue;
     }
 

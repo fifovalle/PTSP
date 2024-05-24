@@ -50,7 +50,7 @@ $(document).ready(function () {
             toast: true,
             position: "top-end",
             showConfirmButton: false,
-            timer: 300000,
+            timer: 3000,
             timerProgressBar: true,
           }).then((result) => {
             result.dismiss === Swal.DismissReason.timer

@@ -230,4 +230,25 @@ body {
     right: 370px;
     z-index: 1;
   }
+
+  .custom-shape-divider-bottom-1709729084 {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  .custom-shape-divider-bottom-1709729084 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 180px;
+  }
+
+  .custom-shape-divider-bottom-1709729084 .shape-fill {
+    fill: var(--divider-color);
+  }
 }

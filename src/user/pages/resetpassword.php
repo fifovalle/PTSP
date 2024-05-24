@@ -46,9 +46,6 @@ session_start();
             </div>
         </div>
     </div>
-    <?php
-    require('../partials/footer.php');
-    ?>
     <script>
         document.getElementById("reset").addEventListener("click", function() {
             document.getElementById("reset").style.display = "none";
