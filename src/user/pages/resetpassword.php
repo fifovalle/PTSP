@@ -32,13 +32,13 @@ session_start();
                     </svg>
                 </div>
                 <div class="resetpassword">
-                    <img src="../assets/img/headerBMKG.png">
+                    <img src="../assets/img/logoBMKG.jpg">
                     <form class="form-control" method="post" action="../../admin/config/forgot-password-user.php">
                         <div class="note">
                             <h2>Lupa Kata Sandi ?</h2>
                             <p class="mb-1">Masukkan email Anda di sini untuk mengatur ulang kata sandi Anda</p>
                         </div>
-                        <input placeholder="Masukan Email Anda" title="Enter your e-mail" name="email-user" type="email" class="formReset" autocomplete="off">
+                        <input placeholder="Masukan Email Anda" name="email-user" type="email" class="formReset" autocomplete="off">
                         <div class="pemuat mx-auto" id="pemuat"></div>
                         <button class="submit" type="submit" name="Aturulang" id="reset">Kirim</button>
                     </form>
