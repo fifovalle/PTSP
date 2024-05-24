@@ -58,11 +58,6 @@
                                         <i class="fas fa-eye"></i>
                                     </span>
                                 </a>
-                                <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteTransaction(<?php echo $transaksi['ID_Tranksaksi']; ?>)">
-                                    <span>
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                </a>
                             </div>
                         </div>
                     </td>
