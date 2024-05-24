@@ -36,13 +36,16 @@ $mail->Body = '
                                         </tr>
                                     <tr>
                                         <td style="padding:0 35px; font-family: \'Trebuchet MS\', sans-serif;">
-                                            <h1 style="color:#1e1e2d; font-weight:500; margin:0; font-size:32px;">Verifikasi alamat email Anda!</h1>
+                                            <h1 style="color:#1e1e2d; font-weight:500; margin:0; font-size:32px;">Halo ' . $namaDepan . '!</h1>
                                             <span style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece; width:100px;"></span>
                                             <p style="color:#455056; font-size:15px; line-height:24px; margin:0;">
-                                                Harap konfirmasikan bahwa Anda ingin menggunakan ini sebagai alamat email akun Anda. Setelah selesai, Anda akan dapat mulai mengakses!
+                                                Anda telah meminta untuk mereset kata sandi Anda. Silakan klik tautan berikut untuk mereset kata sandi Anda!
                                             </p>
-                                            <a href="http://localhost/PTSP/src/admin/config/verification-email-user.php?Token=' . $token . '" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff; text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Verifikasi</a>
-                                        </td>
+                                            <a href="' . $akarUrl . 'src/admin/config/reset-pass-user.php?token=' . $tokenBaru . '" style="background:#20e277; text-decoration:none !important; font-weight:500; margin-top:18px; color:#fff; text-transform:uppercase; font-size:14px; padding:10px 24px; display:inline-block; border-radius:50px;">Reset Kata Sandi</a>
+                                            <p style="color: #6c757d; font-size:12px; margin-top:15px;">
+                                                Jika Anda tidak meminta reset kata sandi, abaikan email ini.
+                                            </p>
+                                            </td>
                                     </tr>
                                         <tr>
                                             <td style="height:40px;">&nbsp;</td>

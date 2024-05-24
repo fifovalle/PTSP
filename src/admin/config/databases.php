@@ -845,8 +845,6 @@ class Pengguna
 }
 // ===================================PENGGUNA===================================
 
-
-
 // ===================================INFORMASI===================================
 class Informasi
 {
@@ -914,7 +912,7 @@ class Informasi
 
     public function tampilkanDataInformasiMeteorologi()
     {
-        $query = "SELECT * FROM informasi WHERE Kategori_Informasi = 'Meteorologi'";
+        $query = "SELECT * FROM informasi WHERE Kategori_Informasi = 'Meteorologi' AND Status_Informasi = 'Tersedia'";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {

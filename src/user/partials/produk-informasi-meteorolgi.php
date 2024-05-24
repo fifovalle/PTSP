@@ -9,6 +9,9 @@ include '../../admin/config/databases.php';
     include('../partials/header.php');
     ?>
     <link rel="stylesheet" href="../assets/css/produk-informasi.css">
+    <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -34,7 +37,9 @@ include '../../admin/config/databases.php';
                                 <div class="col-md-4 mb-4 p-1" id="produk">
                                     <div class="card-product">
                                         <div class="card-info text-start ps-3 py-2">
-                                            <button type="button" class="info p-0 border-0 bg-transparent"><box-icon name='info-circle'></box-icon></button>
+                                            <button type="button" class="info-meteorologi p-0 border-0 bg-transparent" data-bs-toggle="modal" data-id="<?php echo $informasiMeteorologi['ID_Informasi']; ?>">
+                                                <box-icon name='info-circle'></box-icon>
+                                            </button>
                                         </div>
                                         <div class="card-img my-3">
                                             <span class="dot">
@@ -82,13 +87,15 @@ include '../../admin/config/databases.php';
         </div>
     </div>
     <?php
-    include('modal-produk-informasi.php');
+    include('modal-produk-informasi-meteorologi.php');
     ?>
     <?php
     include('../partials/footer.php');
     ?>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="../assets/js/navbar.js"></script>
-    <script src="../assets/js/modal-produk-informasi.js"></script>
+    <script src="../assets/js/modal-produk-informasi-meteorologi.js"></script>
 </body>
 
 </html>
