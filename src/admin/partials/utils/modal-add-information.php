@@ -35,12 +35,12 @@
                             $peranAdmin = isset($_SESSION['Peran_Admin']) ? $_SESSION['Peran_Admin'] : '';
                             $apakahSuperAdmin = ($peranAdmin == 1);
                             echo ($apakahSuperAdmin) ? '<option value="" selected>' . htmlspecialchars('Pilih Pemilik Informasi') . '</option>' : '';
-                            echo ($apakahSuperAdmin) ? '<option value="Instansi A">' . htmlspecialchars('Instansi A') . '</option>' : '';
-                            echo ($apakahSuperAdmin) ? '<option value="Instansi B">' . htmlspecialchars('Instansi B') . '</option>' : '';
-                            echo ($apakahSuperAdmin) ? '<option value="Instansi C">' . htmlspecialchars('Instansi C') . '</option>' : '';
-                            echo (!$apakahSuperAdmin && $peranAdmin == 2) ? '<option value="Instansi A" selected>' . htmlspecialchars('Instansi A') . '</option>' : '';
-                            echo (!$apakahSuperAdmin && $peranAdmin == 3) ? '<option value="Instansi B" selected>' . htmlspecialchars('Instansi B') . '</option>' : '';
-                            echo (!$apakahSuperAdmin && $peranAdmin == 4) ? '<option value="Instansi C" selected>' . htmlspecialchars('Instansi C') . '</option>' : '';
+                            echo ($apakahSuperAdmin) ? '<option value="Instansi A">' . htmlspecialchars('Meteorologi') . '</option>' : '';
+                            echo ($apakahSuperAdmin) ? '<option value="Instansi B">' . htmlspecialchars('Klimatologi') . '</option>' : '';
+                            echo ($apakahSuperAdmin) ? '<option value="Instansi C">' . htmlspecialchars('Geofisika') . '</option>' : '';
+                            echo (!$apakahSuperAdmin && $peranAdmin == 2) ? '<option value="Instansi A" selected>' . htmlspecialchars('Meteorologi') . '</option>' : '';
+                            echo (!$apakahSuperAdmin && $peranAdmin == 3) ? '<option value="Instansi B" selected>' . htmlspecialchars('Klimatologi') . '</option>' : '';
+                            echo (!$apakahSuperAdmin && $peranAdmin == 4) ? '<option value="Instansi C" selected>' . htmlspecialchars('Geofisika') . '</option>' : '';
                             ?>
                         </select>
                     </div>

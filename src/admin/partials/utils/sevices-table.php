@@ -45,7 +45,12 @@
                             <img class="imageData" src="../assets/image/uploads/<?php echo $jasa['Foto_Jasa']; ?>" alt="Foto Jasa">
                         </div>
                         <div class="deskriptorContainer">
-                            <p class="fw-semibold m-auto"><?php echo $jasa['Nama_Jasa']; ?></p>
+                            <p class="fw-semibold m-auto">
+                                <?php
+                                $namaJasa = htmlspecialchars($jasa['Nama_Jasa']);
+                                echo strlen($namaJasa) > 8 ? substr($namaJasa, 0, 8) . '...' : $namaJasa;
+                                ?>
+                            </p>
                             <p class="fw-semibold deskriptorSmall m-auto">
                                 <?php
                                 $deskripsi_jasa = $jasa['Deskripsi_Jasa'];
@@ -65,7 +70,20 @@
                         </div>
                     </td>
                     <td class="text-center">Rp <?php echo number_format($jasa['Harga_Jasa'], 0, ',', '.'); ?></td>
-                    <td class="text-center"><?php echo $jasa['Pemilik_Jasa']; ?></td>
+                    <td class="text-center">
+                        <?php
+                        $pemilik = htmlspecialchars($jasa['Pemilik_Jasa']);
+                        if ($pemilik == 'Instansi A') {
+                            echo 'Meteorologi';
+                        } elseif ($pemilik == 'Instansi B') {
+                            echo 'Klimatologi';
+                        } elseif ($pemilik == 'Instansi C') {
+                            echo 'Geofisika';
+                        } else {
+                            echo 'Tidak Diketahui';
+                        }
+                        ?>
+                    </td>
                     <td class="text-center"><?php echo $jasa['Kategori_Jasa']; ?></td>
                     <td class="text-center">
                         <?php echo ($jasa['Status_Jasa'] == 'Tersedia') ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Belum Tersedia</span>'; ?>

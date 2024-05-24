@@ -44,7 +44,12 @@
                             <img class="imageData" src="../assets/image/uploads/<?php echo htmlspecialchars($informasi['Foto_Informasi']); ?>" alt="Foto Informasi">
                         </div>
                         <div class="deskriptorContainer">
-                            <p class="fw-semibold m-auto"><?php echo htmlspecialchars($informasi['Nama_Informasi']); ?></p>
+                            <p class="fw-semibold m-auto">
+                                <?php
+                                $namaInformasi = htmlspecialchars($informasi['Nama_Informasi']);
+                                echo strlen($namaInformasi) > 8 ? substr($namaInformasi, 0, 8) . '...' : $namaInformasi;
+                                ?>
+                            </p>
                             <p class="fw-semibold deskriptorSmall m-auto">
                                 <?php
                                 $deskripsi = htmlspecialchars($informasi['Deskripsi_Informasi']);
@@ -62,7 +67,20 @@
                         </div>
                     </td>
                     <td class="text-center">Rp <?php echo number_format($informasi['Harga_Informasi'], 0, ',', '.'); ?></td>
-                    <td class="text-center"><?php echo htmlspecialchars($informasi['Pemilik_Informasi']); ?></td>
+                    <td class="text-center">
+                        <?php
+                        $pemilik = htmlspecialchars($informasi['Pemilik_Informasi']);
+                        if ($pemilik == 'Instansi A') {
+                            echo 'Meteorologi';
+                        } elseif ($pemilik == 'Instansi B') {
+                            echo 'Klimatologi';
+                        } elseif ($pemilik == 'Instansi C') {
+                            echo 'Geofisika';
+                        } else {
+                            echo 'Tidak Diketahui';
+                        }
+                        ?>
+                    </td>
                     <td class="text-center"><?php echo htmlspecialchars($informasi['Kategori_Informasi']); ?></td>
                     <td class="text-center">
                         <?php echo ($informasi['Status_Informasi'] == 'Tersedia') ? '<span class="badge text-bg-success">Tersedia</span>' : '<span class="badge text-bg-danger">Belum Tersedia</span>'; ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2024 at 04:13 AM
+-- Generation Time: May 24, 2024 at 06:08 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -133,13 +133,6 @@ CREATE TABLE `ikm` (
   `Harapan_Konsumen_Publik` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `ikm`
---
-
-INSERT INTO `ikm` (`ID_Ikm`, `Nama`, `Jenis_Kelamin`, `Pendidikan_Terakhir`, `NIK`, `Umur`, `Pekerjaan`, `Koresponden`, `Jenis_Layanan`, `Asal_Daerah`, `Informasi_Cuaca_Publik`, `Informasi_Cuaca_Khusus`, `Analisis_Cuaca`, `Informasi_Titik_Panas`, `Informasi_Tentang_Tingkat`, `Prakiraan_Musim`, `Informasi_Iklim_Khusus`, `Analisis_Prakiraan`, `Tren_Curah_Hujan`, `Informasi_Kualitas_Udara`, `Analisis_Iklim_Ekstrim`, `Informasi_Iklim_Terapan`, `Informasi_Perubahan_Iklim`, `Pengambilan_Pengujian`, `Informasi_Gempabumi`, `Peta_Seismisitas`, `Informasi_Tanda_Waktu`, `Informasi_Geofisika_Potensial`, `Peta_Rendaman_Tsunami`, `Informasi_Seismologi_Teknik`, `Data_MKG`, `Kalibrasi`, `Konsultasi`, `Sewa_Peralatan_MKG`, `Kunjungan`, `Kualitas_Pelayanan_Terbuka`, `Harapan_Konsumen_Terbuka`, `Kualitas_Pelayanan_Kehidupan`, `Harapan_Konsumen_Kehidupan`, `Kualitas_Pelayanan_Dipahami`, `Harapan_Konsumen_Dipahami`, `Kualitas_Pelayanan_Persyaratan`, `Harapan_Konsumen_Persyaratan`, `Kualitas_Pelayanan_Diakses`, `Harapan_Konsumen_Diakses`, `Kualitas_Pelayanan_Akurat`, `Harapan_Konsumen_Akurat`, `Kualitas_Pelayanan_Data`, `Harapan_Konsumen_Data`, `Kualitas_Pelayanan_Sederhana`, `Kualitas_Pelayanan_Waktu`, `Harapan_Konsumen_Waktu`, `Kualitas_Pelayanan_Biaya_Terbuka`, `Harapan_Konsumen_Biaya_Terbuka`, `Kualitas_Pelayanan_KKN`, `Kualitas_Pelayanan_Sesuai`, `Harapan_Konsumen_Sesuai`, `Kualitas_Pelayanan_Daftar`, `Harapan_Konsumen_Daftar`, `Kualitas_Pelayanan_Sarana`, `Harapan_Konsumen_Sarana`, `Kualitas_Pelayanan_Prosedur`, `Harapan_Konsumen_Prosedur`, `Kualitas_Pelayanan_Petugas`, `Harapan_Konsumen_Petugas`, `Kualitas_Pelayanan_Aman`, `Harapan_Konsumen_Aman`, `Kualitas_Pelayanan_Keberadaan`, `Harapan_Konsumen_Keberadaan`, `Kualitas_Pelayanan_Sikap`, `Harapan_Konsumen_Sikap`, `Kualitas_Pelayanan_Publik`, `Harapan_Konsumen_Publik`) VALUES
-(38, 'Naufal', 'Pria', 'SMP', -1, -1, ' bos lele', 'Masyarakat Umum', 'Informasi', 'Batujajar', 'Informasi cuaca publik', 'Informasi cuaca khusus', 'Analisis cuaca', 'Informasi titik', 'lnformasi tentang tingkat kemudahan terjadinya kebakaran hutan dan lahan', 'Prakiraan musim', 'lnformasi iklim khusus', 'Analisis dan prakiraan curah hujan bulanan/dasarian', 'Tren curah hujan', 'lnformasi kualitas udara', 'Analisis iklim ekstrim', 'Informasi iklim terapan', 'Informasi perubahan iklim', 'Pengambilan dan pengujian sampel parameter iklim dan kualitas udara(laboratorium)', 'Informasi gempabumi dan peringatan dini tsunami', 'Peta seismisitas', 'lnformasi tanda waktu', 'lnformasi geofisika potensial', 'Peta rendaman tsunami', 'Informasi seismologi teknik', 'Data meteorologi, klimatologi, dan geofisika', 'Kalibrasi', 'Konsultasi', 'Sewa peralatan MKG', 'Kunjungan', 'Sangat Setuju', '', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', '', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', '', 'Sangat Setuju', 'Sangat Penting');
-
 -- --------------------------------------------------------
 
 --
@@ -149,7 +142,7 @@ INSERT INTO `ikm` (`ID_Ikm`, `Nama`, `Jenis_Kelamin`, `Pendidikan_Terakhir`, `NI
 CREATE TABLE `informasi` (
   `ID_Informasi` int(11) NOT NULL,
   `Foto_Informasi` longblob NOT NULL,
-  `Nama_Informasi` varchar(30) NOT NULL,
+  `Nama_Informasi` varchar(100) NOT NULL,
   `Deskripsi_Informasi` text NOT NULL,
   `Harga_Informasi` int(11) NOT NULL,
   `Pemilik_Informasi` enum('Instansi A','Instansi B','Instansi C') NOT NULL,
@@ -163,9 +156,60 @@ CREATE TABLE `informasi` (
 --
 
 INSERT INTO `informasi` (`ID_Informasi`, `Foto_Informasi`, `Nama_Informasi`, `Deskripsi_Informasi`, `Harga_Informasi`, `Pemilik_Informasi`, `No_Rekening_Informasi`, `Kategori_Informasi`, `Status_Informasi`) VALUES
-(18, 0x363630386262336338623337612e706e67, 'Data 1', 'Beli Data OKEY', 100000, 'Instansi A', 0, 'Meteorologi', 'Tersedia'),
-(19, 0x363630386264373565636237662e706e67, 'Data 2', 'Beli Data ini', 200000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
-(20, 0x363630386264386363643934612e706e67, 'Data 3', 'Beli Data ini', 300000, 'Instansi C', 3333, 'Geofisika', 'Tersedia');
+(43, 0x363635303036663035393539382e706e67, 'INFORMASI CUACA UNTUK PENERBAN', 'PER ROUTE UNIT', 40000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
+(44, 0x363635303037393934353433372e706e67, 'ANALISIS DAN PRAKIRAAN HUJAN BULANAN', 'PER BUKU', 65000, 'Instansi B', 0, 'Klimatologi', 'Tersedia'),
+(45, 0x363635303037633031313535392e706e67, 'PRAKIRAAN MUSIM KEMARAU', 'PER BUKU', 230000, 'Instansi B', 0, 'Klimatologi', 'Tersedia'),
+(46, 0x363635303037646564303664322e706e67, 'PRAKIRAAN MUSIM HUJAN', 'PER BUKU', 230000, 'Instansi B', 0, 'Klimatologi', 'Tersedia'),
+(47, 0x363635303037666430383366612e706e67, 'ATLAS KESESUAIAN AGROKLIMAT', 'PER BUKU', 230000, 'Instansi B', 0, 'Klimatologi', 'Tersedia'),
+(48, 0x363635303038393839386562642e706e67, 'ATLAS WINDROSE WILAYAH INDONESIA PERIODE 1981-2010', 'PER BUKU', 1500000, 'Instansi B', 0, 'Klimatologi', 'Tersedia'),
+(49, 0x363635303039316238626666322e706e67, 'ATLAS CURAH HUJAN DI INDONESIA RATA-RATA PERIODE 1981-2010', 'PER BUKU', 1500000, 'Instansi B', 0, 'Klimatologi', 'Tersedia'),
+(50, 0x363635303039333763303039392e706e67, 'ATLAS CURAH HUJAN DI INDONESIA', 'PER BUKU', 1500000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(51, 0x363635303039373132373439622e706e67, 'PARTICULATE MATTER (PM10)', 'PER STASIUN PER TAHUN', 70000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(52, 0x363635303039386131633733322e706e67, 'PARTICULATE MATTER (PM2.5)', 'PER STASIUN PER TAHUN', 70000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(53, 0x363635303061333562613331382e706e67, 'SULFUR DIOKSIDA (SO2)', 'PER STASIUN PER TAHUN', 60000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(54, 0x363635303061346339363434662e706e67, 'NITROGEN OKSIDA (NOX)', 'PER STASIUN PER TAHUN', 60000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(55, 0x363635303061363862343230652e706e67, 'OZON (O3)', 'PER STASIUN PER TAHUN', 60000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(56, 0x363635303061376439393732622e706e67, 'KARBON MONOKSIDA (CO)', 'PER STASIUN PER TAHUN', 60000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(57, 0x363635303061393337633333312e706e67, 'KARBON DIOKSIDA (CO2)', 'PER SAMPEL', 80000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(58, 0x363635303061613633326562322e706e67, 'METHAN (CH4)', 'PER SAMPEL', 80000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(59, 0x363635303061646135633730302e706e67, 'PETA KEGEMPAAN', 'PER PROVINSI PER TAHUN', 250000, 'Instansi C', 3333, 'Geofisika', 'Tersedia'),
+(60, 0x363635303061663435373763302e706e67, 'INFORMASI METEOROLOGI', 'PER LOKASI PER HARI', 175000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
+(61, 0x363635303062306663616438312e706e67, 'INFORMASI GEOFISIKA', 'PER LOKASI PER HARI', 185000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
+(62, 0x363635303062356663383935372e706e67, 'INFORMASI CUACA KHUSUS UNTUK KEGIATAN OLAH RAGA', 'PER LOKASI PER HARI', 100000, 'Instansi A', 0, 'Meteorologi', 'Tersedia'),
+(63, 0x363635303064323935313233362e706e67, 'ATLAS NORMAL TEMPERATUR PERIODE 1981-2010', 'PER BUKU', 1500000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(64, 0x363635303064393030383862302e706e67, 'INFORMASI CUACA KHUSUS UNTUK KEGIATAN KOMERSIAL OUTDOOR/INDOOR', 'PER LOKASI PER HARI', 100000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
+(65, 0x363635303064613566313032662e706e67, 'INFORMASI RADAR CUACA (PER 10 MENIT)', 'PER DATA PER LOKASI', 70000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
+(66, 0x363635303064633533386364632e706e67, 'PETA SPASIAL INFORMASI MARITIM', 'PER PETA PER BULAN', 300000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(67, 0x363635303064643931343061342e706e67, 'INFORMASI TABULAR DAN GRAFIK MARITIM', 'PER TABEL PER BULAN', 350000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(68, 0x363635303064666464643435392e706e67, 'ATLAS POTENSI RAWAN BANJIR', 'PER ATLAS', 350000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(69, 0x363635303065323634393663352e706e67, ' PUBLIKASI BERUPA INFORMASI PERUBAHAN IKLIM DAN KUALITAS UDARA', 'PER PETA PER BULAN', 300000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(70, 0x363635303065343734633130612e706e67, 'KERENTANAN PERUBAHAN IKLIM', 'PER ATLAS', 450000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(71, 0x363635303065356531323434382e706e67, 'POTENSI ENERGI MATAHARI DI INDONESIA', 'PER ATLAS', 300000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(72, 0x363635303065373633376266312e706e67, 'POTENSI ENERGI ANGIN DI INDONESIA', 'PER ATLAS', 300000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(73, 0x363635303065386561333338622e706e67, 'SULFUR DIOKSIDA (SO2)', 'PER SAMPEL', 30000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(74, 0x363635303065616134653533362e706e67, 'NITROGEN OKSIDA (NO2)', 'PER SAMPEL', 30000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(75, 0x363635303065633036393865382e706e67, 'KARBON DIOKSIDA (CO2)', 'PER SAMPEL', 40000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(76, 0x363635303065663037613862622e706e67, 'OZON (O3)', 'PER SAMPEL', 30000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(77, 0x363635303066303539643539382e706e67, 'SUSPENDED PARTICULATE MATTER (SPM)', 'PER SAMPEL', 60000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(78, 0x363635303066316434316335382e706e67, 'DEBU PARTICULATE MATTER (PM10)', 'PER SAMPEL', 60000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(79, 0x363635303066336434633764372e706e67, 'KIMIA AIR HUJAN', 'PER SAMPEL', 230000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(80, 0x363635303066353435336337652e706e67, 'METHAN (CH4)', 'PER SAMPEL', 40000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(81, 0x363635303066373138633936302e706e67, 'PENGUJIAN SAMPEL KUALITAS UDARA', 'PER ATLAS', 470000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(82, 0x363635303066383531626133312e706e67, 'SULFUR DIOKSIDA (SO2)', 'PER SAMPEL', 20000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(83, 0x363635303066393730366363342e706e67, 'KARBON DIOKSIDA (CO2)', 'PER SAMPEL', 30000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(84, 0x363635303066623366303535612e706e67, 'OZON (O3)', 'PER SAMPEL', 20000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(85, 0x363635303066633761353333622e706e67, 'SUSPENDED PARTICULATE MATTER (SPM)', 'PER SAMPEL', 50000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(86, 0x363635303066646333653666362e706e67, 'DEBU PARTICULATE MATTER (PM10)', 'PER SAMPEL', 50000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(87, 0x363635303066663035313162322e706e67, 'DEBU PARTICULATE MATTER (PM2.5)', 'PER SAMPEL', 70000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(88, 0x363635303130303162356538312e706e67, 'KIMIA AIR HUJAN', 'PER SAMPEL', 240000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(89, 0x363635303130313637656536342e706e67, 'METHAN (CH4)', 'PER SAMPEL', 30000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(90, 0x363635303130346362616330372e706e67, 'BUKU DAN PETA VARIASI MAGNET BUMI (EPOCH)', 'PER BUKU', 300000, 'Instansi C', 3333, 'Geofisika', 'Tersedia'),
+(91, 0x363635303130356363376661622e706e67, 'PETA TINGKAT KERAWANAN PETIR', 'PER LOKASI PER TAHUN', 200000, 'Instansi C', 3333, 'Geofisika', 'Tersedia'),
+(92, 0x363635303130366632646633332e706e67, 'WAKTU TERBIT DAN TERBENAM MATAHARI ATAU BULAN', 'PER LOKASI PER TAHUN', 50000, 'Instansi C', 3333, 'Geofisika', 'Tersedia'),
+(93, 0x363635303130383031633233372e706e67, 'BUKU ALMANAK BADAN METEOROLOGI KLIMATOLOGI DAN GEOFISIKA', 'PER BUKU PER TAHUN', 150000, 'Instansi C', 3333, 'Geofisika', 'Tersedia'),
+(94, 0x363635303130393739653265302e706e67, 'BUKU PETA KETINGGIAN HILAL', 'PER BUKU PER TAHUN', 150000, 'Instansi C', 3333, 'Geofisika', 'Tersedia'),
+(95, 0x363635303130616438386664392e706e67, 'BTITIK DASAR GAYA BERAT (GRAVITASI)', 'PER TITIK DASAR GAYA BERAT', 150000, 'Instansi C', 3333, 'Geofisika', 'Tersedia'),
+(96, 0x363635303130626565353135312e706e67, 'KEJADIAN PETIR', 'PER LOKASI PER HARI', 75000, 'Instansi C', 3333, 'Geofisika', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -191,7 +235,7 @@ CREATE TABLE `informasi_tarif_pnbp` (
 CREATE TABLE `jasa` (
   `ID_Jasa` int(11) NOT NULL,
   `Foto_Jasa` blob NOT NULL,
-  `Nama_Jasa` varchar(30) NOT NULL,
+  `Nama_Jasa` varchar(120) NOT NULL,
   `Deskripsi_Jasa` text NOT NULL,
   `Harga_Jasa` int(11) NOT NULL,
   `Pemilik_Jasa` enum('Instansi A','Instansi B','Instansi C') NOT NULL,
@@ -205,9 +249,9 @@ CREATE TABLE `jasa` (
 --
 
 INSERT INTO `jasa` (`ID_Jasa`, `Foto_Jasa`, `Nama_Jasa`, `Deskripsi_Jasa`, `Harga_Jasa`, `Pemilik_Jasa`, `No_Rekening_Jasa`, `Kategori_Jasa`, `Status_Jasa`) VALUES
-(17, 0x363630386262616639396365362e6a7067, 'Jasa1', 'Beli Jasa ini', 200000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
-(18, 0x363630386264636661306632372e6a7067, 'Jasa 2', 'Beli Jasa Ini', 300000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
-(19, 0x363630386264653431313764382e6a7067, 'Jasa 3', 'Beli Jasa ini', 400000, 'Instansi C', 3333, 'Geofisika', 'Tersedia');
+(25, 0x363635303131363838666562322e6a7067, 'INFORMASI METEOROLOGI KHUSUS UNTUK PENDUKUNG KEGIATAN PROYEK, SURVEI, DAN PENELITIAN KOMERSIAL', 'PER LOKASI', 3750000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
+(26, 0x363635303132356365353238392e6a7067, 'ANALISIS IKLIM', 'PER LOKASI', 9500000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(27, 0x363635303132373532366435312e6a7067, 'INFORMASI PENDAHULUAN DI BIDANG GEOFISIKA SEBAGAI PENDUKUNG KEGIATAN PROYEK, SURVEI, DAN PENELITIAN KOMERSIAL', 'PER LOKASI', 12300000, 'Instansi C', 0, 'Geofisika', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -222,6 +266,13 @@ CREATE TABLE `kegiatan_bencana` (
   `Email_Bencana` varchar(50) NOT NULL,
   `Surat_Pengantar_Permintaan_Data_Bencana` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kegiatan_bencana`
+--
+
+INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencana`, `Email_Bencana`, `Surat_Pengantar_Permintaan_Data_Bencana`) VALUES
+(84, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363634666665343763663335642e646f6378);
 
 -- --------------------------------------------------------
 
@@ -264,6 +315,13 @@ CREATE TABLE `kegiatan_sosial` (
   `Email_Sosial` varchar(30) NOT NULL,
   `Surat_Yang_Ditandatangani_Sosial` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kegiatan_sosial`
+--
+
+INSERT INTO `kegiatan_sosial` (`ID_Sosial`, `Nama_Sosial`, `No_Telepon_Sosial`, `Email_Sosial`, `Surat_Yang_Ditandatangani_Sosial`) VALUES
+(8, 'a', '+62 1--', 'a@gmail.com', 0x363635303031303463356261625f323235303038313130395f4e415546414c20464946415f4d6f64756c20375f53697374656d204f7065726173692e646f6378);
 
 -- --------------------------------------------------------
 
@@ -547,7 +605,7 @@ ALTER TABLE `ikm`
 -- AUTO_INCREMENT for table `informasi`
 --
 ALTER TABLE `informasi`
-  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `ID_Informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `informasi_tarif_pnbp`
@@ -559,13 +617,13 @@ ALTER TABLE `informasi_tarif_pnbp`
 -- AUTO_INCREMENT for table `jasa`
 --
 ALTER TABLE `jasa`
-  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ID_Jasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
@@ -583,7 +641,7 @@ ALTER TABLE `kegiatan_pertahanan_keamanan`
 -- AUTO_INCREMENT for table `kegiatan_sosial`
 --
 ALTER TABLE `kegiatan_sosial`
-  MODIFY `ID_Sosial` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Sosial` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `pemerintah_pusat_daerah`
@@ -601,7 +659,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -619,7 +677,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
 
 --
 -- Constraints for dumped tables
