@@ -175,31 +175,6 @@
                         </div>
                     </div>
                 </div>
-                <h5 class="mt-5">III. JASA PENGGUNAAN ALAT METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</h5>
-                <div class="container3">
-                    <div class="box">
-                        <div class="header">
-                            <button class="part_one row_three selected-navbar" onclick="showContent2('content4')">PERALATAN SEDERHANA MEKANIK (KONVENSIONAL)</button>
-                            <button class="part_one row_three" onclick="showContent2('content5')">PERALATAN SEDERHANA ELEKTRONIK (OTOMATIS)</button>
-                            <button class="part_one row_three" onclick="showContent2('content6')">PERALATAN TEKNOLOGI CANGGIH (MODERN)</button>
-                        </div>
-                        <div class="content_three" id="content4" style="display: block;">
-                            <?php
-                            include('../partials/table-tariflayanan4.php');
-                            ?>
-                        </div>
-                        <div class="content_three" id="content5">
-                            <?php
-                            include('../partials/table-tariflayanan5.php');
-                            ?>
-                        </div>
-                        <div class="content_three" id="content6">
-                            <?php
-                            include('../partials/table-tariflayanan6.php');
-                            ?>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
