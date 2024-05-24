@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2024 at 08:04 AM
+-- Generation Time: May 24, 2024 at 03:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -156,18 +156,18 @@ CREATE TABLE `informasi` (
 --
 
 INSERT INTO `informasi` (`ID_Informasi`, `Foto_Informasi`, `Nama_Informasi`, `Deskripsi_Informasi`, `Harga_Informasi`, `Pemilik_Informasi`, `No_Rekening_Informasi`, `Kategori_Informasi`, `Status_Informasi`) VALUES
-(43, 0x363635303036663035393539382e706e67, 'INFORMASI CUACA UNTUK PENERBAN', 'PER ROUTE UNIT', 40000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
-(44, 0x363635303037393934353433372e706e67, 'ANALISIS DAN PRAKIRAAN HUJAN BULANAN', 'PER BUKU', 65000, 'Instansi B', 0, 'Klimatologi', 'Tersedia'),
-(45, 0x363635303037633031313535392e706e67, 'PRAKIRAAN MUSIM KEMARAU', 'PER BUKU', 230000, 'Instansi B', 0, 'Klimatologi', 'Tersedia'),
-(46, 0x363635303037646564303664322e706e67, 'PRAKIRAAN MUSIM HUJAN', 'PER BUKU', 230000, 'Instansi B', 0, 'Klimatologi', 'Tersedia'),
-(47, 0x363635303037666430383366612e706e67, 'ATLAS KESESUAIAN AGROKLIMAT', 'PER BUKU', 230000, 'Instansi B', 0, 'Klimatologi', 'Tersedia'),
-(48, 0x363635303038393839386562642e706e67, 'ATLAS WINDROSE WILAYAH INDONESIA PERIODE 1981-2010', 'PER BUKU', 1500000, 'Instansi B', 0, 'Klimatologi', 'Tersedia'),
-(49, 0x363635303039316238626666322e706e67, 'ATLAS CURAH HUJAN DI INDONESIA RATA-RATA PERIODE 1981-2010', 'PER BUKU', 1500000, 'Instansi B', 0, 'Klimatologi', 'Tersedia'),
+(43, 0x363635303863626261623332642e706e67, 'INFORMASI CUACA UNTUK PENERBAN', 'PER ROUTE UNIT', 40000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
+(44, 0x363635303037393934353433372e706e67, 'ANALISIS DAN PRAKIRAAN HUJAN BULANAN', 'PER BUKU', 65000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(45, 0x363635303037633031313535392e706e67, 'PRAKIRAAN MUSIM KEMARAU', 'PER BUKU', 230000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(46, 0x363635303037646564303664322e706e67, 'PRAKIRAAN MUSIM HUJAN', 'PER BUKU', 230000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(47, 0x363635303037666430383366612e706e67, 'ATLAS KESESUAIAN AGROKLIMAT', 'PER BUKU', 230000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(48, 0x363635303038393839386562642e706e67, 'ATLAS WINDROSE WILAYAH INDONESIA PERIODE 1981-2010', 'PER BUKU', 1500000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(49, 0x363635303039316238626666322e706e67, 'ATLAS CURAH HUJAN DI INDONESIA RATA-RATA PERIODE 1981-2010', 'PER BUKU', 1500000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
 (50, 0x363635303039333763303039392e706e67, 'ATLAS CURAH HUJAN DI INDONESIA', 'PER BUKU', 1500000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
 (51, 0x363635303039373132373439622e706e67, 'PARTICULATE MATTER (PM10)', 'PER STASIUN PER TAHUN', 70000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
 (52, 0x363635303039386131633733322e706e67, 'PARTICULATE MATTER (PM2.5)', 'PER STASIUN PER TAHUN', 70000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
 (53, 0x363635303061333562613331382e706e67, 'SULFUR DIOKSIDA (SO2)', 'PER STASIUN PER TAHUN', 60000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
-(54, 0x363635303061346339363434662e706e67, 'NITROGEN OKSIDA (NOX)', 'PER STASIUN PER TAHUN', 60000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
+(54, 0x363635303864613638613861312e706e67, 'NITROGEN OKSIDA (NOX)', 'PER STASIUN PER TAHUN', 60000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
 (55, 0x363635303061363862343230652e706e67, 'OZON (O3)', 'PER STASIUN PER TAHUN', 60000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
 (56, 0x363635303061376439393732622e706e67, 'KARBON MONOKSIDA (CO)', 'PER STASIUN PER TAHUN', 60000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
 (57, 0x363635303061393337633333312e706e67, 'KARBON DIOKSIDA (CO2)', 'PER SAMPEL', 80000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
@@ -175,7 +175,7 @@ INSERT INTO `informasi` (`ID_Informasi`, `Foto_Informasi`, `Nama_Informasi`, `De
 (59, 0x363635303061646135633730302e706e67, 'PETA KEGEMPAAN', 'PER PROVINSI PER TAHUN', 250000, 'Instansi C', 3333, 'Geofisika', 'Tersedia'),
 (60, 0x363635303061663435373763302e706e67, 'INFORMASI METEOROLOGI', 'PER LOKASI PER HARI', 175000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
 (61, 0x363635303062306663616438312e706e67, 'INFORMASI GEOFISIKA', 'PER LOKASI PER HARI', 185000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
-(62, 0x363635303062356663383935372e706e67, 'INFORMASI CUACA KHUSUS UNTUK KEGIATAN OLAH RAGA', 'PER LOKASI PER HARI', 100000, 'Instansi A', 0, 'Meteorologi', 'Tersedia'),
+(62, 0x363635303062356663383935372e706e67, 'INFORMASI CUACA KHUSUS UNTUK KEGIATAN OLAH RAGA', 'PER LOKASI PER HARI', 100000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
 (63, 0x363635303064323935313233362e706e67, 'ATLAS NORMAL TEMPERATUR PERIODE 1981-2010', 'PER BUKU', 1500000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
 (64, 0x363635303064393030383862302e706e67, 'INFORMASI CUACA KHUSUS UNTUK KEGIATAN KOMERSIAL OUTDOOR/INDOOR', 'PER LOKASI PER HARI', 100000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
 (65, 0x363635303064613566313032662e706e67, 'INFORMASI RADAR CUACA (PER 10 MENIT)', 'PER DATA PER LOKASI', 70000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
@@ -251,7 +251,7 @@ CREATE TABLE `jasa` (
 INSERT INTO `jasa` (`ID_Jasa`, `Foto_Jasa`, `Nama_Jasa`, `Deskripsi_Jasa`, `Harga_Jasa`, `Pemilik_Jasa`, `No_Rekening_Jasa`, `Kategori_Jasa`, `Status_Jasa`) VALUES
 (25, 0x363635303131363838666562322e6a7067, 'INFORMASI METEOROLOGI KHUSUS UNTUK PENDUKUNG KEGIATAN PROYEK, SURVEI, DAN PENELITIAN KOMERSIAL', 'PER LOKASI', 3750000, 'Instansi A', 1111, 'Meteorologi', 'Tersedia'),
 (26, 0x363635303132356365353238392e6a7067, 'ANALISIS IKLIM', 'PER LOKASI', 9500000, 'Instansi B', 2222, 'Klimatologi', 'Tersedia'),
-(27, 0x363635303132373532366435312e6a7067, 'INFORMASI PENDAHULUAN DI BIDANG GEOFISIKA SEBAGAI PENDUKUNG KEGIATAN PROYEK, SURVEI, DAN PENELITIAN KOMERSIAL', 'PER LOKASI', 12300000, 'Instansi C', 0, 'Geofisika', 'Tersedia');
+(27, 0x363635303132373532366435312e6a7067, 'INFORMASI PENDAHULUAN DI BIDANG GEOFISIKA SEBAGAI PENDUKUNG KEGIATAN PROYEK, SURVEI, DAN PENELITIAN KOMERSIAL', 'PER LOKASI', 12300000, 'Instansi C', 3333, 'Geofisika', 'Tersedia');
 
 -- --------------------------------------------------------
 
@@ -423,7 +423,7 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `Token`) VALUES
-(28, 0x363634666634326637663435632e6a7067, '1', 1, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifOvalle', 'fifanaufal10@gmail.com', '$2y$10$uRsruB83A/7Fn.JFx5Bt5e0he7znkNJI5BTTYzr43xglKdKu6Cmbq', '$2y$10$uRsruB83A/7Fn.JFx5Bt5e0he7znkNJI5BTTYzr43xglKdKu6Cmbq', '+62 812-2365-2490', 'Pria', 'Batujajar', 'Jawa Barat', 'Bandung', 'Terverifikasi', 0);
+(28, 0x363634666634326637663435632e6a7067, '1', 1, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifOvalle', 'fifanaufal10@gmail.com', '$2y$10$.Lw/4hWgo.bW10Byx4CZUeAV9io6ftm4qIPguyXHsQwiVmldtARHO', '$2y$10$.Lw/4hWgo.bW10Byx4CZUeAV9io6ftm4qIPguyXHsQwiVmldtARHO', '+62 812-2365-2490', 'Pria', 'Batujajar', 'Jawa Barat', 'Bandung', 'Terverifikasi', 0);
 
 -- --------------------------------------------------------
 
@@ -681,7 +681,7 @@ ALTER TABLE `pengajuan`
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `ID_Pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `perusahaan`
