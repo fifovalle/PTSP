@@ -34,7 +34,9 @@ include '../../admin/config/databases.php';
                                 <div class="col-md-4 mb-4 p-1" id="produk">
                                     <div class="card-product">
                                         <div class="card-info text-start ps-3 py-2">
-                                            <button type="button" class="info p-0 border-0 bg-transparent"><box-icon name='info-circle'></box-icon></button>
+                                            <button type="button" class="info p-0 border-0 bg-transparent" data-bs-toggle="modal" data-id="<?php echo $informasiGeofisika['ID_Informasi']; ?>">
+                                                <box-icon name='info-circle'></box-icon>
+                                            </button>
                                         </div>
                                         <div class="card-img my-3">
                                             <span class="dot">

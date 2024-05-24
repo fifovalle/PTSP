@@ -3,7 +3,7 @@ include 'databases.php';
 
 $informasiModel = new Informasi($koneksi);
 
-$informasiID = isset($_GET['meteo_id']) ? $_GET['meteo_id'] : null;
+$informasiID = isset($_GET['informasi_id']) ? $_GET['informasi_id'] : null;
 $dataInformasi = $informasiModel->tampilkanDataInformasi($informasiID);
 
 $informasiDitemukan = null;

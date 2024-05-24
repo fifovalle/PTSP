@@ -34,7 +34,9 @@ include '../../admin/config/databases.php';
                                 <div class="col-md-4 mb-4 p-1" id="produk">
                                     <div class="card-product">
                                         <div class="card-info text-start ps-3 py-2">
-                                            <button type="button" class="info p-0 border-0 bg-transparent"><box-icon name='info-circle'></box-icon></button>
+                                            <button type="button" class="info p-0 border-0 bg-transparent" data-bs-toggle="modal" data-id="<?php echo $jasaGeofisika['ID_Jasa']; ?>">
+                                                <box-icon name='info-circle'></box-icon>
+                                            </button>
                                         </div>
                                         <div class="card-img my-3">
                                             <span class="dot">
@@ -81,6 +83,8 @@ include '../../admin/config/databases.php';
     <?php
     include('../partials/footer.php');
     ?>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/modal-produk-jasa.js"></script>
 </body>
