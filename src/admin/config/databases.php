@@ -2664,7 +2664,7 @@ class Transaksi
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Total_Transaksi IS NOT NULL AND transaksi.Jumlah_Barang IS NOT NULL AND transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Total_Transaksi IS NOT NULL AND pengajuan.Status_Pengajuan ='Sedang Ditinjau' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
