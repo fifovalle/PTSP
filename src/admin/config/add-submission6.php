@@ -55,6 +55,12 @@ if (isset($_POST['Apply'])) {
         $suratPerjanjian = uploadFile('Mempunyai_Perjanjian_Kerjasama_dengan_BMKG', $tujuanFolder);
         $suratPengantarBaru = uploadFile('Surat_Pengantar', $tujuanFolder);
 
+        if ($suratPerjanjian === false || $suratPengantarBaru === false) {
+            setPesanKesalahan("Gagal mengupload file. Hanya diperbolehkan file dengan format PDF, Word, atau Excel.");
+            header("Location: $akarUrl" . "src/user/pages/ajukan.php");
+            exit();
+        }
+
         $dataPusat = array(
             'Nama_Pusat_Daerah' => $nama,
             'No_Telepon_Pusat_Daerah' => $nomorTeleponFormatted,
@@ -82,6 +88,8 @@ if (isset($_POST['Apply'])) {
             exit();
         } else {
             setPesanKesalahan("Gagal menambahkan data.");
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit();
         }
     } else {
         setPesanKesalahan("Silahkan memilih katalog produk terlebih dahulu");
@@ -90,18 +98,24 @@ if (isset($_POST['Apply'])) {
     }
 } else {
     header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-    exit;
+    exit();
 }
 
-function uploadFile($fileInputName, $tujuanFolder)
+function uploadFile($fileInputName, $targetFolder)
 {
-    if ($_FILES[$fileInputName]['error'] !== UPLOAD_ERR_OK) {
+    $ekstensiValid = array('pdf', 'doc', 'docx', 'xls', 'xlsx');
+    $fileInfo = pathinfo($_FILES[$fileInputName]['name']);
+    $ekstensiFile = strtolower($fileInfo['extension']);
+
+    if (!in_array($ekstensiFile, $ekstensiValid)) {
+        return false;
     }
 
     $namaFileBaru = uniqid() . '_' . basename($_FILES[$fileInputName]['name']);
-    $tujuanFile = $tujuanFolder . $namaFileBaru;
+    $tujuanFile = $targetFolder . $namaFileBaru;
 
     if (!move_uploaded_file($_FILES[$fileInputName]['tmp_name'], $tujuanFile)) {
+        return false;
     }
 
     return $namaFileBaru;

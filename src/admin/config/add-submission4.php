@@ -36,12 +36,11 @@ if (isset($_POST['Apply'])) {
     $nomorHP = filter_input(INPUT_POST, 'No_HP', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'Email', FILTER_SANITIZE_STRING);
 
-
     $nomorTeleponFormatted = '+62 ' . substr($nomorHP, 0, 3) . '-' . substr($nomorHP, 4, 4) . '-' . substr($nomorHP, 7);
 
     if (!isset($_SESSION['ID_Produk'])) {
         setPesanKesalahan("Silahkan memilih katalog produk terlebih dahulu");
-        header("Location: $akarUrl" . "src/user/pages/katalogproduk.php");
+        header("Location: " . $akarUrl . "src/user/pages/katalogproduk.php");
         exit();
     }
 
@@ -54,51 +53,67 @@ if (isset($_POST['Apply'])) {
 
     if ($hasilCekPengguna) {
         if ($_FILES['Surat_Yang_Ditandatangani_Pertahanan']['error'] === UPLOAD_ERR_OK) {
-            $tujuanSuratPengantar = '../assets/image/uploads/';
-            $namaSuratPengantarBaru = uniqid() . '_' . basename($_FILES['Surat_Yang_Ditandatangani_Pertahanan']['name']);
-            $tujuanFileSuratPengantar = $tujuanSuratPengantar . $namaSuratPengantarBaru;
+            $ekstensiValid = array('pdf', 'doc', 'docx', 'xls', 'xlsx');
+            $fileInfo = pathinfo($_FILES['Surat_Yang_Ditandatangani_Pertahanan']['name']);
+            $ekstensiFile = strtolower($fileInfo['extension']);
 
-            if (move_uploaded_file($_FILES['Surat_Yang_Ditandatangani_Pertahanan']['tmp_name'], $tujuanFileSuratPengantar)) {
-                $dataPertahanan = array(
-                    'Nama_Pertahanan' => $nama,
-                    'No_Telepon_Pertahanan' => $nomorTeleponFormatted,
-                    'Email_Pertahanan' => $email,
-                    'Surat_Yang_Ditandatangani_Pertahanan' => $namaSuratPengantarBaru
-                );
+            if (in_array($ekstensiFile, $ekstensiValid)) {
+                $tujuanSuratPengantar = '../assets/image/uploads/';
+                $namaSuratPengantarBaru = uniqid() . '_' . basename($_FILES['Surat_Yang_Ditandatangani_Pertahanan']['name']);
+                $tujuanFileSuratPengantar = $tujuanSuratPengantar . $namaSuratPengantarBaru;
 
-                $simpanDataPertahanan = $objekDataPertahanan->tambahDataPertahanan($dataPertahanan);
+                if (move_uploaded_file($_FILES['Surat_Yang_Ditandatangani_Pertahanan']['tmp_name'], $tujuanFileSuratPengantar)) {
+                    $dataPertahanan = array(
+                        'Nama_Pertahanan' => $nama,
+                        'No_Telepon_Pertahanan' => $nomorTeleponFormatted,
+                        'Email_Pertahanan' => $email,
+                        'Surat_Yang_Ditandatangani_Pertahanan' => $namaSuratPengantarBaru
+                    );
 
-                $dataPengajuanPertahanan = array(
-                    'ID_Pertahanan' => $objekDataPertahanan->ambilIDKeamananTerakhir(),
-                    'Status_Pengajuan' => 'Sedang Ditinjau',
-                    'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
-                );
+                    $simpanDataPertahanan = $objekDataPertahanan->tambahDataPertahanan($dataPertahanan);
 
-                $simpanDataPengajuanPertahanan = $objekDataPertahanan->tambahDataPengajuanPertahanaan($dataPengajuanPertahanan);
+                    $dataPengajuanPertahanan = array(
+                        'ID_Pertahanan' => $objekDataPertahanan->ambilIDKeamananTerakhir(),
+                        'Status_Pengajuan' => 'Sedang Ditinjau',
+                        'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
+                    );
 
-                $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
+                    $simpanDataPengajuanPertahanan = $objekDataPertahanan->tambahDataPengajuanPertahanaan($dataPengajuanPertahanan);
 
-                $simpanDataTransaksiPengajuanPertahanan = $obyekDataTransaksi->perbaharuiPengajuanPertahananKeTransaksiSesuaiSession($dataPengajuanPertahanan, $idSession);
+                    $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
 
-                if ($simpanDataPertahanan && $simpanDataPengajuanPertahanan && $simpanDataTransaksiPengajuanPertahanan) {
-                    setPesanKeberhasilan("Data kegiatan penanggulangan pertahanan berhasil dikirim harap menunggu konfirmasi oleh admin.");
-                    header("Location: $akarUrl" . "src/user/pages/checkout.php");
-                    exit();
+                    $simpanDataTransaksiPengajuanPertahanan = $obyekDataTransaksi->perbaharuiPengajuanPertahananKeTransaksiSesuaiSession($dataPengajuanPertahanan, $idSession);
+
+                    if ($simpanDataPertahanan && $simpanDataPengajuanPertahanan && $simpanDataTransaksiPengajuanPertahanan) {
+                        setPesanKeberhasilan("Data kegiatan penanggulangan pertahanan berhasil dikirim harap menunggu konfirmasi oleh admin.");
+                        header("Location: " . $akarUrl . "src/user/pages/checkout.php");
+                        exit();
+                    } else {
+                        setPesanKesalahan("Gagal menambahkan data kegiatan penanggulangan pertahanan.");
+                        header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+                        exit();
+                    }
                 } else {
-                    setPesanKesalahan("Gagal menambahkan data kegiatan penanggulangan pertahanan.");
+                    setPesanKesalahan("Gagal menyimpan surat pengantar.");
+                    header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+                    exit();
                 }
             } else {
-                setPesanKesalahan("Gagal menyimpan surat pengantar.");
+                setPesanKesalahan("Format file tidak valid. Hanya diperbolehkan file dengan format PDF, Word, atau Excel.");
+                header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+                exit();
             }
         } else {
             setPesanKesalahan("Gagal mengupload surat pengantar.");
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit();
         }
     } else {
         setPesanKesalahan("Silahkan memilih katalog produk terlebih dahulu");
-        header("Location: $akarUrl" . "src/user/pages/katalogproduk.php");
-        exit;
+        header("Location: " . $akarUrl . "src/user/pages/katalogproduk.php");
+        exit();
     }
 } else {
-    header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-    exit;
+    header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+    exit();
 }

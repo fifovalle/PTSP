@@ -36,7 +36,6 @@ if (isset($_POST['Apply'])) {
     $nomorHP = filter_input(INPUT_POST, 'No_HP', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'Email', FILTER_SANITIZE_STRING);
 
-
     $nomorTeleponFormatted = '+62 ' . substr($nomorHP, 0, 3) . '-' . substr($nomorHP, 4, 4) . '-' . substr($nomorHP, 7);
 
     $objekDataSosial = new Pengajuan($koneksi);
@@ -49,54 +48,70 @@ if (isset($_POST['Apply'])) {
     if ($hasilCekPengguna) {
         if ($_FILES['Surat_Pengantar_Permintaan_Data']['error'] === UPLOAD_ERR_OK) {
             $tujuanSuratPengantar = '../assets/image/uploads/';
-            $namaSuratPengantarBaru = uniqid() . '_' . basename($_FILES['Surat_Pengantar_Permintaan_Data']['name']);
-            $tujuanFileSuratPengantar = $tujuanSuratPengantar . $namaSuratPengantarBaru;
+            $ekstensiFile = pathinfo($_FILES['Surat_Pengantar_Permintaan_Data']['name'], PATHINFO_EXTENSION);
+            $ekstensiFile = strtolower($ekstensiFile);
+            $ekstensiValid = array('pdf', 'doc', 'docx', 'xls', 'xlsx');
 
-            if (move_uploaded_file($_FILES['Surat_Pengantar_Permintaan_Data']['tmp_name'], $tujuanFileSuratPengantar)) {
-                $dataSosial = array(
-                    'Nama_Sosial' => $nama,
-                    'No_Telepon_Sosial' => $nomorTeleponFormatted,
-                    'Email_Sosial' => $email,
-                    'Surat_Yang_Ditandatangani_Sosial' => $namaSuratPengantarBaru
-                );
+            if (in_array($ekstensiFile, $ekstensiValid)) {
+                $namaSuratPengantarBaru = uniqid() . '_' . basename($_FILES['Surat_Pengantar_Permintaan_Data']['name']);
+                $tujuanFileSuratPengantar = $tujuanSuratPengantar . $namaSuratPengantarBaru;
 
-                $simpanDataSosial = $objekDataSosial->tambahDataSosial($dataSosial);
+                if (move_uploaded_file($_FILES['Surat_Pengantar_Permintaan_Data']['tmp_name'], $tujuanFileSuratPengantar)) {
+                    $dataSosial = array(
+                        'Nama_Sosial' => $nama,
+                        'No_Telepon_Sosial' => $nomorTeleponFormatted,
+                        'Email_Sosial' => $email,
+                        'Surat_Yang_Ditandatangani_Sosial' => $namaSuratPengantarBaru
+                    );
 
-                $dataPengajuanSosial = array(
-                    'ID_Sosial' => $objekDataSosial->ambilIDSosialTerakhir(),
-                    'Status_Pengajuan' => 'Sedang Ditinjau',
-                    'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
-                );
+                    $simpanDataSosial = $objekDataSosial->tambahDataSosial($dataSosial);
 
-                $simpanDataPengajuanSosial = $objekDataSosial->tambahDataPengajuanSosial($dataPengajuanSosial);
+                    $dataPengajuanSosial = array(
+                        'ID_Sosial' => $objekDataSosial->ambilIDSosialTerakhir(),
+                        'Status_Pengajuan' => 'Sedang Ditinjau',
+                        'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
+                    );
 
-                $dataPengajuanSosial = array(
-                    'ID_Pengajuan' => $objekDataSosial->ambilIDPengajuanTerakhir(),
-                );
+                    $simpanDataPengajuanSosial = $objekDataSosial->tambahDataPengajuanSosial($dataPengajuanSosial);
 
-                $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
+                    $dataPengajuanSosial = array(
+                        'ID_Pengajuan' => $objekDataSosial->ambilIDPengajuanTerakhir(),
+                    );
 
-                $simpanDataTransaksiPengajuanSosial = $obyekDataTransaksi->perbaharuiPengajuanSosialKeTransaksiSesuaiSession($dataPengajuanSosial, $idSession);
+                    $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
 
-                if ($simpanDataSosial && $simpanDataPengajuanSosial && $simpanDataTransaksiPengajuanSosial) {
-                    setPesanKeberhasilan("Data kegiatan penanggulangan sosial berhasil dikirim harap menunggu konfirmasi oleh admin.");
-                    header("Location: $akarUrl" . "src/user/pages/checkout.php");
-                    exit;
+                    $simpanDataTransaksiPengajuanSosial = $obyekDataTransaksi->perbaharuiPengajuanSosialKeTransaksiSesuaiSession($dataPengajuanSosial, $idSession);
+
+                    if ($simpanDataSosial && $simpanDataPengajuanSosial && $simpanDataTransaksiPengajuanSosial) {
+                        setPesanKeberhasilan("Data kegiatan penanggulangan sosial berhasil dikirim harap menunggu konfirmasi oleh admin.");
+                        header("Location: " . $akarUrl . "src/user/pages/checkout.php");
+                        exit;
+                    } else {
+                        setPesanKesalahan("Gagal menambahkan data kegiatan penanggulangan sosial.");
+                        header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+                        exit;
+                    }
                 } else {
-                    setPesanKesalahan("Gagal menambahkan data kegiatan penanggulangan sosial.");
+                    setPesanKesalahan("Gagal menyimpan surat pengantar.");
+                    header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+                    exit;
                 }
             } else {
-                setPesanKesalahan("Gagal menyimpan surat pengantar.");
+                setPesanKesalahan("Format file tidak valid. Hanya diperbolehkan file dengan format PDF, Word, atau Excel.");
+                header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+                exit;
             }
         } else {
             setPesanKesalahan("Gagal mengupload surat pengantar.");
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit;
         }
     } else {
         setPesanKesalahan("Silahkan memilih katalog produk terlebih dahulu");
-        header("Location: $akarUrl" . "src/user/pages/katalogproduk.php");
+        header("Location: " . $akarUrl . "src/user/pages/katalogproduk.php");
         exit;
     }
 } else {
-    header("Location: $akarUrl" . "src/user/pages/ajukan.php");
+    header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
     exit();
 }

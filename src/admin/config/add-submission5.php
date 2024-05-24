@@ -43,7 +43,7 @@ if (isset($_POST['Apply'])) {
 
     if (!isset($_SESSION['ID_Produk'])) {
         setPesanKesalahan("Silahkan memilih katalog produk terlebih dahulu");
-        header("Location: $akarUrl" . "src/user/pages/katalogproduk.php");
+        header("Location: " . $akarUrl . "src/user/pages/katalogproduk.php");
         exit();
     }
 
@@ -56,8 +56,18 @@ if (isset($_POST['Apply'])) {
     if ($hasilCekPengguna) {
         if ($_FILES['Surat_Pengantar_Permintaan_Data']['error'] !== UPLOAD_ERR_OK) {
             setPesanKesalahan("Gagal mengupload surat pengantar.");
-            header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-            exit;
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit();
+        }
+
+        $ekstensiValid = array('pdf', 'doc', 'docx', 'xls', 'xlsx');
+        $fileInfo = pathinfo($_FILES['Surat_Pengantar_Permintaan_Data']['name']);
+        $ekstensiFile = strtolower($fileInfo['extension']);
+
+        if (!in_array($ekstensiFile, $ekstensiValid)) {
+            setPesanKesalahan("Format file tidak valid. Hanya diperbolehkan file dengan format PDF, Word, atau Excel.");
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit();
         }
 
         $tujuanFolder = '../assets/image/uploads/';
@@ -66,8 +76,8 @@ if (isset($_POST['Apply'])) {
 
         if (!move_uploaded_file($_FILES['Surat_Pengantar_Permintaan_Data']['tmp_name'], $tujuanFileSuratPengantar)) {
             setPesanKesalahan("Gagal menyimpan surat pengantar. Pastikan folder tujuan ada dan memiliki izin yang cukup.");
-            header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-            exit;
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit();
         }
 
         $dataPendidikan = array(
@@ -95,17 +105,19 @@ if (isset($_POST['Apply'])) {
 
         if ($simpanDataPendidikan && $simpanDataPengajuanPenelitian && $simpanDataTransaksiPengajuanPendidikan) {
             setPesanKeberhasilan("Data kegiatan pendidikan berhasil dikirim harap menunggu konfirmasi oleh admin.");
-            header("Location: $akarUrl" . "src/user/pages/checkout.php");
+            header("Location: " . $akarUrl . "src/user/pages/checkout.php");
             exit();
         } else {
             setPesanKesalahan("Gagal menambahkan data kegiatan pendidikan.");
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit();
         }
     } else {
         setPesanKesalahan("Silahkan memilih katalog produk terlebih dahulu");
-        header("Location: $akarUrl" . "src/user/pages/katalogproduk.php");
+        header("Location: " . $akarUrl . "src/user/pages/katalogproduk.php");
         exit();
     }
 } else {
-    header("Location: $akarUrl" . "src/user/pages/ajukan.php");
-    exit;
+    header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+    exit();
 }
