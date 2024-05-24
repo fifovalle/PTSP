@@ -32,9 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $databasesModel = new Pengajuan($koneksi);
 
     $statusPengajuan = 'Sedang Ditinjau';
+    $keteranganSurat = NULL;
 
     $perbaharuiImprovePengajuan = $databasesModel->perbaruiPerbaikanPengajuan(
         $idImprovePengajuan,
+        $keteranganSurat,
         $perbaikanDokumen,
         $dokumen,
         $statusPengajuan

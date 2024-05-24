@@ -47,7 +47,8 @@
                         <div class="deskriptorContainer">
                             <p class="fw-semibold m-auto">
                                 <?php
-                                echo ($pengajuan['ID_Informasi'] != null) ? $pengajuan['Nama_Informasi'] : (($pengajuan['ID_Jasa'] != null) ? $pengajuan['Nama_Jasa'] : 'Nama Tidak Tersedia');
+                                $namaPengajuan = ($pengajuan['ID_Informasi'] != null) ? $pengajuan['Nama_Informasi'] : (($pengajuan['ID_Jasa'] != null) ? $pengajuan['Nama_Jasa'] : 'Nama Tidak Tersedia');
+                                echo strlen($namaPengajuan) > 6 ? substr($namaPengajuan, 0, 6) . '...' : $namaPengajuan;
                                 ?>
                             </p>
                             <p class="fw-semibold deskriptorSmall m-auto">
@@ -73,7 +74,7 @@
                     <td class="text-center"><?php echo ($pengajuan['ID_Pengguna'] != null) ? $pengajuan['Nama_Pengguna'] : (($pengajuan['ID_Perusahaan'] != null) ? $pengajuan['Nama_Pengguna_Anggota_Perusahaan'] : 'Nama Pengguna Tidak Ada') ?></td>
                     <td class="text-center">
                         <?php
-                        echo $pengajuan['Keterangan_Surat_Ditolak'] !== NULL ? $pengajuan['Keterangan_Surat_Ditolak'] : "Jika ada surat yang ditolak silahkan untuk diunggah";
+                        echo !empty($pengajuan['Keterangan_Surat_Ditolak']) ? $pengajuan['Keterangan_Surat_Ditolak'] : "Jika ada surat yang ditolak silahkan untuk diunggah";
                         ?>
                     </td>
                     <td class="text-center"><?php echo $pengajuan['Tanggal_Pengajuan']; ?></td>

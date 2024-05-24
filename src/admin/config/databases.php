@@ -1872,19 +1872,32 @@ class Pengajuan
         return $result;
     }
 
-    public function perbaruiPerbaikanPengajuan($idImprovePengajuan, $PerbaikanDokumen, $Dokumen, $statusPengajuan)
+    public function perbaruiPerbaikanPengajuan($idImprovePengajuan, $keteranganSurat, $PerbaikanDokumen, $Dokumen, $statusPengajuan)
     {
         $idImprovePengajuan = mysqli_real_escape_string($this->koneksi, $idImprovePengajuan);
         $PerbaikanDokumen = mysqli_real_escape_string($this->koneksi, $PerbaikanDokumen);
         $Dokumen = mysqli_real_escape_string($this->koneksi, $Dokumen);
+        $statusPengajuan = mysqli_real_escape_string($this->koneksi, $statusPengajuan);
 
-        $query = "UPDATE pengajuan SET Perbaikan_Dokumen = '$Dokumen', Jenis_Perbaikan = '$PerbaikanDokumen', Status_Pengajuan = '$statusPengajuan'";
+        $selectQuery = "SELECT Perbaikan_Dokumen FROM pengajuan WHERE ID_Pengajuan = '$idImprovePengajuan'";
+        $selectResult = mysqli_query($this->koneksi, $selectQuery);
 
-        $query .= " WHERE ID_Pengajuan = '$idImprovePengajuan'";
+        if ($selectResult && mysqli_num_rows($selectResult) > 0) {
+            $row = mysqli_fetch_assoc($selectResult);
+            $currentDokumen = $row['Perbaikan_Dokumen'];
 
-        $result = mysqli_query($this->koneksi, $query);
+            $filePath = '../assets/image/uploads/' . $currentDokumen;
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
 
-        return $result;
+            $updateQuery = "UPDATE pengajuan SET Perbaikan_Dokumen = '$Dokumen', Keterangan_Surat_Ditolak = '$keteranganSurat', Jenis_Perbaikan = '$PerbaikanDokumen', Status_Pengajuan = '$statusPengajuan' WHERE ID_Pengajuan = '$idImprovePengajuan'";
+            $result = mysqli_query($this->koneksi, $updateQuery);
+
+            return $result;
+        } else {
+            return false;
+        }
     }
 
     public function hapusPengajuan($id)
@@ -2341,7 +2354,7 @@ class Transaksi
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Total_Transaksi IS NOT NULL AND transaksi.Jumlah_Barang IS NOT NULL AND pengajuan.Status_Pengajuan ='Sedang Ditinjau' OR pengajuan.Status_Pengajuan ='Ditolak'";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Total_Transaksi IS NOT NULL AND transaksi.Jumlah_Barang IS NOT NULL AND pengajuan.Status_Pengajuan ='Sedang Ditinjau'";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
