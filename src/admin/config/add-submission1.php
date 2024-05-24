@@ -108,7 +108,7 @@ if (isset($_POST['Apply'])) {
         }
     } else {
         setPesanKesalahan("Silahkan memilih katalog produk terlebih dahulu");
-        header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+        header("Location: " . $akarUrl . "src/user/pages/katalogproduk.php");
         exit();
     }
 } else {
