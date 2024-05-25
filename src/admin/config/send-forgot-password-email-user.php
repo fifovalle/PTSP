@@ -9,7 +9,7 @@ try {
     $mail->Port = 587;
 
     $mail->setFrom('syntaxsquad24@gmail.com', 'BMKG');
-    $mail->addAddress($emailPengguna, $namaDepan . ' ' . $namaBelakang);
+    $mail->addAddress($email, $namaDepan . ' ' . $namaBelakang);
 
     $mail->isHTML(true);
     $mail->Subject = 'Lupa Kata Sandi - Permintaan Reset Kata Sandi';

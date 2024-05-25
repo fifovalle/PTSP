@@ -4,10 +4,21 @@ include 'databases.php';
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
     $obyekPengguna = new Pengguna($koneksi);
-    $tampilkanSemua = $obyekPengguna->tampilkanDataPengguna($token);
     $hasil = $obyekPengguna->getPenggunaByToken($token);
+    if (!$hasil) {
+        $hasil = $obyekPengguna->getPerusahaanByToken($token);
+    }
     if ($hasil) {
-        $kosongkanToken = $obyekPengguna->updateToken($hasil['ID_Pengguna'], '');
+        if (isset($hasil['ID_Pengguna'])) {
+            $kosongkanToken = $obyekPengguna->updateToken($hasil['ID_Pengguna'], '');
+        } else if (isset($hasil['ID_Perusahaan'])) {
+            $kosongkanToken = $obyekPengguna->updateTokenPeruhsaan($hasil['ID_Perusahaan'], '');
+        }
+        if (isset($hasil['ID_Pengguna'])) {
+            $tampilkanSemua = $obyekPengguna->tampilkanDataPengguna($token);
+        } else if (isset($hasil['ID_Perusahaan'])) {
+            $tampilkanSemua = $obyekPengguna->tampilkanDataPerusahaan($token);
+        }
 ?>
 
         <head>
@@ -44,7 +55,7 @@ if (isset($_GET['token'])) {
                         <form class="form" action="reset-pass-to-database-user.php" method="POST">
                             <img class="logo-mbkg" src="../../../src/user/assets/img/Logo PTSP1.png" alt="">
                             <h2 class="mb-3 fw-normal my-5 py-3"> <b>ATUR ULANG KATA SANDI</b></h2>
-                            <input type="hidden" name="ID_Pengguna" value="<?php echo $hasil['ID_Pengguna'] ?>">
+                            <input type="hidden" name="ID_ALL" value="<?php echo $hasil['ID_Pengguna'] ?? $hasil['ID_Perusahaan']; ?>">
                             <div class="form-floating my-3">
                                 <input type="password" name="Kata_Sandi_Baru" class="form-control" id="floatingPassword" placeholder="Password" autocomplete="off">
                                 <label for="floatingPassword">Masukan Kata Sandi Baru</label>
