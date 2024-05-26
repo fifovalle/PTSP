@@ -14,10 +14,14 @@ $(document).ready(function () {
           let dataApplyment = JSON.parse(data);
           console.log("Data Pengajuan yang Diterima:", dataApplyment);
           $("#namaPembeli").text(
-            dataApplyment.Nama_Pengguna || "Data tidak ditemukan"
+            dataApplyment.Nama_Pengguna ||
+              dataApplyment.Nama_Depan_Anggota_Perusahaan ||
+              "Data tidak ditemukan"
           );
           $("#emailPembeli").text(
-            dataApplyment.Email_Pengguna || "Data tidak ditemukan"
+            dataApplyment.Email_Pengguna ||
+              dataApplyment.Email_Perusahaan ||
+              "Data tidak ditemukan"
           );
           $("#noHPPembeli").text(
             dataApplyment.No_Telepon_Bencana || "Data tidak ditemukan"
@@ -31,14 +35,21 @@ $(document).ready(function () {
           $("#deskripsiPembeli").text(
             dataApplyment.Tanggal_Pembelian || "Data tidak ditemukan"
           );
-          if (dataApplyment.Surat_Pengantar_Permintaan_Data_Bencana != null) {
+          if (dataApplyment.Perbaikan_Dokumen != null) {
+            $("embed").attr(
+              "src",
+              "../assets/image/uploads/" + dataApplyment.Perbaikan_Dokumen
+            );
+          } else if (
+            dataApplyment.Surat_Pengantar_Permintaan_Data_Bencana != null
+          ) {
             $("embed").attr(
               "src",
               "../assets/image/uploads/" +
                 dataApplyment.Surat_Pengantar_Permintaan_Data_Bencana
             );
           } else {
-            $("embed").removeAttr("src");
+            $("embed").attr("src", "Data tidak ditemukan");
           }
           if (dataApplyment.Surat_Pengantar_Permintaan_Data_Bencana != null) {
             $("#gambarPembeli").attr(

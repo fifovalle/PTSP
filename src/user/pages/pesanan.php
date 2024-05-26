@@ -123,10 +123,18 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                             <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pengajuan">Status Pengajuan
                                 <span class="badge text-bg-secondary">
                                     <?php
-                                    $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                                     $transaksiModel = new Transaksi($koneksi);
-                                    $jumlahTransaksi = $transaksiModel->hitungPengajuanTransaksiSesuaiSession($id);
-                                    echo $jumlahTransaksi;
+                                    if (isset($_SESSION['ID_Pengguna'])) {
+                                        $id = $_SESSION['ID_Pengguna'];
+                                        $jumlahTransaksi = $transaksiModel->hitungPengajuanTransaksiSesuaiSessionPengguna($id);
+                                        echo $jumlahTransaksi;
+                                    } else if (isset($_SESSION['ID_Perusahaan'])) {
+                                        $id = $_SESSION['ID_Perusahaan'];
+                                        $jumlahTransaksi = $transaksiModel->hitungPengajuanTransaksiSesuaiSessionPerusahaan($id);
+                                        echo $jumlahTransaksi;
+                                    } else {
+                                        echo "Tidak ada sesi yang aktif.";
+                                    }
                                     ?>
                                 </span>
                             </button>
@@ -291,19 +299,26 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                             </div>
                             <?php
                             $jumlahDataPerHalaman = 2;
-                            $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                             $transaksiModel = new Transaksi($koneksi);
-                            $dataTraksaksi = $transaksiModel->tampilkanPengajuanTransaksiSesuaiSession($id);
-                            $jumlahHalaman = ceil(count($dataTraksaksi) / $jumlahDataPerHalaman);
+                            if (isset($_SESSION['ID_Pengguna'])) {
+                                $id = $_SESSION['ID_Pengguna'];
+                                $dataTransaksi = $transaksiModel->tampilkanPengajuanTransaksiSesuaiSessionPengguna($id);
+                            } elseif (isset($_SESSION['ID_Perusahaan'])) {
+                                $id = $_SESSION['ID_Perusahaan'];
+                                $dataTransaksi = $transaksiModel->tampilkanPengajuanTransaksiSesuaiSessionPerusahaan($id);
+                            } else {
+                                echo "Tidak ada sesi yang aktif.";
+                                exit;
+                            }
+                            $jumlahHalaman = ceil(count($dataTransaksi) / $jumlahDataPerHalaman);
                             $halamanAktif = isset($_GET['halaman']) ? $_GET['halaman'] : 1;
                             $indexAwal = ($halamanAktif - 1) * $jumlahDataPerHalaman;
-                            $indexAkhir = $indexAwal + $jumlahDataPerHalaman;
-                            $dataTraksaksiHalaman = array_slice($dataTraksaksi, $indexAwal, $jumlahDataPerHalaman);
+                            $dataTransaksiHalaman = array_slice($dataTransaksi, $indexAwal, $jumlahDataPerHalaman);
                             ?>
                             <div class="row">
-                                <?php if (!empty($dataTraksaksiHalaman)) : ?>
+                                <?php if (!empty($dataTransaksiHalaman)) : ?>
                                     <?php $totalPesanan = 0; ?>
-                                    <?php foreach ($dataTraksaksiHalaman as $transaksi) : ?>
+                                    <?php foreach ($dataTransaksiHalaman as $transaksi) : ?>
                                         <div class="col-md-8 mt-3">
                                             <div class="col" id="nama_barang"><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></div>
                                             <div class="col" id="jmlh_barang">x<?php echo $transaksi['Jumlah_Barang']; ?></div>
@@ -345,17 +360,35 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     </nav>
                                 </div>
                                 <?php
-                                $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                                 $transaksiModel = new Transaksi($koneksi);
-                                $dataTraksaksi = $transaksiModel->tampilkanPerbaikanDokumenPengajuanTransaksiSesuaiSession($id);
-                                $tampilkanTombol = !empty($dataTraksaksi);
-                                $style = $tampilkanTombol ? 'display: block;' : 'display: none;';
+                                if (isset($_SESSION['ID_Pengguna'])) {
+                                    $id = $_SESSION['ID_Pengguna'];
+                                    $dataTraksaksi = $transaksiModel->tampilkanPerbaikanDokumenPengajuanTransaksiSesuaiSessionPengguna($id);
+                                    $tampilkanTombol = !empty($dataTraksaksi);
+                                    $style = $tampilkanTombol ? 'display: block;' : 'display: none;';
                                 ?>
-                                <div class="col text-end" style="<?php echo $style; ?>">
-                                    <?php
-                                    echo '<button class="btn btn-outline-primary ms-3 buttonImproveApplyment" type="button" data-bs-toggle="modal" data-id="' . $pengajuan['ID_Pengajuan'] . '" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>';
-                                    ?>
-                                </div>
+                                    <div class="col text-end" style="<?php echo $style; ?>">
+                                        <?php foreach ($dataTraksaksi as $data) : ?>
+                                            <button class="btn btn-outline-primary ms-3 buttonImproveApplyment" type="button" data-bs-toggle="modal" data-id="<?php echo $data['ID_Pengajuan']; ?>" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php
+                                } elseif (isset($_SESSION['ID_Perusahaan'])) {
+                                    $id = $_SESSION['ID_Perusahaan'];
+                                    $dataTraksaksi = $transaksiModel->tampilkanPerbaikanDokumenPengajuanTransaksiSesuaiSessionPerusahaan($id);
+                                    $tampilkanTombol = !empty($dataTraksaksi);
+                                    $style = $tampilkanTombol ? 'display: block;' : 'display: none;';
+                                ?>
+                                    <div class="col text-end" style="<?php echo $style; ?>">
+                                        <?php foreach ($dataTraksaksi as $data) : ?>
+                                            <button class="btn btn-outline-primary ms-3 buttonImproveApplyment" type="button" data-bs-toggle="modal" data-id="<?php echo $data['ID_Pengajuan']; ?>" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php
+                                } else {
+                                    echo "Tidak ada sesi yang aktif.";
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>

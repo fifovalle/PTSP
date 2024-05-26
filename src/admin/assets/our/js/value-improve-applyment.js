@@ -17,6 +17,17 @@ $(document).ready(function () {
           dataApplyment
         );
         $("#improveIDPengajuan").val(dataApplyment.ID_Pengajuan);
+        $("#improveIDSubPengajuan").val(
+          dataApplyment.ID_Bencana ||
+            dataApplyment.ID_Keagamaan ||
+            dataApplyment.ID_Pertahanan ||
+            dataApplyment.ID_Sosial ||
+            dataApplyment.ID_Pusat_Daerah ||
+            dataApplyment.ID_Penelitian ||
+            dataApplyment.ID_Tarif ||
+            "Data tidak ditemukan"
+        );
+        $("#perbaikanPesananTeks").text(dataApplyment.Keterangan_Surat_Ditolak);
         $("#perbaikanPesanan").modal("show");
       },
       error: function (xhr) {

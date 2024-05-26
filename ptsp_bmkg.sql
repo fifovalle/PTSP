@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2024 at 05:31 AM
+-- Generation Time: May 26, 2024 at 08:13 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -272,9 +272,7 @@ CREATE TABLE `kegiatan_bencana` (
 --
 
 INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencana`, `Email_Bencana`, `Surat_Pengantar_Permintaan_Data_Bencana`) VALUES
-(84, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363634666665343763663335642e646f6378),
-(85, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363635303238316663663963642e706466),
-(86, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363635303263393561653664362e706466);
+(96, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363635326431633662303137392e706466);
 
 -- --------------------------------------------------------
 
@@ -317,13 +315,6 @@ CREATE TABLE `kegiatan_sosial` (
   `Email_Sosial` varchar(30) NOT NULL,
   `Surat_Yang_Ditandatangani_Sosial` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kegiatan_sosial`
---
-
-INSERT INTO `kegiatan_sosial` (`ID_Sosial`, `Nama_Sosial`, `No_Telepon_Sosial`, `Email_Sosial`, `Surat_Yang_Ditandatangani_Sosial`) VALUES
-(8, 'a', '+62 1--', 'a@gmail.com', 0x363635303031303463356261625f323235303038313130395f4e415546414c20464946415f4d6f64756c20375f53697374656d204f7065726173692e646f6378);
 
 -- --------------------------------------------------------
 
@@ -388,7 +379,7 @@ CREATE TABLE `pengajuan` (
 --
 
 INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `ID_Tarif`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Apakah_Gratis`, `Perbaikan_Dokumen`, `Jenis_Perbaikan`, `Tanggal_Pengajuan`) VALUES
-(104, 86, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 1, 0x363635303264343234626534622e706466, '1', '2024-05-24 12:58:45');
+(114, 96, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', '', 1, 0x363635326432343361306137342e646f6378, '2', '2024-05-26 13:08:06');
 
 -- --------------------------------------------------------
 
@@ -492,6 +483,13 @@ CREATE TABLE `transaksi` (
   `Status_Transaksi` enum('Disetujui','Belum Disetujui','Ditolak','Sedang Ditinjau') NOT NULL,
   `Status_Pesanan` enum('Belum Lunas','Sedang Ditinjau','Lunas') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `ID_IKM`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Upload_File_Penerimaan`, `Bukti_Pembayaran`, `Tanggal_Upload_Bukti`, `Keterangan_Pembayaran_Ditolak`, `Tanggal_Pembelian`, `Status_Transaksi`, `Status_Pesanan`) VALUES
+(211, NULL, 32, NULL, 45, NULL, 114, NULL, 4, 920000, NULL, NULL, NULL, NULL, NULL, '2024-05-26 13:07:33', 'Belum Disetujui', 'Sedang Ditinjau');
 
 --
 -- Indexes for dumped tables
@@ -639,7 +637,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
@@ -675,7 +673,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -693,7 +691,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
 
 --
 -- Constraints for dumped tables

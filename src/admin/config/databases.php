@@ -1567,7 +1567,14 @@ class Pengajuan
 
     public function tampilkanDataPengajuan()
     {
-        $query = "SELECT * FROM pengajuan";
+        $query = "SELECT pengajuan.*, kegiatan_bencana.*, informasi_tarif_pnbp.*, kegiatan_keagamaan.*, kegiatan_sosial.*, pemerintah_pusat_daerah.*, kegiatan_pertahanan_keamanan.*, pendidikan_dan_penelitian.* FROM pengajuan 
+                    LEFT JOIN kegiatan_bencana ON pengajuan.ID_Bencana = kegiatan_bencana.ID_Bencana
+                    LEFT JOIN informasi_tarif_pnbp ON pengajuan.ID_Tarif = informasi_tarif_pnbp.ID_PNBP
+                    LEFT JOIN kegiatan_keagamaan ON pengajuan.ID_Keagamaan  = kegiatan_keagamaan.ID_Keagamaan 
+                    LEFT JOIN kegiatan_sosial ON pengajuan.ID_Sosial = kegiatan_sosial.ID_Sosial
+                    LEFT JOIN kegiatan_pertahanan_keamanan ON pengajuan.ID_Pertahanan = kegiatan_pertahanan_keamanan.ID_Pertahanan
+                    LEFT JOIN pemerintah_pusat_daerah ON pengajuan.ID_Pusat_Daerah = pemerintah_pusat_daerah.ID_Pusat
+                    LEFT JOIN pendidikan_dan_penelitian ON pengajuan.ID_Penelitian = pendidikan_dan_penelitian.ID_Pendidikan_Penelitian";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -1845,7 +1852,7 @@ class Pengajuan
         $query = "SELECT transaksi.*, pengguna.*, perusahaan.*, pengajuan.* FROM transaksi 
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan WHERE transaksi.Total_Transaksi IS NOT NULL AND pengajuan.Status_Pengajuan ='Sedang Ditinjau'; 
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan WHERE transaksi.Total_Transaksi IS NOT NULL AND pengajuan.Status_Pengajuan ='Sedang Ditinjau' OR  pengajuan.Status_Pengajuan ='Ditolak'; 
                ";
         $result = $this->koneksi->query($query);
 
@@ -1909,11 +1916,8 @@ class Pengajuan
         } else {
             $query .= ", Keterangan_Surat_Ditolak = NULL";
         }
-
         $query .= " WHERE ID_Pengajuan = '$pengajuanID'";
-
         $result = mysqli_query($this->koneksi, $query);
-
         return $result;
     }
 
@@ -2705,14 +2709,19 @@ class Transaksi
         }
     }
 
-    public function tampilkanPengajuanTransaksiSesuaiSession($id)
+    public function tampilkanPengajuanTransaksiSesuaiSessionPengguna($id)
     {
-        $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
+        $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* 
+                  FROM transaksi 
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Total_Transaksi IS NOT NULL AND pengajuan.Status_Pengajuan ='Sedang Ditinjau' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+                  WHERE transaksi.Total_Transaksi IS NOT NULL 
+                  AND transaksi.ID_Pengguna = $id
+                  AND (pengajuan.Status_Pengajuan = 'Sedang Ditinjau' OR pengajuan.Status_Pengajuan = 'Ditolak')";
+
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2726,14 +2735,67 @@ class Transaksi
         }
     }
 
-    public function tampilkanPerbaikanDokumenPengajuanTransaksiSesuaiSession($id)
+    public function tampilkanPengajuanTransaksiSesuaiSessionPerusahaan($id)
     {
-        $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* FROM transaksi 
+        $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* 
+                  FROM transaksi 
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Ditolak' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+                  WHERE transaksi.Total_Transaksi IS NOT NULL 
+                  AND transaksi.ID_Perusahaan = $id
+                  AND (pengajuan.Status_Pengajuan = 'Sedang Ditinjau' OR pengajuan.Status_Pengajuan = 'Ditolak')";
+
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return [];
+        }
+    }
+
+    public function tampilkanPerbaikanDokumenPengajuanTransaksiSesuaiSessionPengguna($id)
+    {
+        $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* 
+                  FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+                  WHERE pengajuan.Status_Pengajuan = 'Ditolak' AND transaksi.ID_Pengguna = $id";
+
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return [];
+        }
+    }
+
+    public function tampilkanPerbaikanDokumenPengajuanTransaksiSesuaiSessionPerusahaan($id)
+    {
+        $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* 
+                  FROM transaksi 
+                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+                  WHERE pengajuan.Status_Pengajuan = 'Ditolak' AND transaksi.ID_Perusahaan = $id";
+
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2949,19 +3011,61 @@ class Transaksi
         }
     }
 
-    public function hitungPengajuanTransaksiSesuaiSession($id)
+    public function hitungPengajuanTransaksiSesuaiSessionPengguna($id)
     {
-        $query = "SELECT COUNT(*) as jumlah FROM transaksi 
-              LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
-              LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
-              LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
-              LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-              LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Total_Transaksi IS NOT NULL AND pengajuan.Status_Pengajuan ='Sedang Ditinjau' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
-        $result = $this->koneksi->query($query);
+        $query = "SELECT COUNT(*) as jumlah 
+        FROM transaksi 
+        LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+        LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+        LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+        LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+        LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+        WHERE transaksi.Total_Transaksi IS NOT NULL 
+        AND (pengajuan.Status_Pengajuan = 'Sedang Ditinjau' 
+        OR pengajuan.Status_Pengajuan = 'Ditolak') 
+        AND transaksi.ID_Pengguna = ?";
 
-        if ($result) {
-            $row = $result->fetch_assoc();
-            return $row['jumlah'];
+        if ($stmt = $this->koneksi->prepare($query)) {
+            $stmt->bind_param('i', $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result) {
+                $row = $result->fetch_assoc();
+                return $row['jumlah'];
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
+    }
+
+    public function hitungPengajuanTransaksiSesuaiSessionPerusahaan($id)
+    {
+        $query = "SELECT COUNT(*) as jumlah 
+        FROM transaksi 
+        LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+        LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+        LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+        LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+        LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+        WHERE transaksi.Total_Transaksi IS NOT NULL 
+        AND (pengajuan.Status_Pengajuan = 'Sedang Ditinjau' 
+        OR pengajuan.Status_Pengajuan = 'Ditolak') 
+        AND transaksi.ID_Perusahaan = ?";
+
+        if ($stmt = $this->koneksi->prepare($query)) {
+            $stmt->bind_param('i', $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result) {
+                $row = $result->fetch_assoc();
+                return $row['jumlah'];
+            } else {
+                return 0;
+            }
         } else {
             return 0;
         }

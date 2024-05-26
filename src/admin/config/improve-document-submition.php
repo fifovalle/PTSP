@@ -2,7 +2,7 @@
 include 'databases.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $idImprovePengajuan = $_POST['ID_Penngajuan'] ?? '';
+    $idImprovePengajuan = $_POST['ID_Pengajuan'] ?? '';
     $perbaikanDokumen = $_POST['Perbaikan_Dokumen'] ?? '';
 
     if (isset($_FILES['Unggah_Dokumen']) && $_FILES['Unggah_Dokumen']['error'] === UPLOAD_ERR_OK) {

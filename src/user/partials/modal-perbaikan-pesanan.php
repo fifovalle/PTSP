@@ -5,8 +5,9 @@
                 <h1 class="modal-title fs-5" id="perbaikanPesananLabel">Perbaikan Dokumen</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="post" enctype="multipart/form-data">
-                <input type="hidden" name="ID_Penngajuan" id="improveIDPengajuan">
+            <form>
+                <input type="hidden" name="ID_Pengajuan" id="improveIDPengajuan">
+                <input type="hidden" name="ID_Sub_Pengajuan" id="improveIDSubPengajuan">
                 <div class="modal-body">
                     <div class="col-md-12 text-start">
                         <div class="alert alert-danger text-danger fw-bold" role="alert">
@@ -15,9 +16,7 @@
                                 <span class="align-middle m-0"><strong>PERBAIKAN TERHADAP DOKUMEN</strong></span>
                             </div>
                             <hr>
-                            <p class="text-dark">
-                                <?php echo $pengajuan['Keterangan_Surat_Ditolak']; ?>
-                            </p>
+                            <p class="text-dark" id="perbaikanPesananTeks"></p>
                         </div>
                     </div>
                     <select class="form-select" name="Perbaikan_Dokumen" aria-label="Default select example">
