@@ -41,12 +41,6 @@ if (isset($_POST['Apply'])) {
 
     $nomorTeleponFormatted = '+62 ' . substr($nomorHP, 0, 3) . '-' . substr($nomorHP, 4, 4) . '-' . substr($nomorHP, 7);
 
-    if (!isset($_SESSION['ID_Produk'])) {
-        setPesanKesalahan("Silahkan memilih katalog produk terlebih dahulu");
-        header("Location: " . $akarUrl . "src/user/pages/katalogproduk.php");
-        exit();
-    }
-
     $objekDataPendidikan = new Pengajuan($koneksi);
     $obyekDataTransaksi = new Transaksi($koneksi);
 

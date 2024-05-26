@@ -1845,7 +1845,7 @@ class Pengajuan
         $query = "SELECT transaksi.*, pengguna.*, perusahaan.*, pengajuan.* FROM transaksi 
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan WHERE transaksi.Total_Transaksi IS NOT NULL AND pengajuan.Status_Pengajuan ='Sedang Ditinjau'; 
                ";
         $result = $this->koneksi->query($query);
 
@@ -2311,15 +2311,18 @@ class Transaksi
 
     public function cekPengguna($ID)
     {
-        $query = "SELECT transaksi.*, pengguna.* FROM transaksi 
+        $query = "SELECT transaksi.*, pengguna.*, perusahaan.* 
+                  FROM transaksi
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
-                  WHERE transaksi.ID_Pengguna = ? AND transaksi.ID_Pengajuan IS NULL";
+                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                  WHERE (transaksi.ID_Pengguna = ? OR transaksi.ID_Perusahaan = ?) 
+                    AND (transaksi.ID_Pengajuan IS NULL OR transaksi.ID_Perusahaan IS NOT NULL)";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("i", $ID);
+
+        $statement->bind_param("ii", $ID, $ID);
         $statement->execute();
         $result = $statement->get_result();
-
         if ($result->num_rows > 0) {
             $data = [];
             while ($baris = $result->fetch_assoc()) {
@@ -2953,7 +2956,7 @@ class Transaksi
               LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
               LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
               LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-              LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Sedang Ditinjau' OR pengajuan.Status_Pengajuan = 'Ditolak' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
+              LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Total_Transaksi IS NOT NULL AND pengajuan.Status_Pengajuan ='Sedang Ditinjau' AND (transaksi.ID_Pengguna = $id OR transaksi.ID_Perusahaan = $id)";
         $result = $this->koneksi->query($query);
 
         if ($result) {
