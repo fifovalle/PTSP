@@ -50,7 +50,8 @@
                         <div class="deskriptorContainer">
                             <p class="fw-semibold m-auto">
                                 <?php
-                                echo ($transaksi['ID_Informasi'] != null) ? $transaksi['Nama_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Nama_Jasa'] : 'Nama Tidak Tersedia');
+                                $namaPembuatan = ($transaksi['ID_Informasi'] != null) ? $transaksi['Nama_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Nama_Jasa'] : 'Nama Tidak Tersedia');
+                                echo strlen($namaPembuatan) > 6 ? substr($namaPembuatan, 0, 6) . '...' : $namaPembuatan;
                                 ?>
                             </p>
                             <p class="fw-semibold deskriptorSmall m-auto">

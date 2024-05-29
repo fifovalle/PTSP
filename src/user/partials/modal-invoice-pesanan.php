@@ -492,10 +492,10 @@
                                                     </span>
                                                 </h5>
                                                 <?php foreach ($dataTransaksiA as $transaksiA) { ?>
-                                                <input type="hidden" name="id_instansi_a" value="<?= $transaksiA['ID_Tranksaksi'] ?>">
+                                                    <input type="hidden" name="id_instansi_a" value="<?= $transaksiA['ID_Tranksaksi'] ?>">
                                                 <?php } ?>
                                                 <label for="file" class="custum-file-upload" id="btnUpload">
-                                                    <div class="icon" id="icon1"> 
+                                                    <div class="icon" id="icon1">
                                                         <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
                                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -523,7 +523,7 @@
                                                     </span>
                                                 </h5>
                                                 <?php foreach ($dataTransaksiB as $transaksiB) { ?>
-                                                <input type="hidden" name="id_instansi_b" value="<?= $transaksiB['ID_Tranksaksi'] ?>">
+                                                    <input type="hidden" name="id_instansi_b" value="<?= $transaksiB['ID_Tranksaksi'] ?>">
                                                 <?php } ?>
                                                 <label for="file2" class="custum-file-upload" id="btnUpload1">
                                                     <div class="icon" id="icon1">
@@ -554,7 +554,7 @@
                                                     </span>
                                                 </h5>
                                                 <?php foreach ($dataTransaksiC as $transaksiC) { ?>
-                                                <input type="hidden" name="id_instansi_c" value="<?= $transaksiC['ID_Tranksaksi'] ?>">
+                                                    <input type="hidden" name="id_instansi_c" value="<?= $transaksiC['ID_Tranksaksi'] ?>">
                                                 <?php } ?>
                                                 <label for="file3" class="custum-file-upload" id="btnUpload2">
                                                     <div class="icon" id="icon1">
@@ -580,13 +580,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            <?php } else { ?>
-                                                <p class="fw-bold text-danger text-center">TIDAK ADA TRANSAKSI!</p>
-                                            <?php } ?>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-outline-primary" name="Kirim">Kirim Bukti</button>
-                                            </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-outline-primary" name="Kirim">Kirim Bukti</button>
+                                                </div>
                                             </form>
+                                        <?php } else { ?>
+                                            <p class="fw-bold text-danger text-center">TIDAK ADA TRANSAKSI!</p>
+                                        <?php } ?>
             </div>
         </div>
     </div>

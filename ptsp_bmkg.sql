@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2024 at 09:10 AM
+-- Generation Time: May 29, 2024 at 11:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -382,9 +382,9 @@ CREATE TABLE `pengajuan` (
 --
 
 INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `ID_Tarif`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Apakah_Gratis`, `Perbaikan_Dokumen`, `Jenis_Perbaikan`, `Tanggal_Pengajuan`) VALUES
-(115, 97, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 1, NULL, NULL, '2024-05-29 13:34:28'),
-(116, 98, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-05-29 13:50:37'),
-(117, 99, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-05-29 14:08:44'),
+(115, 97, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 0, NULL, NULL, '2024-05-29 13:34:28'),
+(116, 98, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 1, NULL, NULL, '2024-05-29 13:50:37'),
+(117, 99, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 1, NULL, NULL, '2024-05-29 14:08:44'),
 (118, 100, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-05-29 14:10:20');
 
 -- --------------------------------------------------------
@@ -495,14 +495,14 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `ID_IKM`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Upload_File_Penerimaan`, `Bukti_Pembayaran`, `Tanggal_Upload_Bukti`, `Keterangan_Pembayaran_Ditolak`, `Tanggal_Pembelian`, `Status_Transaksi`, `Status_Pesanan`) VALUES
-(212, NULL, 32, NULL, 43, NULL, 115, NULL, 5, 200000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:30', 'Belum Disetujui', 'Sedang Ditinjau'),
-(213, NULL, 32, NULL, 45, NULL, 115, NULL, 2, 460000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:36', 'Belum Disetujui', 'Sedang Ditinjau'),
-(214, NULL, 32, NULL, 91, NULL, 115, NULL, 2, 400000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:41', 'Belum Disetujui', 'Sedang Ditinjau'),
-(215, NULL, 32, NULL, NULL, 25, 115, NULL, 1, 3750000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:43', 'Belum Disetujui', 'Sedang Ditinjau'),
-(216, NULL, 32, NULL, NULL, 26, 115, NULL, 1, 9500000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:46', 'Belum Disetujui', 'Sedang Ditinjau'),
-(217, NULL, 32, NULL, NULL, 27, 115, NULL, 1, 12300000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:49', 'Belum Disetujui', 'Sedang Ditinjau'),
+(212, NULL, 32, NULL, 43, NULL, 115, NULL, 5, 200000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:30', 'Belum Disetujui', 'Belum Lunas'),
+(213, NULL, 32, NULL, 45, NULL, 115, NULL, 2, 460000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:36', 'Belum Disetujui', 'Belum Lunas'),
+(214, NULL, 32, NULL, 91, NULL, 115, NULL, 2, 400000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:41', 'Belum Disetujui', 'Belum Lunas'),
+(215, NULL, 32, NULL, NULL, 25, 115, NULL, 1, 3750000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:43', 'Belum Disetujui', 'Belum Lunas'),
+(216, NULL, 32, NULL, NULL, 26, 115, NULL, 1, 9500000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:46', 'Belum Disetujui', 'Belum Lunas'),
+(217, NULL, 32, NULL, NULL, 27, 115, NULL, 1, 12300000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:49', 'Belum Disetujui', 'Belum Lunas'),
 (219, NULL, 32, NULL, 43, NULL, 116, NULL, 10, 400000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:50:19', 'Belum Disetujui', 'Sedang Ditinjau'),
-(220, NULL, 32, NULL, 60, NULL, 117, NULL, 2, 350000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 14:08:01', 'Belum Disetujui', 'Sedang Ditinjau'),
+(220, NULL, 32, NULL, 60, NULL, 117, NULL, 2, 350000, NULL, NULL, 0x546572697369, '2024-05-29 16:11:03', NULL, '2024-05-29 14:08:01', 'Disetujui', 'Lunas'),
 (221, NULL, 32, NULL, NULL, 26, 118, NULL, 6, 57000000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 14:10:01', 'Belum Disetujui', 'Sedang Ditinjau');
 
 --

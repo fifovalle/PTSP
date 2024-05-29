@@ -1911,15 +1911,22 @@ class Pengajuan
 
         $query = "UPDATE pengajuan SET Status_Pengajuan = '$statusPengajuan', Apakah_Gratis = '$apakahGratis'";
 
-        if ($statusPengajuan === 'Ditolak') {
-            $query .= ", Keterangan_Surat_Ditolak = '$keteranganSuratDitolak'";
+        if ($apakahGratis === '1') {
+            $query .= " WHERE ID_Pengajuan = '$pengajuanID';";
+            $query .= "UPDATE transaksi SET Bukti_Pembayaran = 'Terisi', Tanggal_Upload_Bukti = NOW(), Status_Transaksi = 'Disetujui', Status_Pesanan = 'Lunas' WHERE ID_Pengajuan = '$pengajuanID';";
         } else {
             $query .= ", Keterangan_Surat_Ditolak = NULL";
         }
+
+        if ($statusPengajuan === 'Ditolak') {
+            $query .= ", Keterangan_Surat_Ditolak = '$keteranganSuratDitolak'";
+        }
+
         $query .= " WHERE ID_Pengajuan = '$pengajuanID'";
-        $result = mysqli_query($this->koneksi, $query);
+        $result = mysqli_multi_query($this->koneksi, $query);
         return $result;
     }
+
 
     public function perbaruiPerbaikanPengajuan($idImprovePengajuan, $keteranganSurat, $PerbaikanDokumen, $Dokumen, $statusPengajuan)
     {
@@ -2042,11 +2049,11 @@ class Transaksi
         }
     }
 
-    public function uploadFileBuktiPembayaran($idPengguna, $namaFile)
+    public function uploadFileBuktiPembayaran($idTransaksi, $namaFile)
     {
         $query = "UPDATE transaksi SET Bukti_Pembayaran = ?, Tanggal_Upload_Bukti = NOW(), Status_Transaksi = 'Sedang Ditinjau' WHERE ID_Tranksaksi = ?";
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("si", $namaFile, $idPengguna);
+        $statement->bind_param("si", $namaFile, $idTransaksi);
 
         if ($statement->execute()) {
             return true;
@@ -2345,7 +2352,7 @@ class Transaksi
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Diterima' and transaksi.Status_Transaksi = 'Belum Disetujui' OR transaksi.Status_Transaksi = 'Ditolak' OR transaksi.Status_Transaksi = 'Sedang Ditinjau'";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE pengajuan.Status_Pengajuan = 'Diterima' and transaksi.Status_Transaksi = 'Belum Disetujui' OR transaksi.Status_Transaksi = 'Ditolak' OR transaksi.Status_Transaksi = 'Sedang Ditinjau' AND pengajuan.Apakah_Gratis = 0";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
