@@ -256,16 +256,58 @@ session_start();
                             </div>
                             <div class="col-md-6 ps-0">
                                 <div class="form-floating my-3 position-relative">
-                                    <input type="password" class="form-control" id="Kata_Sandi" name="Kata_Sandi_Anggota_Perusahaan" placeholder="*****" value="<?= $_SESSION['Kata_Sandi'] ?? ''; ?>" autocomplete="off">
+                                    <input type="password" class="form-control" id="Kata_Sandi" name="Kata_Sandi_Anggota_Perusahaan" placeholder="*****" value="<?= $_SESSION['Kata_Sandi'] ?? ''; ?>" autocomplete="off" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-html="true" data-bs-content="#password-popover-content">
                                     <label for="floatingInput">Kata Sandi <b>*</b> </label>
                                     <i class="bi bi-eye-slash eye-icon top-50 translate-middle-y" id="togglePassword1"></i>
                                 </div>
                             </div>
+                            <div id="password-popover-content" class="d-none">
+                                <div class="popover-content">
+                                    <div class="row px-5">
+                                        <div class="col-md-12 text-danger min-length">
+                                            <i class="bi bi-x fs-7">Minimal 8 karakter.</i>
+                                        </div>
+                                        <div class="col-md-12 text-danger has-upper-case">
+                                            <i class="bi bi-x fs-7">Terdapat huruf besar.</i>
+                                        </div>
+                                        <div class="col-md-12 text-danger has-lower-case">
+                                            <i class="bi bi-x fs-7">Terdapat huruf kecil.</i>
+                                        </div>
+                                        <div class="col-md-12 text-danger has-number">
+                                            <i class="bi bi-x fs-7">Terdapat angka.</i>
+                                        </div>
+                                        <div class="col-md-12 text-danger has-symbol">
+                                            <i class="bi bi-x fs-7">Terdapat simbol.</i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-md-6 pe-0">
                                 <div class="form-floating my-3 position-relative">
-                                    <input type="password" class="form-control" id="Konfirmasi_Kata_Sandi" name="Konfirmasi_Kata_Sandi_Anggota_Perusahaan" placeholder="*****" value="<?= $_SESSION['Konfirmasi_Kata_Sandi'] ?? ''; ?>" autocomplete="off">
+                                    <input type="password" class="form-control" id="Konfirmasi_Kata_Sandi" name="Konfirmasi_Kata_Sandi_Anggota_Perusahaan" placeholder="*****" value="<?= $_SESSION['Konfirmasi_Kata_Sandi'] ?? ''; ?>" autocomplete="off" data-bs-toggle="popover2" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-html="true" data-bs-content="#password-popover-content2">
                                     <label for="floatingInput">Konfirmasi Kata Sandi <b>*</b> </label>
                                     <i class="bi bi-eye-slash eye-icon top-50 translate-middle-y" id="togglePassword2"></i>
+                                </div>
+                            </div>
+                            <div id="password-popover-content2" class="d-none">
+                                <div class="popover-content2">
+                                    <div class="row px-5">
+                                        <div class="col-md-12 text-danger min-length2">
+                                            <i class="bi bi-x fs-7">Minimal 8 karakter.</i>
+                                        </div>
+                                        <div class="col-md-12 text-danger has-upper-case2">
+                                            <i class="bi bi-x fs-7">Terdapat huruf besar.</i>
+                                        </div>
+                                        <div class="col-md-12 text-danger has-lower-case2">
+                                            <i class="bi bi-x fs-7">Terdapat huruf kecil.</i>
+                                        </div>
+                                        <div class="col-md-12 text-danger has-number2">
+                                            <i class="bi bi-x fs-7">Terdapat angka.</i>
+                                        </div>
+                                        <div class="col-md-12 text-danger has-symbol2">
+                                            <i class="bi bi-x fs-7">Terdapat simbol.</i>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-9"></div>
@@ -331,6 +373,237 @@ session_start();
         document.getElementById("Daftar2").addEventListener("click", function() {
             document.getElementById("Daftar2").style.display = "none";
             document.getElementById("pemuat4").style.display = "block";
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+            let popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl, {
+                    content: function() {
+                        return document.querySelector(popoverTriggerEl.getAttribute('data-bs-content')).innerHTML;
+                    }
+                });
+            });
+
+            const passwordInput = document.getElementById('Kata_Sandi');
+            const passwordPopover = document.getElementById('password-popover-content');
+
+            function checkPasswordCriteria(password) {
+                return {
+                    minLength: password.length >= 8,
+                    hasUpperCase: /[A-Z]/.test(password),
+                    hasLowerCase: /[a-z]/.test(password),
+                    hasNumber: /[0-9]/.test(password),
+                    hasSymbol: /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)
+                };
+            }
+
+            function updatePasswordFeedback(closePopover) {
+                const password = passwordInput.value;
+                const popoverContent = passwordPopover.querySelector('.popover-content');
+
+                const criteria = checkPasswordCriteria(password);
+
+                const minLengthElement = popoverContent.querySelector('.min-length');
+                const hasUpperCaseElement = popoverContent.querySelector('.has-upper-case');
+                const hasLowerCaseElement = popoverContent.querySelector('.has-lower-case');
+                const hasNumberElement = popoverContent.querySelector('.has-number');
+                const hasSymbolElement = popoverContent.querySelector('.has-symbol');
+
+                const ikon = minLengthElement.querySelector('.bi');
+                const ikon2 = hasUpperCaseElement.querySelector('.bi');
+                const ikon3 = hasLowerCaseElement.querySelector('.bi');
+                const ikon4 = hasNumberElement.querySelector('.bi');
+                const ikon5 = hasSymbolElement.querySelector('.bi');
+
+                if (criteria.minLength) {
+                    minLengthElement.classList.remove('text-danger');
+                    minLengthElement.classList.add('text-success');
+                    ikon.classList.remove('bi-x');
+                    ikon.classList.add('bi-check');
+                } else {
+                    minLengthElement.classList.remove('text-success');
+                    minLengthElement.classList.add('text-danger');
+                    ikon.classList.remove('bi-check');
+                    ikon.classList.add('bi-x');
+                }
+
+                if (criteria.hasUpperCase) {
+                    hasUpperCaseElement.classList.remove('text-danger');
+                    hasUpperCaseElement.classList.add('text-success');
+                    ikon2.classList.remove('bi-x');
+                    ikon2.classList.add('bi-check');
+                } else {
+                    hasUpperCaseElement.classList.remove('text-success');
+                    hasUpperCaseElement.classList.add('text-danger');
+                    ikon2.classList.remove('bi-check');
+                    ikon2.classList.add('bi-x');
+                }
+
+                if (criteria.hasLowerCase) {
+                    hasLowerCaseElement.classList.remove('text-danger');
+                    hasLowerCaseElement.classList.add('text-success');
+                    ikon3.classList.remove('bi-x');
+                    ikon3.classList.add('bi-check');
+                } else {
+                    hasLowerCaseElement.classList.remove('text-success');
+                    hasLowerCaseElement.classList.add('text-danger');
+                    ikon3.classList.remove('bi-check');
+                    ikon3.classList.add('bi-x');
+                }
+
+                if (criteria.hasNumber) {
+                    hasNumberElement.classList.remove('text-danger');
+                    hasNumberElement.classList.add('text-success');
+                    ikon4.classList.remove('bi-x');
+                    ikon4.classList.add('bi-check');
+                } else {
+                    hasNumberElement.classList.remove('text-success');
+                    hasNumberElement.classList.add('text-danger');
+                    ikon4.classList.remove('bi-check');
+                    ikon4.classList.add('bi-x');
+                }
+
+                if (criteria.hasSymbol) {
+                    hasSymbolElement.classList.remove('text-danger');
+                    hasSymbolElement.classList.add('text-success');
+                    ikon5.classList.remove('bi-x');
+                    ikon5.classList.add('bi-check');
+                } else {
+                    hasSymbolElement.classList.remove('text-success');
+                    hasSymbolElement.classList.add('text-danger');
+                    ikon5.classList.remove('bi-check');
+                    ikon5.classList.add('bi-x');
+                }
+
+                if (!closePopover) {
+                    const popover = bootstrap.Popover.getInstance(passwordInput);
+                    if (popover) {
+                        popover.show();
+                    }
+                }
+            }
+
+            updatePasswordFeedback(true);
+
+            passwordInput.addEventListener('input', function() {
+                updatePasswordFeedback(false);
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover2"]'));
+            let popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl, {
+                    content: function() {
+                        return document.querySelector(popoverTriggerEl.getAttribute('data-bs-content')).innerHTML;
+                    }
+                });
+            });
+
+            const passwordInput = document.getElementById('Konfirmasi_Kata_Sandi');
+            const passwordPopover = document.getElementById('password-popover-content2');
+
+            function checkPasswordCriteria(password) {
+                return {
+                    minLength: password.length >= 8,
+                    hasUpperCase: /[A-Z]/.test(password),
+                    hasLowerCase: /[a-z]/.test(password),
+                    hasNumber: /[0-9]/.test(password),
+                    hasSymbol: /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)
+                };
+            }
+
+            function updatePasswordFeedback(closePopover) {
+                const password = passwordInput.value;
+                const popoverContent = passwordPopover.querySelector('.popover-content2');
+
+                const criteria = checkPasswordCriteria(password);
+
+                const minLengthElement = popoverContent.querySelector('.min-length2');
+                const hasUpperCaseElement = popoverContent.querySelector('.has-upper-case2');
+                const hasLowerCaseElement = popoverContent.querySelector('.has-lower-case2');
+                const hasNumberElement = popoverContent.querySelector('.has-number2');
+                const hasSymbolElement = popoverContent.querySelector('.has-symbol2');
+
+                const ikon = minLengthElement.querySelector('.bi');
+                const ikon2 = hasUpperCaseElement.querySelector('.bi');
+                const ikon3 = hasLowerCaseElement.querySelector('.bi');
+                const ikon4 = hasNumberElement.querySelector('.bi');
+                const ikon5 = hasSymbolElement.querySelector('.bi');
+
+                if (criteria.minLength) {
+                    minLengthElement.classList.remove('text-danger');
+                    minLengthElement.classList.add('text-success');
+                    ikon.classList.remove('bi-x');
+                    ikon.classList.add('bi-check');
+                } else {
+                    minLengthElement.classList.remove('text-success');
+                    minLengthElement.classList.add('text-danger');
+                    ikon.classList.remove('bi-check');
+                    ikon.classList.add('bi-x');
+                }
+
+                if (criteria.hasUpperCase) {
+                    hasUpperCaseElement.classList.remove('text-danger');
+                    hasUpperCaseElement.classList.add('text-success');
+                    ikon2.classList.remove('bi-x');
+                    ikon2.classList.add('bi-check');
+                } else {
+                    hasUpperCaseElement.classList.remove('text-success');
+                    hasUpperCaseElement.classList.add('text-danger');
+                    ikon2.classList.remove('bi-check');
+                    ikon2.classList.add('bi-x');
+                }
+
+                if (criteria.hasLowerCase) {
+                    hasLowerCaseElement.classList.remove('text-danger');
+                    hasLowerCaseElement.classList.add('text-success');
+                    ikon3.classList.remove('bi-x');
+                    ikon3.classList.add('bi-check');
+                } else {
+                    hasLowerCaseElement.classList.remove('text-success');
+                    hasLowerCaseElement.classList.add('text-danger');
+                    ikon3.classList.remove('bi-check');
+                    ikon3.classList.add('bi-x');
+                }
+
+                if (criteria.hasNumber) {
+                    hasNumberElement.classList.remove('text-danger');
+                    hasNumberElement.classList.add('text-success');
+                    ikon4.classList.remove('bi-x');
+                    ikon4.classList.add('bi-check');
+                } else {
+                    hasNumberElement.classList.remove('text-success');
+                    hasNumberElement.classList.add('text-danger');
+                    ikon4.classList.remove('bi-check');
+                    ikon4.classList.add('bi-x');
+                }
+
+                if (criteria.hasSymbol) {
+                    hasSymbolElement.classList.remove('text-danger');
+                    hasSymbolElement.classList.add('text-success');
+                    ikon5.classList.remove('bi-x');
+                    ikon5.classList.add('bi-check');
+                } else {
+                    hasSymbolElement.classList.remove('text-success');
+                    hasSymbolElement.classList.add('text-danger');
+                    ikon5.classList.remove('bi-check');
+                    ikon5.classList.add('bi-x');
+                }
+
+                if (!closePopover) {
+                    const popover = bootstrap.Popover.getInstance(passwordInput);
+                    if (popover) {
+                        popover.show();
+                    }
+                }
+            }
+
+            updatePasswordFeedback(true);
+
+            passwordInput.addEventListener('input', function() {
+                updatePasswordFeedback(false);
+            });
         });
     </script>
 </body>

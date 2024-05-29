@@ -12,13 +12,13 @@
                     <input type="hidden" id="editPayment" name="ID_Pembayaran" autocomplete="off" value="<?php echo htmlspecialchars($id_pembayaran); ?>">
                     <div class="mb-3">
                         <label for="descriptionApplyment" class="form-label">Keterangan Pembayaran Yang Ditolak</label>
-                        <textarea name="Keterangan_Pembayaran_Ditolak" class="form-control" id="descriptionApplyment" placeholder="Masukkan Keterangan"><?php echo htmlspecialchars($keterangan_pembayaran_ditolak); ?></textarea>
+                        <textarea name="Keterangan_Pembayaran_Ditolak" class="form-control" id="descriptionApplyment" placeholder="Masukkan Keterangan"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="statusTransactionAprovement" class="form-label">Status Pembayaran</label>
                         <select name="Status_Transaksi" id="statusTransactionAprovement" class="form-control inputData">
-                            <option value="Ditolak" <?php if ($status_transaksi == 'Ditolak') echo ' selected="selected"'; ?>>Ditolak</option>
-                            <option value="Disetujui" <?php if ($status_transaksi == 'Disetujui') echo ' selected="selected"'; ?>>Disetujui</option>
+                            <option value="Ditolak">Ditolak</option>
+                            <option value="Disetujui">Disetujui</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btnUpload" id="tombolSimpanPembayaran" name="Simpan">Kirim</button>

@@ -46,7 +46,7 @@ if (isset($_POST['Apply'])) {
 
     if ($hasilCekPengguna) {
         $tujuanFolder = '../assets/image/uploads/';
-        $suratKTP = uploadFile('Identitas_KTP', $tujuanFolder);
+        $suratKTP = uploadFile('Identitas_KTP', $tujuanFolder, true);
         $suratPengantarBaru = uploadFile('Surat_Pengantar', $tujuanFolder);
 
         if ($suratKTP === false || $suratPengantarBaru === false) {
@@ -95,11 +95,19 @@ if (isset($_POST['Apply'])) {
     exit();
 }
 
-function uploadFile($fileInputName, $targetFolder)
+function uploadFile($fileInputName, $targetFolder, $isKTP = false)
 {
-    $ekstensiValid = array('pdf', 'doc', 'docx', 'xls', 'xlsx');
+    $ekstensiValidKTP = array('jpg', 'jpeg', 'png');
+    $ekstensiValidOther = array('pdf', 'doc', 'docx', 'xls', 'xlsx');
+
     $fileInfo = pathinfo($_FILES[$fileInputName]['name']);
     $ekstensiFile = strtolower($fileInfo['extension']);
+
+    if ($isKTP) {
+        $ekstensiValid = $ekstensiValidKTP;
+    } else {
+        $ekstensiValid = $ekstensiValidOther;
+    }
 
     if (!in_array($ekstensiFile, $ekstensiValid)) {
         return false;
@@ -114,3 +122,6 @@ function uploadFile($fileInputName, $targetFolder)
 
     return $namaFileBaru;
 }
+
+$suratKTP = uploadFile('Identitas_KTP', $tujuanFolder, true);
+$suratPengantarBaru = uploadFile('Surat_Pengantar', $tujuanFolder);

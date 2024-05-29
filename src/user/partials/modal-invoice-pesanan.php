@@ -200,6 +200,9 @@
                             <span class="fs-6 text-secondary" id="guide-meteorologi"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunMeteorologi_NoPesanan_TanggalPesanan)</strong>
                             </span>
                         </h5>
+                        <?php foreach ($dataTransaksiA as $transaksiA) { ?>
+                            <input type="hidden" name="id_instansi_a" value="<?= $transaksiA['ID_Tranksaksi'] ?>">
+                        <?php } ?>
                         <label for="file" class="custum-file-upload" id="btnUpload">
                             <div class="icon" id="icon1">
                                 <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -230,6 +233,9 @@
                                 <span class="fs-6 text-secondary" id="guide-klimatologi"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunKlimatologi_NoPesanan_TanggalPesanan)</strong>
                                 </span>
                             </h5>
+                            <?php foreach ($dataTransaksiB as $transaksiB) { ?>
+                                <input type="hidden" name="id_instansi_b" value="<?= $transaksiB['ID_Tranksaksi'] ?>">
+                            <?php } ?>
                             <label for="file2" class="custum-file-upload" id="btnUpload1">
                                 <div class="icon" id="icon1">
                                     <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -260,6 +266,9 @@
                                     <span class=" fs-6 text-secondary" id="guide-geofisika"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunGeofisika_NoPesanan_TanggalPesanan)</strong>
                                     </span>
                                 </h5>
+                                <?php foreach ($dataTransaksiC as $transaksiC) { ?>
+                                    <input type="hidden" name="id_instansi_c" value="<?= $transaksiC['ID_Tranksaksi'] ?>">
+                                <?php } ?>
                                 <label for="file3" class="custum-file-upload" id="btnUpload2">
                                     <div class="icon" id="icon1">
                                         <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -290,6 +299,9 @@
                                         <span class="fs-6 text-secondary" id="guide-meteorologi"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunMeteorologi_NoPesanan_TanggalPesanan)</strong>
                                         </span>
                                     </h5>
+                                    <?php foreach ($dataTransaksiA as $transaksiA) { ?>
+                                        <input type="hidden" name="id_instansi_a" value="<?= $transaksiA['ID_Tranksaksi'] ?>">
+                                    <?php } ?>
                                     <label for="file" class="custum-file-upload" id="btnUpload">
                                         <div class="icon" id="icon1">
                                             <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -318,6 +330,9 @@
                                         <span class="fs-6 text-secondary" id="guide-klimatologi"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunKlimatologi_NoPesanan_TanggalPesanan)</strong>
                                         </span>
                                     </h5>
+                                    <?php foreach ($dataTransaksiB as $transaksiB) { ?>
+                                        <input type="hidden" name="id_instansi_B" value="<?= $transaksiB['ID_Tranksaksi'] ?>">
+                                    <?php } ?>
                                     <label for="file2" class="custum-file-upload" id="btnUpload1">
                                         <div class="icon" id="icon1">
                                             <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -348,6 +363,9 @@
                                             <span class="fs-6 text-secondary" id="guide-meteorologi"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunMeteorologi_NoPesanan_TanggalPesanan)</strong>
                                             </span>
                                         </h5>
+                                        <?php foreach ($dataTransaksiA as $transaksiA) { ?>
+                                            <input type="hidden" name="id_instansi_a" value="<?= $transaksiA['ID_Tranksaksi'] ?>">
+                                        <?php } ?>
                                         <label for="file" class="custum-file-upload" id="btnUpload">
                                             <div class="icon" id="icon1">
                                                 <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -376,6 +394,9 @@
                                             <span class=" fs-6 text-secondary" id="guide-geofisika"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunGeofisika_NoPesanan_TanggalPesanan)</strong>
                                             </span>
                                         </h5>
+                                        <?php foreach ($dataTransaksiC as $transaksiC) { ?>
+                                            <input type="hidden" name="id_instansi_c" value="<?= $transaksiC['ID_Tranksaksi'] ?>">
+                                        <?php } ?>
                                         <label for="file3" class="custum-file-upload" id="btnUpload2">
                                             <div class="icon" id="icon1">
                                                 <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -406,6 +427,9 @@
                                                 <span class="fs-6 text-secondary" id="guide-klimatologi"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunKlimatologi_NoPesanan_TanggalPesanan)</strong>
                                                 </span>
                                             </h5>
+                                            <?php foreach ($dataTransaksiB as $transaksiB) { ?>
+                                                <input type="hidden" name="id_instansi_b" value="<?= $transaksiB['ID_Tranksaksi'] ?>">
+                                            <?php } ?>
                                             <label for="file2" class="custum-file-upload" id="btnUpload1">
                                                 <div class="icon" id="icon1">
                                                     <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -434,6 +458,9 @@
                                                 <span class=" fs-6 text-secondary" id="guide-geofisika"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunGeofisika_NoPesanan_TanggalPesanan)</strong>
                                                 </span>
                                             </h5>
+                                            <?php foreach ($dataTransaksiC as $transaksiC) { ?>
+                                                <input type="hidden" name="id_instansi_c" value="<?= $transaksiC['ID_Tranksaksi'] ?>">
+                                            <?php } ?>
                                             <label for="file3" class="custum-file-upload" id="btnUpload2">
                                                 <div class="icon" id="icon1">
                                                     <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -464,8 +491,11 @@
                                                     <span class="fs-6 text-secondary" id="guide-meteorologi"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunMeteorologi_NoPesanan_TanggalPesanan)</strong>
                                                     </span>
                                                 </h5>
+                                                <?php foreach ($dataTransaksiA as $transaksiA) { ?>
+                                                <input type="hidden" name="id_instansi_a" value="<?= $transaksiA['ID_Tranksaksi'] ?>">
+                                                <?php } ?>
                                                 <label for="file" class="custum-file-upload" id="btnUpload">
-                                                    <div class="icon" id="icon1">
+                                                    <div class="icon" id="icon1"> 
                                                         <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
                                                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -492,6 +522,9 @@
                                                     <span class="fs-6 text-secondary" id="guide-klimatologi"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunKlimatologi_NoPesanan_TanggalPesanan)</strong>
                                                     </span>
                                                 </h5>
+                                                <?php foreach ($dataTransaksiB as $transaksiB) { ?>
+                                                <input type="hidden" name="id_instansi_b" value="<?= $transaksiB['ID_Tranksaksi'] ?>">
+                                                <?php } ?>
                                                 <label for="file2" class="custum-file-upload" id="btnUpload1">
                                                     <div class="icon" id="icon1">
                                                         <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -520,6 +553,9 @@
                                                     <span class=" fs-6 text-secondary" id="guide-geofisika"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunGeofisika_NoPesanan_TanggalPesanan)</strong>
                                                     </span>
                                                 </h5>
+                                                <?php foreach ($dataTransaksiC as $transaksiC) { ?>
+                                                <input type="hidden" name="id_instansi_c" value="<?= $transaksiC['ID_Tranksaksi'] ?>">
+                                                <?php } ?>
                                                 <label for="file3" class="custum-file-upload" id="btnUpload2">
                                                     <div class="icon" id="icon1">
                                                         <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">

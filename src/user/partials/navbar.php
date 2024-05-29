@@ -147,7 +147,7 @@
                 <div class="container1">
                     <div class="box">
                         <div class="header">
-                            <button class="part_one row_one selected-navbar" onclick="showContent1('content1')">INFORMASI UMUM METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</button>
+                            <button class="part_one row_one selected-navbar" onclick="showContent1('content1')">INFORMASI KHUSUS METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA</button>
                             <button class="part_one row_one" onclick="showContent1('content2')">INFORMASI KHUSUS METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA SESUAI PERMINTAAN</button>
                         </div>
                         <div class="content_one " id="content1" style="display: block;">

@@ -10,7 +10,7 @@
         <tbody>
             <tr>
                 <th scope="col" colspan="3" id="tabel-judul">A. INFORMASI
-                    UMUM
+                    KHUSUS
                     METEOROLOGI, KLIMATOLOGI,
                     DAN
                     GEOFISIKA
@@ -24,7 +24,26 @@
                 </td>
             </tr>
             <tr>
-                <td scope="col" colspan="3" id="tabel-subjudul">2. INFORMASI
+                <td scope="col" id="tabel-subjudul">2. INFORMASI CUACA UNTUK PELAYARAN</td>
+                <td scope="col">PER <i>ROUTE</i> PER HARI</td>
+                <td scope="col">RP 250.000,00
+                </td>
+            </tr>
+            <tr>
+                <td scope="col" id="tabel-subjudul">3. INFORMASI CUACA UNTUK PELABUHAN</td>
+                <td scope="col">PER LOKASI PER HARI</td>
+                <td scope="col">RP 225.000,00
+                </td>
+            </tr>
+            <tr>
+                <td scope="col" id="tabel-subjudul">4. INFORMASI CUACA UNTUK PENGEBORAN LEPAS PANTAI</td>
+                <td scope="col">PER DOKUMEN PER LOKASI PER HARI</td>
+                <td scope="col">RP 330.000,00
+                </td>
+            </tr>
+
+            <tr>
+                <td scope="col" colspan="3" id="tabel-subjudul">5. INFORMASI
                     IKLIM UNTUK
                     AGRO INDUSTRI</td>
             </tr>
@@ -87,7 +106,7 @@
                 </td>
             </tr>
             <tr>
-                <td scope="col" colspan="3" id="tabel-subjudul">3. INFORMASI
+                <td scope="col" colspan="3" id="tabel-subjudul">6. INFORMASI
                     KUALITAS UDARA RATA-RATA MINGGUAN UNTUK INDUSTRI</td>
             </tr>
             <tr>
@@ -161,7 +180,7 @@
                 </td>
             </tr>
             <tr>
-                <td scope="col" colspan="3" id="tabel-subjudul">4. INFORMASI
+                <td scope="col" colspan="3" id="tabel-subjudul">7. INFORMASI
                     PETA KEGEMPAAN UNTUK PERENCANAAN KONTRUKSI</td>
             </tr>
             <tr>
@@ -172,7 +191,7 @@
                 </td>
             </tr>
             <tr>
-                <td scope="col" colspan="3" id="tabel-subjudul">5. INFORMASI METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA UNTUK KEPERLUAN KLAIM ASURANSI</td>
+                <td scope="col" colspan="3" id="tabel-subjudul">8. INFORMASI METEOROLOGI, KLIMATOLOGI, DAN GEOFISIKA UNTUK KEPERLUAN KLAIM ASURANSI</td>
             </tr>
             <tr>
                 <td scope="col" id="tabel-subcontent">A. INFORMASI METEOROLOGI</td>

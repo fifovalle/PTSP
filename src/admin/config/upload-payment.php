@@ -2,10 +2,10 @@
 include 'databases.php';
 
 $transaksi = new Transaksi($koneksi);
-$idPembeli = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
 
 if (isset($_POST['Kirim'])) {
     if (isset($_FILES['File_Instansi_A'])) {
+        $idInstansiA = $_POST['id_instansi_a'];
         $fileA = $_FILES['File_Instansi_A'];
         $namaFileA = $fileA['name'];
         $fileAtemp = $fileA['tmp_name'];
@@ -24,7 +24,7 @@ if (isset($_POST['Kirim'])) {
                     $tujuanFileBaruA = $tujuanFileA . $namaFileBaruA;
 
                     if (move_uploaded_file($fileAtemp, $tujuanFileBaruA)) {
-                        $transaksi->uploadFileBuktiPembayaran($idPembeli, $namaFileBaruA);
+                        $transaksi->uploadFileBuktiPembayaran($idInstansiA, $namaFileBaruA);
                         setPesanKeberhasilan("File A berhasil diunggah.");
                     } else {
                         setPesanKesalahan("Gagal mengunggah file A.");
@@ -41,6 +41,7 @@ if (isset($_POST['Kirim'])) {
     }
 
     if (isset($_FILES['File_Instansi_B'])) {
+        $idInstansiB = $_POST['id_instansi_b'];
         $fileB = $_FILES['File_Instansi_B'];
         $namaFileB = $fileB['name'];
         $fileBtemp = $fileB['tmp_name'];
@@ -59,7 +60,7 @@ if (isset($_POST['Kirim'])) {
                     $tujuanFileBaruB = $tujuanFileB . $namaFileBaruB;
 
                     if (move_uploaded_file($fileBtemp, $tujuanFileBaruB)) {
-                        $transaksi->uploadFileBuktiPembayaran($idPembeli, $namaFileBaruB);
+                        $transaksi->uploadFileBuktiPembayaran($idInstansiB, $namaFileBaruB);
                         setPesanKeberhasilan("File B berhasil diunggah.");
                     } else {
                         setPesanKesalahan("Gagal mengunggah file B.");
@@ -76,6 +77,7 @@ if (isset($_POST['Kirim'])) {
     }
 
     if (isset($_FILES['File_Instansi_C'])) {
+        $idInstansiC = $_POST['id_instansi_c'];
         $fileC = $_FILES['File_Instansi_C'];
         $namaFileC = $fileC['name'];
         $fileCtemp = $fileC['tmp_name'];
@@ -94,7 +96,7 @@ if (isset($_POST['Kirim'])) {
                     $tujuanFileBaruC = $tujuanFileC . $namaFileBaruC;
 
                     if (move_uploaded_file($fileCtemp, $tujuanFileBaruC)) {
-                        $transaksi->uploadFileBuktiPembayaran($idPembeli, $namaFileBaruC);
+                        $transaksi->uploadFileBuktiPembayaran($idInstansiC, $namaFileBaruC);
                         setPesanKeberhasilan("File C berhasil diunggah.");
                     } else {
                         setPesanKesalahan("Gagal mengunggah file C.");

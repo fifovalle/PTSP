@@ -1852,7 +1852,7 @@ class Pengajuan
         $query = "SELECT transaksi.*, pengguna.*, perusahaan.*, pengajuan.* FROM transaksi 
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan WHERE transaksi.Total_Transaksi IS NOT NULL AND pengajuan.Status_Pengajuan ='Sedang Ditinjau' OR  pengajuan.Status_Pengajuan ='Ditolak'; 
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan WHERE transaksi.Total_Transaksi IS NOT NULL; 
                ";
         $result = $this->koneksi->query($query);
 
@@ -2044,7 +2044,7 @@ class Transaksi
 
     public function uploadFileBuktiPembayaran($idPengguna, $namaFile)
     {
-        $query = "UPDATE transaksi SET Bukti_Pembayaran = ?, Tanggal_Upload_Bukti = NOW(), Status_Transaksi = 'Sedang Ditinjau' WHERE ID_Pengguna = ?";
+        $query = "UPDATE transaksi SET Bukti_Pembayaran = ?, Tanggal_Upload_Bukti = NOW(), Status_Transaksi = 'Sedang Ditinjau' WHERE ID_Tranksaksi = ?";
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("si", $namaFile, $idPengguna);
 
@@ -2401,12 +2401,18 @@ class Transaksi
 
     public function tampilkanPengajuanTransaksi()
     {
-        $query = "SELECT transaksi.*, pengguna.*, informasi.*, pengajuan.*, perusahaan.*, jasa.* FROM transaksi 
+        $query = "SELECT transaksi.*, pengguna.*, informasi.*, pengajuan.*, perusahaan.*, jasa.* 
+                FROM transaksi 
                 LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
-                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
-                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
-                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Total_Transaksi IS NOT NULL AND transaksi.Jumlah_Barang IS NOT NULL AND pengajuan.Status_Pengajuan ='Sedang Ditinjau'";
+                LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+                LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+                LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+                LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+                WHERE transaksi.Total_Transaksi IS NOT NULL 
+                AND transaksi.Jumlah_Barang IS NOT NULL 
+                AND pengajuan.Status_Pengajuan ='Sedang Ditinjau'
+                GROUP BY transaksi.ID_Pengajuan";
+                
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2763,27 +2769,35 @@ class Transaksi
 
     public function tampilkanPerbaikanDokumenPengajuanTransaksiSesuaiSessionPengguna($id)
     {
-        $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* 
-                  FROM transaksi 
-                  LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
-                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
-                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
-                  LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
-                  WHERE pengajuan.Status_Pengajuan = 'Ditolak' AND transaksi.ID_Pengguna = $id";
-
-        $result = $this->koneksi->query($query);
-
+        $stmt = $this->koneksi->prepare(
+            "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* 
+            FROM transaksi 
+            LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
+            LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
+            LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
+            LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
+            LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+            WHERE pengajuan.Status_Pengajuan = 'Ditolak' AND transaksi.ID_Pengguna = ?
+            GROUP BY transaksi.ID_Pengajuan"
+        );
+        
+        $stmt->bind_param('i', $id);
+        
+        $stmt->execute();
+        
+        $result = $stmt->get_result();
+        
         if ($result->num_rows > 0) {
             $data = [];
-            while ($baris = $result->fetch_assoc()) {
-                $data[] = $baris;
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
             }
             return $data;
         } else {
             return [];
         }
     }
+
 
     public function tampilkanPerbaikanDokumenPengajuanTransaksiSesuaiSessionPerusahaan($id)
     {

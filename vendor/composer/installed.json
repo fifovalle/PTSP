@@ -30,7 +30,7 @@
       },
       "time": "2023-11-17T15:01:25+00:00",
       "type": "library",
-      "installation-source": "dist",
+      "installation-source": "source",
       "autoload": {
         "files": [
           "library/HTMLPurifier.composer.php"
@@ -108,7 +108,7 @@
       },
       "time": "2023-11-25T22:23:28+00:00",
       "type": "library",
-      "installation-source": "dist",
+      "installation-source": "source",
       "autoload": {
         "psr-4": {
           "PHPMailer\\PHPMailer\\": "src/"
