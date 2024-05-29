@@ -2518,14 +2518,15 @@ class Transaksi
 
     public function tampilkanTransaksiPembeliSesuaiPemilikProdukInstansiInovoiceA($idPembeli)
     {
-        $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* 
+        $query = "SELECT transaksi.*, pengajuan.*, pengguna.*, informasi.*, perusahaan.*, jasa.* 
                   FROM transaksi 
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   WHERE (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
-                  AND (informasi.Pemilik_Informasi = 'Instansi A' OR jasa.Pemilik_Jasa = 'Instansi A')";
+                  AND (informasi.Pemilik_Informasi = 'Instansi A' OR jasa.Pemilik_Jasa = 'Instansi A') AND (pengajuan.Status_Pengajuan = 'Diterima')";
 
         $result = $this->koneksi->query($query);
 
@@ -2566,14 +2567,15 @@ class Transaksi
 
     public function tampilkanTransaksiPembeliSesuaiPemilikProdukInstansiInovoiceB($idPembeli)
     {
-        $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* 
+        $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* 
                   FROM transaksi 
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   WHERE  (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
-                  AND (informasi.Pemilik_Informasi = 'Instansi B' OR jasa.Pemilik_Jasa = 'Instansi B')";
+                  AND (informasi.Pemilik_Informasi = 'Instansi B' OR jasa.Pemilik_Jasa = 'Instansi B') AND (pengajuan.Status_Pengajuan = 'Diterima')";
 
         $result = $this->koneksi->query($query);
 
@@ -2614,14 +2616,15 @@ class Transaksi
 
     public function tampilkanTransaksiPembeliSesuaiPemilikProdukInstansiInovoiceC($idPembeli)
     {
-        $query = "SELECT transaksi.*, pengguna.*, informasi.*, perusahaan.*, jasa.* 
+        $query = "SELECT transaksi.*, pengguna.*, pengajuan.*, informasi.*, perusahaan.*, jasa.* 
                   FROM transaksi 
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   WHERE (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
-                  AND (informasi.Pemilik_Informasi = 'Instansi C' OR jasa.Pemilik_Jasa = 'Instansi C')";
+                  AND (informasi.Pemilik_Informasi = 'Instansi C' OR jasa.Pemilik_Jasa = 'Instansi C') AND (pengajuan.Status_Pengajuan = 'Diterima')";
 
         $result = $this->koneksi->query($query);
 

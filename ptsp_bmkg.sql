@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2024 at 08:59 AM
+-- Generation Time: May 29, 2024 at 09:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -273,7 +273,9 @@ CREATE TABLE `kegiatan_bencana` (
 
 INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencana`, `Email_Bencana`, `Surat_Pengantar_Permintaan_Data_Bencana`) VALUES
 (97, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363635366363373432336339382e706466),
-(98, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363635366430336464346261662e706466);
+(98, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363635366430336464346261662e706466),
+(99, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363635366434376330643663642e706466),
+(100, 'NAufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363635366434646364633631382e706466);
 
 -- --------------------------------------------------------
 
@@ -381,7 +383,9 @@ CREATE TABLE `pengajuan` (
 
 INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `ID_Tarif`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Apakah_Gratis`, `Perbaikan_Dokumen`, `Jenis_Perbaikan`, `Tanggal_Pengajuan`) VALUES
 (115, 97, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 1, NULL, NULL, '2024-05-29 13:34:28'),
-(116, 98, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-05-29 13:50:37');
+(116, 98, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-05-29 13:50:37'),
+(117, 99, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-05-29 14:08:44'),
+(118, 100, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-05-29 14:10:20');
 
 -- --------------------------------------------------------
 
@@ -497,7 +501,9 @@ INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusah
 (215, NULL, 32, NULL, NULL, 25, 115, NULL, 1, 3750000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:43', 'Belum Disetujui', 'Sedang Ditinjau'),
 (216, NULL, 32, NULL, NULL, 26, 115, NULL, 1, 9500000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:46', 'Belum Disetujui', 'Sedang Ditinjau'),
 (217, NULL, 32, NULL, NULL, 27, 115, NULL, 1, 12300000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:49', 'Belum Disetujui', 'Sedang Ditinjau'),
-(219, NULL, 32, NULL, 43, NULL, 116, NULL, 10, 400000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:50:19', 'Belum Disetujui', 'Sedang Ditinjau');
+(219, NULL, 32, NULL, 43, NULL, 116, NULL, 10, 400000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:50:19', 'Belum Disetujui', 'Sedang Ditinjau'),
+(220, NULL, 32, NULL, 60, NULL, 117, NULL, 2, 350000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 14:08:01', 'Belum Disetujui', 'Sedang Ditinjau'),
+(221, NULL, 32, NULL, NULL, 26, 118, NULL, 6, 57000000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 14:10:01', 'Belum Disetujui', 'Sedang Ditinjau');
 
 --
 -- Indexes for dumped tables
@@ -645,7 +651,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
@@ -681,7 +687,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -699,7 +705,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=222;
 
 --
 -- Constraints for dumped tables
