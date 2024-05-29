@@ -1852,7 +1852,7 @@ class Pengajuan
         $query = "SELECT transaksi.*, pengguna.*, perusahaan.*, pengajuan.* FROM transaksi 
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan WHERE transaksi.Total_Transaksi IS NOT NULL; 
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan WHERE transaksi.Total_Transaksi IS NOT NULL AND pengajuan.Status_Pengajuan = 'Sedang Ditinjau'; 
                ";
         $result = $this->koneksi->query($query);
 
@@ -2217,7 +2217,7 @@ class Transaksi
 
     public function cekDataDiKeranjangPengguna($idInformasi, $idPengguna)
     {
-        $query = "SELECT COUNT(*) as jumlah FROM transaksi WHERE ID_Informasi = ? AND ID_Pengguna = ?";
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi WHERE ID_Informasi = ? AND ID_Pengguna = ? AND ID_Pengajuan IS NULL";
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("ii", $idInformasi, $idPengguna);
         $statement->execute();
@@ -2234,7 +2234,7 @@ class Transaksi
 
     public function cekDataDiKeranjangPerusahaan($idInformasi, $idPerusahaan)
     {
-        $query = "SELECT COUNT(*) as jumlah FROM transaksi WHERE ID_Informasi = ? AND ID_Perusahaan = ?";
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi WHERE ID_Informasi = ? AND ID_Perusahaan = ? AND ID_Pengajuan IS NULL";
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("ii", $idInformasi, $idPerusahaan);
         $statement->execute();
@@ -2251,7 +2251,7 @@ class Transaksi
 
     public function cekJasaDiKeranjangPengguna($idJasa, $idPengguna)
     {
-        $query = "SELECT COUNT(*) as jumlah FROM transaksi WHERE ID_Jasa = ? AND ID_Pengguna = ?";
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi WHERE ID_Jasa = ? AND ID_Pengguna = ? AND ID_Pengajuan IS NULL";
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("ii", $idJasa, $idPengguna);
         $statement->execute();
@@ -2268,7 +2268,7 @@ class Transaksi
 
     public function cekJasaDiKeranjangPerusahaan($idJasa, $idPerusahaan)
     {
-        $query = "SELECT COUNT(*) as jumlah FROM transaksi WHERE ID_Jasa = ? AND ID_Perusahaan = ?";
+        $query = "SELECT COUNT(*) as jumlah FROM transaksi WHERE ID_Jasa = ? AND ID_Perusahaan = ? AND ID_Pengajuan IS NULL";
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("ii", $idJasa, $idPerusahaan);
         $statement->execute();
@@ -2410,9 +2410,8 @@ class Transaksi
                 LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
                 WHERE transaksi.Total_Transaksi IS NOT NULL 
                 AND transaksi.Jumlah_Barang IS NOT NULL 
-                AND pengajuan.Status_Pengajuan ='Sedang Ditinjau'
-                GROUP BY transaksi.ID_Pengajuan";
-                
+                AND pengajuan.Status_Pengajuan ='Sedang Ditinjau'";
+
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -2780,13 +2779,13 @@ class Transaksi
             WHERE pengajuan.Status_Pengajuan = 'Ditolak' AND transaksi.ID_Pengguna = ?
             GROUP BY transaksi.ID_Pengajuan"
         );
-        
+
         $stmt->bind_param('i', $id);
-        
+
         $stmt->execute();
-        
+
         $result = $stmt->get_result();
-        
+
         if ($result->num_rows > 0) {
             $data = [];
             while ($row = $result->fetch_assoc()) {
