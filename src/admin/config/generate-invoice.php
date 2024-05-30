@@ -240,20 +240,23 @@ if (!empty($dataTransaksiB)) {
     $rekeningProdukB = isset($transaksiB['No_Rekening_Informasi']) ? $transaksiB['No_Rekening_Informasi'] : (isset($transaksiB['No_Rekening_Jasa']) ? $transaksiB['No_Rekening_Jasa'] : '');
     $hargaProdukB = isset($transaksiB['Harga_Informasi']) ? number_format($transaksiB['Harga_Informasi'], 0, ',', '.') : number_format($transaksiB['Harga_Jasa'], 0, ',', '.');
     $totalProdukB = number_format($transaksiB['Total_Transaksi'], 0, ',', '.');
+
+    $totalProdukBClass = $transaksiB['Apakah_Gratis'] == 1 ? 'text-decoration-line-through' : '';
+
     $html .= <<<HTML
       <tr>
           <td class="left">{$namaProdukB}</td>
           <td class="center">{$rekeningProdukB}</td>
-          <td class="center">Rp{$hargaProdukB}</td>
+          <td class="center {$totalProdukBClass}">Rp{$hargaProdukB}</td>
           <td class="center">{$transaksiB['Jumlah_Barang']}</td>
-          <td class="center">Rp{$totalProdukB}</td>
+          <td class="center {$totalProdukBClass}">Rp{$totalProdukB}</td>
     HTML;
     $html .= <<<HTML
         <td class="center">
     HTML;
-    switch ($transaksiA['Status_Pesanan']) {
+    switch ($transaksiB['Status_Pesanan']) {
       case 'Belum Lunas':
-        $html .= '<img  src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-cross.svg" alt="Belum Lunas">';
+        $html .= '<img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-cross.svg" alt="Belum Lunas">';
         break;
       case 'Sedang Ditinjau':
         $html .= '<img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-pending.svg" alt="Sedang Ditinjau">';
@@ -266,15 +269,16 @@ if (!empty($dataTransaksiB)) {
         break;
     }
     $html .= <<<HTML
-    </td>
-HTML;
+        </td>
+      </tr>
+    HTML;
   }
 } else {
   $html .= <<<HTML
   <tr>
     <td colspan="6" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
   </tr>
-HTML;
+  HTML;
 }
 $html .= <<<HTML
   </tbody>
@@ -298,24 +302,25 @@ $html .= <<<HTML
 HTML;
 if (!empty($dataTransaksiC)) {
   foreach ($dataTransaksiC as $transaksiC) {
-    $namaProdukA = isset($transaksiC['Nama_Informasi']) ? $transaksiC['Nama_Informasi'] : (isset($transaksiC['Nama_Jasa']) ? $transaksiC['Nama_Jasa'] : '');
-    $rekeningProdukA = isset($transaksiC['No_Rekening_Informasi']) ? $transaksiC['No_Rekening_Informasi'] : (isset($transaksiC['No_Rekening_Jasa']) ? $transaksiC['No_Rekening_Jasa'] : '');
-    $hargaProdukA = isset($transaksiC['Harga_Informasi']) ? number_format($transaksiC['Harga_Informasi'], 0, ',', '.') : number_format($transaksiC['Harga_Jasa'], 0, ',', '.');
-    $totalProdukA = number_format($transaksiC['Total_Transaksi'], 0, ',', '.');
+    $namaProdukC = isset($transaksiC['Nama_Informasi']) ? $transaksiC['Nama_Informasi'] : (isset($transaksiC['Nama_Jasa']) ? $transaksiC['Nama_Jasa'] : '');
+    $rekeningProdukC = isset($transaksiC['No_Rekening_Informasi']) ? $transaksiC['No_Rekening_Informasi'] : (isset($transaksiC['No_Rekening_Jasa']) ? $transaksiC['No_Rekening_Jasa'] : '');
+    $hargaProdukC = isset($transaksiC['Harga_Informasi']) ? number_format($transaksiC['Harga_Informasi'], 0, ',', '.') : number_format($transaksiC['Harga_Jasa'], 0, ',', '.');
+    $totalProdukC = number_format($transaksiC['Total_Transaksi'], 0, ',', '.');
+    $totalProdukCClass = $transaksiC['Apakah_Gratis'] == 1 ? 'text-decoration-line-through' : '';
     $html .= <<<HTML
       <tr>
-          <td class="left">{$namaProdukA}</td>
-          <td class="center">{$rekeningProdukA}</td>
-          <td class="center">Rp{$hargaProdukA}</td>
+          <td class="left">{$namaProdukC}</td>
+          <td class="center">{$rekeningProdukC}</td>
+          <td class="center {$totalProdukCClass}">Rp{$hargaProdukC}</td>
           <td class="center">{$transaksiC['Jumlah_Barang']}</td>
-          <td class="center">Rp{$totalProdukA}</td>
-      HTML;
+          <td class="center {$totalProdukCClass}">Rp{$totalProdukC}</td>
+    HTML;
     $html .= <<<HTML
         <td class="center">
     HTML;
-    switch ($transaksiA['Status_Pesanan']) {
+    switch ($transaksiC['Status_Pesanan']) {
       case 'Belum Lunas':
-        $html .= '<img  src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-cross.svg" alt="Belum Lunas">';
+        $html .= '<img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-cross.svg" alt="Belum Lunas">';
         break;
       case 'Sedang Ditinjau':
         $html .= '<img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-pending.svg" alt="Sedang Ditinjau">';
@@ -328,15 +333,16 @@ if (!empty($dataTransaksiC)) {
         break;
     }
     $html .= <<<HTML
-    </td>
-HTML;
+        </td>
+      </tr>
+    HTML;
   }
 } else {
   $html .= <<<HTML
   <tr>
     <td colspan="6" style="text-align: center; font-weight: bold; color: #dc3545">Tidak ada transaksi untuk ditampilkan!</td>
   </tr>
-HTML;
+  HTML;
 }
 $html .= <<<HTML
 </table>
