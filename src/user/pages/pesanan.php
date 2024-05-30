@@ -252,12 +252,11 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         }
                                     } else {
                                         echo '<span class="dot selected">
-                                                    <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                                    <box-icon name="check-shield" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
                                                 </span>
                                                 <div class="card-body text-center">
-                                                    <div class="card-title">Belum Ada Ajuan</div>
+                                                    <div class="card-title">Tidak Ada Ajuan</div>
                                                     <p class="card-text">
-                                                    <a class="text-decoration-none fw-bold" href="ajukan.php">Klik disini</a> untuk mengajukan pesanan
                                                     </p>
                                                 </div>';
                                     }
@@ -468,14 +467,13 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         }
                                     } else {
                                         echo '<span class="dot selected">
-                                                    <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
-                                                </span>
-                                                <div class="card-body text-center">
-                                                    <div class="card-title">Belum Ada Ajuan</div>
-                                                    <p class="card-text">
-                                                    <a class="text-decoration-none fw-bold" href="ajukan.php">Klik disini</a> untuk mengajukan pesanan
-                                                    </p>
-                                                </div>';
+                                        <box-icon name="check-shield" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                    </span>
+                                    <div class="card-body text-center">
+                                        <div class="card-title">Tidak Ada Ajuan</div>
+                                        <p class="card-text">
+                                        </p>
+                                    </div>';
                                     }
                                     ?>
                                 </div>
@@ -721,14 +719,13 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         }
                                     } else {
                                         echo '<span class="dot selected">
-                                                    <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
-                                                </span>
-                                                <div class="card-body text-center">
-                                                    <div class="card-title">Belum Ada Ajuan</div>
-                                                    <p class="card-text">
-                                                    <a class="text-decoration-none fw-bold" href="ajukan.php">Klik disini</a> untuk mengajukan pesanan
-                                                    </p>
-                                                </div>';
+                                        <box-icon name="check-shield" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                    </span>
+                                    <div class="card-body text-center">
+                                        <div class="card-title">Tidak Ada Ajuan</div>
+                                        <p class="card-text">
+                                        </p>
+                                    </div>';
                                     }
                                     ?>
                                 </div>
@@ -989,14 +986,13 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         }
                                     } else {
                                         echo '<span class="dot selected">
-                                                    <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
-                                                </span>
-                                                <div class="card-body text-center">
-                                                    <div class="card-title">Belum Ada Ajuan</div>
-                                                    <p class="card-text">
-                                                    <a class="text-decoration-none fw-bold" href="ajukan.php">Klik disini</a> untuk mengajukan pesanan
-                                                    </p>
-                                                </div>';
+                                        <box-icon name="check-shield" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                    </span>
+                                    <div class="card-body text-center">
+                                        <div class="card-title">Tidak Ada Ajuan</div>
+                                        <p class="card-text">
+                                        </p>
+                                    </div>';
                                     }
                                     ?>
                                 </div>
