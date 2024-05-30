@@ -23,5 +23,5 @@ if ($perusahaan) {
     setPesanKesalahan("Token tidak valid atau telah kadaluarsa.");
 }
 
-header("Location: $akarUrl" . "src/user/pages/login.php");
+header("Location: $akarUrl" . "src/user/pages/success-verification.php");
 exit;

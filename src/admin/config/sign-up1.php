@@ -115,7 +115,7 @@ if (isset($_POST['Daftar'])) {
         setPesanKesalahan("Gagal mendaftar silahkan untuk mencoba lagi.");
     }
 
-    header("Location: $akarUrl" . "src/user/pages/login.php");
+    header("Location: $akarUrl" . "src/user/pages/wait-verification.php");
     exit;
 } else {
     header("Location: $akarUrl" . "src/user/pages/signup1.php");
