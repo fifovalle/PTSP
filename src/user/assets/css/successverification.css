@@ -1,0 +1,166 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+/* Scrollbar Effect */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* End Scrollbar Effect */
+.row h2 {
+  color: black;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: -80px;
+}
+
+.row a {
+  color: rgb(0, 0, 171);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.row a:hover{
+  color: rgb(114, 114, 255);
+}
+
+.section1 {
+  height: 750px;
+}
+.section1 .content {
+  display: flex;
+  padding: 50px 0;
+}
+
+.font-custom {
+  font-family: "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  color: black;
+}
+
+.custom-shape-divider-bottom-1709729084 {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1709729084 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 180px;
+}
+
+.custom-shape-divider-bottom-1709729084 .shape-fill {
+  fill: #d3d3d3;
+}
+
+.success-animation { margin:150px auto;}
+
+.checkmark {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 5;
+    stroke: #4bb71b;
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px #4bb71b;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    position:relative;
+    top: 5px;
+    right: 5px;
+}
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+    stroke: #4bb71b;
+    fill: #fff;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+ 
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #4bb71b;
+    }
+}
+
+@keyframes fade-in-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px); /* Pergeseran ke kiri sejauh 50px */
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0); /* Kembali ke posisi semula */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Tetap di posisi tengah */
+  }
+}
+
+.animation-text {
+  animation: fade-in-slide 1s ease-in-out forwards;
+  opacity: 0; /* Atur opasitas awal menjadi 0 agar teks tidak terlihat pada awalnya */
+}
+
+@keyframes text-fade-in {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+.animation-text2 {
+  animation: text-fade-in 1s ease-in-out forwards;
+  opacity: 0; /* Atur opasitas awal menjadi 0 agar teks tidak terlihat pada awalnya */
+}
+

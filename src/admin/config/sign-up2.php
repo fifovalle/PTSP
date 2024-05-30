@@ -91,6 +91,14 @@ if (isset($_POST['Daftar'])) {
         exit;
     }
 
+    if ($obyekPerusahaan->cekNamaPenggunaAnggotaPerusahaanSudahAda($namaAnggotaPerusahaan)) {
+        $pesanKesalahan .= "Nama pengguna perusahaan sudah terdaftar. ";
+    }
+
+    if ($obyekPerusahaan->cekNamaPerusahaanSudahAda($namaPerusahaan)) {
+        $pesanKesalahan .= "Nama pengguna perusahaan sudah terdaftar. ";
+    }
+
     if ($obyekPerusahaan->cekEmailSudahAda($emailPerusahaan)) {
         setPesanKesalahan("Email yang dimasukkan sudah terdaftar.");
         header("Location: $akarUrl" . "src/user/pages/signup2.php");

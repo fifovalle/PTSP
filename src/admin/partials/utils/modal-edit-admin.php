@@ -40,18 +40,18 @@
                     <div class="mb-3">
                         <label for="ganderEditAdmin" class="form-label">Jenis Kelamin</label>
                         <select name="Jenis_Kelamin_Admin" id="ganderEditAdmin" class="form-control inputData">
-                            <option value="" <?php echo ($jenis_kelamin_admin === "") ? "selected" : ""; ?>>Pilih Jenis Kelamin Admin</option>
-                            <option value="Pria" <?php echo ($jenis_kelamin_admin === "Pria") ? "selected" : ""; ?>>Pria</option>
-                            <option value="Wanita" <?php echo ($jenis_kelamin_admin === "Wanita") ? "selected" : ""; ?>>Wanita</option>
+                            <option value="" <?php if (isset($_POST['Jenis_Kelamin_Admin']) && $_POST['Jenis_Kelamin_Admin'] === "") echo "selected"; ?>>Pilih Jenis Kelamin Admin</option>
+                            <option value="Pria" <?php if (isset($_POST['Jenis_Kelamin_Admin']) && $_POST['Jenis_Kelamin_Admin'] === "Pria") echo "selected"; ?>>Pria</option>
+                            <option value="Wanita" <?php if (isset($_POST['Jenis_Kelamin_Admin']) && $_POST['Jenis_Kelamin_Admin'] === "Wanita") echo "selected"; ?>>Wanita</option>
                         </select>
                     </div>
                     <div class="mb-3 isAdminActive">
                         <label for="roleEditAdmin" class="form-label">Peran Admin</label>
                         <select name="Peran_Admin" id="roleEditAdmin" class="form-control inputData">
-                            <option value="1" <?php echo ($peran_admin == '1') ? 'selected' : ''; ?>>Super Admin</option>
-                            <option value="2" <?php echo ($peran_admin == '2') ? 'selected' : ''; ?>>Instansi A</option>
-                            <option value="3" <?php echo ($peran_admin == '3') ? 'selected' : ''; ?>>Instansi B</option>
-                            <option value="4" <?php echo ($peran_admin == '4') ? 'selected' : ''; ?>>Instansi C</option>
+                            <option value="1" <?php if (isset($_POST['Peran_Admin']) && $_POST['Peran_Admin'] == '1') echo 'selected'; ?>>Super Admin</option>
+                            <option value="2" <?php if (isset($_POST['Peran_Admin']) && $_POST['Peran_Admin'] == '2') echo 'selected'; ?>>Instansi A</option>
+                            <option value="3" <?php if (isset($_POST['Peran_Admin']) && $_POST['Peran_Admin'] == '3') echo 'selected'; ?>>Instansi B</option>
+                            <option value="4" <?php if (isset($_POST['Peran_Admin']) && $_POST['Peran_Admin'] == '4') echo 'selected'; ?>>Instansi C</option>
                         </select>
                     </div>
                     <div class="mb-3">

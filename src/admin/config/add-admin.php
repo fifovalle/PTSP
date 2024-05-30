@@ -119,6 +119,12 @@ if (isset($_POST['Simpan'])) {
         exit;
     }
 
+    if ($obyekAdmin->cekNamaPenggunaAdminSudahAda($namaPengguna)) {
+        setPesanKesalahan("Nama Pengguna Admin yang dimasukkan sudah terdaftar.");
+        header("Location: $akarUrl" . "src/admin/pages/data.php");
+        exit;
+    }
+
     $dataAdmin = array(
         'Foto' => $namaFotoAdminBaru,
         'Nama_Depan_Admin' => $namaDepan,

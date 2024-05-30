@@ -258,6 +258,25 @@ class Admin
         }
     }
 
+    public function cekNamaPenggunaAdminSudahAda($namaPengguna)
+    {
+        $query = "SELECT COUNT(*) as total FROM admin WHERE Nama_Pengguna_Admin = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("s", $namaPengguna);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+
+        $total = $row['total'];
+
+        if ($total > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public function getAdminByToken($token)
     {
         $query = "SELECT * FROM admin WHERE Token = ?";
@@ -438,6 +457,63 @@ class Pengguna
             return false;
         }
     }
+
+    public function cekNamaPenggunaSudahAda($namaPengguna)
+    {
+        $query = "SELECT COUNT(*) as total FROM pengguna WHERE Nama_Pengguna = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("s", $namaPengguna);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+
+        $total = $row['total'];
+
+        if ($total > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function cekNamaPenggunaAnggotaPerusahaanSudahAda($namaAnggotaPerusahaan)
+    {
+        $query = "SELECT COUNT(*) as total FROM perusahaan WHERE Nama_Pengguna_Anggota_Perusahaan = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("s", $namaAnggotaPerusahaan);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+
+        $total = $row['total'];
+
+        if ($total > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function cekNamaPerusahaanSudahAda($namaPerusahaan)
+    {
+        $query = "SELECT COUNT(*) as total FROM perusahaan WHERE Nama_Perusahaan = ?";
+        $statement = $this->koneksi->prepare($query);
+        $statement->bind_param("s", $namaPerusahaan);
+        $statement->execute();
+        $result = $statement->get_result();
+        $row = $result->fetch_assoc();
+
+        $total = $row['total'];
+
+        if ($total > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 
     public function updateTokenByEmail($email, $newToken)
     {

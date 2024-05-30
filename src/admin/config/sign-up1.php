@@ -74,6 +74,10 @@ if (isset($_POST['Daftar'])) {
         exit;
     }
 
+    if ($obyekPengguna->cekNamaPenggunaSudahAda($namaPengguna)) {
+        $pesanKesalahan .= "Nama pengguna sudah terdaftar. ";
+    }
+
     if ($obyekPengguna->cekEmailSudahAda($emailPengguna)) {
         setPesanKesalahan("Email yang dimasukkan sudah terdaftar.");
         header("Location: $akarUrl" . "src/user/pages/signup1.php");
