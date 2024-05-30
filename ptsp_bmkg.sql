@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2024 at 11:12 AM
+-- Generation Time: May 30, 2024 at 02:52 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -267,16 +267,6 @@ CREATE TABLE `kegiatan_bencana` (
   `Surat_Pengantar_Permintaan_Data_Bencana` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `kegiatan_bencana`
---
-
-INSERT INTO `kegiatan_bencana` (`ID_Bencana`, `Nama_Bencana`, `No_Telepon_Bencana`, `Email_Bencana`, `Surat_Pengantar_Permintaan_Data_Bencana`) VALUES
-(97, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363635366363373432336339382e706466),
-(98, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363635366430336464346261662e706466),
-(99, 'Naufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363635366434376330643663642e706466),
-(100, 'NAufal', '+62 812-3652-2490', 'fifanaufal10@gmail.com', 0x363635366434646364633631382e706466);
-
 -- --------------------------------------------------------
 
 --
@@ -377,16 +367,6 @@ CREATE TABLE `pengajuan` (
   `Tanggal_Pengajuan` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `pengajuan`
---
-
-INSERT INTO `pengajuan` (`ID_Pengajuan`, `ID_Bencana`, `ID_Keagamaan`, `ID_Pertahanan`, `ID_Sosial`, `ID_Pusat_Daerah`, `ID_Penelitian`, `ID_Tarif`, `Status_Pengajuan`, `Keterangan_Surat_Ditolak`, `Apakah_Gratis`, `Perbaikan_Dokumen`, `Jenis_Perbaikan`, `Tanggal_Pengajuan`) VALUES
-(115, 97, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 0, NULL, NULL, '2024-05-29 13:34:28'),
-(116, 98, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 1, NULL, NULL, '2024-05-29 13:50:37'),
-(117, 99, NULL, NULL, NULL, NULL, NULL, NULL, 'Diterima', NULL, 1, NULL, NULL, '2024-05-29 14:08:44'),
-(118, 100, NULL, NULL, NULL, NULL, NULL, NULL, 'Sedang Ditinjau', NULL, 0, NULL, NULL, '2024-05-29 14:10:20');
-
 -- --------------------------------------------------------
 
 --
@@ -414,13 +394,6 @@ CREATE TABLE `pengguna` (
   `Status_Verifikasi_Pengguna` enum('Terverifikasi','Belum Terverifikasi') NOT NULL,
   `Token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `pengguna`
---
-
-INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `Token`) VALUES
-(32, 0x363635313561333564636439392e6a7067, '1', 1, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifovalle', 'fifanaufal10@gmail.com', '$2y$10$ri2YDcZ/798AwTFzLUBKbO5/gXkbsmLX0B.KhN3T2Xfp/GfggUjDy', '$2y$10$ri2YDcZ/798AwTFzLUBKbO5/gXkbsmLX0B.KhN3T2Xfp/GfggUjDy', '+62 812-2365-2490', 'Pria', 'Batujajar Timur', 'Jawa Barat', 'Bandung', 'Terverifikasi', 0);
 
 -- --------------------------------------------------------
 
@@ -456,13 +429,6 @@ CREATE TABLE `perusahaan` (
   `Token` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `perusahaan`
---
-
-INSERT INTO `perusahaan` (`ID_Perusahaan`, `Foto_Perusahaan`, `No_Identitas_Anggota_Perusahaan`, `Nama_Depan_Anggota_Perusahaan`, `Nama_Belakang_Anggota_Perusahaan`, `Pekerjaan_Anggota_Perusahaan`, `Pendidikan_Terakhir_Anggota_Perusahaan`, `Jenis_Kelamin_Anggota_Perusahaan`, `Alamat_Anggota_Perusahaan`, `No_Telepon_Anggota_Perusahaan`, `Provinsi_Anggota_Perusahaan`, `Kabupaten_Kota_Anggota_Perusahaan`, `No_NPWP`, `Nama_Perusahaan`, `Alamat_Perusahaan`, `Provinsi_Perusahaan`, `Kabupaten_Kota_Perusahaan`, `Email_Perusahaan`, `No_Telepon_Perusahaan`, `Email_Anggota_Perusahaan`, `Nama_Pengguna_Anggota_Perusahaan`, `Kata_Sandi_Anggota_Perusahaan`, `Konfirmasi_Kata_Sandi_Anggota_Perusahaan`, `Status_Verifikasi_Perusahaan`, `Token`) VALUES
-(14, 0x363635313562313535326331312e6a7067, 1, 'Naufal', 'FIFA', 'Mahasiswa', 'SMK', 'Pria', 'Batujajar Timur', '+62 812-2365-2490', 'Jawa Barat', 'Bandung', '2', 'zonaDeveloper', 'Garut', 'Jawa Barat', 'Kadungora', 'developerzona@gmail.com', '+62 812-2365-2490', 'developerzona@gmail.com', 'zonaDeveloper', '$2y$10$Q559pYSKyN9MkeL44HFRweqMFn1.xzA/bW3EcUgLzhG1qsm49pUvS', '$2y$10$Q559pYSKyN9MkeL44HFRweqMFn1.xzA/bW3EcUgLzhG1qsm49pUvS', 'Terverifikasi', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -489,21 +455,6 @@ CREATE TABLE `transaksi` (
   `Status_Transaksi` enum('Disetujui','Belum Disetujui','Ditolak','Sedang Ditinjau') NOT NULL,
   `Status_Pesanan` enum('Belum Lunas','Sedang Ditinjau','Lunas') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`ID_Tranksaksi`, `ID_Admin`, `ID_Pengguna`, `ID_Perusahaan`, `ID_Informasi`, `ID_Jasa`, `ID_Pengajuan`, `ID_IKM`, `Jumlah_Barang`, `Total_Transaksi`, `File_Penerimaan`, `Tanggal_Upload_File_Penerimaan`, `Bukti_Pembayaran`, `Tanggal_Upload_Bukti`, `Keterangan_Pembayaran_Ditolak`, `Tanggal_Pembelian`, `Status_Transaksi`, `Status_Pesanan`) VALUES
-(212, NULL, 32, NULL, 43, NULL, 115, NULL, 5, 200000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:30', 'Belum Disetujui', 'Belum Lunas'),
-(213, NULL, 32, NULL, 45, NULL, 115, NULL, 2, 460000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:36', 'Belum Disetujui', 'Belum Lunas'),
-(214, NULL, 32, NULL, 91, NULL, 115, NULL, 2, 400000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:41', 'Belum Disetujui', 'Belum Lunas'),
-(215, NULL, 32, NULL, NULL, 25, 115, NULL, 1, 3750000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:43', 'Belum Disetujui', 'Belum Lunas'),
-(216, NULL, 32, NULL, NULL, 26, 115, NULL, 1, 9500000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:46', 'Belum Disetujui', 'Belum Lunas'),
-(217, NULL, 32, NULL, NULL, 27, 115, NULL, 1, 12300000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:33:49', 'Belum Disetujui', 'Belum Lunas'),
-(219, NULL, 32, NULL, 43, NULL, 116, NULL, 10, 400000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 13:50:19', 'Belum Disetujui', 'Sedang Ditinjau'),
-(220, NULL, 32, NULL, 60, NULL, 117, NULL, 2, 350000, NULL, NULL, 0x546572697369, '2024-05-29 16:11:03', NULL, '2024-05-29 14:08:01', 'Disetujui', 'Lunas'),
-(221, NULL, 32, NULL, NULL, 26, 118, NULL, 6, 57000000, NULL, NULL, NULL, NULL, NULL, '2024-05-29 14:10:01', 'Belum Disetujui', 'Sedang Ditinjau');
 
 --
 -- Indexes for dumped tables
