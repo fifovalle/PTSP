@@ -160,7 +160,11 @@
                         <div class="row mx-auto text-end">
                             <div class="col-md-12 mt-3 mb-2">
                                 <button type="submit" name="generate_pdf" class="btn btn-outline-success mx-2">Download</button>
-                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#uploadBuktiPembayaran">Upload Bukti Pembayaran</button>
+                                <?php if (isset($transaksi['Bukti_Pembayaran']) && $transaksi['Bukti_Pembayaran'] === NULL) : ?>
+                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#uploadBuktiPembayaran">Upload Bukti Pembayaran</button>
+                                <?php else : ?>
+                                    <button type="button" class="btn btn-outline-primary d-none" data-bs-toggle="modal" data-bs-target="#uploadBuktiPembayaran">Upload Bukti Pembayaran</button>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </form>

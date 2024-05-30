@@ -124,6 +124,10 @@ $html = <<<HTML
   .info-result td{
     width: 30px;
   }
+
+  .text-decoration-line-through{
+    text-decoration: line-through;
+  }
   </style>
   
 <img class="header-invoice" src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-head.jpg" alt="">
@@ -168,21 +172,25 @@ if (!empty($dataTransaksiA)) {
     $rekeningProdukA = isset($transaksiA['No_Rekening_Informasi']) ? $transaksiA['No_Rekening_Informasi'] : (isset($transaksiA['No_Rekening_Jasa']) ? $transaksiA['No_Rekening_Jasa'] : '');
     $hargaProdukA = isset($transaksiA['Harga_Informasi']) ? number_format($transaksiA['Harga_Informasi'], 0, ',', '.') : number_format($transaksiA['Harga_Jasa'], 0, ',', '.');
     $totalProdukA = number_format($transaksiA['Total_Transaksi'], 0, ',', '.');
+
+    $totalProdukAClass = $transaksiA['Apakah_Gratis'] == 1 ? 'text-decoration-line-through' : '';
+
     $html .= <<<HTML
       <tr>
           <td class="left">{$namaProdukA}</td>
           <td class="center">{$rekeningProdukA}</td>
-          <td class="center">Rp{$hargaProdukA}</td>
+          <td class="center {$totalProdukAClass}">Rp{$hargaProdukA}</td>
           <td class="center">{$transaksiA['Jumlah_Barang']}</td>
-          <td class="center">Rp{$totalProdukA}</td>
-      HTML;
+          <td class="center {$totalProdukAClass}">Rp{$totalProdukA}</td>
+HTML;
 
     $html .= <<<HTML
         <td class="center">
-    HTML;
+HTML;
+
     switch ($transaksiA['Status_Pesanan']) {
       case 'Belum Lunas':
-        $html .= '<img  src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-cross.svg" alt="Belum Lunas">';
+        $html .= '<img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-cross.svg" alt="Belum Lunas">';
         break;
       case 'Sedang Ditinjau':
         $html .= '<img src="http://localhost/PTSP/src/admin/assets/image/pages/faktur-pending.svg" alt="Sedang Ditinjau">';
@@ -194,8 +202,10 @@ if (!empty($dataTransaksiA)) {
         $html .= '';
         break;
     }
+
     $html .= <<<HTML
-    </td>
+        </td>
+      </tr>
 HTML;
   }
 } else {
