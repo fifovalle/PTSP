@@ -182,21 +182,17 @@ if (isset($_POST['submit'])) {
         'Kualitas_Pelayanan_Publik' => $KualitasPelayananPublik,
         'Harapan_Konsumen_Publik' => $HarapanKonsumenPublik
     );
+    $ambilIDTransaksiTerakhir = $objekTranksaksi->ambilIDTransaksiTerakhir();
     $ambilIKMTerakhir = $objekIkm->ambilIDIKMTerakhir();
-
-    $dataIkmTransaksi = array(
-        'ID_IKM' => $ambilIKMTerakhir,
-    );
 
     $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
 
-    $simpanDataTransaksi = $objekTranksaksi->updateIKMNULLSesuaiTransaksi($dataIkmTransaksi, $idSession);
     $simpanDataIkm = $objekIkm->tambahDataIkm($dataIkm);
+    $simpanDataTransaksi = $objekTranksaksi->updateIKMNULLSesuaiTransaksi($ambilIKMTerakhir, $ambilIDTransaksiTerakhir, $idSession);
 
     if (containsXSS($namaDepan) || containsXSS($namaBelakang) || containsXSS($namaPengguna) || containsXSS($email) || containsXSS($kataSandi) || containsXSS($konfirmasiKataSandi) || containsXSS($nomorTelepon) || containsXSS($jenisKelamin) || containsXSS($peranAdmin) || containsXSS($alamatAdmin)) {
         $pesanKesalahan .= "Input mengandung Serangan XSS, Saya tau anda ingin mennghack web saya 😡👿. ";
     }
-
 
     if ($simpanDataIkm && $simpanDataTransaksi) {
         setPesanKeberhasilan("Data berhasil ditambahkan.");

@@ -2171,7 +2171,6 @@ class Transaksi
         return true;
     }
 
-
     public function perbaharuiPengajuanBencanaKeTransaksiSesuaiSession($dataTransaksiPengajuanBencana, $idSession)
     {
         $query = "UPDATE transaksi SET ID_Pengajuan = ? WHERE (ID_Pengguna = ? OR ID_Perusahaan = ?) AND ID_Pengajuan IS NULL";
@@ -2777,6 +2776,19 @@ class Transaksi
                 $data[] = $baris;
             }
             return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function ambilIDTransaksiTerakhir()
+    {
+        $query = "SELECT ID_Tranksaksi FROM transaksi ORDER BY ID_Tranksaksi DESC LIMIT 1";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            return $data['ID_Tranksaksi'];
         } else {
             return null;
         }
@@ -3402,18 +3414,13 @@ class Transaksi
         }
     }
 
-    public function updateIKMNULLSesuaiTransaksi($IDIKM, $idSession)
+    public function updateIKMNULLSesuaiTransaksi($IDIKM, $idTransaksi, $idSession)
     {
 
-        $query = "UPDATE transaksi SET ID_IKM = ? WHERE (ID_Pengguna = ? OR ID_Perusahaan = ?) AND ID_IKM IS NULL";
+        $query = "UPDATE transaksi SET ID_IKM = ? WHERE (ID_Pengguna = ? OR ID_Perusahaan = ?) AND ID_Tranksaksi = ?";
 
         $statement = $this->koneksi->prepare($query);
-        $statement->bind_param(
-            "iii",
-            $IDIKM['ID_IKM'],
-            $idSession,
-            $idSession
-        );
+        $statement->bind_param("iiii", $IDIKM, $idSession, $idSession, $idTransaksi);
         if ($statement->execute()) {
             return true;
         } else {

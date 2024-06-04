@@ -83,33 +83,15 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                                 $transaksiModel = new Transaksi($koneksi);
                                 $dataTraksaksi = $transaksiModel->tampilkanRiwayatTransaksiSesuaiSession($id);
-
                                 if (!empty($dataTraksaksi)) {
                                     foreach ($dataTraksaksi as $transaksi) {
-                                        if (!empty($transaksi['File_Penerimaan'])) {
+                                        if (!empty($transaksi['File_Penerimaan']) && !empty($transaksi['ID_IKM'])) {
                                             echo '<a href="../../admin/assets/image/uploads/' . $transaksi['File_Penerimaan'] . '" class="btn btn-outline-success px-2 mx-2" id="btn-download-file" type="button" style="width:118px;">Download File</a>';
                                         }
                                     }
                                 } else {
-                                    echo '<button class="btn btn-outline-success px-2 mx-2" id="btn-download-file" onclick="showAlert()" type="button" style="width:118px;">Download File</button>';
                                 }
                                 ?>
-                                <script>
-                                    function showAlert() {
-                                        Swal.fire({
-                                            icon: 'error',
-                                            title: 'Tidak Bisa Download File',
-                                            text: 'Silahkan isi IKM Anda',
-                                            showCancelButton: false,
-                                            confirmButtonColor: '#3085d6',
-                                            confirmButtonText: 'OK'
-                                        }).then((result) => {
-                                            if (result.isConfirmed) {
-                                                window.location.href = 'ikm.php';
-                                            }
-                                        });
-                                    }
-                                </script>
                                 <button class="btn btn-outline-secondary px-2 mx-2" type="button" style="width:200px;" data-bs-toggle="modal" data-bs-target="#historiPengisianIKM">Riwayat Pengisian IKM</button>
                             </div>
                         </div>
@@ -1175,7 +1157,17 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 </div>
                                 <div class="col text-end">
                                     <button class="btn btn-outline-danger ms-3" type="button" id="btn-beli-lagi1" style="width:100px;">Beli Lagi</button>
-                                    <button class="btn btn-outline-success pe-2 ms-2" type="button" id="nilai-ikm" style="width:100px;">Isi Survey</button>
+                                    <?php
+                                    $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                                    $transaksiModel = new Transaksi($koneksi);
+                                    $dataTraksaksi = $transaksiModel->tampilkanSelesaiTransaksiSesuaiSession($id);
+                                    if (!empty($dataTraksaksi)) {
+                                        foreach ($dataTraksaksi as $transaksi) {
+                                            echo '<button class="btn btn-outline-success pe-2 ms-2" type="button" id="nilai-ikm" style="width:100px;">Isi Survey</button>';
+                                        }
+                                    } else {
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>

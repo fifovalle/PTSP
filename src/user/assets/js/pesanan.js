@@ -22,7 +22,7 @@ function showContentPemesanan(id) {
   });
 
   let clickedButton = document.getElementById(
-    id === "history-pesanan" ? "history-order" : "tracking-order",
+    id === "history-pesanan" ? "history-order" : "tracking-order"
   );
   clickedButton.classList.add("btn-success");
   clickedButton.classList.remove("btn-outline-success");
@@ -94,6 +94,7 @@ document
   .addEventListener("click", function () {
     window.location.href = "katalogproduk.php";
   });
+
 document.getElementById("nilai-ikm").addEventListener("click", function () {
   window.location.href = "ikm.php";
 });

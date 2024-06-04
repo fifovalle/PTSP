@@ -50,12 +50,14 @@
                         <div class="deskriptorContainer">
                             <p class="fw-semibold m-auto">
                                 <?php
-                                echo ($riwayatTransaksi['ID_Informasi'] != null) ? $riwayatTransaksi['Nama_Informasi'] : (($riwayatTransaksi['ID_Jasa'] != null) ? $riwayatTransaksi['Nama_Jasa'] : 'Nama Tidak Tersedia');
+                                $namaPembayaran = ($riwayatTransaksi['ID_Informasi'] != null) ? $riwayatTransaksi['Nama_Informasi'] : (($riwayatTransaksi['ID_Jasa'] != null) ? $riwayatTransaksi['Nama_Jasa'] : 'Deskripsi Tidak Tersedia');
+                                echo strlen($namaPembayaran) > 6 ? substr($namaPembayaran, 0, 6) . '...' : $namaPembayaran;
                                 ?>
                             </p>
                             <p class="fw-semibold deskriptorSmall m-auto">
                                 <?php
-                                echo ($riwayatTransaksi['ID_Informasi'] != null) ? $riwayatTransaksi['Deskripsi_Informasi'] : (($riwayatTransaksi['ID_Jasa'] != null) ? $riwayatTransaksi['Deskripsi_Jasa'] : 'Deskripsi Tidak Tersedia');
+                                $deskripsi = ($riwayatTransaksi['ID_Informasi'] != null) ? $riwayatTransaksi['Deskripsi_Informasi'] : (($riwayatTransaksi['ID_Jasa'] != null) ? $riwayatTransaksi['Deskripsi_Jasa'] : 'Deskripsi Tidak Tersedia');
+                                echo strlen($deskripsi) > 4 ? substr($deskripsi, 0, 4) . '...' : $deskripsi;
                                 ?>
                             </p>
                             <div class="iconContainerData">
