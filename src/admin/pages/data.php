@@ -161,6 +161,7 @@ if (!isset($_SESSION['ID'])) {
     include "../partials/utils/modal-aprove.php";
     include "../partials/utils/modal-see-applyment.php";
     include "../partials/utils/modal-see-transactions.php";
+    include "../partials/utils/modal-see-ikm.php";
     include "../partials/utils/modal-aprove-applyment.php";
     include "../partials/utils/isAdmin.php";
     ?>
@@ -186,6 +187,7 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/our/js/value-admin.js"></script>
     <script src="../assets/our/js/value-services.js"></script>
     <script src="../assets/our/js/value-applyment.js"></script>
+    <script src="../assets/our/js/value-see-ikm.js"></script>
     <script src="../assets/our/js/value-see-applyment.js"></script>
     <script src="../assets/our/js/value-see-payment.js"></script>
     <script src="../assets/our/js/value-transactions.js"></script>

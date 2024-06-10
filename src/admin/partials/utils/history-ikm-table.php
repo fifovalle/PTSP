@@ -53,7 +53,7 @@
                                 ?>
                             </p>
                             <div class="iconContainerData">
-                                <a class="linkData" data-bs-toggle="modal" data-bs-target="#aproveFile">
+                                <a class="linkData buttonSeeIKM" data-bs-toggle="modal" data-id="<?php echo $ikm['ID_Ikm']; ?>">
                                     <span class="">
                                         <i class="fas fa-eye"></i>
                                     </span>
