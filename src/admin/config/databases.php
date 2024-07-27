@@ -45,7 +45,6 @@ class Admin
         }
     }
 
-
     public function tampilkanDataAdmin()
     {
         $query = "SELECT * FROM admin";
