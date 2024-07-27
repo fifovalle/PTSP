@@ -2126,6 +2126,22 @@ class Transaksi
 
     public function uploadFileBuktiPembayaran($idTransaksi, $namaFile)
     {
+        $queryCek = "SELECT Bukti_Pembayaran FROM transaksi WHERE ID_Tranksaksi = ? AND Status_Transaksi = 'Ditolak'";
+        $statementCek = $this->koneksi->prepare($queryCek);
+        $statementCek->bind_param("i", $idTransaksi);
+        $statementCek->execute();
+        $resultCek = $statementCek->get_result();
+
+        if ($resultCek->num_rows > 0) {
+            $row = $resultCek->fetch_assoc();
+            $buktiPembayaranLama = $row['Bukti_Pembayaran'];
+            $pathLama = '../assets/image/uploads/' . $buktiPembayaranLama;
+
+            if (file_exists($pathLama)) {
+                unlink($pathLama);
+            }
+        }
+
         $query = "UPDATE transaksi SET Bukti_Pembayaran = ?, Tanggal_Upload_Bukti = NOW(), Status_Transaksi = 'Sedang Ditinjau' WHERE ID_Tranksaksi = ?";
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param("si", $namaFile, $idTransaksi);
