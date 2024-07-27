@@ -2623,7 +2623,7 @@ class Transaksi
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   WHERE (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
-                  AND (informasi.Pemilik_Informasi = 'Instansi A' OR jasa.Pemilik_Jasa = 'Instansi A') AND (pengajuan.Status_Pengajuan = 'Diterima')";
+                  AND (informasi.Pemilik_Informasi = 'Instansi A' OR jasa.Pemilik_Jasa = 'Instansi A') AND (pengajuan.Status_Pengajuan = 'Diterima') AND (transaksi.Status_Pesanan = 'Sedang Ditinjau' OR transaksi.Status_Transaksi = 'Ditolak')";
 
         $result = $this->koneksi->query($query);
 
@@ -2672,7 +2672,7 @@ class Transaksi
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   WHERE  (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
-                  AND (informasi.Pemilik_Informasi = 'Instansi B' OR jasa.Pemilik_Jasa = 'Instansi B') AND (pengajuan.Status_Pengajuan = 'Diterima')";
+                  AND (informasi.Pemilik_Informasi = 'Instansi B' OR jasa.Pemilik_Jasa = 'Instansi B') AND (pengajuan.Status_Pengajuan = 'Diterima') AND (transaksi.Status_Pesanan = 'Sedang Ditinjau' OR transaksi.Status_Transaksi = 'Ditolak')";
 
         $result = $this->koneksi->query($query);
 
@@ -2721,7 +2721,7 @@ class Transaksi
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   WHERE (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
-                  AND (informasi.Pemilik_Informasi = 'Instansi C' OR jasa.Pemilik_Jasa = 'Instansi C') AND (pengajuan.Status_Pengajuan = 'Diterima')";
+                  AND (informasi.Pemilik_Informasi = 'Instansi C' OR jasa.Pemilik_Jasa = 'Instansi C') AND (pengajuan.Status_Pengajuan = 'Diterima') AND (transaksi.Status_Pesanan = 'Sedang Ditinjau' OR transaksi.Status_Transaksi = 'Ditolak')";
 
         $result = $this->koneksi->query($query);
 

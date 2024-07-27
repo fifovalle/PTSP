@@ -232,7 +232,7 @@
                         </div>
                     </form>
                 <?php } else if (!$hasTransaksiA && $hasTransaksiB && !$hasTransaksiC) { ?>
-                    <form action="../../admin/config/upload-payment.php" method="post" enctype="multipart/form-data">
+                    <form action="../../admin/config/upload-payment_instansi_b.php" method="post" enctype="multipart/form-data">
                         <h5 class="mt-4 mb-2">Stasiun Klimatologi
                             <span class="fs-6 text-secondary" id="guide-klimatologi"> <strong><i> Format File : </i>(BuktiPembayaran_StasiunKlimatologi_NoPesanan_TanggalPesanan)</strong>
                             </span>
@@ -240,7 +240,7 @@
                         <?php foreach ($dataTransaksiB as $transaksiB) { ?>
                             <input type="hidden" name="id_instansi_b" value="<?= $transaksiB['ID_Tranksaksi'] ?>">
                         <?php } ?>
-                        <label for="file2" class="custum-file-upload" id="btnUpload1">
+                        <label for="file" class="custum-file-upload" id="btnUpload">
                             <div class="icon" id="icon1">
                                 <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -253,11 +253,11 @@
                             <div class="text">
                                 <span>Ketuk untuk mengunggah</span>
                             </div>
-                            <input id="file2" type="file">
+                            <input id="file" type="file" name="File_Instansi_B">
                         </label>
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-md-12 mt-2" id="preview-file2" style="display: none;">
+                                <div class="col-md-12 mt-2" id="preview-file" style="display: none;">
                                     <span>
                                         <strong>NamaFile2-InstansiMananya2-Tanggal2</strong>
                                     </span>
