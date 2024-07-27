@@ -32,5 +32,9 @@ if (isset($_POST['Kirim'])) {
             header("Location: $akarUrl" . "src/user/pages/pesanan.php");
             exit;
         }
+    } else {
+        setPesanKesalahan("Ekstensi file bukan jpg/jpeg/png.");
+        header("Location: $akarUrl" . "src/user/pages/pesanan.php");
+        exit;
     }
 }

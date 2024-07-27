@@ -4,11 +4,11 @@ include 'databases.php';
 $transaksi = new Transaksi($koneksi);
 
 if (isset($_POST['Kirim'])) {
-    $idTransaksi = $_POST['id_instansi_a'];
-    $buktiPembayaran  = $_FILES['File_Instansi_A']['name'];
-    $ukuranFile = $_FILES['File_Instansi_A']['size'];
-    $tipeFile = $_FILES['File_Instansi_A']['type'];
-    $tempFile = $_FILES['File_Instansi_A']['tmp_name'];
+    $idTransaksi = $_POST['id_instansi_c'];
+    $buktiPembayaran  = $_FILES['File_Instansi_C']['name'];
+    $ukuranFile = $_FILES['File_Instansi_C']['size'];
+    $tipeFile = $_FILES['File_Instansi_C']['type'];
+    $tempFile = $_FILES['File_Instansi_C']['tmp_name'];
     $extensiFile = explode('.', $buktiPembayaran);
     $extensiFile = strtolower(end($extensiFile));
     $uniqueID = uniqid();
