@@ -9,6 +9,8 @@ include '../../admin/config/databases.php';
     include('../partials/header.php');
     ?>
     <link rel="stylesheet" href="../assets/css/produk-informasi.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -93,6 +95,7 @@ include '../../admin/config/databases.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/modal-produk-informasi.js"></script>
+    <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>

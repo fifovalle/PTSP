@@ -39,7 +39,7 @@ document.getElementById("btnPesan").addEventListener("click", function () {
             timer: 3000,
           }).then((result) => {
             setTimeout(function () {
-              window.location.href = "pesanan.php";
+              window.location.href = "ajukan.php";
             }, 500);
           });
         } else {
@@ -51,6 +51,10 @@ document.getElementById("btnPesan").addEventListener("click", function () {
             position: "top-end",
             showConfirmButton: false,
             timer: 3000,
+          }).then((result) => {
+            setTimeout(function () {
+              window.location.href = "ajukan.php";
+            }, 500);
           });
         }
       });
