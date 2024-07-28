@@ -32,7 +32,7 @@ if (isset($_POST['tambah_keranjang'])) {
             if ($simpanDataKeranjang) {
                 setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang Silahkan Mengisi Pengajuan Terlebih Dahulu");
             } else {
-                setPesanKesalahan("Gagal");
+                setPesanKesalahan("Maaf, terjadi kesalahan saat mencoba menambahkan barang ke keranjang belanja. Mohon coba lagi nanti.");
             }
         }
 
@@ -64,6 +64,8 @@ if (isset($_POST['tambah_keranjang'])) {
         }
     } else {
         setPesanKesalahan("Anda harus login atau mendaftar terlebih dahulu.");
+        header("Location: $akarUrl" . "src/user/pages/login.php");
+        exit;
     }
 
     header("Location: $akarUrl" . "src/user/pages/ajukan.php");
