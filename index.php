@@ -2,14 +2,23 @@
 <html lang="en">
 
 
-<?php
-require('../../src/user/partials/head-cover.php');
-?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" href="src/admin/assets/image/logo/1.png">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="src/user/assets/css/cover.css">
+    <script src="src/user/assets/js/javascript.js"></script>
+    <title>Selamat Datang Di PTSP BMKG Provinsi Bengkulu</title>
+</head>
 
 <body>
     <!-- Header -->
     <div class="header" id="main">
-        <div class="cover position-relative overflow-hidden text-center bg-body-tertiary" style="background-image: url('../../src/user/assets/img/landpage1.png');">
+        <div class="cover position-relative overflow-hidden text-center bg-body-tertiary" style="background-image: url('src/user/assets/img/landpage1.png');">
             <div class="content col-md-6 p-lg-5 mx-auto my-5">
                 <h1 class="z-3 display-3 fw-bold text-white mb-3">Selamat Datang di PTSP BMKG Provinsi Bengkulu</h1>
                 <h4 class="z-3 fw-normal text-white mb-3">Disini kalian akan diperkenalkan tentang seputar layanan yang
@@ -42,7 +51,7 @@ require('../../src/user/partials/head-cover.php');
                 <div class=" carousel-item active" id="cover">
                     <div class="row section1">
                         <div class="col-md-6 left-content">
-                            <img src="../../src/user/assets/img/Ilust_1.svg" class="img-fluid align-middle" alt="...">
+                            <img src="src/user/assets/img/Ilust_1.svg" class="img-fluid align-middle" alt="...">
                         </div>
                         <div class="col-md-6 text-center justify-content-center right-content">
                             <h1 class="z-3 display-3 fw-bold text-black mb-5">PTSP BMKG
@@ -100,7 +109,7 @@ require('../../src/user/partials/head-cover.php');
                         </div>
                         <div class="col-md-6 col-sm-4 right-content">
                             <div class="content4">
-                                <img src="../../src/user/assets/img/Ilust_2.svg" class="img-fluid" alt="...">
+                                <img src="src/user/assets/img/Ilust_2.svg" class="img-fluid" alt="...">
                             </div>
                         </div>
                     </div>
@@ -108,7 +117,7 @@ require('../../src/user/partials/head-cover.php');
                 <div class=" carousel-item" id="cover">
                     <div class="row section3">
                         <div class="col-md-6 left-content">
-                            <img src="../../src/user/assets/img/Ilust_3.svg" class="img-fluid align-middle" alt="...">
+                            <img src="src/user/assets/img/Ilust_3.svg" class="img-fluid align-middle" alt="...">
                         </div>
                         <div class="col-md-6 text-center justify-content-center right-content">
                             <h1 class="z-3 display-3 fw-bold text-black mb-5">Visi dan Misi PTSP BMKG
@@ -140,7 +149,7 @@ require('../../src/user/partials/head-cover.php');
         </div>
     </div>
     </div>
-    <div class="cover position-relative overflow-hidden text-center bg-body-tertiary" style="background-image: url('../../src/user/assets/img/landpage2.jpg');" id="Started">
+    <div class="cover position-relative overflow-hidden text-center bg-body-tertiary" style="background-image: url('src/user/assets/img/landpage2.jpg');" id="Started">
         <div class="content col-md-6 p-lg-5 mx-auto my-5">
             <h1 class="z-3 display-3 fw-bold text-white mb-3">PTSP BMKG Provinsi Bengkulu</h1>
             <div class="z-3 d-flex gap-3 justify-content-center lead mt-5 button2">
@@ -161,7 +170,7 @@ require('../../src/user/partials/head-cover.php');
         </div>
     </div>
     <?php
-    require('../../src/user/partials/footer.php');
+    require('src/user/partials/footer.php');
     ?>
     <div class="button-container">
         <button class="z-3 button-up">
@@ -171,7 +180,7 @@ require('../../src/user/partials/head-cover.php');
             </svg>
         </button>
     </div>
-    <script src="../../src/user/assets/js/cover.js"></script>
+    <script src="src/user/assets/js/cover.js"></script>
 </body>
 
 </html>

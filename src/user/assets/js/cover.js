@@ -9,5 +9,5 @@ document.querySelector(".moveStarted").addEventListener("click", function () {
 });
 
 function pindahHalaman() {
-  window.location.href = "../../src/user/pages/main.php";
+  window.location.href = "src/user/pages/main.php";
 }
