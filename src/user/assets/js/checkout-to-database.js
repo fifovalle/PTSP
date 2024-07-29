@@ -39,7 +39,7 @@ document.getElementById("btnPesan").addEventListener("click", function () {
             timer: 3000,
           }).then((result) => {
             setTimeout(function () {
-              window.location.href = "ajukan.php";
+              window.location.href = "pesanan.php";
             }, 500);
           });
         } else {
