@@ -17,7 +17,7 @@ if (isset($_POST['tambah_keranjang'])) {
             }
             if (!$transaksiModel->cekPenggunaTerdaftar($pengguna)) {
                 setPesanKesalahan("Pengguna belum terdaftar atau tidak valid.");
-                header("Location: $akarUrl" . "src/user/pages/ajukan.php");
+                header("Location: $akarUrl" . "src/user/partials/produk-informasi-geofisika.php");
                 exit;
             }
             $dataKeranjang = array(
@@ -30,7 +30,7 @@ if (isset($_POST['tambah_keranjang'])) {
             $simpanDataKeranjang = $transaksiModel->masukKeranjangTransaksiPengguna($dataKeranjang);
 
             if ($simpanDataKeranjang) {
-                setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang Silahkan Mengisi Pengajuan Terlebih Dahulu");
+                setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang Silahkan Cek Keranjang Untuk Chekout");
             } else {
                 setPesanKesalahan("Maaf, terjadi kesalahan saat mencoba menambahkan barang ke keranjang belanja. Mohon coba lagi nanti.");
             }
@@ -44,7 +44,7 @@ if (isset($_POST['tambah_keranjang'])) {
             }
             if (!$transaksiModel->cekPerusahaanTerdaftar($perusahaan)) {
                 setPesanKesalahan("Perusahaan belum terdaftar atau tidak valid.");
-                header("Location: $akarUrl" . "src/user/pages/ajukan.php");
+                header("Location: $akarUrl" . "src/user/partials/produk-informasi-geofisika.php");
                 exit;
             }
             $dataKeranjang = array(
@@ -57,7 +57,7 @@ if (isset($_POST['tambah_keranjang'])) {
             $simpanDataKeranjang = $transaksiModel->masukKeranjangTransaksiPerusahaan($dataKeranjang);
 
             if ($simpanDataKeranjang) {
-                setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang Silahkan Mengisi Pengajuan Terlebih Dahulu");
+                setPesanKeberhasilan("Berhasil Ditambahkan Ke Keranjang Silahkan Cek Keranjang Untuk Chekout");
             } else {
                 setPesanKesalahan("Gagal");
             }
@@ -68,9 +68,9 @@ if (isset($_POST['tambah_keranjang'])) {
         exit;
     }
 
-    header("Location: $akarUrl" . "src/user/pages/ajukan.php");
+    header("Location: $akarUrl" . "src/user/partials/produk-informasi-geofisika.php");
     exit;
 } else {
-    header("Location: $akarUrl" . "src/user/pages/ajukan.php");
+    header("Location: $akarUrl" . "src/user/partials/produk-informasi-geofisika.php");
     exit;
 }

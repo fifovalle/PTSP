@@ -14,11 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     $sessionKey = $hapusData ? 'berhasil' : 'gagal';
     setPesanKeberhasilan($hapusData ? $successMessage : '');
     setPesanKesalahan(!$hapusData ? $failureMessage : '');
-    header("Location: $akarUrl/src/user/pages/checkout.php");
+    header("Location: $akarUrl" . "src/user/pages/checkout.php");
     exit();
 } else {
     $errorMessage = "Halaman tidak dapat diakses.";
     setPesanKesalahan($errorMessage);
-    header("Location: $akarUrl/src/user/pages/checkout.php");
+    header("Location: $akarUrl" . "src/user/pages/checkout.php");
     exit();
 }
