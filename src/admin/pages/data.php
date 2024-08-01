@@ -55,19 +55,19 @@ if (!isset($_SESSION['ID'])) {
                             <button class="btn btn-outline-info fw-bold text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-file-pdf"></i> Laporan Bulanan
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Januari</a>
-                                <a class="dropdown-item" href="#">Februari</a>
-                                <a class="dropdown-item" href="#">Maret</a>
-                                <a class="dropdown-item" href="#">April</a>
-                                <a class="dropdown-item" href="#">Mei</a>
-                                <a class="dropdown-item" href="#">Juni</a>
-                                <a class="dropdown-item" href="#">Juli</a>
-                                <a class="dropdown-item" href="#">Agustus</a>
-                                <a class="dropdown-item" href="#">September</a>
-                                <a class="dropdown-item" href="#">Oktober</a>
-                                <a class="dropdown-item" href="#">November</a>
-                                <a class="dropdown-item" href="#">Desember</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
+                                <a class="dropdown-item" href="#" onclick="generatePDF('01')">Januari</a>
+                                <a class="dropdown-item" href="#" onclick="generatePDF('02')">Februari</a>
+                                <a class="dropdown-item" href="#" onclick="generatePDF('03')">Maret"></a>
+                                <a class="dropdown-item" href="#" onclick="generatePDF('04')">April</a>
+                                <a class="dropdown-item" href="#" onclick="generatePDF('05')">Mei</a>
+                                <a class="dropdown-item" href="#" onclick="generatePDF('06')">Juni</a>
+                                <a class="dropdown-item" href="#" onclick="generatePDF('07')">Juli</a>
+                                <a class="dropdown-item" href="#" onclick="generatePDF('08')">Agustus</a>
+                                <a class="dropdown-item" href="#" onclick="generatePDF('09')">September</a>
+                                <a class="dropdown-item" href="#" onclick="generatePDF('10')">Oktober</a>
+                                <a class="dropdown-item" href="#" onclick="generatePDF('11')">November</a>
+                                <a class="dropdown-item" href="#" onclick="generatePDF('12')">Desember</a>
                             </div>
                         </div>
                     </div>
@@ -222,7 +222,11 @@ if (!isset($_SESSION['ID'])) {
     <script src="../assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- ALERT -->
     <?php include '../partials/utils/alert.php' ?>
-
+    <script>
+        function generatePDF(bulan) {
+            window.location.href = `../config/generate_pdf.php?bulan=${bulan}`;
+        }
+    </script>
 </body>
 
 </html>

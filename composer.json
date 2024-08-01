@@ -1,6 +1,7 @@
 {
   "require": {
     "phpmailer/phpmailer": "^6.9",
-    "ezyang/htmlpurifier": "^4.17"
+    "ezyang/htmlpurifier": "^4.17",
+    "dompdf/dompdf": "^3.0"
   }
 }
