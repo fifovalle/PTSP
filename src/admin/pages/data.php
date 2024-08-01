@@ -53,7 +53,7 @@ if (!isset($_SESSION['ID'])) {
                         <h1 class="breadcrumb">Kumpulan Data</h1>
                         <div class="dropdown">
                             <button class="btn btn-outline-info fw-bold text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-file-pdf"></i> Laporan Bulanan
+                                <i class="fas fa-file-pdf"></i> Riwayat Laporan Bulanan
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
                                 <a class="dropdown-item" href="#" onclick="generatePDF('01')">Januari</a>
