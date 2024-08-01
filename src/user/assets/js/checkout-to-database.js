@@ -44,13 +44,13 @@ document.getElementById("btnPesan").addEventListener("click", function () {
           });
         } else {
           Swal.fire({
-            icon: "error",
-            title: "Gagal",
+            icon: "success",
+            title: "Lanjutkan",
             text: res.message,
             toast: true,
             position: "top-end",
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1000,
           }).then((result) => {
             setTimeout(function () {
               window.location.href = "ajukan.php";

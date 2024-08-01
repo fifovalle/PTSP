@@ -30,7 +30,7 @@ foreach ($dataJumlah as $transaksiID => $jumlahBarang) {
     $isUpdated = $transaksiModel->updateTransaksiDetail($transaksiID, $jumlahBarang, $totalHarga);
 
     if ($isUpdated) {
-        $responses[] = array("success" => true, "message" => "Data Berhasil Dikirim Silahkan Melanjutkan Checkout.");
+        $responses[] = array("success" => true, "message" => "Data Berhasil Dikirim.");
     } else {
         $responses[] = array("success" => false, "message" => "Gagal memperbarui data transaksi dengan ID $transaksiID.");
     }
