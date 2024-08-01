@@ -55,10 +55,20 @@
                             ?>
                         </button>
                         <ul class="dropdown-menu profile-menu">
-                            <a class="ps-4 nav-link" href="../pages/profile.php">
-                                <box-icon type='solid' name='user-detail'></box-icon>Profil Saya</a>
-                            <a class="ps-4 nav-link" href="http://localhost/PTSP/src/admin/config/logout-user.php">
-                                <box-icon name='power-off'></box-icon>Keluar</a>
+                            <?php if (isset($_SESSION['ID_Pengguna']) || isset($_SESSION['ID_Perusahaan'])) {
+                                echo "<a class='ps-4 nav-link' href='../pages/profile.php'>
+                                    <box-icon type='solid' name='user-detail'></box-icon>Profil Saya</a>";
+                            }
+                            ?>
+                            <?php
+                            if (isset($_SESSION['ID_Pengguna']) || isset($_SESSION['ID_Perusahaan'])) {
+                                echo "<a class='ps-4 nav-link' href='http://localhost/PTSP/src/admin/config/logout-user.php'>
+                                    <box-icon name='power-off'></box-icon>Keluar</a>";
+                            } else {
+                                echo "<a class='ps-4 nav-link' href='../pages/login.php'>
+                                    <box-icon name='power-off'></box-icon>Login</a>";
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
