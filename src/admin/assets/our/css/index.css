@@ -138,7 +138,6 @@ a {
 }
 
 .dropdown-menu {
-  width: 620px;
   background: var(--latar);
   color: var(--teks);
   display: none;

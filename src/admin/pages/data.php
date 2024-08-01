@@ -51,6 +51,25 @@ if (!isset($_SESSION['ID'])) {
                 <main class="col-md-9 ml-sm-auto col-lg-10 px-4">
                     <div class="d-flex justify-content-between align-items-center text-center">
                         <h1 class="breadcrumb">Kumpulan Data</h1>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-info fw-bold text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-file-pdf"></i> Laporan Bulanan
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Januari</a>
+                                <a class="dropdown-item" href="#">Februari</a>
+                                <a class="dropdown-item" href="#">Maret</a>
+                                <a class="dropdown-item" href="#">April</a>
+                                <a class="dropdown-item" href="#">Mei</a>
+                                <a class="dropdown-item" href="#">Juni</a>
+                                <a class="dropdown-item" href="#">Juli</a>
+                                <a class="dropdown-item" href="#">Agustus</a>
+                                <a class="dropdown-item" href="#">September</a>
+                                <a class="dropdown-item" href="#">Oktober</a>
+                                <a class="dropdown-item" href="#">November</a>
+                                <a class="dropdown-item" href="#">Desember</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div id="menuDataForDrive" class="col-12">
