@@ -79,14 +79,14 @@
 
 <!-- Modal Alur Pelayanan -->
 <div class="modal fade" id="AlurPelayanan" aria-labelledby="AlurPelayananLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" id="modalAlurPelayanan">
+    <div class="modal-dialog modal-dialog-scrollable" id="modalAlurPelayanan" style="width: 1000px;">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="AlurPelayananLabel">ALUR PELAYANAN</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <img src="../assets/img/AlurLayanan.jpg" class="d-block w-100" alt="...">
+            <div class="modal-body d-flex justify-content-center align-content-center">
+                <img src="../assets/img/AlurLayanan.jpg" class="d-block w-50" alt="...">
             </div>
         </div>
     </div>
