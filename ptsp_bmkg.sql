@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2024 at 04:47 AM
+-- Generation Time: Aug 02, 2024 at 05:45 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -61,7 +61,7 @@ CREATE TABLE `ikm` (
   `ID_Ikm` int(11) NOT NULL,
   `Nama` varchar(50) DEFAULT NULL,
   `Jenis_Kelamin` enum('Pria','Wanita') DEFAULT NULL,
-  `Pendidikan_Terakhir` enum('SMP','SMA','S1','S2') DEFAULT NULL,
+  `Pendidikan_Terakhir` enum('SD','SMP','SMA','SMK','D1','D2','D3','D4','S1','S2','S3') DEFAULT NULL,
   `NIK` int(11) DEFAULT NULL,
   `Umur` int(11) DEFAULT NULL,
   `Pekerjaan` varchar(50) DEFAULT NULL,
@@ -400,7 +400,7 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`ID_Pengguna`, `Foto`, `NPWP_Pengguna`, `No_Identitas_Pengguna`, `Pekerjaan_Pengguna`, `Nama_Depan_Pengguna`, `Nama_Belakang_Pengguna`, `Pendidikan_Terakhir_Pengguna`, `Nama_Pengguna`, `Email_Pengguna`, `Kata_Sandi`, `Konfirmasi_Kata_Sandi`, `No_Telepon_Pengguna`, `Jenis_Kelamin_Pengguna`, `Alamat_Pengguna`, `Provinsi`, `Kabupaten_Kota`, `Status_Verifikasi_Pengguna`, `Token`) VALUES
-(35, '', '12345', 12345, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifovalle', 'fifanaufal10@gmail.com', '$2y$10$waqfbaFbpebTPbZUzW8XaumkbDa45SMdHeMYElmb/rblBFOYzMngy', '$2y$10$waqfbaFbpebTPbZUzW8XaumkbDa45SMdHeMYElmb/rblBFOYzMngy', '+62 812-2365-2490', 'Pria', 'Batujajar', 'Jawa Barat', 'Bandung', 'Terverifikasi', 0);
+(35, 0x363661633462303834666166382e6a7067, '12345', 12345, 'Mahasiswa', 'Naufal', 'FIFA', 'SMK', 'fifovalle', 'fifanaufal10@gmail.com', '$2y$10$waqfbaFbpebTPbZUzW8XaumkbDa45SMdHeMYElmb/rblBFOYzMngy', '$2y$10$waqfbaFbpebTPbZUzW8XaumkbDa45SMdHeMYElmb/rblBFOYzMngy', '+62 812-2365-2490', 'Pria', 'Batujajar', 'Jawa Barat', 'Bandung', 'Terverifikasi', 0);
 
 -- --------------------------------------------------------
 
@@ -460,7 +460,7 @@ CREATE TABLE `transaksi` (
   `Keterangan_Pembayaran_Ditolak` varchar(100) DEFAULT NULL,
   `Tanggal_Pembelian` datetime NOT NULL,
   `Status_Transaksi` enum('Disetujui','Belum Disetujui','Ditolak','Sedang Ditinjau') NOT NULL,
-  `Status_Pesanan` enum('Belum Lunas','Sedang Ditinjau','Lunas') NOT NULL
+  `Status_Pesanan` enum('Belum Lunas','Lunas') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -585,7 +585,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `ikm`
 --
 ALTER TABLE `ikm`
-  MODIFY `ID_Ikm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `ID_Ikm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `informasi`
@@ -609,7 +609,7 @@ ALTER TABLE `jasa`
 -- AUTO_INCREMENT for table `kegiatan_bencana`
 --
 ALTER TABLE `kegiatan_bencana`
-  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `ID_Bencana` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- AUTO_INCREMENT for table `kegiatan_keagamaan`
@@ -645,7 +645,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -663,7 +663,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=292;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=299;
 
 --
 -- Constraints for dumped tables

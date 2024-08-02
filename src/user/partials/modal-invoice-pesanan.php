@@ -23,9 +23,71 @@
                         </div>
                         <div class="col-md-4 text-center header-invoice">
                             <h3 class="title fw-bold">INFORMASI PESANAN</h3>
-                            <div class="col-md-12 mt-3 status-invoice">
-                                <span><strong class="">Status Pesanan : Belum Lunas</strong></span>
-                            </div>
+                            <?php
+                            $idPembeli = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                            $transaksiPembeliModel = new Transaksi($koneksi);
+
+                            $dataTransaksiA = $transaksiPembeliModel->tampilkanTransaksiPembeliSesuaiPemilikProdukInstansiInovoiceA($idPembeli);
+                            $dataTransaksiB = $transaksiPembeliModel->tampilkanTransaksiPembeliSesuaiPemilikProdukInstansiInovoiceB($idPembeli);
+                            $dataTransaksiC = $transaksiPembeliModel->tampilkanTransaksiPembeliSesuaiPemilikProdukInstansiInovoiceC($idPembeli);
+
+                            function cekStatusPesanan($dataTransaksi)
+                            {
+                                if (empty($dataTransaksi)) {
+                                    return null;
+                                }
+                                foreach ($dataTransaksi as $transaksi) {
+                                    if (strtolower($transaksi['Status_Pesanan']) !== 'lunas') {
+                                        return false;
+                                    }
+                                }
+                                return true;
+                            }
+
+                            $statusLunasA = cekStatusPesanan($dataTransaksiA);
+                            $statusLunasB = cekStatusPesanan($dataTransaksiB);
+                            $statusLunasC = cekStatusPesanan($dataTransaksiC);
+
+                            $nomorUrut = 1;
+
+                            if (!empty($dataTransaksiA) || !empty($dataTransaksiB) || !empty($dataTransaksiC)) {
+                                if ($statusLunasA !== null) {
+                            ?>
+                                    <div class="col-md-12 mt-3">
+                                        <span>
+                                            <strong class="">Status Pesanan Meteorologi:
+                                                <span style="color: <?= $statusLunasA ? 'green' : 'red' ?>;">
+                                                    <?= $statusLunasA ? 'Lunas' : 'Belum Lunas' ?>
+                                                </span>
+                                            </strong>
+                                        </span>
+                                    </div>
+                                <?php
+                                }
+                                if ($statusLunasB !== null) {
+                                ?>
+                                    <div class="col-md-12 mt-3">
+                                        <span><strong class="">Status Pesanan Klimatologi:
+                                                <span style="color: <?= $statusLunasB ? 'green' : 'red' ?>;">
+                                                    <?= $statusLunasB ? 'Lunas' : 'Belum Lunas' ?>
+                                                </span>
+                                            </strong></span>
+                                    </div>
+                                <?php
+                                }
+                                if ($statusLunasC !== null) {
+                                ?>
+                                    <div class="col-md-12 mt-3">
+                                        <span><strong class="">Status Pesanan Geofisika:
+                                                <span style="color: <?= $statusLunasC ? 'green' : 'red' ?>;">
+                                                    <?= $statusLunasC ? 'Lunas' : 'Belum Lunas' ?>
+                                                </span>
+                                            </strong></span>
+                                    </div>
+                            <?php
+                                }
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>

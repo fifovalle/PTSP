@@ -76,10 +76,17 @@ include '../../admin/config/databases.php';
                         <div class="form-floating">
                             <select class="form-control" id="floatingInput" name="PendidikanTerakhir">
                                 <option selected>Pilih Pendidikan Terakhir</option>
-                                <option value="SMP">SMP</option>
-                                <option value="SMA">SMA</option>
-                                <option value="S1">S1 (Sarjana)</option>
-                                <option value="S2">S2 (Magister)</option>
+                                <option value="SD">Sekolah Dasar</option>
+                                <option value="SMP">Sekolah Menengah Pertama</option>
+                                <option value="SMA">Sekolah Menengah Akhir</option>
+                                <option value="SMK">Sekolah Menengah Kejuruan</option>
+                                <option value="D1">Diploma Satu</option>
+                                <option value="D2">Diploma Dua</option>
+                                <option value="D3">Diploma Tiga</option>
+                                <option value="D4">Diploma Empat</option>
+                                <option value="S1">Sarjana</option>
+                                <option value="S2">Magister</option>
+                                <option value="S3">Doktor</option>
                             </select>
                             <label for="floatingInput">Pendidikan Terakhir</label>
                         </div>

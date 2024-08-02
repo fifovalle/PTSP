@@ -84,7 +84,7 @@ if (isset($_POST['Apply'])) {
 
                     if ($simpanDataBencana && $simpanDataPengajuanBencana && $simpanDataTransaksiPengajuanBencana) {
                         setPesanKeberhasilan("Data kegiatan penanggulangan bencana berhasil dikirim harap menunggu konfirmasi oleh admin.");
-                        header("Location: " . $akarUrl . "src/user/pages/checkout.php");
+                        header("Location: " . $akarUrl . "src/user/pages/pesanan.php");
                         exit();
                     } else {
                         setPesanKesalahan("Gagal menambahkan data kegiatan penanggulangan bencana.");

@@ -10,11 +10,6 @@ $responses = array();
 foreach ($dataJumlah as $transaksiID => $jumlahBarang) {
     $idPengajuan = $transaksiModel->getPengajuanID($transaksiID);
 
-    if ($idPengajuan === null) {
-        $responses[] = array("success" => false, "message" => "");
-        continue;
-    }
-
     if ($jumlahBarang === 0) {
         $responses[] = array("success" => false, "message" => "Jumlah barang tidak boleh 0 untuk transaksi dengan ID $transaksiID.");
         continue;
@@ -29,10 +24,8 @@ foreach ($dataJumlah as $transaksiID => $jumlahBarang) {
 
     $isUpdated = $transaksiModel->updateTransaksiDetail($transaksiID, $jumlahBarang, $totalHarga);
 
-    if ($isUpdated) {
-        $responses[] = array("success" => true, "message" => "Data Berhasil Dikirim.");
-    } else {
-        $responses[] = array("success" => false, "message" => "Gagal memperbarui data transaksi dengan ID $transaksiID.");
+    if ($idPengajuan === null && $isUpdated) {
+        $responses[] = array("success" => true, "message" => "Silahkan Lanjut Isi Data Pengajuan.");
     }
 }
 

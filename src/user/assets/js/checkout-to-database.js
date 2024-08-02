@@ -39,13 +39,13 @@ document.getElementById("btnPesan").addEventListener("click", function () {
             timer: 3000,
           }).then((result) => {
             setTimeout(function () {
-              window.location.href = "pesanan.php";
+              window.location.href = "ajukan.php";
             }, 500);
           });
         } else {
           Swal.fire({
-            icon: "success",
-            title: "Lanjutkan",
+            icon: "error",
+            title: "Gagal",
             text: res.message,
             toast: true,
             position: "top-end",
@@ -53,7 +53,7 @@ document.getElementById("btnPesan").addEventListener("click", function () {
             timer: 1000,
           }).then((result) => {
             setTimeout(function () {
-              window.location.href = "ajukan.php";
+              window.location.href = "checkout.php";
             }, 500);
           });
         }

@@ -183,11 +183,13 @@ if (isset($_POST['submit'])) {
         'Harapan_Konsumen_Publik' => $HarapanKonsumenPublik
     );
     $ambilIDTransaksiTerakhir = $objekTranksaksi->ambilIDTransaksiTerakhir();
-    $ambilIKMTerakhir = $objekIkm->ambilIDIKMTerakhir();
 
     $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
 
     $simpanDataIkm = $objekIkm->tambahDataIkm($dataIkm);
+    global $koneksi;
+    $ambilIKMTerakhir = $koneksi->insert_id;
+
     $simpanDataTransaksi = $objekTranksaksi->updateIKMNULLSesuaiTransaksi($ambilIKMTerakhir, $ambilIDTransaksiTerakhir, $idSession);
 
     if (containsXSS($namaDepan) || containsXSS($namaBelakang) || containsXSS($namaPengguna) || containsXSS($email) || containsXSS($kataSandi) || containsXSS($konfirmasiKataSandi) || containsXSS($nomorTelepon) || containsXSS($jenisKelamin) || containsXSS($peranAdmin) || containsXSS($alamatAdmin)) {
