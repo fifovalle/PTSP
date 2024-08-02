@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2024 at 05:45 AM
+-- Generation Time: Aug 02, 2024 at 05:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -66,7 +66,7 @@ CREATE TABLE `ikm` (
   `Umur` int(11) DEFAULT NULL,
   `Pekerjaan` varchar(50) DEFAULT NULL,
   `Koresponden` enum('Masyarakat Umum','Instansi') DEFAULT NULL,
-  `Jenis_Layanan` enum('Informasi','Jasa') DEFAULT NULL,
+  `Jenis_Layanan` enum('Informasi','Jasa','Informasi Dan Jasa') DEFAULT NULL,
   `Asal_Daerah` varchar(100) DEFAULT NULL,
   `Informasi_Cuaca_Publik` varchar(100) DEFAULT NULL,
   `Informasi_Cuaca_Khusus` varchar(100) DEFAULT NULL,

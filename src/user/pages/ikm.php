@@ -125,6 +125,7 @@ include '../../admin/config/databases.php';
                                 <option selected>Pilih Jenis Layanan</option>
                                 <option value="Informasi">Informasi</option>
                                 <option value="Jasa">Jasa</option>
+                                <option value="Informasi Dan Jasa">Informasi Dan Jasa</option>
                             </select>
                             <label for="floatingInput">Jenis Layanan</label>
                         </div>
