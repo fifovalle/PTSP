@@ -73,6 +73,10 @@ if (isset($_POST['Apply'])) {
 
         $simpanDataPengajuanTarif = $objekDataTarif->tambahDataPengajuanTarif($dataPengajuanTarif);
 
+        $dataPengajuanTarif = array(
+            'ID_Pengajuan' => $objekDataTarif->ambilIDPengajuanTerakhir(),
+        );
+
         $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
         $simpanDataTransaksiPengajuanTarif = $obyekDataTransaksi->perbaharuiPengajuanTarifKeTransaksiSesuaiSession($dataPengajuanTarif, $idSession);
 
