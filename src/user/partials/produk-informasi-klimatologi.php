@@ -59,6 +59,7 @@ include '../../admin/config/databases.php';
                                             <div class="card-button">
                                                 <form action="../../admin/config/add-cart-information-klimatologi.php" method="POST">
                                                     <input type="hidden" name="Informasi" value="<?php echo $informasiKlimatologi['ID_Informasi']; ?>">
+                                                    <input type="hidden" name="Pemilik_Informasi" value="<?php echo $informasiKlimatologi['Pemilik_Informasi']; ?>">
                                                     <?php if (isset($_SESSION['ID_Pengguna'])) : ?>
                                                         <input type="hidden" name="Pengguna" value="<?php echo $_SESSION['ID_Pengguna']; ?>">
                                                     <?php endif; ?>

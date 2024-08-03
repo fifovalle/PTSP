@@ -4,6 +4,7 @@ include 'databases.php';
 if (isset($_POST['tambah_keranjang'])) {
     if (isset($_SESSION['ID_Pengguna']) || isset($_SESSION['ID_Perusahaan'])) {
         $informasi = $_POST['Informasi'];
+        $pemilik_informasi = $_POST['Pemilik_Informasi'];
         $pengguna = isset($_POST['Pengguna']) ? $_POST['Pengguna'] : null;
         $perusahaan = isset($_POST['Perusahaan']) ? $_POST['Perusahaan'] : null;
         $tanggal_pembelian = date('Y-m-d H:i:s');
@@ -18,6 +19,11 @@ if (isset($_POST['tambah_keranjang'])) {
             if (!$transaksiModel->cekPenggunaTerdaftar($pengguna)) {
                 setPesanKesalahan("Pengguna belum terdaftar atau tidak valid.");
                 header("Location: $akarUrl" . "src/user/partials/produk-informasi-geofisika.php");
+                exit;
+            }
+            if ($transaksiModel->apakahSudahMembeliInformasiLainPengguna($pemilik_informasi, $pengguna)) {
+                setPesanKesalahan("Anda sudah membeli informasi lain dari pemilik informasi yang berbeda.");
+                header("Location: $akarUrl" . "src/user/pages/checkout.php");
                 exit;
             }
             $dataKeranjang = array(
@@ -45,6 +51,11 @@ if (isset($_POST['tambah_keranjang'])) {
             if (!$transaksiModel->cekPerusahaanTerdaftar($perusahaan)) {
                 setPesanKesalahan("Perusahaan belum terdaftar atau tidak valid.");
                 header("Location: $akarUrl" . "src/user/partials/produk-informasi-geofisika.php");
+                exit;
+            }
+            if ($transaksiModel->apakahSudahMembeliInformasiLainPerusahaan($pemilik_informasi, $perusahaan)) {
+                setPesanKesalahan("Anda sudah membeli informasi lain dari pemilik informasi yang berbeda.");
+                header("Location: $akarUrl" . "src/user/pages/checkout.php");
                 exit;
             }
             $dataKeranjang = array(
