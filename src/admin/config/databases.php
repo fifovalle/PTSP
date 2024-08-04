@@ -1927,7 +1927,7 @@ class Pengajuan
         $query = "SELECT transaksi.*, pengguna.*, perusahaan.*, pengajuan.* FROM transaksi 
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan WHERE transaksi.Total_Transaksi IS NOT NULL AND pengajuan.Status_Pengajuan = 'Sedang Ditinjau'; 
+                  LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan WHERE transaksi.Total_Transaksi IS NOT NULL AND pengajuan.Status_Pengajuan = 'Sedang Ditinjau' OR pengajuan.Status_Pengajuan = 'Ditolak' OR pengajuan.Status_Pengajuan = 'Diterima'; 
                ";
         $result = $this->koneksi->query($query);
 

@@ -75,6 +75,13 @@ tombolStatusSelesai.addEventListener("click", function () {
 });
 
 const tombolStatus = document.querySelectorAll(".opsi-statuspesanan");
+const badges = {
+  pengajuan: document.getElementById("badge-pengajuan").innerText,
+  pembayaran: document.getElementById("badge-pembayaran").innerText,
+  pembuatan: document.getElementById("badge-pembuatan").innerText,
+  selesai: document.getElementById("badge-selesai").innerText,
+};
+
 tombolStatus.forEach(function (tombol) {
   tombol.addEventListener("click", function () {
     tombolStatus.forEach(function (btn) {
@@ -85,6 +92,16 @@ tombolStatus.forEach(function (tombol) {
     this.style.color = "white";
   });
 });
+
+if (badges.pengajuan > 0) {
+  document.getElementById("btn-status-pengajuan").click();
+} else if (badges.pembayaran > 0) {
+  document.getElementById("btn-status-pembayaran").click();
+} else if (badges.pembuatan > 0) {
+  document.getElementById("btn-status-pembuatan").click();
+} else if (badges.selesai > 0) {
+  document.getElementById("btn-status-selesai").click();
+}
 
 document.getElementById("btn-beli-lagi").addEventListener("click", function () {
   window.location.href = "katalogproduk.php";

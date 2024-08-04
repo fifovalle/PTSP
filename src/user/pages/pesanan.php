@@ -102,63 +102,63 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                 <div class="container-fluid w-100">
                     <div class="d-flex row text-center mb-3" id="status-pesanan">
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pengajuan">Status Pengajuan
-                                <span class="badge text-bg-secondary">
-                                    <?php
-                                    $transaksiModel = new Transaksi($koneksi);
-                                    if (isset($_SESSION['ID_Pengguna'])) {
-                                        $id = $_SESSION['ID_Pengguna'];
-                                        $jumlahTransaksi = $transaksiModel->hitungPengajuanTransaksiSesuaiSessionPengguna($id);
-                                        echo $jumlahTransaksi;
-                                    } else if (isset($_SESSION['ID_Perusahaan'])) {
-                                        $id = $_SESSION['ID_Perusahaan'];
-                                        $jumlahTransaksi = $transaksiModel->hitungPengajuanTransaksiSesuaiSessionPerusahaan($id);
-                                        echo $jumlahTransaksi;
-                                    } else {
-                                        echo "Tidak ada sesi yang aktif.";
-                                    }
-                                    ?>
-                                </span>
-                            </button>
-                        </div>
-                        <div class=" col-md-3">
-                            <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pembayaran">Status Pembayaran
-                                <span class="badge text-bg-secondary">
-                                    <?php
-                                    $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
-                                    $transaksiModel = new Transaksi($koneksi);
-                                    $jumlahTransaksi = $transaksiModel->hitungPembayaranTransaksiSesuaiSession($id);
-                                    echo $jumlahTransaksi;
-                                    ?>
+                            <?php
+                            $transaksiModel = new Transaksi($koneksi);
+                            if (isset($_SESSION['ID_Pengguna'])) {
+                                $id = $_SESSION['ID_Pengguna'];
+                                $jumlahTransaksi = $transaksiModel->hitungPengajuanTransaksiSesuaiSessionPengguna($id);
+                            } else if (isset($_SESSION['ID_Perusahaan'])) {
+                                $id = $_SESSION['ID_Perusahaan'];
+                                $jumlahTransaksi = $transaksiModel->hitungPengajuanTransaksiSesuaiSessionPerusahaan($id);
+                            } else {
+                                $jumlahTransaksi = 0;
+                                echo 'Tidak ada sesi yang aktif.';
+                            }
+                            ?>
+                            <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pengajuan" <?php echo $jumlahTransaksi == 0 ? 'disabled' : ''; ?>>
+                                Status Pengajuan
+                                <span class="badge text-bg-secondary" id="badge-pengajuan">
+                                    <?php echo $jumlahTransaksi; ?>
                                 </span>
                             </button>
                         </div>
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pembuatan">Status Pembuatan
-                                <span class="badge text-bg-secondary">
-                                    <?php
-                                    $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
-                                    $transaksiModel = new Transaksi($koneksi);
-                                    $jumlahTransaksi = $transaksiModel->hitungPembuatanTransaksiSesuaiSession($id);
-                                    echo $jumlahTransaksi;
-                                    ?>
+                            <?php
+                            $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
+                            $transaksiModel = new Transaksi($koneksi);
+                            $jumlahTransaksi = $transaksiModel->hitungPembayaranTransaksiSesuaiSession($id);
+                            ?>
+                            <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pembayaran" <?php echo $jumlahTransaksi == 0 ? 'disabled' : ''; ?>>
+                                Status Pembayaran
+                                <span class="badge text-bg-secondary" id="badge-pembayaran">
+                                    <?php echo $jumlahTransaksi; ?>
                                 </span>
                             </button>
                         </div>
-                        <div class=" col-md-3">
-                            <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-selesai">Status Selesai
-                                <span class="badge text-bg-secondary">
-                                    <?php
-                                    $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
-                                    $transaksiModel = new Transaksi($koneksi);
-                                    $jumlahTransaksi = $transaksiModel->hitungSelesaiTransaksiSesuaiSession($id);
-                                    echo $jumlahTransaksi;
-                                    ?>
+                        <div class="col-md-3">
+                            <?php
+                            $jumlahTransaksi = $transaksiModel->hitungPembuatanTransaksiSesuaiSession($id);
+                            ?>
+                            <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-pembuatan" <?php echo $jumlahTransaksi == 0 ? 'disabled' : ''; ?>>
+                                Status Pembuatan
+                                <span class="badge text-bg-secondary" id="badge-pembuatan">
+                                    <?php echo $jumlahTransaksi; ?>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <?php
+                            $jumlahTransaksi = $transaksiModel->hitungSelesaiTransaksiSesuaiSession($id);
+                            ?>
+                            <button type="button" class="btn btn-outline-primary opsi-statuspesanan" id="btn-status-selesai" <?php echo $jumlahTransaksi == 0 ? 'disabled' : ''; ?>>
+                                Status Selesai
+                                <span class="badge text-bg-secondary" id="badge-selesai">
+                                    <?php echo $jumlahTransaksi; ?>
                                 </span>
                             </button>
                         </div>
                     </div>
-                    <div class=" d-none" id="ajuan">
+                    <div class="d-none" id="ajuan">
                         <div class="d-flex row status">
                             <hr id="line-pesanan">
                             <div class="col-md-3">
@@ -166,16 +166,17 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     <?php
                                     $pengajuanModel = new Pengajuan($koneksi);
                                     $dataPengajuan = $pengajuanModel->tampilkanSemuaDataPengajuan();
+
                                     if (!is_null($dataPengajuan)) {
-                                        $statusDiterimaPerusahaan = false;
-                                        $statusDiterimaPengguna = false;
+                                        $statusDiterima = false;
                                         $statusSedangDitinjau = false;
                                         $statusDitolak = false;
+
                                         if (!empty($_SESSION['ID_Perusahaan'])) {
                                             foreach ($dataPengajuan as $pengajuan) {
                                                 if ($pengajuan['ID_Perusahaan'] == $_SESSION['ID_Perusahaan']) {
                                                     if ($pengajuan['Status_Pengajuan'] == 'Diterima') {
-                                                        $statusDiterimaPerusahaan = true;
+                                                        $statusDiterima = true;
                                                     } elseif ($pengajuan['Status_Pengajuan'] == 'Sedang Ditinjau') {
                                                         $statusSedangDitinjau = true;
                                                     } elseif ($pengajuan['Status_Pengajuan'] == 'Ditolak') {
@@ -184,11 +185,12 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                 }
                                             }
                                         }
+
                                         if (!empty($_SESSION['ID_Pengguna'])) {
                                             foreach ($dataPengajuan as $pengajuan) {
                                                 if ($pengajuan['ID_Pengguna'] == $_SESSION['ID_Pengguna']) {
                                                     if ($pengajuan['Status_Pengajuan'] == 'Diterima') {
-                                                        $statusDiterimaPengguna = true;
+                                                        $statusDiterima = true;
                                                     } elseif ($pengajuan['Status_Pengajuan'] == 'Sedang Ditinjau') {
                                                         $statusSedangDitinjau = true;
                                                     } elseif ($pengajuan['Status_Pengajuan'] == 'Ditolak') {
@@ -197,50 +199,32 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                 }
                                             }
                                         }
-                                        if (!$statusDiterimaPerusahaan && !$statusDiterimaPengguna && !$statusSedangDitinjau && !$statusDitolak) {
+
+                                        if ($statusDiterima) {
                                             echo '<span class="dot selected">
-                                                        <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
-                                                    </span>
-                                                    <div class="card-body text-center">
-                                                        <div class="card-title">Belum Ada Ajuan</div>
-                                                        <p class="card-text">
-                                                        <a class="text-decoration-none fw-bold" href="ajukan.php">Klik disini</a> untuk mengajukan pesanan
-                                                        </p>
-                                                    </div>';
-                                        } elseif ($statusDiterimaPerusahaan || $statusDiterimaPengguna) {
-                                            echo '<span class="dot selected">
-                                                        <box-icon name="check-shield" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
-                                                    </span>
-                                                    <div class="card-body text-center">
-                                                        <div class="card-title">Ajuan Diterima</div>
-                                                        <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
-                                                    </div>';
+                                                <box-icon name="check-shield" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                            </span>
+                                            <div class="card-body text-center">
+                                                <div class="card-title">Ajuan Diterima</div>
+                                                <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                            </div>';
                                         } elseif ($statusSedangDitinjau) {
                                             echo '<span class="dot selected">
-                                                        <box-icon name="time" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
-                                                    </span>
-                                                    <div class="card-body text-center">
-                                                        <div class="card-title">Ajuan Sedang Ditinjau</div>
-                                                        <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
-                                                    </div>';
+                                                <box-icon name="time" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                            </span>
+                                            <div class="card-body text-center">
+                                                <div class="card-title">Ajuan Sedang Ditinjau</div>
+                                                <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                            </div>';
                                         } elseif ($statusDitolak) {
                                             echo '<span class="dot selected">
-                                                        <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
-                                                    </span>
-                                                    <div class="card-body text-center">
-                                                        <div class="card-title">Ajuan Ditolak</div>
-                                                        <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
-                                                    </div>';
+                                                <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                            </span>
+                                            <div class="card-body text-center">
+                                                <div class="card-title">Ajuan Ditolak</div>
+                                                <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                            </div>';
                                         }
-                                    } else {
-                                        echo '<span class="dot selected">
-                                                    <box-icon name="check-shield" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
-                                                </span>
-                                                <div class="card-body text-center">
-                                                    <div class="card-title">Tidak Ada Ajuan</div>
-                                                    <p class="card-text">
-                                                    </p>
-                                                </div>';
                                     }
                                     ?>
                                 </div>
