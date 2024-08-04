@@ -225,6 +225,13 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                 <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
                                             </div>';
                                         }
+                                    } else {
+                                        echo '<span class="dot selected">
+                                                <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                            </span>
+                                            <div class="card-body text-center">
+                                                <div class="card-title">Tidak Ada Ajuan</div>
+                                            </div>';
                                     }
                                     ?>
                                 </div>
