@@ -35,57 +35,68 @@
         $dataTransaksi = $transaksiModel->tampilkanTransaksiPembayaran();
 
         if (!empty($dataTransaksi)) {
-            $nomorUrut = 1;
+            $groupedData = [];
             foreach ($dataTransaksi as $transaksi) {
+                $groupedData[$transaksi['ID_Tranksaksi']][] = $transaksi;
+            }
+
+            $nomorUrut = 1;
+            foreach ($groupedData as $idTransaksi => $transaksiGroup) {
         ?>
                 <tr class="trDataN">
-                    <td class="text-center">
+                    <td class="text-center" rowspan="<?php echo count($transaksiGroup); ?>">
                         <input class="checkBoxData checkBoxDataTransaction checkBoxDataTransactionData" type="checkbox">
                     </td>
-                    <td class="text-center"><?php echo $nomorUrut++; ?></td>
-                    <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
-                        <div>
-                            <img class="imageData" src="../assets/image/uploads/<?php echo htmlspecialchars(($transaksi['ID_Informasi'] != null) ? $transaksi['Foto_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Foto_Jasa'] : 'nama-file-default.jpg')); ?>" alt="Foto Produk">
-                        </div>
-                        <div class="deskriptorContainer">
-                            <p class="fw-semibold m-auto">
-                                <?php
-                                $namaPembayaran = ($transaksi['ID_Informasi'] != null) ? $transaksi['Nama_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Nama_Jasa'] : 'Deskripsi Tidak Tersedia');
-                                echo strlen($namaPembayaran) > 6 ? substr($namaPembayaran, 0, 6) . '...' : $namaPembayaran;
-                                ?>
-                            </p>
-                            <p class="fw-semibold deskriptorSmall m-auto">
-                                <?php
-                                $deskripsi = ($transaksi['ID_Informasi'] != null) ? $transaksi['Deskripsi_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Deskripsi_Jasa'] : 'Deskripsi Tidak Tersedia');
-                                echo strlen($deskripsi) > 4 ? substr($deskripsi, 0, 4) . '...' : $deskripsi;
-                                ?>
-                            </p>
-                            <div class="iconContainerData">
-                                <a class="linkData buttonPayment" data-bs-toggle="modal" data-id="<?php echo $transaksi['ID_Tranksaksi'] ?>">
-                                    <span class="">
-                                        <i class="fas fa-upload"></i>
-                                    </span>
-                                </a>
-                                <a class="linkData iconDataRight buttonSeePayment" data-bs-toggle="modal" data-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">
-                                    <span>
-                                        <i class="fas fa-eye"></i>
-                                    </span>
-                                </a>
+                    <td class="text-center" rowspan="<?php echo count($transaksiGroup); ?>">
+                        <?php echo $nomorUrut++; ?>
+                    </td>
+                    <?php foreach ($transaksiGroup as $index => $transaksi) { ?>
+                        <?php if ($index > 0) echo '<tr class="trDataN">'; ?>
+                        <td class="text-center flex-wrap d-flex justify-content-evenly gap-2">
+                            <div>
+                                <img class="imageData" src="../assets/image/uploads/<?php echo htmlspecialchars(($transaksi['ID_Informasi'] != null) ? $transaksi['Foto_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Foto_Jasa'] : 'nama-file-default.jpg')); ?>" alt="Foto Produk">
                             </div>
-                        </div>
-                    </td>
-                    <td class="text-center"><?php echo ($transaksi['ID_Pengguna'] != null) ? $transaksi['Nama_Pengguna'] : (($transaksi['ID_Perusahaan'] != null) ? $transaksi['Nama_Pengguna_Anggota_Perusahaan'] : 'Nama Pengguna Tidak Ada') ?></td>
-                    <td class="text-center"><?php echo ($transaksi['ID_Informasi'] != null) ? 'Informasi' : (($transaksi['ID_Jasa'] != null) ? 'Jasa' : 'Tidak Diketahui') ?></td>
-                    <td class="text-center"><?php echo $transaksi['Jumlah_Barang']; ?></td>
-                    <td class="text-center"><?php echo $transaksi['Tanggal_Pembelian']; ?></td>
-                    <td class="text-center">
-                        <span class="badge <?php
-                                            echo ($transaksi['Status_Transaksi'] === 'Sedang Ditinjau') ? 'text-bg-warning' : (($transaksi['Status_Transaksi'] === 'Ditolak') ? 'text-bg-danger' : (($transaksi['Status_Transaksi'] === 'Belum Disetujui') ? 'text-bg-info' : 'text-bg-success')); ?>">
-                            <?php
-                            echo ($transaksi['Status_Transaksi'] === 'Sedang Ditinjau') ? 'Sedang Ditinjau' : (($transaksi['Status_Transaksi'] === 'Ditolak') ? 'Ditolak' : (($transaksi['Status_Transaksi'] === 'Belum Disetujui') ? 'Belum Dibayar' : $transaksi['Status_Transaksi']));
-                            ?>
-                        </span>
-                    </td>
+                            <div class="deskriptorContainer">
+                                <p class="fw-semibold m-auto">
+                                    <?php
+                                    $namaPembayaran = ($transaksi['ID_Informasi'] != null) ? $transaksi['Nama_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Nama_Jasa'] : 'Deskripsi Tidak Tersedia');
+                                    echo strlen($namaPembayaran) > 6 ? substr($namaPembayaran, 0, 6) . '...' : $namaPembayaran;
+                                    ?>
+                                </p>
+                                <p class="fw-semibold deskriptorSmall m-auto">
+                                    <?php
+                                    $deskripsi = ($transaksi['ID_Informasi'] != null) ? $transaksi['Deskripsi_Informasi'] : (($transaksi['ID_Jasa'] != null) ? $transaksi['Deskripsi_Jasa'] : 'Deskripsi Tidak Tersedia');
+                                    echo strlen($deskripsi) > 4 ? substr($deskripsi, 0, 4) . '...' : $deskripsi;
+                                    ?>
+                                </p>
+                                <div class="iconContainerData">
+                                    <a class="linkData buttonPayment" data-bs-toggle="modal" data-id="<?php echo $transaksi['ID_Tranksaksi'] ?>">
+                                        <span class="">
+                                            <i class="fas fa-upload"></i>
+                                        </span>
+                                    </a>
+                                    <a class="linkData iconDataRight buttonSeePayment" data-bs-toggle="modal" data-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">
+                                        <span>
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center"><?php echo ($transaksi['ID_Pengguna'] != null) ? $transaksi['Nama_Pengguna'] : (($transaksi['ID_Perusahaan'] != null) ? $transaksi['Nama_Pengguna_Anggota_Perusahaan'] : 'Nama Pengguna Tidak Ada') ?></td>
+                        <td class="text-center"><?php echo ($transaksi['ID_Informasi'] != null) ? 'Informasi' : (($transaksi['ID_Jasa'] != null) ? 'Jasa' : 'Tidak Diketahui') ?></td>
+                        <td class="text-center"><?php echo $transaksi['Jumlah_Barang']; ?></td>
+                        <td class="text-center"><?php echo $transaksi['Tanggal_Pembelian']; ?></td>
+                        <td class="text-center">
+                            <span class="badge <?php
+                                                echo ($transaksi['Status_Transaksi'] === 'Sedang Ditinjau') ? 'text-bg-warning' : (($transaksi['Status_Transaksi'] === 'Ditolak') ? 'text-bg-danger' : (($transaksi['Status_Transaksi'] === 'Belum Disetujui') ? 'text-bg-info' : 'text-bg-success')); ?>">
+                                <?php
+                                echo ($transaksi['Status_Transaksi'] === 'Sedang Ditinjau') ? 'Sedang Ditinjau' : (($transaksi['Status_Transaksi'] === 'Ditolak') ? 'Ditolak' : (($transaksi['Status_Transaksi'] === 'Belum Disetujui') ? 'Belum Dibayar' : $transaksi['Status_Transaksi']));
+                                ?>
+                            </span>
+                        </td>
+                        <?php if ($index < count($transaksiGroup) - 1) echo '</tr>'; ?>
+                    <?php } ?>
                 </tr>
         <?php
             }

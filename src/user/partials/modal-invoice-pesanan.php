@@ -263,7 +263,7 @@
                             </span>
                         </h5>
                         <?php foreach ($dataTransaksiA as $transaksiA) { ?>
-                            <input type="hidden" name="id_instansi_a" value="<?= $transaksiA['ID_Tranksaksi'] ?>">
+                            <input type="hidden" name="id_instansi_a[]" value="<?= $transaksiA['ID_Tranksaksi'] ?>">
                         <?php } ?>
                         <label for="file" class="custum-file-upload" id="btnUpload">
                             <div class="icon" id="icon1">

@@ -506,7 +506,8 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                     </span>
                                                     <div class="card-body text-center">
                                                         <div class="card-title">Pembayaran Diterima</div>
-                                                        <p class="card-text"><a type="button" class="text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#invoicePesanan">Klik disini</a> untuk melihat detail pesanan</p>
+                                                        <p class="card-text">' . $pembayaran['Tanggal_Upload_Bukti'] . '</p>
+                                                        <p class="card-text"></p>
                                                         </div>';
                                         } elseif ($statusSedangDitinjau) {
                                             echo '<span class="dot selected">
@@ -1066,14 +1067,14 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         $id = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : $_SESSION['ID_Perusahaan'];
                                         $transaksiModel = new Transaksi($koneksi);
                                         $dataPembuatanModel = $transaksiModel->tampilkanPembuatanTanggalTransaksi($id);
-                                        if ($dataPembuatanModel !== null) {
-                                            foreach ($dataPembuatanModel as $data) {
+                                        if ($dataPembuatanModel !== null && !empty($dataPembuatanModel)) {
+                                            // Ambil elemen pertama dari array hasil
+                                            $data = $dataPembuatanModel[0];
                                         ?>
-                                                <p class="card-text"><?php echo $data['Tanggal_Upload_File_Penerimaan']; ?></p>
-                                            <?php
-                                            }
+                                            <p class="card-text"><?php echo $data['Tanggal_Upload_File_Penerimaan']; ?></p>
+                                        <?php
                                         } else {
-                                            ?>
+                                        ?>
                                             <p class="card-text">Belum Ada Pembuatan</p>
                                         <?php
                                         }
