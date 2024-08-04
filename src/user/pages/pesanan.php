@@ -165,13 +165,25 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 <div class="card">
                                     <?php
                                     $pengajuanModel = new Pengajuan($koneksi);
+                                    $transaksiModel = new Transaksi($koneksi);
                                     $dataPengajuan = $pengajuanModel->tampilkanSemuaDataPengajuan();
+                                    $dataTransaksi = $transaksiModel->tampilkanDataTransaksi();
+
+                                    $statusDiterima = false;
+                                    $statusSedangDitinjau = false;
+                                    $statusDitolak = false;
+                                    $belumAdaPengajuan = false;
+
+                                    if (!is_null($dataTransaksi)) {
+                                        foreach ($dataTransaksi as $transaksi) {
+                                            if (is_null($transaksi['ID_Pengajuan'])) {
+                                                $belumAdaPengajuan = true;
+                                                break;
+                                            }
+                                        }
+                                    }
 
                                     if (!is_null($dataPengajuan)) {
-                                        $statusDiterima = false;
-                                        $statusSedangDitinjau = false;
-                                        $statusDitolak = false;
-
                                         if (!empty($_SESSION['ID_Perusahaan'])) {
                                             foreach ($dataPengajuan as $pengajuan) {
                                                 if ($pengajuan['ID_Perusahaan'] == $_SESSION['ID_Perusahaan']) {
@@ -199,41 +211,50 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                                 }
                                             }
                                         }
+                                    }
 
-                                        if ($statusDiterima) {
-                                            echo '<span class="dot selected">
-                                                <box-icon name="check-shield" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
-                                            </span>
-                                            <div class="card-body text-center">
-                                                <div class="card-title">Ajuan Diterima</div>
-                                                <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
-                                            </div>';
-                                        } elseif ($statusSedangDitinjau) {
-                                            echo '<span class="dot selected">
-                                                <box-icon name="time" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
-                                            </span>
-                                            <div class="card-body text-center">
-                                                <div class="card-title">Ajuan Sedang Ditinjau</div>
-                                                <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
-                                            </div>';
-                                        } elseif ($statusDitolak) {
-                                            echo '<span class="dot selected">
-                                                <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
-                                            </span>
-                                            <div class="card-body text-center">
-                                                <div class="card-title">Ajuan Ditolak</div>
-                                                <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
-                                            </div>';
-                                        }
+                                    if ($belumAdaPengajuan) {
+                                        echo '<span class="dot selected">
+                                        <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                    </span>
+                                    <div class="card-body text-center">
+                                        <div class="card-title">Belum Ada Pengajuan</div>
+                                        <p class="card-text"><a href="ajukan.php" class="text-decoration-none fw-bold">Klik Disini untuk Pengajuan</a></p>
+                                    </div>';
+                                    } elseif ($statusDiterima) {
+                                        echo '<span class="dot selected">
+                                        <box-icon name="check-shield" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                    </span>
+                                    <div class="card-body text-center">
+                                        <div class="card-title">Ajuan Diterima</div>
+                                        <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                    </div>';
+                                    } elseif ($statusSedangDitinjau) {
+                                        echo '<span class="dot selected">
+                                        <box-icon name="time" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                    </span>
+                                    <div class="card-body text-center">
+                                        <div class="card-title">Ajuan Sedang Ditinjau</div>
+                                        <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                    </div>';
+                                    } elseif ($statusDitolak) {
+                                        echo '<span class="dot selected">
+                                        <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                    </span>
+                                    <div class="card-body text-center">
+                                        <div class="card-title">Ajuan Ditolak</div>
+                                        <p class="card-text">' . $pengajuan['Tanggal_Pengajuan'] . '</p>
+                                    </div>';
                                     } else {
                                         echo '<span class="dot selected">
-                                                <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
-                                            </span>
-                                            <div class="card-body text-center">
-                                                <div class="card-title">Tidak Ada Ajuan</div>
-                                            </div>';
+                                        <box-icon name="x-circle" id="icon" color="rgba(255,255,255,0.9)"></box-icon>
+                                    </span>
+                                    <div class="card-body text-center">
+                                        <div class="card-title">Tidak Ada Ajuan</div>
+                                    </div>';
                                     }
                                     ?>
+
                                 </div>
                             </div>
                             <div class="col-md-3">
