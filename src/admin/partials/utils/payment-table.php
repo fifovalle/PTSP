@@ -70,11 +70,13 @@
                                     ?>
                                 </p>
                                 <div class="iconContainerData">
-                                    <a class="linkData buttonPayment" data-bs-toggle="modal" data-id="<?php echo $transaksi['ID_Tranksaksi'] ?>">
-                                        <span class="">
-                                            <i class="fas fa-upload"></i>
-                                        </span>
-                                    </a>
+                                    <?php if ($transaksi['Status_Transaksi'] == 'Sedang Ditinjau') { ?>
+                                        <a class="linkData buttonPayment" data-bs-toggle="modal" data-id="<?php echo $transaksi['ID_Tranksaksi'] ?>">
+                                            <span class="">
+                                                <i class="fas fa-upload"></i>
+                                            </span>
+                                        </a>
+                                    <?php } ?>
                                     <a class="linkData iconDataRight buttonSeePayment" data-bs-toggle="modal" data-id="<?php echo $transaksi['ID_Tranksaksi']; ?>">
                                         <span>
                                             <i class="fas fa-eye"></i>
