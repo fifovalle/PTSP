@@ -93,15 +93,6 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="row">
-                                    <div class="col-3">
-                                        <h6 class="mb-0">Gambar</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <img id="gambarPembayar" class="imageModalDetail" alt="Deskripsi Gambar">
-                                    </div>
-                                </div>
-                                <hr>
                             </div>
                         </div>
                     </div>

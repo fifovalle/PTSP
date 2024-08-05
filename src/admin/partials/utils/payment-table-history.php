@@ -61,6 +61,11 @@
                                 ?>
                             </p>
                             <div class="iconContainerData">
+                                <a class="linkData buttonHistoryPayment" href="../config/generate_pdf1.php?id=<?php echo $riwayatTransaksi['ID_Tranksaksi']; ?>">
+                                    <span class="">
+                                        <i class="fas fa-download"></i>
+                                    </span>
+                                </a>
                                 <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteHistoryTransaction(<?php echo $riwayatTransaksi['ID_Tranksaksi']; ?>)">
                                     <span>
                                         <i class="fas fa-trash"></i>

@@ -141,7 +141,6 @@ if (!isset($_SESSION['ID'])) {
                         <!-- FOOTER START -->
                         <div class="container-fluid mt-4">
                             <?php include "../partials/components/footer.php" ?>
-
                         </div>
                         <!-- FOOTER END -->
                 </main>
