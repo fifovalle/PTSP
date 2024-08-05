@@ -58,7 +58,7 @@ if (!isset($_SESSION['ID'])) {
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
                                 <a class="dropdown-item" href="#" onclick="generatePDF('01')">Januari</a>
                                 <a class="dropdown-item" href="#" onclick="generatePDF('02')">Februari</a>
-                                <a class="dropdown-item" href="#" onclick="generatePDF('03')">Maret"></a>
+                                <a class="dropdown-item" href="#" onclick="generatePDF('03')">Maret</a>
                                 <a class="dropdown-item" href="#" onclick="generatePDF('04')">April</a>
                                 <a class="dropdown-item" href="#" onclick="generatePDF('05')">Mei</a>
                                 <a class="dropdown-item" href="#" onclick="generatePDF('06')">Juni</a>
