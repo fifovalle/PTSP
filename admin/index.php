@@ -1,6 +1,6 @@
 <?php
 // DATABASES
-include '../../src/admin/config/databases.php';
+include '../src/admin/config/databases.php';
 // MEMAKSA MASUK
 if (!isset($_SESSION['ID'])) {
     setPesanKesalahan("Anda tidak bisa mengakses halaman ini. Silakan login terlebih dahulu.");
@@ -18,14 +18,14 @@ $adaData = false;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Beranda PTSP</title>
     <!-- BOOTSTRAP CSS -->
-    <link rel="stylesheet" href="../../src/admin/assets/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../src/admin/assets/bootstrap/css/bootstrap.min.css" type="text/css">
     <!-- OUR CSS -->
-    <link rel="stylesheet" href="../../src/admin/assets/our/css/index.css">
+    <link rel="stylesheet" href="../src/admin/assets/our/css/index.css">
     <!-- ICON -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- FAVICON -->
-    <link rel="icon" href="../../src/admin/assets/image/logo/1.png">
+    <link rel="icon" href="../src/admin/assets/image/logo/1.png">
     <!-- SWEETALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
@@ -36,14 +36,14 @@ $adaData = false;
 <body>
     <!-- NAVBAR START-->
     <?php
-    include "../../src/admin/partials/components/navbar.php";
+    include "../src/admin/partials/components/navbar.php";
     ?>
     <!-- NAVBAR END-->
     <section class="container-fluid mainWebsite">
         <section class="row">
             <!-- SIDEBAR START -->
             <?php
-            include "../../src/admin/partials/components/sidebar.php";
+            include "../src/admin/partials/components/sidebar.php";
             ?>
             <!-- SIDEBAR END -->
             <div class="container-fluid">
@@ -72,8 +72,10 @@ $adaData = false;
                         ?>
                             <div class="col-4">
                                 <div class="card">
-                                    <h5 class="card-title py-4 mx-auto text-danger">Sedang diolah</h5>
-                                    <div class="position-relative mx-auto">
+                                    <h5 class="card-title pt-4 mx-auto">Penjualan Terbaik</h5>
+                                    <hr>
+                                    <div class="row mx-2 my-3">
+                                        <p class="card-text text-danger fw-bold text-center">Tidak Ada Transaksi</p>
                                     </div>
                                 </div>
                             </div>
@@ -143,13 +145,7 @@ $adaData = false;
                                 if (!$dataIKM) {
                                 ?>
                                     <div class="row mx-2 my-3">
-                                        <div class="col-3">
-                                            <img src="../../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
-                                        </div>
-                                        <div class="col-9">
-                                            <h5>Naufal FIFA</h5>
-                                            <p class="card-text textCardProduct">Waduh Saya Puas Banget Sih Bang :)../..</p>
-                                        </div>
+                                        <p class="card-text text-danger fw-bold text-center">Tidak Ada Transaksi</p>
                                     </div>
                                     <?php
                                 } else {
@@ -163,13 +159,13 @@ $adaData = false;
                                                 <p class="card-text textCardProduct"><?php echo $ikm['Informasi_Cuaca_Publik']; ?></p>
                                             </div>
                                         </div>
+                                        <div class="card-body btnAnalitic">
+                                            <a id="seeAnaliticForDrive2" href="#" class="card-link">Lihat Analitik</a>
+                                        </div>
                                 <?php
                                     }
                                 }
                                 ?>
-                                <div class="card-body btnAnalitic">
-                                    <a id="seeAnaliticForDrive2" href="#" class="card-link">Lihat Analitik</a>
-                                </div>
                             </div>
                         </div>
                         <div class="col-4">
@@ -183,13 +179,7 @@ $adaData = false;
                                 if (!$dataTransaksiTerbaru) {
                                 ?>
                                     <div class="row mx-2 my-3">
-                                        <div class="col-3">
-                                            <img src="../../src/admin/assets/image/uploads/2.png" alt="GambarPengunjung" class="surveyImageCard">
-                                        </div>
-                                        <div class="col-9">
-                                            <h5>Seismon</h5>
-                                            <p class="card-text textCardProduct">Naufal FIFA</p>
-                                        </div>
+                                        <p class="card-text text-danger fw-bold text-center">Tidak Ada Transaksi</p>
                                     </div>
                                     <?php
                                 } else {
@@ -197,27 +187,29 @@ $adaData = false;
                                     ?>
                                         <div class="row mx-2 my-3">
                                             <div class="col-3">
-                                                <img src="../../src/admin/assets/image/uploads/<?php echo $transaksi['Foto']; ?>" alt="GambarTransaksi" class="surveyImageCard">
+                                                <img src="../src/admin/assets/image/uploads/<?php echo $transaksi['Foto']; ?>" alt="GambarTransaksi" class="surveyImageCard">
                                             </div>
                                             <div class="col-9">
                                                 <h5><?php echo $transaksi['Nama_Pengguna']; ?></h5>
                                                 <p class="card-text textCardProduct"><?php echo $transaksi['Tanggal_Pembelian']; ?></p>
                                             </div>
                                         </div>
+                                        <div class="card-body btnAnalitic">
+                                            <a id="seeAnaliticForDrive3" href="#" class="card-link">Lihat Analitik</a>
+                                        </div>
                                 <?php
                                     }
                                 }
                                 ?>
-                                <div class="card-body btnAnalitic">
-                                    <a id="seeAnaliticForDrive3" href="#" class="card-link">Lihat Analitik</a>
-                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- FOOTER START -->
-                    <?php
-                    include "../../src/admin/partials/components/footer.php";
-                    ?>
+                    <div class="container-fluid mt-4">
+                        <?php
+                        include "../src/admin/partials/components/footer.php";
+                        ?>
+                    </div>
                     <!-- FOOTER END -->
                 </main>
                 <!-- MAIN END -->
@@ -247,22 +239,22 @@ $adaData = false;
 
     <!-- ALL MODAL START -->
     <?php
-    include "../../src/admin/partials/utils/modal-add-admin.php";
+    include "../src/admin/partials/utils/modal-add-admin.php";
     ?>
     <?php
-    include "../../src/admin/partials/utils/modal-add-information.php";
+    include "../src/admin/partials/utils/modal-add-information.php";
     ?>
     <?php
-    include "../../src/admin/partials/utils/modal-add-services.php";
+    include "../src/admin/partials/utils/modal-add-services.php";
     ?>
     <?php
-    include "../../src/admin/partials/utils/modal-edit-information.php";
+    include "../src/admin/partials/utils/modal-edit-information.php";
     ?>
     <?php
-    include "../../src/admin/partials/utils/modal-edit-services.php";
+    include "../src/admin/partials/utils/modal-edit-services.php";
     ?>
     <?php
-    include "../../src/admin/partials/utils/modal-send-feedback.php";
+    include "../src/admin/partials/utils/modal-send-feedback.php";
     ?>
     <!-- ALL MODAL END -->
 
@@ -272,18 +264,18 @@ $adaData = false;
     <!-- CDN DRIVE.JS -->
     <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
     <!-- OUR JS -->
-    <script src="../../src/admin/assets/our/js/index.js"></script>
-    <script src="../../src/admin/assets/our/js/caret.js"></script>
-    <script src="../../src/admin/assets/our/js/drive-all.js"></script>
-    <script src="../../src/admin/assets/our/js/value-information.js"></script>
-    <script src="../../src/admin/assets/our/js/delete-information.js"></script>
-    <script src="../../src/admin/assets/our/js/delete-services.js"></script>
-    <script src="../../src/admin/assets/our/js/value-services.js"></script>
-    <script src="../../src/admin/assets/our/js/search-alldata.js"></script>
+    <script src="../src/admin/assets/our/js/index.js"></script>
+    <script src="../src/admin/assets/our/js/caret.js"></script>
+    <script src="../src/admin/assets/our/js/drive-all.js"></script>
+    <script src="../src/admin/assets/our/js/value-information.js"></script>
+    <script src="../src/admin/assets/our/js/delete-information.js"></script>
+    <script src="../src/admin/assets/our/js/delete-services.js"></script>
+    <script src="../src/admin/assets/our/js/value-services.js"></script>
+    <script src="../src/admin/assets/our/js/search-alldata.js"></script>
     <!-- BOOTSTRAP JS -->
-    <script src="../../src/admin/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../src/admin/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- ALERT -->
-    <?php include '../../src/admin/partials/utils/alert.php' ?>
+    <?php include '../src/admin/partials/utils/alert.php' ?>
 </body>
 
 </html>

@@ -1,7 +1,5 @@
-<!-- Remove the container if you want to extend the Footer to full width. -->
-<div class="container-fluid-w-100 mt-5">
     <!-- Footer -->
-    <footer class="text-center text-lg-start text-white" style="background-color: #919191">
+    <footer class="text-center text-lg-start text-white" style="background-color: #919191;">
         <!-- Grid container -->
         <div class="container-fluid p-4 pb-3">
             <section class="">
@@ -79,4 +77,3 @@
             </section>
         </div>
     </footer>
-</div>

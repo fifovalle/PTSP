@@ -33,6 +33,6 @@ if (isset($_POST['Masuk'])) {
     $_SESSION['Peran_Admin'] = htmlspecialchars($admin['Peran_Admin']);
 
     setPesanKeberhasilan("Selamat datang, " . $_SESSION['Nama_Admin'] . "!");
-    header("Location: $akarUrl" . "public/admin/");
+    header("Location: $akarUrl" . "admin/");
     exit();
 }

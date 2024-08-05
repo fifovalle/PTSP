@@ -21,7 +21,7 @@
         </div>
     </div>
     <ul id="menuSidebarForDrive" class="list-unstyled components listSidebar">
-        <a href="<?php echo $akarUrl; ?>public/admin/">
+        <a href="<?php echo $akarUrl; ?>admin/">
             <li class="liSidebar <?php echo ($halamanSaatIni == 'index.php') ? 'active' : '' ?>">
                 <span class="textSidebar"><i class="fas fa-home me-2 my-2"></i>Beranda</span>
             </li>

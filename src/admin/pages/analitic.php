@@ -98,9 +98,9 @@ if (!isset($_SESSION['ID'])) {
                                 <!-- ALL ANALITIC END -->
                             </div>
                         </div>
-                        <!-- FOOTER START -->
-                        <?php include "../partials/components/footer.php" ?>
-                        <!-- FOOTER END -->
+                        <div class="container-fluid mt-4">
+                            <?php include "../partials/components/footer.php" ?>
+                        </div>
                 </main>
                 <!-- MAIN END -->
             </div>
