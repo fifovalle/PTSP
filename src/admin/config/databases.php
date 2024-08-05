@@ -2329,65 +2329,65 @@ class Transaksi
         }
     }
 
-    public function apakahSudahMembeliInformasiLainPengguna($pemilikInformasi, $idPengguna)
-    {
-        $query = "SELECT COUNT(*) as jumlah 
-                  FROM transaksi 
-                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi 
-                  WHERE transaksi.ID_Pengguna = ? AND informasi.Pemilik_Informasi <> ?";
-        $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("is", $idPengguna, $pemilikInformasi);
-        $statement->execute();
-        $result = $statement->get_result();
-        $row = $result->fetch_assoc();
-        $jumlah = $row['jumlah'];
-        return $jumlah > 0;
-    }
+    // public function apakahSudahMembeliInformasiLainPengguna($pemilikInformasi, $idPengguna)
+    // {
+    //     $query = "SELECT COUNT(*) as jumlah 
+    //               FROM transaksi 
+    //               LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi 
+    //               WHERE transaksi.ID_Pengguna = ? AND informasi.Pemilik_Informasi <> ?";
+    //     $statement = $this->koneksi->prepare($query);
+    //     $statement->bind_param("is", $idPengguna, $pemilikInformasi);
+    //     $statement->execute();
+    //     $result = $statement->get_result();
+    //     $row = $result->fetch_assoc();
+    //     $jumlah = $row['jumlah'];
+    //     return $jumlah > 0;
+    // }
 
-    public function apakahSudahMembeliJasaLainPengguna($pemilikJasa, $idPengguna)
-    {
-        $query = "SELECT COUNT(*) as jumlah 
-                  FROM transaksi 
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
-                  WHERE transaksi.ID_Pengguna = ? AND jasa.Pemilik_Jasa <> ?";
-        $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("is", $idPengguna, $pemilikJasa);
-        $statement->execute();
-        $result = $statement->get_result();
-        $row = $result->fetch_assoc();
-        $jumlah = $row['jumlah'];
-        return $jumlah > 0;
-    }
+    // public function apakahSudahMembeliJasaLainPengguna($pemilikJasa, $idPengguna)
+    // {
+    //     $query = "SELECT COUNT(*) as jumlah 
+    //               FROM transaksi 
+    //               LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+    //               WHERE transaksi.ID_Pengguna = ? AND jasa.Pemilik_Jasa <> ?";
+    //     $statement = $this->koneksi->prepare($query);
+    //     $statement->bind_param("is", $idPengguna, $pemilikJasa);
+    //     $statement->execute();
+    //     $result = $statement->get_result();
+    //     $row = $result->fetch_assoc();
+    //     $jumlah = $row['jumlah'];
+    //     return $jumlah > 0;
+    // }
 
-    public function apakahSudahMembeliInformasiLainPerusahaan($pemilikInformasi, $idPerusahaan)
-    {
-        $query = "SELECT COUNT(*) as jumlah 
-                  FROM transaksi 
-                  LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi 
-                  WHERE transaksi.ID_Perusahaan = ? AND informasi.Pemilik_Informasi <> ?";
-        $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("is", $idPerusahaan, $pemilikInformasi);
-        $statement->execute();
-        $result = $statement->get_result();
-        $row = $result->fetch_assoc();
-        $jumlah = $row['jumlah'];
-        return $jumlah > 0;
-    }
+    // public function apakahSudahMembeliInformasiLainPerusahaan($pemilikInformasi, $idPerusahaan)
+    // {
+    //     $query = "SELECT COUNT(*) as jumlah 
+    //               FROM transaksi 
+    //               LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi 
+    //               WHERE transaksi.ID_Perusahaan = ? AND informasi.Pemilik_Informasi <> ?";
+    //     $statement = $this->koneksi->prepare($query);
+    //     $statement->bind_param("is", $idPerusahaan, $pemilikInformasi);
+    //     $statement->execute();
+    //     $result = $statement->get_result();
+    //     $row = $result->fetch_assoc();
+    //     $jumlah = $row['jumlah'];
+    //     return $jumlah > 0;
+    // }
 
-    public function apakahSudahMembeliJasaLainPerusahaan($pemilikJasa, $idPerusahaan)
-    {
-        $query = "SELECT COUNT(*) as jumlah 
-                  FROM transaksi 
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
-                  WHERE transaksi.ID_Perusahaan = ? AND jasa.Pemilik_Jasa <> ?";
-        $statement = $this->koneksi->prepare($query);
-        $statement->bind_param("is", $idPerusahaan, $pemilikJasa);
-        $statement->execute();
-        $result = $statement->get_result();
-        $row = $result->fetch_assoc();
-        $jumlah = $row['jumlah'];
-        return $jumlah > 0;
-    }
+    // public function apakahSudahMembeliJasaLainPerusahaan($pemilikJasa, $idPerusahaan)
+    // {
+    //     $query = "SELECT COUNT(*) as jumlah 
+    //               FROM transaksi 
+    //               LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
+    //               WHERE transaksi.ID_Perusahaan = ? AND jasa.Pemilik_Jasa <> ?";
+    //     $statement = $this->koneksi->prepare($query);
+    //     $statement->bind_param("is", $idPerusahaan, $pemilikJasa);
+    //     $statement->execute();
+    //     $result = $statement->get_result();
+    //     $row = $result->fetch_assoc();
+    //     $jumlah = $row['jumlah'];
+    //     return $jumlah > 0;
+    // }
 
     public function cekDataDiKeranjangPerusahaan($idInformasi, $idPerusahaan)
     {

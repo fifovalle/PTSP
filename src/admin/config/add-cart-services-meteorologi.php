@@ -4,7 +4,6 @@ include 'databases.php';
 if (isset($_POST['tambah_keranjang'])) {
     if (isset($_SESSION['ID_Pengguna']) || isset($_SESSION['ID_Perusahaan'])) {
         $jasa = $_POST['Jasa'];
-        $pemilik_jasa = $_POST['Pemilik_Jasa'];
         $pengguna = isset($_POST['Pengguna']) ? $_POST['Pengguna'] : null;
         $perusahaan = isset($_POST['Perusahaan']) ? $_POST['Perusahaan'] : null;
         $tanggal_pembelian = date('Y-m-d H:i:s');
@@ -19,11 +18,6 @@ if (isset($_POST['tambah_keranjang'])) {
             if (!$transaksiModel->cekPenggunaTerdaftar($pengguna)) {
                 setPesanKesalahan("Pengguna belum terdaftar atau tidak valid.");
                 header("Location: $akarUrl" . "src/user/partials/produk-jasa-meteorologi.php");
-                exit;
-            }
-            if ($transaksiModel->apakahSudahMembeliJasaLainPengguna($pemilik_jasa, $pengguna)) {
-                setPesanKesalahan("Anda sudah membeli jasa lain dari pemilik jasa yang berbeda.");
-                header("Location: $akarUrl" . "src/user/pages/checkout.php");
                 exit;
             }
             $dataKeranjang = array(
@@ -51,11 +45,6 @@ if (isset($_POST['tambah_keranjang'])) {
             if (!$transaksiModel->cekPerusahaanTerdaftar($perusahaan)) {
                 setPesanKesalahan("Perusahaan belum terdaftar atau tidak valid.");
                 header("Location: $akarUrl" . "src/user/partials/produk-jasa-meteorologi.php");
-                exit;
-            }
-            if ($transaksiModel->apakahSudahMembeliJasaLainPerusahaan($pemilik_jasa, $perusahaan)) {
-                setPesanKesalahan("Anda sudah membeli jasa lain dari pemilik jasa yang berbeda.");
-                header("Location: $akarUrl" . "src/user/pages/checkout.php");
                 exit;
             }
             $dataKeranjang = array(

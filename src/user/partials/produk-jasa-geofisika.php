@@ -53,7 +53,6 @@ include '../../admin/config/databases.php';
                                             <div class="card-button">
                                                 <form action="../../admin/config/add-cart-services-geofisika.php" method="POST">
                                                     <input type="hidden" name="Jasa" value="<?php echo $jasaGeofisika['ID_Jasa']; ?>">
-                                                    <input type="hidden" name="Pemilik_Jasa" value="<?php echo $jasaGeofisika['Pemilik_Jasa']; ?>">
                                                     <?php if (isset($_SESSION['ID_Pengguna'])) : ?>
                                                         <input type="hidden" name="Pengguna" value="<?php echo $_SESSION['ID_Pengguna']; ?>">
                                                     <?php endif; ?>

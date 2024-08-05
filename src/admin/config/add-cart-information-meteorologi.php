@@ -4,7 +4,6 @@ include 'databases.php';
 if (isset($_POST['tambah_keranjang'])) {
     if (isset($_SESSION['ID_Pengguna']) || isset($_SESSION['ID_Perusahaan'])) {
         $informasi = $_POST['Informasi'];
-        $pemilik_informasi = $_POST['Pemilik_Informasi'];
         $pengguna = isset($_POST['Pengguna']) ? $_POST['Pengguna'] : null;
         $perusahaan = isset($_POST['Perusahaan']) ? $_POST['Perusahaan'] : null;
         $tanggal_pembelian = date('Y-m-d H:i:s');
@@ -13,12 +12,6 @@ if (isset($_POST['tambah_keranjang'])) {
         if (!is_null($pengguna)) {
             if ($transaksiModel->cekDataDiKeranjangPengguna($informasi, $pengguna)) {
                 setPesanKesalahan("Data sudah ada di keranjang.");
-                header("Location: $akarUrl" . "src/user/pages/checkout.php");
-                exit;
-            }
-
-            if ($transaksiModel->apakahSudahMembeliInformasiLainPengguna($pemilik_informasi, $pengguna)) {
-                setPesanKesalahan("Anda sudah membeli informasi lain dari pemilik informasi yang berbeda.");
                 header("Location: $akarUrl" . "src/user/pages/checkout.php");
                 exit;
             }
