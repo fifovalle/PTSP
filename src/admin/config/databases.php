@@ -2567,7 +2567,7 @@ class Transaksi
                 LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
                 WHERE transaksi.Total_Transaksi IS NOT NULL 
                 AND transaksi.Jumlah_Barang IS NOT NULL 
-                AND pengajuan.Status_Pengajuan ='Sedang Ditinjau'";
+                AND pengajuan.Status_Pengajuan ='Sedang Ditinjau' OR pengajuan.Status_Pengajuan = 'Ditolak'";
 
         $result = $this->koneksi->query($query);
 
@@ -3035,6 +3035,22 @@ class Transaksi
     public function tampilkanDataTransaksi()
     {
         $query = "SELECT * FROM transaksi";
+        $result = $this->koneksi->query($query);
+
+        if ($result->num_rows > 0) {
+            $data = [];
+            while ($baris = $result->fetch_assoc()) {
+                $data[] = $baris;
+            }
+            return $data;
+        } else {
+            return null;
+        }
+    }
+
+    public function tampilkanDataTransaksiKetikaSudahDiChekout()
+    {
+        $query = "SELECT * FROM transaksi WHERE Jumlah_Barang > 0";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {

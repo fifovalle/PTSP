@@ -88,7 +88,7 @@
                         </td>
                         <td class="text-center"><?php echo $pengajuan['Tanggal_Pengajuan']; ?></td>
                         <td class="text-center">
-                            <span class="badge <?php echo ($pengajuan['Status_Pengajuan'] === 'Sedang Ditinjau') ? 'text-bg-warning' : 'text-bg-success'; ?>">
+                            <span class="badge <?php echo ($pengajuan['Status_Pengajuan'] === 'Sedang Ditinjau') ? 'text-bg-warning' : 'text-bg-danger'; ?>">
                                 <?php echo $pengajuan['Status_Pengajuan']; ?>
                             </span>
                         </td>
