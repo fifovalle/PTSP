@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2024 at 08:29 AM
+-- Generation Time: Aug 08, 2024 at 02:17 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -132,6 +132,14 @@ CREATE TABLE `ikm` (
   `Kualitas_Pelayanan_Publik` enum('Sangat Setuju','Setuju','Kurang Setuju','Tidak Setuju') NOT NULL,
   `Harapan_Konsumen_Publik` enum('Sangat Penting','Penting','Kurang Penting','Tidak Penting') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ikm`
+--
+
+INSERT INTO `ikm` (`ID_Ikm`, `Nama`, `Jenis_Kelamin`, `Pendidikan_Terakhir`, `NIK`, `Umur`, `Pekerjaan`, `Koresponden`, `Jenis_Layanan`, `Asal_Daerah`, `Informasi_Cuaca_Publik`, `Informasi_Cuaca_Khusus`, `Analisis_Cuaca`, `Informasi_Titik_Panas`, `Informasi_Tentang_Tingkat`, `Prakiraan_Musim`, `Informasi_Iklim_Khusus`, `Analisis_Prakiraan`, `Tren_Curah_Hujan`, `Informasi_Kualitas_Udara`, `Analisis_Iklim_Ekstrim`, `Informasi_Iklim_Terapan`, `Informasi_Perubahan_Iklim`, `Pengambilan_Pengujian`, `Informasi_Gempabumi`, `Peta_Seismisitas`, `Informasi_Tanda_Waktu`, `Informasi_Geofisika_Potensial`, `Peta_Rendaman_Tsunami`, `Informasi_Seismologi_Teknik`, `Data_MKG`, `Kalibrasi`, `Konsultasi`, `Sewa_Peralatan_MKG`, `Kunjungan`, `Kualitas_Pelayanan_Terbuka`, `Harapan_Konsumen_Terbuka`, `Kualitas_Pelayanan_Kehidupan`, `Harapan_Konsumen_Kehidupan`, `Kualitas_Pelayanan_Dipahami`, `Harapan_Konsumen_Dipahami`, `Kualitas_Pelayanan_Persyaratan`, `Harapan_Konsumen_Persyaratan`, `Kualitas_Pelayanan_Diakses`, `Harapan_Konsumen_Diakses`, `Kualitas_Pelayanan_Akurat`, `Harapan_Konsumen_Akurat`, `Kualitas_Pelayanan_Data`, `Harapan_Konsumen_Data`, `Kualitas_Pelayanan_Sederhana`, `Kualitas_Pelayanan_Waktu`, `Harapan_Konsumen_Waktu`, `Kualitas_Pelayanan_Biaya_Terbuka`, `Harapan_Konsumen_Biaya_Terbuka`, `Kualitas_Pelayanan_KKN`, `Kualitas_Pelayanan_Sesuai`, `Harapan_Konsumen_Sesuai`, `Kualitas_Pelayanan_Daftar`, `Harapan_Konsumen_Daftar`, `Kualitas_Pelayanan_Sarana`, `Harapan_Konsumen_Sarana`, `Kualitas_Pelayanan_Prosedur`, `Harapan_Konsumen_Prosedur`, `Kualitas_Pelayanan_Petugas`, `Harapan_Konsumen_Petugas`, `Kualitas_Pelayanan_Aman`, `Harapan_Konsumen_Aman`, `Kualitas_Pelayanan_Keberadaan`, `Harapan_Konsumen_Keberadaan`, `Kualitas_Pelayanan_Sikap`, `Harapan_Konsumen_Sikap`, `Kualitas_Pelayanan_Publik`, `Harapan_Konsumen_Publik`) VALUES
+(55, 'Naufal', 'Pria', 'SD', 1, 1, 'Bos Besar Lele', 'Masyarakat Umum', 'Informasi', 'a', 'Informasi cuaca publik', 'Informasi cuaca khusus', 'Analisis cuaca', 'Informasi titik', '', 'Prakiraan musim', 'lnformasi iklim khusus', 'Analisis dan prakiraan curah hujan bulanan/dasarian', 'Tren curah hujan', 'lnformasi kualitas udara', 'Analisis iklim ekstrim', 'Informasi iklim terapan', 'Informasi perubahan iklim', 'Pengambilan dan pengujian sampel parameter iklim dan kualitas udara(laboratorium)', 'Informasi gempabumi dan peringatan dini tsunami', 'Peta seismisitas', 'lnformasi tanda waktu', 'lnformasi geofisika potensial', 'Peta rendaman tsunami', 'Informasi seismologi teknik', 'Data meteorologi, klimatologi, dan geofisika', 'Kalibrasi', 'Konsultasi', 'Sewa peralatan MKG', '', 'Sangat Setuju', '', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', '', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', '', 'Sangat Setuju', 'Sangat Penting'),
+(56, 'a', 'Pria', 'SD', 1, 1, ' bos lele', 'Masyarakat Umum', 'Informasi', 'a', 'Informasi cuaca publik', 'Informasi cuaca khusus', 'Analisis cuaca', 'Informasi titik', 'lnformasi tentang tingkat kemudahan terjadinya kebakaran hutan dan lahan', 'Prakiraan musim', 'lnformasi iklim khusus', 'Analisis dan prakiraan curah hujan bulanan/dasarian', 'Tren curah hujan', 'lnformasi kualitas udara', 'Analisis iklim ekstrim', 'Informasi iklim terapan', 'Informasi perubahan iklim', 'Pengambilan dan pengujian sampel parameter iklim dan kualitas udara(laboratorium)', 'Informasi gempabumi dan peringatan dini tsunami', 'Peta seismisitas', 'lnformasi tanda waktu', 'lnformasi geofisika potensial', 'Peta rendaman tsunami', 'Informasi seismologi teknik', 'Data meteorologi, klimatologi, dan geofisika', 'Kalibrasi', 'Konsultasi', 'Sewa peralatan MKG', 'Kunjungan', 'Sangat Setuju', '', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', '', 'Sangat Setuju', 'Sangat Penting', 'Sangat Setuju', '', 'Sangat Setuju', 'Sangat Penting');
 
 -- --------------------------------------------------------
 
@@ -592,7 +600,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `ikm`
 --
 ALTER TABLE `ikm`
-  MODIFY `ID_Ikm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `ID_Ikm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `informasi`
@@ -604,7 +612,7 @@ ALTER TABLE `informasi`
 -- AUTO_INCREMENT for table `informasi_tarif_pnbp`
 --
 ALTER TABLE `informasi_tarif_pnbp`
-  MODIFY `ID_PNBP` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ID_PNBP` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `jasa`
@@ -652,7 +660,7 @@ ALTER TABLE `pendidikan_dan_penelitian`
 -- AUTO_INCREMENT for table `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+  MODIFY `ID_Pengajuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -670,7 +678,7 @@ ALTER TABLE `perusahaan`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=358;
+  MODIFY `ID_Tranksaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=361;
 
 --
 -- Constraints for dumped tables

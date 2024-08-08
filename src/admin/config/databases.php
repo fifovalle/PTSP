@@ -2683,7 +2683,7 @@ class Transaksi
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   WHERE (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
-                  AND (informasi.Pemilik_Informasi = 'Instansi A' OR jasa.Pemilik_Jasa = 'Instansi A') AND (pengajuan.Status_Pengajuan = 'Diterima') AND (transaksi.Status_Pesanan = 'Belum Lunas' OR transaksi.Status_Transaksi = 'Ditolak')";
+                  AND (informasi.Pemilik_Informasi = 'Instansi A' OR jasa.Pemilik_Jasa = 'Instansi A') AND (pengajuan.Status_Pengajuan = 'Diterima') AND (transaksi.Status_Transaksi = 'Belum Disetujui' OR transaksi.Status_Transaksi = 'Ditolak')";
 
         $result = $this->koneksi->query($query);
 
@@ -2732,7 +2732,7 @@ class Transaksi
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   WHERE  (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
-                  AND (informasi.Pemilik_Informasi = 'Instansi B' OR jasa.Pemilik_Jasa = 'Instansi B') AND (pengajuan.Status_Pengajuan = 'Diterima') AND (transaksi.Status_Pesanan = 'Belum Lunas' OR transaksi.Status_Transaksi = 'Ditolak')";
+                  AND (informasi.Pemilik_Informasi = 'Instansi B' OR jasa.Pemilik_Jasa = 'Instansi B') AND (pengajuan.Status_Pengajuan = 'Diterima') AND (transaksi.Status_Transaksi = 'Belum Disetujui' OR transaksi.Status_Transaksi = 'Ditolak')";
 
         $result = $this->koneksi->query($query);
 
@@ -2781,7 +2781,7 @@ class Transaksi
                   LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
                   LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan
                   WHERE (transaksi.ID_Pengguna = '$idPembeli' OR transaksi.ID_Perusahaan = '$idPembeli') 
-                  AND (informasi.Pemilik_Informasi = 'Instansi C' OR jasa.Pemilik_Jasa = 'Instansi C') AND (pengajuan.Status_Pengajuan = 'Diterima') AND (transaksi.Status_Pesanan = 'Belum Lunas' OR transaksi.Status_Transaksi = 'Ditolak')";
+                  AND (informasi.Pemilik_Informasi = 'Instansi C' OR jasa.Pemilik_Jasa = 'Instansi C') AND (pengajuan.Status_Pengajuan = 'Diterima') AND (transaksi.Status_Transaksi = 'Belum Disetujui' OR transaksi.Status_Transaksi = 'Ditolak')";
 
         $result = $this->koneksi->query($query);
 
@@ -2822,7 +2822,7 @@ class Transaksi
                   LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna
                   LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi
                   LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
-                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Disetujui' AND  transaksi.ID_IKM IS NOT NULL AND transaksi.File_Penerimaan IS NOT NULL";
+                  LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa WHERE transaksi.Status_Transaksi = 'Disetujui' AND transaksi.File_Penerimaan IS NOT NULL";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {

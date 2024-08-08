@@ -112,6 +112,14 @@ document
     window.location.href = "katalogproduk.php";
   });
 
-document.getElementById("nilai-ikm").addEventListener("click", function () {
-  window.location.href = "ikm.php";
+function encrypt(data) {
+  return btoa(data);
+}
+document.querySelectorAll(".nilai-ikm").forEach((button) => {
+  button.addEventListener("click", function () {
+    const transaksiId = this.getAttribute("data-id");
+    const encryptedId = encrypt(transaksiId);
+    console.log("Encrypted ID:", encryptedId);
+    window.location.href = "ikm.php?ID_Tranksaksi=" + encryptedId;
+  });
 });

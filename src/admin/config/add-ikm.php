@@ -32,6 +32,8 @@ if (isset($_POST['submit'])) {
     require_once '../../../vendor/ezyang/htmlpurifier/library/HTMLPurifier.auto.php';
     $config = HTMLPurifier_Config::createDefault();
     $purifier = new HTMLPurifier($config);
+    $encryptedId = $_POST['ID_Tranksaksi'];
+    $transaksiId = base64_decode($encryptedId);
     $nama = filter_input(INPUT_POST, 'Nama', FILTER_SANITIZE_STRING);
     $jenisKelamin = filter_input(INPUT_POST, 'JenisKelamin', FILTER_SANITIZE_STRING);
     $pendidikanTerakhir = filter_input(INPUT_POST, 'PendidikanTerakhir', FILTER_SANITIZE_STRING);
@@ -182,7 +184,6 @@ if (isset($_POST['submit'])) {
         'Kualitas_Pelayanan_Publik' => $KualitasPelayananPublik,
         'Harapan_Konsumen_Publik' => $HarapanKonsumenPublik
     );
-    $ambilIDTransaksiTerakhir = $objekTranksaksi->ambilIDTransaksiTerakhir();
 
     $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
 
@@ -190,7 +191,7 @@ if (isset($_POST['submit'])) {
     global $koneksi;
     $ambilIKMTerakhir = $koneksi->insert_id;
 
-    $simpanDataTransaksi = $objekTranksaksi->updateIKMNULLSesuaiTransaksi($ambilIKMTerakhir, $ambilIDTransaksiTerakhir, $idSession);
+    $simpanDataTransaksi = $objekTranksaksi->updateIKMNULLSesuaiTransaksi($ambilIKMTerakhir, $transaksiId, $idSession);
 
     if (containsXSS($namaDepan) || containsXSS($namaBelakang) || containsXSS($namaPengguna) || containsXSS($email) || containsXSS($kataSandi) || containsXSS($konfirmasiKataSandi) || containsXSS($nomorTelepon) || containsXSS($jenisKelamin) || containsXSS($peranAdmin) || containsXSS($alamatAdmin)) {
         $pesanKesalahan .= "Input mengandung Serangan XSS, Saya tau anda ingin mennghack web saya 😡👿. ";

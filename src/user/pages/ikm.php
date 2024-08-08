@@ -55,6 +55,7 @@ include '../../admin/config/databases.php';
                 </div>
             </div>
             <form action="../../../src/admin/config/add-ikm.php" method="POST">
+                <input type="hidden" class="form-control" id="floatingInput" name="ID_Tranksaksi" value="<?= $_GET['ID_Tranksaksi'] ?>">
                 <div class="row form justify-content-between mx-5" id="DataDiri">
                     <div class="col-md-4 mb-4">
                         <div class="form-floating">

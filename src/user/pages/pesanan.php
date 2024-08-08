@@ -1169,11 +1169,11 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                                     $transaksiModel = new Transaksi($koneksi);
                                     $dataTraksaksi = $transaksiModel->tampilkanSelesaiTransaksiSesuaiSession($id);
+
                                     if (!empty($dataTraksaksi)) {
                                         foreach ($dataTraksaksi as $transaksi) {
-                                            echo '<button class="btn btn-outline-success pe-2 ms-2" type="button" id="nilai-ikm" style="width:100px;">Isi Survey</button>';
+                                            echo '<button class="btn btn-outline-success pe-2 ms-2 nilai-ikm" type="button" data-id="' . $transaksi['ID_Tranksaksi'] . '" style="width:100px;">Isi Survey</button>';
                                         }
-                                    } else {
                                     }
                                     ?>
                                 </div>
