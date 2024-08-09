@@ -47,6 +47,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                         $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
                         $transaksiModel = new Transaksi($koneksi);
                         $dataTraksaksi = $transaksiModel->tampilkanRiwayatTransaksiSesuaiSession($id);
+
                         if (!empty($dataTraksaksi)) {
                             $totalPesanan = 0;
                             foreach ($dataTraksaksi as $transaksi) {
@@ -55,8 +56,13 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     <div class="col" id="nama_barang"><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></div>
                                     <div class="col" id="jmlh_barang">x<?php echo $transaksi['Jumlah_Barang']; ?></div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="col text-end" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                <div class="col-md-4 d-flex flex-row">
+                                    <div class="col" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                    <?php
+                                    if (!empty($transaksi['File_Penerimaan']) && !empty($transaksi['ID_IKM'])) {
+                                        echo '<a href="../../admin/assets/image/uploads/' . $transaksi['File_Penerimaan'] . '" class="btn btn-outline-success h-75" id="btn-download-file" type="button" style="width:200px;">Download File</a>';
+                                    }
+                                    ?>
                                 </div>
                             <?php
                                 $totalPesanan += ($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']) * $transaksi['Jumlah_Barang'];
@@ -79,19 +85,6 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                         <div class="row">
                             <div class="col-md-12 text-start">
                                 <button class="btn btn-outline-danger px-2 mx-2" type="button" id="btn-beli-lagi" style="width:100px;">Beli Lagi</button>
-                                <?php
-                                $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
-                                $transaksiModel = new Transaksi($koneksi);
-                                $dataTraksaksi = $transaksiModel->tampilkanRiwayatTransaksiSesuaiSession($id);
-                                if (!empty($dataTraksaksi)) {
-                                    foreach ($dataTraksaksi as $transaksi) {
-                                        if (!empty($transaksi['File_Penerimaan']) && !empty($transaksi['ID_IKM'])) {
-                                            echo '<a href="../../admin/assets/image/uploads/' . $transaksi['File_Penerimaan'] . '" class="btn btn-outline-success px-2 mx-2" id="btn-download-file" type="button" style="width:118px;">Download File</a>';
-                                        }
-                                    }
-                                } else {
-                                }
-                                ?>
                                 <button class="btn btn-outline-secondary px-2 mx-2" type="button" style="width:200px;" data-bs-toggle="modal" data-bs-target="#historiPengisianIKM">Riwayat Pengisian IKM</button>
                             </div>
                         </div>
@@ -1119,6 +1112,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                             $indexAkhir = $indexAwal + $jumlahDataPerHalaman;
                             $dataTraksaksiHalaman = array_slice($dataTraksaksi, $indexAwal, $jumlahDataPerHalaman);
                             ?>
+
                             <div class="row">
                                 <?php if (!empty($dataTraksaksiHalaman)) : ?>
                                     <?php $totalPesanan = 0; ?>
@@ -1127,8 +1121,9 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                             <div class="col" id="nama_barang"><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></div>
                                             <div class="col" id="jmlh_barang">x<?php echo $transaksi['Jumlah_Barang']; ?></div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="col text-end" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                        <div class="col-md-4 d-flex flex-row">
+                                            <div class="col" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                            <button class="btn btn-outline-success pe-2 h-50 nilai-ikm" type="button" data-id="<?php echo $transaksi['ID_Tranksaksi']; ?>" style="width:100px;">Isi Survey</button>
                                         </div>
                                         <?php $totalPesanan += ($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']) * $transaksi['Jumlah_Barang']; ?>
                                     <?php endforeach; ?>
@@ -1165,17 +1160,6 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 </div>
                                 <div class="col text-end">
                                     <button class="btn btn-outline-danger ms-3" type="button" id="btn-beli-lagi1" style="width:100px;">Beli Lagi</button>
-                                    <?php
-                                    $id = $_SESSION['ID_Pengguna'] ?? $_SESSION['ID_Perusahaan'];
-                                    $transaksiModel = new Transaksi($koneksi);
-                                    $dataTraksaksi = $transaksiModel->tampilkanSelesaiTransaksiSesuaiSession($id);
-
-                                    if (!empty($dataTraksaksi)) {
-                                        foreach ($dataTraksaksi as $transaksi) {
-                                            echo '<button class="btn btn-outline-success pe-2 ms-2 nilai-ikm" type="button" data-id="' . $transaksi['ID_Tranksaksi'] . '" style="width:100px;">Isi Survey</button>';
-                                        }
-                                    }
-                                    ?>
                                 </div>
                             </div>
                         </div>
