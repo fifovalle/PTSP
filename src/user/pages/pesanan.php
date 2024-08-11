@@ -58,11 +58,12 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 </div>
                                 <div class="col-md-4 d-flex flex-row">
                                     <div class="col" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
-                                    <?php
-                                    if (!empty($transaksi['File_Penerimaan']) && !empty($transaksi['ID_IKM'])) {
-                                        echo '<a href="../../admin/assets/image/uploads/' . $transaksi['File_Penerimaan'] . '" class="btn btn-outline-success h-75" id="btn-download-file" type="button" style="width:200px;">Download File</a>';
-                                    }
-                                    ?>
+                                    <div class="flex-column gap-3">
+                                        <div class="my-2">
+                                            <a href="../../admin/assets/image/uploads/<?php echo $transaksi['File_Penerimaan']; ?>" class="btn btn-outline-success h-75" id="btn-download-file" type="button" style="width:200px;">Download File</a>
+                                        </div>
+                                        <div class="col"><?php echo $transaksi['Tanggal_Pembelian']; ?></div>
+                                    </div>
                                 </div>
                             <?php
                                 $totalPesanan += ($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']) * $transaksi['Jumlah_Barang'];
@@ -159,7 +160,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     <?php
                                     $pengajuanModel = new Pengajuan($koneksi);
                                     $transaksiModel = new Transaksi($koneksi);
-                                    $dataPengajuan = $pengajuanModel->tampilkanSemuaDataPengajuan();
+                                    $dataPengajuan = $pengajuanModel->tampilkanSemuaDataPengajuan2();
                                     $dataTransaksi = $transaksiModel->tampilkanDataTransaksiKetikaSudahDiChekout();
 
                                     $statusDiterima = false;
@@ -809,14 +810,18 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         $id = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : $_SESSION['ID_Perusahaan'];
                                         $transaksiModel = new Transaksi($koneksi);
                                         $dataPembuatanModel = $transaksiModel->tampilkanPembuatanTanggalTransaksi($id);
-                                        if ($dataPembuatanModel !== null) {
-                                            foreach ($dataPembuatanModel as $data) {
+
+                                        if ($dataPembuatanModel !== null && count($dataPembuatanModel) > 0) {
+                                            usort($dataPembuatanModel, function ($a, $b) {
+                                                return strtotime($b['Tanggal_Upload_File_Penerimaan']) - strtotime($a['Tanggal_Upload_File_Penerimaan']);
+                                            });
+
+                                            $dataTerbaru = $dataPembuatanModel[0];
                                         ?>
-                                                <p class="card-text"><?php echo $data['Tanggal_Upload_File_Penerimaan']; ?></p>
-                                            <?php
-                                            }
+                                            <p class="card-text"><?php echo $dataTerbaru['Tanggal_Upload_File_Penerimaan']; ?></p>
+                                        <?php
                                         } else {
-                                            ?>
+                                        ?>
                                             <p class="card-text">Belum Ada Pembuatan</p>
                                         <?php
                                         }

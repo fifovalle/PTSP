@@ -107,6 +107,61 @@ if (isset($_POST['submit'])) {
     $KualitasPelayananPublik = isset($_POST['Kualitas_Pelayanan_Publik']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Publik', FILTER_SANITIZE_STRING) : '';
     $HarapanKonsumenPublik = isset($_POST['Harapan_Konsumen_Publik']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Publik', FILTER_SANITIZE_STRING) : '';
 
+    $requiredFields = [
+        'Kualitas_Pelayanan_Terbuka',
+        'Harapan_Konsumen_Terbuka',
+        'Kualitas_Pelayanan_Kehidupan',
+        'Harapan_Konsumen_Kehidupan',
+        'Kualitas_Pelayanan_Dipahami',
+        'Harapan_Konsumen_Dipahami',
+        'Kualitas_Pelayanan_Persyaratan',
+        'Harapan_Konsumen_Persyaratan',
+        'Kualitas_Pelayanan_Diakses',
+        'Harapan_Konsumen_Diakses',
+        'Kualitas_Pelayanan_Akurat',
+        'Harapan_Konsumen_Akurat',
+        'Kualitas_Pelayanan_Data',
+        'Harapan_Konsumen_Data',
+        'Kualitas_Pelayanan_Sederhana',
+        'Kualitas_Pelayanan_Waktu',
+        'Harapan_Konsumen_Waktu',
+        'Kualitas_Pelayanan_Biaya_Terbuka',
+        'Harapan_Konsumen_Biaya_Terbuka',
+        'Kualitas_Pelayanan_KKN',
+        'Kualitas_Pelayanan_Sesuai',
+        'Harapan_Konsumen_Sesuai',
+        'Kualitas_Pelayanan_Daftar',
+        'Harapan_Konsumen_Daftar',
+        'Kualitas_Pelayanan_Sarana',
+        'Harapan_Konsumen_Sarana',
+        'Kualitas_Pelayanan_Prosedur',
+        'Harapan_Konsumen_Prosedur',
+        'Kualitas_Pelayanan_Petugas',
+        'Harapan_Konsumen_Petugas',
+        'Kualitas_Pelayanan_Aman',
+        'Harapan_Konsumen_Aman',
+        'Kualitas_Pelayanan_Keberadaan',
+        'Harapan_Konsumen_Keberadaan',
+        'Kualitas_Pelayanan_Sikap',
+        'Harapan_Konsumen_Sikap',
+        'Kualitas_Pelayanan_Publik',
+        'Harapan_Konsumen_Publik'
+    ];
+
+    $errors = [];
+
+    foreach ($requiredFields as $field) {
+        $$field = isset($_POST[$field]) ? filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING) : '';
+        if (empty($$field)) {
+            $errors[] = "Field $field harus diisi.";
+        }
+    }
+
+    if (!empty($errors)) {
+        $errorMessage = implode("<br>", $errors);
+        echo "<script>alert('$errorMessage');</script>";
+    }
+
     $objekIkm = new Ikm($koneksi);
     $objekTranksaksi = new Transaksi($koneksi);
 

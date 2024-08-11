@@ -45,6 +45,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $statusPesanan = 'Belum Lunas';
     }
 
+    if ($status === 'Ditolak' && $keterangan === '') {
+        echo json_encode(array("success" => false, "message" => "Anda harus memasukkan keterangan."));
+        exit;
+    }
+
     $updatePayment = $databasesModel->perbaruiPembayaran(
         $pembayaranID,
         $keterangan,
@@ -53,13 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     if ($updatePayment) {
-        echo json_encode(array("success" => true, "message" => "Payment data updated successfully."));
+        echo json_encode(array("success" => true, "message" => "Data sukses diperbarui."));
         exit;
     } else {
-        echo json_encode(array("success" => false, "message" => "Failed to update payment data."));
+        echo json_encode(array("success" => false, "message" => "Data gagal diperbarui."));
         exit;
     }
 } else {
-    echo json_encode(array("success" => false, "message" => "Invalid request method."));
+    echo json_encode(array("success" => false, "message" => "Request tidak valid."));
     exit;
 }
