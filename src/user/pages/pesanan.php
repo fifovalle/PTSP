@@ -62,6 +62,9 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         <div class="my-2">
                                             <a href="../../admin/assets/image/uploads/<?php echo $transaksi['File_Penerimaan']; ?>" class="btn btn-outline-success h-75" id="btn-download-file" type="button" style="width:200px;">Download File</a>
                                         </div>
+                                        <div class="my-2">
+                                            <button class="btn btn-outline-secondary" type="button" style="width:200px;" data-bs-toggle="modal" data-bs-target="#historiPengisianIKM">Riwayat Pengisian IKM</button>
+                                        </div>
                                         <div class="col"><?php echo $transaksi['Tanggal_Pembelian']; ?></div>
                                     </div>
                                 </div>
@@ -86,7 +89,6 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                         <div class="row">
                             <div class="col-md-12 text-start">
                                 <button class="btn btn-outline-danger px-2 mx-2" type="button" id="btn-beli-lagi" style="width:100px;">Beli Lagi</button>
-                                <button class="btn btn-outline-secondary px-2 mx-2" type="button" style="width:200px;" data-bs-toggle="modal" data-bs-target="#historiPengisianIKM">Riwayat Pengisian IKM</button>
                             </div>
                         </div>
                     </div>
@@ -473,17 +475,14 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     $transaksiModel = new Transaksi($koneksi);
                                     $dataTransaksi = $transaksiModel->tampilkanPembayaranTransaksiSesuaiSession($id);
 
-                                    $pembayaranModel = new Pengajuan($koneksi);
-                                    $dataPembayaran = $pembayaranModel->tampilkanSemuaDataPembayaran();
-
                                     $statusPembayaran = [
                                         'Diterima' => false,
                                         'Sedang Ditinjau' => false,
                                         'Ditolak' => false,
                                     ];
 
-                                    if (!is_null($dataPembayaran)) {
-                                        foreach ($dataPembayaran as $pembayaran) {
+                                    if (!is_null($dataTransaksi)) {
+                                        foreach ($dataTransaksi as $pembayaran) {
                                             if (!empty($_SESSION['ID_Perusahaan']) && $pembayaran['ID_Perusahaan'] == $_SESSION['ID_Perusahaan']) {
                                                 if ($pembayaran['Status_Transaksi'] == 'Diterima') {
                                                     $statusPembayaran['Diterima'] = true;

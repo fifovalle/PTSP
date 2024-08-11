@@ -16,7 +16,7 @@ $(document).ready(function () {
           "Data Pengajuan yang Diterima (setelah parsing):",
           dataApplyment
         );
-        $("#editPayment").val(dataApplyment.ID_Tranksaksi);
+        $("#suntingPembayaran").val(dataApplyment.ID_Tranksaksi);
         $("#aproveFilePayment").modal("show");
       },
       error: function (xhr) {
