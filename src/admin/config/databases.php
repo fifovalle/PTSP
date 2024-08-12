@@ -2004,6 +2004,10 @@ class Pengajuan
 
         $query = "UPDATE pengajuan SET Status_Pengajuan = '$statusPengajuan', Apakah_Gratis = '$apakahGratis'";
 
+        if ($statusPengajuan === 'Ditolak') {
+            $query .= ", Keterangan_Surat_Ditolak = '$keteranganSuratDitolak'";
+        }
+
         if ($apakahGratis === '1') {
             $query .= " WHERE ID_Pengajuan = '$pengajuanID';";
             $query .= "UPDATE transaksi SET Bukti_Pembayaran = 'Terisi', Tanggal_Upload_Bukti = NOW(), Status_Transaksi = 'Disetujui', Status_Pesanan = 'Lunas' WHERE ID_Pengajuan = '$pengajuanID';";
@@ -2011,9 +2015,6 @@ class Pengajuan
             $query .= ", Keterangan_Surat_Ditolak = NULL";
         }
 
-        if ($statusPengajuan === 'Ditolak') {
-            $query .= ", Keterangan_Surat_Ditolak = '$keteranganSuratDitolak'";
-        }
 
         $query .= " WHERE ID_Pengajuan = '$pengajuanID'";
         $result = mysqli_multi_query($this->koneksi, $query);
