@@ -57,7 +57,13 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     <div class="col" id="jmlh_barang">x<?php echo $transaksi['Jumlah_Barang']; ?></div>
                                 </div>
                                 <div class="col-md-4 d-flex flex-row">
-                                    <div class="col" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                    <?php if ($transaksi['Apakah_Gratis'] == 0) { ?>
+                                        <div class="col" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                    <?php } else { ?>
+                                        <div class="col text-decoration-line-through" id="harga_barang">
+                                            <?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?>
+                                        </div>
+                                    <?php } ?>
                                     <div class="flex-column gap-3">
                                         <div class="my-2">
                                             <a href="../../admin/assets/image/uploads/<?php echo $transaksi['File_Penerimaan']; ?>" class="btn btn-outline-success h-75" id="btn-download-file" type="button" style="width:200px;">Download File</a>
@@ -65,17 +71,23 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         <div class="my-2">
                                             <button class="btn btn-outline-secondary" type="button" style="width:200px;" data-bs-toggle="modal" data-bs-target="#historiPengisianIKM">Riwayat Pengisian IKM</button>
                                         </div>
+
                                         <div class="col"><?php echo $transaksi['Tanggal_Pembelian']; ?></div>
                                     </div>
                                 </div>
                             <?php
-                                $totalPesanan += ($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']) * $transaksi['Jumlah_Barang'];
+                                if ($transaksi['Apakah_Gratis'] == 0) {
+                                    $totalPesanan += ($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']) * $transaksi['Jumlah_Barang'];
+                                }
                             }
+
                             ?>
                             <hr class="my-3">
                             <div class="d-flex row">
                                 <div class="col text-end" id="total_harga">
-                                    <p>Total Pesanan : Rp<?php echo number_format($totalPesanan, 0, ',', '.'); ?></p>
+                                    <?php if ($totalPesanan > 0) { ?>
+                                        <p>Total Pesanan : Rp<?php echo number_format($totalPesanan, 0, ',', '.'); ?></p>
+                                    <?php } ?>
                                 </div>
                             </div>
                         <?php
@@ -88,7 +100,10 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                         ?>
                         <div class="row">
                             <div class="col-md-12 text-start">
-                                <button class="btn btn-outline-danger px-2 mx-2" type="button" id="btn-beli-lagi" style="width:100px;">Beli Lagi</button>
+                                <form action="../../admin/config/generate-invoice.php" method="post">
+                                    <button type="submit" name="generate_pdf" class="btn btn-outline-success mx-2">Unduh Faktur</button>
+                                    <button class="btn btn-outline-danger px-2 mx-2" type="button" id="btn-beli-lagi" style="width:100px;">Beli Lagi</button>
+                                </form>
                             </div>
                         </div>
                     </div>

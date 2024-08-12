@@ -364,8 +364,8 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Terbuka" id="Sangat Setuju" value="Sangat Setuju">
-                                                    <label class="form-check-label" for="Sangat Setuju">Sangat Penting</label>
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Terbuka" id="Sangat Penting" value="Sangat Penting">
+                                                    <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
                                                     <input class="form-check-input" type="radio" name="Harapan_Konsumen_Terbuka" id="Penting" value="Penting">
@@ -1161,7 +1161,7 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sikap" id="Sangat Penting" value="option1">
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Sikap" id="Sangat Penting" value="Sangat Penting">
                                                     <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">
@@ -1210,7 +1210,7 @@ include '../../admin/config/databases.php';
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Aman" id="Sangat Penting" value="option1">
+                                                    <input class="form-check-input" type="radio" name="Harapan_Konsumen_Aman" id="Sangat Penting" value="Sangat Penting">
                                                     <label class="form-check-label" for="Sangat Penting">Sangat Penting</label>
                                                 </div>
                                                 <div class="form-check form-check-inline px-3">

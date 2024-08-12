@@ -107,159 +107,131 @@ if (isset($_POST['submit'])) {
     $KualitasPelayananPublik = isset($_POST['Kualitas_Pelayanan_Publik']) ? filter_input(INPUT_POST, 'Kualitas_Pelayanan_Publik', FILTER_SANITIZE_STRING) : '';
     $HarapanKonsumenPublik = isset($_POST['Harapan_Konsumen_Publik']) ? filter_input(INPUT_POST, 'Harapan_Konsumen_Publik', FILTER_SANITIZE_STRING) : '';
 
-    $requiredFields = [
-        'Kualitas_Pelayanan_Terbuka',
-        'Harapan_Konsumen_Terbuka',
-        'Kualitas_Pelayanan_Kehidupan',
-        'Harapan_Konsumen_Kehidupan',
-        'Kualitas_Pelayanan_Dipahami',
-        'Harapan_Konsumen_Dipahami',
-        'Kualitas_Pelayanan_Persyaratan',
-        'Harapan_Konsumen_Persyaratan',
-        'Kualitas_Pelayanan_Diakses',
-        'Harapan_Konsumen_Diakses',
-        'Kualitas_Pelayanan_Akurat',
-        'Harapan_Konsumen_Akurat',
-        'Kualitas_Pelayanan_Data',
-        'Harapan_Konsumen_Data',
-        'Kualitas_Pelayanan_Sederhana',
-        'Kualitas_Pelayanan_Waktu',
-        'Harapan_Konsumen_Waktu',
-        'Kualitas_Pelayanan_Biaya_Terbuka',
-        'Harapan_Konsumen_Biaya_Terbuka',
-        'Kualitas_Pelayanan_KKN',
-        'Kualitas_Pelayanan_Sesuai',
-        'Harapan_Konsumen_Sesuai',
-        'Kualitas_Pelayanan_Daftar',
-        'Harapan_Konsumen_Daftar',
-        'Kualitas_Pelayanan_Sarana',
-        'Harapan_Konsumen_Sarana',
-        'Kualitas_Pelayanan_Prosedur',
-        'Harapan_Konsumen_Prosedur',
-        'Kualitas_Pelayanan_Petugas',
-        'Harapan_Konsumen_Petugas',
-        'Kualitas_Pelayanan_Aman',
-        'Harapan_Konsumen_Aman',
-        'Kualitas_Pelayanan_Keberadaan',
-        'Harapan_Konsumen_Keberadaan',
-        'Kualitas_Pelayanan_Sikap',
-        'Harapan_Konsumen_Sikap',
-        'Kualitas_Pelayanan_Publik',
-        'Harapan_Konsumen_Publik'
-    ];
-
-    $errors = [];
-
-    foreach ($requiredFields as $field) {
-        $$field = isset($_POST[$field]) ? filter_input(INPUT_POST, $field, FILTER_SANITIZE_STRING) : '';
-        if (empty($$field)) {
-            $errors[] = "Field $field harus diisi.";
-        }
-    }
-
-    if (!empty($errors)) {
-        $errorMessage = implode("<br>", $errors);
-        echo "<script>alert('$errorMessage');</script>";
-    }
-
-    $objekIkm = new Ikm($koneksi);
-    $objekTranksaksi = new Transaksi($koneksi);
-
-    $dataIkm = array(
-        'Nama' => $nama,
-        'Jenis_Kelamin' => $jenisKelamin,
-        'Pendidikan_Terakhir' => $pendidikanTerakhir,
-        'NIK' => $NIK,
-        'Umur' => $umur,
-        'Pekerjaan' => $pekerjaan,
-        'Koresponden' => $koresponden,
-        'Jenis_Layanan' => $jenisLayanan,
-        'Asal_Daerah' => $asalDaerah,
-        'Informasi_Cuaca_Publik' => $c1,
-        'Informasi_Cuaca_Khusus' => $c2,
-        'Analisis_Cuaca' => $c3,
-        'Informasi_Titik_Panas' => $c4,
-        'Informasi_Tentang_Tingkat' => $c5,
-        'Prakiraan_Musim' => $c6,
-        'Informasi_Iklim_Khusus' => $c7,
-        'Analisis_Prakiraan' => $c8,
-        'Tren_Curah_Hujan' => $c9,
-        'Informasi_Kualitas_Udara' => $c10,
-        'Analisis_Iklim_Ekstrim' => $c11,
-        'Informasi_Iklim_Terapan' => $c12,
-        'Informasi_Perubahan_Iklim' => $c13,
-        'Pengambilan_Pengujian' => $c14,
-        'Informasi_Gempabumi' => $c15,
-        'Peta_Seismisitas' => $c16,
-        'Informasi_Tanda_Waktu' => $c17,
-        'Informasi_Geofisika_Potensial' => $c18,
-        'Peta_Rendaman_Tsunami' => $c19,
-        'Informasi_Seismologi_Teknik' => $c20,
-        'Data_MKG' => $c21,
-        'Kalibrasi' => $c22,
-        'Konsultasi' => $c23,
-        'Sewa_Peralatan_MKG' => $c24,
-        'Kunjungan' => $c25,
-        'Kualitas_Pelayanan_Terbuka' => $KualitasPelayananTerbuka,
-        'Harapan_Konsumen_Terbuka' => $HarapanKonsumenTerbuka,
-        'Kualitas_Pelayanan_Kehidupan' => $KualitasPelayananKehidupan,
-        'Harapan_Konsumen_Kehidupan' => $HarapanKonsumenKehidupan,
-        'Kualitas_Pelayanan_Dipahami' => $KualitasPelayananDipahami,
-        'Harapan_Konsumen_Dipahami' => $HarapanKonsumenDipahami,
-        'Kualitas_Pelayanan_Persyaratan' => $KualitasPelayananPersyaratan,
-        'Harapan_Konsumen_Persyaratan' => $HarapanKonsumenPersyaratan,
-        'Kualitas_Pelayanan_Diakses' => $KualitasPelayananDiakses,
-        'Harapan_Konsumen_Diakses' => $HarapanKonsumenDiakses,
-        'Kualitas_Pelayanan_Akurat' => $KualitasPelayananAkurat,
-        'Harapan_Konsumen_Akurat' => $HarapanKonsumenAkurat,
-        'Kualitas_Pelayanan_Data' => $KualitasPelayananData,
-        'Harapan_Konsumen_Data' => $HarapanKonsumenData,
-        'Kualitas_Pelayanan_Sederhana' => $KualitasPelayananSederhana,
-        'Kualitas_Pelayanan_Waktu' => $KualitasPelayananWaktu,
-        'Harapan_Konsumen_Waktu' => $HarapanKonsumenWaktu,
-        'Kualitas_Pelayanan_Biaya_Terbuka' => $KualitasPelayananBiayaTerbuka,
-        'Harapan_Konsumen_Biaya_Terbuka' => $HarapanKonsumenBiayaTerbuka,
-        'Kualitas_Pelayanan_KKN' => $KualitasPelayananKKN,
-        'Kualitas_Pelayanan_Sesuai' => $KualitasPelayananSesuai,
-        'Harapan_Konsumen_Sesuai' => $HarapanKonsumenSesuai,
-        'Kualitas_Pelayanan_Daftar' => $KualitasPelayananDaftar,
-        'Harapan_Konsumen_Daftar' => $HarapanKonsumenDaftar,
-        'Kualitas_Pelayanan_Sarana' => $KualitasPelayananSarana,
-        'Harapan_Konsumen_Sarana' => $HarapanKonsumenSarana,
-        'Kualitas_Pelayanan_Prosedur' => $KualitasPelayananProsedur,
-        'Harapan_Konsumen_Prosedur' => $HarapanKonsumenProsedur,
-        'Kualitas_Pelayanan_Petugas' => $KualitasPelayananPetugas,
-        'Harapan_Konsumen_Petugas' => $HarapanKonsumenPetugas,
-        'Kualitas_Pelayanan_Aman' => $KualitasPelayananAman,
-        'Harapan_Konsumen_Aman' => $HarapanKonsumenAman,
-        'Kualitas_Pelayanan_Keberadaan' => $KualitasPelayananKeberadaan,
-        'Harapan_Konsumen_Keberadaan' => $HarapanKonsumenKeberadaan,
-        'Kualitas_Pelayanan_Sikap' => $KualitasPelayananSikap,
-        'Harapan_Konsumen_Sikap' => $HarapanKonsumenSikap,
-        'Kualitas_Pelayanan_Publik' => $KualitasPelayananPublik,
-        'Harapan_Konsumen_Publik' => $HarapanKonsumenPublik
-    );
-
-    $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
-
-    $simpanDataIkm = $objekIkm->tambahDataIkm($dataIkm);
-    global $koneksi;
-    $ambilIKMTerakhir = $koneksi->insert_id;
-
-    $simpanDataTransaksi = $objekTranksaksi->updateIKMNULLSesuaiTransaksi($ambilIKMTerakhir, $transaksiId, $idSession);
-
-    if (containsXSS($namaDepan) || containsXSS($namaBelakang) || containsXSS($namaPengguna) || containsXSS($email) || containsXSS($kataSandi) || containsXSS($konfirmasiKataSandi) || containsXSS($nomorTelepon) || containsXSS($jenisKelamin) || containsXSS($peranAdmin) || containsXSS($alamatAdmin)) {
-        $pesanKesalahan .= "Input mengandung Serangan XSS, Saya tau anda ingin mennghack web saya 😡👿. ";
-    }
-
-    if ($simpanDataIkm && $simpanDataTransaksi) {
-        setPesanKeberhasilan("Data berhasil ditambahkan.");
-        header("Location: $akarUrl" . "src/user/pages/pesanan.php");
-        exit();
-    } else {
-        setPesanKesalahan("Gagal menambahkan data.");
-        header("Location: $akarUrl" . "src/user/pages/ikm.php");
+    if (
+        empty($KualitasPelayananTerbuka) || empty($HarapanKonsumenTerbuka) ||
+        empty($KualitasPelayananKehidupan) || empty($HarapanKonsumenKehidupan) ||
+        empty($KualitasPelayananDipahami) || empty($HarapanKonsumenDipahami) ||
+        empty($KualitasPelayananPersyaratan) || empty($HarapanKonsumenPersyaratan) ||
+        empty($KualitasPelayananDiakses) || empty($HarapanKonsumenDiakses) ||
+        empty($KualitasPelayananAkurat) || empty($HarapanKonsumenAkurat) ||
+        empty($KualitasPelayananData) || empty($HarapanKonsumenData) ||
+        empty($KualitasPelayananSederhana) ||
+        empty($KualitasPelayananWaktu) || empty($HarapanKonsumenWaktu) ||
+        empty($KualitasPelayananBiayaTerbuka) || empty($HarapanKonsumenBiayaTerbuka) ||
+        empty($KualitasPelayananKKN) || empty($KualitasPelayananSesuai) ||
+        empty($HarapanKonsumenSesuai) || empty($KualitasPelayananDaftar) ||
+        empty($HarapanKonsumenDaftar) || empty($KualitasPelayananSarana) ||
+        empty($HarapanKonsumenSarana) || empty($KualitasPelayananProsedur) ||
+        empty($HarapanKonsumenProsedur) || empty($KualitasPelayananPetugas) ||
+        empty($HarapanKonsumenPetugas) || empty($KualitasPelayananAman) ||
+        empty($HarapanKonsumenAman) || empty($KualitasPelayananKeberadaan) ||
+        empty($HarapanKonsumenKeberadaan) || empty($KualitasPelayananSikap) ||
+        empty($HarapanKonsumenSikap) || empty($KualitasPelayananPublik) ||
+        empty($HarapanKonsumenPublik)
+    ) {
+        setPesanKesalahan("Semua kolom harus diisi.");
+        header("location: ../../user/pages/ikm.php?ID_Tranksaksi=" . $encryptedId);
         exit;
+    } else {
+        $objekIkm = new Ikm($koneksi);
+        $objekTranksaksi = new Transaksi($koneksi);
+
+        $dataIkm = array(
+            'Nama' => $nama,
+            'Jenis_Kelamin' => $jenisKelamin,
+            'Pendidikan_Terakhir' => $pendidikanTerakhir,
+            'NIK' => $NIK,
+            'Umur' => $umur,
+            'Pekerjaan' => $pekerjaan,
+            'Koresponden' => $koresponden,
+            'Jenis_Layanan' => $jenisLayanan,
+            'Asal_Daerah' => $asalDaerah,
+            'Informasi_Cuaca_Publik' => $c1,
+            'Informasi_Cuaca_Khusus' => $c2,
+            'Analisis_Cuaca' => $c3,
+            'Informasi_Titik_Panas' => $c4,
+            'Informasi_Tentang_Tingkat' => $c5,
+            'Prakiraan_Musim' => $c6,
+            'Informasi_Iklim_Khusus' => $c7,
+            'Analisis_Prakiraan' => $c8,
+            'Tren_Curah_Hujan' => $c9,
+            'Informasi_Kualitas_Udara' => $c10,
+            'Analisis_Iklim_Ekstrim' => $c11,
+            'Informasi_Iklim_Terapan' => $c12,
+            'Informasi_Perubahan_Iklim' => $c13,
+            'Pengambilan_Pengujian' => $c14,
+            'Informasi_Gempabumi' => $c15,
+            'Peta_Seismisitas' => $c16,
+            'Informasi_Tanda_Waktu' => $c17,
+            'Informasi_Geofisika_Potensial' => $c18,
+            'Peta_Rendaman_Tsunami' => $c19,
+            'Informasi_Seismologi_Teknik' => $c20,
+            'Data_MKG' => $c21,
+            'Kalibrasi' => $c22,
+            'Konsultasi' => $c23,
+            'Sewa_Peralatan_MKG' => $c24,
+            'Kunjungan' => $c25,
+            'Kualitas_Pelayanan_Terbuka' => $KualitasPelayananTerbuka,
+            'Harapan_Konsumen_Terbuka' => $HarapanKonsumenTerbuka,
+            'Kualitas_Pelayanan_Kehidupan' => $KualitasPelayananKehidupan,
+            'Harapan_Konsumen_Kehidupan' => $HarapanKonsumenKehidupan,
+            'Kualitas_Pelayanan_Dipahami' => $KualitasPelayananDipahami,
+            'Harapan_Konsumen_Dipahami' => $HarapanKonsumenDipahami,
+            'Kualitas_Pelayanan_Persyaratan' => $KualitasPelayananPersyaratan,
+            'Harapan_Konsumen_Persyaratan' => $HarapanKonsumenPersyaratan,
+            'Kualitas_Pelayanan_Diakses' => $KualitasPelayananDiakses,
+            'Harapan_Konsumen_Diakses' => $HarapanKonsumenDiakses,
+            'Kualitas_Pelayanan_Akurat' => $KualitasPelayananAkurat,
+            'Harapan_Konsumen_Akurat' => $HarapanKonsumenAkurat,
+            'Kualitas_Pelayanan_Data' => $KualitasPelayananData,
+            'Harapan_Konsumen_Data' => $HarapanKonsumenData,
+            'Kualitas_Pelayanan_Sederhana' => $KualitasPelayananSederhana,
+            'Kualitas_Pelayanan_Waktu' => $KualitasPelayananWaktu,
+            'Harapan_Konsumen_Waktu' => $HarapanKonsumenWaktu,
+            'Kualitas_Pelayanan_Biaya_Terbuka' => $KualitasPelayananBiayaTerbuka,
+            'Harapan_Konsumen_Biaya_Terbuka' => $HarapanKonsumenBiayaTerbuka,
+            'Kualitas_Pelayanan_KKN' => $KualitasPelayananKKN,
+            'Kualitas_Pelayanan_Sesuai' => $KualitasPelayananSesuai,
+            'Harapan_Konsumen_Sesuai' => $HarapanKonsumenSesuai,
+            'Kualitas_Pelayanan_Daftar' => $KualitasPelayananDaftar,
+            'Harapan_Konsumen_Daftar' => $HarapanKonsumenDaftar,
+            'Kualitas_Pelayanan_Sarana' => $KualitasPelayananSarana,
+            'Harapan_Konsumen_Sarana' => $HarapanKonsumenSarana,
+            'Kualitas_Pelayanan_Prosedur' => $KualitasPelayananProsedur,
+            'Harapan_Konsumen_Prosedur' => $HarapanKonsumenProsedur,
+            'Kualitas_Pelayanan_Petugas' => $KualitasPelayananPetugas,
+            'Harapan_Konsumen_Petugas' => $HarapanKonsumenPetugas,
+            'Kualitas_Pelayanan_Aman' => $KualitasPelayananAman,
+            'Harapan_Konsumen_Aman' => $HarapanKonsumenAman,
+            'Kualitas_Pelayanan_Keberadaan' => $KualitasPelayananKeberadaan,
+            'Harapan_Konsumen_Keberadaan' => $HarapanKonsumenKeberadaan,
+            'Kualitas_Pelayanan_Sikap' => $KualitasPelayananSikap,
+            'Harapan_Konsumen_Sikap' => $HarapanKonsumenSikap,
+            'Kualitas_Pelayanan_Publik' => $KualitasPelayananPublik,
+            'Harapan_Konsumen_Publik' => $HarapanKonsumenPublik
+        );
+
+        $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
+
+        $simpanDataIkm = $objekIkm->tambahDataIkm($dataIkm);
+        global $koneksi;
+        $ambilIKMTerakhir = $koneksi->insert_id;
+
+        $simpanDataTransaksi = $objekTranksaksi->updateIKMNULLSesuaiTransaksi($ambilIKMTerakhir, $transaksiId, $idSession);
+
+        if (containsXSS($namaDepan) || containsXSS($namaBelakang) || containsXSS($namaPengguna) || containsXSS($email) || containsXSS($kataSandi) || containsXSS($konfirmasiKataSandi) || containsXSS($nomorTelepon) || containsXSS($jenisKelamin) || containsXSS($peranAdmin) || containsXSS($alamatAdmin)) {
+            $pesanKesalahan .= "Input mengandung Serangan XSS, Saya tau anda ingin mennghack web saya 😡👿. ";
+        }
+
+        if ($simpanDataIkm && $simpanDataTransaksi) {
+            setPesanKeberhasilan("Data berhasil ditambahkan.");
+            header("Location: $akarUrl" . "src/user/pages/pesanan.php");
+            exit();
+        } else {
+            setPesanKesalahan("Gagal menambahkan data.");
+            header("Location: $akarUrl" . "src/user/pages/ikm.php");
+            exit;
+        }
     }
 } else {
     header("Location: $akarUrl" . "src/user/pages/ikm.php");
