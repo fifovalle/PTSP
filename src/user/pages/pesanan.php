@@ -86,7 +86,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 <div class="col text-end" id="total_harga">
                                     <?php if ($totalPesanan > 0) { ?>
                                         <p>Total Pesanan : Rp<?php echo number_format($totalPesanan, 0, ',', '.'); ?></p>
-                                    <?php } ?>
+                                    <?php } else { ?> <p>Total Pesanan : Rp0</p> <?php } ?>
                                 </div>
                             </div>
                         <?php
@@ -100,7 +100,12 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                         <div class="row">
                             <div class="col-md-12 text-start">
                                 <form action="../../admin/config/generate-invoice.php" method="post">
-                                    <button type="submit" name="generate_pdf" class="btn btn-outline-success mx-2">Unduh Faktur</button>
+                                    <?php
+                                    if (!empty($dataTraksaksi)) {
+                                    ?>
+                                        <button type="submit" name="generate_pdf" class="btn btn-outline-success mx-2">Unduh Faktur</button>
+                                    <?php
+                                    } ?>
                                     <button class="btn btn-outline-danger px-2 mx-2" type="button" id="btn-beli-lagi" style="width:100px;">Beli Lagi</button>
                                 </form>
                             </div>

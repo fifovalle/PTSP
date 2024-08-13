@@ -61,7 +61,7 @@
                                 ?>
                             </p>
                             <div class="iconContainerData">
-                                <a class="linkData buttonHistoryPayment" href="../config/generate_pdf1.php?id=<?php echo $riwayatTransaksi['ID_Tranksaksi']; ?>">
+                                <a class="linkData" href="../assets/image/uploads/<?php echo $riwayatTransaksi['File_Penerimaan']; ?>" download="">
                                     <span class="">
                                         <i class="fas fa-download"></i>
                                     </span>
