@@ -69,9 +69,8 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                             <a href="../../admin/assets/image/uploads/<?php echo $transaksi['File_Penerimaan']; ?>" class="btn btn-outline-success h-75" id="btn-download-file" type="button" style="width:200px;">Download File</a>
                                         </div>
                                         <div class="my-2">
-                                            <button class="btn btn-outline-secondary" type="button" style="width:200px;" data-bs-toggle="modal" data-bs-target="#historiPengisianIKM">Riwayat Pengisian IKM</button>
+                                            <button class="btn btn-outline-secondary tombol-riwayat-isi-ikm" type="button" style="width:200px;" data-bs-toggle="modal" data-id="<?php echo $transaksi['ID_Ikm']; ?>">Riwayat Pengisian IKM</button>
                                         </div>
-
                                         <div class="col"><?php echo $transaksi['Tanggal_Pembelian']; ?></div>
                                     </div>
                                 </div>
@@ -1199,6 +1198,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/pesanan.js"></script>
     <script src="../../admin/assets/our/js/value-improve-applyment.js"></script>
+    <script src="../../admin/assets/our/js/value-see-ikm-user.js"></script>
     <!-- ALERT -->
     <?php include '../../../src/admin/partials/utils/alert.php' ?>
 </body>
