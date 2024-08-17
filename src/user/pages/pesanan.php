@@ -308,6 +308,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                             <?php
                             $jumlahDataPerHalaman = 5;
                             $transaksiModel = new Transaksi($koneksi);
+
                             if (isset($_SESSION['ID_Pengguna'])) {
                                 $id = $_SESSION['ID_Pengguna'];
                                 $dataTransaksi = $transaksiModel->tampilkanPengajuanTransaksiSesuaiSessionPengguna($id);
@@ -318,25 +319,44 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 echo "Tidak ada sesi yang aktif.";
                                 exit;
                             }
-                            $jumlahHalaman = ceil(count($dataTransaksi) / $jumlahDataPerHalaman);
-                            $halamanAktif = isset($_GET['halaman']) ? $_GET['halaman'] : 1;
+
+                            $groupedData = [];
+                            foreach ($dataTransaksi as $transaksi) {
+                                $groupedData[$transaksi['ID_Pengajuan']][] = $transaksi;
+                            }
+
+                            $jumlahHalaman = ceil(count($groupedData) / $jumlahDataPerHalaman);
+                            $halamanAktif = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
                             $indexAwal = ($halamanAktif - 1) * $jumlahDataPerHalaman;
-                            $dataTransaksiHalaman = array_slice($dataTransaksi, $indexAwal, $jumlahDataPerHalaman);
+                            $dataTransaksiHalaman = array_slice($groupedData, $indexAwal, $jumlahDataPerHalaman, true);
+
+                            $totalPesanan = 0;
                             ?>
+
                             <div class="row">
                                 <?php if (!empty($dataTransaksiHalaman)) : ?>
-                                    <?php $totalPesanan = 0; ?>
-                                    <?php foreach ($dataTransaksiHalaman as $transaksi) : ?>
-                                        <div class="col-md-8 mt-3">
-                                            <div class="col" id="nama_barang"><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></div>
-                                            <div class="col" id="jmlh_barang">x<?php echo $transaksi['Jumlah_Barang']; ?></div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="col text-end" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
-                                        </div>
-                                        <?php $totalPesanan += ($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']) * $transaksi['Jumlah_Barang']; ?>
+                                    <?php foreach ($dataTransaksiHalaman as $idPengajuan => $transaksiGroup) : ?>
+                                        <?php
+                                        $statusPengajuan = $transaksiGroup[0]['Status_Pengajuan'] ?? null;
+                                        $showButtonPerbaikan = $statusPengajuan === 'Ditolak';
+                                        ?>
+                                        <?php foreach ($transaksiGroup as $transaksi) : ?>
+                                            <div class="col-md-8 mt-3">
+                                                <div class="col" id="nama_barang"><?php echo $transaksi['Nama_Informasi'] ?? $transaksi['Nama_Jasa']; ?></div>
+                                                <div class="col" id="jmlh_barang">x<?php echo $transaksi['Jumlah_Barang']; ?></div>
+                                            </div>
+                                            <div class="col-md-4 d-flex">
+                                                <div class="col text-end me-2" id="harga_barang"><?php echo 'Rp' . number_format($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa'], 0, ',', '.'); ?></div>
+                                            </div>
+                                            <?php $totalPesanan += ($transaksi['Harga_Informasi'] ?? $transaksi['Harga_Jasa']) * $transaksi['Jumlah_Barang']; ?>
+                                        <?php endforeach; ?>
+                                        <?php if ($showButtonPerbaikan) : ?>
+                                            <div class="col-12 mt-3 justify-content-end d-flex">
+                                                <button class="btn btn-outline-primary buttonImproveApplyment" type="button" data-bs-toggle="modal" data-id="<?php echo $idPengajuan; ?>" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>
+                                            </div>
+                                        <?php endif; ?>
+                                        <hr class="my-3">
                                     <?php endforeach; ?>
-                                    <hr class="my-3">
                                     <div class="d-flex row">
                                         <div class="col text-end" id="total_harga">
                                             <p>Total Pesanan : Rp<?php echo number_format($totalPesanan, 0, ',', '.'); ?></p>
@@ -367,36 +387,6 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                         </ul>
                                     </nav>
                                 </div>
-                                <?php
-                                $transaksiModel = new Transaksi($koneksi);
-                                if (isset($_SESSION['ID_Pengguna'])) {
-                                    $id = $_SESSION['ID_Pengguna'];
-                                    $dataTraksaksi = $transaksiModel->tampilkanPerbaikanDokumenPengajuanTransaksiSesuaiSessionPengguna($id);
-                                    $tampilkanTombol = !empty($dataTraksaksi);
-                                    $style = $tampilkanTombol ? 'display: block;' : 'display: none;';
-                                ?>
-                                    <div class="col text-end" style="<?php echo $style; ?>">
-                                        <?php foreach ($dataTraksaksi as $data) : ?>
-                                            <button class="btn btn-outline-primary ms-3 buttonImproveApplyment" type="button" data-bs-toggle="modal" data-id="<?php echo $data['ID_Pengajuan']; ?>" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>
-                                        <?php endforeach; ?>
-                                    </div>
-                                <?php
-                                } elseif (isset($_SESSION['ID_Perusahaan'])) {
-                                    $id = $_SESSION['ID_Perusahaan'];
-                                    $dataTraksaksi = $transaksiModel->tampilkanPerbaikanDokumenPengajuanTransaksiSesuaiSessionPerusahaan($id);
-                                    $tampilkanTombol = !empty($dataTraksaksi);
-                                    $style = $tampilkanTombol ? 'display: block;' : 'display: none;';
-                                ?>
-                                    <div class="col text-end" style="<?php echo $style; ?>">
-                                        <?php foreach ($dataTraksaksi as $data) : ?>
-                                            <button class="btn btn-outline-primary ms-3 buttonImproveApplyment" type="button" data-bs-toggle="modal" data-id="<?php echo $data['ID_Pengajuan']; ?>" id="btn-perbaikan" style="width:170px;">Perbaikan Dokumen</button>
-                                        <?php endforeach; ?>
-                                    </div>
-                                <?php
-                                } else {
-                                    echo "Tidak ada sesi yang aktif.";
-                                }
-                                ?>
                             </div>
                         </div>
                     </div>
