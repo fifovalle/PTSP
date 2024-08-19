@@ -2010,9 +2010,8 @@ class Pengajuan
 
         if ($apakahGratis === '1' && $statusPengajuan === 'Diterima') {
             $query .= " WHERE ID_Pengajuan = '$pengajuanID';";
-            $query .= "UPDATE transaksi SET Bukti_Pembayaran = 'Terisi', Tanggal_Upload_Bukti = NOW(), Status_Transaksi = 'Disetujui', Status_Pesanan = 'Lunas' WHERE ID_Pengajuan = '$pengajuanID';";
+            $query .= "UPDATE transaksi SET Bukti_Pembayaran = 'Terisi', Tanggal_Upload_Bukti = NOW(), Status_Transaksi = 'Disetujui', Status_Pesanan = 'Lunas', Keterangan_Surat_Ditolak = NULL WHERE ID_Pengajuan = '$pengajuanID';";
         } else {
-            $query .= ", Keterangan_Surat_Ditolak = NULL";
         }
 
 

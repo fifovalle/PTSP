@@ -75,10 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    if ($statusPengajuan === 'Diterima') {
-        $keteranganSuratDitolak = null;
-    }
-
     $updatePengajuan = $databasesModel->perbaruiPengajuan(
         $pengajuanID,
         $statusPengajuan,
