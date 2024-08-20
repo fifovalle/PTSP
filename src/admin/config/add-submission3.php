@@ -74,6 +74,10 @@ if (isset($_POST['Apply'])) {
 
                     $simpanDataPengajuanKeagamaan = $objekDataKeagamaan->tambahDataPengajuanKeagamaan($dataPengajuanKeagamaan);
 
+                    $dataPengajuanKeagamaan = array(
+                        'ID_Pengajuan' => $objekDataKeagamaan->ambilIDPengajuanTerakhir(),
+                    );
+
                     $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
 
                     $simpanDataTransaksiPengajuanKeagamaan = $obyekDataTransaksi->perbaharuiPengajuanKeagamaanKeTransaksiSesuaiSession($dataPengajuanKeagamaan, $idSession);

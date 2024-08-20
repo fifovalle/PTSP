@@ -94,6 +94,10 @@ if (isset($_POST['Apply'])) {
 
         $simpanDataPengajuanPenelitian = $objekDataPendidikan->tambahDataPengajuanPenelitian($dataPengajuanPenelitian);
 
+        $dataPengajuanPenelitian = array(
+            'ID_Pengajuan' => $objekDataPendidikan->ambilIDPengajuanTerakhir(),
+        );
+
         $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
         $simpanDataTransaksiPengajuanPendidikan = $obyekDataTransaksi->perbaharuiPengajuanPendidikanKeTransaksiSesuaiSession($dataPengajuanPenelitian, $idSession);
 

@@ -25,7 +25,7 @@
                 Tanggal Pembelian
             </th>
             <th class="text-center" data-field="data5">
-                Status Transaksi
+                Jenis Transaksi
             </th>
         </tr>
     </thead>
@@ -79,8 +79,8 @@
                     <td class="text-center"><?php echo $riwayatTransaksi['Jumlah_Barang']; ?></td>
                     <td class="text-center"><?php echo $riwayatTransaksi['Tanggal_Pembelian']; ?></td>
                     <td class="text-center">
-                        <span class="badge <?php echo ($riwayatTransaksi['Status_Transaksi'] === 'Belum Disetujui') ? 'text-bg-danger' : 'text-bg-success'; ?>">
-                            <?php echo $riwayatTransaksi['Status_Transaksi']; ?>
+                        <span class="badge <?php echo ($riwayatTransaksi['Apakah_Gratis'] === '1') ? 'text-bg-info' : 'text-bg-info'; ?>">
+                            <?php echo ($riwayatTransaksi['Apakah_Gratis'] === '1') ? 'Bayar' : 'Gratis'; ?>
                         </span>
                     </td>
                 </tr>

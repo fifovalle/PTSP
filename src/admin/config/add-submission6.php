@@ -73,6 +73,10 @@ if (isset($_POST['Apply'])) {
 
         $simpanDataPengajuanPusat = $objekDataPusatDanDaerah->tambahDataPengajuanPusat($dataPengajuanPusat);
 
+        $dataPengajuanPusat = array(
+            'ID_Pengajuan' => $objekDataPusatDanDaerah->ambilIDPengajuanTerakhir(),
+        );
+
         $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
         $simpanDataTransaksiPengajuanPusat = $obyekDataTransaksi->perbaharuiPengajuanPusatKeTransaksiSesuaiSession($dataPengajuanPusat, $idSession);
 

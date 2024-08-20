@@ -74,6 +74,10 @@ if (isset($_POST['Apply'])) {
 
                     $simpanDataPengajuanPertahanan = $objekDataPertahanan->tambahDataPengajuanPertahanaan($dataPengajuanPertahanan);
 
+                    $dataPengajuanPertahanan = array(
+                        'ID_Pengajuan' => $objekDataPertahanan->ambilIDPengajuanTerakhir(),
+                    );
+
                     $idSession = isset($_SESSION['ID_Pengguna']) ? $_SESSION['ID_Pengguna'] : (isset($_SESSION['ID_Perusahaan']) ? $_SESSION['ID_Perusahaan'] : null);
 
                     $simpanDataTransaksiPengajuanPertahanan = $obyekDataTransaksi->perbaharuiPengajuanPertahananKeTransaksiSesuaiSession($dataPengajuanPertahanan, $idSession);

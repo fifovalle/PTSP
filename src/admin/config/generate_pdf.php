@@ -103,6 +103,7 @@ if ($result->num_rows > 0) {
             <th>Informasi</th>
             <th>Jasa</th>
             <th>Jumlah Barang</th>
+            <th>Jenis Transaksi</th>
             <th>Total Transaksi</th>
         </tr>';
     while ($row = $result->fetch_assoc()) {
@@ -115,6 +116,7 @@ if ($result->num_rows > 0) {
                 <td>' . (!empty($row['Nama_Informasi']) ? $row['Nama_Informasi'] : '-') . '</td>
                 <td>' . (!empty($row['Nama_Jasa']) ? $row['Nama_Jasa'] : '-') . '</td>
                 <td>' . $row['Jumlah_Barang'] . '</td>
+                <td>' . ($row['Apakah_Gratis'] == 0 ? 'GRATIS' : 'BAYAR') . '</td>
                 <td>' . $totalTransaksi . '</td>
             </tr>';
     }
