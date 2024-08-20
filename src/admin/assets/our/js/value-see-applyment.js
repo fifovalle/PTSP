@@ -36,35 +36,121 @@ $(document).ready(function () {
             dataApplyment.Tanggal_Pembelian || "Data tidak ditemukan"
           );
           if (dataApplyment.Perbaikan_Dokumen != null) {
-            $("embed").attr(
+            $("#embed").attr(
               "src",
               "../assets/image/uploads/" + dataApplyment.Perbaikan_Dokumen
             );
           } else if (
             dataApplyment.Surat_Pengantar_Permintaan_Data_Bencana != null
           ) {
-            $("embed").attr(
+            $("#embed").attr(
               "src",
               "../assets/image/uploads/" +
-                dataApplyment.Surat_Pengantar_Permintaan_Data_Bencana
+                dataApplyment.Surat_Pengantar_Permintaan_Data_Bencana,
+              $("#surat1").text("Surat Pengantar Permintaan Data")
             );
-          } else {
-            $("embed").attr("src", "Data tidak ditemukan");
-          }
-          if (dataApplyment.Surat_Pengantar_Permintaan_Data_Bencana != null) {
-            $("#gambarPembeli").attr(
+          } else if (dataApplyment.Memiliki_Kerja_Sama_Dengan_BMKG != null) {
+            $("#embed").attr(
               "src",
-              "../assets/image/uploads/" + dataApplyment.Foto_Informasi
+              "../assets/image/uploads/" +
+                dataApplyment.Memiliki_Kerja_Sama_Dengan_BMKG,
+              $("#surat1").text(
+                "Mempunyai Perjanjian Kerjasama dengan BMKG tentang Kebutuhan Informasi MKKuG"
+              )
+            );
+          } else if (dataApplyment.Identitas_Diri != null) {
+            $("#embed").attr(
+              "src",
+              "../assets/image/uploads/" + dataApplyment.Identitas_Diri
+            );
+            $("#surat1").text("Identitas Diri KTP / KTM / SIM / Paspor");
+          } else if (dataApplyment.Surat_Yang_Ditandatangani_Sosial != null) {
+            $("#embed").attr(
+              "src",
+              "../assets/image/uploads/" +
+                dataApplyment.Surat_Yang_Ditandatangani_Sosial
+            );
+            $("#surat1").text(
+              "Surat Permintaan Ditandatangani Camat atau Pejabat Setingkat"
+            );
+          } else if (
+            dataApplyment.Surat_Yang_Ditandatangani_Keagamaan != null
+          ) {
+            $("#embed").attr(
+              "src",
+              "../assets/image/uploads/" +
+                dataApplyment.Surat_Yang_Ditandatangani_Keagamaan
+            );
+            $("#surat1").text(
+              "Surat Permintaan Ditandatangani Camat atau Pejabat Setingkat"
+            );
+          } else if (
+            dataApplyment.Surat_Yang_Ditandatangani_Pertahanan != null
+          ) {
+            $("#embed").attr(
+              "src",
+              "../assets/image/uploads/" +
+                dataApplyment.Surat_Yang_Ditandatangani_Pertahanan
+            );
+            $("#surat1").text(
+              "Surat Permintaan Ditandatangani Camat atau Pejabat Setingkat"
             );
           } else {
-            $("#gambarPembeli").removeAttr("src");
+            $("#embed").attr("src", "Data tidak ditemukan");
+          }
+          if (dataApplyment.Surat_Pengantar_Pusat_Daerah != null) {
+            $("#embed2").attr(
+              "src",
+              "../assets/image/uploads/" +
+                dataApplyment.Surat_Pengantar_Pusat_Daerah,
+              $("#surat2").text("Surat Pengantar")
+            );
+          } else if (
+            dataApplyment.Surat_Pengantar_Kepsek_Rektor_Dekan != null
+          ) {
+            $("#embed2").attr(
+              "src",
+              "../assets/image/uploads/" +
+                dataApplyment.Surat_Pengantar_Kepsek_Rektor_Dekan,
+              $("#surat2").text(
+                "Surat Pengantar dari Kepala Sekolah / Rektor / Dekan"
+              )
+            );
+          } else {
+            $("#embed2").removeAttr("src");
+          }
+          if (
+            dataApplyment.Pernyataan_Tidak_Digunakan_Kepentingan_Lain != null
+          ) {
+            $("#embed3").attr(
+              "src",
+              "../assets/image/uploads/" +
+                dataApplyment.Pernyataan_Tidak_Digunakan_Kepentingan_Lain,
+              $("#surat3").text(
+                "Surat Pernyataan Tidak Digunakan Untuk Kepentingan Lain"
+              )
+            );
+          } else {
+            $("#embed3").removeAttr("src");
+          }
+          if (dataApplyment.Proposal_Penelitian_Telah_Disetujui != null) {
+            $("#embed3").attr(
+              "src",
+              "../assets/image/uploads/" +
+                dataApplyment.Proposal_Penelitian_Telah_Disetujui,
+              $("#surat4").text(
+                "Proposal Penelitian Berisi Maksud dan Tujuan Penelitian yang Telah Disetujui"
+              )
+            );
+          } else {
+            $("#embed3").removeAttr("src");
           }
           $("#seeApplyment").modal("show");
         } else {
           $(
             "#namaPembeli, #emailPembeli, #noHPPembeli, #informasiPembeli, #jasaPembeli"
           ).text("Data tidak ditemukan");
-          $("embed").removeAttr("src");
+          $("#embed").removeAttr("src");
           $("#seeApplyment").modal("show");
         }
       },

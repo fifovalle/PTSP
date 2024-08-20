@@ -47,10 +47,37 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-3">
-                                        <h6 class="mb-0">Surat</h6>
+                                        <h6 class="mb-0" id="surat1"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <embed type="application/pdf" width="100%" height="600px" />
+                                        <embed id="embed" type="application/pdf" width="100%" height="600px" />
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <h6 class="mb-0" id="surat2"></h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <embed id="embed2" type="application/pdf" width="100%" height="600px" />
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <h6 class="mb-0" id="surat3"></h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <embed id="embed2" type="application/pdf" width="100%" height="600px" />
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <h6 class="mb-0" id="surat4"></h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <embed id="embed2" type="application/pdf" width="100%" height="600px" />
                                     </div>
                                 </div>
                                 <hr>
@@ -90,15 +117,6 @@
                                     </div>
                                     <div class="col-sm-9 text-secondary text-secondary fw-bold" id="deskripsiPembeli">
                                         <!-- MEMUNCULKAN PEMBELI DENGAN JS -->
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-3">
-                                        <h6 class="mb-0">Gambar</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <img id="gambarPembeli" class="imageModalDetail" alt="Deskripsi Gambar">
                                     </div>
                                 </div>
                                 <hr>

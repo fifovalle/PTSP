@@ -1665,7 +1665,8 @@ class Pengajuan
 
     public function tampilkanDataLihatPengajuan()
     {
-        $query = "SELECT transaksi.*, pengajuan.*, pengguna.*, perusahaan.*, informasi.*, jasa.*, kegiatan_bencana.* FROM transaksi LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa LEFT JOIN kegiatan_bencana ON pengajuan.ID_Bencana = kegiatan_bencana.ID_Bencana";
+        $query = "SELECT transaksi.*, pengajuan.*, pengguna.*, perusahaan.*, informasi.*, jasa.*, kegiatan_bencana.*, pemerintah_pusat_daerah.* FROM transaksi LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa LEFT JOIN kegiatan_bencana ON pengajuan.ID_Bencana = kegiatan_bencana.ID_Bencana
+         LEFT JOIN pemerintah_pusat_daerah ON pengajuan.ID_Pusat_Daerah = pemerintah_pusat_daerah.ID_Pusat";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
