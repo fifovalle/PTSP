@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <form id="formUpdatePengajuan" method="POST">
-                    <input type="hidden" id="editApplymentID" name="ID_Pengajuan" autocomplete="off" value="<?php echo htmlspecialchars($id_pengajuan); ?>">
+                    <input type="hidden" id="editApplymentID" name="ID_Pengajuan" autocomplete="off">
                     <div class="mb-3">
                         <label for="editStatusTransactionApplyment" class="form-label">Status Pengajuan</label>
                         <select name="Status_Pengajuan" id="editStatusTransactionApplyment" class="form-control inputData">

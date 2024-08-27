@@ -1213,9 +1213,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                 <option value="8">Surat Pengantar (Pemerintah pusat atau daerah)</option>
                                 <option value="9">Surat Pengantar (Pelayanan informasi dengan tarif PNBP)</option>
                             </select>
-                            <div class="mb-3 mt-4">
-                                <input class="form-control" name="Unggah_Dokumen" type="file" id="formFile">
-                            </div>
+                            <div id="formFilesContainer"></div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

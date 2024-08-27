@@ -45,6 +45,15 @@
                                     </div>
                                 </div>
                                 <hr>
+                                <div class=" row">
+                                    <div class="col-3">
+                                        <h6 class="mb-0">Kategori Ajukan</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary text-secondary fw-bold" id="kategoriAjukan">
+                                        <!-- MEMUNCULKAN PEMBELI DENGAN JS -->
+                                    </div>
+                                </div>
+                                <hr>
                                 <div class="row">
                                     <div class="col-3">
                                         <h6 class="mb-0" id="surat1"></h6>

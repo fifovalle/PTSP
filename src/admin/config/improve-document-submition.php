@@ -4,19 +4,8 @@ include 'databases.php';
 function containsXSS($input)
 {
     $xss_patterns = [
-        "/<script\b[^>]*>(.*?)<\/script>/is",
-        "/<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:/i",
-        "/<iframe\b[^>]*>(.*?)<\/iframe>/is",
-        "/<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:/i",
-        "/<object\b[^>]*>(.*?)<\/object>/is",
-        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
-        "/on[a-zA-Z]+\s*=\s*\"[^\"]*\"/i",
-        "/<script\b[^>]*>[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/i",
-        "/<a\b[^>]*href\s*=\s*(?:\"|')(?:javascript:|.*?\"javascript:).*?(?:\"|')/i",
-        "/<embed\b[^>]*>(.*?)<\/embed>/is",
-        "/<applet\b[^>]*>(.*?)<\/applet>/is",
-        "/<!--.*?-->/",
-        "/(<script\b[^>]*>(.*?)<\/script>|<img\b[^>]*src[\s]*=[\s]*[\"]*javascript:|<iframe\b[^>]*>(.*?)<\/iframe>|<link\b[^>]*href[\s]*=[\s]*[\"]*javascript:|<object\b[^>]*>(.*?)<\/object>|on[a-zA-Z]+\s*=\s*\"[^\"]*\"|<[^>]*(>|$)(?:<|>)+|<[^>]*script\s*.*?(?:>|$)|<![^>]*-->|eval\s*\((.*?)\)|setTimeout\s*\((.*?)\)|<[^>]*\bstyle\s*=\s*[\"'][^\"']*[;{][^\"']*['\"]|<meta[^>]*http-equiv=[\"']?refresh[\"']?[^>]*url=|<[^>]*src\s*=\s*\"[^>]*\"[^>]*>|expression\s*\((.*?)\))/i"
+        '/<script\b[^>]*>(.*?)<\/script>/is',
+        '/<\/?[a-z][a-z0-9]*[^>]*>/i',
     ];
 
     foreach ($xss_patterns as $pattern) {
@@ -32,35 +21,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once '../../../vendor/ezyang/htmlpurifier/library/HTMLPurifier.auto.php';
     $config = HTMLPurifier_Config::createDefault();
     $purifier = new HTMLPurifier($config);
-    $idImprovePengajuan = $_POST['ID_Pengajuan'] ?? '';
-    $perbaikanDokumen = $_POST['Perbaikan_Dokumen'] ?? '';
 
-    if (isset($_FILES['Unggah_Dokumen']) && $_FILES['Unggah_Dokumen']['error'] === UPLOAD_ERR_OK) {
-        $allowedExtensions = array('pdf', 'doc', 'docx');
-        $fileExtension = strtolower(pathinfo($_FILES['Unggah_Dokumen']['name'], PATHINFO_EXTENSION));
+    $idImprovePengajuan = isset($_POST['ID_Pengajuan']) ? $purifier->purify($_POST['ID_Pengajuan']) : '';
+    $perbaikanDokumen = isset($_POST['Perbaikan_Dokumen']) ? $purifier->purify($_POST['Perbaikan_Dokumen']) : '';
 
-        if (!in_array($fileExtension, $allowedExtensions)) {
-            echo json_encode(array("success" => false, "message" => "Hanya file PDF, DOC, atau DOCX yang diperbolehkan."));
+    // Sanitasi input untuk XSS
+    if (containsXSS($idImprovePengajuan) || containsXSS($perbaikanDokumen)) {
+        echo json_encode(array("success" => false, "message" => "Input tidak valid."));
+        exit;
+    }
+
+    $uploadedFiles = [];
+    $uploadDir = '../assets/image/uploads/';
+    $allowedExtensions = ['pdf', 'doc', 'docx'];
+
+    for ($i = 1; $i <= 4; $i++) {
+        $fileInputName = 'file' . $i;
+
+        if (isset($_FILES[$fileInputName]) && $_FILES[$fileInputName]['error'] === UPLOAD_ERR_OK) {
+            $fileExtension = strtolower(pathinfo($_FILES[$fileInputName]['name'], PATHINFO_EXTENSION));
+
+            if (!in_array($fileExtension, $allowedExtensions)) {
+                echo json_encode(array("success" => false, "message" => "Hanya file PDF, DOC, atau DOCX yang diperbolehkan."));
+                exit;
+            }
+
+            $fileName = uniqid() . '.' . $fileExtension;
+            $uploadPath = $uploadDir . $fileName;
+
+            if (move_uploaded_file($_FILES[$fileInputName]['tmp_name'], $uploadPath)) {
+                $uploadedFiles[] = $fileName; // Tambahkan nama file ke array
+            } else {
+                echo json_encode(array("success" => false, "message" => "Gagal mengunggah dokumen: " . $_FILES[$fileInputName]['name']));
+                exit;
+            }
+        } elseif (isset($_FILES[$fileInputName]) && $_FILES[$fileInputName]['error'] !== UPLOAD_ERR_NO_FILE) {
+            echo json_encode(array("success" => false, "message" => "Kesalahan saat mengunggah file: " . $_FILES[$fileInputName]['error']));
             exit;
         }
+    }
 
-        $uploadDir = '../assets/image/uploads/';
-        $fileName = uniqid() . '.' . $fileExtension;
-        $uploadPath = $uploadDir . $fileName;
-
-        if (move_uploaded_file($_FILES['Unggah_Dokumen']['tmp_name'], $uploadPath)) {
-            $dokumen = $fileName;
-        } else {
-            echo json_encode(array("success" => false, "message" => "Gagal mengunggah dokumen."));
-            exit;
-        }
-    } else {
-        echo json_encode(array("success" => false, "message" => "Dokumen tidak valid atau tidak diunggah."));
+    if (empty($uploadedFiles)) {
+        echo json_encode(array("success" => false, "message" => "Tidak ada dokumen yang diunggah."));
         exit;
     }
 
     $databasesModel = new Pengajuan($koneksi);
-
     $statusPengajuan = 'Sedang Ditinjau';
     $keteranganSurat = NULL;
 
@@ -68,18 +74,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $idImprovePengajuan,
         $keteranganSurat,
         $perbaikanDokumen,
-        $dokumen,
+        $uploadedFiles,
         $statusPengajuan
     );
 
     if ($perbaharuiImprovePengajuan) {
         echo json_encode(array("success" => true, "message" => "Data pengajuan berhasil diperbarui."));
-        exit;
     } else {
         echo json_encode(array("success" => false, "message" => "Gagal memperbarui data pengajuan."));
-        exit;
     }
 } else {
     echo json_encode(array("success" => false, "message" => "Metode request tidak valid."));
-    exit;
 }

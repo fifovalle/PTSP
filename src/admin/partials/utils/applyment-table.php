@@ -22,6 +22,9 @@
                 Tanggal Pengajuan
             </th>
             <th class="text-center" data-field="data5">
+                Jenis Transaksi
+            </th>
+            <th class="text-center" data-field="data5">
                 Status Pengajuan
             </th>
         </tr>
@@ -87,6 +90,11 @@
                             ?>
                         </td>
                         <td class="text-center"><?php echo $pengajuan['Tanggal_Pengajuan']; ?></td>
+                        <td class="text-center">
+                            <span class=" badge <?php echo ($pengajuan['Apakah_Gratis'] === '1') ? 'text-bg-info' : 'text-bg-info'; ?>">
+                                <?php echo ($pengajuan['Apakah_Gratis'] === '1') ? 'Bayar' : 'Gratis'; ?>
+                            </span>
+                        </td>
                         <td class="text-center">
                             <span class="badge <?php echo ($pengajuan['Status_Pengajuan'] === 'Sedang Ditinjau') ? 'text-bg-warning' : 'text-bg-danger'; ?>">
                                 <?php echo $pengajuan['Status_Pengajuan']; ?>

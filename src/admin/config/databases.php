@@ -2009,39 +2009,46 @@ class Pengajuan
             $query .= ", Keterangan_Surat_Ditolak = '$keteranganSuratDitolak'";
         }
 
+        $query .= " WHERE ID_Pengajuan = '$pengajuanID';";
+
         if ($apakahGratis === '1' && $statusPengajuan === 'Diterima') {
-            $query .= " WHERE ID_Pengajuan = '$pengajuanID';";
-            $query .= "UPDATE transaksi SET Bukti_Pembayaran = 'Terisi', Tanggal_Upload_Bukti = NOW(), Status_Transaksi = 'Disetujui', Status_Pesanan = 'Lunas', Keterangan_Surat_Ditolak = NULL WHERE ID_Pengajuan = '$pengajuanID';";
-        } else {
+            $query .= "UPDATE transaksi SET Bukti_Pembayaran = 'Terisi', Tanggal_Upload_Bukti = NOW(), Status_Transaksi = 'Disetujui', Status_Pesanan = 'Lunas' WHERE ID_Pengajuan = '$pengajuanID';";
         }
 
-
-        $query .= " WHERE ID_Pengajuan = '$pengajuanID'";
         $result = mysqli_multi_query($this->koneksi, $query);
         return $result;
     }
 
-
-    public function perbaruiPerbaikanPengajuan($idImprovePengajuan, $keteranganSurat, $PerbaikanDokumen, $Dokumen, $statusPengajuan)
+    public function perbaruiPerbaikanPengajuan($idImprovePengajuan, $keteranganSurat, $PerbaikanDokumen, $DokumenArray, $statusPengajuan)
     {
         $idImprovePengajuan = mysqli_real_escape_string($this->koneksi, $idImprovePengajuan);
         $PerbaikanDokumen = mysqli_real_escape_string($this->koneksi, $PerbaikanDokumen);
-        $Dokumen = mysqli_real_escape_string($this->koneksi, $Dokumen);
         $statusPengajuan = mysqli_real_escape_string($this->koneksi, $statusPengajuan);
 
-        $selectQuery = "SELECT Perbaikan_Dokumen FROM pengajuan WHERE ID_Pengajuan = '$idImprovePengajuan'";
+        $selectQuery = "SELECT Perbaikan_Dokumen_1, Perbaikan_Dokumen_2, Perbaikan_Dokumen_3, Perbaikan_Dokumen_4 FROM pengajuan WHERE ID_Pengajuan = '$idImprovePengajuan'";
         $selectResult = mysqli_query($this->koneksi, $selectQuery);
 
         if ($selectResult && mysqli_num_rows($selectResult) > 0) {
             $row = mysqli_fetch_assoc($selectResult);
-            $currentDokumen = $row['Perbaikan_Dokumen'];
 
-            $filePath = '../assets/image/uploads/' . $currentDokumen;
-            if (file_exists($filePath)) {
-                unlink($filePath);
+            for ($i = 1; $i <= 4; $i++) {
+                $currentDokumen = $row["Perbaikan_Dokumen_$i"];
+                if (!empty($currentDokumen)) {
+                    $filePath = '../assets/image/uploads/' . $currentDokumen;
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                }
             }
 
-            $updateQuery = "UPDATE pengajuan SET Perbaikan_Dokumen = '$Dokumen', Keterangan_Surat_Ditolak = '$keteranganSurat', Jenis_Perbaikan = '$PerbaikanDokumen', Status_Pengajuan = '$statusPengajuan' WHERE ID_Pengajuan = '$idImprovePengajuan'";
+            $updateQuery = "UPDATE pengajuan SET Keterangan_Surat_Ditolak = '$keteranganSurat', Jenis_Perbaikan = '$PerbaikanDokumen', Status_Pengajuan = '$statusPengajuan'";
+
+            foreach ($DokumenArray as $index => $dokumen) {
+                $dokumen = mysqli_real_escape_string($this->koneksi, $dokumen);
+                $updateQuery .= ", Perbaikan_Dokumen_" . ($index + 1) . " = '$dokumen'";
+            }
+
+            $updateQuery .= " WHERE ID_Pengajuan = '$idImprovePengajuan'";
             $result = mysqli_query($this->koneksi, $updateQuery);
 
             return $result;
@@ -2049,6 +2056,7 @@ class Pengajuan
             return false;
         }
     }
+
 
     public function hapusPengajuan($id)
     {

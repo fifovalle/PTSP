@@ -17,17 +17,38 @@ $(document).ready(function () {
           dataApplyment
         );
         $("#improveIDPengajuan").val(dataApplyment.ID_Pengajuan);
-        $("#improveIDSubPengajuan").val(
+
+        let idSubPengajuan =
           dataApplyment.ID_Bencana ||
-            dataApplyment.ID_Keagamaan ||
-            dataApplyment.ID_Pertahanan ||
-            dataApplyment.ID_Sosial ||
-            dataApplyment.ID_Pusat_Daerah ||
-            dataApplyment.ID_Penelitian ||
-            dataApplyment.ID_Tarif ||
-            "Data tidak ditemukan"
-        );
+          dataApplyment.ID_Keagamaan ||
+          dataApplyment.ID_Pertahanan ||
+          dataApplyment.ID_Sosial ||
+          dataApplyment.ID_Pusat_Daerah ||
+          dataApplyment.ID_Penelitian ||
+          dataApplyment.ID_Tarif ||
+          "Data tidak ditemukan";
+
+        $("#improveIDSubPengajuan").val(idSubPengajuan);
         $("#perbaikanPesananTeks").text(dataApplyment.Keterangan_Surat_Ditolak);
+
+        let jumlahFileForm = 1;
+
+        if (dataApplyment.ID_Penelitian) {
+          jumlahFileForm = 4;
+        } else if (dataApplyment.ID_Pusat_Daerah) {
+          jumlahFileForm = 2;
+        }
+
+        $("#formFilesContainer").empty();
+        for (let i = 1; i <= jumlahFileForm; i++) {
+          $("#formFilesContainer").append(
+            `<div class="form-group">
+              <label for="file${i}">File ${i}</label>
+              <input type="file" class="form-control" id="file${i}" name="file${i}">
+            </div>`
+          );
+        }
+
         $("#perbaikanPesanan").modal("show");
       },
       error: function (xhr) {
@@ -64,9 +85,9 @@ $(document).ready(function () {
             timer: 3000,
             timerProgressBar: true,
           }).then((result) => {
-            result.dismiss === Swal.DismissReason.timer
-              ? (window.location.href = "../../user/pages/pesanan.php")
-              : null;
+            if (result.dismiss === Swal.DismissReason.timer) {
+              window.location.href = "../../user/pages/pesanan.php";
+            }
           });
         } else {
           Swal.fire({
