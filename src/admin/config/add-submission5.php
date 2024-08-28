@@ -54,8 +54,30 @@ if (isset($_POST['Apply'])) {
             exit();
         }
 
+        if ($_FILES['Identitas_Diri']['error'] !== UPLOAD_ERR_OK) {
+            setPesanKesalahan("Gagal mengupload identitas diri.");
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit();
+        }
+
+        if ($_FILES['Surat_Pernyataan']['error'] !== UPLOAD_ERR_OK) {
+            setPesanKesalahan("Gagal mengupload surat pernyataan.");
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit();
+        }
+
+        if ($_FILES['Proposal_Penelitian']['error'] !== UPLOAD_ERR_OK) {
+            setPesanKesalahan("Gagal mengupload proposal penelitian.");
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit();
+        }
+
+
         $ekstensiValid = array('pdf', 'doc', 'docx', 'xls', 'xlsx');
         $fileInfo = pathinfo($_FILES['Surat_Pengantar_Permintaan_Data']['name']);
+        $fileInfo2 = pathinfo($_FILES['Identitas_Diri']['name']);
+        $fileInfo3 = pathinfo($_FILES['Surat_Pernyataan']['name']);
+        $fileInfo4 = pathinfo($_FILES['Proposal_Penelitian']['name']);
         $ekstensiFile = strtolower($fileInfo['extension']);
 
         if (!in_array($ekstensiFile, $ekstensiValid)) {
@@ -66,10 +88,34 @@ if (isset($_POST['Apply'])) {
 
         $tujuanFolder = '../assets/image/uploads/';
         $namaSuratPengantarBaru = uniqid() . '_' . basename($_FILES['Surat_Pengantar_Permintaan_Data']['name']);
+        $namaIdentitasDiriBaru = uniqid() . '_' . basename($_FILES['Identitas_Diri']['name']);
+        $namaSuratPernyataanBaru = uniqid() . '_' . basename($_FILES['Surat_Pernyataan']['name']);
+        $namaProposalPenelitianBaru = uniqid() . '_' . basename($_FILES['Proposal_Penelitian']['name']);
         $tujuanFileSuratPengantar = $tujuanFolder . $namaSuratPengantarBaru;
+        $tujuanFileIdentitasDiri = $tujuanFolder . $namaIdentitasDiriBaru;
+        $tujuanFileSuratPernyataan = $tujuanFolder . $namaSuratPernyataanBaru;
+        $tujuanFileProposalPenelitian = $tujuanFolder . $namaProposalPenelitianBaru;
 
         if (!move_uploaded_file($_FILES['Surat_Pengantar_Permintaan_Data']['tmp_name'], $tujuanFileSuratPengantar)) {
             setPesanKesalahan("Gagal menyimpan surat pengantar. Pastikan folder tujuan ada dan memiliki izin yang cukup.");
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit();
+        }
+
+        if (!move_uploaded_file($_FILES['Identitas_Diri']['tmp_name'], $tujuanFileIdentitasDiri)) {
+            setPesanKesalahan("Gagal menyimpan identitas diri. Pastikan folder tujuan ada dan memiliki izin yang cukup.");
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit();
+        }
+
+        if (!move_uploaded_file($_FILES['Surat_Pernyataan']['tmp_name'], $tujuanFileSuratPernyataan)) {
+            setPesanKesalahan("Gagal menyimpan surat pernyataan. Pastikan folder tujuan ada dan memiliki izin yang cukup.");
+            header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
+            exit();
+        }
+
+        if (!move_uploaded_file($_FILES['Proposal_Penelitian']['tmp_name'], $tujuanFileProposalPenelitian)) {
+            setPesanKesalahan("Gagal menyimpan proposal penelitian. Pastikan folder tujuan ada dan memiliki izin yang cukup.");
             header("Location: " . $akarUrl . "src/user/pages/ajukan.php");
             exit();
         }
@@ -81,7 +127,10 @@ if (isset($_POST['Apply'])) {
             'Universitas_Instansi' => $universitas_atau_instansi,
             'No_Telepon_Pendidikan_Penelitian' => $nomorTeleponFormatted,
             'Email_Pendidikan_Penelitian' => $email,
-            'Surat_Pengantar_Permintaan_Data' => $namaSuratPengantarBaru
+            'Surat_Pengantar_Kepsek_Rektor_Dekan' => $namaSuratPengantarBaru,
+            'Identitas_Diri' => $namaIdentitasDiriBaru,
+            'Pernyataan_Tidak_Digunakan_Kepentingan_Lain' => $namaSuratPernyataanBaru,
+            'Proposal_Penelitian_Telah_Disetujui' => $namaProposalPenelitianBaru
         );
 
         $simpanDataPendidikan = $objekDataPendidikan->tambahDataPendidikanPenelitian($dataPendidikan);
@@ -89,6 +138,7 @@ if (isset($_POST['Apply'])) {
         $dataPengajuanPenelitian = array(
             'ID_Penelitian' => $objekDataPendidikan->ambilIDPenelitianTerakhir(),
             'Status_Pengajuan' => 'Sedang Ditinjau',
+            'Apakah_Gratis' => '1',
             'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
         );
 

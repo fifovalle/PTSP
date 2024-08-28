@@ -52,7 +52,7 @@
                         </button>
                     </div>
                 </div>
-                <input type="file" class="form-control my-3" id="Surat_Pengantar" name="Surat_Pengantar" style="height: 40px" autocomplete="off">
+                <input type="file" class="form-control my-3" id="Surat_Pengantar" name="Surat_Pengantar_Permintaan_Data" style="height: 40px" autocomplete="off">
             </div>
             <div class="col-md-6">
                 <div class="label-container">

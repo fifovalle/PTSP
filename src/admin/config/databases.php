@@ -1795,14 +1795,15 @@ class Pengajuan
 
     public function tambahDataPengajuanBencana($dataPengajuanBencana)
     {
-        $query = "INSERT INTO pengajuan (ID_Bencana, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Bencana, Status_Pengajuan, Apakah_Gratis, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "is",
+            "iss",
             $dataPengajuanBencana['ID_Bencana'],
             $dataPengajuanBencana['Status_Pengajuan'],
+            $dataPengajuanBencana['Apakah_Gratis'],
         );
         if ($statement->execute()) {
             return true;
@@ -1813,14 +1814,15 @@ class Pengajuan
 
     public function tambahDataPengajuanSosial($dataPengajuanSosial)
     {
-        $query = "INSERT INTO pengajuan (ID_Sosial, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Sosial, Status_Pengajuan, Apakah_Gratis, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "is",
+            "iss",
             $dataPengajuanSosial['ID_Sosial'],
             $dataPengajuanSosial['Status_Pengajuan'],
+            $dataPengajuanSosial['Apakah_Gratis'],
         );
         if ($statement->execute()) {
             return true;
@@ -1831,14 +1833,15 @@ class Pengajuan
 
     public function tambahDataPengajuanKeagamaan($dataPengajuanKeagamaan)
     {
-        $query = "INSERT INTO pengajuan (ID_Keagamaan, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Keagamaan, Status_Pengajuan, Apakah_Gratis, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "is",
+            "iss",
             $dataPengajuanKeagamaan['ID_Keagamaan'],
             $dataPengajuanKeagamaan['Status_Pengajuan'],
+            $dataPengajuanKeagamaan['Apakah_Gratis'],
         );
         if ($statement->execute()) {
             return true;
@@ -1849,14 +1852,15 @@ class Pengajuan
 
     public function tambahDataPengajuanPertahanaan($dataPengajuanPertahanan)
     {
-        $query = "INSERT INTO pengajuan (ID_Pertahanan, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Pertahanan, Status_Pengajuan, Apakah_Gratis, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "is",
+            "iss",
             $dataPengajuanPertahanan['ID_Pertahanan'],
             $dataPengajuanPertahanan['Status_Pengajuan'],
+            $dataPengajuanPertahanan['Apakah_Gratis'],
         );
         if ($statement->execute()) {
             return true;
@@ -1867,14 +1871,15 @@ class Pengajuan
 
     public function tambahDataPengajuanPenelitian($dataPengajuanPenelitian)
     {
-        $query = "INSERT INTO pengajuan (ID_Pusat_Daerah, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Pusat_Daerah, Status_Pengajuan, Apakah_Gratis, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "is",
+            "iss",
             $dataPengajuanPenelitian['ID_Pusat_Daerah'],
             $dataPengajuanPenelitian['Status_Pengajuan'],
+            $dataPengajuanPenelitian['Apakah_Gratis'],
         );
         if ($statement->execute()) {
             return true;
@@ -1885,14 +1890,15 @@ class Pengajuan
 
     public function tambahDataPengajuanPusat($dataPengajuanPusat)
     {
-        $query = "INSERT INTO pengajuan (ID_Pusat_Daerah, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Pusat_Daerah, Status_Pengajuan, Apakah_Gratis, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "is",
+            "iss",
             $dataPengajuanPusat['ID_Pusat_Daerah'],
             $dataPengajuanPusat['Status_Pengajuan'],
+            $dataPengajuanPusat['Apakah_Gratis'],
         );
         if ($statement->execute()) {
             return true;
@@ -1905,14 +1911,15 @@ class Pengajuan
 
     public function tambahDataPengajuanTarif($dataPengajuanTarif)
     {
-        $query = "INSERT INTO pengajuan (ID_Tarif, Status_Pengajuan, Tanggal_Pengajuan) 
-              VALUES (?, ?, NOW())";
+        $query = "INSERT INTO pengajuan (ID_Tarif, Status_Pengajuan, Apakah_Gratis, Tanggal_Pengajuan) 
+              VALUES (?, ?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
-            "is",
+            "iss",
             $dataPengajuanTarif['ID_Tarif'],
             $dataPengajuanTarif['Status_Pengajuan'],
+            $dataPengajuanTarif['Apakah_Gratis'],
         );
         if ($statement->execute()) {
             return true;

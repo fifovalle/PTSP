@@ -69,6 +69,7 @@ if (isset($_POST['Apply'])) {
                     $dataPengajuanSosial = array(
                         'ID_Sosial' => $objekDataSosial->ambilIDSosialTerakhir(),
                         'Status_Pengajuan' => 'Sedang Ditinjau',
+                        'Apakah_Gratis' => '1',
                         'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
                     );
 

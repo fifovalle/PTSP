@@ -92,7 +92,7 @@
                         <td class="text-center"><?php echo $pengajuan['Tanggal_Pengajuan']; ?></td>
                         <td class="text-center">
                             <span class=" badge <?php echo ($pengajuan['Apakah_Gratis'] === '1') ? 'text-bg-info' : 'text-bg-info'; ?>">
-                                <?php echo ($pengajuan['Apakah_Gratis'] === '1') ? 'Bayar' : 'Gratis'; ?>
+                                <?php echo ($pengajuan['Apakah_Gratis'] === '1') ? 'Gratis' : 'Bayar'; ?>
                             </span>
                         </td>
                         <td class="text-center">

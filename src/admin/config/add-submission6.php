@@ -68,6 +68,7 @@ if (isset($_POST['Apply'])) {
         $dataPengajuanPusat = array(
             'ID_Pusat_Daerah' => $objekDataPusatDanDaerah->ambilIDPusatTerakhir(),
             'Status_Pengajuan' => 'Sedang Ditinjau',
+            'Apakah_Gratis' => '1',
             'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
         );
 

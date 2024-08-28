@@ -69,6 +69,7 @@ if (isset($_POST['Apply'])) {
                     $dataPengajuanPertahanan = array(
                         'ID_Pertahanan' => $objekDataPertahanan->ambilIDKeamananTerakhir(),
                         'Status_Pengajuan' => 'Sedang Ditinjau',
+                        'Apakah_Gratis' => '1',
                         'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
                     );
 

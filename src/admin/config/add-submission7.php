@@ -68,6 +68,7 @@ if (isset($_POST['Apply'])) {
         $dataPengajuanTarif = array(
             'ID_Tarif' => $objekDataTarif->ambilIDTarfiTerakhir(),
             'Status_Pengajuan' => 'Sedang Ditinjau',
+            'Apakah_Gratis' => '0',
             'Tanggal_Pengajuan' => date('Y-m-d H:i:s')
         );
 

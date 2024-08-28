@@ -79,8 +79,8 @@
                     <td class="text-center"><?php echo $riwayatTransaksi['Jumlah_Barang']; ?></td>
                     <td class="text-center"><?php echo $riwayatTransaksi['Tanggal_Pembelian']; ?></td>
                     <td class="text-center">
-                        <span class="badge <?php echo ($riwayatTransaksi['Apakah_Gratis'] === '1') ? 'text-bg-info' : 'text-bg-info'; ?>">
-                            <?php echo ($riwayatTransaksi['Apakah_Gratis'] === '1') ? 'Bayar' : 'Gratis'; ?>
+                        <span class="badge <?php echo ($riwayatTransaksi['Apakah_Gratis'] === '0') ? 'text-bg-info' : 'text-bg-info'; ?>">
+                            <?php echo ($riwayatTransaksi['Apakah_Gratis'] === '0') ? 'Bayar' : 'Gratis'; ?>
                         </span>
                     </td>
                 </tr>
