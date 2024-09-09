@@ -24,7 +24,7 @@ $(document).ready(function () {
               "Data tidak ditemukan"
           );
           $("#noHPPembeli").text(
-            dataApplyment.No_Telepon_Bencana || "Data tidak ditemukan"
+            dataApplyment.No_Telepon_Pengguna || "Data tidak ditemukan"
           );
 
           if (dataApplyment.ID_Pusat_Daerah != null) {
@@ -67,6 +67,18 @@ $(document).ready(function () {
               "../assets/image/uploads/" + dataApplyment.Perbaikan_Dokumen_2
             );
             $("#surat2").text("Perbaikan Dokumen 2");
+          } else if (dataApplyment.Perbaikan_Dokumen_3 != null) {
+            $("#embed3").attr(
+              "src",
+              "../assets/image/uploads/" + dataApplyment.Perbaikan_Dokumen_3
+            );
+            $("#surat3").text("Perbaikan Dokumen 3");
+          } else if (dataApplyment.Perbaikan_Dokumen_4 != null) {
+            $("#embed4").attr(
+              "src",
+              "../assets/image/uploads/" + dataApplyment.Perbaikan_Dokumen_4
+            );
+            $("#surat4").text("Perbaikan Dokumen 4");
           } else if (
             dataApplyment.Surat_Pengantar_Permintaan_Data_Bencana != null
           ) {
@@ -160,11 +172,11 @@ $(document).ready(function () {
               "Surat Pernyataan Tidak Digunakan Untuk Kepentingan Lain"
             );
           } else {
-            $("#embed3").removeAttr("src");
+            $("#embed4").removeAttr("src");
           }
 
           if (dataApplyment.Proposal_Penelitian_Telah_Disetujui != null) {
-            $("#embed3").attr(
+            $("#embed4").attr(
               "src",
               "../assets/image/uploads/" +
                 dataApplyment.Proposal_Penelitian_Telah_Disetujui
@@ -173,7 +185,7 @@ $(document).ready(function () {
               "Proposal Penelitian Berisi Maksud dan Tujuan Penelitian yang Telah Disetujui"
             );
           } else {
-            $("#embed3").removeAttr("src");
+            $("#embed4").removeAttr("src");
           }
 
           $("#seeApplyment").modal("show");

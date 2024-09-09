@@ -1201,7 +1201,7 @@ if (!isset($_SESSION['ID_Perusahaan']) && !isset($_SESSION['ID_Pengguna'])) {
                                     <p class="text-dark" id="perbaikanPesananTeks"></p>
                                 </div>
                             </div>
-                            <select class="form-select" name="Perbaikan_Dokumen" aria-label="Default select example">
+                            <select class="form-select" id="perbaikan" name="Perbaikan_Dokumen" aria-label="Default select example">
                                 <option value="" selected>Pilih perbaikan dokumen</option>
                                 <option value="1">Surat Pengantar Permintaan Data</option>
                                 <option value="2">Surat Permintaan Ditandatangani Camat atau Pejabat Setingkat</option>

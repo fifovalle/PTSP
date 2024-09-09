@@ -77,7 +77,7 @@
                                         <h6 class="mb-0" id="surat3"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <embed id="embed2" type="application/pdf" width="100%" height="600px" />
+                                        <embed id="embed3" type="application/pdf" width="100%" height="600px" />
                                     </div>
                                 </div>
                                 <hr>
@@ -86,7 +86,7 @@
                                         <h6 class="mb-0" id="surat4"></h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <embed id="embed2" type="application/pdf" width="100%" height="600px" />
+                                        <embed id="embed4" type="application/pdf" width="100%" height="600px" />
                                     </div>
                                 </div>
                                 <hr>

@@ -31,6 +31,16 @@ $(document).ready(function () {
         $("#improveIDSubPengajuan").val(idSubPengajuan);
         $("#perbaikanPesananTeks").text(dataApplyment.Keterangan_Surat_Ditolak);
 
+        let perbaikanDokumenValue = "";
+        if (dataApplyment.ID_Penelitian) {
+          perbaikanDokumenValue = "4";
+        } else if (dataApplyment.ID_Pusat_Daerah) {
+          perbaikanDokumenValue = "8";
+        } else if (dataApplyment.ID_Tarif) {
+          perbaikanDokumenValue = "9";
+        }
+        $("#perbaikan").val(perbaikanDokumenValue);
+
         let jumlahFileForm = 1;
 
         if (dataApplyment.ID_Penelitian) {

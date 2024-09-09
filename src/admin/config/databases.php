@@ -1665,8 +1665,8 @@ class Pengajuan
 
     public function tampilkanDataLihatPengajuan()
     {
-        $query = "SELECT transaksi.*, pengajuan.*, pengguna.*, perusahaan.*, informasi.*, jasa.*, kegiatan_bencana.*, pemerintah_pusat_daerah.* FROM transaksi LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa LEFT JOIN kegiatan_bencana ON pengajuan.ID_Bencana = kegiatan_bencana.ID_Bencana
-         LEFT JOIN pemerintah_pusat_daerah ON pengajuan.ID_Pusat_Daerah = pemerintah_pusat_daerah.ID_Pusat";
+        $query = "SELECT transaksi.*, pengajuan.*, pengguna.*, perusahaan.*, informasi.*, jasa.*, kegiatan_bencana.*, pemerintah_pusat_daerah.*, pendidikan_dan_penelitian.* FROM transaksi LEFT JOIN pengajuan ON transaksi.ID_Pengajuan = pengajuan.ID_Pengajuan LEFT JOIN pengguna ON transaksi.ID_Pengguna = pengguna.ID_Pengguna LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan LEFT JOIN informasi ON transaksi.ID_Informasi = informasi.ID_Informasi LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa LEFT JOIN kegiatan_bencana ON pengajuan.ID_Bencana = kegiatan_bencana.ID_Bencana
+         LEFT JOIN pemerintah_pusat_daerah ON pengajuan.ID_Pusat_Daerah = pemerintah_pusat_daerah.ID_Pusat LEFT JOIN pendidikan_dan_penelitian ON pengajuan.ID_Penelitian = pendidikan_dan_penelitian.ID_Pendidikan_Penelitian";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -1871,13 +1871,13 @@ class Pengajuan
 
     public function tambahDataPengajuanPenelitian($dataPengajuanPenelitian)
     {
-        $query = "INSERT INTO pengajuan (ID_Pusat_Daerah, Status_Pengajuan, Apakah_Gratis, Tanggal_Pengajuan) 
+        $query = "INSERT INTO pengajuan (ID_Penelitian, Status_Pengajuan, Apakah_Gratis, Tanggal_Pengajuan) 
               VALUES (?, ?, ?, NOW())";
 
         $statement = $this->koneksi->prepare($query);
         $statement->bind_param(
             "iss",
-            $dataPengajuanPenelitian['ID_Pusat_Daerah'],
+            $dataPengajuanPenelitian['ID_Penelitian'],
             $dataPengajuanPenelitian['Status_Pengajuan'],
             $dataPengajuanPenelitian['Apakah_Gratis'],
         );

@@ -58,6 +58,11 @@
                                         <i class="fas fa-eye"></i>
                                     </span>
                                 </a>
+                                <a class="linkData iconDataRight" id="downloadIkm">
+                                    <span>
+                                        <i class="fas fa-download"></i>
+                                    </span>
+                                </a>
                             </div>
                         </div>
                     </td>

@@ -149,3 +149,12 @@ $(document).ready(function () {
     });
   });
 });
+
+$("#downloadIkm").click(function (e) {
+  e.preventDefault();
+  let ikmID = $(".buttonSeeIKM").data("id");
+
+  window.location.href =
+    "http://localhost/PTSP/src/admin/config/download-ikm-data.php?ikm_id=" +
+    ikmID;
+});
