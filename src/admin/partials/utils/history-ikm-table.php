@@ -19,10 +19,10 @@
                 Pendidikan Terakhir
             </th>
             <th class="text-center" data-field="data5">
-                NIK
+                Tanggal Transaksi
             </th>
             <th class="text-center" data-field="data5">
-                Umur
+                Instansi / Masyarakat
             </th>
         </tr>
     </thead>
@@ -68,8 +68,8 @@
                     </td>
                     <td class="text-center"><?php echo $ikm['Informasi_Cuaca_Publik']; ?></td>
                     <td class="text-center"><?php echo $ikm['Pendidikan_Terakhir']; ?></td>
-                    <td class="text-center"><?php echo $ikm['NIK']; ?></td>
-                    <td class="text-center"><?php echo $ikm['Umur']; ?></td>
+                    <td class="text-center"><?php echo $ikm['Tanggal_Pembelian']; ?></td>
+                    <td class="text-center"><?php echo $ikm['Koresponden']; ?></td>
                 </tr>
         <?php
             }

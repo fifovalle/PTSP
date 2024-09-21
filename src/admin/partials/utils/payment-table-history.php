@@ -66,6 +66,11 @@
                                         <i class="fas fa-download"></i>
                                     </span>
                                 </a>
+                                <a class="linkData infoRiwayatPayment" data-bs-toggle="modal" data-id="<?php echo $riwayatTransaksi['ID_Tranksaksi']; ?>">
+                                    <span class="">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </a>
                                 <a class="linkData iconDataRight" href="javascript:void(0);" onclick="confirmDeleteHistoryTransaction(<?php echo $riwayatTransaksi['ID_Tranksaksi']; ?>)">
                                     <span>
                                         <i class="fas fa-trash"></i>

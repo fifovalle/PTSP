@@ -34,6 +34,14 @@ $(document).ready(function () {
         let perbaikanDokumenValue = "";
         if (dataApplyment.ID_Penelitian) {
           perbaikanDokumenValue = "4";
+        } else if (dataApplyment.ID_Bencana) {
+          perbaikanDokumenValue = "1";
+        } else if (
+          dataApplyment.ID_Sosial ||
+          dataApplyment.ID_Keagamaan ||
+          dataApplyment.ID_Pertahanan
+        ) {
+          perbaikanDokumenValue = "2";
         } else if (dataApplyment.ID_Pusat_Daerah) {
           perbaikanDokumenValue = "8";
         } else if (dataApplyment.ID_Tarif) {

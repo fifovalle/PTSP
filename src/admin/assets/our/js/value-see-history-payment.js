@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".buttonSeePayment").click(function (e) {
+  $(".infoRiwayatPayment").click(function (e) {
     e.preventDefault();
     let pembayaranID = $(this).data("id");
 
@@ -13,48 +13,52 @@ $(document).ready(function () {
         if (data != null) {
           let dataPayment = JSON.parse(data);
           console.log("Data Pengajuan yang Diterima:", dataPayment);
-          $("#namaPembayar").text(
+          $("#namaPembayarHistory").text(
             dataPayment.Nama_Pengguna || "Data tidak ditemukan"
           );
-          $("#emailPembayar").text(
+          $("#emailPembayarHistory").text(
             dataPayment.Email_Pengguna || "Data tidak ditemukan"
           );
-          $("#noHPPembayar").text(
+          $("#noHPPembayarHistory").text(
             dataPayment.No_Telepon_Bencana || "Data tidak ditemukan"
           );
-          $("#informasiPembayar").text(
+          $("#informasiPembayarHistory").text(
             dataPayment.Nama_Informasi || "Data tidak ditemukan"
           );
-          $("#jasaPembayar").text(
+          $("#jasaPembayarHistory").text(
             dataPayment.Nama_Jasa || "Data tidak ditemukan"
           );
-          $("#deskripsiPembayar").text(
+          $("#deskripsiPembayarHistory").text(
             dataPayment.Tanggal_Pembelian || "Data tidak ditemukan"
           );
+          $("#tanggalPenerimaan").text(
+            dataPayment.Tanggal_Upload_File_Penerimaan || "Data tidak ditemukan"
+          );
+          if (dataPayment.Apakah_Gratis == 1) {
+            $("#jenisPembayaran").text("Gratis");
+          } else if (dataPayment.Apakah_Gratis == 0) {
+            $("#jenisPembayaran").text("Bayar");
+          }
+          $("#buktiFilePenerimaan").attr(
+            "src",
+            "../assets/image/uploads/" + dataPayment.File_Penerimaan
+          );
           if (dataPayment.Bukti_Pembayaran != null) {
-            $("#buktiPembayar").attr(
+            $("#buktiPembayaran").attr(
               "src",
               "../assets/image/uploads/" + dataPayment.Bukti_Pembayaran
             );
           } else {
-            $("#buktiPembayar").removeAttr("src");
-            $("#buktiPembayar").attr("src", "../assets/image/pages/404.png");
+            $("#buktiPembayaran").removeAttr("src");
+            $("#buktiPembayaran").attr("src", "../assets/image/pages/404.png");
           }
-          if (dataPayment.Surat_Pengantar_Permintaan_Data_Bencana != null) {
-            $("#gambarPembayar").attr(
-              "src",
-              "../assets/image/uploads/" + dataPayment.Foto_Informasi
-            );
-          } else {
-            $("#gambarPembayar").removeAttr("src");
-          }
-          $("#seeTransaction").modal("show");
+          $("#seeHistoryPayment").modal("show");
         } else {
           $(
-            "#namaPembayar, #emailPembayar, #noHPPembayar, #informasiPembayar, #jasaPembayar"
+            "#namaPembayar, #namaPembayarHistory, #noHPPembayar, #informasiPembayar, #jasaPembayar"
           ).text("Data tidak ditemukan");
-          $("#buktiPembayar").removeAttr("src");
-          $("#seeTransaction").modal("show");
+          $("#buktiPembayaran").removeAttr("src");
+          $("#seeHistoryPayment").modal("show");
         }
       },
       error: function (xhr) {

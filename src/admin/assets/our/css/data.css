@@ -197,11 +197,7 @@
 .tbodyData .linkData {
   opacity: 1;
   visibility: visible;
-  transition:
-    opacity 0.3s,
-    visibility 0.3s,
-    height 0.3s,
-    display 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, height 0.3s, display 0.3s;
 }
 
 .trDataN:hover .deskriptorSmall {
@@ -234,9 +230,20 @@
   transition: opacity 0.3s;
 }
 
+.ikoneDownload {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.ikoneDownload:hover {
+  color: var(--teksTautanHover);
+}
+
 .iconContainerData {
   position: absolute;
-  left: 20%;
+  left: 28%;
+  display: flex;
+  justify-content: space-evenly;
   margin-top: 8px;
   width: 150px;
   gap: 5px;

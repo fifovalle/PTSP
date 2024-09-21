@@ -2019,7 +2019,7 @@ class Pengajuan
         $query .= " WHERE ID_Pengajuan = '$pengajuanID';";
 
         if ($apakahGratis === '1' && $statusPengajuan === 'Diterima') {
-            $query .= "UPDATE transaksi SET Bukti_Pembayaran = 'Terisi', Tanggal_Upload_Bukti = NOW(), Status_Transaksi = 'Disetujui', Status_Pesanan = 'Lunas' WHERE ID_Pengajuan = '$pengajuanID';";
+            $query .= "UPDATE transaksi SET Bukti_Pembayaran = NULL, Tanggal_Upload_Bukti = NOW(), Status_Transaksi = 'Disetujui', Status_Pesanan = 'Lunas' WHERE ID_Pengajuan = '$pengajuanID';";
         }
 
         $result = mysqli_multi_query($this->koneksi, $query);
@@ -2669,7 +2669,7 @@ class Transaksi
           LEFT JOIN perusahaan ON transaksi.ID_Perusahaan = perusahaan.ID_Perusahaan
           LEFT JOIN jasa ON transaksi.ID_Jasa = jasa.ID_Jasa 
           WHERE (transaksi.Status_Transaksi = 'Disetujui' AND transaksi.ID_IKM IS NULL)
-          AND (transaksi.File_Penerimaan IS NULL AND transaksi.Bukti_Pembayaran IS NOT NULL AND transaksi.Status_Transaksi = 'Disetujui')";
+          AND (transaksi.File_Penerimaan IS NULL AND transaksi.Status_Transaksi = 'Disetujui')";
         $result = $this->koneksi->query($query);
 
         if ($result->num_rows > 0) {
@@ -3697,7 +3697,7 @@ class Ikm
 
     public function tampilkanRiwayatIKM()
     {
-        $query = "SELECT * FROM ikm";
+        $query = "SELECT transaksi.*, ikm.* FROM transaksi LEFT JOIN ikm ON transaksi.ID_IKM = ikm.ID_Ikm WHERE transaksi.ID_IKM IS NOT NULL";
 
         $statement = $this->koneksi->prepare($query);
         $statement->execute();
