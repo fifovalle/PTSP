@@ -127,6 +127,15 @@
                                     </div>
                                 </div>
                                 <hr>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h6 class="mb-0">File Dokumen Ajuan</h6>
+                                    </div>
+                                    <div class="col-sm-6 text-secondary">
+                                        <embed type="application/pdf" id="buktiFileDokumen" width="100%" height="600px">
+                                    </div>
+                                </div>
+                                <hr>
                             </div>
                         </div>
                     </div>

@@ -66,7 +66,15 @@
                             </div>
                         </div>
                     </td>
-                    <td class="text-center"><?php echo $ikm['Informasi_Cuaca_Publik']; ?></td>
+                    <td class="text-center">
+                        <?php
+                        echo $ikm['Informasi_Cuaca_Publik'] ??
+                            $ikm['Informasi_Cuaca_Khusus'] ??
+                            $ikm['Analisis_Cuaca'] ??
+                            $ikm['Informasi_Titik_Panas'] ??
+                            $ikm['Informasi_Tentang_Tingkat'] ?? '-';
+                        ?>
+                    </td>
                     <td class="text-center"><?php echo $ikm['Pendidikan_Terakhir']; ?></td>
                     <td class="text-center"><?php echo $ikm['Tanggal_Pembelian']; ?></td>
                     <td class="text-center"><?php echo $ikm['Koresponden']; ?></td>

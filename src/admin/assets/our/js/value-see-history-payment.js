@@ -43,6 +43,26 @@ $(document).ready(function () {
             "src",
             "../assets/image/uploads/" + dataPayment.File_Penerimaan
           );
+          if (dataPayment.Perbaikan_Dokumen_1 != null) {
+            $("#buktiFileDokumen").attr(
+              "src",
+              "../assets/image/uploads/" + dataPayment.Perbaikan_Dokumen_1
+            );
+          } else {
+            const dokumenPengganti =
+              dataPayment.Surat_Pengantar_PNBP ||
+              dataPayment.Surat_Pengantar_Permintaan_Data_Bencana ||
+              dataPayment.Surat_Yang_Ditandatangani_Keagamaan ||
+              dataPayment.Surat_Yang_Ditandatangani_Pertahanan ||
+              dataPayment.Surat_Yang_Ditandatangani_Sosial;
+
+            if (dokumenPengganti) {
+              $("#buktiFileDokumen").attr(
+                "src",
+                "../assets/image/uploads/" + dokumenPengganti
+              );
+            }
+          }
           if (dataPayment.Bukti_Pembayaran != null) {
             $("#buktiPembayaran").attr(
               "src",

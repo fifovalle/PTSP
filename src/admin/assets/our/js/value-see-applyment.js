@@ -134,6 +134,12 @@ $(document).ready(function () {
             $("#surat1").text(
               "Surat Permintaan Ditandatangani Camat atau Pejabat Setingkat"
             );
+          } else if (dataApplyment.Surat_Pengantar_PNBP != null) {
+            $("#embed").attr(
+              "src",
+              "../assets/image/uploads/" + dataApplyment.Surat_Pengantar_PNBP
+            );
+            $("#surat1").text("Surat Pengantar PNBP");
           } else {
             $("#embed").attr("src", "Data tidak ditemukan");
           }

@@ -61,11 +61,6 @@
                                 ?>
                             </p>
                             <div class="iconContainerData">
-                                <a class="linkData" href="../assets/image/uploads/<?php echo $riwayatTransaksi['File_Penerimaan']; ?>" download="">
-                                    <span class="">
-                                        <i class="fas fa-download"></i>
-                                    </span>
-                                </a>
                                 <a class="linkData infoRiwayatPayment" data-bs-toggle="modal" data-id="<?php echo $riwayatTransaksi['ID_Tranksaksi']; ?>">
                                     <span class="">
                                         <i class="fas fa-eye"></i>
@@ -84,7 +79,7 @@
                     <td class="text-center"><?php echo $riwayatTransaksi['Jumlah_Barang']; ?></td>
                     <td class="text-center"><?php echo $riwayatTransaksi['Tanggal_Pembelian']; ?></td>
                     <td class="text-center">
-                        <span class="badge <?php echo ($riwayatTransaksi['Apakah_Gratis'] === '0') ? 'text-bg-info' : 'text-bg-info'; ?>">
+                        <span class="badge <?php echo ($riwayatTransaksi['Apakah_Gratis'] === '0') ? 'text-bg-info' : 'text-bg-success'; ?>">
                             <?php echo ($riwayatTransaksi['Apakah_Gratis'] === '0') ? 'Bayar' : 'Gratis'; ?>
                         </span>
                     </td>
